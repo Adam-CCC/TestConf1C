@@ -1,0 +1,1019 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Список продуктов по клиенту</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>The list of client products</v8:content>
+		</v8:item>
+	</Title>
+	<Width>100</Width>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="159">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>#FFFFFF</BackColor>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="160"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаДисконтныеКарты" id="132">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дисконтные карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group discount cards</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<Group>Vertical</Group>
+					<ExtendedTooltip name="ГруппаДисконтныеКартыРасширеннаяПодсказка" id="133"/>
+					<ChildItems>
+						<Table name="ТаблицаБонусныеКарты" id="137">
+							<Representation>List</Representation>
+							<Visible>false</Visible>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ТаблицаБонусныеКарты</DataPath>
+							<TextColor>#000000</TextColor>
+							<BackColor>#FFFFFF</BackColor>
+							<BorderColor>#000000</BorderColor>
+							<TitleTextColor>#000000</TitleTextColor>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТаблицаБонусныеКартыКонтекстноеМеню" id="138"/>
+							<AutoCommandBar name="ТаблицаБонусныеКартыКоманднаяПанель" id="139">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТаблицаБонусныеКартыРасширеннаяПодсказка" id="140"/>
+							<SearchStringAddition name="ТаблицаБонусныеКартыСтрокаПоиска" id="141">
+								<AdditionSource>
+									<Item>ТаблицаБонусныеКарты</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаБонусныеКартыСтрокаПоискаКонтекстноеМеню" id="142"/>
+								<ExtendedTooltip name="ТаблицаБонусныеКартыСтрокаПоискаРасширеннаяПодсказка" id="143"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТаблицаБонусныеКартыСостояниеПросмотра" id="144">
+								<AdditionSource>
+									<Item>ТаблицаБонусныеКарты</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаБонусныеКартыСостояниеПросмотраКонтекстноеМеню" id="145"/>
+								<ExtendedTooltip name="ТаблицаБонусныеКартыСостояниеПросмотраРасширеннаяПодсказка" id="146"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТаблицаБонусныеКартыУправлениеПоиском" id="147">
+								<AdditionSource>
+									<Item>ТаблицаБонусныеКарты</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаБонусныеКартыУправлениеПоискомКонтекстноеМеню" id="148"/>
+								<ExtendedTooltip name="ТаблицаБонусныеКартыУправлениеПоискомРасширеннаяПодсказка" id="149"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ТаблицаБонусныеКартыКарта" id="150">
+									<DataPath>ТаблицаБонусныеКарты.Карта</DataPath>
+									<TitleTextColor>#000000</TitleTextColor>
+									<TitleBackColor>#FFFFFF</TitleBackColor>
+									<EditMode>EnterOnInput</EditMode>
+									<FooterTextColor>#000000</FooterTextColor>
+									<FooterBackColor>#FFFFFF</FooterBackColor>
+									<BorderColor>#000000</BorderColor>
+									<ContextMenu name="ТаблицаБонусныеКартыКартаКонтекстноеМеню" id="151"/>
+									<ExtendedTooltip name="ТаблицаБонусныеКартыКартаРасширеннаяПодсказка" id="152"/>
+								</InputField>
+								<InputField name="ТаблицаБонусныеКартыВидКарты" id="153">
+									<DataPath>ТаблицаБонусныеКарты.ВидКарты</DataPath>
+									<TitleTextColor>#000000</TitleTextColor>
+									<TitleBackColor>#FFFFFF</TitleBackColor>
+									<EditMode>EnterOnInput</EditMode>
+									<FooterTextColor>#000000</FooterTextColor>
+									<FooterBackColor>#FFFFFF</FooterBackColor>
+									<BorderColor>#000000</BorderColor>
+									<ContextMenu name="ТаблицаБонусныеКартыВидКартыКонтекстноеМеню" id="154"/>
+									<ExtendedTooltip name="ТаблицаБонусныеКартыВидКартыРасширеннаяПодсказка" id="155"/>
+								</InputField>
+								<InputField name="ТаблицаБонусныеКартыОстатокБаллов" id="156">
+									<DataPath>ТаблицаБонусныеКарты.ОстатокБаллов</DataPath>
+									<TitleTextColor>#000000</TitleTextColor>
+									<TitleBackColor>#FFFFFF</TitleBackColor>
+									<EditMode>EnterOnInput</EditMode>
+									<FooterTextColor>#000000</FooterTextColor>
+									<FooterBackColor>#FFFFFF</FooterBackColor>
+									<BorderColor>#000000</BorderColor>
+									<ContextMenu name="ТаблицаБонусныеКартыОстатокБалловКонтекстноеМеню" id="157"/>
+									<ExtendedTooltip name="ТаблицаБонусныеКартыОстатокБалловРасширеннаяПодсказка" id="158"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<LabelField name="НадписьДисконтныеКарты" id="134">
+					<DataPath>НадписьДисконтныеКарты</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Hiperlink>true</Hiperlink>
+					<Font ref="sys:DefaultGUIFont" height="12" kind="WindowsFont"/>
+					<ContextMenu name="НадписьДисконтныеКартыКонтекстноеМеню" id="135"/>
+					<ExtendedTooltip name="НадписьДисконтныеКартыРасширеннаяПодсказка" id="136"/>
+					<Events>
+						<Event name="Click">НадписьДисконтныеКартыНажатие</Event>
+					</Events>
+				</LabelField>
+				<UsualGroup name="ГруппаКредит" id="48">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кредиты RN-банка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>RN-Bank Loans</v8:content>
+						</v8:item>
+					</Title>
+					<TitleTextColor>#000000</TitleTextColor>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа продукты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>products Group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКредитРасширеннаяПодсказка" id="118"/>
+					<ChildItems>
+						<Table name="ТаблицаКредитыRNBank" id="68">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ТаблицаКредитыRNBank</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТаблицаКредитыRNBankКонтекстноеМеню" id="69"/>
+							<AutoCommandBar name="ТаблицаКредитыRNBankКоманднаяПанель" id="70">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТаблицаКредитыRNBankРасширеннаяПодсказка" id="119"/>
+							<SearchStringAddition name="ТаблицаКредитыRNBankСтрокаПоиска" id="120">
+								<AdditionSource>
+									<Item>ТаблицаКредитыRNBank</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаКредитыRNBankСтрокаПоискаКонтекстноеМеню" id="121"/>
+								<ExtendedTooltip name="ТаблицаКредитыRNBankСтрокаПоискаРасширеннаяПодсказка" id="122"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТаблицаКредитыRNBankСостояниеПросмотра" id="123">
+								<AdditionSource>
+									<Item>ТаблицаКредитыRNBank</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаКредитыRNBankСостояниеПросмотраКонтекстноеМеню" id="124"/>
+								<ExtendedTooltip name="ТаблицаКредитыRNBankСостояниеПросмотраРасширеннаяПодсказка" id="125"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТаблицаКредитыRNBankУправлениеПоиском" id="126">
+								<AdditionSource>
+									<Item>ТаблицаКредитыRNBank</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаКредитыRNBankУправлениеПоискомКонтекстноеМеню" id="127"/>
+								<ExtendedTooltip name="ТаблицаКредитыRNBankУправлениеПоискомРасширеннаяПодсказка" id="128"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ТаблицаКредитыRNBankДатаВыдачи" id="71">
+									<DataPath>ТаблицаКредитыRNBank.ДатаВыдачиКредита</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаКредитыRNBankДатаВыдачиКонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="ТаблицаКредитыRNBankДатаВыдачиРасширеннаяПодсказка" id="129"/>
+								</InputField>
+								<InputField name="ТаблицаКредитыRNBankСуммаКредита" id="73">
+									<DataPath>ТаблицаКредитыRNBank.СуммаКредита</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаКредитыRNBankСуммаКредитаКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="ТаблицаКредитыRNBankСуммаКредитаРасширеннаяПодсказка" id="130"/>
+								</InputField>
+								<InputField name="ТаблицаКредитыRNBankVIN" id="75">
+									<DataPath>ТаблицаКредитыRNBank.VIN</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаКредитыRNBankVINКонтекстноеМеню" id="76"/>
+									<ExtendedTooltip name="ТаблицаКредитыRNBankVINРасширеннаяПодсказка" id="131"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<LabelField name="НадписьКредит" id="77">
+					<DataPath>НадписьКредит</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Hiperlink>true</Hiperlink>
+					<Font height="12" kind="AutoFont"/>
+					<ContextMenu name="НадписьКредитКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="НадписьКредитРасширеннаяПодсказка" id="117"/>
+					<Events>
+						<Event name="Click">НадписьКредитНажатие</Event>
+					</Events>
+				</LabelField>
+				<UsualGroup name="ГруппаSARA" id="30">
+					<Visible>false</Visible>
+					<TitleTextColor>#000000</TitleTextColor>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа продукты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>products Group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ExtendedTooltip name="ГруппаSARAРасширеннаяПодсказка" id="101"/>
+					<ChildItems>
+						<Table name="ТаблицаSara" id="49">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ТаблицаSara</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТаблицаSaraКонтекстноеМеню" id="50"/>
+							<AutoCommandBar name="ТаблицаSaraКоманднаяПанель" id="51">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТаблицаSaraРасширеннаяПодсказка" id="102"/>
+							<SearchStringAddition name="ТаблицаSaraСтрокаПоиска" id="103">
+								<AdditionSource>
+									<Item>ТаблицаSara</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаSaraСтрокаПоискаКонтекстноеМеню" id="104"/>
+								<ExtendedTooltip name="ТаблицаSaraСтрокаПоискаРасширеннаяПодсказка" id="105"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТаблицаSaraСостояниеПросмотра" id="106">
+								<AdditionSource>
+									<Item>ТаблицаSara</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаSaraСостояниеПросмотраКонтекстноеМеню" id="107"/>
+								<ExtendedTooltip name="ТаблицаSaraСостояниеПросмотраРасширеннаяПодсказка" id="108"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТаблицаSaraУправлениеПоиском" id="109">
+								<AdditionSource>
+									<Item>ТаблицаSara</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаSaraУправлениеПоискомКонтекстноеМеню" id="110"/>
+								<ExtendedTooltip name="ТаблицаSaraУправлениеПоискомРасширеннаяПодсказка" id="111"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ТаблицаSaraНомерКарты" id="52">
+									<DataPath>ТаблицаSara.НомерКарты</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаSaraНомерКартыКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="ТаблицаSaraНомерКартыРасширеннаяПодсказка" id="112"/>
+								</InputField>
+								<InputField name="ТаблицаSaraДатаПродажи" id="54">
+									<DataPath>ТаблицаSara.ДатаПродажиКарты</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаSaraДатаПродажиКонтекстноеМеню" id="55"/>
+									<ExtendedTooltip name="ТаблицаSaraДатаПродажиРасширеннаяПодсказка" id="113"/>
+								</InputField>
+								<InputField name="ТаблицаSaraСтоимость" id="58">
+									<DataPath>ТаблицаSara.Стоимость</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаSaraСтоимостьКонтекстноеМеню" id="59"/>
+									<ExtendedTooltip name="ТаблицаSaraСтоимостьРасширеннаяПодсказка" id="114"/>
+								</InputField>
+								<CheckBoxField name="ТаблицаSaraДействующая" id="56">
+									<DataPath>ТаблицаSara.Действующая</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТаблицаSaraДействующаяКонтекстноеМеню" id="57"/>
+									<ExtendedTooltip name="ТаблицаSaraДействующаяРасширеннаяПодсказка" id="115"/>
+								</CheckBoxField>
+								<InputField name="ТаблицаSaraVIN" id="64">
+									<DataPath>ТаблицаSara.VIN</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаSaraVINКонтекстноеМеню" id="65"/>
+									<ExtendedTooltip name="ТаблицаSaraVINРасширеннаяПодсказка" id="116"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<LabelField name="НадписьSARA" id="62">
+					<DataPath>НадписьSARA</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Hiperlink>true</Hiperlink>
+					<Font height="12" kind="AutoFont"/>
+					<ContextMenu name="НадписьSARAКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="НадписьSARAРасширеннаяПодсказка" id="100"/>
+					<Events>
+						<Event name="Click">НадписьSARAНажатие</Event>
+					</Events>
+				</LabelField>
+				<UsualGroup name="ГруппаПродленнаяГарантия" id="4">
+					<Visible>false</Visible>
+					<TitleTextColor>#000000</TitleTextColor>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа продленная гарантия</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group extended warranty</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>8</Height>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ExtendedTooltip name="ГруппаПродленнаяГарантияРасширеннаяПодсказка" id="81"/>
+					<ChildItems>
+						<Table name="ТаблицаПродленнаяГарантия" id="13">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ТаблицаПродленнаяГарантия</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТаблицаПродленнаяГарантияКонтекстноеМеню" id="14"/>
+							<AutoCommandBar name="ТаблицаПродленнаяГарантияКоманднаяПанель" id="15">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТаблицаПродленнаяГарантияРасширеннаяПодсказка" id="82"/>
+							<SearchStringAddition name="ТаблицаПродленнаяГарантияСтрокаПоиска" id="83">
+								<AdditionSource>
+									<Item>ТаблицаПродленнаяГарантия</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПродленнаяГарантияСтрокаПоискаКонтекстноеМеню" id="84"/>
+								<ExtendedTooltip name="ТаблицаПродленнаяГарантияСтрокаПоискаРасширеннаяПодсказка" id="85"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТаблицаПродленнаяГарантияСостояниеПросмотра" id="86">
+								<AdditionSource>
+									<Item>ТаблицаПродленнаяГарантия</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПродленнаяГарантияСостояниеПросмотраКонтекстноеМеню" id="87"/>
+								<ExtendedTooltip name="ТаблицаПродленнаяГарантияСостояниеПросмотраРасширеннаяПодсказка" id="88"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТаблицаПродленнаяГарантияУправлениеПоиском" id="89">
+								<AdditionSource>
+									<Item>ТаблицаПродленнаяГарантия</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаПродленнаяГарантияУправлениеПоискомКонтекстноеМеню" id="90"/>
+								<ExtendedTooltip name="ТаблицаПродленнаяГарантияУправлениеПоискомРасширеннаяПодсказка" id="91"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ТаблицаПродленнаяГарантияНомерКарты" id="16">
+									<DataPath>ТаблицаПродленнаяГарантия.НомерКарты</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаПродленнаяГарантияНомерКартыКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ТаблицаПродленнаяГарантияНомерКартыРасширеннаяПодсказка" id="92"/>
+								</InputField>
+								<InputField name="ТаблицаПродленнаяГарантияДатаПродажи" id="18">
+									<DataPath>ТаблицаПродленнаяГарантия.ДатаПродажиКарты</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаПродленнаяГарантияДатаПродажиКонтекстноеМеню" id="19"/>
+									<ExtendedTooltip name="ТаблицаПродленнаяГарантияДатаПродажиРасширеннаяПодсказка" id="93"/>
+								</InputField>
+								<InputField name="ТаблицаПродленнаяГарантияСтоимость" id="28">
+									<DataPath>ТаблицаПродленнаяГарантия.Стоимость</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаПродленнаяГарантияСтоимостьКонтекстноеМеню" id="29"/>
+									<ExtendedTooltip name="ТаблицаПродленнаяГарантияСтоимостьРасширеннаяПодсказка" id="94"/>
+								</InputField>
+								<InputField name="ТаблицаПродленнаяГарантияДатаНачалаДействияГарантии" id="20">
+									<DataPath>ТаблицаПродленнаяГарантия.ДатаНачалаДействияГарантии</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаПродленнаяГарантияДатаНачалаДействияГарантииКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="ТаблицаПродленнаяГарантияДатаНачалаДействияГарантииРасширеннаяПодсказка" id="95"/>
+								</InputField>
+								<InputField name="ТаблицаПродленнаяГарантияДатаОкончанияДействияГарантии" id="22">
+									<DataPath>ТаблицаПродленнаяГарантия.ДатаОкончанияДействияГарантии</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаПродленнаяГарантияДатаОкончанияДействияГарантииКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="ТаблицаПродленнаяГарантияДатаОкончанияДействияГарантииРасширеннаяПодсказка" id="96"/>
+								</InputField>
+								<InputField name="ТаблицаПродленнаяГарантияДатаОкончанияДействияПродленнойГарантии" id="24">
+									<DataPath>ТаблицаПродленнаяГарантия.ДатаОкончанияДействияПродленнойГарантии</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаПродленнаяГарантияДатаОкончанияДействияПродленнойГарантииКонтекстноеМеню" id="25"/>
+									<ExtendedTooltip name="ТаблицаПродленнаяГарантияДатаОкончанияДействияПродленнойГарантииРасширеннаяПодсказка" id="97"/>
+								</InputField>
+								<CheckBoxField name="ТаблицаПродленнаяГарантияДействующая" id="26">
+									<DataPath>ТаблицаПродленнаяГарантия.Действующая</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТаблицаПродленнаяГарантияДействующаяКонтекстноеМеню" id="27"/>
+									<ExtendedTooltip name="ТаблицаПродленнаяГарантияДействующаяРасширеннаяПодсказка" id="98"/>
+								</CheckBoxField>
+								<InputField name="ТаблицаПродленнаяГарантияVIN" id="66">
+									<DataPath>ТаблицаПродленнаяГарантия.VIN</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаПродленнаяГарантияVINКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="ТаблицаПродленнаяГарантияVINРасширеннаяПодсказка" id="99"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<LabelField name="ПродленнаяГарантия" id="60">
+					<DataPath>НадписьПродленнаяГарантия</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Продленная гарантия - 2 шт.</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Extended Warranty - 2 pcs.</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<Hiperlink>true</Hiperlink>
+					<Font height="12" kind="AutoFont"/>
+					<ContextMenu name="ПродленнаяГарантияКонтекстноеМеню" id="61"/>
+					<ExtendedTooltip name="ПродленнаяГарантияРасширеннаяПодсказка" id="80"/>
+					<Events>
+						<Event name="Click">ПродленнаяГарантияНажатие</Event>
+					</Events>
+				</LabelField>
+				<InputField name="Клиент" id="11">
+					<DataPath>Клиенты</DataPath>
+					<Visible>false</Visible>
+					<ReadOnly>true</ReadOnly>
+					<Font height="12" kind="AutoFont"/>
+					<ContextMenu name="КлиентКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="79"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Клиенты" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиенты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>clients</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаПродленнаяГарантия" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продленная гарантия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>extended guarantee</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="НомерКарты" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Card number</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>20</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаПродажиКарты" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата продажи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Date of sale</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаНачалаДействияГарантии" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начало действия гарантии</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Start of the warranty period</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаОкончанияДействияГарантии" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Окончание действия гарантии</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The end of the warranty period</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаОкончанияДействияПродленнойГарантии" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Окончание действия продленной гарантии</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The end of the extended warranty</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Действующая" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действующая</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The current</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Стоимость" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Стоимость</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>cost of</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="VIN" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>VIN</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>VIN</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>20</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТаблицаSara" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>SARA</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>SARA</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="НомерКарты" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Card number</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>20</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаПродажиКарты" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата продажи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Date of sale</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Действующая" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Действующая</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The current</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Стоимость" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Стоимость</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>cost of</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="VIN" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>VIN</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>VIN</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>20</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НадписьПродленнаяГарантия" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись продленная гарантия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Caption extended warranty</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НадписьSARA" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продленная гарантия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>extended guarantee</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаКредитыRNBank" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>SARA</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>SARA</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ДатаВыдачиКредита" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата выдачи</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>date of issue</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="СуммаКредита" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма кредита</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Amount of credit</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="VIN" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>VIN</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>VIN</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>20</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НадписьКредит" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кредиты RN-банка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>RN-Bank Loans</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаБонусныеКарты" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица бонусные карты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Table bonus cards</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Карта" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Карта</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Map</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Renault_КартыЛояльности</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидКарты" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>map View</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.DMS_ВидыКартЛояльности</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОстатокБаллов" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остаток баллов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Balance points</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:Null</v8:Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НадписьДисконтныеКарты" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Надпись дисконтные карты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Caption discount cards</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Закрыть" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>close</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>close</v8:content>
+				</v8:item>
+			</ToolTip>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

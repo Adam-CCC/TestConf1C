@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДневнаяСтавка</dataPath>
+			<field>ДневнаяСтавка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументЗаказНаряд</dataPath>
+			<field>ДокументЗаказНаряд</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во ЗН</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументЗаявкаНаРемонт</dataPath>
+			<field>ДокументЗаявкаНаРемонт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во заявок</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаВыходы</dataPath>
+			<field>ЗаВыходы</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаЗаказНаряды</dataPath>
+			<field>ЗаЗаказНаряды</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>За ЗН</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаЗаявки</dataPath>
+			<field>ЗаЗаявки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Оператор</dataPath>
+			<field>Оператор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОплатаЗаОдинЗН</dataPath>
+			<field>ОплатаЗаОдинЗН</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплата за один заказ-наряд</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОплатаЗаОднуЗаявку</dataPath>
+			<field>ОплатаЗаОднуЗаявку</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Премия</dataPath>
+			<field>Премия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентВыполненияПлана</dataPath>
+			<field>ПроцентВыполненияПлана</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентПремии</dataPath>
+			<field>ПроцентПремии</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФактДней</dataPath>
+			<field>ФактДней</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВП</dataPath>
+			<field>ВП</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Итого</dataPath>
+			<field>Итого</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПремияЗаВП</dataPath>
+			<field>ПремияЗаВП</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость</dataPath>
+			<field>Себестоимость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	ЗаказНаряд.Оператор,
+	ЗаказНаряд.ВидРемонта,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ЗаказНаряд.Ссылка) КАК ДокументЗаказНаряд,
+	СУММА(ВЫБОР
+			КОГДА ЗаказНаряд.ВидРемонта.Коммерческий
+				ТОГДА ЗаказНаряд.СуммаДокумента
+			ИНАЧЕ 0
+		КОНЕЦ) КАК СуммаДокумента
+ПОМЕСТИТЬ ВТПоЗаказНарядам
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряд
+ГДЕ
+	ЗаказНаряд.Дата МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+	И ЗаказНаряд.Проведен
+	И ЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНаряд.Оператор,
+	ЗаказНаряд.ВидРемонта
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаявкаНаРемонт.Оператор,
+	ЗаявкаНаРемонт.ВидРемонта,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ЗаявкаНаРемонт.Ссылка) КАК ДокументЗаявкаНаРемонт,
+	0 КАК Себестоимость,
+	0 КАК СуммаДокумента
+ПОМЕСТИТЬ ВТПоЗаявкам
+ИЗ
+	Документ.ЗаявкаНаРемонт КАК ЗаявкаНаРемонт
+ГДЕ
+	ЗаявкаНаРемонт.Дата МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+	И ЗаявкаНаРемонт.Проведен
+
+СГРУППИРОВАТЬ ПО
+	ЗаявкаНаРемонт.Оператор,
+	ЗаявкаНаРемонт.ВидРемонта
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТПоЗаказНарядам.Оператор КАК Оператор,
+	ВТПоЗаказНарядам.ВидРемонта КАК ВидРемонта,
+	NULL КАК ДокументЗаявкаНаРемонт,
+	СУММА(ВТПоЗаказНарядам.ДокументЗаказНаряд) КАК ДокументЗаказНаряд,
+	СУММА(ВТПоЗаказНарядам.СуммаДокумента) КАК СуммаДокумента,
+	NULL КАК Поле1,
+	&amp;КурсВалютыОтчета
+ПОМЕСТИТЬ ВТСводнаяПоДокументам
+ИЗ
+	ВТПоЗаказНарядам КАК ВТПоЗаказНарядам
+
+СГРУППИРОВАТЬ ПО
+	ВТПоЗаказНарядам.Оператор,
+	ВТПоЗаказНарядам.ВидРемонта
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТПоЗаявкам.Оператор,
+	ВТПоЗаявкам.ВидРемонта,
+	СУММА(ВТПоЗаявкам.ДокументЗаявкаНаРемонт),
+	NULL,
+	ВТПоЗаявкам.СуммаДокумента,
+	ВТПоЗаявкам.Себестоимость,
+	NULL
+ИЗ
+	ВТПоЗаявкам КАК ВТПоЗаявкам
+
+СГРУППИРОВАТЬ ПО
+	ВТПоЗаявкам.Оператор,
+	ВТПоЗаявкам.ВидРемонта,
+	ВТПоЗаявкам.Себестоимость,
+	ВТПоЗаявкам.СуммаДокумента
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТСводнаяПоДокументам.Оператор КАК Оператор,
+	ВТСводнаяПоДокументам.ВидРемонта КАК ВидРемонта,
+	ВТСводнаяПоДокументам.ДокументЗаявкаНаРемонт КАК ДокументЗаявкаНаРемонт,
+	ВТСводнаяПоДокументам.ДокументЗаказНаряд КАК ДокументЗаказНаряд,
+	ВТСводнаяПоДокументам.СуммаДокумента КАК СуммаДокумента,
+	ВЫБОР
+		КОГДА ВТСводнаяПоДокументам.ВидРемонта.Коммерческий
+			ТОГДА ЗапросСебестоимость.Себестоимость
+		ИНАЧЕ 0
+	КОНЕЦ КАК Себестоимость,
+	ВЫБОР
+		КОГДА ВТСводнаяПоДокументам.ВидРемонта.Коммерческий
+			ТОГДА ВТСводнаяПоДокументам.СуммаДокумента - ЗапросСебестоимость.Себестоимость
+		ИНАЧЕ 0
+	КОНЕЦ КАК ВП,
+	&amp;ПроцентПремии КАК ПроцентПремии,
+	ВЫБОР
+		КОГДА ВТСводнаяПоДокументам.ВидРемонта.Коммерческий
+			ТОГДА (ВТСводнаяПоДокументам.СуммаДокумента - ЗапросСебестоимость.Себестоимость) * &amp;ПроцентПремии / 100
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПремияЗаВП,
+	ЗапросФактДней.ФактДней КАК ФактДней,
+	ДневнаяСтавка.Значение КАК ДневнаяСтавка,
+	&amp;ОплатаЗаОднуЗаявку КАК ОплатаЗаОднуЗаявку,
+	&amp;ОплатаЗаОдинЗН КАК ОплатаЗаОдинЗН,
+	1 КАК ПроцентВыполненияПлана,
+	ЗапросФактДней.ФактДней * ДневнаяСтавка.Значение КАК ЗаВыходы,
+	&amp;ОплатаЗаОдинЗН * ВТСводнаяПоДокументам.ДокументЗаказНаряд КАК ЗаЗаказНаряды,
+	&amp;ОплатаЗаОднуЗаявку * ВТСводнаяПоДокументам.ДокументЗаявкаНаРемонт КАК ЗаЗаявки,
+	0 КАК Премия,
+	ВЫБОР
+		КОГДА ВТСводнаяПоДокументам.ВидРемонта.Коммерческий
+			ТОГДА ((ВТСводнаяПоДокументам.СуммаДокумента - ЗапросСебестоимость.Себестоимость) * &amp;ПроцентПремии / 100 + ЗапросФактДней.ФактДней * ДневнаяСтавка.Значение + &amp;ОплатаЗаОдинЗН * ВТСводнаяПоДокументам.ДокументЗаказНаряд + &amp;ОплатаЗаОднуЗаявку * ВТСводнаяПоДокументам.ДокументЗаявкаНаРемонт + 0) * 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК Итого
+ИЗ
+	ВТСводнаяПоДокументам КАК ВТСводнаяПоДокументам
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			РегистрацияВремениСотрудника.Сотрудник КАК Сотрудник,
+			КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ЕСТЬNULL(КОНЕЦПЕРИОДА(РегистрацияВремениСотрудника.Период, ДЕНЬ), 0)) КАК ФактДней
+		ИЗ
+			РегистрСведений.РегистрацияВремениСотрудника КАК РегистрацияВремениСотрудника
+		ГДЕ
+			РегистрацияВремениСотрудника.Период МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+			И РегистрацияВремениСотрудника.ВидОтметки = ЗНАЧЕНИЕ(Справочник.ВидыОтметокВремени.Работа)
+			И РегистрацияВремениСотрудника.Продолжительность &lt;&gt; 0
+		
+		СГРУППИРОВАТЬ ПО
+			РегистрацияВремениСотрудника.Сотрудник) КАК ЗапросФактДней
+		ПО ВТСводнаяПоДокументам.Оператор = ЗапросФактДней.Сотрудник
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ДневнаяСтавкаСрезПоследних.Сотрудник КАК Сотрудник,
+			ДневнаяСтавкаСрезПоследних.Значение КАК Значение
+		ИЗ
+			РегистрСведений.ДневнаяСтавка.СрезПоследних(КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ), ) КАК ДневнаяСтавкаСрезПоследних) КАК ДневнаяСтавка
+		ПО ВТСводнаяПоДокументам.Оператор = ДневнаяСтавка.Сотрудник
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ТоварыВПроизводстве.Регистратор.Оператор КАК Оператор,
+			СУММА(ЕСТЬNULL(ТоварыВПроизводстве.СуммаУпр, 0)) КАК Себестоимость
+		ИЗ
+			РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+		ГДЕ
+			ТоварыВПроизводстве.Регистратор.Дата МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+			И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+			И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.ЗаказНаряд
+			И ТоварыВПроизводстве.Регистратор.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+			И ТоварыВПроизводстве.Регистратор.ВидРемонта.Коммерческий
+		
+		СГРУППИРОВАТЬ ПО
+			ТоварыВПроизводстве.Регистратор.Оператор
+		
+		ИМЕЮЩИЕ
+			НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0) КАК ЗапросСебестоимость
+		ПО ВТСводнаяПоДокументам.Оператор = ЗапросСебестоимость.Оператор</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ДневнаяСтавка</dataPath>
+		<expression>МАКСИМУМ(ДневнаяСтавка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДокументЗаказНаряд</dataPath>
+		<expression>СУММА(ДокументЗаказНаряд)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДокументЗаявкаНаРемонт</dataPath>
+		<expression>Сумма(ДокументЗаявкаНаРемонт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗаВыходы</dataPath>
+		<expression>МАКСИМУМ(ДневнаяСтавка) * МАКСИМУМ(ФактДней)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗаЗаказНаряды</dataPath>
+		<expression>Сумма(ЗаЗаказНаряды)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗаЗаявки</dataPath>
+		<expression>Сумма(ЗаЗаявки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОплатаЗаОдинЗН</dataPath>
+		<expression>Максимум(ОплатаЗаОдинЗН)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОплатаЗаОднуЗаявку</dataPath>
+		<expression>Максимум(ОплатаЗаОднуЗаявку)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Премия</dataPath>
+		<expression>Максимум(Премия)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентВыполненияПлана</dataPath>
+		<expression>Максимум(ПроцентВыполненияПлана)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентПремии</dataPath>
+		<expression>СРЕДНЕЕ(ПроцентПремии)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФактДней</dataPath>
+		<expression>Максимум(ФактДней)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВП</dataPath>
+		<expression> Сумма(СуммаДокумента) - Максимум(Себестоимость)
+	</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДокумента</dataPath>
+		<expression>Сумма(СуммаДокумента)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Себестоимость</dataPath>
+		<expression> Максимум(Себестоимость)
+</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Итого</dataPath>
+		<expression> (СУММА(СуммаДокумента) - Максимум(Себестоимость))* СРЕДНЕЕ(ПроцентПремии) / 100 + МАКСИМУМ(ДневнаяСтавка) * МАКСИМУМ(ФактДней) + СУММА(ЗаЗаказНаряды) + СУММА(ЗаЗаявки) + МАКСИМУМ(Премия) * МАКСИМУМ(ПроцентВыполненияПлана) 
+</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПремияЗаВП</dataPath>
+		<expression> (СУММА(СуммаДокумента) - Максимум(Себестоимость)) * СРЕДНЕЕ(ПроцентПремии) / 100 
+</expression>
+	</totalField>
+	<parameter>
+		<name>ВалютаОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>В валюте</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОплатаЗаОдинЗН</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Оплата за 1 заказ-наряд</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОплатаЗаОднуЗаявку</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Оплата за 1 заявку</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПроцентПремии</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Процент премии по ВП</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КурсВалютыОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Курс валюты отчета</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Оператор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидРемонта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументЗаявкаНаРемонт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументЗаказНаряд</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Себестоимость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВП</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентПремии</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПремияЗаВП</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФактДней</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДневнаяСтавка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОплатаЗаОдинЗН</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОплатаЗаОднуЗаявку</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентВыполненияПлана</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаВыходы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаЗаказНаряды</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаЗаявки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Премия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Итого</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВалютаОтчета</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Оператор</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ВидРемонта</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПремияЗаВП</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Итого</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Оператор</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>ПремияЗаВП</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>Итого</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="v8:LocalStringType">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>ЧДЦ=2</v8:content>
+									</v8:item>
+								</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ВидРемонта</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ПремияЗаВП</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Итого</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter/>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Формат</dcscor:parameter>
+									<dcscor:value xsi:type="v8:LocalStringType">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧДЦ=2</v8:content>
+										</v8:item>
+									</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+					</dcsset:conditionalAppearance>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

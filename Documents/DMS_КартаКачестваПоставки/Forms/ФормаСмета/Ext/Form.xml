@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаОк" id="55">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Ок</CommandName>
+				<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+				<ExtendedTooltip name="ФормаОкРасширеннаяПодсказка" id="73"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="57">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="74"/>
+			<ChildItems>
+				<LabelDecoration name="Декорация1" id="59">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Смета для документа PVR:</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="75"/>
+				</LabelDecoration>
+				<LabelField name="Номер" id="62">
+					<DataPath>Объект.Number</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ContextMenu name="НомерКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="76"/>
+				</LabelField>
+				<InputField name="СтоимостьНормаЧаса" id="65">
+					<DataPath>Объект.СтоимостьНормаЧаса</DataPath>
+					<ContextMenu name="СтоимостьНормаЧасаКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="СтоимостьНормаЧасаРасширеннаяПодсказка" id="77"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРаботы" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Работы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа работы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаРаботыРасширеннаяПодсказка" id="78"/>
+			<ChildItems>
+				<Table name="ОбъектРаботыPVR" id="1">
+					<Footer>true</Footer>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.РаботыPVR</DataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ОбъектРаботыPVRКонтекстноеМеню" id="2"/>
+					<AutoCommandBar name="ОбъектРаботыPVRКоманднаяПанель" id="3"/>
+					<ExtendedTooltip name="ОбъектРаботыPVRРасширеннаяПодсказка" id="79"/>
+					<SearchStringAddition name="ОбъектРаботыPVRСтрокаПоиска" id="80">
+						<AdditionSource>
+							<Item>ОбъектРаботыPVR</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ОбъектРаботыPVRСтрокаПоискаКонтекстноеМеню" id="81"/>
+						<ExtendedTooltip name="ОбъектРаботыPVRСтрокаПоискаРасширеннаяПодсказка" id="82"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ОбъектРаботыPVRСостояниеПросмотра" id="83">
+						<AdditionSource>
+							<Item>ОбъектРаботыPVR</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ОбъектРаботыPVRСостояниеПросмотраКонтекстноеМеню" id="84"/>
+						<ExtendedTooltip name="ОбъектРаботыPVRСостояниеПросмотраРасширеннаяПодсказка" id="85"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ОбъектРаботыPVRУправлениеПоиском" id="86">
+						<AdditionSource>
+							<Item>ОбъектРаботыPVR</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ОбъектРаботыPVRУправлениеПоискомКонтекстноеМеню" id="87"/>
+						<ExtendedTooltip name="ОбъектРаботыPVRУправлениеПоискомРасширеннаяПодсказка" id="88"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="ОбъектРаботыPVRНомерСтроки" id="14">
+							<DataPath>Объект.РаботыPVR.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектРаботыPVRНомерСтрокиКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="ОбъектРаботыPVRНомерСтрокиРасширеннаяПодсказка" id="89"/>
+						</LabelField>
+						<InputField name="ОбъектРаботыPVRКодОперации" id="17">
+							<DataPath>Объект.РаботыPVR.КодОперации</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектРаботыPVRКодОперацииКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="ОбъектРаботыPVRКодОперацииРасширеннаяПодсказка" id="90"/>
+						</InputField>
+						<InputField name="ОбъектРаботыPVRНаименованиеОперации" id="20">
+							<DataPath>Объект.РаботыPVR.НаименованиеОперации</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектРаботыPVRНаименованиеОперацииКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ОбъектРаботыPVRНаименованиеОперацииРасширеннаяПодсказка" id="91"/>
+						</InputField>
+						<InputField name="ОбъектРаботыPVRНормаЧас" id="23">
+							<DataPath>Объект.РаботыPVR.НормаЧас</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектРаботыPVRНормаЧасКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="ОбъектРаботыPVRНормаЧасРасширеннаяПодсказка" id="92"/>
+							<Events>
+								<Event name="OnChange">ОбъектРаботыPVRНормаЧасПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ОбъектРаботыPVRСтоимость" id="26">
+							<DataPath>Объект.РаботыPVR.Стоимость</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сумма</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.РаботыPVR.TotalСтоимость</FooterDataPath>
+							<ContextMenu name="ОбъектРаботыPVRСтоимостьКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="ОбъектРаботыPVRСтоимостьРасширеннаяПодсказка" id="93"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаТовары" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Товары</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа товары</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаТоварыРасширеннаяПодсказка" id="94"/>
+			<ChildItems>
+				<Table name="ОбъектТоварыPVR" id="29">
+					<Footer>true</Footer>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.ТоварыPVR</DataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ОбъектТоварыPVRКонтекстноеМеню" id="30"/>
+					<AutoCommandBar name="ОбъектТоварыPVRКоманднаяПанель" id="31"/>
+					<ExtendedTooltip name="ОбъектТоварыPVRРасширеннаяПодсказка" id="95"/>
+					<SearchStringAddition name="ОбъектТоварыPVRСтрокаПоиска" id="96">
+						<AdditionSource>
+							<Item>ОбъектТоварыPVR</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ОбъектТоварыPVRСтрокаПоискаКонтекстноеМеню" id="97"/>
+						<ExtendedTooltip name="ОбъектТоварыPVRСтрокаПоискаРасширеннаяПодсказка" id="98"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ОбъектТоварыPVRСостояниеПросмотра" id="99">
+						<AdditionSource>
+							<Item>ОбъектТоварыPVR</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ОбъектТоварыPVRСостояниеПросмотраКонтекстноеМеню" id="100"/>
+						<ExtendedTooltip name="ОбъектТоварыPVRСостояниеПросмотраРасширеннаяПодсказка" id="101"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ОбъектТоварыPVRУправлениеПоиском" id="102">
+						<AdditionSource>
+							<Item>ОбъектТоварыPVR</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ОбъектТоварыPVRУправлениеПоискомКонтекстноеМеню" id="103"/>
+						<ExtendedTooltip name="ОбъектТоварыPVRУправлениеПоискомРасширеннаяПодсказка" id="104"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="ОбъектТоварыPVRНомерСтроки" id="42">
+							<DataPath>Объект.ТоварыPVR.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектТоварыPVRНомерСтрокиКонтекстноеМеню" id="43"/>
+							<ExtendedTooltip name="ОбъектТоварыPVRНомерСтрокиРасширеннаяПодсказка" id="105"/>
+						</LabelField>
+						<InputField name="ОбъектТоварыPVRНаименованиеТовара" id="45">
+							<DataPath>Объект.ТоварыPVR.НаименованиеТовара</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектТоварыPVRНаименованиеТовараКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="ОбъектТоварыPVRНаименованиеТовараРасширеннаяПодсказка" id="106"/>
+						</InputField>
+						<InputField name="ОбъектТоварыPVRЦена" id="71">
+							<DataPath>Объект.ТоварыPVR.Цена</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектТоварыPVRЦенаКонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="ОбъектТоварыPVRЦенаРасширеннаяПодсказка" id="107"/>
+							<Events>
+								<Event name="OnChange">ОбъектТоварыPVRЦенаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ОбъектТоварыPVRКоличество" id="68">
+							<DataPath>Объект.ТоварыPVR.Количество</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектТоварыPVRКоличествоКонтекстноеМеню" id="69"/>
+							<ExtendedTooltip name="ОбъектТоварыPVRКоличествоРасширеннаяПодсказка" id="108"/>
+							<Events>
+								<Event name="OnChange">ОбъектТоварыPVRКоличествоПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ОбъектТоварыPVRСтоимость" id="48">
+							<DataPath>Объект.ТоварыPVR.Стоимость</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сумма</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.ТоварыPVR.TotalСтоимость</FooterDataPath>
+							<ContextMenu name="ОбъектТоварыPVRСтоимостьКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="ОбъектТоварыPVRСтоимостьРасширеннаяПодсказка" id="109"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentObject.DMS_КартаКачестваПоставки</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Ок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Ок</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

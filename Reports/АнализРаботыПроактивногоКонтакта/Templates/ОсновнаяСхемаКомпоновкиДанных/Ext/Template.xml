@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>VIN</dataPath>
+			<field>VIN</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автор</dataPath>
+			<field>Автор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГТД</dataPath>
+			<field>ГТД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоследнегоКонтакта</dataPath>
+			<field>ДатаПоследнегоКонтакта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата следующего контакта</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоследнегоОбращения</dataPath>
+			<field>ДатаПоследнегоОбращения</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПродажи</dataPath>
+			<field>ДатаПродажи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата продажи автомобиля</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаСледующегоКонтакта</dataPath>
+			<field>ДатаСледующегоКонтакта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расчетная дата контакта</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорВзаиморасчетов</dataPath>
+			<field>ДоговорВзаиморасчетов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПродажи</dataPath>
+			<field>ДокументПродажи</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Клиент</dataPath>
+			<field>Клиент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Партия</dataPath>
+			<field>Партия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Покупатель</dataPath>
+			<field>Покупатель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Примечание</dataPath>
+			<field>Примечание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Результат</dataPath>
+			<field>Результат</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладКомпании</dataPath>
+			<field>СкладКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДС</dataPath>
+			<field>СтавкаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусПартии</dataPath>
+			<field>СтатусПартии</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Телефон</dataPath>
+			<field>Телефон</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХозОперация</dataPath>
+			<field>ХозОперация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПричинаОтказа</dataPath>
+			<field>ПричинаОтказа</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	РабочийЛистСервиса.Контрагент КАК Клиент,
+	РабочийЛистСервиса.Автомобиль,
+	РабочийЛистСервиса.Автомобиль.VIN КАК VIN,
+	РабочийЛистСервиса.Автор,
+	РабочийЛистСервиса.ДатаКонтакта КАК ДатаПоследнегоКонтакта,
+	РабочийЛистСервиса.РезультатКонтакта,
+	РабочийЛистСервиса.Комментарий,
+	РабочийЛистСервиса.Контрагент.ОсновнойТелефон КАК Телефон,
+	РабочийЛистСервиса.Менеджер,
+	РабочийЛистСервиса.ПричинаОтказа
+ПОМЕСТИТЬ РабочиеЛисты
+ИЗ
+	Документ.РабочийЛистСервиса КАК РабочийЛистСервиса
+ГДЕ
+	РабочийЛистСервиса.Проведен
+	И РабочийЛистСервиса.УчастникПрограммыПроактивныйКонтакт
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПродажиАвтомобилейОбороты.Автомобиль КАК Автомобиль,
+	ПродажиАвтомобилейОбороты.Покупатель КАК Покупатель,
+	МАКСИМУМ(ПродажиАвтомобилейОбороты.Период) КАК Период
+ПОМЕСТИТЬ Продажи
+ИЗ
+	РегистрНакопления.ПродажиАвтомобилей.Обороты(
+			,
+			,
+			Запись,
+			(Автомобиль, Покупатель) В
+				(ВЫБРАТЬ
+					РабочиеЛисты.Автомобиль,
+					РабочиеЛисты.Клиент
+				ИЗ
+					РабочиеЛисты КАК РабочиеЛисты)) КАК ПродажиАвтомобилейОбороты
+
+СГРУППИРОВАТЬ ПО
+	ПродажиАвтомобилейОбороты.Автомобиль,
+	ПродажиАвтомобилейОбороты.Покупатель
+
+ИНДЕКСИРОВАТЬ ПО
+	Автомобиль,
+	Покупатель
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Автомобили.Автомобиль КАК Автомобиль,
+	МИНИМУМ(Автомобили.Период) КАК ПериодНач,
+	МАКСИМУМ(Автомобили.Период) КАК ПериодКон,
+	МИНИМУМ(ВЫРАЗИТЬ(Автомобили.Значение КАК ЧИСЛО)) КАК ПробегНач,
+	МАКСИМУМ(ВЫРАЗИТЬ(Автомобили.Значение КАК ЧИСЛО)) КАК ПробегКон
+ПОМЕСТИТЬ ТаблицаАвтомобилей
+ИЗ
+	РегистрСведений.Автомобили КАК Автомобили
+ГДЕ
+	Автомобили.ВидЗначения = ЗНАЧЕНИЕ(Перечисление.ДополнительнаяИнформацияАвтомобилей.Пробег)
+	И Автомобили.Автомобиль В
+			(ВЫБРАТЬ
+				РабочиеЛисты.Автомобиль
+			ИЗ
+				РабочиеЛисты КАК РабочиеЛисты)
+
+СГРУППИРОВАТЬ ПО
+	Автомобили.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНаряды.Автомобиль КАК Автомобиль,
+	ЗаказНаряды.Ссылка КАК ЗаказНаряд,
+	ЗаказНаряды.ПробегСледующегоТО КАК ПробегСледующегоТО,
+	ЗаказНаряды.ДатаСледующегоТО КАК ДатаСледующегоТО,
+	ЗаказНаряды.ДатаОкончания КАК ДатаОкончания,
+	ЗаказНаряды.ДатаНачала КАК ДатаНачала
+ПОМЕСТИТЬ ТаблицаОборотов
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряды
+ГДЕ
+	ЗаказНаряды.ВидРемонта.ТехОбслуживание
+	И ЗаказНаряды.Автомобиль В
+			(ВЫБРАТЬ
+				РабочиеЛисты.Автомобиль
+			ИЗ
+				РабочиеЛисты КАК РабочиеЛисты)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаОборотов.Автомобиль КАК Автомобиль,
+	МАКСИМУМ(ТаблицаОборотов.ДатаНачала) КАК ДатаНачала
+ПОМЕСТИТЬ СрезПоследних
+ИЗ
+	ТаблицаОборотов КАК ТаблицаОборотов
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаОборотов.Автомобиль
+
+ИНДЕКСИРОВАТЬ ПО
+	Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СрезПоследних.Автомобиль КАК Автомобиль,
+	ТаблицаОборотов.ЗаказНаряд КАК ЗаказНаряд,
+	ТаблицаОборотов.ПробегСледующегоТО КАК ПробегСледующегоТО,
+	ТаблицаОборотов.ДатаСледующегоТО КАК ДатаСледующегоТО,
+	ТаблицаОборотов.ДатаОкончания КАК ДатаОкончания
+ПОМЕСТИТЬ ТаблицаПоследнийЗН
+ИЗ
+	СрезПоследних КАК СрезПоследних
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ТаблицаОборотов КАК ТаблицаОборотов
+		ПО СрезПоследних.Автомобиль = ТаблицаОборотов.Автомобиль
+			И СрезПоследних.ДатаНачала = ТаблицаОборотов.ДатаНачала
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаАвтомобилей.Автомобиль КАК Автомобиль,
+	ТаблицаПоследнийЗН.ЗаказНаряд КАК ЗаказНаряд,
+	ВЫБОР
+		КОГДА НЕ ТаблицаПоследнийЗН.ПробегСледующегоТО = 0
+				И НЕ ТаблицаПоследнийЗН.ПробегСледующегоТО = ТаблицаАвтомобилей.ПробегКон
+			ТОГДА ТаблицаПоследнийЗН.ПробегСледующегоТО - ТаблицаАвтомобилей.ПробегКон
+		КОГДА НЕ ТаблицаАвтомобилей.Автомобиль.Модель.МежсервисныйПробегТО ЕСТЬ NULL 
+				И НЕ ТаблицаАвтомобилей.Автомобиль.Модель.МежсервисныйПробегТО = 0
+			ТОГДА -(ТаблицаАвтомобилей.ПробегКон - ((ВЫРАЗИТЬ(ТаблицаАвтомобилей.ПробегКон / ТаблицаАвтомобилей.Автомобиль.Модель.МежсервисныйПробегТО - 0.5 КАК ЧИСЛО(10, 0))) + 1) * ТаблицаАвтомобилей.Автомобиль.Модель.МежсервисныйПробегТО)
+		КОГДА НЕ ТаблицаАвтомобилей.Автомобиль.ВариантКомплектации.МежсервисныйПробегТО ЕСТЬ NULL 
+				И НЕ ТаблицаАвтомобилей.Автомобиль.ВариантКомплектации.МежсервисныйПробегТО = 0
+			ТОГДА -(ТаблицаАвтомобилей.ПробегКон - ((ВЫРАЗИТЬ(ТаблицаАвтомобилей.ПробегКон / ТаблицаАвтомобилей.Автомобиль.ВариантКомплектации.МежсервисныйПробегТО - 0.5 КАК ЧИСЛО(10, 0))) + 1) * ТаблицаАвтомобилей.Автомобиль.ВариантКомплектации.МежсервисныйПробегТО)
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПробегМеждуТО,
+	ВЫБОР
+		КОГДА НЕ ТаблицаПоследнийЗН.ДатаСледующегоТО = ДАТАВРЕМЯ(1, 1, 1)
+				И НЕ ТаблицаПоследнийЗН.ДатаСледующегоТО = ТаблицаАвтомобилей.ПериодКон
+			ТОГДА ТаблицаПоследнийЗН.ДатаСледующегоТО
+		КОГДА ТаблицаАвтомобилей.Автомобиль.ВариантКомплектации.МежсервисныйИнтервалТО ЕСТЬ NULL 
+				ИЛИ ТаблицаАвтомобилей.Автомобиль.ВариантКомплектации.МежсервисныйИнтервалТО = 0
+			ТОГДА ДОБАВИТЬКДАТЕ(ТаблицаПоследнийЗН.ДатаОкончания, МЕСЯЦ, ТаблицаАвтомобилей.Автомобиль.Модель.МежсервисныйИнтервалТО)
+		ИНАЧЕ ДОБАВИТЬКДАТЕ(ТаблицаПоследнийЗН.ДатаОкончания, МЕСЯЦ, ТаблицаАвтомобилей.Автомобиль.ВариантКомплектации.МежсервисныйИнтервалТО)
+	КОНЕЦ КАК ДатаСледующегоТО,
+	ТаблицаАвтомобилей.ПробегНач КАК ПробегНач,
+	ТаблицаАвтомобилей.ПробегКон - ТаблицаАвтомобилей.ПробегНач КАК Пробег,
+	ТаблицаАвтомобилей.ПробегКон КАК ПробегКон,
+	РАЗНОСТЬДАТ(ТаблицаАвтомобилей.ПериодНач, ТаблицаАвтомобилей.ПериодКон, ДЕНЬ) КАК Интервал,
+	ТаблицаАвтомобилей.ПериодКон КАК ПериодКон
+ПОМЕСТИТЬ ТаблицаТО
+ИЗ
+	ТаблицаАвтомобилей КАК ТаблицаАвтомобилей
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ТаблицаПоследнийЗН КАК ТаблицаПоследнийЗН
+		ПО ТаблицаАвтомобилей.Автомобиль = ТаблицаПоследнийЗН.Автомобиль
+
+ИНДЕКСИРОВАТЬ ПО
+	Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТаблицаТО.Автомобиль КАК Автомобиль,
+	ВЫБОР
+		КОГДА ТаблицаТО.Пробег = 0
+				ИЛИ ТаблицаТО.Интервал = 0
+			ТОГДА ТаблицаТО.ДатаСледующегоТО
+		КОГДА ТаблицаТО.ПробегМеждуТО * ТаблицаТО.Интервал / ТаблицаТО.Пробег &gt;= РАЗНОСТЬДАТ(ТаблицаТО.ПериодКон, ТаблицаТО.ДатаСледующегоТО, ДЕНЬ)
+			ТОГДА ТаблицаТО.ДатаСледующегоТО
+		ИНАЧЕ ДОБАВИТЬКДАТЕ(ТаблицаТО.ПериодКон, ДЕНЬ, ТаблицаТО.ПробегМеждуТО * ТаблицаТО.Интервал / ТаблицаТО.Пробег)
+	КОНЕЦ КАК ПлановаяДата
+ПОМЕСТИТЬ ПланируемаяДатаТО
+ИЗ
+	ТаблицаТО КАК ТаблицаТО
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МАКСИМУМ(ЗаявкаНаРемонт.ДатаОкончания) КАК ДатаОкончания,
+	ЗаявкаНаРемонт.Контрагент
+ПОМЕСТИТЬ СобытияКонтрагентов
+ИЗ
+	Документ.ЗаявкаНаРемонт КАК ЗаявкаНаРемонт
+ГДЕ
+	ЗаявкаНаРемонт.Проведен
+	И ЗаявкаНаРемонт.Контрагент В
+			(ВЫБРАТЬ
+				РабочиеЛисты.Клиент
+			ИЗ
+				РабочиеЛисты КАК РабочиеЛисты)
+
+СГРУППИРОВАТЬ ПО
+	ЗаявкаНаРемонт.Контрагент
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РабочиеЛисты.Клиент,
+	РабочиеЛисты.VIN,
+	Продажи.Период КАК ДатаПродажи,
+	РабочиеЛисты.ДатаПоследнегоКонтакта,
+	ВЫБОР
+		КОГДА ПланируемаяДатаТО.ПлановаяДата ЕСТЬ NULL 
+				И РабочиеЛисты.ДатаПоследнегоКонтакта &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ВЫБОР
+					КОГДА НЕ РабочиеЛисты.Автомобиль.ВариантКомплектации = ЗНАЧЕНИЕ(Справочник.ВариантыКомплектации.ПустаяСсылка)
+							И РабочиеЛисты.Автомобиль.ВариантКомплектации.МежсервисныйИнтервалТО &lt;&gt; 0
+						ТОГДА ДОБАВИТЬКДАТЕ(РабочиеЛисты.ДатаПоследнегоКонтакта, МЕСЯЦ, РабочиеЛисты.Автомобиль.ВариантКомплектации.МежсервисныйИнтервалТО)
+					КОГДА НЕ РабочиеЛисты.Автомобиль.Модель = ЗНАЧЕНИЕ(Справочник.Модели.ПустаяСсылка)
+							И РабочиеЛисты.Автомобиль.Модель.МежсервисныйИнтервалТО &lt;&gt; 0
+						ТОГДА ДОБАВИТЬКДАТЕ(РабочиеЛисты.ДатаПоследнегоКонтакта, МЕСЯЦ, РабочиеЛисты.Автомобиль.Модель.МежсервисныйИнтервалТО)
+				КОНЕЦ
+		ИНАЧЕ ПланируемаяДатаТО.ПлановаяДата
+	КОНЕЦ КАК ДатаСледующегоКонтакта,
+	РабочиеЛисты.Автор,
+	РабочиеЛисты.РезультатКонтакта КАК Результат,
+	РабочиеЛисты.Комментарий КАК Примечание,
+	РабочиеЛисты.Телефон,
+	СобытияКонтрагентов.ДатаОкончания КАК ДатаПоследнегоОбращения,
+	РабочиеЛисты.Менеджер,
+	РабочиеЛисты.ПричинаОтказа
+ИЗ
+	РабочиеЛисты КАК РабочиеЛисты
+		ЛЕВОЕ СОЕДИНЕНИЕ Продажи КАК Продажи
+		ПО РабочиеЛисты.Клиент = Продажи.Покупатель
+			И РабочиеЛисты.Автомобиль = Продажи.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ СобытияКонтрагентов КАК СобытияКонтрагентов
+		ПО РабочиеЛисты.Клиент = СобытияКонтрагентов.Контрагент
+		ЛЕВОЕ СОЕДИНЕНИЕ ПланируемаяДатаТО КАК ПланируемаяДатаТО
+		ПО РабочиеЛисты.Автомобиль = ПланируемаяДатаТО.Автомобиль</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Клиент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>VIN</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Телефон</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоследнегоОбращения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоследнегоКонтакта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаСледующегоКонтакта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Менеджер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Результат</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПричинаОтказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автомобиль</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>2ca2a085-7950-4d5d-bbf1-89b03e948a53</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автор</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>11c00369-6141-4a0d-8729-883898ae4293</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Клиент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>89bd7f03-9abd-4064-a544-aedf5271e231</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДатаПоследнегоКонтакта</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+					<dcsset:userSettingID>f683acd2-d42a-4fea-82b5-843162608bc7</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДатаПоследнегоОбращения</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+					<dcsset:userSettingID>f0bbbe23-7a6e-4c7f-b7b1-1100d416ca4f</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДатаПродажи</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+					<dcsset:userSettingID>5a07694f-abc8-43de-87bf-a694d223fe75</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДатаСледующегоКонтакта</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+					<dcsset:userSettingID>4e485d08-1401-4b79-bc15-16ef6d43e8a5</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Результат</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e8240000-dddf-4c28-96e8-6f60edf83d98</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>93491177-3b30-4686-a368-20f0ffd3dd43</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ДатаСледующегоКонтакта</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ДатаСледующегоКонтакта</dcsset:left>
+							<dcsset:comparisonType>Less</dcsset:comparisonType>
+							<dcsset:right xsi:type="v8:StandardBeginningDate">
+								<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+							</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">#C0C0C0</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ДатаПоследнегоКонтакта</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ДатаПоследнегоКонтакта</dcsset:left>
+							<dcsset:comparisonType>Less</dcsset:comparisonType>
+							<dcsset:right xsi:type="v8:StandardBeginningDate">
+								<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+							</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">#C30000</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ГруппировкаПоКлиентам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Группировка по клиентам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>VIN</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Телефон</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоследнегоОбращения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоследнегоКонтакта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаСледующегоКонтакта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Результат</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Примечание</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Клиент</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

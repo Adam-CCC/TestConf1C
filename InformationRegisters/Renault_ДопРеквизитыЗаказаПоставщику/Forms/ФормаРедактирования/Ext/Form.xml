@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelField name="ЗаказПоставщику" id="1">
+			<DataPath>Запись.ЗаказПоставщику</DataPath>
+			<ContextMenu name="ЗаказПоставщикуКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ЗаказПоставщикуРасширеннаяПодсказка" id="3"/>
+		</LabelField>
+		<UsualGroup name="ГруппаДЦСит" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ДЦСит</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа ДЦСит</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДЦСитРасширеннаяПодсказка" id="51"/>
+			<ChildItems>
+				<InputField name="ДилерскийЦентр" id="4">
+					<DataPath>Запись.ДилерскийЦентр</DataPath>
+					<ContextMenu name="ДилерскийЦентрКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДилерскийЦентрРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">ДилерскийЦентрПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="SITE" id="7">
+					<DataPath>Запись.SITE</DataPath>
+					<ContextMenu name="SITEКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="SITEРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ТипЗаказа" id="10">
+			<DataPath>Запись.ТипЗаказа</DataPath>
+			<ContextMenu name="ТипЗаказаКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ТипЗаказаРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Автомобиль" id="25">
+			<DataPath>Запись.Автомобиль</DataPath>
+			<ContextMenu name="АвтомобильКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="АвтомобильРасширеннаяПодсказка" id="27"/>
+		</InputField>
+		<InputField name="НомерЗаказНаряда" id="54">
+			<DataPath>Запись.НомерЗаказНаряда</DataPath>
+			<ContextMenu name="НомерЗаказНарядаКонтекстноеМеню" id="55"/>
+			<ExtendedTooltip name="НомерЗаказНарядаРасширеннаяПодсказка" id="56"/>
+		</InputField>
+		<CheckBoxField name="ВыданПодменныйАвтомобиль" id="28">
+			<DataPath>Запись.ВыданПодменныйАвтомобиль</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ВыданПодменныйАвтомобильКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="ВыданПодменныйАвтомобильРасширеннаяПодсказка" id="30"/>
+			<Events>
+				<Event name="OnChange">ВыданПодменныйАвтомобильПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<UsualGroup name="ГруппаПодменныйАвтомобиль" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подменный автомобиль</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подменный автомобиль</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПодменныйАвтомобильРасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<InputField name="ПодменныйАвтомобиль" id="31">
+					<DataPath>Запись.ПодменныйАвтомобиль</DataPath>
+					<ContextMenu name="ПодменныйАвтомобильКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ПодменныйАвтомобильРасширеннаяПодсказка" id="33"/>
+				</InputField>
+				<InputField name="ДатаВыдачиПодменногоАвтомобиля" id="34">
+					<DataPath>Запись.ДатаВыдачиПодменногоАвтомобиля</DataPath>
+					<ContextMenu name="ДатаВыдачиПодменногоАвтомобиляКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ДатаВыдачиПодменногоАвтомобиляРасширеннаяПодсказка" id="36"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРено" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ в Рено</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа рено</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаРеноРасширеннаяПодсказка" id="47"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаДатаНомер" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дата номер</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дата номер</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДатаНомерРасширеннаяПодсказка" id="49"/>
+					<ChildItems>
+						<LabelField name="ДатаЗаказаРено" id="13">
+							<DataPath>Запись.ДатаЗаказаРено</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДатаЗаказаРеноКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ДатаЗаказаРеноРасширеннаяПодсказка" id="15"/>
+						</LabelField>
+						<LabelField name="НомерЗаказаРено" id="16">
+							<DataPath>Запись.НомерЗаказаРено</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НомерЗаказаРеноКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="НомерЗаказаРеноРасширеннаяПодсказка" id="18"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+				<LabelField name="СтатусЗаказа" id="19">
+					<DataPath>Запись.СтатусЗаказа</DataPath>
+					<ContextMenu name="СтатусЗаказаКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="СтатусЗаказаРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="ДатаОбновления" id="22">
+					<DataPath>Запись.ДатаОбновления</DataPath>
+					<ContextMenu name="ДатаОбновленияКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ДатаОбновленияРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.Renault_ДопРеквизитыЗаказаПоставщику</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

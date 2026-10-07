@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выбор автомобиля</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Choosing a car</v8:content>
+		</v8:item>
+	</Title>
+	<Width>100</Width>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаДобавитьАвтомобиль" id="20">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.ДобавитьАвтомобиль</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаДобавитьАвтомобильРасширеннаяПодсказка" id="21"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ВсеАвтомобили" id="1">
+			<Representation>List</Representation>
+			<ReadOnly>true</ReadOnly>
+			<Width>10</Width>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ВсеАвтомобили</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ВсеАвтомобилиКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ВсеАвтомобилиКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ВсеАвтомобилиРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ВсеАвтомобилиСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ВсеАвтомобили</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВсеАвтомобилиСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ВсеАвтомобилиСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ВсеАвтомобилиСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ВсеАвтомобили</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВсеАвтомобилиСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ВсеАвтомобилиСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ВсеАвтомобилиУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ВсеАвтомобили</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ВсеАвтомобилиУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ВсеАвтомобилиУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ВсеАвтомобилиВыбор</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ВсеАвтомобилиГосНомер" id="22">
+					<DataPath>ВсеАвтомобили.ГосНомер</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>15</Width>
+					<ContextMenu name="ВсеАвтомобилиГосНомерКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ВсеАвтомобилиГосНомерРасширеннаяПодсказка" id="24"/>
+				</InputField>
+				<InputField name="ВсеАвтомобилиАвтомобиль" id="14">
+					<DataPath>ВсеАвтомобили.Автомобиль</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВсеАвтомобилиАвтомобильКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ВсеАвтомобилиАвтомобильРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<InputField name="ВсеАвтомобилиДатаСледующегоТО" id="17">
+					<DataPath>ВсеАвтомобили.ДатаСледующегоТО</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВсеАвтомобилиДатаСледующегоТОКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ВсеАвтомобилиДатаСледующегоТОРасширеннаяПодсказка" id="19"/>
+				</InputField>
+				<InputField name="ВсеАвтомобилиVIN" id="25">
+					<DataPath>ВсеАвтомобили.VIN</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВсеАвтомобилиVINКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ВсеАвтомобилиVINРасширеннаяПодсказка" id="27"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ВсеАвтомобили" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все автомобили</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>All cars</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Автомобиль" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автомобиль</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Car</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Автомобили</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаСледующегоТО" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата следующего ТО</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Date of the next MOT</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ГосНомер" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гос номер</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Registration number</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>20</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="VIN" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>VIN</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>VIN</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>17</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ВладелецАвто" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Владелец авто</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Owner of car</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type>cfg:CatalogRef.CRM_ПотенциальныеКонтрагенты</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ДобавитьАвтомобиль" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить автомобиль</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add car</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить автомобиль</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Add car</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьАвтомобиль</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

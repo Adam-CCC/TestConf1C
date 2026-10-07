@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказПоставщику</dataPath>
+			<field>ЗаказПоставщику</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Subdivision</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Нераспределено</dataPath>
+			<field>Нераспределено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нераспределено</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Retained</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ОбъединенныйЗапрос.ЗаказПоставщику КАК ЗаказПоставщику,
+	СУММА(ЕСТЬNULL(ОбъединенныйЗапрос.Заказано, 0) - ЕСТЬNULL(ЗаказыРаспределениеОстатки.КоличествоОстаток, 0)) КАК Нераспределено,
+	ОбъединенныйЗапрос.Номенклатура КАК Номенклатура
+{ВЫБРАТЬ
+	ЗаказПоставщику.*,
+	Нераспределено,
+	Номенклатура.*}
+ИЗ
+	(ВЫБРАТЬ
+		ЗаказыПоставщикамОстатки.ЗаказПоставщику КАК ЗаказПоставщику,
+		ЗаказыПоставщикамОстатки.Номенклатура КАК Номенклатура,
+		ЗаказыПоставщикамОстатки.ХарактеристикаНоменклатуры КАК ХарактеристикаНоменклатуры,
+		ЗаказыПоставщикамОстатки.ЗаказаноОстаток КАК Заказано
+	ИЗ
+		РегистрНакопления.ЗаказыПоставщикам.Остатки(, Номенклатура В (&amp;СписокНоменклатуры) {(ЗаказПоставщику.ПодразделениеКомпании).* КАК Подразделение}) КАК ЗаказыПоставщикамОстатки
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ЗаказыПокупателейОстатки.Заказ,
+		ЗаказыПокупателейОстатки.Номенклатура,
+		ЗаказыПокупателейОстатки.ХарактеристикаНоменклатуры,
+		ЗаказыПокупателейОстатки.ЗаказаноОстаток - ЗаказыПокупателейОстатки.РезервОстаток
+	ИЗ
+		РегистрНакопления.ЗаказыПокупателей.Остатки(
+				,
+				Заказ ССЫЛКА Документ.ЗаказВнутренний
+					И Номенклатура В (&amp;СписокНоменклатуры) {(ВЫРАЗИТЬ(Заказ КАК Документ.ЗаказВнутренний).ПодразделениеКомпании).* КАК Подразделение}) КАК ЗаказыПокупателейОстатки) КАК ОбъединенныйЗапрос
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ЗаказыРаспределение.Остатки(, Номенклатура В (&amp;СписокНоменклатуры) {(ЗаказПоставщика.ПодразделениеКомпании).* КАК Подразделение}) КАК ЗаказыРаспределениеОстатки
+		ПО ОбъединенныйЗапрос.ЗаказПоставщику = ЗаказыРаспределениеОстатки.ЗаказПоставщика
+			И ОбъединенныйЗапрос.Номенклатура = ЗаказыРаспределениеОстатки.Номенклатура
+			И ОбъединенныйЗапрос.ХарактеристикаНоменклатуры = ЗаказыРаспределениеОстатки.ХарактеристикаНоменклатуры
+
+СГРУППИРОВАТЬ ПО
+	ОбъединенныйЗапрос.ЗаказПоставщику,
+	ОбъединенныйЗапрос.Номенклатура
+
+ИМЕЮЩИЕ
+	СУММА(ЕСТЬNULL(ОбъединенныйЗапрос.Заказано, 0) - ЕСТЬNULL(ЗаказыРаспределениеОстатки.КоличествоОстаток, 0)) &gt; 0</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<parameter>
+		<name>СписокНоменклатуры</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Список номенклатуры</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>nomenclature List</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
+		</valueType>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказПоставщику</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Нераспределено</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СписокНоменклатуры</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>d9fdcc38-68bd-4564-877f-640c2c64cd8b</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,1080 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Активация ключа защиты</v8:content>
+		</v8:item>
+	</Title>
+	<Width>50</Width>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаКомандаНазад" id="17">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.КомандаНазад</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаКомандаНазадРасширеннаяПодсказка" id="141"/>
+			</Button>
+			<Button name="ФормаКомандаВперед" id="16">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаВперед</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.MoveRight</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаКомандаВпередРасширеннаяПодсказка" id="142"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="ГруппаСтраницы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="143"/>
+			<Events>
+				<Event name="OnCurrentPageChange">ГруппаСтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="СтраницаВыборСервера" id="110">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбор сервера</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница выбор сервера</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаВыборСервераРасширеннаяПодсказка" id="144"/>
+					<ChildItems>
+						<RadioButtonField name="РежимСтарта" id="111">
+							<DataPath>Объект.РежимСтарта</DataPath>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Активировать ключ на локальном сервере лицензирования</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Активировать ключ на указанном сервере лицензирования</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="РежимСтартаКонтекстноеМеню" id="112"/>
+							<ExtendedTooltip name="РежимСтартаРасширеннаяПодсказка" id="145"/>
+							<Events>
+								<Event name="OnChange">РежимСтартаПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+						<InputField name="АдресСервера" id="113">
+							<DataPath>Объект.АдресСервера</DataPath>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="АдресСервераКонтекстноеМеню" id="114"/>
+							<ExtendedTooltip name="АдресСервераРасширеннаяПодсказка" id="146"/>
+							<Events>
+								<Event name="StartChoice">АдресСервераНачалоВыбора</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаВариантАктивации" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вариант активации</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница вариант активации</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаВариантАктивацииРасширеннаяПодсказка" id="147"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаВариантАктивации" id="10">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа вариант активации</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа вариант активации</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаВариантАктивацииРасширеннаяПодсказка" id="148"/>
+							<ChildItems>
+								<RadioButtonField name="ВариантАктивации" id="11">
+									<DataPath>Объект.ВариантАктивации</DataPath>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ColumnsCount>1</ColumnsCount>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Автоматический через интернет</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">0</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Активация через файловый запрос</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">1</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Активация по телефону</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">2</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ВариантАктивацииКонтекстноеМеню" id="12"/>
+									<ExtendedTooltip name="ВариантАктивацииРасширеннаяПодсказка" id="149"/>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАктивацияПараметры" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активация параметры</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница активация параметры</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаАктивацияПараметрыРасширеннаяПодсказка" id="150"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНомерПинКод" id="45">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа номер пин код</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа номер пин код</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНомерПинКодРасширеннаяПодсказка" id="151"/>
+							<ChildItems>
+								<InputField name="РегистрационныйНомер" id="23">
+									<DataPath>Объект.РегистрационныйНомер</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="РегистрационныйНомерКонтекстноеМеню" id="24"/>
+									<ExtendedTooltip name="РегистрационныйНомерРасширеннаяПодсказка" id="152"/>
+								</InputField>
+								<InputField name="ПинКод" id="4">
+									<DataPath>Объект.ПинКод</DataPath>
+									<ContextMenu name="ПинКодКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ПинКодРасширеннаяПодсказка" id="153"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="Организация" id="6">
+							<DataPath>Объект.Организация</DataPath>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="154"/>
+						</InputField>
+						<InputField name="Ответственный" id="8">
+							<DataPath>Объект.Ответственный</DataPath>
+							<ContextMenu name="ОтветственныйКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="155"/>
+						</InputField>
+						<InputField name="Телефон" id="18">
+							<DataPath>Объект.Телефон</DataPath>
+							<ContextMenu name="ТелефонКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ТелефонРасширеннаяПодсказка" id="156"/>
+						</InputField>
+						<InputField name="ЭлектроннаяПочта" id="20">
+							<DataPath>Объект.ЭлектроннаяПочта</DataPath>
+							<Width>30</Width>
+							<ContextMenu name="ЭлектроннаяПочтаКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ЭлектроннаяПочтаРасширеннаяПодсказка" id="157"/>
+						</InputField>
+						<InputField name="Сайт" id="25">
+							<DataPath>Объект.Сайт</DataPath>
+							<Width>30</Width>
+							<ContextMenu name="СайтКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="СайтРасширеннаяПодсказка" id="158"/>
+						</InputField>
+						<InputField name="Установщик" id="125">
+							<DataPath>Объект.Установщик</DataPath>
+							<ContextMenu name="УстановщикКонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="УстановщикРасширеннаяПодсказка" id="159"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЗапросАктивацииТелефон" id="94">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запрос активации по телефону</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница запрос активации телефон</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЗапросАктивацииТелефонРасширеннаяПодсказка" id="160"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияИнструкцияПоАктивации" id="134">
+							<SkipOnInput>true</SkipOnInput>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Инструкция по активации</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияИнструкцияПоАктивацииКонтекстноеМеню" id="135"/>
+							<ExtendedTooltip name="ДекорацияИнструкцияПоАктивацииРасширеннаяПодсказка" id="161"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаНомерПинКодПоТелефону" id="133">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа номер пин код</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа номер пин код</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ChildItemsWidth>LeftWide</ChildItemsWidth>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНомерПинКодПоТелефонуРасширеннаяПодсказка" id="162"/>
+						</UsualGroup>
+						<LabelField name="НадписьРегистрационныйНомерПоТелефону" id="95">
+							<DataPath>Объект.РегистрационныйНомер</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьРегистрационныйНомерПоТелефонуКонтекстноеМеню" id="96"/>
+							<ExtendedTooltip name="НадписьРегистрационныйНомерПоТелефонуРасширеннаяПодсказка" id="163"/>
+						</LabelField>
+						<LabelField name="НадписьПинКодПоТелефону" id="97">
+							<DataPath>Объект.ПинКод</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьПинКодПоТелефонуКонтекстноеМеню" id="98"/>
+							<ExtendedTooltip name="НадписьПинКодПоТелефонуРасширеннаяПодсказка" id="164"/>
+						</LabelField>
+						<LabelField name="НадписьОрганизацияПоТелефону" id="99">
+							<DataPath>Объект.Организация</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьОрганизацияПоТелефонуКонтекстноеМеню" id="100"/>
+							<ExtendedTooltip name="НадписьОрганизацияПоТелефонуРасширеннаяПодсказка" id="165"/>
+						</LabelField>
+						<LabelField name="НадписьОтветственныйПоТелефону" id="101">
+							<DataPath>Объект.Ответственный</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьОтветственныйПоТелефонуКонтекстноеМеню" id="102"/>
+							<ExtendedTooltip name="НадписьОтветственныйПоТелефонуРасширеннаяПодсказка" id="166"/>
+						</LabelField>
+						<LabelField name="НадписьТелефонПоТелефону" id="103">
+							<DataPath>Объект.Телефон</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьТелефонПоТелефонуКонтекстноеМеню" id="104"/>
+							<ExtendedTooltip name="НадписьТелефонПоТелефонуРасширеннаяПодсказка" id="167"/>
+						</LabelField>
+						<LabelField name="НадписьЭлектроннаяПочтаПоТелефону" id="105">
+							<DataPath>Объект.ЭлектроннаяПочта</DataPath>
+							<Width>30</Width>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьЭлектроннаяПочтаПоТелефонуКонтекстноеМеню" id="106"/>
+							<ExtendedTooltip name="НадписьЭлектроннаяПочтаПоТелефонуРасширеннаяПодсказка" id="168"/>
+						</LabelField>
+						<LabelField name="НадписьСайтПоТелефону" id="107">
+							<DataPath>Объект.Сайт</DataPath>
+							<Width>30</Width>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьСайтПоТелефонуКонтекстноеМеню" id="108"/>
+							<ExtendedTooltip name="НадписьСайтПоТелефонуРасширеннаяПодсказка" id="169"/>
+						</LabelField>
+						<LabelField name="НадписьУстановщикПоТелефону" id="127">
+							<DataPath>Объект.Установщик</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьУстановщикПоТелефонуКонтекстноеМеню" id="128"/>
+							<ExtendedTooltip name="НадписьУстановщикПоТелефонуРасширеннаяПодсказка" id="170"/>
+						</LabelField>
+						<InputField name="БлокЗапросаТелефоннойАктивации" id="37">
+							<DataPath>Объект.БлокЗапросаТелефоннойАктивации</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Запрос активации ключа</v8:content>
+								</v8:item>
+							</Title>
+							<MultiLine>true</MultiLine>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="БлокЗапросаТелефоннойАктивацииКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="БлокЗапросаТелефоннойАктивацииРасширеннаяПодсказка" id="171"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАктивацияТелефон" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активация телефон</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница активация телефон</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаАктивацияТелефонРасширеннаяПодсказка" id="172"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияОтветАктивации" id="136">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Введите ответ активации ключа защиты.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияОтветАктивацииКонтекстноеМеню" id="137"/>
+							<ExtendedTooltip name="ДекорацияОтветАктивацииРасширеннаяПодсказка" id="173"/>
+						</LabelDecoration>
+						<InputField name="БлокОтветаТелефоннойАктивации1" id="39">
+							<DataPath>Объект.БлокОтветаТелефоннойАктивации1</DataPath>
+							<ContextMenu name="БлокОтветаТелефоннойАктивации1КонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="БлокОтветаТелефоннойАктивации1РасширеннаяПодсказка" id="174"/>
+							<Events>
+								<Event name="OnChange">БлокОтветаТелефоннойАктивации1ПриИзменении</Event>
+								<Event name="AutoComplete">БлокОтветаТелефоннойАктивации1АвтоПодбор</Event>
+							</Events>
+						</InputField>
+						<InputField name="БлокОтветаТелефоннойАктивации2" id="41">
+							<DataPath>Объект.БлокОтветаТелефоннойАктивации2</DataPath>
+							<ContextMenu name="БлокОтветаТелефоннойАктивации2КонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="БлокОтветаТелефоннойАктивации2РасширеннаяПодсказка" id="175"/>
+							<Events>
+								<Event name="OnChange">БлокОтветаТелефоннойАктивации1ПриИзменении</Event>
+								<Event name="AutoComplete">БлокОтветаТелефоннойАктивации1АвтоПодбор</Event>
+							</Events>
+						</InputField>
+						<InputField name="БлокОтветаТелефоннойАктивации3" id="43">
+							<DataPath>Объект.БлокОтветаТелефоннойАктивации3</DataPath>
+							<ContextMenu name="БлокОтветаТелефоннойАктивации3КонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="БлокОтветаТелефоннойАктивации3РасширеннаяПодсказка" id="176"/>
+							<Events>
+								<Event name="OnChange">БлокОтветаТелефоннойАктивации1ПриИзменении</Event>
+								<Event name="AutoComplete">БлокОтветаТелефоннойАктивации1АвтоПодбор</Event>
+							</Events>
+						</InputField>
+						<Button name="КомандаАктивироватьПоТелефону" id="46">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаАктивироватьПоТелефону</CommandName>
+							<ExtendedTooltip name="КомандаАктивироватьПоТелефонуРасширеннаяПодсказка" id="177"/>
+						</Button>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАктивацияВебСервис" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активация веб сервис</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница активация веб сервис</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаАктивацияВебСервисРасширеннаяПодсказка" id="178"/>
+					<ChildItems>
+						<LabelField name="НадписьРегистрационныйНомер" id="62">
+							<DataPath>Объект.РегистрационныйНомер</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьРегистрационныйНомерКонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="НадписьРегистрационныйНомерРасширеннаяПодсказка" id="179"/>
+						</LabelField>
+						<LabelField name="НадписьПинКод" id="64">
+							<DataPath>Объект.ПинКод</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьПинКодКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="НадписьПинКодРасширеннаяПодсказка" id="180"/>
+						</LabelField>
+						<LabelField name="НадписьОрганизация" id="66">
+							<DataPath>Объект.Организация</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьОрганизацияКонтекстноеМеню" id="67"/>
+							<ExtendedTooltip name="НадписьОрганизацияРасширеннаяПодсказка" id="181"/>
+						</LabelField>
+						<LabelField name="НадписьОтветственный" id="68">
+							<DataPath>Объект.Ответственный</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьОтветственныйКонтекстноеМеню" id="69"/>
+							<ExtendedTooltip name="НадписьОтветственныйРасширеннаяПодсказка" id="182"/>
+						</LabelField>
+						<LabelField name="НадписьТелефон" id="70">
+							<DataPath>Объект.Телефон</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьТелефонКонтекстноеМеню" id="71"/>
+							<ExtendedTooltip name="НадписьТелефонРасширеннаяПодсказка" id="183"/>
+						</LabelField>
+						<LabelField name="НадписьЭлектроннаяПочта" id="72">
+							<DataPath>Объект.ЭлектроннаяПочта</DataPath>
+							<Width>30</Width>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьЭлектроннаяПочтаКонтекстноеМеню" id="73"/>
+							<ExtendedTooltip name="НадписьЭлектроннаяПочтаРасширеннаяПодсказка" id="184"/>
+						</LabelField>
+						<LabelField name="НадписьСайт" id="74">
+							<DataPath>Объект.Сайт</DataPath>
+							<Width>30</Width>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьСайтКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="НадписьСайтРасширеннаяПодсказка" id="185"/>
+						</LabelField>
+						<LabelField name="НадписьУстановщик" id="129">
+							<DataPath>Объект.Установщик</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьУстановщикКонтекстноеМеню" id="130"/>
+							<ExtendedTooltip name="НадписьУстановщикРасширеннаяПодсказка" id="186"/>
+						</LabelField>
+						<LabelField name="НадписьСигнатураОборудования" id="76">
+							<DataPath>Объект.СигнатураОборудования</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьСигнатураОборудованияКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="НадписьСигнатураОборудованияРасширеннаяПодсказка" id="187"/>
+						</LabelField>
+						<Button name="КомандаАктивироватьВебСервис" id="34">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаАктивироватьВебСервис</CommandName>
+							<ExtendedTooltip name="КомандаАктивироватьВебСервисРасширеннаяПодсказка" id="188"/>
+						</Button>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаЗапросОтвет" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запрос ответ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница запрос ответ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаЗапросОтветРасширеннаяПодсказка" id="189"/>
+					<ChildItems>
+						<RadioButtonField name="ЗапросОтвет" id="31">
+							<DataPath>Объект.ЗапросОтвет</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выберите действие</v8:content>
+								</v8:item>
+							</Title>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создание запроса активации</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Загрузка ответа активации</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ЗапросОтветКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ЗапросОтветРасширеннаяПодсказка" id="190"/>
+						</RadioButtonField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаАктивацияФайл" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активация файл</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница активация файл</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаАктивацияФайлРасширеннаяПодсказка" id="191"/>
+					<ChildItems>
+						<LabelField name="НадписьРегистрационныйНомерФайл" id="92">
+							<DataPath>Объект.РегистрационныйНомер</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьРегистрационныйНомерФайлКонтекстноеМеню" id="93"/>
+							<ExtendedTooltip name="НадписьРегистрационныйНомерФайлРасширеннаяПодсказка" id="192"/>
+						</LabelField>
+						<LabelField name="НадписьПинКодФайл" id="90">
+							<DataPath>Объект.ПинКод</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьПинКодФайлКонтекстноеМеню" id="91"/>
+							<ExtendedTooltip name="НадписьПинКодФайлРасширеннаяПодсказка" id="193"/>
+						</LabelField>
+						<LabelField name="НадписьОрганизацияФайл" id="88">
+							<DataPath>Объект.Организация</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьОрганизацияФайлКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="НадписьОрганизацияФайлРасширеннаяПодсказка" id="194"/>
+						</LabelField>
+						<LabelField name="НадписьОтветственныйФайл" id="86">
+							<DataPath>Объект.Ответственный</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьОтветственныйФайлКонтекстноеМеню" id="87"/>
+							<ExtendedTooltip name="НадписьОтветственныйФайлРасширеннаяПодсказка" id="195"/>
+						</LabelField>
+						<LabelField name="НадписьТелефонФайл" id="84">
+							<DataPath>Объект.Телефон</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьТелефонФайлКонтекстноеМеню" id="85"/>
+							<ExtendedTooltip name="НадписьТелефонФайлРасширеннаяПодсказка" id="196"/>
+						</LabelField>
+						<LabelField name="НадписьЭлектроннаяПочтаФайл" id="82">
+							<DataPath>Объект.ЭлектроннаяПочта</DataPath>
+							<Width>30</Width>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьЭлектроннаяПочтаФайлКонтекстноеМеню" id="83"/>
+							<ExtendedTooltip name="НадписьЭлектроннаяПочтаФайлРасширеннаяПодсказка" id="197"/>
+						</LabelField>
+						<LabelField name="НадписьСайтФайл" id="80">
+							<DataPath>Объект.Сайт</DataPath>
+							<Width>30</Width>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьСайтФайлКонтекстноеМеню" id="81"/>
+							<ExtendedTooltip name="НадписьСайтФайлРасширеннаяПодсказка" id="198"/>
+						</LabelField>
+						<LabelField name="НадписьУстановщикФайл" id="131">
+							<DataPath>Объект.Установщик</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьУстановщикФайлКонтекстноеМеню" id="132"/>
+							<ExtendedTooltip name="НадписьУстановщикФайлРасширеннаяПодсказка" id="199"/>
+						</LabelField>
+						<LabelField name="НадписьСигнатураОборудованияФайл" id="78">
+							<DataPath>Объект.СигнатураОборудования</DataPath>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="НадписьСигнатураОборудованияФайлКонтекстноеМеню" id="79"/>
+							<ExtendedTooltip name="НадписьСигнатураОборудованияФайлРасширеннаяПодсказка" id="200"/>
+						</LabelField>
+						<Button name="КомандаСохранитьФайл" id="22">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаСохранитьФайл</CommandName>
+							<ExtendedTooltip name="КомандаСохранитьФайлРасширеннаяПодсказка" id="201"/>
+						</Button>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаОтветАктивации" id="33">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ответ активации</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница ответ активации</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаОтветАктивацииРасширеннаяПодсказка" id="202"/>
+					<ChildItems>
+						<InputField name="ИмяФайлаОтветаАктивации" id="35">
+							<DataPath>ИмяФайлаОтветаАктивации</DataPath>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="ИмяФайлаОтветаАктивацииКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ИмяФайлаОтветаАктивацииРасширеннаяПодсказка" id="203"/>
+							<Events>
+								<Event name="StartChoice">ИмяФайлаОтветаАктивацииНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<Button name="КомандаАктивироватьВручную" id="29">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаАктивироватьВручную</CommandName>
+							<ExtendedTooltip name="КомандаАктивироватьВручнуюРасширеннаяПодсказка" id="204"/>
+						</Button>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаСпособАктивацииЛицензии" id="109">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Способ активации лицензии</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница способ активации лицензии</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаСпособАктивацииЛицензииРасширеннаяПодсказка" id="205"/>
+				</Page>
+				<Page name="СтраницаАктивацияЛицензии" id="47">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активация лицензии</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница активация лицензии</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаАктивацияЛицензииРасширеннаяПодсказка" id="206"/>
+					<ChildItems>
+						<InputField name="РегистрационныйНомерЛицензии" id="48">
+							<ContextMenu name="РегистрационныйНомерЛицензииКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="РегистрационныйНомерЛицензииРасширеннаяПодсказка" id="207"/>
+						</InputField>
+						<InputField name="ПарольПакетаЛицензий" id="50">
+							<ContextMenu name="ПарольПакетаЛицензийКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="ПарольПакетаЛицензийРасширеннаяПодсказка" id="208"/>
+						</InputField>
+						<InputField name="Организация1" id="52">
+							<ContextMenu name="Организация1КонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="Организация1РасширеннаяПодсказка" id="209"/>
+						</InputField>
+						<InputField name="Ответственный1" id="54">
+							<ContextMenu name="Ответственный1КонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="Ответственный1РасширеннаяПодсказка" id="210"/>
+						</InputField>
+						<InputField name="Телефон1" id="56">
+							<ContextMenu name="Телефон1КонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="Телефон1РасширеннаяПодсказка" id="211"/>
+						</InputField>
+						<InputField name="ЭлектроннаяПочта1" id="58">
+							<ContextMenu name="ЭлектроннаяПочта1КонтекстноеМеню" id="59"/>
+							<ExtendedTooltip name="ЭлектроннаяПочта1РасширеннаяПодсказка" id="212"/>
+						</InputField>
+						<InputField name="Сайт1" id="60">
+							<ContextMenu name="Сайт1КонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="Сайт1РасширеннаяПодсказка" id="213"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДействияПослеАктивации" id="115">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница действия после активации</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница действия после активации</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДействияПослеАктивацииРасширеннаяПодсказка" id="214"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияУспешнаяАктивация" id="122">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ключ активирован!</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияУспешнаяАктивацияКонтекстноеМеню" id="123"/>
+							<ExtendedTooltip name="ДекорацияУспешнаяАктивацияРасширеннаяПодсказка" id="215"/>
+						</LabelDecoration>
+						<InputField name="ТекущийАдресСервера" id="116">
+							<DataPath>ТекущийАдресСервера</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ТекущийАдресСервераКонтекстноеМеню" id="117"/>
+							<ExtendedTooltip name="ТекущийАдресСервераРасширеннаяПодсказка" id="216"/>
+						</InputField>
+						<InputField name="АдресСервераПослеАктивации" id="118">
+							<DataPath>Объект.АдресСервера</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="АдресСервераПослеАктивацииКонтекстноеМеню" id="119"/>
+							<ExtendedTooltip name="АдресСервераПослеАктивацииРасширеннаяПодсказка" id="217"/>
+						</InputField>
+						<CheckBoxField name="ПодключитьсяКВыбранномуСерверуПослеАктивации" id="120">
+							<DataPath>Объект.ПодключитьсяКВыбранномуСерверуПослеАктивации</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПодключитьсяКВыбранномуСерверуПослеАктивацииКонтекстноеМеню" id="121"/>
+							<ExtendedTooltip name="ПодключитьсяКВыбранномуСерверуПослеАктивацииРасширеннаяПодсказка" id="218"/>
+						</CheckBoxField>
+						<Button name="КомандаЗавершитьРаботуМастера" id="124">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.КомандаЗавершитьРаботуМастера</CommandName>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Перезапустить систему защиты</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="КомандаЗавершитьРаботуМастераРасширеннаяПодсказка" id="219"/>
+						</Button>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаВыборРешения" id="138">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница выбор решения</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница выбор решения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаВыборРешенияРасширеннаяПодсказка" id="220"/>
+					<ChildItems>
+						<RadioButtonField name="ВыбранноеРешение" id="139">
+							<DataPath>ВыбранноеРешение</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ColumnsCount>1</ColumnsCount>
+							<ContextMenu name="ВыбранноеРешениеКонтекстноеМеню" id="140"/>
+							<ExtendedTooltip name="ВыбранноеРешениеРасширеннаяПодсказка" id="221"/>
+						</RadioButtonField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.УправлениеЛицензированием</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>Объект.АдресСервера</Field>
+				<Field>Объект.ВариантАктивации</Field>
+				<Field>Объект.ПинКод</Field>
+				<Field>Объект.РегистрационныйНомер</Field>
+				<Field>Объект.РежимСтарта</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ОписаниеОшибки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание ошибки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяФайлаОтветаАктивации" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Файл ответа активации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="БазоваяПоставка" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Базовая поставка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущийАдресСервера" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий адрес сервера</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыбранноеРешение" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбранное решение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоРешений" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество решений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаВперед" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Далее</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда вперед</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаВперед</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаНазад" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда назад</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаНазад</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаСохранитьФайл" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить запрос активации в файл</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда сохранить файл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСохранитьФайл</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаАктивироватьВручную" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активировать ключ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда активировать вручную</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаАктивироватьВручную</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаАктивироватьВебСервис" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активировать ключ через интернет</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активировать ключ через интернет</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаАктивироватьВебСервис</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаАктивироватьПоТелефону" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активировать ключ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда активировать по телефону</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаАктивироватьПоТелефону</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаЗавершитьРаботуМастера" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда завершить работу мастера</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда завершить работу мастера</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗавершитьРаботуМастера</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="БазоваяПоставка">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

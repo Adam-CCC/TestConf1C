@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВыходовЧасов</dataPath>
+			<field>ВыходовЧасов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПервогоЗахода</dataPath>
+			<field>ДатаПервогоЗахода</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоследнейОтметки</dataPath>
+			<field>ДатаПоследнейОтметки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КодКарты</dataPath>
+			<field>КодКарты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтработанноДней</dataPath>
+			<field>ОтработанноДней</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	Сотрудники.Ссылка,
+	КодыКарточек.КодКарты,
+	ВложенныйЗапрос.Период КАК ДатаПервогоЗахода,
+	ВложенныйЗапрос1.Период КАК ДатаПоследнейОтметки,
+	КоличествоДней.ОтработанноДней,
+	КоличествоЧасов.ВыходовЧасов
+ИЗ
+	РегистрСведений.КодыКарточек КАК КодыКарточек
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.Сотрудники КАК Сотрудники
+			ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+				РегистрацияВремениСотрудника.Сотрудник КАК Сотрудник,
+				КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ЕСТЬNULL(КОНЕЦПЕРИОДА(РегистрацияВремениСотрудника.Период, ДЕНЬ), 0)) КАК ОтработанноДней
+			ИЗ
+				РегистрСведений.РегистрацияВремениСотрудника КАК РегистрацияВремениСотрудника
+			ГДЕ
+				РегистрацияВремениСотрудника.ВидОтметки = ЗНАЧЕНИЕ(Справочник.ВидыОтметокВремени.Работа)
+				И РегистрацияВремениСотрудника.Продолжительность &lt;&gt; 0
+			
+			СГРУППИРОВАТЬ ПО
+				РегистрацияВремениСотрудника.Сотрудник) КАК КоличествоДней
+			ПО Сотрудники.Ссылка = КоличествоДней.Сотрудник
+			ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+				СУММА(ЕСТЬNULL(РегистрацияВремениСотрудника.Продолжительность, 0)) КАК ВыходовЧасов,
+				РегистрацияВремениСотрудника.Сотрудник КАК Сотрудник
+			ИЗ
+				РегистрСведений.РегистрацияВремениСотрудника КАК РегистрацияВремениСотрудника
+			ГДЕ
+				РегистрацияВремениСотрудника.ВидОтметки = ЗНАЧЕНИЕ(Справочник.ВидыОтметокВремени.Работа)
+			
+			СГРУППИРОВАТЬ ПО
+				РегистрацияВремениСотрудника.Сотрудник) КАК КоличествоЧасов
+			ПО Сотрудники.Ссылка = КоличествоЧасов.Сотрудник
+			ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+				РегистрацияВремениСотрудника.Сотрудник КАК Сотрудник,
+				МИНИМУМ(РегистрацияВремениСотрудника.Период) КАК Период
+			ИЗ
+				РегистрСведений.РегистрацияВремениСотрудника КАК РегистрацияВремениСотрудника
+			
+			СГРУППИРОВАТЬ ПО
+				РегистрацияВремениСотрудника.Сотрудник) КАК ВложенныйЗапрос
+			ПО Сотрудники.Ссылка = ВложенныйЗапрос.Сотрудник
+			ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+				РегистрацияВремениСотрудника.Сотрудник КАК Сотрудник,
+				МАКСИМУМ(РегистрацияВремениСотрудника.Период) КАК Период
+			ИЗ
+				РегистрСведений.РегистрацияВремениСотрудника КАК РегистрацияВремениСотрудника
+			
+			СГРУППИРОВАТЬ ПО
+				РегистрацияВремениСотрудника.Сотрудник) КАК ВложенныйЗапрос1
+			ПО Сотрудники.Ссылка = ВложенныйЗапрос1.Сотрудник
+		ПО (КодыКарточек.Работник = Сотрудники.Ссылка)</query>
+	</dataSet>
+	<parameter>
+		<name>ВалютаОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>В валюте</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КодКарты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПервогоЗахода</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоследнейОтметки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтработанноДней</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыходовЧасов</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Ссылка</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВалютаОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

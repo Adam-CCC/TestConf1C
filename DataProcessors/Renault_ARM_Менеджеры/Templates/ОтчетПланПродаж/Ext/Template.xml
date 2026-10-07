@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>План</dataPath>
+			<field>План</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипПериода</dataPath>
+			<field>ТипПериода</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Факт</dataPath>
+			<field>Факт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЭтапПродаж</dataPath>
+			<field>ЭтапПродаж</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДилерскиеЦентры</dataPath>
+			<field>ДилерскиеЦентры</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модели</dataPath>
+			<field>Модели</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отделы</dataPath>
+			<field>Отделы</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_ПланПродаж.Настройка.ЭтапПродаж КАК ЭтапПродаж,
+	Renault_ПланПродаж.Количество КАК Количество,
+	Renault_ПланПродаж.ТипПериода,
+	Renault_ПланПродаж.Менеджеры,
+	Renault_ПланПродаж.ДилерскиеЦентры,
+	Renault_ПланПродаж.Отделы,
+	Renault_ПланПродаж.Модели
+ПОМЕСТИТЬ ВТ_План
+ИЗ
+	РегистрСведений.Renault_ПланПродаж КАК Renault_ПланПродаж
+ГДЕ
+	(Renault_ПланПродаж.ПериодПлан = НАЧАЛОПЕРИОДА(&amp;ПериодПлан, МЕСЯЦ)
+			ИЛИ Renault_ПланПродаж.ПериодПлан = НАЧАЛОПЕРИОДА(&amp;ПериодПлан, НЕДЕЛЯ)
+			ИЛИ Renault_ПланПродаж.ПериодПлан = НАЧАЛОПЕРИОДА(&amp;ПериодПлан, КВАРТАЛ)
+			ИЛИ Renault_ПланПродаж.ПериодПлан = НАЧАЛОПЕРИОДА(&amp;ПериодПлан, ГОД))
+	И Renault_ПланПродаж.Менеджеры = &amp;Менеджеры
+	И Renault_ПланПродаж.Настройка.ЭтапПродаж &lt;&gt; ЗНАЧЕНИЕ(Справочник.CRM_ЭтапыПродаж.ПустаяСсылка)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Renault_СтатистикаВыполненияЭтаповПродаж.ЭтапПродаж,
+	Renault_РабочиеЛисты.Сотрудник КАК Менеджеры,
+	1 КАК IDK,
+	ВЫБОР
+		КОГДА Renault_СтатистикаВыполненияЭтаповПродаж.Модель ЕСТЬ NULL 
+				ИЛИ Renault_СтатистикаВыполненияЭтаповПродаж.Модель = ЗНАЧЕНИЕ(Справочник.Модели.ПустаяСсылка)
+			ТОГДА ВЫБОР
+					КОГДА Renault_РабочиеЛисты.ПервичныйИнтересМодель.Модель ЕСТЬ NULL 
+						ТОГДА ЗНАЧЕНИЕ(Справочник.Модели.ПустаяСсылка)
+					ИНАЧЕ Renault_РабочиеЛисты.ПервичныйИнтересМодель.Модель
+				КОНЕЦ
+		ИНАЧЕ Renault_СтатистикаВыполненияЭтаповПродаж.Модель
+	КОНЕЦ КАК Модели,
+	ВЫБОР
+		КОГДА Renault_СтатистикаВыполненияЭтаповПродаж.ДилерскийЦентр ЕСТЬ NULL 
+			ТОГДА ВЫБОР
+					КОГДА Renault_РабочиеЛисты.ДилерскийЦентр ЕСТЬ NULL 
+						ТОГДА ЗНАЧЕНИЕ(Справочник.CRM_ДилерскиеЦентры.ПустаяСсылка)
+					ИНАЧЕ Renault_РабочиеЛисты.ДилерскийЦентр
+				КОНЕЦ
+		ИНАЧЕ Renault_СтатистикаВыполненияЭтаповПродаж.ДилерскийЦентр
+	КОНЕЦ КАК ДилерскиеЦентры,
+	Renault_РабочиеЛисты.Отдел
+ПОМЕСТИТЬ ВТ_Статистика
+ИЗ
+	РегистрСведений.Renault_СтатистикаВыполненияЭтаповПродаж КАК Renault_СтатистикаВыполненияЭтаповПродаж
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Renault_РабочиеЛисты.IDK КАК IDK,
+			Renault_РабочиеЛисты.ДилерскийЦентр КАК ДилерскийЦентр,
+			ВЫБОР
+				КОГДА Renault_РабочиеЛисты.Сотрудник ЕСТЬ NULL 
+					ТОГДА Renault_Трафик.Менеджер
+				ИНАЧЕ Renault_РабочиеЛисты.Сотрудник
+			КОНЕЦ КАК Сотрудник,
+			Renault_РабочиеЛисты.ПервичныйИнтересМодель КАК ПервичныйИнтересМодель,
+			ВЫБОР
+				КОГДА Renault_РабочиеЛисты.Отдел ЕСТЬ NULL 
+					ТОГДА Renault_Трафик.Отдел
+				ИНАЧЕ Renault_РабочиеЛисты.Отдел
+			КОНЕЦ КАК Отдел
+		ИЗ
+			Документ.Renault_РабочийЛист КАК Renault_РабочиеЛисты
+				ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_Трафик КАК Renault_Трафик
+				ПО Renault_РабочиеЛисты.IDТрафика = Renault_Трафик.Идентификатор) КАК Renault_РабочиеЛисты
+		ПО Renault_СтатистикаВыполненияЭтаповПродаж.IDK = Renault_РабочиеЛисты.IDK
+ГДЕ
+	Renault_СтатистикаВыполненияЭтаповПродаж.ДатаВыполнения &gt;= НАЧАЛОПЕРИОДА(&amp;ПериодПлан, МЕСЯЦ)
+	И Renault_СтатистикаВыполненияЭтаповПродаж.ДатаВыполнения &lt;= КОНЕЦПЕРИОДА(&amp;ПериодПлан, МЕСЯЦ)
+	И Renault_РабочиеЛисты.Сотрудник В
+			(ВЫБРАТЬ РАЗЛИЧНЫЕ
+				ВТ_План.Менеджеры
+			ИЗ
+				ВТ_План КАК ВТ_План)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_План.ЭтапПродаж,
+	МАКСИМУМ(ЕСТЬNULL(ВТ_План.Количество, 0)) КАК План,
+	ВТ_План.ТипПериода,
+	СУММА(ЕСТЬNULL(ВТ_Статистика.IDK, 0)) КАК Факт,
+	ВТ_План.ДилерскиеЦентры,
+	ВТ_План.Отделы,
+	ВТ_План.Модели
+ИЗ
+	ВТ_План КАК ВТ_План
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Статистика КАК ВТ_Статистика
+		ПО ВТ_План.ЭтапПродаж = ВТ_Статистика.ЭтапПродаж
+			И ВТ_План.Менеджеры = ВТ_Статистика.Менеджеры
+			И (ВЫБОР
+				КОГДА ВТ_План.Модели ЕСТЬ NULL 
+						ИЛИ ВТ_План.Модели = ЗНАЧЕНИЕ(Справочник.Модели.ПустаяСсылка)
+					ТОГДА ИСТИНА
+				ИНАЧЕ ВТ_План.Модели = ВТ_Статистика.Модели
+			КОНЕЦ)
+			И (ВЫБОР
+				КОГДА ВТ_План.Отделы ЕСТЬ NULL 
+						ИЛИ ВТ_План.Отделы = ЗНАЧЕНИЕ(Справочник.CRM_Отделы.ПустаяСсылка)
+					ТОГДА ИСТИНА
+				ИНАЧЕ ВТ_План.Отделы = ВТ_Статистика.Отдел
+			КОНЕЦ)
+			И (ВЫБОР
+				КОГДА ВТ_План.ДилерскиеЦентры ЕСТЬ NULL 
+						ИЛИ ВТ_План.ДилерскиеЦентры = ЗНАЧЕНИЕ(Справочник.CRM_ДилерскиеЦентры.ПустаяСсылка)
+					ТОГДА ИСТИНА
+				ИНАЧЕ ВТ_План.ДилерскиеЦентры = ВТ_Статистика.ДилерскиеЦентры
+			КОНЕЦ)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_План.Модели,
+	ВТ_План.Отделы,
+	ВТ_План.ДилерскиеЦентры,
+	ВТ_План.ЭтапПродаж,
+	ВТ_План.ТипПериода</query>
+	</dataSet>
+	<totalField>
+		<dataPath>План</dataPath>
+		<expression>Максимум(План)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Факт</dataPath>
+		<expression>Сумма(Факт)</expression>
+	</totalField>
+	<parameter>
+		<name>Менеджеры</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Менеджеры</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Managers</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Сотрудники</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПериодПлан</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период план</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>plan Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЭтапПродаж</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипПериода</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДилерскиеЦентры</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отделы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отделы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Модели</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>План</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Факт</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Менеджеры</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

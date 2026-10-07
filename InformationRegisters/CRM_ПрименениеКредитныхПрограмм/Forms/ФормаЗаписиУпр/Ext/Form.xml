@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Модель" id="1">
+			<DataPath>Запись.Модель</DataPath>
+			<ContextMenu name="МодельКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="МодельExtendedTooltip" id="11"/>
+		</InputField>
+		<InputField name="Версия" id="3">
+			<DataPath>Запись.Версия</DataPath>
+			<ChoiceParameterLinks>
+				<xr:Link>
+					<xr:Name>Отбор.Владелец</xr:Name>
+					<xr:DataPath xsi:type="xs:string">Запись.Модель</xr:DataPath>
+					<xr:ValueChange>Clear</xr:ValueChange>
+				</xr:Link>
+			</ChoiceParameterLinks>
+			<ContextMenu name="ВерсияКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="ВерсияExtendedTooltip" id="12"/>
+		</InputField>
+		<InputField name="ГодПроизводства" id="5">
+			<DataPath>Запись.ГодПроизводства</DataPath>
+			<ContextMenu name="ГодПроизводстваКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ГодПроизводстваExtendedTooltip" id="13"/>
+		</InputField>
+		<InputField name="КредитнаяПрограмма" id="7">
+			<DataPath>Запись.КредитнаяПрограмма</DataPath>
+			<ContextMenu name="КредитнаяПрограммаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="КредитнаяПрограммаExtendedTooltip" id="14"/>
+		</InputField>
+		<InputField name="ПГВПодарок" id="9">
+			<DataPath>Запись.ПГВПодарок</DataPath>
+			<ContextMenu name="ПГВПодарокКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="ПГВПодарокExtendedTooltip" id="15"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.CRM_ПрименениеКредитныхПрограмм</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

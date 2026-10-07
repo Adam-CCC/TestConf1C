@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Форма ответа по телефону v2</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ОтменаОтвета" id="29">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.ОтменаОтвета</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Close</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ОтменаОтветаРасширеннаяПодсказка" id="30"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ВремяЗвонка" id="5">
+			<DataPath>ВремяЗвонка</DataPath>
+			<ContextMenu name="ВремяЗвонкаКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ВремяЗвонкаРасширеннаяПодсказка" id="7"/>
+		</InputField>
+		<InputField name="ИнтересКлиента" id="14">
+			<DataPath>ИнтересКлиента</DataPath>
+			<DropListButton>true</DropListButton>
+			<ChoiceButton>false</ChoiceButton>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ContextMenu name="ИнтересКлиентаКонтекстноеМеню" id="15"/>
+			<ExtendedTooltip name="ИнтересКлиентаРасширеннаяПодсказка" id="16"/>
+			<Events>
+				<Event name="ChoiceProcessing">ИнтересКлиентаОбработкаВыбора</Event>
+			</Events>
+		</InputField>
+		<CheckBoxField name="НазначенВизит" id="17">
+			<DataPath>НазначенВизит</DataPath>
+			<CheckBoxType>Tumbler</CheckBoxType>
+			<EditFormat>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>БЛ=Нет; БИ=Да</v8:content>
+				</v8:item>
+			</EditFormat>
+			<ContextMenu name="НазначенВизитКонтекстноеМеню" id="18"/>
+			<ExtendedTooltip name="НазначенВизитРасширеннаяПодсказка" id="19"/>
+			<Events>
+				<Event name="OnChange">НазначенВизитПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<InputField name="ЦельВизита" id="20">
+			<DataPath>ЦельВизита</DataPath>
+			<DropListButton>true</DropListButton>
+			<ChoiceButton>false</ChoiceButton>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChooseType>false</ChooseType>
+			<ContextMenu name="ЦельВизитаКонтекстноеМеню" id="21"/>
+			<ExtendedTooltip name="ЦельВизитаРасширеннаяПодсказка" id="22"/>
+			<Events>
+				<Event name="ChoiceProcessing">ЦельВизитаОбработкаВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="ДатаВизита" id="23">
+			<DataPath>ДатаВизита</DataPath>
+			<ContextMenu name="ДатаВизитаКонтекстноеМеню" id="24"/>
+			<ExtendedTooltip name="ДатаВизитаРасширеннаяПодсказка" id="25"/>
+		</InputField>
+		<InputField name="ТекстОтветаПоТелефону" id="26">
+			<DataPath>ТекстОтветаПоТелефону</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ТекстОтветаПоТелефонуКонтекстноеМеню" id="27"/>
+			<ExtendedTooltip name="ТекстОтветаПоТелефонуРасширеннаяПодсказка" id="28"/>
+		</InputField>
+		<UsualGroup name="ГруппаПервая" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа первая</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа первая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПерваяРасширеннаяПодсказка" id="9"/>
+			<ChildItems>
+				<Button name="ФиксацияЗвонка" id="12">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>30</Width>
+					<CommandName>Form.Command.ФиксацияЗвонка</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.Post</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Зарегистрировать телефонный звонок</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ФиксацияЗвонкаРасширеннаяПодсказка" id="13"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_АРМ_ContactCenter</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Лид_ЗаголовокОтветаПоТелефону" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лид заголовок ответа по телефону</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстОтветаПоТелефону" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст ответа по телефону</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяЗвонка" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время звонка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнтересКлиента" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Интерес клиента</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="НазначенВизит" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначен визит</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦельВизита" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цель визита</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ДатаВизита" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата визита</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстОтвета" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст ответа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>200</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Лид_ТекущийЛид" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лид текущий лид</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.Renault_Лид</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьПоШаблону" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по шаблону</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по шаблону</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПоШаблону</Action>
+		</Command>
+		<Command name="ФиксацияЗвонка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фиксация звонка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фиксация звонка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ФиксацияЗвонка</Action>
+		</Command>
+		<Command name="ОтменаОтвета" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена ответа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтменаОтвета</Action>
+		</Command>
+	</Commands>
+</Form>

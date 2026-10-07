@@ -1,0 +1,1091 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выбор периода</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грКонтейнер" id="101">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:FieldBackColor</BackColor>
+			<ExtendedTooltip name="грКонтейнерРасширеннаяПодсказка" id="102"/>
+			<ChildItems>
+				<UsualGroup name="грПанель" id="103">
+					<Width>40</Width>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грПанельРасширеннаяПодсказка" id="104"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация5" id="105">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация5КонтекстноеМеню" id="106"/>
+							<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="107"/>
+						</LabelDecoration>
+						<Button name="кнИнтервалы" id="108">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>10</Width>
+							<Height>1</Height>
+							<CommandName>Form.Command.Режим</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Интервал</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнИнтервалыРасширеннаяПодсказка" id="109"/>
+						</Button>
+						<Button name="кнПериоды" id="110">
+							<Type>UsualButton</Type>
+							<Representation>Text</Representation>
+							<Width>10</Width>
+							<Height>1</Height>
+							<CommandName>Form.Command.Режим</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Период</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнПериодыРасширеннаяПодсказка" id="111"/>
+						</Button>
+						<LabelDecoration name="Декорация6" id="112">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация6КонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="114"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelField name="ПериодТекст" id="1">
+					<DataPath>ПериодТекст</DataPath>
+					<Visible>false</Visible>
+					<TitleTextColor>#313431</TitleTextColor>
+					<TitleLocation>None</TitleLocation>
+					<TextColor>#003366</TextColor>
+					<ContextMenu name="ПериодТекстКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ПериодТекстРасширеннаяПодсказка" id="3"/>
+				</LabelField>
+				<UsualGroup name="грСтраницы" id="118">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грСтраницыРасширеннаяПодсказка" id="119"/>
+					<ChildItems>
+						<UsualGroup name="грИнтервалы" id="10">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грИнтервалыРасширеннаяПодсказка" id="11"/>
+							<ChildItems>
+								<UsualGroup name="НачалоИнтервала" id="20">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Начало интервала</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#313431</TitleTextColor>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Начало интервала</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Representation>NormalSeparation</Representation>
+									<BackColor>#E7E7E7</BackColor>
+									<ExtendedTooltip name="НачалоИнтервалаРасширеннаяПодсказка" id="21"/>
+									<ChildItems>
+										<RadioButtonField name="ИнтервалДата1" id="14">
+											<DataPath>ИнтервалДата1</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Начало интервала</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleLocation>None</TitleLocation>
+											<RadioButtonType>RadioButtons</RadioButtonType>
+											<ColumnsCount>1</ColumnsCount>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Без ограничения</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">0</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Начало года</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Начало квартала</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">2</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Начало месяца</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">3</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Начало недели</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">4</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Начало дня</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">5</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<BorderColor>#BDC3CE</BorderColor>
+											<ContextMenu name="ИнтервалДата1КонтекстноеМеню" id="15"/>
+											<ExtendedTooltip name="ИнтервалДата1РасширеннаяПодсказка" id="16"/>
+											<Events>
+												<Event name="OnChange">ПриИзмененииИнтервала</Event>
+											</Events>
+										</RadioButtonField>
+										<UsualGroup name="Группа5" id="86">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="87"/>
+											<ChildItems>
+												<CheckBoxField name="ПроизвольныйИнтервал1" id="83">
+													<DataPath>ПроизвольныйИнтервал1</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="ПроизвольныйИнтервал1КонтекстноеМеню" id="84"/>
+													<ExtendedTooltip name="ПроизвольныйИнтервал1РасширеннаяПодсказка" id="85"/>
+													<Events>
+														<Event name="OnChange">ПриИзмененииИнтервала</Event>
+													</Events>
+												</CheckBoxField>
+												<InputField name="Дата1" id="24">
+													<DataPath>Дата1</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>None</TitleLocation>
+													<SpinButton>true</SpinButton>
+													<TextColor>#313431</TextColor>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="Дата1КонтекстноеМеню" id="25"/>
+													<ExtendedTooltip name="Дата1РасширеннаяПодсказка" id="26"/>
+													<Events>
+														<Event name="OnChange">ДатаПриИзменении</Event>
+														<Event name="Tuning">ДатаРегулирование</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="КонецИнтервала" id="22">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Конец интервала</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#313431</TitleTextColor>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Конец интервала</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Group>Vertical</Group>
+									<Representation>NormalSeparation</Representation>
+									<BackColor>#E7E7E7</BackColor>
+									<ExtendedTooltip name="КонецИнтервалаРасширеннаяПодсказка" id="23"/>
+									<ChildItems>
+										<RadioButtonField name="ИнтервалДата2" id="17">
+											<DataPath>ИнтервалДата2</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Конец интервала</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleLocation>None</TitleLocation>
+											<RadioButtonType>RadioButtons</RadioButtonType>
+											<ColumnsCount>1</ColumnsCount>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Без ограничения</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">0</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Конец года</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Конец квартала</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">2</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Конец месяца</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">3</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Конец недели</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">4</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Конец дня</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">5</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<BorderColor>#BDC3CE</BorderColor>
+											<ContextMenu name="ИнтервалДата2КонтекстноеМеню" id="18"/>
+											<ExtendedTooltip name="ИнтервалДата2РасширеннаяПодсказка" id="19"/>
+											<Events>
+												<Event name="OnChange">ПриИзмененииИнтервала</Event>
+											</Events>
+										</RadioButtonField>
+										<UsualGroup name="Группа6" id="88">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="89"/>
+											<ChildItems>
+												<CheckBoxField name="ПроизвольныйИнтервал2" id="90">
+													<DataPath>ПроизвольныйИнтервал2</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>None</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="ПроизвольныйИнтервал2КонтекстноеМеню" id="91"/>
+													<ExtendedTooltip name="ПроизвольныйИнтервал2РасширеннаяПодсказка" id="92"/>
+													<Events>
+														<Event name="OnChange">ПриИзмененииИнтервала</Event>
+													</Events>
+												</CheckBoxField>
+												<InputField name="Дата2" id="27">
+													<DataPath>Дата2</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>None</TitleLocation>
+													<SpinButton>true</SpinButton>
+													<TextColor>#313431</TextColor>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="Дата2КонтекстноеМеню" id="28"/>
+													<ExtendedTooltip name="Дата2РасширеннаяПодсказка" id="29"/>
+													<Events>
+														<Event name="OnChange">ДатаПриИзменении</Event>
+														<Event name="Tuning">ДатаРегулирование</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="грПериоды" id="12">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грПериодыРасширеннаяПодсказка" id="13"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация8" id="123">
+									<ContextMenu name="Декорация8КонтекстноеМеню" id="124"/>
+									<ExtendedTooltip name="Декорация8РасширеннаяПодсказка" id="125"/>
+								</LabelDecoration>
+								<UsualGroup name="Группа2" id="68">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="69"/>
+									<ChildItems>
+										<RadioButtonField name="Период" id="60">
+											<DataPath>Период</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleLocation>None</TitleLocation>
+											<RadioButtonType>RadioButtons</RadioButtonType>
+											<ColumnsCount>1</ColumnsCount>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Год</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">0</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Квартал</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Месяц</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">2</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>День</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">3</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<BorderColor>#BDC3CE</BorderColor>
+											<ContextMenu name="ПериодКонтекстноеМеню" id="61"/>
+											<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="62"/>
+											<Events>
+												<Event name="OnChange">ПриИзмененииПериода</Event>
+											</Events>
+										</RadioButtonField>
+										<UsualGroup name="ОснПериод" id="49">
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Осн период</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ОснПериодРасширеннаяПодсказка" id="50"/>
+											<ChildItems>
+												<InputField name="Год" id="46">
+													<DataPath>Год</DataPath>
+													<Enabled>false</Enabled>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>None</TitleLocation>
+													<Width>11</Width>
+													<ChoiceButton>true</ChoiceButton>
+													<SpinButton>true</SpinButton>
+													<EditFormat>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ЧГ=0</v8:content>
+														</v8:item>
+													</EditFormat>
+													<MinValue xsi:type="xs:decimal">1900</MinValue>
+													<TextColor>#313431</TextColor>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="ГодКонтекстноеМеню" id="47"/>
+													<ExtendedTooltip name="ГодРасширеннаяПодсказка" id="48"/>
+													<Events>
+														<Event name="OnChange">ГодПриИзменении</Event>
+														<Event name="Tuning">ГодРегулирование</Event>
+													</Events>
+												</InputField>
+												<InputField name="Квартал" id="51">
+													<DataPath>Квартал</DataPath>
+													<Enabled>false</Enabled>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>None</TitleLocation>
+													<ChoiceButton>true</ChoiceButton>
+													<SpinButton>true</SpinButton>
+													<EditFormat>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ДЛФ=DD</v8:content>
+														</v8:item>
+													</EditFormat>
+													<TextColor>#313431</TextColor>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="КварталКонтекстноеМеню" id="52"/>
+													<ExtendedTooltip name="КварталРасширеннаяПодсказка" id="53"/>
+													<Events>
+														<Event name="OnChange">КварталПриИзменении</Event>
+														<Event name="Tuning">КварталРегулирование</Event>
+													</Events>
+												</InputField>
+												<InputField name="Месяц" id="54">
+													<DataPath>Месяц</DataPath>
+													<Enabled>false</Enabled>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>None</TitleLocation>
+													<ChoiceButton>true</ChoiceButton>
+													<SpinButton>true</SpinButton>
+													<EditFormat>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ДЛФ=DD</v8:content>
+														</v8:item>
+													</EditFormat>
+													<TextColor>#313431</TextColor>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="МесяцКонтекстноеМеню" id="55"/>
+													<ExtendedTooltip name="МесяцРасширеннаяПодсказка" id="56"/>
+													<Events>
+														<Event name="OnChange">МесяцПриИзменении</Event>
+														<Event name="Tuning">МесяцРегулирование</Event>
+													</Events>
+												</InputField>
+												<InputField name="День" id="57">
+													<DataPath>День</DataPath>
+													<Enabled>false</Enabled>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>None</TitleLocation>
+													<SpinButton>true</SpinButton>
+													<EditFormat>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ДЛФ=DD</v8:content>
+														</v8:item>
+													</EditFormat>
+													<TextColor>#313431</TextColor>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="ДеньКонтекстноеМеню" id="58"/>
+													<ExtendedTooltip name="ДеньРасширеннаяПодсказка" id="59"/>
+													<Events>
+														<Event name="OnChange">ДеньПриИзменении</Event>
+														<Event name="Tuning">ДеньРегулирование</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ДопПериод" id="32">
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Доп период</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ДопПериодРасширеннаяПодсказка" id="33"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация1" id="43">
+													<Height>1</Height>
+													<ContextMenu name="Декорация1КонтекстноеМеню" id="44"/>
+													<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="45"/>
+												</LabelDecoration>
+												<CheckBoxField name="сНачалаГода" id="34">
+													<DataPath>сНачалаГода</DataPath>
+													<Enabled>false</Enabled>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="сНачалаГодаКонтекстноеМеню" id="35"/>
+													<ExtendedTooltip name="сНачалаГодаРасширеннаяПодсказка" id="36"/>
+													<Events>
+														<Event name="OnChange">ИнтервалСНачалаГодаПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<CheckBoxField name="сНачалаКвартала" id="37">
+													<DataPath>сНачалаКвартала</DataPath>
+													<Enabled>false</Enabled>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="сНачалаКварталаКонтекстноеМеню" id="38"/>
+													<ExtendedTooltip name="сНачалаКварталаРасширеннаяПодсказка" id="39"/>
+													<Events>
+														<Event name="OnChange">ИнтервалСНачалаКварталаПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<CheckBoxField name="сНачалаМесяца" id="40">
+													<DataPath>сНачалаМесяца</DataPath>
+													<Enabled>false</Enabled>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<BorderColor>#BDC3CE</BorderColor>
+													<ContextMenu name="сНачалаМесяцаКонтекстноеМеню" id="41"/>
+													<ExtendedTooltip name="сНачалаМесяцаРасширеннаяПодсказка" id="42"/>
+													<Events>
+														<Event name="OnChange">ИнтервалСНачалаМесяцаПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<LabelDecoration name="Декорация7" id="120">
+									<ContextMenu name="Декорация7КонтекстноеМеню" id="121"/>
+									<ExtendedTooltip name="Декорация7РасширеннаяПодсказка" id="122"/>
+								</LabelDecoration>
+								<UsualGroup name="Группа1" id="66">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="67"/>
+									<ChildItems>
+										<CheckBoxField name="ПроизвольныйИнтервал" id="63">
+											<DataPath>ПроизвольныйИнтервал</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content> Произвольный интервал</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<BorderColor>#BDC3CE</BorderColor>
+											<ContextMenu name="ПроизвольныйИнтервалКонтекстноеМеню" id="64"/>
+											<ExtendedTooltip name="ПроизвольныйИнтервалРасширеннаяПодсказка" id="65"/>
+											<Events>
+												<Event name="OnChange">ПриИзмененииПериода</Event>
+											</Events>
+										</CheckBoxField>
+										<UsualGroup name="Группа3" id="76">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="77"/>
+											<ChildItems>
+												<LabelDecoration name="Декорация2" id="78">
+													<Width>7</Width>
+													<ContextMenu name="Декорация2КонтекстноеМеню" id="79"/>
+													<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="80"/>
+												</LabelDecoration>
+												<UsualGroup name="Группа4" id="81">
+													<Group>Vertical</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="82"/>
+													<ChildItems>
+														<InputField name="Дата3" id="70">
+															<DataPath>Дата1</DataPath>
+															<TitleTextColor>#313431</TitleTextColor>
+															<SpinButton>true</SpinButton>
+															<TextColor>#313431</TextColor>
+															<BorderColor>#BDC3CE</BorderColor>
+															<ContextMenu name="Дата3КонтекстноеМеню" id="71"/>
+															<ExtendedTooltip name="Дата3РасширеннаяПодсказка" id="72"/>
+															<Events>
+																<Event name="OnChange">ДатаПриИзменении</Event>
+																<Event name="Tuning">ДатаРегулирование</Event>
+															</Events>
+														</InputField>
+														<InputField name="Дата4" id="73">
+															<DataPath>Дата2</DataPath>
+															<TitleTextColor>#313431</TitleTextColor>
+															<SpinButton>true</SpinButton>
+															<TextColor>#313431</TextColor>
+															<BorderColor>#BDC3CE</BorderColor>
+															<ContextMenu name="Дата4КонтекстноеМеню" id="74"/>
+															<ExtendedTooltip name="Дата4РасширеннаяПодсказка" id="75"/>
+															<Events>
+																<Event name="OnChange">ДатаПриИзменении</Event>
+																<Event name="Tuning">ДатаРегулирование</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ПроизвольныйПериод" id="30">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Произвольный интервал</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Произвольный период</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Horizontal</Group>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="ПроизвольныйПериодРасширеннаяПодсказка" id="31"/>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="грКнопки" id="93">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="грКнопкиРасширеннаяПодсказка" id="94"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация3" id="95">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация3КонтекстноеМеню" id="96"/>
+							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="97"/>
+						</LabelDecoration>
+						<Button name="кнОК" id="4">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>10</Width>
+							<Height>1</Height>
+							<CommandName>Form.Command.кнОК</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>     ОК     </v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнОКРасширеннаяПодсказка" id="5"/>
+						</Button>
+						<Button name="кнОтмена" id="6">
+							<Type>UsualButton</Type>
+							<Representation>Text</Representation>
+							<Width>10</Width>
+							<Height>1</Height>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>  Отмена  </v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнОтменаРасширеннаяПодсказка" id="7"/>
+						</Button>
+						<LabelDecoration name="Декорация4" id="98">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация4КонтекстноеМеню" id="99"/>
+							<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="100"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Дата1" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>с</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Дата2" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>по</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПериодТекст" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период текст</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнтервалДата1" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Интервал дата1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИнтервалДата2" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Интервал дата1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="сНачалаГода" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>с начала года</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="сНачалаКвартала" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>с начала квартала</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="сНачалаМесяца" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>с начала месяца</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Год" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Год</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Квартал" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Квартал</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Месяц" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Месяц</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="День" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>День</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Объект" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="Период" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроизвольныйИнтервал" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Произвольный интервал</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроизвольныйИнтервал1" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Произвольный интервал</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроизвольныйИнтервал2" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Произвольный интервал</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнОК</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнОтмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнОтмена</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Режим" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыбратьРежим</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

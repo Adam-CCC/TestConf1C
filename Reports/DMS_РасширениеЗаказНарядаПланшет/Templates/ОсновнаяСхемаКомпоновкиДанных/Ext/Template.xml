@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаВсегоРабот</dataPath>
+			<field>СуммаВсегоРабот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма работ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СсылкаЗаказНаряд</dataPath>
+			<field>СсылкаЗаказНаряд</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ наряд</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заявка</dataPath>
+			<field>Заявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДополнениеРабот</dataPath>
+			<field>СуммаДополнениеРабот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма дополненительных работ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаВсегоТовар</dataPath>
+			<field>СуммаВсегоТовар</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма запчастей</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СсылкаЗаявка</dataPath>
+			<field>СсылкаЗаявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка на сервис</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРасширений</dataPath>
+			<field>СуммаРасширений</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма расширений</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДополнениеТовар</dataPath>
+			<field>СуммаДополнениеТовар</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма дополнительных запчастей</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДоРасширения</dataPath>
+			<field>СуммаДоРасширения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма до расширения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаИтоговая</dataPath>
+			<field>СуммаИтоговая</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма итоговая</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	РаботыВсего.СсылкаЗаказНаряд КАК СсылкаЗаказНаряд,
+	РаботыВсего.СсылкаЗаявка КАК Заявка,
+	РаботыВсего.СуммаВсегоРабот КАК СуммаВсегоРабот,
+	ЕСТЬNULL(РаботыДополнение.СуммаВсегоРабот, 0) КАК СуммаДополнениеРабот,
+	ЕСТЬNULL(ТоварыВсего.СуммаВсегоТовар, 0) КАК СуммаВсегоТовар,
+	ЕСТЬNULL(ТоварыДополнение.СуммаВсегоТовар, 0) КАК СуммаДополнениеТовар,
+	РаботыВсего.СуммаВсегоРабот + ЕСТЬNULL(ТоварыВсего.СуммаВсегоТовар, 0) - (ЕСТЬNULL(РаботыДополнение.СуммаВсегоРабот, 0) + ЕСТЬNULL(ТоварыДополнение.СуммаВсегоТовар, 0)) КАК СуммаДоРасширения,
+	ЕСТЬNULL(РаботыДополнение.СуммаВсегоРабот, 0) + ЕСТЬNULL(ТоварыДополнение.СуммаВсегоТовар, 0) КАК СуммаРасширений,
+	РаботыВсего.СуммаВсегоРабот + ЕСТЬNULL(ТоварыВсего.СуммаВсегоТовар, 0) КАК СуммаИтоговая
+ИЗ
+	(ВЫБРАТЬ
+		Renault_CRM_ЗаявкаНаСервисРаботы.Ссылка КАК СсылкаЗаявка,
+		ЗаказНарядПрисоеденить.Ссылка КАК СсылкаЗаказНаряд,
+		СУММА(Renault_CRM_ЗаявкаНаСервисРаботы.Сумма) КАК СуммаВсегоРабот
+	ИЗ
+		Документ.ЗаказНаряд КАК ЗаказНарядПрисоеденить
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ЗаявкаНаСервис.Работы КАК Renault_CRM_ЗаявкаНаСервисРаботы
+			ПО (Renault_CRM_ЗаявкаНаСервисРаботы.Ссылка.ЗаказНаряд = ЗаказНарядПрисоеденить.Ссылка)
+	ГДЕ
+		Renault_CRM_ЗаявкаНаСервисРаботы.Ссылка.Проведен
+		И Renault_CRM_ЗаявкаНаСервисРаботы.Ссылка.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+	
+	СГРУППИРОВАТЬ ПО
+		ЗаказНарядПрисоеденить.Ссылка,
+		Renault_CRM_ЗаявкаНаСервисРаботы.Ссылка) КАК РаботыВсего
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Ссылка КАК СсылкаЗаявка,
+			ЗаказНарядПрисоеденить.Ссылка КАК СсылкаЗаказНаряд,
+			СУММА(Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Сумма) КАК СуммаВсегоРабот
+		ИЗ
+			Документ.ЗаказНаряд КАК ЗаказНарядПрисоеденить
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ЗаявкаНаСервис.РаботыДополнениеПланшет КАК Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет
+				ПО (Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Ссылка.ЗаказНаряд = ЗаказНарядПрисоеденить.Ссылка)
+		ГДЕ
+			Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Ссылка.Проведен
+			И Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Ссылка.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+		
+		СГРУППИРОВАТЬ ПО
+			ЗаказНарядПрисоеденить.Ссылка,
+			Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Ссылка) КАК РаботыДополнение
+		ПО РаботыВсего.СсылкаЗаявка = РаботыДополнение.СсылкаЗаявка
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Renault_CRM_ЗаявкаНаСервисТовары.Ссылка КАК СсылкаЗаявка,
+			ЗаказНарядПрисоеденить.Ссылка КАК СсылкаЗаказНаряд,
+			СУММА(Renault_CRM_ЗаявкаНаСервисТовары.Сумма) КАК СуммаВсегоТовар
+		ИЗ
+			Документ.ЗаказНаряд КАК ЗаказНарядПрисоеденить
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ЗаявкаНаСервис.Товары КАК Renault_CRM_ЗаявкаНаСервисТовары
+				ПО (Renault_CRM_ЗаявкаНаСервисТовары.Ссылка.ЗаказНаряд = ЗаказНарядПрисоеденить.Ссылка)
+		ГДЕ
+			Renault_CRM_ЗаявкаНаСервисТовары.Ссылка.Проведен
+			И Renault_CRM_ЗаявкаНаСервисТовары.Ссылка.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+		
+		СГРУППИРОВАТЬ ПО
+			ЗаказНарядПрисоеденить.Ссылка,
+			Renault_CRM_ЗаявкаНаСервисТовары.Ссылка) КАК ТоварыВсего
+		ПО РаботыВсего.СсылкаЗаявка = ТоварыВсего.СсылкаЗаявка
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Ссылка КАК СсылкаЗаявка,
+			ЗаказНарядПрисоеденить.Ссылка КАК СсылкаЗаказНаряд,
+			СУММА(Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Сумма) КАК СуммаВсегоТовар
+		ИЗ
+			Документ.ЗаказНаряд КАК ЗаказНарядПрисоеденить
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ЗаявкаНаСервис.ТоварыДополнениеПланшет КАК Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет
+				ПО (Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Ссылка.ЗаказНаряд = ЗаказНарядПрисоеденить.Ссылка)
+		ГДЕ
+			Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Ссылка.Проведен
+			И Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Ссылка.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+		
+		СГРУППИРОВАТЬ ПО
+			ЗаказНарядПрисоеденить.Ссылка,
+			Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Ссылка) КАК ТоварыДополнение
+		ПО РаботыВсего.СсылкаЗаявка = ТоварыДополнение.СсылкаЗаявка</query>
+	</dataSet>
+	<totalField>
+		<dataPath>СуммаРасширений</dataPath>
+		<expression>Сумма(СуммаРасширений)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДоРасширения</dataPath>
+		<expression>Сумма(СуммаДоРасширения)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДополнениеТовар</dataPath>
+		<expression>Сумма(СуммаДополнениеТовар)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДополнениеРабот</dataPath>
+		<expression>Сумма(СуммаДополнениеРабот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаВсегоТовар</dataPath>
+		<expression>Сумма(СуммаВсегоТовар)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаВсегоРабот</dataPath>
+		<expression>Сумма(СуммаВсегоРабот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаИтоговая</dataPath>
+		<expression>Сумма(СуммаИтоговая)</expression>
+	</totalField>
+	<parameter>
+		<name>Дата1</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата1</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>Дата2</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата2</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КОНЕЦПЕРИОДА(&amp;Период.ДатаОкончания,"Месяц")</expression>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СсылкаЗаказНаряд</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаДоРасширения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаРасширений</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаИтоговая</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Заявка</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>5fe5db7b-5825-45c3-893b-99948d7759f7</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

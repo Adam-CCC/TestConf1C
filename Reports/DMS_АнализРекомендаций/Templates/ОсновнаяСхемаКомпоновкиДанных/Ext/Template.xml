@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДилерскийЦентр</dataPath>
+			<field>ДилерскийЦентр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дилерский центр</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоРекомендаций</dataPath>
+			<field>КоличествоРекомендаций</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активных рекомендаций за период</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончания</dataPath>
+			<field>ДатаОкончания</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата окончания</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаявокНаСервис</dataPath>
+			<field>КоличествоЗаявокНаСервис</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записано VIN</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаТоваров</dataPath>
+			<field>СуммаТоваров</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма товаров</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">9</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БизнесРегион</dataPath>
+			<field>БизнесРегион</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регион</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма документа</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">9</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РекомендуемаяДатаВыполнения</dataPath>
+			<field>РекомендуемаяДатаВыполнения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаказНарядов</dataPath>
+			<field>КоличествоЗаказНарядов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнено рекомендаций по VIN</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРабот</dataPath>
+			<field>СуммаРабот</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоСМС</dataPath>
+			<field>КоличествоСМС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправлено SMS</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЭлектронныхПисем</dataPath>
+			<field>КоличествоЭлектронныхПисем</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправлено E-Mail</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рекомендация</dataPath>
+			<field>Рекомендация</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>VIN</dataPath>
+			<field>VIN</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>VIN</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>Выбор когда  VIN = "" Тогда "&lt;VIN не указан&gt;" Иначе VIN Конец</presentationExpression>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">17</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗвонков</dataPath>
+			<field>КоличествоЗвонков</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факт звонка</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачала</dataPath>
+			<field>ДатаНачала</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy; ДП=-</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаУказана</dataPath>
+			<field>ДатаУказана</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата указана</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy; ДП=-</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">12</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоVIN</dataPath>
+			<field>КоличествоVIN</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во VIN, связанных с рекомендациями</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредставлениеРекомендации</dataPath>
+			<field>ПредставлениеРекомендации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление рекомендации</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>BIR</dataPath>
+			<field>BIR</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>BIR</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ПоврежденияАвтомобилей.Регистратор КАК Рекомендация,
+	ПоврежденияАвтомобилей.Регистратор.ДилерскийЦентр КАК ДилерскийЦентр,
+	ПоврежденияАвтомобилей.Автомобиль КАК Автомобиль,
+	ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения КАК РекомендуемаяДатаВыполнения,
+	ПоврежденияАвтомобилей.Регистратор.ДилерскийЦентр.DMS_БизнесРегион КАК БизнесРегион,
+	ВЫБОР
+		КОГДА ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ДАТАВРЕМЯ(1, 1, 1)
+		ИНАЧЕ ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения
+	КОНЕЦ КАК ДатаНачала,
+	ВЫБОР
+		КОГДА ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ДАТАВРЕМЯ(1, 1, 1)
+		ИНАЧЕ ДОБАВИТЬКДАТЕ(ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения, ДЕНЬ, &amp;КоличествоДней)
+	КОНЕЦ КАК ДатаОкончания,
+	ВЫБОР
+		КОГДА ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ДатаУказана,
+	ВЫБОР
+		КОГДА ПоврежденияАвтомобилей.Цвет = ЗНАЧЕНИЕ(перечисление.Renault_ЦветаСертификатаКонтроля.Красный)
+			ТОГДА "Цвет: 'Красный'"
+		КОГДА ПоврежденияАвтомобилей.Цвет = ЗНАЧЕНИЕ(перечисление.Renault_ЦветаСертификатаКонтроля.Желтый)
+			ТОГДА "Цвет: 'Желтый'"
+		ИНАЧЕ ""
+	КОНЕЦ КАК Цвет,
+	ВЫБОР
+		КОГДА ПоврежденияАвтомобилей.Работа ССЫЛКА Справочник.Автоработы
+				И ПоврежденияАвтомобилей.Работа &lt;&gt; ЗНАЧЕНИЕ(Справочник.Автоработы.ПустаяСсылка)
+			ТОГДА ПоврежденияАвтомобилей.Работа.Наименование
+		КОГДА ПоврежденияАвтомобилей.Работа ССЫЛКА Справочник.Автоработы
+				И ПоврежденияАвтомобилей.Работа = ЗНАЧЕНИЕ(Справочник.Автоработы.ПустаяСсылка)
+			ТОГДА "Работа не указана"
+		КОГДА ПоврежденияАвтомобилей.Работа = НЕОПРЕДЕЛЕНО
+			ТОГДА "Работа не указана"
+		ИНАЧЕ ВЫРАЗИТЬ(ПоврежденияАвтомобилей.Работа КАК СТРОКА(200))
+	КОНЕЦ КАК РаботаНаименование
+ПОМЕСТИТЬ ТаблицаРекомендаций
+ИЗ
+	РегистрСведений.Renault_ПоврежденияАвтомобилей КАК ПоврежденияАвтомобилей
+ГДЕ
+	(ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения &gt;= &amp;ДатаНачала
+			ИЛИ &amp;ДатаНачала = ДАТАВРЕМЯ(1, 1, 1))
+	И (ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения &lt;= &amp;ДатаОкончания
+			ИЛИ &amp;ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1))
+	И (ПоврежденияАвтомобилей.Регистратор.ДилерскийЦентр = &amp;ДилерскийЦентр
+			ИЛИ &amp;ДилерскийЦентр = ЗНАЧЕНИЕ(Справочник.CRM_ДилерскиеЦентры.ПустаяСсылка))
+	И ПоврежденияАвтомобилей.РаботаАктуальна
+
+СГРУППИРОВАТЬ ПО
+	ПоврежденияАвтомобилей.Автомобиль,
+	ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения,
+	ПоврежденияАвтомобилей.Регистратор.ДилерскийЦентр,
+	ПоврежденияАвтомобилей.Регистратор.ДилерскийЦентр.DMS_БизнесРегион,
+	ВЫБОР
+		КОГДА ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ДАТАВРЕМЯ(1, 1, 1)
+		ИНАЧЕ ДОБАВИТЬКДАТЕ(ПоврежденияАвтомобилей.РекомендуемаяДатаВыполнения, ДЕНЬ, &amp;КоличествоДней)
+	КОНЕЦ,
+	ПоврежденияАвтомобилей.Регистратор,
+	ВЫБОР
+		КОГДА ПоврежденияАвтомобилей.Цвет = ЗНАЧЕНИЕ(перечисление.Renault_ЦветаСертификатаКонтроля.Красный)
+			ТОГДА "Цвет: 'Красный'"
+		КОГДА ПоврежденияАвтомобилей.Цвет = ЗНАЧЕНИЕ(перечисление.Renault_ЦветаСертификатаКонтроля.Желтый)
+			ТОГДА "Цвет: 'Желтый'"
+		ИНАЧЕ ""
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ПоврежденияАвтомобилей.Работа ССЫЛКА Справочник.Автоработы
+				И ПоврежденияАвтомобилей.Работа &lt;&gt; ЗНАЧЕНИЕ(Справочник.Автоработы.ПустаяСсылка)
+			ТОГДА ПоврежденияАвтомобилей.Работа.Наименование
+		КОГДА ПоврежденияАвтомобилей.Работа ССЫЛКА Справочник.Автоработы
+				И ПоврежденияАвтомобилей.Работа = ЗНАЧЕНИЕ(Справочник.Автоработы.ПустаяСсылка)
+			ТОГДА "Работа не указана"
+		КОГДА ПоврежденияАвтомобилей.Работа = НЕОПРЕДЕЛЕНО
+			ТОГДА "Работа не указана"
+		ИНАЧЕ ВЫРАЗИТЬ(ПоврежденияАвтомобилей.Работа КАК СТРОКА(200))
+	КОНЕЦ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	КонтактыСКлиентом.Ссылка КАК КонтактСКлиентом,
+	КонтактыСКлиентом.Автомобиль КАК Автомобиль,
+	КонтактыСКлиентом.Результат КАК Результат,
+	КонтактыСКлиентом.Результат.Действие КАК ТипРезультата,
+	КонтактыСКлиентом.КонтактВыполнен КАК КонтактВыполнен
+ПОМЕСТИТЬ ИсторияКонтактов
+ИЗ
+	ТаблицаРекомендаций КАК ТаблицаРекомендаций
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Renault_КонтактСКлиентом КАК КонтактыСКлиентом
+		ПО ТаблицаРекомендаций.Автомобиль = КонтактыСКлиентом.Автомобиль
+			И (ТаблицаРекомендаций.ДатаУказана)
+			И (НЕ КонтактыСКлиентом.ПометкаУдаления)
+			И (КонтактыСКлиентом.КонтактВыполнен)
+			И (КонтактыСКлиентом.ДатаВыполненияКонтакта &gt;= ТаблицаРекомендаций.ДатаНачала)
+			И (КонтактыСКлиентом.ДатаВыполненияКонтакта &lt;= ТаблицаРекомендаций.ДатаОкончания)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаявкиНаСервис.Ссылка КАК ЗаявкаНаСервис,
+	ЗаявкиНаСервис.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ ЗаявкиНаСервис
+ИЗ
+	ТаблицаРекомендаций КАК ТаблицаРекомендаций
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ЗаявкаНаСервис КАК ЗаявкиНаСервис
+		ПО ТаблицаРекомендаций.ДилерскийЦентр = ЗаявкиНаСервис.ДилерскийЦентр
+			И ТаблицаРекомендаций.Автомобиль = ЗаявкиНаСервис.Автомобиль
+			И (ТаблицаРекомендаций.ДатаУказана)
+			И (ЗаявкиНаСервис.ВремяНачала &gt;= ТаблицаРекомендаций.ДатаНачала)
+			И (ЗаявкиНаСервис.ВремяНачала &lt;= ТаблицаРекомендаций.ДатаОкончания)
+			И (НЕ ЗаявкиНаСервис.ПометкаУдаления)
+			И (ЗаявкиНаСервис.Проведен)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНаряды.Ссылка КАК ЗаказНаряд,
+	ЗаказНаряды.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ ЗаказНаряды
+ИЗ
+	ТаблицаРекомендаций КАК ТаблицаРекомендаций
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд КАК ЗаказНаряды
+		ПО ТаблицаРекомендаций.Автомобиль = ЗаказНаряды.Автомобиль
+			И (ТаблицаРекомендаций.ДатаУказана)
+			И (ЗаказНаряды.ДатаОкончания &gt;= ТаблицаРекомендаций.ДатаНачала)
+			И (ЗаказНаряды.ДатаОкончания &lt;= ДОБАВИТЬКДАТЕ(ТаблицаРекомендаций.ДатаОкончания, ДЕНЬ, 1))
+			И (НЕ ЗаказНаряды.ПометкаУдаления)
+			И (ЗаказНаряды.Проведен)
+ГДЕ
+	НЕ ЗаказНаряды.ПометкаУдаления
+	И ЗаказНаряды.Проведен
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаРекомендаций.БизнесРегион КАК БизнесРегион,
+	ТаблицаРекомендаций.ДилерскийЦентр КАК ДилерскийЦентр,
+	ТаблицаРекомендаций.Автомобиль.VIN КАК VIN,
+	0 КАК КоличествоРекомендаций,
+	СУММА(ВЫБОР
+			КОГДА КонтактПоТелефону.КонтактСКлиентом ЕСТЬ NULL 
+				ТОГДА 0
+			ИНАЧЕ 1
+		КОНЕЦ) КАК КоличествоЗвонков,
+	СУММА(ВЫБОР
+			КОГДА КонтактПоЭлектроннойПочте.КонтактСКлиентом ЕСТЬ NULL 
+				ТОГДА 0
+			ИНАЧЕ 1
+		КОНЕЦ) КАК КоличествоЭлектронныхПисем,
+	СУММА(ВЫБОР
+			КОГДА КонтактЧерезСМС.КонтактСКлиентом ЕСТЬ NULL 
+				ТОГДА 0
+			ИНАЧЕ 1
+		КОНЕЦ) КАК КоличествоСМС,
+	СУММА(ВЫБОР
+			КОГДА ЗаявкиНаСервис.ЗаявкаНаСервис ЕСТЬ NULL 
+				ТОГДА 0
+			ИНАЧЕ 1
+		КОНЕЦ) КАК КоличествоЗаявокНаСервис,
+	СУММА(ВЫБОР
+			КОГДА ЗаказНаряды.ЗаказНаряд ЕСТЬ NULL 
+				ТОГДА 0
+			ИНАЧЕ 1
+		КОНЕЦ) КАК КоличествоЗаказНарядов,
+	СУММА(ЕСТЬNULL(ЗаказНаряды.ЗаказНаряд.СуммаНоменклатурыДокумента, 0)) КАК СуммаТоваров,
+	СУММА(ЕСТЬNULL(ЗаказНаряды.ЗаказНаряд.СуммаРаботДокумента, 0)) КАК СуммаРабот,
+	СУММА(ЕСТЬNULL(ЗаказНаряды.ЗаказНаряд.СуммаДокумента, 0)) КАК СуммаДокумента,
+	ТаблицаРекомендаций.Рекомендация КАК Рекомендация,
+	ТаблицаРекомендаций.Автомобиль КАК Автомобиль,
+	ТаблицаРекомендаций.РекомендуемаяДатаВыполнения КАК РекомендуемаяДатаВыполнения,
+	ТаблицаРекомендаций.ДатаНачала КАК ДатаНачала,
+	ТаблицаРекомендаций.ДатаОкончания КАК ДатаОкончания,
+	ТаблицаРекомендаций.ДатаУказана КАК ДатаУказана,
+	0 КАК КоличествоVIN,
+	ЕСТЬNULL(ТаблицаРекомендаций.РаботаНаименование, "") + ВЫБОР
+		КОГДА ТаблицаРекомендаций.Цвет = ""
+			ТОГДА ""
+		ИНАЧЕ ", " + ТаблицаРекомендаций.Цвет
+	КОНЕЦ + ", рекомендуемая дата выполнения: " КАК ПредставлениеРекомендации,
+	ТаблицаРекомендаций.ДилерскийЦентр.BIR КАК BIR
+ИЗ
+	ТаблицаРекомендаций КАК ТаблицаРекомендаций
+		ЛЕВОЕ СОЕДИНЕНИЕ ИсторияКонтактов КАК КонтактПоТелефону
+		ПО (ТаблицаРекомендаций.Автомобиль = КонтактПоТелефону.Автомобиль
+					И КонтактПоТелефону.КонтактВыполнен
+					И (КонтактПоТелефону.ТипРезультата = ЗНАЧЕНИЕ(Перечисление.Renault_ДействияРезультатов.ОтметитьТелефонНеверным)
+				ИЛИ КонтактПоТелефону.ТипРезультата = ЗНАЧЕНИЕ(Перечисление.Renault_ДействияРезультатов.БольшеНеБеспокоитьКлиента)
+				ИЛИ КонтактПоТелефону.ТипРезультата = ЗНАЧЕНИЕ(Перечисление.Renault_ДействияРезультатов.ПерезвонитьПозже)
+				ИЛИ КонтактПоТелефону.ТипРезультата = ЗНАЧЕНИЕ(Перечисление.Renault_ДействияРезультатов.ОкончаниеЗвонка)))
+		ЛЕВОЕ СОЕДИНЕНИЕ ИсторияКонтактов КАК КонтактПоЭлектроннойПочте
+		ПО ТаблицаРекомендаций.Автомобиль = КонтактПоЭлектроннойПочте.Автомобиль
+			И (КонтактПоЭлектроннойПочте.Результат = ЗНАЧЕНИЕ(Справочник.Renault_РезультатыКампаний.ОтправленоПисьмо))
+		ЛЕВОЕ СОЕДИНЕНИЕ ИсторияКонтактов КАК КонтактЧерезСМС
+		ПО (КонтактЧерезСМС.Результат = ЗНАЧЕНИЕ(Справочник.Renault_РезультатыКампаний.ОтправленоСМС))
+			И ТаблицаРекомендаций.Автомобиль = КонтактЧерезСМС.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ ЗаявкиНаСервис КАК ЗаявкиНаСервис
+		ПО ТаблицаРекомендаций.Автомобиль = ЗаявкиНаСервис.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ ЗаказНаряды КАК ЗаказНаряды
+		ПО ТаблицаРекомендаций.Автомобиль = ЗаказНаряды.Автомобиль
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаРекомендаций.ДилерскийЦентр,
+	ТаблицаРекомендаций.Автомобиль,
+	ТаблицаРекомендаций.РекомендуемаяДатаВыполнения,
+	ТаблицаРекомендаций.БизнесРегион,
+	ТаблицаРекомендаций.ДатаНачала,
+	ТаблицаРекомендаций.ДатаОкончания,
+	ТаблицаРекомендаций.ДатаУказана,
+	ТаблицаРекомендаций.Рекомендация,
+	ТаблицаРекомендаций.Автомобиль.VIN,
+	ЕСТЬNULL(ТаблицаРекомендаций.РаботаНаименование, "") + ВЫБОР
+		КОГДА ТаблицаРекомендаций.Цвет = ""
+			ТОГДА ""
+		ИНАЧЕ ", " + ТаблицаРекомендаций.Цвет
+	КОНЕЦ + ", рекомендуемая дата выполнения: "</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>РекомендацияПользователю</dataPath>
+		<expression>ПредставлениеРекомендации+Формат(РекомендуемаяДатаВыполнения,"ДФ=dd.MM.yyyy; ДП='Не указана'")</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Рекомендации</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>КоличествоЗаказНарядов</dataPath>
+		<expression>Сумма(КоличествоЗаказНарядов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗаявокНаСервис</dataPath>
+		<expression>Сумма(КоличествоЗаявокНаСервис)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗвонков</dataPath>
+		<expression>Сумма(КоличествоЗвонков)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоРекомендаций</dataPath>
+		<expression>Сумма(КоличествоРекомендаций)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоСМС</dataPath>
+		<expression>Сумма(КоличествоСМС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЭлектронныхПисем</dataPath>
+		<expression>Сумма(КоличествоЭлектронныхПисем)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДокумента</dataPath>
+		<expression>Сумма(СуммаДокумента)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРабот</dataPath>
+		<expression>Сумма(СуммаРабот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаТоваров</dataPath>
+		<expression>Сумма(СуммаТоваров)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоРекомендаций</dataPath>
+		<expression>Количество(Различные Рекомендация)</expression>
+		<group>VIN</group>
+		<group>БизнесРегион</group>
+		<group>БизнесРегион Иерархия</group>
+		<group>ДилерскийЦентр</group>
+		<group>Рекомендация</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоVIN</dataPath>
+		<expression>Количество(Различные VIN)</expression>
+		<group>БизнесРегион</group>
+		<group>БизнесРегион Иерархия</group>
+		<group>ДилерскийЦентр</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>НачалоПериода(&amp;Период.ДатаНачала,"День")</expression>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КонецПериода(&amp;Период.ДатаОкончания,"День")</expression>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДилерскийЦентр</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дилерский центр</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.CRM_ДилерскиеЦентры</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>КоличествоДней</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дней с момента контаткта</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>10</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">15</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>БизнесРегион</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>BIR</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДилерскийЦентр</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>VIN</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РекомендацияПользователю</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоVIN</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоРекомендаций</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗвонков</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоСМС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЭлектронныхПисем</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗаявокНаСервис</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗаказНарядов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товарооборот по рекомендациям, руб.</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаТоваров</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Товаров</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаРабот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Работ</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаДокумента</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДилерскийЦентр</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.CRM_ДилерскиеЦентры.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КоличествоДней</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Зеленый</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеПолейГруппировки</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupFieldsPlacement">SeparatelyAndInTotalsOnly</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ рекомендаций</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>БизнесРегион</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>BIR</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДилерскийЦентр</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>VIN</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:item>
+								<dcsset:selection>
+									<dcsset:item>
+										<dcsset:field>РекомендацияПользователю</dcsset:field>
+									</dcsset:item>
+								</dcsset:selection>
+								<dcsset:filter/>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>Текст</dcscor:parameter>
+										<dcscor:value xsi:type="xs:string"/>
+									</dcscor:item>
+								</dcsset:appearance>
+							</dcsset:item>
+						</dcsset:conditionalAppearance>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСобытия</dataPath>
+			<field>ВидСобытия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗавершенных</dataPath>
+			<field>КоличествоЗавершенных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Завершено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗапланированных</dataPath>
+			<field>КоличествоЗапланированных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запланировано</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоУспешноЗавершенных</dataPath>
+			<field>КоличествоУспешноЗавершенных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Успешно завершено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	CRM_СобытияПоРабочимЛистам.Сотрудник,
+	CRM_СобытияПоРабочимЛистам.ВидСобытия,
+	КОЛИЧЕСТВО(CRM_СобытияПоРабочимЛистам.Ссылка) КАК КоличествоЗавершенных,
+	0 КАК КоличествоЗапланированных,
+	0 КАК КоличествоУспешноЗавершенных
+ИЗ
+	Документ.CRM_СобытияПоРабочимЛистам КАК CRM_СобытияПоРабочимЛистам
+ГДЕ
+	ВЫБОР
+			КОГДА ГОД(&amp;НачалоПериода) &gt; 1
+				ТОГДА CRM_СобытияПоРабочимЛистам.ДатаНапоминания &gt;= &amp;НачалоПериода
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА ГОД(&amp;КонецПериода) &gt; 1
+				ТОГДА CRM_СобытияПоРабочимЛистам.ДатаНапоминания &lt;= &amp;КонецПериода
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И CRM_СобытияПоРабочимЛистам.Обработано = ИСТИНА
+	И CRM_СобытияПоРабочимЛистам.ПометкаУдаления = ЛОЖЬ
+
+СГРУППИРОВАТЬ ПО
+	CRM_СобытияПоРабочимЛистам.ВидСобытия,
+	CRM_СобытияПоРабочимЛистам.Сотрудник
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	CRM_СобытияПоРабочимЛистам.Сотрудник,
+	CRM_СобытияПоРабочимЛистам.ВидСобытия,
+	0,
+	0,
+	КОЛИЧЕСТВО(CRM_СобытияПоРабочимЛистам.Ссылка)
+ИЗ
+	Документ.CRM_СобытияПоРабочимЛистам КАК CRM_СобытияПоРабочимЛистам
+ГДЕ
+	ВЫБОР
+			КОГДА ГОД(&amp;НачалоПериода) &gt; 1
+				ТОГДА CRM_СобытияПоРабочимЛистам.ДатаНапоминания &gt;= &amp;НачалоПериода
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА ГОД(&amp;КонецПериода) &gt; 1
+				ТОГДА CRM_СобытияПоРабочимЛистам.ДатаНапоминания &lt;= &amp;КонецПериода
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И CRM_СобытияПоРабочимЛистам.Обработано = ИСТИНА
+	И CRM_СобытияПоРабочимЛистам.ЗавершеноУспешно = ИСТИНА
+	И CRM_СобытияПоРабочимЛистам.ПометкаУдаления = ЛОЖЬ
+
+СГРУППИРОВАТЬ ПО
+	CRM_СобытияПоРабочимЛистам.ВидСобытия,
+	CRM_СобытияПоРабочимЛистам.Сотрудник
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	CRM_СобытияПоРабочимЛистам.Сотрудник,
+	CRM_СобытияПоРабочимЛистам.ВидСобытия,
+	0,
+	КОЛИЧЕСТВО(CRM_СобытияПоРабочимЛистам.Ссылка),
+	0
+ИЗ
+	Документ.CRM_СобытияПоРабочимЛистам КАК CRM_СобытияПоРабочимЛистам
+ГДЕ
+	ВЫБОР
+			КОГДА ГОД(&amp;НачалоПериода) &gt; 1
+				ТОГДА CRM_СобытияПоРабочимЛистам.ДатаНапоминания &gt;= &amp;НачалоПериода
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА ГОД(&amp;КонецПериода) &gt; 1
+				ТОГДА CRM_СобытияПоРабочимЛистам.ДатаНапоминания &lt;= &amp;КонецПериода
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И CRM_СобытияПоРабочимЛистам.ПометкаУдаления = ЛОЖЬ
+
+СГРУППИРОВАТЬ ПО
+	CRM_СобытияПоРабочимЛистам.ВидСобытия,
+	CRM_СобытияПоРабочимЛистам.Сотрудник</query>
+	</dataSet>
+	<totalField>
+		<dataPath>КоличествоЗавершенных</dataPath>
+		<expression>Сумма(КоличествоЗавершенных)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗапланированных</dataPath>
+		<expression>Сумма(КоличествоЗапланированных)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоУспешноЗавершенных</dataPath>
+		<expression>Сумма(КоличествоУспешноЗавершенных)</expression>
+	</totalField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗапланированных</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Завершенные</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоЗавершенных</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоУспешноЗавершенных</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидСобытия</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>5b2aab3d-e673-4fdc-8505-53e3f69eccc1</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Сотрудник</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>7abb725d-ae17-410b-9360-95dda4dbb8fc</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisWeek</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>db872887-0264-4c27-a6d3-7db0f2e6dfaa</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Сотрудник</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ВидСобытия</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>None</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="грКонтейнер" id="27">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:FieldBackColor</BackColor>
+			<ExtendedTooltip name="грКонтейнерРасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="22">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="23"/>
+					<ChildItems>
+						<InputField name="ПериодНачало" id="10">
+							<DataPath>Запись.ПериодНачало</DataPath>
+							<TitleTextColor>#313431</TitleTextColor>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<TextColor>#313431</TextColor>
+							<BorderColor>#9CA6B2</BorderColor>
+							<ContextMenu name="ПериодНачалоКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПериодНачалоРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<InputField name="ПериодОкончание" id="13">
+							<DataPath>Запись.ПериодОкончание</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>по</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#313431</TitleTextColor>
+							<TextColor>#313431</TextColor>
+							<BorderColor>#9CA6B2</BorderColor>
+							<ContextMenu name="ПериодОкончаниеКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ПериодОкончаниеРасширеннаяПодсказка" id="15"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ДилерскийЦентр" id="1">
+					<DataPath>Запись.ДилерскийЦентр</DataPath>
+					<TitleTextColor>#313431</TitleTextColor>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<ContextMenu name="ДилерскийЦентрКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ДилерскийЦентрРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Модель" id="4">
+					<DataPath>Запись.Модель</DataPath>
+					<TitleTextColor>#313431</TitleTextColor>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<ContextMenu name="МодельКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="МодельРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">МодельПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Версия" id="7">
+					<DataPath>Запись.Версия</DataPath>
+					<TitleTextColor>#313431</TitleTextColor>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.Владелец</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Запись.Модель</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ChoiceListButton>true</ChoiceListButton>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<ContextMenu name="ВерсияКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<InputField name="ДопОборудование" id="19">
+					<DataPath>Запись.ДопОборудование</DataPath>
+					<TitleTextColor>#313431</TitleTextColor>
+					<OpenButton>true</OpenButton>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<ContextMenu name="ДопОборудованиеКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ДопОборудованиеРасширеннаяПодсказка" id="21"/>
+				</InputField>
+				<InputField name="Количество" id="16">
+					<DataPath>Запись.Количество</DataPath>
+					<TitleTextColor>#313431</TitleTextColor>
+					<Width>20</Width>
+					<SpinButton>true</SpinButton>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<ContextMenu name="КоличествоКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="КоличествоРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<InputField name="Цена" id="24">
+					<DataPath>Запись.Цена</DataPath>
+					<TitleTextColor>#313431</TitleTextColor>
+					<Width>20</Width>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<ContextMenu name="ЦенаКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ЦенаРасширеннаяПодсказка" id="26"/>
+				</InputField>
+				<UsualGroup name="грКнопки" id="29">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грКнопкиРасширеннаяПодсказка" id="30"/>
+					<ChildItems>
+						<Button name="ЗаписатьИЗакрыть" id="31">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.WriteAndClose</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Confirm_NoBorder</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="ЗаписатьИЗакрытьРасширеннаяПодсказка" id="32"/>
+						</Button>
+						<Button name="Записать" id="33">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Write</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#E7E7E7</BackColor>
+							<BorderColor>#E7E7E7</BorderColor>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Записать</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="34"/>
+						</Button>
+						<Button name="Удалить" id="37">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Delete</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#E7E7E7</BackColor>
+							<BorderColor>#E7E7E7</BorderColor>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Cross_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="УдалитьРасширеннаяПодсказка" id="38"/>
+						</Button>
+						<Button name="Закрыть" id="35">
+							<Type>UsualButton</Type>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#E7E7E7</BackColor>
+							<BorderColor>#E7E7E7</BorderColor>
+							<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="36"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.Renault_ОбязательноеДопОборудования</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

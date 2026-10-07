@@ -1,0 +1,111 @@
+﻿USE [master]
+GO
+USE [HistoryOld]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[bases](
+	[uid] [smallint] IDENTITY(1,1) NOT NULL,
+	[caption] [nvarchar](100) NULL,
+ CONSTRAINT [PK_bases] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+SET IDENTITY_INSERT [bases] ON
+GO
+INSERT [dbo].[bases] ([uid], [caption]) VALUES (1, N'Информационная база')
+GO
+SET IDENTITY_INSERT [bases] OFF
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ribs](
+	[uid] [smallint] IDENTITY(1,1) NOT NULL,
+	[base_uid] [smallint] NULL,
+	[caption] [nvarchar](100) NULL,
+ CONSTRAINT [PK_ribs] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+SET IDENTITY_INSERT [ribs] ON
+GO
+INSERT [dbo].[ribs] ([uid], [caption]) VALUES (1, N'Главная ИБ')
+GO
+SET IDENTITY_INSERT [ribs] OFF
+GO
+
+ALTER TABLE [dbo].[computers]
+ADD [base_uid] [smallint] NOT NULL DEFAULT 1
+GO
+ALTER TABLE [dbo].[computers]  WITH CHECK ADD  CONSTRAINT [FK_computers_bases] FOREIGN KEY([base_uid])
+REFERENCES [dbo].[bases] ([uid])
+GO
+ALTER TABLE [dbo].[computers] CHECK CONSTRAINT [FK_computers_bases]
+GO
+
+ALTER TABLE [dbo].[users]
+ADD [base_uid] [smallint] NOT NULL DEFAULT 1
+GO
+ALTER TABLE [dbo].[users]  WITH CHECK ADD  CONSTRAINT [FK_users_bases] FOREIGN KEY([base_uid])
+REFERENCES [dbo].[bases] ([uid])
+GO
+ALTER TABLE [dbo].[users] CHECK CONSTRAINT [FK_users_bases]
+GO
+
+ALTER TABLE [dbo].[metadata]
+ADD [base_uid] [smallint] NOT NULL DEFAULT 1
+GO
+ALTER TABLE [dbo].[metadata]  WITH CHECK ADD  CONSTRAINT [FK_metadata_bases] FOREIGN KEY([base_uid])
+REFERENCES [dbo].[bases] ([uid])
+GO
+ALTER TABLE [dbo].[metadata] CHECK CONSTRAINT [FK_metadata_bases]
+GO
+
+ALTER TABLE [dbo].[journ]
+ADD [base_uid] [smallint] NOT NULL DEFAULT 1,
+[rib_uid] [smallint] NOT NULL DEFAULT 1
+GO
+ALTER TABLE [dbo].[journ]  WITH CHECK ADD  CONSTRAINT [FK_journ_bases] FOREIGN KEY([base_uid])
+REFERENCES [dbo].[bases] ([uid])
+GO
+ALTER TABLE [dbo].[journ] CHECK CONSTRAINT [FK_journ_bases]
+GO
+ALTER TABLE [dbo].[journ] CHECK CONSTRAINT [FK_journ_computers]
+GO
+ALTER TABLE [dbo].[journ]  WITH CHECK ADD  CONSTRAINT [FK_journ_ribs] FOREIGN KEY([rib_uid])
+REFERENCES [dbo].[ribs] ([uid])
+GO
+ALTER TABLE [dbo].[journ] CHECK CONSTRAINT [FK_journ_ribs]
+GO
+ALTER TABLE [dbo].[journ_rec] ALTER COLUMN nametp nvarchar(150);
+GO
+ALTER TABLE [dbo].[journ_rec] ALTER COLUMN namerec nvarchar(150);
+GO
+ALTER TABLE [dbo].[journ_rec] ALTER COLUMN typerec tinyint;
+GO
+ALTER TABLE dbo.[metadata] ALTER COLUMN caption nvarchar(300);
+GO
+ALTER TABLE dbo.[journ] ALTER COLUMN caption nvarchar(500);
+GO
+ALTER TABLE dbo.[events] ALTER COLUMN caption nvarchar(50);
+GO
+ALTER TABLE dbo.[computers] ALTER COLUMN caption nvarchar(80);
+GO
+ALTER TABLE dbo.[users] ALTER COLUMN caption nvarchar(80);
+GO
+ALTER TABLE [dbo].[journ] DROP [DF_journ_pack]
+GO
+ALTER TABLE [dbo].[journ]
+DROP COLUMN [pack]
+GO

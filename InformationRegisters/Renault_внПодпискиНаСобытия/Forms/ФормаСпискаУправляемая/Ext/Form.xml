@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>(ВН) Подписки на события журнала регистрации</v8:content>
+		</v8:item>
+	</Title>
+	<Height>20</Height>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаНастройкаСписка" id="32">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.ListSettings</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаНастройкаСпискаРасширеннаяПодсказка" id="36"/>
+			</Button>
+			<Button name="ФормаНайти" id="31">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.Find</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаНайтиРасширеннаяПодсказка" id="37"/>
+			</Button>
+			<Button name="ФормаОтменитьПоиск" id="30">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.CancelSearch</CommandName>
+				<ExtendedTooltip name="ФормаОтменитьПоискРасширеннаяПодсказка" id="38"/>
+			</Button>
+			<Button name="ФормаВывестиСписок" id="33">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.OutputList</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаВывестиСписокРасширеннаяПодсказка" id="39"/>
+			</Button>
+			<Button name="ФормаОбновить" id="34">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="40"/>
+			</Button>
+			<Button name="ФормаУдалитьПрочитанные" id="35">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.УдалитьПрочитанные</CommandName>
+				<ExtendedTooltip name="ФормаУдалитьПрочитанныеРасширеннаяПодсказка" id="41"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.ИндексКартинки</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.Renault_внПодпискаНаСобытие</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</RowsPicture>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="42"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="43">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="44"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="45"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="46">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="47"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="48"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="49">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="50"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="51"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">СписокПередУдалением</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДатаИзменения" id="8">
+					<DataPath>Список.ДатаИзменения</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.Renault_внГлаз</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</HeaderPicture>
+					<ContextMenu name="ДатаИзмененияКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ДатаИзмененияРасширеннаяПодсказка" id="52"/>
+				</LabelField>
+				<ColumnGroup name="Группа1" id="28">
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="53"/>
+					<ChildItems>
+						<LabelField name="МетаданныеОбъекта" id="20">
+							<DataPath>Список.МетаданныеОбъекта</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<Width>37</Width>
+							<ContextMenu name="МетаданныеОбъектаКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="МетаданныеОбъектаРасширеннаяПодсказка" id="54"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="ТекстОповещения" id="26">
+					<DataPath>Список.ТекстОповещения</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Width>50</Width>
+					<ContextMenu name="ТекстОповещенияКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ТекстОповещенияРасширеннаяПодсказка" id="55"/>
+				</LabelField>
+				<ColumnGroup name="Группа2" id="29">
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="56"/>
+					<ChildItems>
+						<LabelField name="Пользователь" id="6">
+							<DataPath>Список.Пользователь</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<ContextMenu name="ПользовательКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="57"/>
+						</LabelField>
+						<LabelField name="ПользовательКоторыйИзменил" id="10">
+							<DataPath>Список.ПользовательКоторыйИзменил</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<ContextMenu name="ПользовательКоторыйИзменилКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПользовательКоторыйИзменилРасширеннаяПодсказка" id="58"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="Настройка" id="12">
+					<DataPath>Список.Настройка</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оповещение</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НастройкаКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="НастройкаРасширеннаяПодсказка" id="59"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	РегистрСведенийвнПодпискиНаСобытия.УнифкальныйИдентификатор,
+	РегистрСведенийвнПодпискиНаСобытия.ГУИДОбъекта,
+	РегистрСведенийвнПодпискиНаСобытия.Пользователь,
+	РегистрСведенийвнПодпискиНаСобытия.ДатаИзменения,
+	РегистрСведенийвнПодпискиНаСобытия.ПользовательКоторыйИзменил,
+	РегистрСведенийвнПодпискиНаСобытия.Настройка,
+	РегистрСведенийвнПодпискиНаСобытия.Компьютер,
+	РегистрСведенийвнПодпискиНаСобытия.Прочитано,
+	РегистрСведенийвнПодпискиНаСобытия.ДатаПросмотра,
+	РегистрСведенийвнПодпискиНаСобытия.МетаданныеОбъекта,
+	РегистрСведенийвнПодпискиНаСобытия.ИмяТЧ,
+	РегистрСведенийвнПодпискиНаСобытия.ИмяРеквизита,
+	РегистрСведенийвнПодпискиНаСобытия.ТекстОповещения,
+	0 КАК ИндексКартинки,
+	&amp;ДатаИзменения КАК ДИ
+ИЗ
+	РегистрСведений.Renault_внПодпискиНаСобытия КАК РегистрСведенийвнПодпискиНаСобытия
+ГДЕ
+	РегистрСведенийвнПодпискиНаСобытия.Пользователь = &amp;Пользователь</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ДатаИзменения</dcsset:field>
+							<dcsset:orderType>Desc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ТекстОповещения</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter/>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#3366FF</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ДатаИзменения</dcsset:left>
+									<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">ДИ</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Шрифт</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="УдалитьПрочитанные" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить прочитанные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить прочитанные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УдалитьПрочитанные</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

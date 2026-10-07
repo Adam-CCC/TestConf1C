@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Nomenclature</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>PNC</dataPath>
+			<field>PNC</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>PNC</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>PNC</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>PNCUЛокальная</dataPath>
+			<field>PNCUЛокальная</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>PNCUЛокальная</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>PNCULokalnaya</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>PNCЛокальная</dataPath>
+			<field>PNCЛокальная</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>PNCЛокальная</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>PNCLokalnaya</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>PCLЛокальная</dataPath>
+			<field>PCLЛокальная</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>PCLЛокальная</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>PCLLokalnaya</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>PCL</dataPath>
+			<field>PCL</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>PCL</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>PCL</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>PNCU</dataPath>
+			<field>PNCU</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>PNCU</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>PNCU</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТехСемья</dataPath>
+			<field>ТехСемья</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проект</dataPath>
+			<field>Проект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сегмент</dataPath>
+			<field>Сегмент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Ном.Ссылка КАК Номенклатура,
+	Renault_КаталогРеферансов.Проект,
+	Renault_КаталогРеферансов.Сегмент,
+	Renault_КаталогРеферансов.Модель,
+	Renault_КаталогРеферансов.ТехСемья
+ПОМЕСТИТЬ ВТ_НоменклатураРено
+ИЗ
+	Справочник.Номенклатура КАК Ном
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.Renault_КаталогРеферансов КАК Renault_КаталогРеферансов
+		ПО Ном.Артикул = Renault_КаталогРеферансов.Артикул
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_НоменклатураРено.Номенклатура,
+	ВЫБОР
+		КОГДА ЦеныСрезПоследних.ТипЦен.ЦенаВключаетНДС
+			ТОГДА ЦеныСрезПоследних.Цена / (1 + ВТ_НоменклатураРено.Номенклатура.СтавкаНДС.Ставка / 100)
+		ИНАЧЕ ЕСТЬNULL(ЦеныСрезПоследних.Цена, 0)
+	КОНЕЦ КАК PCLЛокальная,
+	ВЫБОР
+		КОГДА ЦеныСрезПоследних1.ТипЦен.ЦенаВключаетНДС
+			ТОГДА ЦеныСрезПоследних1.Цена / (1 + ВТ_НоменклатураРено.Номенклатура.СтавкаНДС.Ставка / 100)
+		ИНАЧЕ ЕСТЬNULL(ЦеныСрезПоследних1.Цена, 0)
+	КОНЕЦ КАК PNCЛокальная,
+	ВЫБОР
+		КОГДА ЦеныСрезПоследних2.ТипЦен.ЦенаВключаетНДС
+			ТОГДА ЦеныСрезПоследних2.Цена / (1 + ВТ_НоменклатураРено.Номенклатура.СтавкаНДС.Ставка / 100)
+		ИНАЧЕ ЕСТЬNULL(ЦеныСрезПоследних2.Цена, 0)
+	КОНЕЦ КАК PNCUЛокальная,
+	ВЫБОР
+		КОГДА Renault_ТарифЦен.ТипЦены.ЦенаВключаетНДС
+			ТОГДА Renault_ТарифЦен.Цена / (1 + ВТ_НоменклатураРено.Номенклатура.СтавкаНДС.Ставка / 100)
+		ИНАЧЕ ЕСТЬNULL(Renault_ТарифЦен.Цена, 0)
+	КОНЕЦ КАК PCL,
+	ВЫБОР
+		КОГДА Renault_ТарифЦен1.ТипЦены.ЦенаВключаетНДС
+			ТОГДА Renault_ТарифЦен1.Цена / (1 + ВТ_НоменклатураРено.Номенклатура.СтавкаНДС.Ставка / 100)
+		ИНАЧЕ ЕСТЬNULL(Renault_ТарифЦен1.Цена, 0)
+	КОНЕЦ КАК PNC,
+	ВЫБОР
+		КОГДА Renault_ТарифЦен2.ТипЦены.ЦенаВключаетНДС
+			ТОГДА Renault_ТарифЦен2.Цена / (1 + ВТ_НоменклатураРено.Номенклатура.СтавкаНДС.Ставка / 100)
+		ИНАЧЕ ЕСТЬNULL(Renault_ТарифЦен2.Цена, 0)
+	КОНЕЦ КАК PNCU,
+	ВТ_НоменклатураРено.Проект,
+	ВТ_НоменклатураРено.Сегмент,
+	ВТ_НоменклатураРено.Модель,
+	ВТ_НоменклатураРено.ТехСемья
+ПОМЕСТИТЬ ВТ_ЦеныСгруппированные
+ИЗ
+	ВТ_НоменклатураРено КАК ВТ_НоменклатураРено
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Цены.СрезПоследних(, ТипЦен = &amp;PCLЛокальная) КАК ЦеныСрезПоследних
+		ПО ВТ_НоменклатураРено.Номенклатура = ЦеныСрезПоследних.Номенклатура
+			И (&amp;УстанавливатьPCL)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Цены.СрезПоследних(, ТипЦен = &amp;PNCЛокальная) КАК ЦеныСрезПоследних1
+		ПО ВТ_НоменклатураРено.Номенклатура = ЦеныСрезПоследних1.Номенклатура
+			И (&amp;УстанавливатьPNC)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Цены.СрезПоследних(, ТипЦен = &amp;PNCUЛокальная) КАК ЦеныСрезПоследних2
+		ПО ВТ_НоменклатураРено.Номенклатура = ЦеныСрезПоследних2.Номенклатура
+			И (&amp;УстанавливатьPNCU)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ТарифЦен КАК Renault_ТарифЦен
+		ПО ВТ_НоменклатураРено.Номенклатура.Артикул = Renault_ТарифЦен.Артикул
+			И (Renault_ТарифЦен.ТипЦены = &amp;PCL)
+			И (&amp;УстанавливатьPCL)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ТарифЦен КАК Renault_ТарифЦен1
+		ПО ВТ_НоменклатураРено.Номенклатура.Артикул = Renault_ТарифЦен1.Артикул
+			И (Renault_ТарифЦен1.ТипЦены = &amp;PNC)
+			И (&amp;УстанавливатьPNC)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ТарифЦен КАК Renault_ТарифЦен2
+		ПО ВТ_НоменклатураРено.Номенклатура.Артикул = Renault_ТарифЦен2.Артикул
+			И (Renault_ТарифЦен2.ТипЦены = &amp;PNCU)
+			И (&amp;УстанавливатьPNCU)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ЦеныСгруппированные.Номенклатура КАК Номенклатура,
+	ВЫРАЗИТЬ(ВТ_ЦеныСгруппированные.PCLЛокальная КАК ЧИСЛО(14, 2)) КАК PCLЛокальная,
+	ВЫРАЗИТЬ(ВТ_ЦеныСгруппированные.PNCЛокальная КАК ЧИСЛО(14, 2)) КАК PNCЛокальная,
+	ВЫРАЗИТЬ(ВТ_ЦеныСгруппированные.PNCUЛокальная КАК ЧИСЛО(14, 2)) КАК PNCUЛокальная,
+	ВЫРАЗИТЬ(ВТ_ЦеныСгруппированные.PCL КАК ЧИСЛО(14, 2)) КАК PCL,
+	ВЫРАЗИТЬ(ВТ_ЦеныСгруппированные.PNC КАК ЧИСЛО(14, 2)) КАК PNC,
+	ВЫРАЗИТЬ(ВТ_ЦеныСгруппированные.PNCU КАК ЧИСЛО(14, 2)) КАК PNCU,
+	ВТ_ЦеныСгруппированные.Проект,
+	ВТ_ЦеныСгруппированные.Сегмент,
+	ВТ_ЦеныСгруппированные.Модель,
+	ВТ_ЦеныСгруппированные.ТехСемья
+ПОМЕСТИТЬ ВТ_ЦеныОкругленные
+ИЗ
+	ВТ_ЦеныСгруппированные КАК ВТ_ЦеныСгруппированные
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ЦеныОкругленные.Номенклатура,
+	ВТ_ЦеныОкругленные.PCLЛокальная,
+	ВТ_ЦеныОкругленные.PNCЛокальная,
+	ВТ_ЦеныОкругленные.PNCUЛокальная,
+	ВТ_ЦеныОкругленные.PCL,
+	ВТ_ЦеныОкругленные.PNC,
+	ВТ_ЦеныОкругленные.PNCU,
+	ВТ_ЦеныОкругленные.Проект,
+	ВТ_ЦеныОкругленные.Сегмент,
+	ВТ_ЦеныОкругленные.Модель,
+	ВТ_ЦеныОкругленные.ТехСемья
+ИЗ
+	ВТ_ЦеныОкругленные КАК ВТ_ЦеныОкругленные
+ГДЕ
+	((ВТ_ЦеныОкругленные.PCL - ВТ_ЦеныОкругленные.PCLЛокальная) * (ВТ_ЦеныОкругленные.PCL - ВТ_ЦеныОкругленные.PCLЛокальная) &gt; &amp;Порог * &amp;Порог
+			ИЛИ (ВТ_ЦеныОкругленные.PNCЛокальная - ВТ_ЦеныОкругленные.PNC) * (ВТ_ЦеныОкругленные.PNCЛокальная - ВТ_ЦеныОкругленные.PNC) &gt; &amp;Порог * &amp;Порог
+			ИЛИ (ВТ_ЦеныОкругленные.PNCUЛокальная - ВТ_ЦеныОкругленные.PNCU) * (ВТ_ЦеныОкругленные.PNCUЛокальная - ВТ_ЦеныОкругленные.PNCU) &gt; &amp;Порог * &amp;Порог)</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>PCL</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>PCL</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>PCL</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыЦен</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>PCLЛокальная</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>PCLЛокальная</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>PCLLokalnaya</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыЦен</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>PNC</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>PNC</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>PNC</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыЦен</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>PNCЛокальная</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>PNCЛокальная</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>PNCLokalnaya</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыЦен</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>PNCU</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>PNCU</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>PNCU</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыЦен</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>PNCUЛокальная</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>PNCUЛокальная</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>PNCULokalnaya</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыЦен</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>УстанавливатьPCL</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Устанавливать PCL</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Install PCL</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>УстанавливатьPNC</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Устанавливать PNC</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Install PNC</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>УстанавливатьPNCU</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Устанавливать PNCU</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Install PNCU</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Порог</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Порог</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>PCL</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>PCLЛокальная</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>PNC</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>PNCU</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>PNCUЛокальная</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>PNCЛокальная</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>PCL</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>PCLЛокальная</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>PNC</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>PNCЛокальная</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>PNCU</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>PNCUЛокальная</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.ТипыЦен.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>УстанавливатьPCL</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>УстанавливатьPNC</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>УстанавливатьPNCU</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

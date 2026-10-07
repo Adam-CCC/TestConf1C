@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Выбор сотрудника</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грОсновнойКонтейнер" id="1">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>#FFFFFF</BackColor>
+			<ExtendedTooltip name="грОсновнойКонтейнерРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="грШапка" id="3">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грШапкаРасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<InputField name="ДилерскийЦентр" id="5">
+							<DataPath>ДилерскийЦентр</DataPath>
+							<TitleTextColor>#313431</TitleTextColor>
+							<ChoiceButton>true</ChoiceButton>
+							<ClearButton>true</ClearButton>
+							<OpenButton>false</OpenButton>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFFFFF</BackColor>
+							<BorderColor>#9CA6B2</BorderColor>
+							<ContextMenu name="ДилерскийЦентрКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="ДилерскийЦентрРасширеннаяПодсказка" id="7"/>
+						</InputField>
+						<InputField name="Отделы" id="8">
+							<DataPath>Отдел</DataPath>
+							<TitleTextColor>#313431</TitleTextColor>
+							<ChoiceButton>true</ChoiceButton>
+							<ClearButton>true</ClearButton>
+							<OpenButton>false</OpenButton>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFFFFF</BackColor>
+							<BorderColor>#9CA6B2</BorderColor>
+							<ContextMenu name="ОтделыКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="ОтделыРасширеннаяПодсказка" id="10"/>
+							<Events>
+								<Event name="OnChange">ОтделыПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<Table name="Сотрудники" id="11">
+					<Representation>List</Representation>
+					<CommandBarLocation>None</CommandBarLocation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Сотрудники</DataPath>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<TitleTextColor>#313431</TitleTextColor>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="СотрудникиКонтекстноеМеню" id="12"/>
+					<AutoCommandBar name="СотрудникиКоманднаяПанель" id="13"/>
+					<ExtendedTooltip name="СотрудникиРасширеннаяПодсказка" id="14"/>
+					<SearchStringAddition name="СотрудникиСтрокаПоиска" id="15">
+						<AdditionSource>
+							<Item>Сотрудники</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СотрудникиСтрокаПоискаКонтекстноеМеню" id="16"/>
+						<ExtendedTooltip name="СотрудникиСтрокаПоискаРасширеннаяПодсказка" id="17"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СотрудникиСостояниеПросмотра" id="18">
+						<AdditionSource>
+							<Item>Сотрудники</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СотрудникиСостояниеПросмотраКонтекстноеМеню" id="19"/>
+						<ExtendedTooltip name="СотрудникиСостояниеПросмотраРасширеннаяПодсказка" id="20"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СотрудникиУправлениеПоиском" id="21">
+						<AdditionSource>
+							<Item>Сотрудники</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СотрудникиУправлениеПоискомКонтекстноеМеню" id="22"/>
+						<ExtendedTooltip name="СотрудникиУправлениеПоискомРасширеннаяПодсказка" id="23"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">СотрудникиВыбор</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="СотрудникиСотрудник" id="24">
+							<DataPath>Сотрудники.Сотрудник</DataPath>
+							<TitleTextColor>#313431</TitleTextColor>
+							<TitleBackColor>#E7E7E7</TitleBackColor>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterTextColor>#313431</FooterTextColor>
+							<TextColor>#313431</TextColor>
+							<BorderColor>#9CA6B2</BorderColor>
+							<ContextMenu name="СотрудникиСотрудникКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="СотрудникиСотрудникРасширеннаяПодсказка" id="26"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДилерскийЦентр" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дилерский центр</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.CRM_ДилерскиеЦентры</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидСообщения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид сообщения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_ВидСообщения</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Отдел" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отдел</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.CRM_Отделы</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Сотрудники" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудники</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Сотрудник" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сотрудник</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Сотрудники</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+</Form>

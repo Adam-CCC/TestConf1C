@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоследнегоПосещения</dataPath>
+			<field>ДатаПоследнегоПосещения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Марка</dataPath>
+			<field>Марка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наш</dataPath>
+			<field>Наш</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Пробег</dataPath>
+			<field>Пробег</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтактныйТелефон</dataPath>
+			<field>КонтактныйТелефон</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресПочт</dataPath>
+			<field>АдресПочт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресФакт</dataPath>
+			<field>АдресФакт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресЮр</dataPath>
+			<field>АдресЮр</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Клиент</dataPath>
+			<field>Клиент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	МАКСИМУМ(ЗаказНаряд.Дата) КАК Дата,
+	ЗаказНаряд.Заказчик,
+	ЗаказНаряд.Автомобиль
+ПОМЕСТИТЬ ЗН
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряд
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНаряд.Заказчик,
+	ЗаказНаряд.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КонтактнаяИнформация.Объект КАК ОбъектФакт,
+	КонтактнаяИнформация.Представление КАК АдресФакт
+ПОМЕСТИТЬ АдресФактический
+ИЗ
+	РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+ГДЕ
+	КонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресФактический)
+	И КонтактнаяИнформация.Объект В
+			(ВЫБРАТЬ
+				ЗН.Заказчик
+			ИЗ
+				ЗН КАК ЗН)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КонтактнаяИнформация.Объект КАК ОбъектЮр,
+	КонтактнаяИнформация.Представление КАК АдресЮр
+ПОМЕСТИТЬ АдресЮридический
+ИЗ
+	РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+ГДЕ
+	КонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресЮридический)
+	И КонтактнаяИнформация.Объект В
+			(ВЫБРАТЬ
+				ЗН.Заказчик
+			ИЗ
+				ЗН КАК ЗН)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КонтактнаяИнформация.Объект КАК ОбъектПочт,
+	КонтактнаяИнформация.Представление КАК АдресПочт
+ПОМЕСТИТЬ АдресПочтовый
+ИЗ
+	РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+ГДЕ
+	КонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресПочтовый)
+	И КонтактнаяИнформация.Объект В
+			(ВЫБРАТЬ
+				ЗН.Заказчик
+			ИЗ
+				ЗН КАК ЗН)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗН.Автомобиль,
+	ЗН.Дата КАК ДатаПоследнегоПосещения,
+	ЗН.Автомобиль.Родитель КАК Марка,
+	ЗН.Автомобиль.Модель КАК Модель,
+	АвтомобилиСрезПоследних.Значение КАК Пробег,
+	ЗН.Заказчик КАК Клиент,
+	ЗН.Заказчик.ОсновнойТелефон КАК КонтактныйТелефон,
+	АдресПочтовый.АдресПочт,
+	АдресФактический.АдресФакт,
+	АдресЮридический.АдресЮр,
+	Продажи.ПодразделениеКомпании КАК Наш
+ИЗ
+	ЗН КАК ЗН
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ПродажиАвтомобилей.Автомобиль КАК Автомобиль,
+			ПродажиАвтомобилей.Покупатель КАК Покупатель,
+			ПродажиАвтомобилей.ПодразделениеКомпании КАК ПодразделениеКомпании
+		ИЗ
+			РегистрНакопления.ПродажиАвтомобилей КАК ПродажиАвтомобилей
+		ГДЕ
+			ПродажиАвтомобилей.Покупатель В
+					(ВЫБРАТЬ
+						ЗН.Заказчик
+					ИЗ
+						ЗН КАК ЗН)) КАК Продажи
+		ПО ЗН.Заказчик = Продажи.Покупатель
+			И ЗН.Автомобиль = Продажи.Автомобиль
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.Автомобили.СрезПоследних КАК АвтомобилиСрезПоследних
+		ПО ЗН.Автомобиль = АвтомобилиСрезПоследних.Автомобиль
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ АдресФактический КАК АдресФактический
+		ПО ЗН.Заказчик = АдресФактический.ОбъектФакт
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ АдресЮридический КАК АдресЮридический
+		ПО ЗН.Заказчик = АдресЮридический.ОбъектЮр
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ АдресПочтовый КАК АдресПочтовый
+		ПО ЗН.Заказчик = АдресПочтовый.ОбъектПочт
+ГДЕ
+	АвтомобилиСрезПоследних.ВидЗначения = ЗНАЧЕНИЕ(Перечисление.ДополнительнаяИнформацияАвтомобилей.Пробег)
+	И АвтомобилиСрезПоследних.Автомобиль В
+			(ВЫБРАТЬ
+				ЗН.Автомобиль
+			ИЗ
+				ЗН КАК ЗН)</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоследнегоПосещения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Марка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Модель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Клиент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонтактныйТелефон</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Пробег</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресПочт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресФакт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АдресЮр</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Наш</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Модель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Наш</dcsset:left>
+					<dcsset:comparisonType>InHierarchy</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">АдресПочт</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">АдресФакт</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">АдресЮр</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Клиент</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

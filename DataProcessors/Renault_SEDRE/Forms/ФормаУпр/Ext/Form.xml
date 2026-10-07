@@ -1,0 +1,962 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<SettingsStorage>SettingsStorage.ХранилищеНастроек_Renault</SettingsStorage>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грНастройкаПолучитьДанные" id="90">
+			<EnableContentChange>true</EnableContentChange>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="грНастройкаПолучитьДанныеРасширеннаяПодсказка" id="161"/>
+			<ChildItems>
+				<InputField name="НастройкаПотока" id="1">
+					<DataPath>Объект.НастройкаПотока</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройка потока</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Adjusting the flow</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<MultiLine>false</MultiLine>
+					<ChoiceButton>true</ChoiceButton>
+					<SpinButton>false</SpinButton>
+					<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ChoiceListButton>false</ChoiceListButton>
+					<ContextMenu name="НастройкаПотокаКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НастройкаПотокаРасширеннаяПодсказка" id="162"/>
+				</InputField>
+				<Button name="кнПолучитьДанные" id="91">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.Command.кмПолучитьДанные</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получить данные</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>To get data</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="кнПолучитьДанныеРасширеннаяПодсказка" id="163"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ТаблицаSedr" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>Top</CommandBarLocation>
+			<SelectionMode>SingleRow</SelectionMode>
+			<AutoAddIncomplete>false</AutoAddIncomplete>
+			<AutoMarkIncomplete>false</AutoMarkIncomplete>
+			<SearchOnInput>Use</SearchOnInput>
+			<Output>Enable</Output>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ТаблицаSedr</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТаблицаSedrКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="ТаблицаSedrКоманднаяПанель" id="5"/>
+			<ExtendedTooltip name="ТаблицаSedrРасширеннаяПодсказка" id="164"/>
+			<SearchStringAddition name="ТаблицаSedrСтрокаПоиска" id="165">
+				<AdditionSource>
+					<Item>ТаблицаSedr</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаSedrСтрокаПоискаКонтекстноеМеню" id="166"/>
+				<ExtendedTooltip name="ТаблицаSedrСтрокаПоискаРасширеннаяПодсказка" id="167"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТаблицаSedrСостояниеПросмотра" id="168">
+				<AdditionSource>
+					<Item>ТаблицаSedr</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаSedrСостояниеПросмотраКонтекстноеМеню" id="169"/>
+				<ExtendedTooltip name="ТаблицаSedrСостояниеПросмотраРасширеннаяПодсказка" id="170"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТаблицаSedrУправлениеПоиском" id="171">
+				<AdditionSource>
+					<Item>ТаблицаSedr</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаSedrУправлениеПоискомКонтекстноеМеню" id="172"/>
+				<ExtendedTooltip name="ТаблицаSedrУправлениеПоискомРасширеннаяПодсказка" id="173"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">ТаблицаSedrПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ТаблицаSedrVIN" id="86">
+					<DataPath>Объект.ТаблицаSedr.VIN</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrVINКонтекстноеМеню" id="87"/>
+					<ExtendedTooltip name="ТаблицаSedrVINРасширеннаяПодсказка" id="174"/>
+				</InputField>
+				<InputField name="ТаблицаSedrMODELNAME" id="52">
+					<DataPath>Объект.ТаблицаSedr.MODELNAME</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrMODELNAMEКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="ТаблицаSedrMODELNAMEРасширеннаяПодсказка" id="175"/>
+				</InputField>
+				<InputField name="ТаблицаSedrVERSION" id="84">
+					<DataPath>Объект.ТаблицаSedr.VERSION</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrVERSIONКонтекстноеМеню" id="85"/>
+					<ExtendedTooltip name="ТаблицаSedrVERSIONРасширеннаяПодсказка" id="176"/>
+				</InputField>
+				<InputField name="ТаблицаSedrCOLORNAME" id="20">
+					<DataPath>Объект.ТаблицаSedr.COLORNAME</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrCOLORNAMEКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ТаблицаSedrCOLORNAMEРасширеннаяПодсказка" id="177"/>
+				</InputField>
+				<CheckBoxField name="ТаблицаSedrIS_COLOR_METALLIC" id="44">
+					<DataPath>Объект.ТаблицаSedr.IS_COLOR_METALLIC</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Металлик</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Metallic</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТаблицаSedrIS_COLOR_METALLICКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ТаблицаSedrIS_COLOR_METALLICРасширеннаяПодсказка" id="178"/>
+				</CheckBoxField>
+				<InputField name="ТаблицаSedrYEAR" id="88">
+					<DataPath>Объект.ТаблицаSedr.YEAR</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrYEARКонтекстноеМеню" id="89"/>
+					<ExtendedTooltip name="ТаблицаSedrYEARРасширеннаяПодсказка" id="179"/>
+				</InputField>
+				<InputField name="ТаблицаSedrPRICE_ALL" id="68">
+					<DataPath>Объект.ТаблицаSedr.PRICE_ALL</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrPRICE_ALLКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="ТаблицаSedrPRICE_ALLРасширеннаяПодсказка" id="180"/>
+				</InputField>
+				<InputField name="ТаблицаSedrPRICE_DISC" id="70">
+					<DataPath>Объект.ТаблицаSedr.PRICE_DISC</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrPRICE_DISCКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ТаблицаSedrPRICE_DISCРасширеннаяПодсказка" id="181"/>
+				</InputField>
+				<InputField name="ТаблицаSedrADR_TRANSPORTER_SHORT" id="92">
+					<DataPath>Объект.ТаблицаSedr.ADR_TRANSPORTER_SHORT</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrADR_TRANSPORTER_SHORTКонтекстноеМеню" id="93"/>
+					<ExtendedTooltip name="ТаблицаSedrADR_TRANSPORTER_SHORTРасширеннаяПодсказка" id="182"/>
+				</InputField>
+				<InputField name="ТаблицаSedrPRIORITY_INDEX" id="72">
+					<DataPath>Объект.ТаблицаSedr.PRIORITY_INDEX</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrPRIORITY_INDEXКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="ТаблицаSedrPRIORITY_INDEXРасширеннаяПодсказка" id="183"/>
+				</InputField>
+				<InputField name="ТаблицаSedrND_ED" id="54">
+					<DataPath>Объект.ТаблицаSedr.ND_ED</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счетчик</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Counter</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrND_EDКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ТаблицаSedrND_EDРасширеннаяПодсказка" id="184"/>
+				</InputField>
+				<InputField name="ТаблицаSedrND_MED" id="58">
+					<DataPath>Объект.ТаблицаSedr.ND_MED</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаSedrND_MEDКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="ТаблицаSedrND_MEDРасширеннаяПодсказка" id="185"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Pages name="грДополнительныеПоля" id="94">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные поля</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Additional fields</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гр дополнительные поля</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Gy additional fields</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="грДополнительныеПоляРасширеннаяПодсказка" id="186"/>
+			<ChildItems>
+				<Page name="грстрДопИнформация" id="95">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительная информация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Additional Information</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Грстр доп информация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Grstr additional information</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ExtendedTooltip name="грстрДопИнформацияРасширеннаяПодсказка" id="187"/>
+					<ChildItems>
+						<UsualGroup name="грНомераИКоды" id="103">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номера и коды</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Rooms and codes</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гр номера и коды</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Gy numbers and codes</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ChildItemsWidth>Equal</ChildItemsWidth>
+							<ExtendedTooltip name="грНомераИКодыРасширеннаяПодсказка" id="188"/>
+							<ChildItems>
+								<InputField name="ТаблицаSedrENGINE_NUM" id="99">
+									<DataPath>Items.ТаблицаSedr.CurrentData.ENGINE_NUM</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер двигателя</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Engine number</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ТаблицаSedrENGINE_NUMКонтекстноеМеню" id="100"/>
+									<ExtendedTooltip name="ТаблицаSedrENGINE_NUMРасширеннаяПодсказка" id="189"/>
+								</InputField>
+								<InputField name="ТаблицаSedrMODEL" id="101">
+									<DataPath>Items.ТаблицаSedr.CurrentData.MODEL</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ТаблицаSedrMODELКонтекстноеМеню" id="102"/>
+									<ExtendedTooltip name="ТаблицаSedrMODELРасширеннаяПодсказка" id="190"/>
+								</InputField>
+								<InputField name="ТаблицаSedrCODE_RADIO" id="116">
+									<DataPath>Items.ТаблицаSedr.CurrentData.CODE_RADIO</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ТаблицаSedrCODE_RADIOКонтекстноеМеню" id="117"/>
+									<ExtendedTooltip name="ТаблицаSedrCODE_RADIOРасширеннаяПодсказка" id="191"/>
+								</InputField>
+								<InputField name="ТаблицаSedrCOLOR" id="114">
+									<DataPath>Items.ТаблицаSedr.CurrentData.COLOR</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ТаблицаSedrCOLORКонтекстноеМеню" id="115"/>
+									<ExtendedTooltip name="ТаблицаSedrCOLORРасширеннаяПодсказка" id="192"/>
+								</InputField>
+								<InputField name="ТаблицаSedrPTS_NUM" id="118">
+									<DataPath>Items.ТаблицаSedr.CurrentData.PTS_NUM</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ТаблицаSedrPTS_NUMКонтекстноеМеню" id="119"/>
+									<ExtendedTooltip name="ТаблицаSedrPTS_NUMРасширеннаяПодсказка" id="193"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="грОпции" id="104">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Опции</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>options</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гр опции</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Gy option</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="грОпцииРасширеннаяПодсказка" id="194"/>
+							<ChildItems>
+								<InputField name="ТаблицаSedrOPTIONS" id="105">
+									<DataPath>Items.ТаблицаSedr.CurrentData.OPTIONS</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>Top</TitleLocation>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="ТаблицаSedrOPTIONSКонтекстноеМеню" id="106"/>
+									<ExtendedTooltip name="ТаблицаSedrOPTIONSРасширеннаяПодсказка" id="195"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="грПроизводствоПоставка" id="107">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Производство поставка</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Production supply</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гр производство поставка</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Gy production supply</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>true</VerticalStretch>
+							<Group>Vertical</Group>
+							<ChildItemsWidth>Equal</ChildItemsWidth>
+							<ExtendedTooltip name="грПроизводствоПоставкаРасширеннаяПодсказка" id="196"/>
+							<ChildItems>
+								<LabelDecoration name="ИнформерБлокировки" id="108">
+									<Visible>false</Visible>
+									<Width>20</Width>
+									<TextColor>#FF0000</TextColor>
+									<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Блокировка по качеству</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Lock Quality</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ИнформерБлокировкиКонтекстноеМеню" id="109"/>
+									<ExtendedTooltip name="ИнформерБлокировкиРасширеннаяПодсказка" id="197"/>
+								</LabelDecoration>
+								<InputField name="ТаблицаSedrDATE_MADC" id="110">
+									<DataPath>Items.ТаблицаSedr.CurrentData.DATE_MADC</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ТаблицаSedrDATE_MADCКонтекстноеМеню" id="111"/>
+									<ExtendedTooltip name="ТаблицаSedrDATE_MADCРасширеннаяПодсказка" id="198"/>
+								</InputField>
+								<InputField name="ТаблицаSedrDATE_RECEIV" id="112">
+									<DataPath>Items.ТаблицаSedr.CurrentData.DATE_RECEIV</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ТаблицаSedrDATE_RECEIVКонтекстноеМеню" id="113"/>
+									<ExtendedTooltip name="ТаблицаSedrDATE_RECEIVРасширеннаяПодсказка" id="199"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="грИнфоОТранспортировке" id="120">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Информация о транспортировке</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Transport information</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гр инфо о транспортировке</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Gy information about transportation</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="грИнфоОТранспортировкеРасширеннаяПодсказка" id="200"/>
+					<ChildItems>
+						<UsualGroup name="грГоризонтальная_4Секции" id="122">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Транспортная компания, дилер, адрес и дата поставки</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Transport company, dealer, address and date of delivery</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гр горизонтальная 4 секции</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Gr 4 horizontal section</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ChildItemsWidth>Equal</ChildItemsWidth>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грГоризонтальная_4СекцииРасширеннаяПодсказка" id="201"/>
+							<ChildItems>
+								<UsualGroup name="грТранспортнаяКомпания" id="123">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Транспортная компания</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Transport company</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Гр транспортная компания</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Gy transport company</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<ExtendedTooltip name="грТранспортнаяКомпанияРасширеннаяПодсказка" id="202"/>
+									<ChildItems>
+										<InputField name="ТаблицаSedrADR_TRANSPORTER" id="124">
+											<DataPath>Items.ТаблицаSedr.CurrentData.ADR_TRANSPORTER</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<MultiLine>true</MultiLine>
+											<ContextMenu name="ТаблицаSedrADR_TRANSPORTERКонтекстноеМеню" id="125"/>
+											<ExtendedTooltip name="ТаблицаSedrADR_TRANSPORTERРасширеннаяПодсказка" id="203"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="грСубТранспортер" id="126">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Суб. транспортер</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Sub. conveyor</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Гр суб транспортер</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Gy sub conveyor</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<ExtendedTooltip name="грСубТранспортерРасширеннаяПодсказка" id="204"/>
+									<ChildItems>
+										<InputField name="ТаблицаSedrADR_SUBTRANSPORTER" id="127">
+											<DataPath>Items.ТаблицаSedr.CurrentData.ADR_SUBTRANSPORTER</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<MultiLine>true</MultiLine>
+											<ContextMenu name="ТаблицаSedrADR_SUBTRANSPORTERКонтекстноеМеню" id="128"/>
+											<ExtendedTooltip name="ТаблицаSedrADR_SUBTRANSPORTERРасширеннаяПодсказка" id="205"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="грДилер" id="129">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дилер</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Dealer</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Гр дилер</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Gy dealer</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<ExtendedTooltip name="грДилерРасширеннаяПодсказка" id="206"/>
+									<ChildItems>
+										<InputField name="ТаблицаSedrDEALER_NAME_FULL" id="130">
+											<DataPath>Items.ТаблицаSedr.CurrentData.DEALER_NAME_FULL</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<MultiLine>true</MultiLine>
+											<ContextMenu name="ТаблицаSedrDEALER_NAME_FULLКонтекстноеМеню" id="131"/>
+											<ExtendedTooltip name="ТаблицаSedrDEALER_NAME_FULLРасширеннаяПодсказка" id="207"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="грАдресДатаДоставки" id="132">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Адрес и дата доставки</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Location and date of delivery</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Гр адрес дата доставки</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Gy address delivery date</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<ExtendedTooltip name="грАдресДатаДоставкиРасширеннаяПодсказка" id="208"/>
+									<ChildItems>
+										<InputField name="ТаблицаSedrRECEIVER_VILLE" id="135">
+											<DataPath>Items.ТаблицаSedr.CurrentData.RECEIVER_VILLE</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Город</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>City</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ТаблицаSedrRECEIVER_VILLEКонтекстноеМеню" id="136"/>
+											<ExtendedTooltip name="ТаблицаSedrRECEIVER_VILLEРасширеннаяПодсказка" id="209"/>
+										</InputField>
+										<InputField name="ТаблицаSedrADR_RECEIVER" id="133">
+											<DataPath>Items.ТаблицаSedr.CurrentData.ADR_RECEIVER</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Адрес</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Address</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ТаблицаSedrADR_RECEIVERКонтекстноеМеню" id="134"/>
+											<ExtendedTooltip name="ТаблицаSedrADR_RECEIVERРасширеннаяПодсказка" id="210"/>
+										</InputField>
+										<InputField name="ТаблицаSedrDATE_PLAN" id="137">
+											<DataPath>Items.ТаблицаSedr.CurrentData.DATE_PLAN</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="ТаблицаSedrDATE_PLANКонтекстноеМеню" id="138"/>
+											<ExtendedTooltip name="ТаблицаSedrDATE_PLANРасширеннаяПодсказка" id="211"/>
+										</InputField>
+										<InputField name="ТаблицаSedrDATE_FACT" id="139">
+											<DataPath>Items.ТаблицаSedr.CurrentData.DATE_FACT</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="ТаблицаSedrDATE_FACTКонтекстноеМеню" id="140"/>
+											<ExtendedTooltip name="ТаблицаSedrDATE_FACTРасширеннаяПодсказка" id="212"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="грГоризонтальная_1Секция" id="121">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Автовоз и водитель</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Transporter and the driver</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гр горизонтальная 1 секция</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Gy 1 horizontal section</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грГоризонтальная_1СекцияРасширеннаяПодсказка" id="213"/>
+							<ChildItems>
+								<InputField name="ТаблицаSedrID_CAMION" id="144">
+									<DataPath>Items.ТаблицаSedr.CurrentData.ID_CAMION</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ТаблицаSedrID_CAMIONКонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="ТаблицаSedrID_CAMIONРасширеннаяПодсказка" id="214"/>
+								</InputField>
+								<InputField name="ТаблицаSedrDRIVER_NAME" id="142">
+									<DataPath>Items.ТаблицаSedr.CurrentData.DRIVER_NAME</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ТаблицаSedrDRIVER_NAMEКонтекстноеМеню" id="143"/>
+									<ExtendedTooltip name="ТаблицаSedrDRIVER_NAMEРасширеннаяПодсказка" id="215"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="грПрочее" id="141">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прочее</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Other</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гр прочее</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Gy etc.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="грПрочееРасширеннаяПодсказка" id="216"/>
+					<ChildItems>
+						<UsualGroup name="грПрочееГоризонтальная_2Секции" id="152">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Склад, ТТН, Тип фактурирования, Проформа, ГТД</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Warehouse, Waybill, billing type, pro forma, GTD</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гр прочее горизонтальная 2 секции</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Gy other horizontal section 2</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>true</VerticalStretch>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ChildItemsWidth>Equal</ChildItemsWidth>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грПрочееГоризонтальная_2СекцииРасширеннаяПодсказка" id="217"/>
+							<ChildItems>
+								<UsualGroup name="грПрочееВертикальная_Секция1" id="153">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Склад, ТТН и Группа</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Warehouse, Waybill and the Group</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Гр прочее вертикальная секция1</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Gy other vertical section1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="грПрочееВертикальная_Секция1РасширеннаяПодсказка" id="218"/>
+									<ChildItems>
+										<InputField name="ТаблицаSedrSKLAD" id="146">
+											<DataPath>Items.ТаблицаSedr.CurrentData.SKLAD</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="ТаблицаSedrSKLADКонтекстноеМеню" id="147"/>
+											<ExtendedTooltip name="ТаблицаSedrSKLADРасширеннаяПодсказка" id="219"/>
+										</InputField>
+										<InputField name="ТаблицаSedrNUM_TTN" id="148">
+											<DataPath>Items.ТаблицаSedr.CurrentData.NUM_TTN</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="ТаблицаSedrNUM_TTNКонтекстноеМеню" id="149"/>
+											<ExtendedTooltip name="ТаблицаSedrNUM_TTNРасширеннаяПодсказка" id="220"/>
+										</InputField>
+										<InputField name="ТаблицаSedrND_VN_GROUP_NAME" id="150">
+											<DataPath>Items.ТаблицаSedr.CurrentData.ND_VN_GROUP_NAME</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="ТаблицаSedrND_VN_GROUP_NAMEКонтекстноеМеню" id="151"/>
+											<ExtendedTooltip name="ТаблицаSedrND_VN_GROUP_NAMEРасширеннаяПодсказка" id="221"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="грВертикальная_Секция2" id="154">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Тип фактурирования, Номер проформы</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Type of billing, the pro forma number</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Гр вертикальная секция2</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Gy vertical section2</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="грВертикальная_Секция2РасширеннаяПодсказка" id="222"/>
+									<ChildItems>
+										<InputField name="ТаблицаSedrFACTURE_TYPE_RU" id="155">
+											<DataPath>Items.ТаблицаSedr.CurrentData.FACTURE_TYPE_RU</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="ТаблицаSedrFACTURE_TYPE_RUКонтекстноеМеню" id="156"/>
+											<ExtendedTooltip name="ТаблицаSedrFACTURE_TYPE_RUРасширеннаяПодсказка" id="223"/>
+										</InputField>
+										<InputField name="ТаблицаSedrNUM_PROFORM_REP" id="157">
+											<DataPath>Items.ТаблицаSedr.CurrentData.NUM_PROFORM_REP</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<ContextMenu name="ТаблицаSedrNUM_PROFORM_REPКонтекстноеМеню" id="158"/>
+											<ExtendedTooltip name="ТаблицаSedrNUM_PROFORM_REPРасширеннаяПодсказка" id="224"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ТаблицаSedrGTD" id="159">
+							<DataPath>Items.ТаблицаSedr.CurrentData.GTD</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="ТаблицаSedrGTDКонтекстноеМеню" id="160"/>
+							<ExtendedTooltip name="ТаблицаSedrGTDРасширеннаяПодсказка" id="225"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_SEDRE</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицаSedr</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТаблицаSedr.IS_QUALITY_BLOCKED</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#E2DEFF</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицаSedr</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТаблицаSedr.ND_IS_RZ</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#EBACAC</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТаблицаSedr</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.ТаблицаSedr.IS_QUALITY_BLOCKED</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.ТаблицаSedr.ND_IS_RZ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#EBACAC</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#000000</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="9" bold="true" italic="true" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="кмПолучитьДанные" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Км получить данные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Km to get data</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Км получить данные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Km to get data</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кмПолучитьДанные</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

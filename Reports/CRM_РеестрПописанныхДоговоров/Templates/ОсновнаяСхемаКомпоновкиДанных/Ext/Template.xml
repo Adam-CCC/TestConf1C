@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Email</dataPath>
+			<field>Email</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>MyReno</dataPath>
+			<field>MyReno</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>VIN</dataPath>
+			<field>VIN</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Клиент</dataPath>
+			<field>Клиент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Телефон</dataPath>
+			<field>Телефон</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КредитВыдан</dataPath>
+			<field>КредитВыдан</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПродленнаяГарантия</dataPath>
+			<field>ПродленнаяГарантия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусДоговора</dataPath>
+			<field>СтатусДоговора</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РабочийЛист</dataPath>
+			<field>РабочийЛист</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КонтактнаяИнформация.Представление,
+	КонтактнаяИнформация.Объект,
+	КонтактнаяИнформация.Тип
+ПОМЕСТИТЬ Телефоны
+ИЗ
+	РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+ГДЕ
+	КонтактнаяИнформация.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Телефон)
+	И КонтактнаяИнформация.ЗначениеПоУмолчанию = ИСТИНА
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КонтактнаяИнформация.Представление,
+	КонтактнаяИнформация.Объект,
+	КонтактнаяИнформация.Тип
+ПОМЕСТИТЬ Емаилы
+ИЗ
+	РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+ГДЕ
+	КонтактнаяИнформация.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.АдресЭлектроннойПочты)
+	И КонтактнаяИнформация.ЗначениеПоУмолчанию = ИСТИНА
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	CRM_ВоронкаПродаж.IDK,
+	CRM_ВоронкаПродаж.Объект,
+	1 КАК Доп
+ПОМЕСТИТЬ табПродленнаяГарантия
+ИЗ
+	РегистрСведений.CRM_ВоронкаПродаж КАК CRM_ВоронкаПродаж
+ГДЕ
+	CRM_ВоронкаПродаж.ЭтапПродаж = ЗНАЧЕНИЕ(Справочник.CRM_ЭтапыПродаж.ЗаявкаНаПрГарантию)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	CRM_ВоронкаПродаж.IDK,
+	CRM_ВоронкаПродаж.Объект,
+	1 КАК Доп
+ПОМЕСТИТЬ РегистрацияВМоемРено
+ИЗ
+	РегистрСведений.CRM_ВоронкаПродаж КАК CRM_ВоронкаПродаж
+ГДЕ
+	CRM_ВоронкаПродаж.ЭтапПродаж = ЗНАЧЕНИЕ(Справочник.CRM_ЭтапыПродаж.РегистрацияВMYRenault)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	CRM_ВоронкаПродаж.IDK,
+	CRM_ВоронкаПродаж.Объект,
+	1 КАК Доп
+ПОМЕСТИТЬ КредитВыдан
+ИЗ
+	РегистрСведений.CRM_ВоронкаПродаж КАК CRM_ВоронкаПродаж
+ГДЕ
+	CRM_ВоронкаПродаж.ЭтапПродаж = ЗНАЧЕНИЕ(Справочник.CRM_ЭтапыПродаж.КредитПриПродаже)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА РегистрацияВМоемРено.Доп ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК MyReno,
+	ВЫБОР
+		КОГДА КредитВыдан.Доп ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК КредитВыдан,
+	CRM_Договор.Клиент,
+	CRM_Договор.Дата,
+	CRM_Договор.VIN,
+	Renault_РабочиеЛисты.Сотрудник КАК Менеджер,
+	ВЫБОР
+		КОГДА табПродленнаяГарантия.IDK ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ПродленнаяГарантия,
+	CRM_Договор.СтатусДоговора,
+	CRM_Договор.РабочийЛист,
+	CRM_СостояниеАвтомобилейПроизводителя_v2.Модель
+ПОМЕСТИТЬ ДанныеПоДоговору
+ИЗ
+	Документ.Renault_Договор КАК CRM_Договор
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_РабочийЛист КАК Renault_РабочиеЛисты
+		ПО CRM_Договор.РабочийЛист = Renault_РабочиеЛисты.IDK
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрацияВМоемРено КАК РегистрацияВМоемРено
+		ПО CRM_Договор.РабочийЛист = РегистрацияВМоемРено.IDK
+		ЛЕВОЕ СОЕДИНЕНИЕ КредитВыдан КАК КредитВыдан
+		ПО CRM_Договор.РабочийЛист = КредитВыдан.IDK
+		ЛЕВОЕ СОЕДИНЕНИЕ табПродленнаяГарантия КАК табПродленнаяГарантия
+		ПО CRM_Договор.РабочийЛист = табПродленнаяГарантия.IDK
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.CRM_СостояниеАвтомобилейПроизводителя_v2 КАК CRM_СостояниеАвтомобилейПроизводителя_v2
+		ПО CRM_Договор.VIN = CRM_СостояниеАвтомобилейПроизводителя_v2.VIN
+ГДЕ
+	CRM_Договор.СтатусДоговора = &amp;Статус
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Емаилы.Представление КАК Email,
+	Телефоны.Представление КАК Телефон,
+	ДанныеПоДоговору.Дата,
+	ДанныеПоДоговору.VIN,
+	ДанныеПоДоговору.Менеджер,
+	ДанныеПоДоговору.Клиент,
+	ДанныеПоДоговору.КредитВыдан,
+	ДанныеПоДоговору.MyReno,
+	ДанныеПоДоговору.СтатусДоговора,
+	ДанныеПоДоговору.ПродленнаяГарантия,
+	ДанныеПоДоговору.РабочийЛист,
+	ДанныеПоДоговору.Модель
+ИЗ
+	ДанныеПоДоговору КАК ДанныеПоДоговору
+		ЛЕВОЕ СОЕДИНЕНИЕ Телефоны КАК Телефоны
+		ПО ДанныеПоДоговору.Клиент = Телефоны.Объект
+		ЛЕВОЕ СОЕДИНЕНИЕ Емаилы КАК Емаилы
+		ПО ДанныеПоДоговору.Клиент = Емаилы.Объект
+ГДЕ
+	ВЫБОР
+			КОГДА ГОД(&amp;НачалоПериода) &gt; 1
+				ТОГДА ДанныеПоДоговору.Дата &gt;= &amp;НачалоПериода
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА ГОД(&amp;КонецПериода) &gt; 1
+				ТОГДА ДанныеПоДоговору.Дата &lt;= &amp;КонецПериода
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">ThisYear</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Статус</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Статус</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.CRM_СтатусыДоговоровНаПродажуАвтомобиля</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.CRM_СтатусыДоговоровНаПродажуАвтомобиля.Подписан</value>
+		<useRestriction>true</useRestriction>
+		<availableValue>
+			<value xsi:type="dcscor:DesignTimeValue">Перечисление.CRM_СтатусыДоговоровНаПродажуАвтомобиля.Подписан</value>
+		</availableValue>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Менеджер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Клиент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Модель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>VIN</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Телефон</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПродленнаяГарантия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КредитВыдан</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>MyReno</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Email</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>IDK</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидДоговора</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>6abb2318-ffff-425b-9513-21cf3ee854f0</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидДоговора</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>44e7c7da-4c3c-4ba2-ace6-64cf6e692093</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisYear</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>4872774b-7e79-46ee-857b-865b4b6f86f0</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

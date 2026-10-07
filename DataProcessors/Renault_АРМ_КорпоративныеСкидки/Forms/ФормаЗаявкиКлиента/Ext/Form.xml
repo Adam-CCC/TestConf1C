@@ -1,0 +1,2421 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Width>150</Width>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="ГруппаСтраниц" id="376">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страниц</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>page Group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страниц</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>page Group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницРасширеннаяПодсказка" id="1009"/>
+			<Events>
+				<Event name="OnCurrentPageChange">ГруппаСтраницПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="ГруппаОбработкиВин" id="378">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Невыданные машины</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>undistinguished machine</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа обработки вин</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group wine processing</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ExtendedTooltip name="ГруппаОбработкиВинРасширеннаяПодсказка" id="1010"/>
+					<ChildItems>
+						<Table name="СписокВинКлиента" id="383">
+							<Representation>List</Representation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокВинКлиента</DataPath>
+							<RowPictureDataPath>СписокВинКлиента.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокВинКлиентаКонтекстноеМеню" id="384"/>
+							<AutoCommandBar name="СписокВинКлиентаКоманднаяПанель" id="385">
+								<ChildItems>
+									<Button name="СписокВинКлиентаАвтосклад" id="517">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Автосклад</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Открыть склад для резервирования</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Open storage for backup</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="СписокВинКлиентаАвтоскладРасширеннаяПодсказка" id="1011"/>
+									</Button>
+									<Button name="СписокВинКлиентаОткрытьVIN" id="412">
+										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
+										<CommandName>Form.Command.ОткрытьVIN</CommandName>
+										<ExtendedTooltip name="СписокВинКлиентаОткрытьVINРасширеннаяПодсказка" id="1012"/>
+									</Button>
+									<Popup name="РаботаСЗаявками" id="419">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Работа с заявками</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Working with applications</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Работа с заявками</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Working with applications</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="РаботаСЗаявкамиРасширеннаяПодсказка" id="1013"/>
+										<ChildItems>
+											<Button name="СписокВинКлиентаСоздатьЗаявку" id="418">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьЗаявку</CommandName>
+												<ExtendedTooltip name="СписокВинКлиентаСоздатьЗаявкуРасширеннаяПодсказка" id="1014"/>
+											</Button>
+											<Button name="СписокВинКлиентаОткрытьЗаявку" id="420">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткрытьЗаявку</CommandName>
+												<ExtendedTooltip name="СписокВинКлиентаОткрытьЗаявкуРасширеннаяПодсказка" id="1015"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Popup name="РаботаСДоговорами" id="436">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Работа с договорами</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Work with agreements</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Работа с договорами</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Work with agreements</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="РаботаСДоговорамиРасширеннаяПодсказка" id="1016"/>
+										<ChildItems>
+											<Button name="СписокВинКлиентаСоздатьДоговор" id="435">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьДоговор</CommandName>
+												<ExtendedTooltip name="СписокВинКлиентаСоздатьДоговорРасширеннаяПодсказка" id="1017"/>
+											</Button>
+											<Button name="СписокВинКлиентаОткрытьДоговор" id="437">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткрытьДоговор</CommandName>
+												<ExtendedTooltip name="СписокВинКлиентаОткрытьДоговорРасширеннаяПодсказка" id="1018"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Popup name="РаботаССобытиями" id="441">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Работа с событиями</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Working with events</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Работа с событиями</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Working with events</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="РаботаССобытиямиРасширеннаяПодсказка" id="1019"/>
+										<ChildItems>
+											<Button name="СписокВинКлиентаЗаплонироватьВыдочу" id="438">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗапланироватьВыдачу</CommandName>
+												<ExtendedTooltip name="СписокВинКлиентаЗаплонироватьВыдочуРасширеннаяПодсказка" id="1020"/>
+											</Button>
+											<Button name="СписокВинКлиентаВыдача" id="442">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.Выдача</CommandName>
+												<ExtendedTooltip name="СписокВинКлиентаВыдачаРасширеннаяПодсказка" id="1021"/>
+											</Button>
+											<Button name="СписокВинКлиентаОтменаВыдачи" id="443">
+												<Type>CommandBarButton</Type>
+												<Visible>false</Visible>
+												<CommandName>Form.Command.ОтменаВыдачи</CommandName>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Отмена</v8:content>
+													</v8:item>
+													<v8:item>
+														<v8:lang>en</v8:lang>
+														<v8:content>cancellation</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="СписокВинКлиентаОтменаВыдачиРасширеннаяПодсказка" id="1022"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Button name="СписокВинКлиентаСформироватьОтчетПоЗаявке" id="1135">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СформироватьОтчетПоЗаявке</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Отчет по заявке</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>The report on the application</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="СписокВинКлиентаСформироватьОтчетПоЗаявкеРасширеннаяПодсказка" id="1136"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокВинКлиентаРасширеннаяПодсказка" id="1023"/>
+							<SearchStringAddition name="СписокВинКлиентаСтрокаПоиска" id="1024">
+								<AdditionSource>
+									<Item>СписокВинКлиента</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВинКлиентаСтрокаПоискаКонтекстноеМеню" id="1025"/>
+								<ExtendedTooltip name="СписокВинКлиентаСтрокаПоискаРасширеннаяПодсказка" id="1026"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокВинКлиентаСостояниеПросмотра" id="1027">
+								<AdditionSource>
+									<Item>СписокВинКлиента</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВинКлиентаСостояниеПросмотраКонтекстноеМеню" id="1028"/>
+								<ExtendedTooltip name="СписокВинКлиентаСостояниеПросмотраРасширеннаяПодсказка" id="1029"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокВинКлиентаУправлениеПоиском" id="1030">
+								<AdditionSource>
+									<Item>СписокВинКлиента</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВинКлиентаУправлениеПоискомКонтекстноеМеню" id="1031"/>
+								<ExtendedTooltip name="СписокВинКлиентаУправлениеПоискомРасширеннаяПодсказка" id="1032"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокВинКлиентаВыбор</Event>
+							</Events>
+							<ChildItems>
+								<CheckBoxField name="СписокВинКлиентаФлаг" id="413">
+									<Visible>false</Visible>
+									<TitleLocation>None</TitleLocation>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.Согласован</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+										<xr:TransparentPixel x="14" y="1"/>
+									</HeaderPicture>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СписокВинКлиентаФлагКонтекстноеМеню" id="414"/>
+									<ExtendedTooltip name="СписокВинКлиентаФлагРасширеннаяПодсказка" id="1033"/>
+								</CheckBoxField>
+								<LabelField name="СписокВинКлиентаVIN" id="386">
+									<DataPath>СписокВинКлиента.VIN</DataPath>
+									<Width>17</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СписокВинКлиентаVINКонтекстноеМеню" id="387"/>
+									<ExtendedTooltip name="СписокВинКлиентаVINРасширеннаяПодсказка" id="1034"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаAUTO_STATUS" id="1004">
+									<DataPath>СписокВинКлиента.AUTO_STATUS</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Наличие а/м</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>The presence of a / m</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаAUTO_STATUSКонтекстноеМеню" id="1005"/>
+									<ExtendedTooltip name="СписокВинКлиентаAUTO_STATUSРасширеннаяПодсказка" id="1035"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаDISC_COMMENT" id="1001">
+									<DataPath>СписокВинКлиента.DISC_COMMENT</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаDISC_COMMENTКонтекстноеМеню" id="1002"/>
+									<ExtendedTooltip name="СписокВинКлиентаDISC_COMMENTРасширеннаяПодсказка" id="1036"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаАвтомобиль" id="388">
+									<DataPath>СписокВинКлиента.Автомобиль</DataPath>
+									<Width>1</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СписокВинКлиентаАвтомобильКонтекстноеМеню" id="389"/>
+									<ExtendedTooltip name="СписокВинКлиентаАвтомобильРасширеннаяПодсказка" id="1037"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаДатаСнятия" id="390">
+									<DataPath>СписокВинКлиента.ДатаСнятия</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Снятие резерва</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Removing reserve</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yy</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>DF = dd.MM.yy</v8:content>
+										</v8:item>
+									</Format>
+									<ContextMenu name="СписокВинКлиентаДатаСнятияКонтекстноеМеню" id="391"/>
+									<ExtendedTooltip name="СписокВинКлиентаДатаСнятияРасширеннаяПодсказка" id="1038"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаСтатусРезерва" id="408">
+									<DataPath>СписокВинКлиента.СтатусРезерва</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Резерв</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Reserve</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаСтатусРезерваКонтекстноеМеню" id="409"/>
+									<ExtendedTooltip name="СписокВинКлиентаСтатусРезерваРасширеннаяПодсказка" id="1039"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаСтатусДоговора" id="400">
+									<DataPath>СписокВинКлиента.СтатусДоговора</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Договор</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>agreement</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаСтатусДоговораКонтекстноеМеню" id="401"/>
+									<ExtendedTooltip name="СписокВинКлиентаСтатусДоговораРасширеннаяПодсказка" id="1040"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаСтатусЗаявки" id="402">
+									<DataPath>СписокВинКлиента.СтатусЗаявки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заявка</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Application</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаСтатусЗаявкиКонтекстноеМеню" id="403"/>
+									<ExtendedTooltip name="СписокВинКлиентаСтатусЗаявкиРасширеннаяПодсказка" id="1041"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаДатаСобытия" id="439">
+									<DataPath>СписокВинКлиента.ДатаСобытия</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выдача</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>extradition</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаДатаСобытияКонтекстноеМеню" id="440"/>
+									<ExtendedTooltip name="СписокВинКлиентаДатаСобытияРасширеннаяПодсказка" id="1042"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаЦенаPVR" id="808">
+									<DataPath>СписокВинКлиента.ЦенаPVR</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаЦенаPVRКонтекстноеМеню" id="809"/>
+									<ExtendedTooltip name="СписокВинКлиентаЦенаPVRРасширеннаяПодсказка" id="1043"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаЦенаPVC" id="509">
+									<DataPath>СписокВинКлиента.ЦенаPVC</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаЦенаPVCКонтекстноеМеню" id="510"/>
+									<ExtendedTooltip name="СписокВинКлиентаЦенаPVCРасширеннаяПодсказка" id="1044"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаПроцентСкидки" id="507">
+									<DataPath>СписокВинКлиента.ПроцентСкидки</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаПроцентСкидкиКонтекстноеМеню" id="508"/>
+									<ExtendedTooltip name="СписокВинКлиентаПроцентСкидкиРасширеннаяПодсказка" id="1045"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаСуммаСкидки" id="846">
+									<DataPath>СписокВинКлиента.СуммаСкидки</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаСуммаСкидкиКонтекстноеМеню" id="847"/>
+									<ExtendedTooltip name="СписокВинКлиентаСуммаСкидкиРасширеннаяПодсказка" id="1046"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаЦенаFlotte" id="511">
+									<DataPath>СписокВинКлиента.ЦенаFlotte</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаЦенаFlotteКонтекстноеМеню" id="512"/>
+									<ExtendedTooltip name="СписокВинКлиентаЦенаFlotteРасширеннаяПодсказка" id="1047"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаМаржаПроцент" id="811">
+									<DataPath>СписокВинКлиента.МаржаПроцент</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаМаржаПроцентКонтекстноеМеню" id="812"/>
+									<ExtendedTooltip name="СписокВинКлиентаМаржаПроцентРасширеннаяПодсказка" id="1048"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаМаржаСумма" id="814">
+									<DataPath>СписокВинКлиента.МаржаСумма</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаМаржаСуммаКонтекстноеМеню" id="815"/>
+									<ExtendedTooltip name="СписокВинКлиентаМаржаСуммаРасширеннаяПодсказка" id="1049"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаМаржаДилераПроцент" id="955">
+									<DataPath>СписокВинКлиента.МаржаДилераПроцент</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаМаржаДилераПроцентКонтекстноеМеню" id="956"/>
+									<ExtendedTooltip name="СписокВинКлиентаМаржаДилераПроцентРасширеннаяПодсказка" id="1050"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаУчастиеДилера" id="817">
+									<DataPath>СписокВинКлиента.УчастиеДилера</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаУчастиеДилераКонтекстноеМеню" id="818"/>
+									<ExtendedTooltip name="СписокВинКлиентаУчастиеДилераРасширеннаяПодсказка" id="1051"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаМаржаПроцентRenault" id="820">
+									<DataPath>СписокВинКлиента.МаржаПроцентRenault</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаМаржаПроцентRenaultКонтекстноеМеню" id="821"/>
+									<ExtendedTooltip name="СписокВинКлиентаМаржаПроцентRenaultРасширеннаяПодсказка" id="1052"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаУчастиеRenault" id="823">
+									<DataPath>СписокВинКлиента.УчастиеRenault</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаУчастиеRenaultКонтекстноеМеню" id="824"/>
+									<ExtendedTooltip name="СписокВинКлиентаУчастиеRenaultРасширеннаяПодсказка" id="1053"/>
+								</LabelField>
+								<LabelField name="СписокВинКлиентаЦенаФактура" id="826">
+									<DataPath>СписокВинКлиента.ЦенаФактура</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВинКлиентаЦенаФактураКонтекстноеМеню" id="827"/>
+									<ExtendedTooltip name="СписокВинКлиентаЦенаФактураРасширеннаяПодсказка" id="1054"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаВыданных" id="444">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выданные машины</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>issued machines</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа выданных</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The group issued</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ExtendedTooltip name="ГруппаВыданныхРасширеннаяПодсказка" id="1055"/>
+					<ChildItems>
+						<Table name="СписокВыданных" id="445">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокВыданных</DataPath>
+							<RowPictureDataPath>СписокВыданных.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокВыданныхКонтекстноеМеню" id="446"/>
+							<AutoCommandBar name="СписокВыданныхКоманднаяПанель" id="447">
+								<ChildItems>
+									<Popup name="РаботаСЗаявками1" id="933">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Работа с заявками</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Working with applications</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Работа с заявками</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Working with applications</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="РаботаСЗаявками1РасширеннаяПодсказка" id="1056"/>
+										<ChildItems>
+											<Button name="СписокВинКлиентаСоздатьЗаявку1" id="935">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьЗаявку</CommandName>
+												<ExtendedTooltip name="СписокВинКлиентаСоздатьЗаявку1РасширеннаяПодсказка" id="1057"/>
+											</Button>
+											<Button name="СписокВинКлиентаОткрытьЗаявку1" id="937">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОткрытьЗаявку</CommandName>
+												<ExtendedTooltip name="СписокВинКлиентаОткрытьЗаявку1РасширеннаяПодсказка" id="1058"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Button name="СписокВинКлиентаОткрытьДоговор1" id="939">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОткрытьДоговор</CommandName>
+										<ExtendedTooltip name="СписокВинКлиентаОткрытьДоговор1РасширеннаяПодсказка" id="1059"/>
+									</Button>
+									<Button name="СписокВинКлиентаОтменаВыдачи1" id="941">
+										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
+										<CommandName>Form.Command.ОтменаВыдачи</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Отменить выдачу</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Cancel issue</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="СписокВинКлиентаОтменаВыдачи1РасширеннаяПодсказка" id="1060"/>
+									</Button>
+									<Button name="СписокВинКлиентаСформироватьОтчетПоЗаявке1" id="1137">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СформироватьОтчетПоЗаявке</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Отчет по заявке</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>The report on the application</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="СписокВинКлиентаСформироватьОтчетПоЗаявке1РасширеннаяПодсказка" id="1138"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокВыданныхРасширеннаяПодсказка" id="1061"/>
+							<SearchStringAddition name="СписокВыданныхСтрокаПоиска" id="1062">
+								<AdditionSource>
+									<Item>СписокВыданных</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВыданныхСтрокаПоискаКонтекстноеМеню" id="1063"/>
+								<ExtendedTooltip name="СписокВыданныхСтрокаПоискаРасширеннаяПодсказка" id="1064"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокВыданныхСостояниеПросмотра" id="1065">
+								<AdditionSource>
+									<Item>СписокВыданных</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВыданныхСостояниеПросмотраКонтекстноеМеню" id="1066"/>
+								<ExtendedTooltip name="СписокВыданныхСостояниеПросмотраРасширеннаяПодсказка" id="1067"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокВыданныхУправлениеПоиском" id="1068">
+								<AdditionSource>
+									<Item>СписокВыданных</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВыданныхУправлениеПоискомКонтекстноеМеню" id="1069"/>
+								<ExtendedTooltip name="СписокВыданныхУправлениеПоискомРасширеннаяПодсказка" id="1070"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокВыданныхВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СписокВыданныхVIN" id="448">
+									<DataPath>СписокВыданных.VIN</DataPath>
+									<Width>17</Width>
+									<ContextMenu name="СписокВыданныхVINКонтекстноеМеню" id="449"/>
+									<ExtendedTooltip name="СписокВыданныхVINРасширеннаяПодсказка" id="1071"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхDISC_COMMENT" id="1007">
+									<DataPath>СписокВыданных.DISC_COMMENT</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхDISC_COMMENTКонтекстноеМеню" id="1008"/>
+									<ExtendedTooltip name="СписокВыданныхDISC_COMMENTРасширеннаяПодсказка" id="1072"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхАвтомобиль" id="450">
+									<DataPath>СписокВыданных.Автомобиль</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхАвтомобильКонтекстноеМеню" id="451"/>
+									<ExtendedTooltip name="СписокВыданныхАвтомобильРасширеннаяПодсказка" id="1073"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхСтатусДоговора" id="466">
+									<DataPath>СписокВыданных.СтатусДоговора</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Договор</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>agreement</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СписокВыданныхСтатусДоговораКонтекстноеМеню" id="467"/>
+									<ExtendedTooltip name="СписокВыданныхСтатусДоговораРасширеннаяПодсказка" id="1074"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхСтатусЗаявки" id="518">
+									<DataPath>СписокВыданных.СтатусЗаявки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заявка</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Application</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СписокВыданныхСтатусЗаявкиКонтекстноеМеню" id="519"/>
+									<ExtendedTooltip name="СписокВыданныхСтатусЗаявкиРасширеннаяПодсказка" id="1075"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхЦенаPVR" id="943">
+									<DataPath>СписокВыданных.ЦенаPVR</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхЦенаPVRКонтекстноеМеню" id="944"/>
+									<ExtendedTooltip name="СписокВыданныхЦенаPVRРасширеннаяПодсказка" id="1076"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхЦенаPVC" id="513">
+									<DataPath>СписокВыданных.ЦенаPVC</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхЦенаPVCКонтекстноеМеню" id="514"/>
+									<ExtendedTooltip name="СписокВыданныхЦенаPVCРасширеннаяПодсказка" id="1077"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхПроцентСкидки" id="462">
+									<DataPath>СписокВыданных.ПроцентСкидки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>% скидки</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>% discount</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхПроцентСкидкиКонтекстноеМеню" id="463"/>
+									<ExtendedTooltip name="СписокВыданныхПроцентСкидкиРасширеннаяПодсказка" id="1078"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхСуммаСкидки" id="946">
+									<DataPath>СписокВыданных.СуммаСкидки</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхСуммаСкидкиКонтекстноеМеню" id="947"/>
+									<ExtendedTooltip name="СписокВыданныхСуммаСкидкиРасширеннаяПодсказка" id="1079"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхЦенаFlotte" id="515">
+									<DataPath>СписокВыданных.ЦенаFlotte</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхЦенаFlotteКонтекстноеМеню" id="516"/>
+									<ExtendedTooltip name="СписокВыданныхЦенаFlotteРасширеннаяПодсказка" id="1080"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхМаржаПроцент" id="949">
+									<DataPath>СписокВыданных.МаржаПроцент</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхМаржаПроцентКонтекстноеМеню" id="950"/>
+									<ExtendedTooltip name="СписокВыданныхМаржаПроцентРасширеннаяПодсказка" id="1081"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхМаржаСумма" id="952">
+									<DataPath>СписокВыданных.МаржаСумма</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхМаржаСуммаКонтекстноеМеню" id="953"/>
+									<ExtendedTooltip name="СписокВыданныхМаржаСуммаРасширеннаяПодсказка" id="1082"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхМаржаДилераПроцент" id="958">
+									<DataPath>СписокВыданных.МаржаДилераПроцент</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхМаржаДилераПроцентКонтекстноеМеню" id="959"/>
+									<ExtendedTooltip name="СписокВыданныхМаржаДилераПроцентРасширеннаяПодсказка" id="1083"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхУчастиеДилера" id="961">
+									<DataPath>СписокВыданных.УчастиеДилера</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхУчастиеДилераКонтекстноеМеню" id="962"/>
+									<ExtendedTooltip name="СписокВыданныхУчастиеДилераРасширеннаяПодсказка" id="1084"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхМаржаПроцентRenault" id="964">
+									<DataPath>СписокВыданных.МаржаПроцентRenault</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхМаржаПроцентRenaultКонтекстноеМеню" id="965"/>
+									<ExtendedTooltip name="СписокВыданныхМаржаПроцентRenaultРасширеннаяПодсказка" id="1085"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхУчастиеRenault" id="967">
+									<DataPath>СписокВыданных.УчастиеRenault</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхУчастиеRenaultКонтекстноеМеню" id="968"/>
+									<ExtendedTooltip name="СписокВыданныхУчастиеRenaultРасширеннаяПодсказка" id="1086"/>
+								</LabelField>
+								<LabelField name="СписокВыданныхЦенаФактура" id="970">
+									<DataPath>СписокВыданных.ЦенаФактура</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокВыданныхЦенаФактураКонтекстноеМеню" id="971"/>
+									<ExtendedTooltip name="СписокВыданныхЦенаФактураРасширеннаяПодсказка" id="1087"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаКлиента" id="377">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Информация о клиенте</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Customer Information</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа клиента</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>customer Group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ExtendedTooltip name="ГруппаКлиентаРасширеннаяПодсказка" id="1088"/>
+					<ChildItems>
+						<UsualGroup name="Группа8" id="503">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="1089"/>
+							<ChildItems>
+								<InputField name="Клиент" id="381">
+									<DataPath>Клиент</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="КлиентКонтекстноеМеню" id="382"/>
+									<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="1090"/>
+									<Events>
+										<Event name="Opening">КлиентОткрытие</Event>
+									</Events>
+								</InputField>
+								<InputField name="КлиентКонтрагентИНН" id="498">
+									<DataPath>Клиент.Контрагент.ИНН</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="КлиентКонтрагентИННКонтекстноеМеню" id="499"/>
+									<ExtendedTooltip name="КлиентКонтрагентИННРасширеннаяПодсказка" id="1091"/>
+								</InputField>
+								<InputField name="КлиентИдентификатор" id="973">
+									<DataPath>Клиент.Идентификатор</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="КлиентИдентификаторКонтекстноеМеню" id="974"/>
+									<ExtendedTooltip name="КлиентИдентификаторРасширеннаяПодсказка" id="1092"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="КонтактнаяИнформация" id="976">
+							<TitleLocation>Top</TitleLocation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<HeightInTableRows>5</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>КонтактнаяИнформация</DataPath>
+							<RowPictureDataPath>КонтактнаяИнформация.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контакты</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Contacts</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="КонтактнаяИнформацияКонтекстноеМеню" id="977">
+								<Autofill>false</Autofill>
+							</ContextMenu>
+							<AutoCommandBar name="КонтактнаяИнформацияКоманднаяПанель" id="978">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="КонтактнаяИнформацияРасширеннаяПодсказка" id="1093"/>
+							<SearchStringAddition name="КонтактнаяИнформацияСтрокаПоиска" id="1094">
+								<AdditionSource>
+									<Item>КонтактнаяИнформация</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КонтактнаяИнформацияСтрокаПоискаКонтекстноеМеню" id="1095"/>
+								<ExtendedTooltip name="КонтактнаяИнформацияСтрокаПоискаРасширеннаяПодсказка" id="1096"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="КонтактнаяИнформацияСостояниеПросмотра" id="1097">
+								<AdditionSource>
+									<Item>КонтактнаяИнформация</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="КонтактнаяИнформацияСостояниеПросмотраКонтекстноеМеню" id="1098"/>
+								<ExtendedTooltip name="КонтактнаяИнформацияСостояниеПросмотраРасширеннаяПодсказка" id="1099"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="КонтактнаяИнформацияУправлениеПоиском" id="1100">
+								<AdditionSource>
+									<Item>КонтактнаяИнформация</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="КонтактнаяИнформацияУправлениеПоискомКонтекстноеМеню" id="1101"/>
+								<ExtendedTooltip name="КонтактнаяИнформацияУправлениеПоискомРасширеннаяПодсказка" id="1102"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="КонтактнаяИнформацияТип" id="998">
+									<DataPath>КонтактнаяИнформация.Вид</DataPath>
+									<Width>10</Width>
+									<ContextMenu name="КонтактнаяИнформацияТипКонтекстноеМеню" id="999"/>
+									<ExtendedTooltip name="КонтактнаяИнформацияТипРасширеннаяПодсказка" id="1103"/>
+								</LabelField>
+								<LabelField name="КонтактнаяИнформацияПредставление" id="995">
+									<DataPath>КонтактнаяИнформация.Представление</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Контакт</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Contact</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="КонтактнаяИнформацияПредставлениеКонтекстноеМеню" id="996"/>
+									<ExtendedTooltip name="КонтактнаяИнформацияПредставлениеРасширеннаяПодсказка" id="1104"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+						<UsualGroup name="Группа7" id="502">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="1105"/>
+							<ChildItems>
+								<Table name="КлиентАвтопарк" id="486">
+									<TitleLocation>Top</TitleLocation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<HeightInTableRows>4</HeightInTableRows>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<VerticalStretch>false</VerticalStretch>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Клиент.Автопарк</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Автопарк</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Car park</v8:content>
+										</v8:item>
+									</Title>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="КлиентАвтопаркКонтекстноеМеню" id="487"/>
+									<AutoCommandBar name="КлиентАвтопаркКоманднаяПанель" id="488">
+										<Autofill>false</Autofill>
+									</AutoCommandBar>
+									<ExtendedTooltip name="КлиентАвтопаркРасширеннаяПодсказка" id="1106"/>
+									<SearchStringAddition name="КлиентАвтопаркСтрокаПоиска" id="1107">
+										<AdditionSource>
+											<Item>КлиентАвтопарк</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КлиентАвтопаркСтрокаПоискаКонтекстноеМеню" id="1108"/>
+										<ExtendedTooltip name="КлиентАвтопаркСтрокаПоискаРасширеннаяПодсказка" id="1109"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="КлиентАвтопаркСостояниеПросмотра" id="1110">
+										<AdditionSource>
+											<Item>КлиентАвтопарк</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КлиентАвтопаркСостояниеПросмотраКонтекстноеМеню" id="1111"/>
+										<ExtendedTooltip name="КлиентАвтопаркСостояниеПросмотраРасширеннаяПодсказка" id="1112"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="КлиентАвтопаркУправлениеПоиском" id="1113">
+										<AdditionSource>
+											<Item>КлиентАвтопарк</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="КлиентАвтопаркУправлениеПоискомКонтекстноеМеню" id="1114"/>
+										<ExtendedTooltip name="КлиентАвтопаркУправлениеПоискомРасширеннаяПодсказка" id="1115"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<LabelField name="КлиентАвтопаркМарка" id="491">
+											<DataPath>Клиент.Автопарк.Марка</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>1</Width>
+											<ContextMenu name="КлиентАвтопаркМаркаКонтекстноеМеню" id="492"/>
+											<ExtendedTooltip name="КлиентАвтопаркМаркаРасширеннаяПодсказка" id="1116"/>
+										</LabelField>
+										<LabelField name="КлиентАвтопаркМодель" id="493">
+											<DataPath>Клиент.Автопарк.Модель</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>1</Width>
+											<ContextMenu name="КлиентАвтопаркМодельКонтекстноеМеню" id="494"/>
+											<ExtendedTooltip name="КлиентАвтопаркМодельРасширеннаяПодсказка" id="1117"/>
+										</LabelField>
+										<LabelField name="КлиентАвтопаркКоличество" id="495">
+											<DataPath>Клиент.Автопарк.Количество</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>1</Width>
+											<ContextMenu name="КлиентАвтопаркКоличествоКонтекстноеМеню" id="496"/>
+											<ExtendedTooltip name="КлиентАвтопаркКоличествоРасширеннаяПодсказка" id="1118"/>
+										</LabelField>
+									</ChildItems>
+								</Table>
+								<Table name="КлиентСферыДеятельности" id="479">
+									<TitleLocation>Top</TitleLocation>
+									<CommandBarLocation>None</CommandBarLocation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<HeightInTableRows>5</HeightInTableRows>
+									<Header>false</Header>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<VerticalStretch>false</VerticalStretch>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Клиент.СферыДеятельности</DataPath>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="КлиентСферыДеятельностиКонтекстноеМеню" id="480"/>
+									<AutoCommandBar name="КлиентСферыДеятельностиКоманднаяПанель" id="481"/>
+									<ExtendedTooltip name="КлиентСферыДеятельностиРасширеннаяПодсказка" id="1119"/>
+									<SearchStringAddition name="КлиентСферыДеятельностиСтрокаПоиска" id="1120">
+										<AdditionSource>
+											<Item>КлиентСферыДеятельности</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КлиентСферыДеятельностиСтрокаПоискаКонтекстноеМеню" id="1121"/>
+										<ExtendedTooltip name="КлиентСферыДеятельностиСтрокаПоискаРасширеннаяПодсказка" id="1122"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="КлиентСферыДеятельностиСостояниеПросмотра" id="1123">
+										<AdditionSource>
+											<Item>КлиентСферыДеятельности</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="КлиентСферыДеятельностиСостояниеПросмотраКонтекстноеМеню" id="1124"/>
+										<ExtendedTooltip name="КлиентСферыДеятельностиСостояниеПросмотраРасширеннаяПодсказка" id="1125"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="КлиентСферыДеятельностиУправлениеПоиском" id="1126">
+										<AdditionSource>
+											<Item>КлиентСферыДеятельности</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="КлиентСферыДеятельностиУправлениеПоискомКонтекстноеМеню" id="1127"/>
+										<ExtendedTooltip name="КлиентСферыДеятельностиУправлениеПоискомРасширеннаяПодсказка" id="1128"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<LabelField name="КлиентСферыДеятельностиСфераДеятельности" id="484">
+											<DataPath>Клиент.СферыДеятельности.СфераДеятельности</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="КлиентСферыДеятельностиСфераДеятельностиКонтекстноеМеню" id="485"/>
+											<ExtendedTooltip name="КлиентСферыДеятельностиСфераДеятельностиРасширеннаяПодсказка" id="1129"/>
+										</LabelField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаКомментария" id="421">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа комментария</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>comment Group</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа комментария</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>comment Group</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКомментарияРасширеннаяПодсказка" id="1130"/>
+							<ChildItems>
+								<InputField name="ИсторияКомментариев" id="422">
+									<DataPath>ИсторияКомментариев</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>Top</TitleLocation>
+									<Height>5</Height>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="ИсторияКомментариевКонтекстноеМеню" id="423"/>
+									<ExtendedTooltip name="ИсторияКомментариевРасширеннаяПодсказка" id="1131"/>
+								</InputField>
+								<UsualGroup name="Группа3" id="424">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="1132"/>
+									<ChildItems>
+										<InputField name="НовыйКомментарий" id="425">
+											<DataPath>НовыйКомментарий</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditTextUpdate>OnValueChange</EditTextUpdate>
+											<ContextMenu name="НовыйКомментарийКонтекстноеМеню" id="426"/>
+											<ExtendedTooltip name="НовыйКомментарийРасширеннаяПодсказка" id="1133"/>
+										</InputField>
+										<Button name="ОтправитьКомментарий" id="427">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ОтправитьКомментарий</CommandName>
+											<ExtendedTooltip name="ОтправитьКомментарийРасширеннаяПодсказка" id="1134"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПоказыватьУдаленныеЗаписи" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать удаленные записи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show deleted records</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Статус" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Status</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Renault_СостоянияСогласованияКлиента</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Наименование" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Name</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Коментарий" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коментарий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Comment</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Клиент" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Client</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_КорпоративныеКлиенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокВинКлиента" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список вин клиента</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List of customer wines</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокВинКлиента.ДнейРезерва</Field>
+				<Field>СписокВинКлиента.ДоговорСсылка</Field>
+				<Field>СписокВинКлиента.Заявка</Field>
+				<Field>СписокВинКлиента.ПроцентСкидки</Field>
+				<Field>СписокВинКлиента.Событие</Field>
+				<Field>СписокВинКлиента.СтатусОкончательныхДокументов</Field>
+				<Field>СписокВинКлиента.СтатусПредварительныхДокументов</Field>
+				<Field>СписокВинКлиента.ЦенаFlotte</Field>
+				<Field>СписокВинКлиента.ЦенаPVC</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Договора.СтатусПредварительныхДокументов,
+	Договора.СтатусОкончательныхДокументов,
+	Договора.СтатусДоговора,
+	Договора.Ссылка КАК ДоговорСсылка,
+	Резервы.VIN,
+	Резервы.Автомобиль,
+	Резервы.СтатусРезерва,
+	Резервы.ДатаСнятия,
+	РАЗНОСТЬДАТ(&amp;ТекущаяДата, Резервы.ДатаСнятия, ДЕНЬ) КАК ДнейРезерва,
+	Заявки.Заявка,
+	Заявки.Статус КАК СтатусЗаявки,
+	Заявки.ПроцентСкидки,
+	Заявки.ЦенаFlotte,
+	Заявки.ЦенаPVC,
+	Выдача.ДатаНапоминания КАК ДатаСобытия,
+	Выдача.Ссылка КАК Событие,
+	Заявки.СуммаСкидки,
+	Заявки.МаржаПроцент,
+	Заявки.МаржаСумма,
+	Заявки.УчастиеДилера,
+	Заявки.МаржаПроцентRenault,
+	Заявки.УчастиеRenault,
+	Заявки.ЦенаФактура,
+	Заявки.ПроцентДилера,
+	Заявки.ЦенаPVR,
+	Заявки.ПроцентРено,
+	Заявки.МаржаДилераПроцент,
+	Резервы.VIN КАК VIN1,
+	Резервы.Автомобиль КАК Автомобиль1,
+	Резервы.СтатусРезерва КАК СтатусРезерва1,
+	Резервы.ДатаСнятия КАК ДатаСнятия1,
+	Резервы.DISC_COMMENT,
+	Резервы.AUTO_STATUS
+ИЗ
+	(ВЫБРАТЬ
+		Renault_ЗаявкиНаРезервАвтомобиля.VIN КАК VIN,
+		Renault_ЗаявкиНаРезервАвтомобиля.Автомобиль КАК Автомобиль,
+		ВЫБОР
+			КОГДА НЕ Renault_УтвержденныеРезервы.РабочийЛист ЕСТЬ NULL 
+				ТОГДА "Утвержден"
+			ИНАЧЕ ПРЕДСТАВЛЕНИЕССЫЛКИ(Renault_ЗаявкиНаРезервАвтомобиля.СтатусРезерва)
+		КОНЕЦ КАК СтатусРезерва,
+		МАКСИМУМ(ЕСТЬNULL(Renault_УтвержденныеРезервы.ДатаСнятияСРезерва, Renault_ЗаявкиНаРезервАвтомобиля.ДатаСнятияСРезерва)) КАК ДатаСнятия,
+		CRM_СостояниеАвтомобилейПроизводителя_v2.DISC_COMMENT КАК DISC_COMMENT,
+		CRM_СостояниеАвтомобилейПроизводителя_v2.AUTO_STATUS КАК AUTO_STATUS
+	ИЗ
+		РегистрСведений.Renault_ЗаявкиНаРезервАвтомобиля КАК Renault_ЗаявкиНаРезервАвтомобиля
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_УтвержденныеРезервы КАК Renault_УтвержденныеРезервы
+			ПО Renault_ЗаявкиНаРезервАвтомобиля.VIN = Renault_УтвержденныеРезервы.VIN
+				И Renault_ЗаявкиНаРезервАвтомобиля.Автомобиль = Renault_УтвержденныеРезервы.Автомобиль
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.CRM_СостояниеАвтомобилейПроизводителя_v2 КАК CRM_СостояниеАвтомобилейПроизводителя_v2
+			ПО Renault_ЗаявкиНаРезервАвтомобиля.VIN = CRM_СостояниеАвтомобилейПроизводителя_v2.VIN
+	ГДЕ
+		Renault_ЗаявкиНаРезервАвтомобиля.РабочийЛист = &amp;РабочийЛист
+	
+	СГРУППИРОВАТЬ ПО
+		Renault_ЗаявкиНаРезервАвтомобиля.Автомобиль,
+		Renault_ЗаявкиНаРезервАвтомобиля.VIN,
+		CRM_СостояниеАвтомобилейПроизводителя_v2.DISC_COMMENT,
+		CRM_СостояниеАвтомобилейПроизводителя_v2.AUTO_STATUS,
+		ВЫБОР
+			КОГДА НЕ Renault_УтвержденныеРезервы.РабочийЛист ЕСТЬ NULL 
+				ТОГДА "Утвержден"
+			ИНАЧЕ ПРЕДСТАВЛЕНИЕССЫЛКИ(Renault_ЗаявкиНаРезервАвтомобиля.СтатусРезерва)
+		КОНЕЦ
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Renault_ЗаконтрактованныеАвтомобили.VIN,
+		Renault_ЗаконтрактованныеАвтомобили.Автомобиль,
+		NULL,
+		NULL,
+		CRM_СостояниеАвтомобилейПроизводителя_v2.DISC_COMMENT,
+		CRM_СостояниеАвтомобилейПроизводителя_v2.AUTO_STATUS
+	ИЗ
+		РегистрСведений.Renault_ЗаконтрактованныеАвтомобили КАК Renault_ЗаконтрактованныеАвтомобили
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_УтвержденныеРезервы КАК Renault_УтвержденныеРезервы
+			ПО Renault_ЗаконтрактованныеАвтомобили.VIN = Renault_УтвержденныеРезервы.VIN
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ЗаявкиНаРезервАвтомобиля КАК Renault_ЗаявкиНаРезервАвтомобиля
+			ПО Renault_ЗаконтрактованныеАвтомобили.VIN = Renault_ЗаявкиНаРезервАвтомобиля.VIN
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.CRM_СостояниеАвтомобилейПроизводителя_v2 КАК CRM_СостояниеАвтомобилейПроизводителя_v2
+			ПО Renault_ЗаконтрактованныеАвтомобили.VIN = CRM_СостояниеАвтомобилейПроизводителя_v2.VIN
+	ГДЕ
+		Renault_ЗаконтрактованныеАвтомобили.РабочийЛист = &amp;РабочийЛист
+		И Renault_УтвержденныеРезервы.VIN ЕСТЬ NULL 
+		И Renault_ЗаявкиНаРезервАвтомобиля.VIN ЕСТЬ NULL ) КАК Резервы
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			СостоянияVINВЗаявках.VIN КАК VIN,
+			СостоянияVINВЗаявках.Заявка КАК Заявка,
+			СостоянияVINВЗаявках.Статус КАК Статус,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ПроцентСкидки КАК ПроцентСкидки,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаFlotte КАК ЦенаFlotte,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаPVC КАК ЦенаPVC,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.СуммаСкидки КАК СуммаСкидки,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаПроцент КАК МаржаПроцент,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаСумма КАК МаржаСумма,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.УчастиеДилера КАК УчастиеДилера,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаПроцентRenault КАК МаржаПроцентRenault,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.УчастиеRenault КАК УчастиеRenault,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаФактура КАК ЦенаФактура,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаPVR КАК ЦенаPVR,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ПроцентДилера КАК ПроцентДилера,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ПроцентРено КАК ПроцентРено,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаДилераПроцент КАК МаржаДилераПроцент
+		ИЗ
+			РегистрСведений.Renault_СостоянияVINВЗаявках КАК СостоянияVINВЗаявках
+				ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_ЗаявкаНаКорпоративнуюСкидку.ТаблицаВИН КАК Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН
+				ПО СостоянияVINВЗаявках.Заявка = Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.Ссылка
+					И СостоянияVINВЗаявках.VIN = Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.Автомобиль
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+					МАКСИМУМ(СостоянияVINВЗаявках.Заявка.Дата) КАК Дата,
+					СостоянияVINВЗаявках.VIN КАК VIN
+				ИЗ
+					РегистрСведений.Renault_СостоянияVINВЗаявках КАК СостоянияVINВЗаявках
+				
+				СГРУППИРОВАТЬ ПО
+					СостоянияVINВЗаявках.VIN) КАК табл
+				ПО СостоянияVINВЗаявках.VIN = табл.VIN
+					И СостоянияVINВЗаявках.Заявка.Дата = табл.Дата) КАК Заявки
+		ПО Резервы.Автомобиль = Заявки.VIN
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Renault_ДоговорСоставДоговора.Ссылка КАК Ссылка,
+			Renault_ДоговорСоставДоговора.Ссылка.СтатусПредварительныхДокументов КАК СтатусПредварительныхДокументов,
+			Renault_ДоговорСоставДоговора.Ссылка.СтатусОкончательныхДокументов КАК СтатусОкончательныхДокументов,
+			Renault_ДоговорСоставДоговора.Ссылка.СтатусДоговора КАК СтатусДоговора,
+			Renault_ДоговорСоставДоговора.Автомобиль КАК Автомобиль
+		ИЗ
+			Документ.Renault_Договор.СоставДоговора КАК Renault_ДоговорСоставДоговора
+		ГДЕ
+			Renault_ДоговорСоставДоговора.Ссылка.РабочийЛист = &amp;РабочийЛист
+			И Renault_ДоговорСоставДоговора.Ссылка.ПометкаУдаления = ЛОЖЬ) КАК Договора
+		ПО Резервы.Автомобиль = Договора.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Автомобиль КАК Автомобиль,
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.VIN КАК VIN,
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка.ДатаНапоминания КАК ДатаНапоминания,
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка КАК Ссылка
+		ИЗ
+			Документ.CRM_СобытияПоРабочимЛистам.АвтомобилиДляВыдачи КАК CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи
+		ГДЕ
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Выбран
+			И CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка.ВидСобытия = ЗНАЧЕНИЕ(Справочник.CRM_ВидыСобытий.Выдача)
+			И CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка.ЗавершеноУспешно = ЛОЖЬ
+			И CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка.Объект &lt;&gt; НЕОПРЕДЕЛЕНО) КАК Выдача
+		ПО Резервы.Автомобиль = Выдача.Автомобиль
+ГДЕ
+	НЕ Резервы.VIN В
+				(ВЫБРАТЬ
+					CRM_АвтомобилиВыданные.VIN
+				ИЗ
+					РегистрСведений.CRM_АвтомобилиВыданные КАК CRM_АвтомобилиВыданные
+				ГДЕ
+					CRM_АвтомобилиВыданные.Активность)
+	И (НЕ Заявки.Статус В (&amp;МассивСтатусов)
+			ИЛИ Заявки.Статус ЕСТЬ NULL )</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ДатаСобытия</dcsset:field>
+							<dcsset:orderType>Desc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СтатусЗаявки</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Renault_СостоянияСогласованияКорпСкидок.Согласован</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:PaleGreen</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ДатаСнятия</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ДнейРезерва</dcsset:left>
+									<dcsset:comparisonType>Greater</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">5</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:PaleGreen</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ДатаСнятия</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ДнейРезерва</dcsset:left>
+									<dcsset:comparisonType>Less</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">5</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:NavajoWhite</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СтатусЗаявки</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Renault_СостоянияСогласованияКорпСкидок.НеСогласован</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СтатусЗаявки</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Renault_СостоянияСогласованияКорпСкидок.НаСогласовании</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:LightYellow</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ДатаСнятия</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ДнейРезерва</dcsset:left>
+									<dcsset:comparisonType>Less</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СтатусДоговора</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусДоговора</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.CRM_СтатусыДоговоровНаПродажуАвтомобиля.Подписан</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусПредварительныхДокументов</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.CRM_СтатусыДоговоровНаПродажуАвтомобиля.Подписан</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:Wheat</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СтатусДоговора</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусДоговора</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.CRM_СтатусыДоговоровНаПродажуАвтомобиля.Подписан</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусОкончательныхДокументов</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.CRM_СтатусыДоговоровНаПродажуАвтомобиля.Подписан</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:LightGreen</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="НовыйКомментарий" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новый комментарий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>New comment</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИсторияКомментариев" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История комментариев</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>story comments</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокВыданных" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список выданных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List issued</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокВыданных.ДоговорСсылка</Field>
+				<Field>СписокВыданных.Заявка</Field>
+				<Field>СписокВыданных.Событие</Field>
+				<Field>СписокВыданных.СтатусЗаявки</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Договора.СтатусПредварительныхДокументов,
+	Договора.СтатусОкончательныхДокументов,
+	Договора.СтатусДоговора,
+	Договора.Ссылка КАК ДоговорСсылка,
+	Резервы.VIN,
+	Резервы.Автомобиль,
+	Резервы.СтатусРезерва,
+	Резервы.ДатаСнятия,
+	РАЗНОСТЬДАТ(&amp;ТекущаяДата, Резервы.ДатаСнятия, ДЕНЬ) КАК ДнейРезерва,
+	Заявки.Заявка,
+	Заявки.Статус КАК СтатусЗаявки,
+	Заявки.ПроцентСкидки,
+	Заявки.ЦенаFlotte,
+	Заявки.ЦенаPVC,
+	Выдача.ДатаНапоминания КАК ДатаСобытия,
+	Выдача.Ссылка КАК Событие,
+	Заявки.СуммаСкидки,
+	Заявки.МаржаПроцент,
+	Заявки.МаржаСумма,
+	Заявки.УчастиеДилера,
+	Заявки.МаржаПроцентRenault,
+	Заявки.УчастиеRenault,
+	Заявки.ЦенаФактура,
+	Заявки.ПроцентДилера,
+	Заявки.ЦенаPVR,
+	Заявки.ПроцентРено,
+	Заявки.МаржаДилераПроцент,
+	Резервы.DISC_COMMENT
+ИЗ
+	(ВЫБРАТЬ
+		Renault_ЗаявкиНаРезервАвтомобиля.VIN КАК VIN,
+		Renault_ЗаявкиНаРезервАвтомобиля.Автомобиль КАК Автомобиль,
+		ВЫБОР
+			КОГДА НЕ Renault_УтвержденныеРезервы.РабочийЛист ЕСТЬ NULL 
+				ТОГДА "Утвержден"
+			ИНАЧЕ ПРЕДСТАВЛЕНИЕССЫЛКИ(Renault_ЗаявкиНаРезервАвтомобиля.СтатусРезерва)
+		КОНЕЦ КАК СтатусРезерва,
+		МАКСИМУМ(ЕСТЬNULL(Renault_УтвержденныеРезервы.ДатаСнятияСРезерва, Renault_ЗаявкиНаРезервАвтомобиля.ДатаСнятияСРезерва)) КАК ДатаСнятия,
+		CRM_СостояниеАвтомобилейПроизводителя_v2.DISC_COMMENT КАК DISC_COMMENT
+	ИЗ
+		РегистрСведений.Renault_ЗаявкиНаРезервАвтомобиля КАК Renault_ЗаявкиНаРезервАвтомобиля
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_УтвержденныеРезервы КАК Renault_УтвержденныеРезервы
+			ПО Renault_ЗаявкиНаРезервАвтомобиля.VIN = Renault_УтвержденныеРезервы.VIN
+				И Renault_ЗаявкиНаРезервАвтомобиля.Автомобиль = Renault_УтвержденныеРезервы.Автомобиль
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.CRM_СостояниеАвтомобилейПроизводителя_v2 КАК CRM_СостояниеАвтомобилейПроизводителя_v2
+			ПО Renault_ЗаявкиНаРезервАвтомобиля.VIN = CRM_СостояниеАвтомобилейПроизводителя_v2.VIN
+	ГДЕ
+		Renault_ЗаявкиНаРезервАвтомобиля.РабочийЛист = &amp;РабочийЛист
+	
+	СГРУППИРОВАТЬ ПО
+		Renault_ЗаявкиНаРезервАвтомобиля.Автомобиль,
+		Renault_ЗаявкиНаРезервАвтомобиля.VIN,
+		CRM_СостояниеАвтомобилейПроизводителя_v2.DISC_COMMENT,
+		ВЫБОР
+			КОГДА НЕ Renault_УтвержденныеРезервы.РабочийЛист ЕСТЬ NULL 
+				ТОГДА "Утвержден"
+			ИНАЧЕ ПРЕДСТАВЛЕНИЕССЫЛКИ(Renault_ЗаявкиНаРезервАвтомобиля.СтатусРезерва)
+		КОНЕЦ
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Renault_ЗаконтрактованныеАвтомобили.VIN,
+		Renault_ЗаконтрактованныеАвтомобили.Автомобиль,
+		NULL,
+		NULL,
+		CRM_СостояниеАвтомобилейПроизводителя_v2.DISC_COMMENT
+	ИЗ
+		РегистрСведений.Renault_ЗаконтрактованныеАвтомобили КАК Renault_ЗаконтрактованныеАвтомобили
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_УтвержденныеРезервы КАК Renault_УтвержденныеРезервы
+			ПО Renault_ЗаконтрактованныеАвтомобили.VIN = Renault_УтвержденныеРезервы.VIN
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ЗаявкиНаРезервАвтомобиля КАК Renault_ЗаявкиНаРезервАвтомобиля
+			ПО Renault_ЗаконтрактованныеАвтомобили.VIN = Renault_ЗаявкиНаРезервАвтомобиля.VIN
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.CRM_СостояниеАвтомобилейПроизводителя_v2 КАК CRM_СостояниеАвтомобилейПроизводителя_v2
+			ПО Renault_ЗаконтрактованныеАвтомобили.VIN = CRM_СостояниеАвтомобилейПроизводителя_v2.VIN
+	ГДЕ
+		Renault_ЗаконтрактованныеАвтомобили.РабочийЛист = &amp;РабочийЛист
+		И Renault_УтвержденныеРезервы.VIN ЕСТЬ NULL 
+		И Renault_ЗаявкиНаРезервАвтомобиля.VIN ЕСТЬ NULL ) КАК Резервы
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			СостоянияVINВЗаявках.VIN КАК VIN,
+			СостоянияVINВЗаявках.Заявка КАК Заявка,
+			СостоянияVINВЗаявках.Статус КАК Статус,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ПроцентСкидки КАК ПроцентСкидки,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаFlotte КАК ЦенаFlotte,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаPVC КАК ЦенаPVC,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.СуммаСкидки КАК СуммаСкидки,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаПроцент КАК МаржаПроцент,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаСумма КАК МаржаСумма,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.УчастиеДилера КАК УчастиеДилера,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаПроцентRenault КАК МаржаПроцентRenault,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.УчастиеRenault КАК УчастиеRenault,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаФактура КАК ЦенаФактура,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаPVR КАК ЦенаPVR,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ПроцентДилера КАК ПроцентДилера,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ПроцентРено КАК ПроцентРено,
+			Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаДилераПроцент КАК МаржаДилераПроцент
+		ИЗ
+			РегистрСведений.Renault_СостоянияVINВЗаявках КАК СостоянияVINВЗаявках
+				ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_ЗаявкаНаКорпоративнуюСкидку.ТаблицаВИН КАК Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН
+				ПО СостоянияVINВЗаявках.Заявка = Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.Ссылка
+					И СостоянияVINВЗаявках.VIN = Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.Автомобиль
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+					МАКСИМУМ(СостоянияVINВЗаявках.Заявка.Дата) КАК Дата,
+					СостоянияVINВЗаявках.VIN КАК VIN
+				ИЗ
+					РегистрСведений.Renault_СостоянияVINВЗаявках КАК СостоянияVINВЗаявках
+				
+				СГРУППИРОВАТЬ ПО
+					СостоянияVINВЗаявках.VIN) КАК табл
+				ПО СостоянияVINВЗаявках.VIN = табл.VIN
+					И СостоянияVINВЗаявках.Заявка.Дата = табл.Дата) КАК Заявки
+		ПО Резервы.Автомобиль = Заявки.VIN
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Renault_ДоговорСоставДоговора.Ссылка КАК Ссылка,
+			Renault_ДоговорСоставДоговора.Ссылка.СтатусПредварительныхДокументов КАК СтатусПредварительныхДокументов,
+			Renault_ДоговорСоставДоговора.Ссылка.СтатусОкончательныхДокументов КАК СтатусОкончательныхДокументов,
+			Renault_ДоговорСоставДоговора.Ссылка.СтатусДоговора КАК СтатусДоговора,
+			Renault_ДоговорСоставДоговора.Автомобиль КАК Автомобиль
+		ИЗ
+			Документ.Renault_Договор.СоставДоговора КАК Renault_ДоговорСоставДоговора
+		ГДЕ
+			Renault_ДоговорСоставДоговора.Ссылка.РабочийЛист = &amp;РабочийЛист
+			И Renault_ДоговорСоставДоговора.Ссылка.ПометкаУдаления = ЛОЖЬ) КАК Договора
+		ПО Резервы.Автомобиль = Договора.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Автомобиль КАК Автомобиль,
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.VIN КАК VIN,
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка.ДатаНапоминания КАК ДатаНапоминания,
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка КАК Ссылка
+		ИЗ
+			Документ.CRM_СобытияПоРабочимЛистам.АвтомобилиДляВыдачи КАК CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи
+		ГДЕ
+			CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Выбран
+			И CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка.ВидСобытия = ЗНАЧЕНИЕ(Справочник.CRM_ВидыСобытий.Выдача)
+			И CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка.ЗавершеноУспешно = ИСТИНА
+			И CRM_СобытияПоРабочимЛистамАвтомобилиДляВыдачи.Ссылка.Объект &lt;&gt; НЕОПРЕДЕЛЕНО) КАК Выдача
+		ПО Резервы.Автомобиль = Выдача.Автомобиль
+ГДЕ
+	Резервы.VIN В
+			(ВЫБРАТЬ
+				CRM_АвтомобилиВыданные.VIN
+			ИЗ
+				РегистрСведений.CRM_АвтомобилиВыданные КАК CRM_АвтомобилиВыданные
+			ГДЕ
+				CRM_АвтомобилиВыданные.Активность)
+	И (НЕ Заявки.Статус В (&amp;МассивСтатусов)
+			ИЛИ Заявки.Статус ЕСТЬ NULL )</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ДоговорСсылка.Дата</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СтатусЗаявки</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Renault_СостоянияСогласованияКорпСкидок.ОтчетПринят</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:PaleGreen</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СтатусЗаявки</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Renault_СостоянияСогласованияКорпСкидок.ДопИнформация</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>СтатусЗаявки</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">СтатусЗаявки</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Renault_СостоянияСогласованияКорпСкидок.ОтчетПредоставлен</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:LightYellow</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ЭтоРКП" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это РКП</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>This RCP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтактнаяИнформация" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контактная информация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Contact Information</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	КонтактнаяИнформация.Вид,
+	КонтактнаяИнформация.Представление
+ИЗ
+	РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+ГДЕ
+	КонтактнаяИнформация.Объект = &amp;Объект</QueryText>
+				<MainTable>InformationRegister.КонтактнаяИнформация</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="РабочийЛист" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рабочий лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>worksheet</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаСоздать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>create</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда создать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The team set up</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСоздать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаИзменить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда изменить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Team change</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда изменить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Team change</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаИзменить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Удалить" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Удалить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьVIN" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть VIN</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open VIN</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть VIN</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open VIN</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьVIN</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УбратьВыделениеВсе" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Убрать выделение все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Deselect all</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Убрать выделение все</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Deselect all</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УбратьВыделениеВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СоздатьЗаявку" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать заявку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>New Ticket</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать заявку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>New Ticket</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьЗаявку</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УдалитьВИН" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить ВИН</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Remove WINES</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить ВИН</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Remove WINES</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьВИН</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьЗаявку" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть заявку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open the application</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть заявку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open the application</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьЗаявку</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтправитьКомментарий" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>to send</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить комментарий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Submit Comment</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьКомментарий</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СоздатьДоговор" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать договор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>New contract</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать договор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>New contract</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьДоговор</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьДоговор" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть договор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open contract</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть договор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open contract</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьДоговор</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗапланироватьВыдачу" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запланировать выдачу</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Schedule issuance</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запланировать выдачу</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Schedule issuance</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗапланироватьВыдачу</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Выдача" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдача</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>extradition</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдача</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>extradition</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Выдача</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтменаВыдачи" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена выдачи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancellation of issue</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена выдачи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Cancellation of issue</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтменаВыдачи</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаписатьКомментарий" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать комментарий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write a comment</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать комментарий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Write a comment</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаписатьКомментарий</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Автосклад" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автосклад</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Avtosklad</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автосклад</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Avtosklad</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Автосклад</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СменитьМенеджера" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сменить менеджера</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>change manager</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сменить менеджера</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>change manager</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СменитьМенеджера</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОткрытьРабочийЛист" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть рабочий лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open the worksheet</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть рабочий лист</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open the worksheet</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SortList</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СформироватьОтчетПоЗаявке" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать отчет по заявке</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>To generate a report on the application</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать отчет по заявке</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>To generate a report on the application</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СформироватьОтчетПоЗаявке</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

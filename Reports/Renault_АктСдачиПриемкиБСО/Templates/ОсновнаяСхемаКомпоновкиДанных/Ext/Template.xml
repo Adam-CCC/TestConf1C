@@ -1,0 +1,759 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховойПолис</dataPath>
+			<field>СтраховойПолис</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Агент</dataPath>
+			<field>Агент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Агент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Страхователь</dataPath>
+			<field>Страхователь</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Банк</dataPath>
+			<field>Банк</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСтрахования</dataPath>
+			<field>ВидСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВознаграждениеАгентаПроцент</dataPath>
+			<field>ВознаграждениеАгентаПроцент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вознаграждение Агента за оказание услуг,  в %</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВознаграждениеАгентаСумма</dataPath>
+			<field>ВознаграждениеАгентаСумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вознаграждение Агента за оказание услуг, руб. </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачалаСтрахования</dataPath>
+			<field>ДатаНачалаСтрахования</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала страхования</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончанияСтрахования</dataPath>
+			<field>ДатаОкончанияСтрахования</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата окончания страхования</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОплатыПоКвитанции</dataPath>
+			<field>ДатаОплатыПоКвитанции</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаСтрахования</dataPath>
+			<field>ДатаСтрахования</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата страхования</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерДоговораСтрахования</dataPath>
+			<field>НомерДоговораСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерКвитанции</dataPath>
+			<field>НомерКвитанции</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПремияСтраховщику</dataPath>
+			<field>ПремияСтраховщику</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Премия к перечислению страховщику</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияДоговораСтрахования</dataPath>
+			<field>СерияДоговораСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияКвитанции</dataPath>
+			<field>СерияКвитанции</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрахПремия</dataPath>
+			<field>СтрахПремия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страховая премия, полученная от клиента</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Даго</dataPath>
+			<field>Даго</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Каско</dataPath>
+			<field>Каско</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяКомпания</dataPath>
+			<field>СтраховаяКомпания</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерБСО</dataPath>
+			<field>НомерБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияБСО</dataPath>
+			<field>СерияБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипБСО</dataPath>
+			<field>ТипБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаПродаж</dataPath>
+			<field>ТочкаПродаж</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИтнервалСумм</dataPath>
+			<field>ИтнервалСумм</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КВБордеро</dataPath>
+			<field>КВБордеро</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КВДВОУ</dataPath>
+			<field>КВДВОУ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сделка</dataPath>
+			<field>Сделка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяПремия</dataPath>
+			<field>СтраховаяПремия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховойПолисПроцентСкидкиЗасчетКВ</dataPath>
+			<field>СтраховойПолисПроцентСкидкиЗасчетКВ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Местонахождение</dataPath>
+			<field>Местонахождение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НC</dataPath>
+			<field>НC</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорВзаиморасчетов</dataPath>
+			<field>ДоговорВзаиморасчетов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховойПолисСуммаДокумента</dataPath>
+			<field>СтраховойПолисСуммаДокумента</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_СтраховыеПолисы.Регистратор КАК СтраховойПолис,
+	Renault_СтраховыеПолисы.Организация,
+	Renault_СтраховыеПолисы.СтраховаяКомпания,
+	Renault_СтраховыеПолисы.ВидСтрахования,
+	Renault_СтраховыеПолисы.СерияБСО,
+	Renault_СтраховыеПолисы.НомерБСО,
+	Renault_СтраховыеПолисы.Страхователь,
+	Renault_СтраховыеПолисы.Количество,
+	Renault_СтраховыеПолисы.СтраховаяСумма,
+	Renault_СтраховыеПолисы.СтраховаяПремия
+ПОМЕСТИТЬ ВТ_СтраховыеПолисы
+ИЗ
+	РегистрНакопления.Renault_СтраховыеПолисы КАК Renault_СтраховыеПолисы
+ГДЕ
+	Renault_СтраховыеПолисы.Период МЕЖДУ НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ДЕНЬ) И КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_СтраховыеПолисы.СтраховойПолис,
+	ВТ_СтраховыеПолисы.СтраховойПолис.ЗаменяемыйПолис КАК ЗаменяемыйПолис
+ПОМЕСТИТЬ ВТ_ЗаменыБезДоплаты
+ИЗ
+	ВТ_СтраховыеПолисы КАК ВТ_СтраховыеПолисы
+ГДЕ
+	ВТ_СтраховыеПолисы.СтраховойПолис.ЗаменаБезДоплаты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Renault_ОплатаСтраховогоПолиса.Ссылка КАК ОплатаПолиса,
+	ВзаиморасчетыСКонтрагентамиОбороты.Регистратор.Организация Организация,
+	Renault_ОплатаСтраховогоПолиса.Контрагент КАК Страхователь,
+	Renault_ОплатаСтраховогоПолиса.СтраховойПолис,
+	Renault_ОплатаСтраховогоПолиса.СуммаДокумента КАК Сумма
+ПОМЕСТИТЬ ВТ_ОплатыЗаДень
+ИЗ
+	РегистрНакопления.ВзаиморасчетыКомпании.Обороты(&amp;НачалоПериода, &amp;КонецПериода, Регистратор, ) КАК ВзаиморасчетыСКонтрагентамиОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_ОплатаСтраховогоПолиса КАК Renault_ОплатаСтраховогоПолиса
+		ПО ВзаиморасчетыСКонтрагентамиОбороты.Контрагент = Renault_ОплатаСтраховогоПолиса.Контрагент
+			И ВзаиморасчетыСКонтрагентамиОбороты.Регистратор = Renault_ОплатаСтраховогоПолиса.ПлатежныйДокумент
+ГДЕ Renault_ОплатаСтраховогоПолиса.Проведен
+	И (ВзаиморасчетыСКонтрагентамиОбороты.Регистратор ССЫЛКА Документ.ПриходныйКассовыйОрдер ИЛИ ВзаиморасчетыСКонтрагентамиОбороты.Регистратор ССЫЛКА Документ.ЧекНаОплату)
+	
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ОплатыЗаДень.ОплатаПолиса,
+	ВТ_ОплатыЗаДень.Организация,
+	ВТ_ОплатыЗаДень.СтраховойПолис,
+	ВТ_ОплатыЗаДень.Сумма,
+	ВТ_ОплатыЗаДень.Страхователь
+ПОМЕСТИТЬ ВТ_ОплатыСПлатежками
+ИЗ
+	ВТ_ОплатыЗаДень КАК ВТ_ОплатыЗаДень
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_ОплатаСтраховогоПолиса КАК Renault_ОплатаСтраховогоПолиса
+		ПО ВТ_ОплатыЗаДень.ОплатаПолиса = Renault_ОплатаСтраховогоПолиса.Ссылка
+ГДЕ
+	НЕ(Renault_ОплатаСтраховогоПолиса.ПлатежныйДокумент = НЕОПРЕДЕЛЕНО
+		ИЛИ Renault_ОплатаСтраховогоПолиса.ПлатежныйДокумент = ЗНАЧЕНИЕ(Документ.ПриходныйКассовыйОрдер.ПустаяСсылка)
+		ИЛИ Renault_ОплатаСтраховогоПолиса.ПлатежныйДокумент = ЗНАЧЕНИЕ(Документ.ЧекНаОплату.ПустаяСсылка)
+	)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ОплатыСПлатежками.ОплатаПолиса,
+	ВТ_ОплатыСПлатежками.СтраховойПолис КАК СтраховойПолис,
+	Renault_СтраховойПолис.ТипБСО,
+	Renault_СтраховойПолис.СерияБСО,
+	Renault_СтраховойПолис.НомерБСО,
+	Renault_СтраховойПолис.ТочкаПродаж,
+	Renault_СтраховойПолис.СтраховаяКомпания,
+	Renault_СтраховойПолис.Агент,
+	ВТ_ОплатыСПлатежками.Страхователь КАК Страхователь,
+	ВЫБОР
+		КОГДА ВТ_ЗаменыБезДоплаты.СтраховойПолис ЕСТЬ NULL 
+			ТОГДА ВТ_ОплатыСПлатежками.Сумма
+		ИНАЧЕ 0
+	КОНЕЦ КАК Сумма,
+	1 КАК Количество,
+	"Оплата через кассу" КАК ВариантОплаты,
+	ВТ_ОплатыСПлатежками.СтраховойПолис.ТипВыгодоприобретателя КАК ТипВыгодоприобретателя,
+	ВТ_ОплатыСПлатежками.СтраховойПолис.Банк КАК Банк,
+	ВТ_ОплатыСПлатежками.СтраховойПолис.ЭтоПролонгация КАК ЭтоПролонгация,
+//	ВТ_ОплатыСПлатежками.СтраховойПолис.Отдел КАК Отдел,
+	ВЫБОР
+		КОГДА ВТ_ЗаменыБезДоплаты.СтраховойПолис ЕСТЬ NULL 
+			ТОГДА ""
+		ИНАЧЕ "Полис заменен без доплаты"
+	КОНЕЦ КАК Замена,
+	Renault_СтраховойПолис.ВидСтрахования
+ПОМЕСТИТЬ ТаблицаБСО
+ИЗ
+	ВТ_ОплатыСПлатежками КАК ВТ_ОплатыСПлатежками
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолис
+			ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ЗаменыБезДоплаты КАК ВТ_ЗаменыБезДоплаты
+			ПО Renault_СтраховойПолис.Ссылка = ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис
+		ПО ВТ_ОплатыСПлатежками.СтраховойПолис = Renault_СтраховойПолис.Ссылка
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	NULL,
+	ВТ_СтраховыеПолисы.СтраховойПолис,
+	ВТ_СтраховыеПолисы.СтраховойПолис.ТипБСО,
+	ВТ_СтраховыеПолисы.СтраховойПолис.СерияБСО,
+	ВТ_СтраховыеПолисы.СтраховойПолис.НомерБСО,
+	ВТ_СтраховыеПолисы.СтраховойПолис.ТочкаПродаж,
+	ВТ_СтраховыеПолисы.СтраховаяКомпания,
+	ВТ_СтраховыеПолисы.СтраховойПолис.Агент,
+	ВТ_СтраховыеПолисы.Страхователь,
+	ВЫБОР
+		КОГДА ВТ_ЗаменыБезДоплаты.СтраховойПолис ЕСТЬ NULL 
+			ТОГДА ВТ_СтраховыеПолисы.СтраховаяПремия
+		ИНАЧЕ 0
+	КОНЕЦ,
+	1,
+	ВЫБОР
+		КОГДА ВТ_СтраховыеПолисы.СтраховойПолис.ОплатаЧерезБанк
+			ТОГДА "Оплата через банк"
+		КОГДА ВТ_СтраховыеПолисы.СтраховойПолис.ОплатаСК
+			ТОГДА "Прямая оплата в страховую компанию"
+		ИНАЧЕ ""
+	КОНЕЦ,
+	ВТ_СтраховыеПолисы.СтраховойПолис.ТипВыгодоприобретателя,
+	ВТ_СтраховыеПолисы.СтраховойПолис.Банк,
+	ВТ_СтраховыеПолисы.СтраховойПолис.ЭтоПролонгация,
+//	ВТ_СтраховыеПолисы.СтраховойПолис.Отдел,
+	ВЫБОР
+		КОГДА ВТ_ЗаменыБезДоплаты.СтраховойПолис ЕСТЬ NULL 
+			ТОГДА ""
+		ИНАЧЕ "Полис заменен без доплаты"
+	КОНЕЦ,
+	ВТ_СтраховыеПолисы.ВидСтрахования
+ИЗ
+	ВТ_СтраховыеПолисы КАК ВТ_СтраховыеПолисы
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ЗаменыБезДоплаты КАК ВТ_ЗаменыБезДоплаты
+		ПО ВТ_СтраховыеПолисы.СтраховойПолис = ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис
+ГДЕ
+	(ВТ_СтраховыеПолисы.СтраховойПолис.ОплатаСК
+			ИЛИ ВТ_СтраховыеПолисы.СтраховойПолис.ОплатаЧерезБанк)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	NULL,
+	ВТ_СтраховыеПолисы.СтраховойПолис,
+	ВТ_СтраховыеПолисы.СтраховойПолис.ТипБСО,
+	ВТ_СтраховыеПолисы.СтраховойПолис.СерияБСО,
+	ВТ_СтраховыеПолисы.СтраховойПолис.НомерБСО,
+	ВТ_СтраховыеПолисы.СтраховойПолис.ТочкаПродаж,
+	ВТ_СтраховыеПолисы.СтраховаяКомпания,
+	ВТ_СтраховыеПолисы.СтраховойПолис.Агент,
+	ВТ_СтраховыеПолисы.Страхователь,
+	ВТ_ОплатыЗаДень.Сумма,
+	1,
+	"Замена без доплаты",
+	ВТ_СтраховыеПолисы.СтраховойПолис.ТипВыгодоприобретателя,
+	ВТ_СтраховыеПолисы.СтраховойПолис.Банк,
+	ВТ_СтраховыеПолисы.СтраховойПолис.ЭтоПролонгация,
+//	ВТ_СтраховыеПолисы.СтраховойПолис.Отдел,
+	NULL,
+	ВТ_СтраховыеПолисы.ВидСтрахования
+ИЗ
+	ВТ_СтраховыеПолисы КАК ВТ_СтраховыеПолисы
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ЗаменыБезДоплаты КАК ВТ_ЗаменыБезДоплаты
+			ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ОплатыЗаДень КАК ВТ_ОплатыЗаДень
+			ПО ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис = ВТ_ОплатыЗаДень.СтраховойПолис
+		ПО ВТ_СтраховыеПолисы.СтраховойПолис = ВТ_ЗаменыБезДоплаты.СтраховойПолис
+ГДЕ
+	ВТ_СтраховыеПолисы.СтраховойПолис.ЗаменаБезДоплаты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Renault_СтраховойПолисПлатежнаяИнформация.СтраховойРиск КАК СтраховойРиск,
+	Renault_СтраховойПолисПлатежнаяИнформация.СтраховаяПремия КАК СтраховаяПремия,
+	Renault_СтраховойПолисПлатежнаяИнформация.Ссылка
+ПОМЕСТИТЬ СтраховыеРиски
+ИЗ
+	Документ.Renault_СтраховойПолис.ПлатежнаяИнформация КАК Renault_СтраховойПолисПлатежнаяИнформация
+ГДЕ
+	Renault_СтраховойПолисПлатежнаяИнформация.СтраховойРиск.Наименование = "каско"
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Renault_СтраховойПолисПлатежнаяИнформация.СтраховойРиск,
+	Renault_СтраховойПолисПлатежнаяИнформация.СтраховаяПремия,
+	Renault_СтраховойПолисПлатежнаяИнформация.Ссылка
+ИЗ
+	Документ.Renault_СтраховойПолис.ПлатежнаяИнформация КАК Renault_СтраховойПолисПлатежнаяИнформация
+ГДЕ
+	Renault_СтраховойПолисПлатежнаяИнформация.СтраховойРиск.Наименование = "даго"
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Renault_СтраховойПолисПлатежнаяИнформация.СтраховойРиск,
+	Renault_СтраховойПолисПлатежнаяИнформация.СтраховаяПремия,
+	Renault_СтраховойПолисПлатежнаяИнформация.Ссылка
+ИЗ
+	Документ.Renault_СтраховойПолис.ПлатежнаяИнформация КАК Renault_СтраховойПолисПлатежнаяИнформация
+ГДЕ
+	Renault_СтраховойПолисПлатежнаяИнформация.СтраховойРиск.Наименование = "НГ"
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Renault_БСОВОрганизацииОстатки.Организация,
+	Renault_БСОВОрганизацииОстатки.СерияБСО,
+	Renault_БСОВОрганизацииОстатки.НомерБСО,
+	ЕСТЬNULL(Renault_СтатусыБСОСрезПоследних.Регистратор.ТочкаПродаж, Renault_БСОВОрганизацииОстатки.Организация) КАК Местонахождение,
+	Renault_СтатусыБСОСрезПоследних.Статус,
+	Renault_БСОВОрганизацииОстатки.СтраховаяКомпания,
+	Renault_БСОВОрганизацииОстатки.ТипБСО
+ПОМЕСТИТЬ МестонахождениеБСО
+ИЗ
+	РегистрНакопления.Renault_БСОВОрганизации.Остатки(&amp;КонецПериода {(&amp;КонецПериода)}, ) КАК Renault_БСОВОрганизацииОстатки
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_СтатусыБСО.СрезПоследних(&amp;КонецПериода {(&amp;КонецПериода)}, ) КАК Renault_СтатусыБСОСрезПоследних
+		ПО Renault_БСОВОрганизацииОстатки.Организация = Renault_СтатусыБСОСрезПоследних.Организация
+			И Renault_БСОВОрганизацииОстатки.СтраховаяКомпания = Renault_СтатусыБСОСрезПоследних.СтраховаяКомпания
+			И Renault_БСОВОрганизацииОстатки.ТипБСО = Renault_СтатусыБСОСрезПоследних.ТипБСО
+			И Renault_БСОВОрганизацииОстатки.СерияБСО = Renault_СтатусыБСОСрезПоследних.СерияБСО
+			И Renault_БСОВОрганизацииОстатки.НомерБСО = Renault_СтатусыБСОСрезПоследних.НомерБСО
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаБСО.Страхователь,
+	ТаблицаБСО.ВидСтрахования,
+	ТаблицаБСО.ОплатаПолиса.Банк КАК Банк,
+	ТаблицаБСО.СерияБСО КАК СерияДоговораСтрахования,
+	ТаблицаБСО.НомерБСО КАК НомерДоговораСтрахования,
+	ТаблицаБСО.ОплатаПолиса.СерияБСО КАК СерияКвитанции,
+	ТаблицаБСО.ОплатаПолиса.НомерБСО КАК НомерКвитанции,
+	ТаблицаБСО.СтраховойПолис.Дата КАК ДатаСтрахования,
+	ТаблицаБСО.ОплатаПолиса.ДатаОплаты КАК ДатаОплатыПоКвитанции,
+	ТаблицаБСО.СтраховаяКомпания,
+	ТаблицаБСО.СтраховойПолис.ДатаНачалаСтрахования КАК ДатаНачалаСтрахования,
+	ТаблицаБСО.СтраховойПолис.ДатаОкончанияСтрахования КАК ДатаОкончанияСтрахования,
+	ТаблицаБСО.СтраховойПолис.Агент КАК Агент,
+	ТаблицаБСО.СтраховойПолис,
+	ТаблицаБСО.СтраховойПолис.ПроцентСкидкиЗасчетКВ,
+	ТаблицаБСО.ОплатаПолиса.ТочкаПродаж КАК ТочкаПродаж,
+	ТаблицаБСО.СтраховойПолис.СуммаДокумента,
+	ТаблицаБСО.СтраховойПолис.ТипБСО КАК ТипБСО,
+	ТаблицаБСО.Сумма КАК СтрахПремия,
+	СтраховыеРиски.СтраховаяПремия,
+	ВЫБОР
+		КОГДА СтраховыеРиски.СтраховойРиск = "Каско"
+			ТОГДА СтраховыеРиски.СтраховаяПремия
+	КОНЕЦ КАК Каско,
+	ВЫБОР
+		КОГДА СтраховыеРиски.СтраховойРиск = "Даго"
+			ТОГДА СтраховыеРиски.СтраховаяПремия
+	КОНЕЦ КАК Даго,
+	ВЫБОР
+		КОГДА СтраховыеРиски.СтраховойРиск = "НC"
+			ТОГДА СтраховыеРиски.СтраховаяПремия
+	КОНЕЦ КАК НC,
+	ЕСТЬNULL(Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВБордеро, 0) КАК КВБордеро,
+	ЕСТЬNULL(Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВДВОУ, 0) КАК КВДВОУ,
+	ЕСТЬNULL(Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.ИнтревалСумм, ЗНАЧЕНИЕ(Справочник.Renault_ШкалаСумм.ПустаяСсылка)) КАК ИтнервалСумм,
+	ЕСТЬNULL(Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВБордеро, 0) + ЕСТЬNULL(Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВДВОУ, 0) - ЕСТЬNULL(ТаблицаБСО.СтраховойПолис.ПроцентСкидкиЗасчетКВ, 0) КАК ВознаграждениеАгентаПроцент,
+	ЕСТЬNULL(ТаблицаБСО.Сумма, 0) * (ЕСТЬNULL(Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВБордеро, 0) + ЕСТЬNULL(Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВДВОУ, 0) - ЕСТЬNULL(ТаблицаБСО.СтраховойПолис.ПроцентСкидкиЗасчетКВ, 0)) / 100 КАК ВознаграждениеАгентаСумма,
+	ЕСТЬNULL(ТаблицаБСО.Сумма, 0) - ЕСТЬNULL(ТаблицаБСО.Сумма, 0) * (ЕСТЬNULL(Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВБордеро, 0) + ЕСТЬNULL(Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВДВОУ, 0) - ЕСТЬNULL(ТаблицаБСО.СтраховойПолис.ПроцентСкидкиЗасчетКВ, 0)) / 100 КАК ПремияСтраховщику,
+	МестонахождениеБСО.Статус,
+	МестонахождениеБСО.Местонахождение
+ИЗ
+	ТаблицаБСО КАК ТаблицаБСО
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ФинансовыеПолитикиСтраховыхКомпаний.СрезПоследних(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ) {(&amp;КонецПериода)}, ) КАК Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних
+		ПО ТаблицаБСО.СтраховаяКомпания = Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.СтраховаяКомпания
+			И ТаблицаБСО.ВидСтрахования = Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.ВидСтрахования
+		ЛЕВОЕ СОЕДИНЕНИЕ СтраховыеРиски КАК СтраховыеРиски
+		ПО ТаблицаБСО.СтраховойПолис = СтраховыеРиски.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ МестонахождениеБСО КАК МестонахождениеБСО
+		ПО ТаблицаБСО.НомерБСО = МестонахождениеБСО.НомерБСО
+			И ТаблицаБСО.СерияБСО = МестонахождениеБСО.СерияБСО
+			И ТаблицаБСО.СтраховаяКомпания = МестонахождениеБСО.СтраховаяКомпания
+			И ТаблицаБСО.ТипБСО = МестонахождениеБСО.ТипБСО</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ФорматДатаНачалаСтрахования</dataPath>
+		<expression>Формат(ДатаНачалаСтрахования, "ДЛФ=Д") </expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Формат дата начала страхования</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ФорматДатаОкончанияСтрахования</dataPath>
+		<expression>Формат(ДатаОкончанияСтрахования, "ДЛФ=Д") </expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Формат дата окончания страхования</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>ВознаграждениеАгентаСумма</dataPath>
+		<expression>Сумма(ВознаграждениеАгентаСумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПремияСтраховщику</dataPath>
+		<expression>Сумма(ПремияСтраховщику)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтрахПремия</dataPath>
+		<expression>Сумма(СтрахПремия)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Даго</dataPath>
+		<expression>Сумма(Даго)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Каско</dataPath>
+		<expression>Сумма(Каско)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВознаграждениеАгентаПроцент</dataPath>
+		<expression>Сумма(ВознаграждениеАгентаПроцент)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтраховаяПремия</dataPath>
+		<expression>Сумма(СтраховаяПремия)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НC</dataPath>
+		<expression>Сумма(НC)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КВБордеро</dataPath>
+		<expression>Сумма(КВБордеро)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КВДВОУ</dataPath>
+		<expression>Сумма(КВДВОУ)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:title>Срок страхования</dcsset:title>
+					<dcsset:detailExpression>"С " + ФорматДатаНачалаСтрахования + " по " + ФорматДатаОкончанияСтрахования</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>"С " + [Формат дата начала страхования] + " по " + [Формат дата окончания страхования]</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression/>
+					<dcsset:totalExpressionPresentation/>
+				</dcsset:item>
+			</dcsset:userFields>
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяКомпания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Страхователь</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Банк</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СерияДоговораСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерДоговораСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СерияКвитанции</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерКвитанции</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОплатыПоКвитанции</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Местонахождение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтрахПремия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяПремия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВознаграждениеАгентаПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВознаграждениеАгентаСумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПремияСтраховщику</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаНачалаСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОкончанияСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Агент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтрахПремия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПользовательскиеПоля.Поле1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:title>Сумма по совмещенным видам страхования в одном полисе </dcsset:title>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Даго</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Каско</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НC</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcscor:value>
+					<dcsset:userSettingID>aef3984c-dee6-4bfb-bfe0-82249f2fbdd1</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>СтраховаяКомпания</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

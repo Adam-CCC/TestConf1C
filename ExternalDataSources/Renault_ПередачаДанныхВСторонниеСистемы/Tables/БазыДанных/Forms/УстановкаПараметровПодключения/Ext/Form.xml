@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грАвторизация" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Авторизация</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гр авторизация</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="грАвторизацияРасширеннаяПодсказка" id="42"/>
+			<ChildItems>
+				<CheckBoxField name="АутентификацияОС" id="1">
+					<DataPath>АутентификацияОС</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="АутентификацияОСКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="АутентификацияОСРасширеннаяПодсказка" id="3"/>
+				</CheckBoxField>
+				<CheckBoxField name="АутентификацияСтандартная" id="4">
+					<DataPath>АутентификацияСтандартная</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="АутентификацияСтандартнаяКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="АутентификацияСтандартнаяРасширеннаяПодсказка" id="6"/>
+				</CheckBoxField>
+				<InputField name="ИмяПользователя" id="7">
+					<DataPath>ИмяПользователя</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ИмяПользователяКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ИмяПользователяРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<CheckBoxField name="ПарольУстановлен" id="27">
+					<DataPath>ПарольУстановлен</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПарольУстановленКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ПарольУстановленРасширеннаяПодсказка" id="29"/>
+					<Events>
+						<Event name="OnChange">ПарольУстановленПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="Пароль" id="10">
+					<DataPath>Пароль</DataPath>
+					<PasswordMode>true</PasswordMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ПарольКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="12"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="грПараметрыПодключения" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры подключения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры подключения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="грПараметрыПодключенияРасширеннаяПодсказка" id="44"/>
+			<ChildItems>
+				<LabelField name="СтрокаСоединения" id="13">
+					<DataPath>СтрокаСоединения</DataPath>
+					<Width>65</Width>
+					<TextColor>#003366</TextColor>
+					<ContextMenu name="СтрокаСоединенияКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="СтрокаСоединенияРасширеннаяПодсказка" id="15"/>
+				</LabelField>
+				<InputField name="СУБД" id="16">
+					<DataPath>СУБД</DataPath>
+					<Enabled>false</Enabled>
+					<ListChoiceMode>true</ListChoiceMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="СУБДКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="СУБДРасширеннаяПодсказка" id="18"/>
+					<Events>
+						<Event name="OnChange">СоздатьСтрокуПодключения</Event>
+					</Events>
+				</InputField>
+				<InputField name="Драйвер" id="32">
+					<DataPath>Драйвер</DataPath>
+					<ListChoiceMode>true</ListChoiceMode>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ДрайверКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ДрайверРасширеннаяПодсказка" id="34"/>
+					<Events>
+						<Event name="OnChange">СоздатьСтрокуПодключения</Event>
+					</Events>
+				</InputField>
+				<InputField name="Сервер" id="35">
+					<DataPath>Сервер</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="СерверКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="СерверРасширеннаяПодсказка" id="37"/>
+					<Events>
+						<Event name="OnChange">СоздатьСтрокуПодключения</Event>
+					</Events>
+				</InputField>
+				<InputField name="БазаДанных" id="38">
+					<DataPath>БазаДанных</DataPath>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="БазаДанныхКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="БазаДанныхРасширеннаяПодсказка" id="40"/>
+					<Events>
+						<Event name="OnChange">СоздатьСтрокуПодключения</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CommandBar name="грКнопки" id="23">
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="грКнопкиРасширеннаяПодсказка" id="24"/>
+			<ChildItems>
+				<Button name="кнСкрипт" id="30">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.кнСкрипт</CommandName>
+					<ExtendedTooltip name="кнСкриптРасширеннаяПодсказка" id="31"/>
+				</Button>
+				<Button name="кнУстановитьПодключение" id="19">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.кнУстановитьПодключение</CommandName>
+					<ExtendedTooltip name="кнУстановитьПодключениеРасширеннаяПодсказка" id="20"/>
+				</Button>
+				<Button name="кнОтключить" id="21">
+					<Type>CommandBarButton</Type>
+					<CommandName>Form.Command.кнРазорватьСоединение</CommandName>
+					<ExtendedTooltip name="кнОтключитьРасширеннаяПодсказка" id="22"/>
+				</Button>
+				<Button name="Закрыть" id="25">
+					<Type>CommandBarButton</Type>
+					<Representation>Text</Representation>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="26"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="АутентификацияОС" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аутентификация ОС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АутентификацияСтандартная" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аутентификация стандартная</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИмяПользователя" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя пользователя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Пароль" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пароль</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СтрокаСоединения" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строка соединения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СУБД" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>СУБД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПарольУстановлен" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пароль установлен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Драйвер" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Драйвер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Сервер" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="БазаДанных" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>База данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнУстановитьПодключение" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить подключение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить подключение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Подключить</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнУстановитьПодключение</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнРазорватьСоединение" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разорвать соединение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разорвать соединение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Отключить</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнРазорватьСоединение</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнСкрипт" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>SQL скрипт cоздания таблиц</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>покать SQL скрипт cоздания таблиц</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Service_32_Gray</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнСкрипт</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,69 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://wa.dms.webservice/KioskMessageSendRequest">
+	<property name="KioskMessageSendRequest"/>
+	<property name="KioskMessageSendResponse" nillable="true"/>
+	<objectType name="ArrayOfError">
+		<property xmlns:d3p1="http://wa.dms.webservice/KioskMessageSendRequest" name="Error" type="d3p1:Error" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfPhotos">
+		<property xmlns:d3p1="http://wa.dms.webservice/KioskMessageSendRequest" name="Photo" type="d3p1:Photo" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Error">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="KioskMessageSend">
+		<property name="Type" type="xs:string" lowerBound="0"/>
+		<property name="ActionDateTime" type="xs:dateTime" lowerBound="0"/>
+		<property name="Box_Number" type="xs:string" lowerBound="0"/>
+		<property name="PIN" type="xs:string" lowerBound="0"/>
+		<property name="ProposedDateTimeSlot" type="xs:dateTime" lowerBound="0"/>
+		<property name="VIN" type="xs:string" lowerBound="0"/>
+		<property name="DMS_AppointmentNo" type="xs:string" lowerBound="0"/>
+		<property name="DMS_AppointmentID" type="xs:string" lowerBound="0"/>
+		<property name="ExternalBookingID" type="xs:string" lowerBound="0"/>
+		<property name="CustomerName" type="xs:string" lowerBound="0"/>
+		<property name="CustomerPhone" type="xs:string" lowerBound="0"/>
+		<property name="ModelName" type="xs:string" lowerBound="0"/>
+		<property name="PlateNo" type="xs:string" lowerBound="0"/>
+		<property name="CustomerRequest" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/KioskMessageSendRequest" name="Photos" type="d3p1:ArrayOfPhotos" lowerBound="0"/>
+	</objectType>
+	<objectType name="KioskMessageSendRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/KioskMessageSendRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/KioskMessageSendRequest" name="KioskMessageSend" type="d3p1:KioskMessageSend" lowerBound="0"/>
+	</objectType>
+	<objectType name="KioskMessageSendResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/KioskMessageSendRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/KioskMessageSendRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/KioskMessageSendRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+	</objectType>
+	<objectType name="Photo">
+		<property name="Name" type="xs:string" lowerBound="0"/>
+		<property name="Value" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ResultMessage">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="TransactionHeader">
+		<property name="CountryID" type="xs:string" lowerBound="0"/>
+		<property name="DistributorID" type="xs:string" lowerBound="0"/>
+		<property name="GroupID" type="xs:string" lowerBound="0"/>
+		<property name="DealerID" type="xs:string" lowerBound="0"/>
+		<property name="DMSCode" type="xs:string" lowerBound="0"/>
+		<property name="DMSVersion" type="xs:string" lowerBound="0"/>
+		<property name="DMSServerUrl" type="xs:string" lowerBound="0"/>
+		<property name="DocumentVersion" type="xs:string" lowerBound="0"/>
+		<property name="Username" type="xs:string" lowerBound="0"/>
+		<property name="Password" type="xs:string" lowerBound="0"/>
+		<property name="TransactionId" type="xs:string" lowerBound="0"/>
+		<property name="TransactionDateTimeUTC" type="xs:dateTime" nillable="true"/>
+		<property name="TransactionDateTimeLocal" type="xs:dateTime" nillable="true"/>
+		<property name="TransactionType" type="xs:string" lowerBound="0"/>
+		<property name="RequestType" type="xs:string" lowerBound="0"/>
+		<property name="RequestPollingToken" type="xs:string" lowerBound="0"/>
+		<property name="VenderTrackingCode" type="xs:string" lowerBound="0"/>
+		<property name="IneterfaceID" type="xs:string" lowerBound="0"/>
+		<property name="PollingToken" type="xs:string" lowerBound="0"/>
+	</objectType>
+</package>

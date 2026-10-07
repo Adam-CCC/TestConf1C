@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Замена реферансов</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Replacement Referans</v8:content>
+		</v8:item>
+	</Title>
+	<Width>95</Width>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаКнопки" id="98">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКнопкиРасширеннаяПодсказка" id="99"/>
+			<ChildItems>
+				<Button name="кнЗакрыть" id="100">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>18</Width>
+					<Height>2</Height>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<TextColor>#313431</TextColor>
+					<BackColor>#FFCF00</BackColor>
+					<BorderColor>#FFCF00</BorderColor>
+					<Picture>
+						<xr:Ref>CommonPicture.Renault_Cross_New</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="кнЗакрытьРасширеннаяПодсказка" id="101"/>
+				</Button>
+				<Button name="кнЗаменить" id="102">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>12</Width>
+					<Height>2</Height>
+					<CommandName>Form.Command.Заменить</CommandName>
+					<TextColor>#313431</TextColor>
+					<BackColor>#E7E7E7</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<Picture>
+						<xr:Ref>CommonPicture.Renault_Confirm_New</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заменить</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>update</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="кнЗаменитьРасширеннаяПодсказка" id="103"/>
+				</Button>
+				<Button name="кнОбновить" id="96">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>12</Width>
+					<Height>2</Height>
+					<CommandName>Form.Command.ОбновитьТаблицу</CommandName>
+					<TextColor>#313431</TextColor>
+					<BackColor>#E7E7E7</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<Picture>
+						<xr:Ref>CommonPicture.Renault_Refresh_New</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обновить</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>update</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="кнОбновитьРасширеннаяПодсказка" id="97"/>
+				</Button>
+				<LabelDecoration name="Декорация1" id="107">
+					<Height>2</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="109"/>
+				</LabelDecoration>
+				<PictureDecoration name="Logo" id="104">
+					<Width>13</Width>
+					<Height>2</Height>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Logo</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Logo</v8:content>
+						</v8:item>
+					</Title>
+					<PictureSize>Proportionally</PictureSize>
+					<Picture>
+						<xr:Ref>CommonPicture.Renault_Logo_128</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="LogoКонтекстноеМеню" id="105"/>
+					<ExtendedTooltip name="LogoРасширеннаяПодсказка" id="106"/>
+				</PictureDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<LabelDecoration name="НадписьДокументПоступления" id="85">
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступление товаров и услуг №0000001 от 01.01.01</v8:content>
+				</v8:item>
+			</Title>
+			<Hyperlink>true</Hyperlink>
+			<ContextMenu name="НадписьДокументПоступленияКонтекстноеМеню" id="86"/>
+			<ExtendedTooltip name="НадписьДокументПоступленияРасширеннаяПодсказка" id="87"/>
+			<Events>
+				<Event name="Click">НадписьДокументПоступленияНажатие</Event>
+			</Events>
+		</LabelDecoration>
+		<Table name="Замены" id="44">
+			<Representation>Tree</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Замены</DataPath>
+			<TextColor>#313431</TextColor>
+			<BackColor>style:FieldBackColor</BackColor>
+			<BorderColor>#E7E7E7</BorderColor>
+			<TitleTextColor>#313431</TitleTextColor>
+			<ContextMenu name="ЗаменыКонтекстноеМеню" id="45"/>
+			<AutoCommandBar name="ЗаменыКоманднаяПанель" id="46">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ЗаменыОтметитьВсе" id="81">
+						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
+						<CommandName>Form.Command.ОтметитьВсе</CommandName>
+						<ExtendedTooltip name="ЗаменыОтметитьВсеРасширеннаяПодсказка" id="82"/>
+					</Button>
+					<Button name="ЗаменыСнятьОтметки" id="83">
+						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
+						<CommandName>Form.Command.СнятьОтметки</CommandName>
+						<ExtendedTooltip name="ЗаменыСнятьОтметкиРасширеннаяПодсказка" id="84"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ЗаменыРасширеннаяПодсказка" id="47"/>
+			<SearchStringAddition name="ЗаменыСтрокаПоиска" id="48">
+				<AdditionSource>
+					<Item>Замены</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаменыСтрокаПоискаКонтекстноеМеню" id="49"/>
+				<ExtendedTooltip name="ЗаменыСтрокаПоискаРасширеннаяПодсказка" id="50"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЗаменыСостояниеПросмотра" id="51">
+				<AdditionSource>
+					<Item>Замены</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаменыСостояниеПросмотраКонтекстноеМеню" id="52"/>
+				<ExtendedTooltip name="ЗаменыСостояниеПросмотраРасширеннаяПодсказка" id="53"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЗаменыУправлениеПоиском" id="54">
+				<AdditionSource>
+					<Item>Замены</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаменыУправлениеПоискомКонтекстноеМеню" id="55"/>
+				<ExtendedTooltip name="ЗаменыУправлениеПоискомРасширеннаяПодсказка" id="56"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ЗаменыВыбор</Event>
+				<Event name="BeforeAddRow">ЗаменыПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">ЗаменыПередУдалением</Event>
+				<Event name="OnActivateRow">ЗаменыПриАктивизацииСтроки</Event>
+				<Event name="OnStartEdit">ЗаменыПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<CheckBoxField name="ЗаменыЗаменить" id="69">
+					<DataPath>Замены.Заменить</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗаменыЗаменитьКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="ЗаменыЗаменитьРасширеннаяПодсказка" id="71"/>
+					<Events>
+						<Event name="OnChange">ЗаменыЗаменитьПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="ЗаменыВидЗамены" id="93">
+					<DataPath>Замены.ВидЗамены</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#313431</TitleTextColor>
+					<TitleBackColor>#E7E7E7</TitleBackColor>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterTextColor>style:FieldBackColor</FooterTextColor>
+					<FooterBackColor>#9CA6B2</FooterBackColor>
+					<FooterFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<Width>15</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<TextColor>#313431</TextColor>
+					<BackColor>style:FieldBackColor</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<ContextMenu name="ЗаменыВидЗаменыКонтекстноеМеню" id="94"/>
+					<ExtendedTooltip name="ЗаменыВидЗаменыРасширеннаяПодсказка" id="95"/>
+				</InputField>
+				<InputField name="ЗаменыРеферанс" id="63">
+					<DataPath>Замены.Реферанс</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#313431</TitleTextColor>
+					<TitleBackColor>#E7E7E7</TitleBackColor>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterTextColor>style:FieldBackColor</FooterTextColor>
+					<FooterBackColor>#9CA6B2</FooterBackColor>
+					<FooterFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<Width>25</Width>
+					<TextColor>#313431</TextColor>
+					<BackColor>style:FieldBackColor</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<ContextMenu name="ЗаменыРеферансКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="ЗаменыРеферансРасширеннаяПодсказка" id="65"/>
+				</InputField>
+				<InputField name="ЗаменыНоменклатура" id="57">
+					<DataPath>Замены.Номенклатура</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#313431</TitleTextColor>
+					<TitleBackColor>#E7E7E7</TitleBackColor>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterTextColor>style:FieldBackColor</FooterTextColor>
+					<FooterBackColor>#9CA6B2</FooterBackColor>
+					<FooterFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<Width>40</Width>
+					<TextColor>#313431</TextColor>
+					<BackColor>style:FieldBackColor</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<ContextMenu name="ЗаменыНоменклатураКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="ЗаменыНоменклатураРасширеннаяПодсказка" id="59"/>
+				</InputField>
+				<InputField name="ЗаменыЕдиницаИзмерения" id="78">
+					<DataPath>Замены.ЕдиницаИзмерения</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ед.</v8:content>
+						</v8:item>
+					</Title>
+					<TitleTextColor>#313431</TitleTextColor>
+					<TitleBackColor>#E7E7E7</TitleBackColor>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterTextColor>style:FieldBackColor</FooterTextColor>
+					<FooterBackColor>#9CA6B2</FooterBackColor>
+					<FooterFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<Width>5</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<TextColor>#313431</TextColor>
+					<BackColor>style:FieldBackColor</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<ContextMenu name="ЗаменыЕдиницаИзмеренияКонтекстноеМеню" id="79"/>
+					<ExtendedTooltip name="ЗаменыЕдиницаИзмеренияРасширеннаяПодсказка" id="80"/>
+				</InputField>
+				<InputField name="ЗаменыЗаказ" id="90">
+					<DataPath>Замены.ЗаказПоставщику</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#313431</TitleTextColor>
+					<TitleBackColor>#E7E7E7</TitleBackColor>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterTextColor>style:FieldBackColor</FooterTextColor>
+					<FooterBackColor>#9CA6B2</FooterBackColor>
+					<FooterFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<TextColor>#313431</TextColor>
+					<BackColor>style:FieldBackColor</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<ContextMenu name="ЗаменыЗаказКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="ЗаменыЗаказРасширеннаяПодсказка" id="92"/>
+				</InputField>
+				<InputField name="ЗаменыКоличество" id="72">
+					<DataPath>Замены.Количество</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#313431</TitleTextColor>
+					<TitleBackColor>#E7E7E7</TitleBackColor>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterTextColor>style:FieldBackColor</FooterTextColor>
+					<FooterBackColor>#9CA6B2</FooterBackColor>
+					<FooterFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<TextColor>#313431</TextColor>
+					<BackColor>style:FieldBackColor</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<ContextMenu name="ЗаменыКоличествоКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="ЗаменыКоличествоРасширеннаяПодсказка" id="74"/>
+				</InputField>
+				<InputField name="ЗаменыОстатокЗаказы" id="110">
+					<DataPath>Замены.ОстатокЗаказы</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleTextColor>#313431</TitleTextColor>
+					<TitleBackColor>#E7E7E7</TitleBackColor>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterTextColor>style:FieldBackColor</FooterTextColor>
+					<FooterBackColor>#9CA6B2</FooterBackColor>
+					<FooterFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<TextColor>#313431</TextColor>
+					<BackColor>style:FieldBackColor</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<ContextMenu name="ЗаменыОстатокЗаказыКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="ЗаменыОстатокЗаказыРасширеннаяПодсказка" id="112"/>
+				</InputField>
+				<InputField name="ЗаменыКоличествоЗаменить" id="75">
+					<DataPath>Замены.КоличествоЗаменить</DataPath>
+					<TitleTextColor>#313431</TitleTextColor>
+					<TitleBackColor>#E7E7E7</TitleBackColor>
+					<EditMode>EnterOnInput</EditMode>
+					<FooterTextColor>style:FieldBackColor</FooterTextColor>
+					<FooterBackColor>#9CA6B2</FooterBackColor>
+					<FooterFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<TextColor>#313431</TextColor>
+					<BackColor>style:FieldBackColor</BackColor>
+					<BorderColor>#E7E7E7</BorderColor>
+					<ContextMenu name="ЗаменыКоличествоЗаменитьКонтекстноеМеню" id="76"/>
+					<ExtendedTooltip name="ЗаменыКоличествоЗаменитьРасширеннаяПодсказка" id="77"/>
+					<Events>
+						<Event name="OnChange">ЗаменыКоличествоЗаменитьПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_ПоискЗаменаРеферансовПриПоступлении</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Замены" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Замены</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Номенклатура" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Реферанс" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реферанс</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>45</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Заменить" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заменить</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Количество" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нераспределено / Заказано</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоЗаменить" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество к замене</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЕдиницаИзмерения" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Единица измерения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ЕдиницыИзмерения</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЗаказПоставщику" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ЗаказПоставщику</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидЗамены" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид замены</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>25</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОстатокЗаказы" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остаток по заказам поставщику</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заменить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заменить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заменить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заменить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтметитьВсе" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьСнятьОтметки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьОтметки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьСнятьОтметки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОбновитьТаблицу" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить таблицу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_refresh1</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьТаблицу</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Команда1" id="5">
+			<Action>Команда1</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Поступление">
+			<Type>
+				<v8:Type>cfg:DocumentRef.ПоступлениеТоваров</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

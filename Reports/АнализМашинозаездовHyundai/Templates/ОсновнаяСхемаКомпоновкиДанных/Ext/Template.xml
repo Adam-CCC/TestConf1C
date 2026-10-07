@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>VIN</dataPath>
+			<field>VIN</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодВыпуска</dataPath>
+			<field>ГодВыпуска</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказчик</dataPath>
+			<field>Заказчик</field>
+			<attributeUseRestriction>
+				<field>true</field>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТО1</dataPath>
+			<field>ТО1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТО-1</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТО2</dataPath>
+			<field>ТО2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТО-2</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТО3</dataPath>
+			<field>ТО3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТО-3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТО4</dataPath>
+			<field>ТО4</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТО-4</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТО5</dataPath>
+			<field>ТО5</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТО-5</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТО6</dataPath>
+			<field>ТО6</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТО-6</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТО7</dataPath>
+			<field>ТО7</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТО-7</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТО8</dataPath>
+			<field>ТО8</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТО-8</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТОНоль</dataPath>
+			<field>ТОНоль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ТО-0</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заезды</dataPath>
+			<field>Заезды</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДилерПродавец</dataPath>
+			<field>ДилерПродавец</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дилер-продавец</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СвойЧужой</dataPath>
+			<field>СвойЧужой</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свой-чужой</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	ЗаказНаряд.Ссылка,
+	ЗаказНаряд.Автомобиль,
+	ЕСТЬNULL(ЗаказНаряд.Автомобиль.ДилерПродавец, ЗНАЧЕНИЕ(Перечисление.ДилерыПродавцыHyundai.НетИнформации)) КАК ДилерПродавец
+ПОМЕСТИТЬ ЗН
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряд
+ГДЕ
+	ЗаказНаряд.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ЗаказНаряд.ПодразделениеКомпании В ИЕРАРХИИ(&amp;ПодразделениеКомпании)
+	И ЗаказНаряд.Проведен
+	И ЗаказНаряд.ВидРемонта.ТехОбслуживание
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(1) КАК ТОНоль,
+	ЗН.Ссылка КАК Ссылка0,
+	ЗН.Автомобиль
+ПОМЕСТИТЬ ТО0
+ИЗ
+	ЗН КАК ЗН
+ГДЕ
+	ЗН.Ссылка.ВидРемонта.Наименование ПОДОБНО "%ТО-0%"
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка,
+	ЗН.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(1) КАК ТО1,
+	ЗН.Ссылка КАК Ссылка1,
+	ЗН.Автомобиль
+ПОМЕСТИТЬ ТООдин
+ИЗ
+	ЗН КАК ЗН
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+		ПО ЗН.Ссылка = ЗаказНарядРаботы.Ссылка
+ГДЕ
+	ЗаказНарядРаботы.Работа.Наименование ПОДОБНО "%ТО-1%"
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка,
+	ЗН.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(1) КАК ТО2,
+	ЗН.Ссылка КАК Ссылка2,
+	ЗН.Автомобиль
+ПОМЕСТИТЬ ТОДва
+ИЗ
+	ЗН КАК ЗН
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+		ПО ЗН.Ссылка = ЗаказНарядРаботы.Ссылка
+ГДЕ
+	ЗаказНарядРаботы.Работа.Наименование ПОДОБНО "%ТО-2%"
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка,
+	ЗН.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(1) КАК ТО3,
+	ЗН.Ссылка КАК Ссылка3,
+	ЗН.Автомобиль
+ПОМЕСТИТЬ ТОТри
+ИЗ
+	ЗН КАК ЗН
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+		ПО ЗН.Ссылка = ЗаказНарядРаботы.Ссылка
+ГДЕ
+	ЗаказНарядРаботы.Работа.Наименование ПОДОБНО "%ТО-3%"
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка,
+	ЗН.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(1) КАК ТО4,
+	ЗН.Ссылка КАК Ссылка4,
+	ЗН.Автомобиль
+ПОМЕСТИТЬ ТОЧетыре
+ИЗ
+	ЗН КАК ЗН
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+		ПО ЗН.Ссылка = ЗаказНарядРаботы.Ссылка
+ГДЕ
+	ЗаказНарядРаботы.Работа.Наименование ПОДОБНО "%ТО-4%"
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка,
+	ЗН.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(1) КАК ТО5,
+	ЗН.Ссылка КАК Ссылка5,
+	ЗН.Автомобиль
+ПОМЕСТИТЬ ТОПять
+ИЗ
+	ЗН КАК ЗН
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+		ПО ЗН.Ссылка = ЗаказНарядРаботы.Ссылка
+ГДЕ
+	ЗаказНарядРаботы.Работа.Наименование ПОДОБНО "%ТО-5%"
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка,
+	ЗН.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(1) КАК ТО6,
+	ЗН.Ссылка КАК Ссылка6,
+	ЗН.Автомобиль
+ПОМЕСТИТЬ ТОШесть
+ИЗ
+	ЗН КАК ЗН
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+		ПО ЗН.Ссылка = ЗаказНарядРаботы.Ссылка
+ГДЕ
+	ЗаказНарядРаботы.Работа.Наименование ПОДОБНО "%ТО-6%"
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка,
+	ЗН.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(1) КАК ТО7,
+	ЗН.Ссылка КАК Ссылка7,
+	ЗН.Автомобиль
+ПОМЕСТИТЬ ТОСемь
+ИЗ
+	ЗН КАК ЗН
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+		ПО ЗН.Ссылка = ЗаказНарядРаботы.Ссылка
+ГДЕ
+	ЗаказНарядРаботы.Работа.Наименование ПОДОБНО "%ТО-7%"
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка,
+	ЗН.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(1) КАК ТО8,
+	ЗН.Ссылка КАК Ссылка8,
+	ЗН.Автомобиль
+ПОМЕСТИТЬ ТОВосемь
+ИЗ
+	ЗН КАК ЗН
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+		ПО ЗН.Ссылка = ЗаказНарядРаботы.Ссылка
+ГДЕ
+	ЗаказНарядРаботы.Работа.Наименование ПОДОБНО "%ТО-8%"
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка,
+	ЗН.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ЗН.Ссылка.Автомобиль.VIN КАК VIN,
+	ЗН.Ссылка.Заказчик КАК Заказчик,
+	ЗН.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	СУММА(ЕСТЬNULL(ТО0.ТОНоль, 0)) КАК ТОНоль,
+	СУММА(ЕСТЬNULL(ТОВосемь.ТО8, 0)) КАК ТО8,
+	СУММА(ЕСТЬNULL(ТОДва.ТО2, 0)) КАК ТО2,
+	СУММА(ЕСТЬNULL(ТООдин.ТО1, 0)) КАК ТО1,
+	СУММА(ЕСТЬNULL(ТОПять.ТО5, 0)) КАК ТО5,
+	СУММА(ЕСТЬNULL(ТОСемь.ТО7, 0)) КАК ТО7,
+	СУММА(ЕСТЬNULL(ТОТри.ТО3, 0)) КАК ТО3,
+	СУММА(ЕСТЬNULL(ТОЧетыре.ТО4, 0)) КАК ТО4,
+	СУММА(ЕСТЬNULL(ТОШесть.ТО6, 0)) КАК ТО6,
+	ЗН.Ссылка.Автомобиль КАК Автомобиль,
+	СУММА(ЕСТЬNULL(ТО0.ТОНоль, 0) + ЕСТЬNULL(ТОВосемь.ТО8, 0) + ЕСТЬNULL(ТОДва.ТО2, 0) + ЕСТЬNULL(ТООдин.ТО1, 0) + ЕСТЬNULL(ТОПять.ТО5, 0) + ЕСТЬNULL(ТОСемь.ТО7, 0) + ЕСТЬNULL(ТОТри.ТО3, 0) + ЕСТЬNULL(ТОЧетыре.ТО4, 0) + ЕСТЬNULL(ТОШесть.ТО6, 0)) КАК Заезды,
+	ЗН.ДилерПродавец КАК ДилерПродавец,
+	ВЫБОР
+		КОГДА ЗН.ДилерПродавец = &amp;СвойДилер
+			ТОГДА "СВОЙ"
+		ИНАЧЕ "ЧУЖОЙ"
+	КОНЕЦ КАК СвойЧужой
+ИЗ
+	ЗН КАК ЗН
+		ЛЕВОЕ СОЕДИНЕНИЕ ТООдин КАК ТООдин
+		ПО ЗН.Ссылка = ТООдин.Ссылка1
+		ЛЕВОЕ СОЕДИНЕНИЕ ТОДва КАК ТОДва
+		ПО ЗН.Ссылка = ТОДва.Ссылка2
+		ЛЕВОЕ СОЕДИНЕНИЕ ТОТри КАК ТОТри
+		ПО ЗН.Ссылка = ТОТри.Ссылка3
+		ЛЕВОЕ СОЕДИНЕНИЕ ТОЧетыре КАК ТОЧетыре
+		ПО ЗН.Ссылка = ТОЧетыре.Ссылка4
+		ЛЕВОЕ СОЕДИНЕНИЕ ТОПять КАК ТОПять
+		ПО ЗН.Ссылка = ТОПять.Ссылка5
+		ЛЕВОЕ СОЕДИНЕНИЕ ТОШесть КАК ТОШесть
+		ПО ЗН.Ссылка = ТОШесть.Ссылка6
+		ЛЕВОЕ СОЕДИНЕНИЕ ТОСемь КАК ТОСемь
+		ПО ЗН.Ссылка = ТОСемь.Ссылка7
+		ЛЕВОЕ СОЕДИНЕНИЕ ТОВосемь КАК ТОВосемь
+		ПО ЗН.Ссылка = ТОВосемь.Ссылка8
+		ЛЕВОЕ СОЕДИНЕНИЕ ТО0 КАК ТО0
+		ПО ЗН.Ссылка = ТО0.Ссылка0
+
+СГРУППИРОВАТЬ ПО
+	ЗН.Ссылка.Автомобиль.VIN,
+	ЗН.Ссылка.Заказчик,
+	ЗН.Ссылка.Автомобиль.ГодВыпуска,
+	ЗН.Ссылка.Автомобиль,
+	ЗН.ДилерПродавец</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ТО1</dataPath>
+		<expression>Сумма(ТО1)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТО2</dataPath>
+		<expression>Сумма(ТО2)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТО3</dataPath>
+		<expression>Сумма(ТО3)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТО4</dataPath>
+		<expression>Сумма(ТО4)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТО5</dataPath>
+		<expression>Сумма(ТО5)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТО6</dataPath>
+		<expression>Сумма(ТО6)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТО7</dataPath>
+		<expression>Сумма(ТО7)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТО8</dataPath>
+		<expression>Сумма(ТО8)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТОНоль</dataPath>
+		<expression>Сумма(ТОНоль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Заезды</dataPath>
+		<expression>Сумма(Заезды)</expression>
+	</totalField>
+	<parameter>
+		<name>ВалютаОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>В валюте</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПодразделениеКомпании</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Подразделение компании</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СвойДилер</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Свой дилер</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ДилерыПродавцыHyundai</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>VIN</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказчик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГодВыпуска</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТОНоль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТО1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТО2</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТО3</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТО4</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТО5</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТО6</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТО7</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТО8</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заезды</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПодразделениеКомпании</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>СвойДилер</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Заказчик</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>СвойЧужой</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДилерПродавец</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

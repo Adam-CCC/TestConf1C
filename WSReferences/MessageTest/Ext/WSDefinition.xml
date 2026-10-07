@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://wa.dms.webservice/"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="http://wa.dms.webservice/MessageReceiveRequest"
+		xmlns:xsd2="http://wa.dms.webservice/MessageReceiveResponse"
+		xmlns:xsd3="http://wa.dms.webservice/MessageSendRequest"
+		xmlns:xsd4="http://wa.dms.webservice/MessageSendResponse"
+		targetNamespace="http://wa.dms.webservice/">
+	<types>
+		<s:schema xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+				xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+				xmlns:s="http://www.w3.org/2001/XMLSchema"
+				xmlns:s0="http://wa.dms.webservice/MessageSendRequest"
+				xmlns:s1="http://wa.dms.webservice/MessageSendResponse"
+				xmlns:s2="http://wa.dms.webservice/MessageReceiveRequest"
+				xmlns:s3="http://wa.dms.webservice/MessageReceiveResponse"
+				xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+				xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+				xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+				xmlns:tns="http://wa.dms.webservice/MessageSendRequest"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				xmlns:xsd1="http://wa.dms.webservice/MessageSendRequest"
+				xmlns:xsd2="http://wa.dms.webservice/MessageReceiveRequest"
+				xmlns:xsd3="http://wa.dms.webservice/MessageSendResponse"
+				xmlns:xsd4="http://wa.dms.webservice/MessageReceiveResponse"
+				elementFormDefault="qualified"
+				targetNamespace="http://wa.dms.webservice/MessageSendRequest">
+			<s:element name="MessageSendRequest"
+					nillable="true"
+					type="xsd1:MessageSendRequest"/>
+			<s:complexType name="MessageSendRequest"
+					mixed="false">
+				<s:complexContent mixed="false">
+					<s:extension base="xsd1:RequestBase">
+						<s:sequence>
+							<s:element minOccurs="0"
+									maxOccurs="1"
+									name="MessageSend"
+									type="xsd1:MessageSend"/>
+						</s:sequence>
+					</s:extension>
+				</s:complexContent>
+			</s:complexType>
+			<s:complexType name="RequestBase">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionHeader"
+							type="xsd1:TransactionHeader"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="TransactionHeader">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="CountryID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DistributorID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="GroupID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DealerID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSCode"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSVersion"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSServerUrl"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DocumentVersion"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Username"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Password"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionId"
+							type="s:string"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="TransactionDateTimeUTC"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="TransactionDateTimeLocal"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="RequestType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="RequestPollingToken"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="VenderTrackingCode"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="IneterfaceID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="PollingToken"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="MessageSend">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="MessageID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="MessageType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="ActionType"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+		</s:schema>
+		<s:schema xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+				xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+				xmlns:s="http://www.w3.org/2001/XMLSchema"
+				xmlns:s0="http://wa.dms.webservice/MessageSendRequest"
+				xmlns:s1="http://wa.dms.webservice/MessageSendResponse"
+				xmlns:s2="http://wa.dms.webservice/MessageReceiveRequest"
+				xmlns:s3="http://wa.dms.webservice/MessageReceiveResponse"
+				xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+				xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+				xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+				xmlns:tns="http://wa.dms.webservice/MessageSendResponse"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				xmlns:xsd1="http://wa.dms.webservice/MessageSendRequest"
+				xmlns:xsd2="http://wa.dms.webservice/MessageReceiveRequest"
+				xmlns:xsd3="http://wa.dms.webservice/MessageSendResponse"
+				xmlns:xsd4="http://wa.dms.webservice/MessageReceiveResponse"
+				elementFormDefault="qualified"
+				targetNamespace="http://wa.dms.webservice/MessageSendResponse">
+			<s:element name="MessageSendResponse"
+					nillable="true"
+					type="xsd3:MessageSendResponse"/>
+			<s:complexType name="MessageSendResponse"
+					mixed="false">
+				<s:complexContent mixed="false">
+					<s:extension base="xsd3:ResponseBase"/>
+				</s:complexContent>
+			</s:complexType>
+			<s:complexType name="ResponseBase">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionHeader"
+							type="xsd3:TransactionHeader"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="ResultMessage"
+							type="xsd3:ResultMessage"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Errors"
+							type="xsd3:ArrayOfError"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="TransactionHeader">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="CountryID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DistributorID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="GroupID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DealerID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSCode"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSVersion"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSServerUrl"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DocumentVersion"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Username"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Password"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionId"
+							type="s:string"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="TransactionDateTimeUTC"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="TransactionDateTimeLocal"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="RequestType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="RequestPollingToken"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="VenderTrackingCode"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="IneterfaceID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="PollingToken"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ResultMessage">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Code"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Message"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfError">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="unbounded"
+							name="Error"
+							nillable="true"
+							type="xsd3:Error"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Error">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Code"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Message"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+		</s:schema>
+		<s:schema xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+				xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+				xmlns:s="http://www.w3.org/2001/XMLSchema"
+				xmlns:s0="http://wa.dms.webservice/MessageSendRequest"
+				xmlns:s1="http://wa.dms.webservice/MessageSendResponse"
+				xmlns:s2="http://wa.dms.webservice/MessageReceiveRequest"
+				xmlns:s3="http://wa.dms.webservice/MessageReceiveResponse"
+				xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+				xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+				xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+				xmlns:tns="http://wa.dms.webservice/MessageReceiveRequest"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				xmlns:xsd1="http://wa.dms.webservice/MessageSendRequest"
+				xmlns:xsd2="http://wa.dms.webservice/MessageReceiveRequest"
+				xmlns:xsd3="http://wa.dms.webservice/MessageSendResponse"
+				xmlns:xsd4="http://wa.dms.webservice/MessageReceiveResponse"
+				elementFormDefault="qualified"
+				targetNamespace="http://wa.dms.webservice/MessageReceiveRequest">
+			<s:element name="MessageReceiveRequest"
+					nillable="true"
+					type="xsd2:MessageReceiveRequest"/>
+			<s:complexType name="MessageReceiveRequest"
+					mixed="false">
+				<s:complexContent mixed="false">
+					<s:extension base="xsd2:RequestBase">
+						<s:sequence>
+							<s:element minOccurs="0"
+									maxOccurs="1"
+									name="MessageReceive"
+									type="xsd2:MessageReceive"/>
+						</s:sequence>
+					</s:extension>
+				</s:complexContent>
+			</s:complexType>
+			<s:complexType name="RequestBase">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionHeader"
+							type="xsd2:TransactionHeader"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="TransactionHeader">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="CountryID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DistributorID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="GroupID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DealerID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSCode"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSVersion"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSServerUrl"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DocumentVersion"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Username"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Password"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionId"
+							type="s:string"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="TransactionDateTimeUTC"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="TransactionDateTimeLocal"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="RequestType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="RequestPollingToken"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="VenderTrackingCode"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="IneterfaceID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="PollingToken"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="MessageReceive">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="MessageID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="MessageType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="ActionType"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+		</s:schema>
+		<s:schema xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+				xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+				xmlns:s="http://www.w3.org/2001/XMLSchema"
+				xmlns:s0="http://wa.dms.webservice/MessageSendRequest"
+				xmlns:s1="http://wa.dms.webservice/MessageSendResponse"
+				xmlns:s2="http://wa.dms.webservice/MessageReceiveRequest"
+				xmlns:s3="http://wa.dms.webservice/MessageReceiveResponse"
+				xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+				xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+				xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+				xmlns:tns="http://wa.dms.webservice/MessageReceiveResponse"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				xmlns:xsd1="http://wa.dms.webservice/MessageSendRequest"
+				xmlns:xsd2="http://wa.dms.webservice/MessageReceiveRequest"
+				xmlns:xsd3="http://wa.dms.webservice/MessageSendResponse"
+				xmlns:xsd4="http://wa.dms.webservice/MessageReceiveResponse"
+				elementFormDefault="qualified"
+				targetNamespace="http://wa.dms.webservice/MessageReceiveResponse">
+			<s:element name="MessageReceiveResponse"
+					nillable="true"
+					type="xsd4:MessageReceiveResponse"/>
+			<s:complexType name="MessageReceiveResponse"
+					mixed="false">
+				<s:complexContent mixed="false">
+					<s:extension base="xsd4:ResponseBase"/>
+				</s:complexContent>
+			</s:complexType>
+			<s:complexType name="ResponseBase">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionHeader"
+							type="xsd4:TransactionHeader"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="ResultMessage"
+							type="xsd4:ResultMessage"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Errors"
+							type="xsd4:ArrayOfError"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="TransactionHeader">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="CountryID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DistributorID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="GroupID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DealerID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSCode"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSVersion"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DMSServerUrl"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="DocumentVersion"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Username"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Password"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionId"
+							type="s:string"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="TransactionDateTimeUTC"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="1"
+							maxOccurs="1"
+							name="TransactionDateTimeLocal"
+							nillable="true"
+							type="s:dateTime"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="TransactionType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="RequestType"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="RequestPollingToken"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="VenderTrackingCode"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="IneterfaceID"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="PollingToken"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ResultMessage">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Code"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Message"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="ArrayOfError">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="unbounded"
+							name="Error"
+							nillable="true"
+							type="xsd4:Error"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="Error">
+				<s:sequence>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Code"
+							type="s:string"/>
+					<s:element minOccurs="0"
+							maxOccurs="1"
+							name="Message"
+							type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+		</s:schema>
+	</types>
+	<message name="MessageSendSoapIn">
+		<part name="request"
+				element="xsd3:MessageSendRequest"/>
+	</message>
+	<message name="MessageSendSoapOut">
+		<part name="MessageSendResult"
+				element="xsd4:MessageSendResponse"/>
+	</message>
+	<message name="MessageReceiveSoapIn">
+		<part name="request"
+				element="xsd1:MessageReceiveRequest"/>
+	</message>
+	<message name="MessageReceiveSoapOut">
+		<part name="MessageReceiveResult"
+				element="xsd2:MessageReceiveResponse"/>
+	</message>
+	<portType name="MessageSoap">
+		<operation name="MessageSend">
+			<documentation>IF-DMS-MSG-SEND01/Message Send</documentation>
+			<input name="MessageSendRequest"
+					message="tns:MessageSendSoapIn"/>
+			<output name="MessageSendResponse"
+					message="tns:MessageSendSoapOut"/>
+		</operation>
+		<operation name="MessageReceive">
+			<documentation>IF-DMS-MSG-RECEIVE01/Message Receive</documentation>
+			<input name="MessageReceiveRequest"
+					message="tns:MessageReceiveSoapIn"/>
+			<output name="MessageReceiveResponse"
+					message="tns:MessageReceiveSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="MessageSoap"
+			type="tns:MessageSoap">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="MessageSend">
+			<soapbind:operation style="document"
+					soapAction="http://wa.dms.webservice/MessageSend"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="MessageReceive">
+			<soapbind:operation style="document"
+					soapAction="http://wa.dms.webservice/MessageReceive"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="MessageSoap12"
+			type="tns:MessageSoap">
+		<soap12bind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="MessageSend">
+			<soap12bind:operation style="document"
+					soapAction="http://wa.dms.webservice/MessageSend"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="MessageReceive">
+			<soap12bind:operation style="document"
+					soapAction="http://wa.dms.webservice/MessageReceive"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="Message">
+		<port name="MessageSoap"
+				binding="tns:MessageSoap">
+			<soapbind:address location="http://192.168.11.73:9098/v2/Common/Message.asmx"/>
+		</port>
+		<port name="MessageSoap12"
+				binding="tns:MessageSoap12">
+			<soap12bind:address location="http://192.168.11.73:9098/v2/Common/Message.asmx"/>
+		</port>
+	</service>
+</definitions>

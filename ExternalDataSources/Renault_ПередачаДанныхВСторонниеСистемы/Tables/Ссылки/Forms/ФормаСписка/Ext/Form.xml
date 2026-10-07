@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<CommandSet>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормакнОбновить" id="93">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.кнОбновить</CommandName>
+				<ExtendedTooltip name="ФормакнОбновитьРасширеннаяПодсказка" id="94"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ОбъектМД" id="60">
+			<DataPath>ОбъектМД</DataPath>
+			<ClearButton>true</ClearButton>
+			<ContextMenu name="ОбъектМДКонтекстноеМеню" id="61"/>
+			<ExtendedTooltip name="ОбъектМДРасширеннаяПодсказка" id="62"/>
+			<Events>
+				<Event name="OnChange">ОбъектМДПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.Картинка</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
+			<CommandSet>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Create</ExcludedCommand>
+			</CommandSet>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+				<Event name="AfterDeleteRow">СписокПослеУдаления</Event>
+				<Event name="OnChange">СписокПриИзменении</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="id" id="90">
+					<DataPath>Список.id</DataPath>
+					<ContextMenu name="idКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="idРасширеннаяПодсказка" id="92"/>
+				</LabelField>
+				<LabelField name="ОбъектМД_" id="63">
+					<DataPath>Список.ОбъектМД</DataPath>
+					<ContextMenu name="ОбъектМД_КонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="ОбъектМД_РасширеннаяПодсказка" id="65"/>
+				</LabelField>
+				<LabelField name="UUID" id="14">
+					<DataPath>Список.UUID</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="UUIDКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="UUIDРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="Версия" id="17">
+					<DataPath>Список.Версия</DataPath>
+					<ContextMenu name="ВерсияКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<CheckBoxField name="ПометкаУдаления" id="20">
+					<DataPath>Список.ПометкаУдаления</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПометкаУдаленияКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ПометкаУдаленияРасширеннаяПодсказка" id="22"/>
+				</CheckBoxField>
+				<CheckBoxField name="Проведен" id="26">
+					<DataPath>Список.Проведен</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПроведенКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ПроведенРасширеннаяПодсказка" id="28"/>
+				</CheckBoxField>
+				<CheckBoxField name="ЭтоГруппа" id="66">
+					<DataPath>Список.ЭтоГруппа</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЭтоГруппаКонтекстноеМеню" id="67"/>
+					<ExtendedTooltip name="ЭтоГруппаРасширеннаяПодсказка" id="68"/>
+				</CheckBoxField>
+				<LabelField name="Пакет" id="57">
+					<DataPath>Список.Пакет</DataPath>
+					<ContextMenu name="ПакетКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="ПакетРасширеннаяПодсказка" id="59"/>
+				</LabelField>
+				<LabelField name="Представление" id="23">
+					<DataPath>Список.Представление</DataPath>
+					<AutoCellHeight>true</AutoCellHeight>
+					<Width>1</Width>
+					<ContextMenu name="ПредставлениеКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ПредставлениеРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<Table name="Реквизиты" id="32">
+			<TitleLocation>Top</TitleLocation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Реквизиты</DataPath>
+			<RowPictureDataPath>Реквизиты.Картинка</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="РеквизитыКонтекстноеМеню" id="33"/>
+			<AutoCommandBar name="РеквизитыКоманднаяПанель" id="34"/>
+			<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="35"/>
+			<SearchStringAddition name="РеквизитыСтрокаПоиска" id="36">
+				<AdditionSource>
+					<Item>Реквизиты</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РеквизитыСтрокаПоискаКонтекстноеМеню" id="37"/>
+				<ExtendedTooltip name="РеквизитыСтрокаПоискаРасширеннаяПодсказка" id="38"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РеквизитыСостояниеПросмотра" id="39">
+				<AdditionSource>
+					<Item>Реквизиты</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РеквизитыСостояниеПросмотраКонтекстноеМеню" id="40"/>
+				<ExtendedTooltip name="РеквизитыСостояниеПросмотраРасширеннаяПодсказка" id="41"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РеквизитыУправлениеПоиском" id="42">
+				<AdditionSource>
+					<Item>Реквизиты</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РеквизитыУправлениеПоискомКонтекстноеМеню" id="43"/>
+				<ExtendedTooltip name="РеквизитыУправлениеПоискомРасширеннаяПодсказка" id="44"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СсылкиНомерСтроки" id="51">
+					<DataPath>Реквизиты.НомерСтроки</DataPath>
+					<ContextMenu name="СсылкиНомерСтрокиКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="СсылкиНомерСтрокиРасширеннаяПодсказка" id="53"/>
+				</LabelField>
+				<LabelField name="СсылкиРеквизит" id="54">
+					<DataPath>Реквизиты.Реквизит</DataPath>
+					<Width>1</Width>
+					<ContextMenu name="СсылкиРеквизитКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="СсылкиРеквизитРасширеннаяПодсказка" id="56"/>
+				</LabelField>
+				<ColumnGroup name="грЗначение" id="79">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="грЗначениеРасширеннаяПодсказка" id="80"/>
+					<ChildItems>
+						<PictureField name="РеквизитыКартинкаЗначение" id="81">
+							<DataPath>Реквизиты.КартинкаЗначение</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="РеквизитыКартинкаЗначениеКонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="РеквизитыКартинкаЗначениеРасширеннаяПодсказка" id="83"/>
+						</PictureField>
+						<LabelField name="СсылкиЗначение" id="45">
+							<DataPath>Реквизиты.Значение</DataPath>
+							<Width>1</Width>
+							<ContextMenu name="СсылкиЗначениеКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="СсылкиЗначениеРасширеннаяПодсказка" id="47"/>
+						</LabelField>
+						<LabelField name="РеквизитыТипЗначение" id="84">
+							<DataPath>Реквизиты.ТипЗначение</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>(Тип)</v8:content>
+								</v8:item>
+							</Title>
+							<Width>1</Width>
+							<ContextMenu name="РеквизитыТипЗначениеКонтекстноеМеню" id="85"/>
+							<ExtendedTooltip name="РеквизитыТипЗначениеРасширеннаяПодсказка" id="86"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="грЗначениеСсылка" id="71">
+					<Width>1</Width>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="грЗначениеСсылкаРасширеннаяПодсказка" id="72"/>
+					<ChildItems>
+						<PictureField name="РеквизитыКартинкаСсылка" id="73">
+							<DataPath>Реквизиты.КартинкаСсылка</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="РеквизитыКартинкаСсылкаКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="РеквизитыКартинкаСсылкаРасширеннаяПодсказка" id="75"/>
+						</PictureField>
+						<LabelField name="СсылкиЗначениеСсылка" id="48">
+							<DataPath>Реквизиты.ЗначениеСсылка</DataPath>
+							<Width>1</Width>
+							<ContextMenu name="СсылкиЗначениеСсылкаКонтекстноеМеню" id="49"/>
+							<ExtendedTooltip name="СсылкиЗначениеСсылкаРасширеннаяПодсказка" id="50"/>
+						</LabelField>
+						<LabelField name="РеквизитыТипЗначениеСсылка" id="76">
+							<DataPath>Реквизиты.ТипЗначениеСсылка</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>(Тип)</v8:content>
+								</v8:item>
+							</Title>
+							<Width>1</Width>
+							<ContextMenu name="РеквизитыТипЗначениеСсылкаКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="РеквизитыТипЗначениеСсылкаРасширеннаяПодсказка" id="78"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	*,
+	Выбор 
+		Когда ОбъектМД.Имя Подобно "Справочник.%" Тогда 14
+		Когда ОбъектМД.Имя Подобно "Документ.%" Тогда 15
+		Когда ОбъектМД.Имя Подобно "БизнесПроцесс.%" Тогда 16
+		Когда ОбъектМД.Имя Подобно "Задача.%" Тогда 17
+		Когда ОбъектМД.Имя Подобно "ПланСчетов.%" Тогда 18
+		Когда ОбъектМД.Имя Подобно "ПланОбмена.%" Тогда 19
+		Когда ОбъектМД.Имя Подобно "ПланВидовХарактеристик.%" Тогда 20
+		Когда ОбъектМД.Имя Подобно "РегистрСведений.%" Тогда 13
+		Иначе 0
+	Конец Картинка
+ИЗ ВнешнийИсточникДанных.Renault_ПередачаДанныхВСторонниеСистемы.Таблица.Ссылки</QueryText>
+				<MainTable>ExternalDataSource.Renault_ПередачаДанныхВСторонниеСистемы.Table.Ссылки</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Пакет</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Реквизиты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты объектов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>Выбрать
+	*,
+	Выбор Когда НомерСтроки=0 Тогда 22 Иначе 21 Конец Картинка,
+	
+	//тип значения
+	Выбор Когда Значение Есть NULL Тогда "" Иначе Реквизит.Тип Конец ТипЗначение,
+	//картинка значения
+	Выбор
+		Когда Значение Есть NULL Тогда 100
+		Когда Реквизит.Тип Подобно "Перечисление.%" Тогда 11
+		Когда Подстрока(Реквизит.Тип,0,10)="Строка" Тогда 2
+		Когда Подстрока(Реквизит.Тип,0,10)="Число" Тогда 1
+		Когда Подстрока(Реквизит.Тип,0,10)="Дата" Тогда 3
+		Когда Подстрока(Реквизит.Тип,0,10)="Булево" Тогда 4
+		//Когда Реквизит.Тип Подобно "%.%" Тогда 0
+		Иначе 0
+	Конец КартинкаЗначение,	
+	
+	//тип значения-ссылки
+	Выбор Когда ЗначениеСсылка Есть NULL Тогда "" Иначе ЗначениеСсылка.ОбъектМД.Имя Конец ТипЗначениеСсылка,
+	//картинка значения-ссылки
+	Выбор
+		//Когда ЗначениеСсылка.ОбъектМД.Имя="УникальныйИдентификатор" Тогда 5
+		Когда ЗначениеСсылка.ОбъектМД.Имя Подобно "ВнешнийИсточникДанных.%" Тогда 12
+		Когда ЗначениеСсылка.ОбъектМД.Имя Подобно "%.%.%" Тогда 6 //составной тип
+		Когда ЗначениеСсылка.ОбъектМД.Имя Подобно "Справочник.%" Тогда 14
+		Когда ЗначениеСсылка.ОбъектМД.Имя Подобно "Документ.%" Тогда 15
+		Когда ЗначениеСсылка.ОбъектМД.Имя Подобно "БизнесПроцесс.%" Тогда 16
+		Когда ЗначениеСсылка.ОбъектМД.Имя Подобно "Задача.%" Тогда 17
+		Когда ЗначениеСсылка.ОбъектМД.Имя Подобно "ПланСчетов.%" Тогда 18
+		Когда ЗначениеСсылка.ОбъектМД.Имя Подобно "ПланОбмена.%" Тогда 19
+		Когда ЗначениеСсылка.ОбъектМД.Имя Подобно "ПланВидовХарактеристик.%" Тогда 20
+		Когда ЗначениеСсылка=Значение(ВнешнийИсточникДанных.Renault_ПередачаДанныхВСторонниеСистемы.Таблица.Ссылки.ПустаяСсылка) Тогда 100
+		Иначе 0
+	Конец КартинкаСсылка
+ИЗ(	
+	Выбрать
+		СсылкаНаОбъект,
+		Реквизит,
+		НомерСтроки,
+		ЗначениеСсылка,
+		Подстрока(Значение,0,500) Значение
+	ИЗ ВнешнийИсточникДанных.Renault_ПередачаДанныхВСторонниеСистемы.Таблица.Справочники
+	ГДЕ СсылкаНаОбъект=&amp;Ссылка
+	Объединить
+	Выбрать
+		СсылкаНаОбъект,
+		Реквизит,
+		НомерСтроки,
+		ЗначениеСсылка,
+		Подстрока(Значение,0,500) Значение
+	ИЗ ВнешнийИсточникДанных.Renault_ПередачаДанныхВСторонниеСистемы.Таблица.Документы
+	ГДЕ СсылкаНаОбъект=&amp;Ссылка
+)ЗП</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>НомерСтроки</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ОбъектМД" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект МД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:ExternalDataSourceTableRef.Renault_ПередачаДанныхВСторонниеСистемы.ОбъектыМД</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнОбновить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнОбновить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

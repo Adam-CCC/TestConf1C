@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Width>61</Width>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа5" id="175">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="176"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Код" id="80">
+					<DataPath>Объект.Code</DataPath>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ContextMenu name="КодКонтекстноеМеню" id="81"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="82"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Производитель" id="75">
+			<DataPath>Объект.Производитель</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ПроизводительКонтекстноеМеню" id="76"/>
+			<ExtendedTooltip name="ПроизводительРасширеннаяПодсказка" id="77"/>
+		</InputField>
+		<UsualGroup name="Группа6" id="177">
+			<Group>Horizontal</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="178"/>
+			<ChildItems>
+				<InputField name="НомерОтправленного" id="86">
+					<DataPath>Объект.SentNo</DataPath>
+					<ContextMenu name="НомерОтправленногоКонтекстноеМеню" id="87"/>
+					<ExtendedTooltip name="НомерОтправленногоРасширеннаяПодсказка" id="88"/>
+				</InputField>
+				<InputField name="НомерПринятого" id="89">
+					<DataPath>Объект.ReceivedNo</DataPath>
+					<ContextMenu name="НомерПринятогоКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="НомерПринятогоРасширеннаяПодсказка" id="91"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа7" id="179">
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="180"/>
+			<ChildItems>
+				<CheckBoxField name="Активный" id="83">
+					<DataPath>Объект.Активный</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Узел обмена данными активен</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="АктивныйКонтекстноеМеню" id="84"/>
+					<ExtendedTooltip name="АктивныйРасширеннаяПодсказка" id="85"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Группа1" id="94">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="95"/>
+			<ChildItems>
+				<Page name="Группа4" id="142">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервисы для обмена</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="143"/>
+					<ChildItems>
+						<Table name="СервисыОбменаДанными" id="144">
+							<Height>5</Height>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.СервисыОбменаДанными</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СервисыОбменаДаннымиКонтекстноеМеню" id="145"/>
+							<AutoCommandBar name="СервисыОбменаДаннымиКоманднаяПанель" id="146">
+								<ChildItems>
+									<Button name="кнВыполнитьВыгрузку" id="92">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.кнВыполнитьВыгрузку</CommandName>
+										<ExtendedTooltip name="кнВыполнитьВыгрузкуРасширеннаяПодсказка" id="93"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СервисыОбменаДаннымиРасширеннаяПодсказка" id="147"/>
+							<SearchStringAddition name="СервисыОбменаДаннымиСтрокаПоиска" id="148">
+								<AdditionSource>
+									<Item>СервисыОбменаДанными</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СервисыОбменаДаннымиСтрокаПоискаКонтекстноеМеню" id="149"/>
+								<ExtendedTooltip name="СервисыОбменаДаннымиСтрокаПоискаРасширеннаяПодсказка" id="150"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СервисыОбменаДаннымиСостояниеПросмотра" id="151">
+								<AdditionSource>
+									<Item>СервисыОбменаДанными</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СервисыОбменаДаннымиСостояниеПросмотраКонтекстноеМеню" id="152"/>
+								<ExtendedTooltip name="СервисыОбменаДаннымиСостояниеПросмотраРасширеннаяПодсказка" id="153"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СервисыОбменаДаннымиУправлениеПоиском" id="154">
+								<AdditionSource>
+									<Item>СервисыОбменаДанными</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СервисыОбменаДаннымиУправлениеПоискомКонтекстноеМеню" id="155"/>
+								<ExtendedTooltip name="СервисыОбменаДаннымиУправлениеПоискомРасширеннаяПодсказка" id="156"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="СервисыОбменаДаннымиАктивный" id="163">
+									<DataPath>Объект.СервисыОбменаДанными.Активный</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СервисыОбменаДаннымиАктивныйКонтекстноеМеню" id="164"/>
+									<ExtendedTooltip name="СервисыОбменаДаннымиАктивныйРасширеннаяПодсказка" id="165"/>
+								</CheckBoxField>
+								<InputField name="СервисыОбменаДаннымиПравилоКонвертации" id="169">
+									<DataPath>Объект.СервисыОбменаДанными.ПравилоКонвертации</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СервисыОбменаДаннымиПравилоКонвертацииКонтекстноеМеню" id="170"/>
+									<ExtendedTooltip name="СервисыОбменаДаннымиПравилоКонвертацииРасширеннаяПодсказка" id="171"/>
+								</InputField>
+								<LabelField name="СервисыОбменаДаннымиПравилоКонвертацииСервис" id="172">
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СервисыОбменаДаннымиПравилоКонвертацииСервисКонтекстноеМеню" id="173"/>
+									<ExtendedTooltip name="СервисыОбменаДаннымиПравилоКонвертацииСервисРасширеннаяПодсказка" id="174"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Группа2" id="96">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регистрация изменений</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="97"/>
+					<ChildItems>
+						<Table name="РегистрацияИзменений" id="13">
+							<Representation>Tree</Representation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>РегистрацияИзменений</DataPath>
+							<ContextMenu name="РегистрацияИзмененийКонтекстноеМеню" id="14"/>
+							<AutoCommandBar name="РегистрацияИзмененийКоманднаяПанель" id="15">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="РегистрацияИзмененийкнЗарегистрироватьИзменения" id="35">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.кнЗарегистрироватьИзменения</CommandName>
+										<ExtendedTooltip name="РегистрацияИзмененийкнЗарегистрироватьИзмененияРасширеннаяПодсказка" id="36"/>
+									</Button>
+									<Button name="РегистрацияИзмененийкнУдалитьРегистрациюИзменений" id="37">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.кнУдалитьРегистрациюИзменений</CommandName>
+										<ExtendedTooltip name="РегистрацияИзмененийкнУдалитьРегистрациюИзмененийРасширеннаяПодсказка" id="38"/>
+									</Button>
+									<Button name="РегистрацияИзмененийкнОбновить" id="39">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.кнОбновить</CommandName>
+										<ExtendedTooltip name="РегистрацияИзмененийкнОбновитьРасширеннаяПодсказка" id="40"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="РегистрацияИзмененийРасширеннаяПодсказка" id="16"/>
+							<SearchStringAddition name="РегистрацияИзмененийСтрокаПоиска" id="17">
+								<AdditionSource>
+									<Item>РегистрацияИзменений</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РегистрацияИзмененийСтрокаПоискаКонтекстноеМеню" id="18"/>
+								<ExtendedTooltip name="РегистрацияИзмененийСтрокаПоискаРасширеннаяПодсказка" id="19"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РегистрацияИзмененийСостояниеПросмотра" id="20">
+								<AdditionSource>
+									<Item>РегистрацияИзменений</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РегистрацияИзмененийСостояниеПросмотраКонтекстноеМеню" id="21"/>
+								<ExtendedTooltip name="РегистрацияИзмененийСостояниеПросмотраРасширеннаяПодсказка" id="22"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РегистрацияИзмененийУправлениеПоиском" id="23">
+								<AdditionSource>
+									<Item>РегистрацияИзменений</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РегистрацияИзмененийУправлениеПоискомКонтекстноеМеню" id="24"/>
+								<ExtendedTooltip name="РегистрацияИзмененийУправлениеПоискомРасширеннаяПодсказка" id="25"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="РегистрацияИзмененийВкл" id="32">
+									<DataPath>РегистрацияИзменений.Вкл</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<HeaderPicture>
+										<xr:Ref>StdPicture.CheckAll</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РегистрацияИзмененийВклКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="РегистрацияИзмененийВклРасширеннаяПодсказка" id="34"/>
+									<Events>
+										<Event name="OnChange">РегистрацияИзмененийВклПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelField name="РегистрацияИзмененийМетаданные" id="26">
+									<DataPath>РегистрацияИзменений.Метаданные</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РегистрацияИзмененийМетаданныеКонтекстноеМеню" id="27"/>
+									<ExtendedTooltip name="РегистрацияИзмененийМетаданныеРасширеннаяПодсказка" id="28"/>
+								</LabelField>
+								<LabelField name="РегистрацияИзмененийКоличество" id="29">
+									<DataPath>РегистрацияИзменений.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="РегистрацияИзмененийКоличествоКонтекстноеМеню" id="30"/>
+									<ExtendedTooltip name="РегистрацияИзмененийКоличествоРасширеннаяПодсказка" id="31"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Группа3" id="98">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Очередь исходящих пакетов</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="99"/>
+					<ChildItems>
+						<Table name="ОчередьИсходящихПакетов" id="100">
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<Height>10</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ОчередьИсходящихПакетов</DataPath>
+							<RowPictureDataPath>ОчередьИсходящихПакетов.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="ОчередьИсходящихПакетовКонтекстноеМеню" id="101"/>
+							<AutoCommandBar name="ОчередьИсходящихПакетовКоманднаяПанель" id="102">
+								<ChildItems>
+									<Button name="ОчередьИсходящихПакетовкнСохранитьВФайл" id="140">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.кнСохранитьВФайл</CommandName>
+										<ExtendedTooltip name="ОчередьИсходящихПакетовкнСохранитьВФайлРасширеннаяПодсказка" id="141"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ОчередьИсходящихПакетовРасширеннаяПодсказка" id="103"/>
+							<SearchStringAddition name="ОчередьИсходящихПакетовСтрокаПоиска" id="104">
+								<AdditionSource>
+									<Item>ОчередьИсходящихПакетов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОчередьИсходящихПакетовСтрокаПоискаКонтекстноеМеню" id="105"/>
+								<ExtendedTooltip name="ОчередьИсходящихПакетовСтрокаПоискаРасширеннаяПодсказка" id="106"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОчередьИсходящихПакетовСостояниеПросмотра" id="107">
+								<AdditionSource>
+									<Item>ОчередьИсходящихПакетов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОчередьИсходящихПакетовСостояниеПросмотраКонтекстноеМеню" id="108"/>
+								<ExtendedTooltip name="ОчередьИсходящихПакетовСостояниеПросмотраРасширеннаяПодсказка" id="109"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОчередьИсходящихПакетовУправлениеПоиском" id="110">
+								<AdditionSource>
+									<Item>ОчередьИсходящихПакетов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОчередьИсходящихПакетовУправлениеПоискомКонтекстноеМеню" id="111"/>
+								<ExtendedTooltip name="ОчередьИсходящихПакетовУправлениеПоискомРасширеннаяПодсказка" id="112"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ОчередьИсходящихПакетовДата" id="119">
+									<DataPath>ОчередьИсходящихПакетов.Дата</DataPath>
+									<ContextMenu name="ОчередьИсходящихПакетовДатаКонтекстноеМеню" id="120"/>
+									<ExtendedTooltip name="ОчередьИсходящихПакетовДатаРасширеннаяПодсказка" id="121"/>
+								</LabelField>
+								<LabelField name="ОчередьИсходящихПакетовОписание" id="122">
+									<DataPath>ОчередьИсходящихПакетов.Описание</DataPath>
+									<ContextMenu name="ОчередьИсходящихПакетовОписаниеКонтекстноеМеню" id="123"/>
+									<ExtendedTooltip name="ОчередьИсходящихПакетовОписаниеРасширеннаяПодсказка" id="124"/>
+								</LabelField>
+								<CheckBoxField name="ОчередьИсходящихПакетовБезОшибок" id="116">
+									<DataPath>ОчередьИсходящихПакетов.БезОшибок</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОчередьИсходящихПакетовБезОшибокКонтекстноеМеню" id="117"/>
+									<ExtendedTooltip name="ОчередьИсходящихПакетовБезОшибокРасширеннаяПодсказка" id="118"/>
+								</CheckBoxField>
+								<LabelField name="ОчередьИсходящихПакетовПолучатель" id="125">
+									<DataPath>~ОчередьИсходящихПакетов.Получатель</DataPath>
+									<ContextMenu name="ОчередьИсходящихПакетовПолучательКонтекстноеМеню" id="126"/>
+									<ExtendedTooltip name="ОчередьИсходящихПакетовПолучательРасширеннаяПодсказка" id="127"/>
+								</LabelField>
+								<LabelField name="ОчередьИсходящихПакетовПравилаКонвертации" id="128">
+									<DataPath>ОчередьИсходящихПакетов.ПравилаКонвертации</DataPath>
+									<ContextMenu name="ОчередьИсходящихПакетовПравилаКонвертацииКонтекстноеМеню" id="129"/>
+									<ExtendedTooltip name="ОчередьИсходящихПакетовПравилаКонвертацииРасширеннаяПодсказка" id="130"/>
+								</LabelField>
+								<LabelField name="ОчередьИсходящихПакетовПродолжительность" id="131">
+									<DataPath>ОчередьИсходящихПакетов.Продолжительность</DataPath>
+									<ContextMenu name="ОчередьИсходящихПакетовПродолжительностьКонтекстноеМеню" id="132"/>
+									<ExtendedTooltip name="ОчередьИсходящихПакетовПродолжительностьРасширеннаяПодсказка" id="133"/>
+								</LabelField>
+								<LabelField name="ОчередьИсходящихПакетовРазмер" id="134">
+									<DataPath>ОчередьИсходящихПакетов.Размер</DataPath>
+									<ContextMenu name="ОчередьИсходящихПакетовРазмерКонтекстноеМеню" id="135"/>
+									<ExtendedTooltip name="ОчередьИсходящихПакетовРазмерРасширеннаяПодсказка" id="136"/>
+								</LabelField>
+								<LabelField name="ОчередьИсходящихПакетовСервис" id="137">
+									<DataPath>ОчередьИсходящихПакетов.Сервис</DataPath>
+									<ContextMenu name="ОчередьИсходящихПакетовСервисКонтекстноеМеню" id="138"/>
+									<ExtendedTooltip name="ОчередьИсходящихПакетовСервисРасширеннаяПодсказка" id="139"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:ExchangePlanObject.DMS_Consolidation</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РегистрацияИзменений" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистрация изменений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Метаданные" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Метаданные</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Количество" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Вкл" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вкл</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ИмяМД" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Имя МД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОчередьИсходящихПакетов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очередь исходящих пакетов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>Выбрать * Из РегистрСведений.DMS_ОчередьИсходящихПакетов ГДЕ Узел=&amp;Узел</QueryText>
+				<MainTable>InformationRegister.DMS_ОчередьИсходящихПакетов</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Дата</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнЗарегистрироватьИзменения" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрировать изменения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрировать изменения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataCompositionNewGroup</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнЗарегистрироватьИзменения</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнУдалитьРегистрациюИзменений" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить регистрацию изменений</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зарегистрировать изменения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DeleteDirectly</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнУдалитьРегистрациюИзменений</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнОбновить" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнОбновить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВыполнитьВыгрузку" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить выгрузку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить выгрузку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveUp</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВыполнитьВыгрузку</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнСохранитьВФайл" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить в файл</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить данные в файл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнСохранитьВФайл</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

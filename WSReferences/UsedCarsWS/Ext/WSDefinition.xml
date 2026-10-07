@@ -1,0 +1,1237 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://renault.ru/WSGate/UsedCars"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="http://renault.ru/WSGate/UsedCars"
+		xmlns:xsd2="http://v8.1c.ru/8.1/data/core"
+		name="Renault_UsedCars"
+		targetNamespace="http://renault.ru/WSGate/UsedCars">
+	<types>
+		<xs:schema xmlns:tns="http://v8.1c.ru/8.1/data/core"
+				xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xmlns:xsd1="http://v8.1c.ru/8.1/data/core"
+				xmlns:xsd2="http://renault.ru/WSGate/UsedCars"
+				targetNamespace="http://v8.1c.ru/8.1/data/core"
+				attributeFormDefault="unqualified"
+				elementFormDefault="qualified">
+			<xs:simpleType name="AllowedLength">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Fixed"/>
+					<xs:enumeration value="Variable"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="AllowedSign">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Any"/>
+					<xs:enumeration value="Nonnegative"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="Array">
+				<xs:sequence>
+					<xs:element name="Value"
+							nillable="true"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="BinaryDataQualifiers">
+				<xs:sequence>
+					<xs:element name="Length"
+							type="xs:decimal"/>
+					<xs:element name="AllowedLength"
+							type="xsd1:AllowedLength"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="CompositeID">
+				<xs:restriction base="xs:string">
+					<xs:pattern value="-?[0-9]+(:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})?"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="DataFillError">
+				<xs:sequence>
+					<xs:element name="Data"
+							type="xs:string"/>
+					<xs:element name="DataDescr"
+							type="xs:string"/>
+					<xs:element name="Text"
+							type="xs:string"/>
+					<xs:element name="Status"
+							type="xsd1:FillCheckErrorStatus"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="DataFillErrors">
+				<xs:sequence>
+					<xs:element name="item"
+							type="xsd1:DataFillError"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="DateFractions">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Date"/>
+					<xs:enumeration value="Time"/>
+					<xs:enumeration value="DateTime"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="DateQualifiers">
+				<xs:sequence>
+					<xs:element name="DateFractions"
+							type="xsd1:DateFractions"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Exception">
+				<xs:complexContent>
+					<xs:extension base="xsd1:GenericException">
+						<xs:sequence>
+							<xs:element name="data"
+									type="xs:base64Binary"
+									minOccurs="0"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:simpleType name="FillCheckErrorStatus">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Error"/>
+					<xs:enumeration value="Warning"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="FillChecking">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="DontCheck"/>
+					<xs:enumeration value="ShowError"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="FixedArray">
+				<xs:sequence>
+					<xs:element name="Value"
+							nillable="true"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FixedMap">
+				<xs:sequence>
+					<xs:element name="pair"
+							type="xsd1:KeyAndValue"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="FixedStructure">
+				<xs:sequence>
+					<xs:element name="Property"
+							minOccurs="0"
+							maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Value"
+										nillable="true"/>
+							</xs:sequence>
+							<xs:attribute name="name"
+									type="xs:NMTOKEN"
+									use="required"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="GenericException"
+					abstract="true">
+				<xs:sequence>
+					<xs:element name="descr"
+							type="xs:string"/>
+					<xs:element name="inner"
+							type="xsd1:GenericException"
+							minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="clsid"
+						type="xsd1:UUID"
+						use="required"/>
+				<xs:attribute name="encoded"
+						type="xs:boolean"
+						default="false"/>
+			</xs:complexType>
+			<xs:complexType name="KeyAndValue">
+				<xs:sequence>
+					<xs:element name="Key"/>
+					<xs:element name="Value"
+							nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LocalStringItemType">
+				<xs:sequence>
+					<xs:element name="lang"
+							type="xs:NMTOKEN"/>
+					<xs:element name="content"
+							type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LocalStringType">
+				<xs:sequence>
+					<xs:element name="item"
+							type="xsd1:LocalStringItemType"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="MainClientApplicationWindowMode">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Normal"/>
+					<xs:enumeration value="Workplace"/>
+					<xs:enumeration value="FullscreenWorkplace"/>
+					<xs:enumeration value="Kiosk"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="Map">
+				<xs:sequence>
+					<xs:element name="pair"
+							type="xsd1:KeyAndValue"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="Null">
+				<xs:restriction base="xs:string">
+					<xs:length value="0"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="NumberQualifiers">
+				<xs:sequence>
+					<xs:element name="Digits"
+							type="xs:decimal"/>
+					<xs:element name="FractionDigits"
+							type="xs:decimal"/>
+					<xs:element name="AllowedSign"
+							type="xsd1:AllowedSign"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="ObjectVersion">
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[0-9a-fA-F]{40}"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="StandardBeginningDate">
+				<xs:sequence>
+					<xs:element name="variant"/>
+					<xs:element name="date"
+							type="xs:dateTime"
+							minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="StandardBeginningDateVariant">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Custom"/>
+					<xs:enumeration value="BeginningOfThisDay"/>
+					<xs:enumeration value="BeginningOfThisWeek"/>
+					<xs:enumeration value="BeginningOfThisTenDays"/>
+					<xs:enumeration value="BeginningOfThisMonth"/>
+					<xs:enumeration value="BeginningOfThisQuarter"/>
+					<xs:enumeration value="BeginningOfThisHalfYear"/>
+					<xs:enumeration value="BeginningOfThisYear"/>
+					<xs:enumeration value="BeginningOfLastDay"/>
+					<xs:enumeration value="BeginningOfLastWeek"/>
+					<xs:enumeration value="BeginningOfLastTenDays"/>
+					<xs:enumeration value="BeginningOfLastMonth"/>
+					<xs:enumeration value="BeginningOfLastQuarter"/>
+					<xs:enumeration value="BeginningOfLastHalfYear"/>
+					<xs:enumeration value="BeginningOfLastYear"/>
+					<xs:enumeration value="BeginningOfNextDay"/>
+					<xs:enumeration value="BeginningOfNextWeek"/>
+					<xs:enumeration value="BeginningOfNextTenDays"/>
+					<xs:enumeration value="BeginningOfNextMonth"/>
+					<xs:enumeration value="BeginningOfNextQuarter"/>
+					<xs:enumeration value="BeginningOfNextHalfYear"/>
+					<xs:enumeration value="BeginningOfNextYear"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="StandardPeriod">
+				<xs:sequence>
+					<xs:element name="variant"/>
+					<xs:element name="startDate"
+							type="xs:dateTime"
+							minOccurs="0"/>
+					<xs:element name="endDate"
+							type="xs:dateTime"
+							minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="StandardPeriodVariant">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Custom"/>
+					<xs:enumeration value="Today"/>
+					<xs:enumeration value="ThisWeek"/>
+					<xs:enumeration value="ThisTenDays"/>
+					<xs:enumeration value="ThisMonth"/>
+					<xs:enumeration value="ThisQuarter"/>
+					<xs:enumeration value="ThisHalfYear"/>
+					<xs:enumeration value="ThisYear"/>
+					<xs:enumeration value="FromBeginningOfThisWeek"/>
+					<xs:enumeration value="FromBeginningOfThisTenDays"/>
+					<xs:enumeration value="FromBeginningOfThisMonth"/>
+					<xs:enumeration value="FromBeginningOfThisQuarter"/>
+					<xs:enumeration value="FromBeginningOfThisHalfYear"/>
+					<xs:enumeration value="FromBeginningOfThisYear"/>
+					<xs:enumeration value="Yesterday"/>
+					<xs:enumeration value="LastWeek"/>
+					<xs:enumeration value="LastTenDays"/>
+					<xs:enumeration value="LastMonth"/>
+					<xs:enumeration value="LastQuarter"/>
+					<xs:enumeration value="LastHalfYear"/>
+					<xs:enumeration value="LastYear"/>
+					<xs:enumeration value="LastWeekTillSameWeekDay"/>
+					<xs:enumeration value="LastTenDaysTillSameDayNumber"/>
+					<xs:enumeration value="LastMonthTillSameDate"/>
+					<xs:enumeration value="LastQuarterTillSameDate"/>
+					<xs:enumeration value="LastHalfYearTillSameDate"/>
+					<xs:enumeration value="LastYearTillSameDate"/>
+					<xs:enumeration value="Tomorrow"/>
+					<xs:enumeration value="NextWeek"/>
+					<xs:enumeration value="NextTenDays"/>
+					<xs:enumeration value="NextMonth"/>
+					<xs:enumeration value="NextQuarter"/>
+					<xs:enumeration value="NextHalfYear"/>
+					<xs:enumeration value="NextYear"/>
+					<xs:enumeration value="NextWeekTillSameWeekDay"/>
+					<xs:enumeration value="NextTenDaysTillSameDayNumber"/>
+					<xs:enumeration value="NextMonthTillSameDate"/>
+					<xs:enumeration value="NextQuarterTillSameDate"/>
+					<xs:enumeration value="NextHalfYearTillSameDate"/>
+					<xs:enumeration value="NextYearTillSameDate"/>
+					<xs:enumeration value="TillEndOfThisWeek"/>
+					<xs:enumeration value="TillEndOfThisTenDays"/>
+					<xs:enumeration value="TillEndOfThisMonth"/>
+					<xs:enumeration value="TillEndOfThisQuarter"/>
+					<xs:enumeration value="TillEndOfThisHalfYear"/>
+					<xs:enumeration value="TillEndOfThisYear"/>
+					<xs:enumeration value="Last7Days"/>
+					<xs:enumeration value="Next7Days"/>
+					<xs:enumeration value="Month"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="StringQualifiers">
+				<xs:sequence>
+					<xs:element name="Length"
+							type="xs:decimal"/>
+					<xs:element name="AllowedLength"
+							type="xsd1:AllowedLength"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="Structure">
+				<xs:sequence>
+					<xs:element name="Property"
+							minOccurs="0"
+							maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Value"
+										nillable="true"/>
+							</xs:sequence>
+							<xs:attribute name="name"
+									type="xs:NMTOKEN"
+									use="required"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="Type">
+				<xs:restriction base="xs:QName"/>
+			</xs:simpleType>
+			<xs:complexType name="TypeDescription">
+				<xs:sequence>
+					<xs:element name="Type"
+							type="xs:QName"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+					<xs:element name="TypeSet"
+							type="xs:QName"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+					<xs:element name="TypeId"
+							type="xsd1:UUID"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+					<xs:element name="NumberQualifiers"
+							type="xsd1:NumberQualifiers"
+							minOccurs="0"/>
+					<xs:element name="StringQualifiers"
+							type="xsd1:StringQualifiers"
+							minOccurs="0"/>
+					<xs:element name="DateQualifiers"
+							type="xsd1:DateQualifiers"
+							minOccurs="0"/>
+					<xs:element name="BinaryDataQualifiers"
+							type="xsd1:BinaryDataQualifiers"
+							minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="UUID">
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="ValueListItemType">
+				<xs:sequence>
+					<xs:element name="value"
+							nillable="true"/>
+					<xs:element name="presentation"
+							type="xs:string"
+							minOccurs="0"/>
+					<xs:element name="checkState"
+							type="xs:decimal"
+							minOccurs="0"/>
+					<xs:element name="picture"
+							minOccurs="0"/>
+					<xs:element name="id"
+							type="xs:long"
+							minOccurs="0"/>
+					<xs:element name="formatPresentationSpecified"
+							type="xs:boolean"
+							minOccurs="0"/>
+					<xs:element name="formatPresentation"
+							type="xs:string"
+							minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ValueListType">
+				<xs:choice>
+					<xs:element name="valueType"
+							type="xsd1:TypeDescription"/>
+					<xs:element name="availableValues"
+							type="xsd1:ValueListType"
+							minOccurs="0"/>
+					<xs:element name="lastId"
+							type="xs:long"
+							minOccurs="0"/>
+					<xs:element name="item"
+							type="xsd1:ValueListItemType"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:choice>
+			</xs:complexType>
+			<xs:simpleType name="ValueStorage">
+				<xs:restriction base="xs:base64Binary"/>
+			</xs:simpleType>
+			<xs:complexType name="ValueTable">
+				<xs:sequence>
+					<xs:element name="column"
+							type="xsd1:ValueTableColumn"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+					<xs:element name="index"
+							type="xsd1:ValueTableIndex"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+					<xs:element name="row"
+							type="xsd1:ValueTableRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ValueTableColumn">
+				<xs:sequence>
+					<xs:element name="Name"
+							type="xs:NMTOKEN"
+							minOccurs="0"/>
+					<xs:element name="ValueType"
+							type="xsd1:TypeDescription"
+							minOccurs="0"/>
+					<xs:element name="Title"
+							type="xs:string"
+							minOccurs="0"/>
+					<xs:element name="Width"
+							type="xs:nonNegativeInteger"
+							minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ValueTableIndex">
+				<xs:sequence>
+					<xs:element name="column"
+							type="xs:NMTOKEN"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ValueTableRow">
+				<xs:sequence>
+					<xs:element name="Value"
+							nillable="true"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ValueTree">
+				<xs:sequence>
+					<xs:element name="column"
+							type="xsd1:ValueTreeColumn"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+					<xs:element name="row"
+							type="xsd1:ValueTreeRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ValueTreeColumn">
+				<xs:sequence>
+					<xs:element name="Name"
+							type="xs:NMTOKEN"
+							minOccurs="0"/>
+					<xs:element name="ValueType"
+							type="xsd1:TypeDescription"
+							minOccurs="0"/>
+					<xs:element name="Title"
+							type="xs:string"
+							minOccurs="0"/>
+					<xs:element name="Width"
+							type="xs:nonNegativeInteger"
+							minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ValueTreeRow">
+				<xs:sequence>
+					<xs:element name="row"
+							type="xsd1:ValueTreeRow"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+					<xs:element name="Value"
+							nillable="true"
+							minOccurs="0"
+							maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				xmlns:xs1="http://v8.1c.ru/8.1/data/core"
+				xmlns:xs2="http://renault.ru/WSGate/UsedCars"
+				xmlns:xsd1="http://v8.1c.ru/8.1/data/core"
+				xmlns:xsd2="http://renault.ru/WSGate/UsedCars"
+				targetNamespace="http://renault.ru/WSGate/UsedCars"
+				elementFormDefault="qualified">
+			<xs:import namespace="http://v8.1c.ru/8.1/data/core"/>
+			<xs:element name="GetAllDictionaries">
+				<xs:complexType>
+					<xs:sequence/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetAllDictionariesResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xsd1:Array"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetPrice">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Data"
+								type="xsd1:Structure"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetPriceResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:integer"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ExecQuery">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TextQuery"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ExecQueryResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetSession">
+				<xs:complexType>
+					<xs:sequence/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetSessionResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_Auth">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Data"
+								type="xsd1:Structure"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_AuthResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"
+								nillable="true"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_PreCheck">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Data"
+								type="xsd1:Structure"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_PreCheckResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:integer"
+								nillable="true"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_GetStatus">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Data"
+								type="xsd1:Structure"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_GetStatusResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:int"
+								nillable="true"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_AcceptCheck">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Data"
+								type="xsd1:Structure"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_AcceptCheckResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_NoAcceptCheck">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Data"
+								type="xsd1:Structure"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_NoAcceptCheckResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_GetResult">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Data"
+								type="xsd1:Structure"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_GetResultResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xsd1:ValueStorage"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_GetRegions">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Data"
+								type="xsd1:Structure"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LegalPurity_GetRegionsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xsd1:Array"/>
+						<xs:element name="ErrorMessage"
+								type="xs:string"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ExecQueryNew">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Data"
+								type="xsd1:Structure"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ExecQueryNewResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xsd1:Structure"
+								nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetSessionNew">
+				<xs:complexType>
+					<xs:sequence/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetSessionNewResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="return"
+								type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</types>
+	<message name="GetAllDictionariesRequestMessage">
+		<part name="parameters"
+				element="tns:GetAllDictionaries"/>
+	</message>
+	<message name="GetAllDictionariesResponseMessage">
+		<part name="parameters"
+				element="tns:GetAllDictionariesResponse"/>
+	</message>
+	<message name="GetPriceRequestMessage">
+		<part name="parameters"
+				element="tns:GetPrice"/>
+	</message>
+	<message name="GetPriceResponseMessage">
+		<part name="parameters"
+				element="tns:GetPriceResponse"/>
+	</message>
+	<message name="ExecQueryRequestMessage">
+		<part name="parameters"
+				element="tns:ExecQuery"/>
+	</message>
+	<message name="ExecQueryResponseMessage">
+		<part name="parameters"
+				element="tns:ExecQueryResponse"/>
+	</message>
+	<message name="GetSessionRequestMessage">
+		<part name="parameters"
+				element="tns:GetSession"/>
+	</message>
+	<message name="GetSessionResponseMessage">
+		<part name="parameters"
+				element="tns:GetSessionResponse"/>
+	</message>
+	<message name="LegalPurity_AuthRequestMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_Auth"/>
+	</message>
+	<message name="LegalPurity_AuthResponseMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_AuthResponse"/>
+	</message>
+	<message name="LegalPurity_PreCheckRequestMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_PreCheck"/>
+	</message>
+	<message name="LegalPurity_PreCheckResponseMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_PreCheckResponse"/>
+	</message>
+	<message name="LegalPurity_GetStatusRequestMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_GetStatus"/>
+	</message>
+	<message name="LegalPurity_GetStatusResponseMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_GetStatusResponse"/>
+	</message>
+	<message name="LegalPurity_AcceptCheckRequestMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_AcceptCheck"/>
+	</message>
+	<message name="LegalPurity_AcceptCheckResponseMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_AcceptCheckResponse"/>
+	</message>
+	<message name="LegalPurity_NoAcceptCheckRequestMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_NoAcceptCheck"/>
+	</message>
+	<message name="LegalPurity_NoAcceptCheckResponseMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_NoAcceptCheckResponse"/>
+	</message>
+	<message name="LegalPurity_GetResultRequestMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_GetResult"/>
+	</message>
+	<message name="LegalPurity_GetResultResponseMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_GetResultResponse"/>
+	</message>
+	<message name="LegalPurity_GetRegionsRequestMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_GetRegions"/>
+	</message>
+	<message name="LegalPurity_GetRegionsResponseMessage">
+		<part name="parameters"
+				element="tns:LegalPurity_GetRegionsResponse"/>
+	</message>
+	<message name="ExecQueryNewRequestMessage">
+		<part name="parameters"
+				element="tns:ExecQueryNew"/>
+	</message>
+	<message name="ExecQueryNewResponseMessage">
+		<part name="parameters"
+				element="tns:ExecQueryNewResponse"/>
+	</message>
+	<message name="GetSessionNewRequestMessage">
+		<part name="parameters"
+				element="tns:GetSessionNew"/>
+	</message>
+	<message name="GetSessionNewResponseMessage">
+		<part name="parameters"
+				element="tns:GetSessionNewResponse"/>
+	</message>
+	<portType name="Renault_UsedCarsPortType">
+		<operation name="GetAllDictionaries">
+			<input name="GetAllDictionariesRequest"
+					message="tns:GetAllDictionariesRequestMessage"/>
+			<output name="GetAllDictionariesResponse"
+					message="tns:GetAllDictionariesResponseMessage"/>
+		</operation>
+		<operation name="GetPrice">
+			<input name="GetPriceRequest"
+					message="tns:GetPriceRequestMessage"/>
+			<output name="GetPriceResponse"
+					message="tns:GetPriceResponseMessage"/>
+		</operation>
+		<operation name="ExecQuery">
+			<input name="ExecQueryRequest"
+					message="tns:ExecQueryRequestMessage"/>
+			<output name="ExecQueryResponse"
+					message="tns:ExecQueryResponseMessage"/>
+		</operation>
+		<operation name="GetSession">
+			<input name="GetSessionRequest"
+					message="tns:GetSessionRequestMessage"/>
+			<output name="GetSessionResponse"
+					message="tns:GetSessionResponseMessage"/>
+		</operation>
+		<operation name="LegalPurity_Auth">
+			<input name="LegalPurity_AuthRequest"
+					message="tns:LegalPurity_AuthRequestMessage"/>
+			<output name="LegalPurity_AuthResponse"
+					message="tns:LegalPurity_AuthResponseMessage"/>
+		</operation>
+		<operation name="LegalPurity_PreCheck">
+			<input name="LegalPurity_PreCheckRequest"
+					message="tns:LegalPurity_PreCheckRequestMessage"/>
+			<output name="LegalPurity_PreCheckResponse"
+					message="tns:LegalPurity_PreCheckResponseMessage"/>
+		</operation>
+		<operation name="LegalPurity_GetStatus">
+			<input name="LegalPurity_GetStatusRequest"
+					message="tns:LegalPurity_GetStatusRequestMessage"/>
+			<output name="LegalPurity_GetStatusResponse"
+					message="tns:LegalPurity_GetStatusResponseMessage"/>
+		</operation>
+		<operation name="LegalPurity_AcceptCheck">
+			<input name="LegalPurity_AcceptCheckRequest"
+					message="tns:LegalPurity_AcceptCheckRequestMessage"/>
+			<output name="LegalPurity_AcceptCheckResponse"
+					message="tns:LegalPurity_AcceptCheckResponseMessage"/>
+		</operation>
+		<operation name="LegalPurity_NoAcceptCheck">
+			<input name="LegalPurity_NoAcceptCheckRequest"
+					message="tns:LegalPurity_NoAcceptCheckRequestMessage"/>
+			<output name="LegalPurity_NoAcceptCheckResponse"
+					message="tns:LegalPurity_NoAcceptCheckResponseMessage"/>
+		</operation>
+		<operation name="LegalPurity_GetResult">
+			<input name="LegalPurity_GetResultRequest"
+					message="tns:LegalPurity_GetResultRequestMessage"/>
+			<output name="LegalPurity_GetResultResponse"
+					message="tns:LegalPurity_GetResultResponseMessage"/>
+		</operation>
+		<operation name="LegalPurity_GetRegions">
+			<input name="LegalPurity_GetRegionsRequest"
+					message="tns:LegalPurity_GetRegionsRequestMessage"/>
+			<output name="LegalPurity_GetRegionsResponse"
+					message="tns:LegalPurity_GetRegionsResponseMessage"/>
+		</operation>
+		<operation name="ExecQueryNew">
+			<input name="ExecQueryNewRequest"
+					message="tns:ExecQueryNewRequestMessage"/>
+			<output name="ExecQueryNewResponse"
+					message="tns:ExecQueryNewResponseMessage"/>
+		</operation>
+		<operation name="GetSessionNew">
+			<input name="GetSessionNewRequest"
+					message="tns:GetSessionNewRequestMessage"/>
+			<output name="GetSessionNewResponse"
+					message="tns:GetSessionNewResponseMessage"/>
+		</operation>
+	</portType>
+	<binding name="Renault_UsedCarsSoapBinding"
+			type="tns:Renault_UsedCarsPortType">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="GetAllDictionaries">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:GetAllDictionaries"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetPrice">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:GetPrice"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ExecQuery">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:ExecQuery"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetSession">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:GetSession"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_Auth">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_Auth"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_PreCheck">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_PreCheck"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_GetStatus">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_GetStatus"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_AcceptCheck">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_AcceptCheck"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_NoAcceptCheck">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_NoAcceptCheck"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_GetResult">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_GetResult"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_GetRegions">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_GetRegions"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ExecQueryNew">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:ExecQueryNew"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetSessionNew">
+			<soapbind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:GetSessionNew"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="Renault_UsedCarsSoap12Binding"
+			type="tns:Renault_UsedCarsPortType">
+		<soap12bind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="GetAllDictionaries">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:GetAllDictionaries"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetPrice">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:GetPrice"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ExecQuery">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:ExecQuery"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetSession">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:GetSession"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_Auth">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_Auth"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_PreCheck">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_PreCheck"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_GetStatus">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_GetStatus"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_AcceptCheck">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_AcceptCheck"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_NoAcceptCheck">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_NoAcceptCheck"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_GetResult">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_GetResult"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="LegalPurity_GetRegions">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:LegalPurity_GetRegions"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ExecQueryNew">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:ExecQueryNew"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetSessionNew">
+			<soap12bind:operation style="document"
+					soapAction="http://renault.ru/WSGate/UsedCars#Renault_UsedCars:GetSessionNew"/>
+			<input>
+				<soap12bind:body use="literal"/>
+			</input>
+			<output>
+				<soap12bind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="Renault_UsedCars">
+		<port name="Renault_UsedCarsSoap"
+				binding="tns:Renault_UsedCarsSoapBinding">
+			<documentation> 
+				<wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
+						conformsTo="http://ws-i.org/profiles/basic/1.1"/>
+			</documentation>
+			<soapbind:address location="http://89.108.111.89:8080/renault-ws-gate/ws/UsedCars.1cws"/>
+		</port>
+		<port name="Renault_UsedCarsSoap12"
+				binding="tns:Renault_UsedCarsSoap12Binding">
+			<soap12bind:address location="http://89.108.111.89:8080/renault-ws-gate/ws/UsedCars.1cws"/>
+		</port>
+	</service>
+</definitions>

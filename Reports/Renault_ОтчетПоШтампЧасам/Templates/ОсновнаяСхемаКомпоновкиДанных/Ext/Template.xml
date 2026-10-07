@@ -1,0 +1,1331 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автор</dataPath>
+			<field>Автор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка на сервис ДМС</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">25</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказчик</dataPath>
+			<field>Заказчик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">25</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цех</dataPath>
+			<field>Цех</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Мастер</dataPath>
+			<field>Мастер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СсылкаЗаявкаНаСервис</dataPath>
+			<field>СсылкаЗаявкаНаСервис</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка на сервис ДМС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвторЗаявкаНаСервис</dataPath>
+			<field>АвторЗаявкаНаСервис</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автор заявки на сервис</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДилерскийЦентрЗаявкаНаСервис</dataPath>
+			<field>ДилерскийЦентрЗаявкаНаСервис</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дилерский центр заявки на сервис</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Клиент</dataPath>
+			<field>Клиент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">25</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд</dataPath>
+			<field>ЗаказНаряд</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ-наряд</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">25</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксВремяОкончПр</dataPath>
+			<field>МаксВремяОкончПр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время окончания простоя</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксКомментарий</dataPath>
+			<field>МаксКомментарий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий (2)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">50</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинЦехПр</dataPath>
+			<field>МинЦехПр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цех простоя</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоПромежутков</dataPath>
+			<field>КолвоПромежутков</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во промежутков</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Работа1</dataPath>
+			<field>Работа1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Авторабота (1)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>IDЭтапа</dataPath>
+			<field>IDЭтапа</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Этап</dataPath>
+			<field>Этап</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипРаботы</dataPath>
+			<field>ТипРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип работы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинИсполнитель</dataPath>
+			<field>МинИсполнитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исполнитель (1)</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерТипа</dataPath>
+			<field>НомерТипа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер типа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолРаботы</dataPath>
+			<field>КолРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол работы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксИсполнитель</dataPath>
+			<field>МаксИсполнитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исполнитель (2)</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Работа2</dataPath>
+			<field>Работа2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Авторабота (2)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СумДлительностьЗН</dataPath>
+			<field>СумДлительностьЗН</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность (заказ-наряд)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоИсполнителей</dataPath>
+			<field>КолвоИсполнителей</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Колво исполнителей</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинВремяНачало</dataPath>
+			<field>МинВремяНачало</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время начало</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксВремяОкончание</dataPath>
+			<field>МаксВремяОкончание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время окончание</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоПростоев</dataPath>
+			<field>КолвоПростоев</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во простоев</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДлителностьВсего</dataPath>
+			<field>ДлителностьВсего</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность всего факт</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинКомментарий</dataPath>
+			<field>МинКомментарий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">50</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КомментарийПрод</dataPath>
+			<field>КомментарийПрод</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий продуктивн</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">50</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинСтатусРаботы</dataPath>
+			<field>МинСтатусРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус работы (1)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксСтатусРаботы</dataPath>
+			<field>МаксСтатусРаботы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус работы (2)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксЦехПр</dataPath>
+			<field>МаксЦехПр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цех простой (2)</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинИсполнительПр</dataPath>
+			<field>МинИсполнительПр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исполнитель простой (1)</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксИсполнительПр</dataPath>
+			<field>МаксИсполнительПр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исполнитель простой (2)</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолвоИсполнительПр</dataPath>
+			<field>КолвоИсполнительПр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во исполнитель простой</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинВремяНачалоПр</dataPath>
+			<field>МинВремяНачалоПр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время начало простоя</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВсегоДлитПростоя</dataPath>
+			<field>ВсегоДлитПростоя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего длительность простоев</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинТипПростоя</dataPath>
+			<field>МинТипПростоя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип простоя (1)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинКомментПростой</dataPath>
+			<field>МинКомментПростой</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий простой (1)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">50</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксКомментПростой</dataPath>
+			<field>МаксКомментПростой</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий простой (2)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Cut</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">50</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РаботаАртикул2</dataPath>
+			<field>РаботаАртикул2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код работы (2)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РаботаАртикул1</dataPath>
+			<field>РаботаАртикул1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код работы (1)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_АвтосервисЦехШтампЧасыПродуктивные.РабочийДокумент КАК ЗаявкаСсылка
+	поместить фильтрЗаявки
+ИЗ
+	РегистрСведений.Renault_АвтосервисЦехШтампЧасыПродуктивные КАК Renault_АвтосервисЦехШтампЧасыПродуктивные
+где  Renault_АвтосервисЦехШтампЧасыПродуктивные.РабочийДокумент ССЫЛКА Документ.Renault_CRM_ЗаявкаНаСервис
+и Renault_АвтосервисЦехШтампЧасыПродуктивные.РабочийДокумент.ЗаказНаряд.ПометкаУдаления = Ложь 
+и Renault_АвтосервисЦехШтампЧасыПродуктивные.РабочийДокумент.ЗаказНаряд.Дата  между &amp;ДатаНач и  &amp;ДатаКон
+сгруппировать по Renault_АвтосервисЦехШтампЧасыПродуктивные.РабочийДокумент
+
+
+
+;
+
+
+//   описание этапов
+
+ВЫБРАТЬ
+	Renault_CRM_ЗаявкаНаСервисСоставЭтапа.Ссылка,
+	Renault_CRM_ЗаявкаНаСервисСоставЭтапа.IDРаботы,
+	Renault_CRM_ЗаявкаНаСервисСоставЭтапа.IDЭтапа
+поместить тРабЭтапы
+ИЗ
+	Документ.Renault_CRM_ЗаявкаНаСервис.СоставЭтапа КАК Renault_CRM_ЗаявкаНаСервисСоставЭтапа
+	внутреннее соединение  фильтрЗаявки по Renault_CRM_ЗаявкаНаСервисСоставЭтапа.Ссылка  = фильтрЗаявки.ЗаявкаСсылка
+// ГДЕ 	Renault_CRM_ЗаявкаНаСервисСоставЭтапа.Ссылка = &amp;Ссылка
+СГРУППИРОВАТЬ ПО 
+Renault_CRM_ЗаявкаНаСервисСоставЭтапа.Ссылка,
+	Renault_CRM_ЗаявкаНаСервисСоставЭтапа.IDРаботы,
+	Renault_CRM_ЗаявкаНаСервисСоставЭтапа.IDЭтапа ;
+	
+ВЫБРАТЬ
+	Renault_CRM_ЗаявкаНаСервисРаботы.Ссылка,
+	Renault_CRM_ЗаявкаНаСервисРаботы.Работа,
+	Renault_CRM_ЗаявкаНаСервисРаботы.Длительность,
+	Renault_CRM_ЗаявкаНаСервисРаботы.Нормочас,
+	Renault_CRM_ЗаявкаНаСервисРаботы.Цена,
+	Renault_CRM_ЗаявкаНаСервисРаботы.Сумма,
+	Renault_CRM_ЗаявкаНаСервисРаботы.ИдентификаторРаботы,
+	Renault_CRM_ЗаявкаНаСервисРаботы.ДлительностьЗН,
+	Renault_CRM_ЗаявкаНаСервисРаботы.IDРаботы,
+	Renault_CRM_ЗаявкаНаСервисРаботы.НомерСтроки,
+	Renault_CRM_ЗаявкаНаСервисРаботы.Работа.Артикул КАК Артикул,
+	т2.IDЭтапа
+поместить тЭтапСводно
+ИЗ
+	Документ.Renault_CRM_ЗаявкаНаСервис.Работы КАК Renault_CRM_ЗаявкаНаСервисРаботы
+	внутреннее соединение тРабЭтапы как т2 по т2.Ссылка = Renault_CRM_ЗаявкаНаСервисРаботы.Ссылка
+	и т2.IDРаботы = Renault_CRM_ЗаявкаНаСервисРаботы.IDРаботы
+// ГДЕ Renault_CRM_ЗаявкаНаСервисРаботы.Ссылка = &amp;Ссылка
+;
+	
+выбрать 
+т3.Ссылка,
+т3.IDЭтапа,
+СУММА(т3.Длительность) КАК  СумДлительность,
+СУММА(т3.ДлительностьЗН) КАК  СумДлительностьЗН,
+КОЛИЧЕСТВО(т3.IDРаботы)  КАК КолРаботы,
+МИНИМУМ(т3.Работа)  КАК МинРабота,
+МАКСИМУМ(т3.Работа)  КАК МаксРабота
+поместить тОписаниеЭтапа
+из  тЭтапСводно как т3
+СГРУППИРОВАТЬ ПО 
+т3.Ссылка,
+т3.IDЭтапа;
+
+
+
+
+
+//   факт
+ВЫБРАТЬ
+	Renault_АвтосервисЦехШтампЧасыПростои.РабочийДокумент,
+	Renault_АвтосервисЦехШтампЧасыПростои.IDЭтапа,
+	т1.ТипРаботы,
+	
+	Минимум(Renault_АвтосервисЦехШтампЧасыПростои.Цех) КАК МинЦехПр,
+	Максимум(Renault_АвтосервисЦехШтампЧасыПростои.Цех) КАК МаксЦехПр,
+
+	МИНИМУМ(Renault_АвтосервисЦехШтампЧасыПростои.Исполнитель) КАК МинИсполнительПр,
+	Максимум(Renault_АвтосервисЦехШтампЧасыПростои.Исполнитель) КАК МаксИсполнительПр,
+	Количество(Renault_АвтосервисЦехШтампЧасыПростои.Исполнитель) КАК КолвоИсполнительПр,
+	Минимум(Renault_АвтосервисЦехШтампЧасыПростои.ВремяНачало) КАК МинВремяНачалоПр,
+	Количество(Различные Renault_АвтосервисЦехШтампЧасыПростои.ВремяНачало) КАК КолвоПростоев,
+	Максимум(Renault_АвтосервисЦехШтампЧасыПростои.ВремяОкончание) КАК МаксВремяОкончПр,
+	Сумма(Renault_АвтосервисЦехШтампЧасыПростои.Длительность) Как ВсегоДлитПростоя,
+	МИНИМУМ(Renault_АвтосервисЦехШтампЧасыПростои.ТипПростоя) КАК МинТипПростоя,
+	Минимум(Renault_АвтосервисЦехШтампЧасыПростои.Комментарий) КАК МинКомментПростой,
+	Максимум(Renault_АвтосервисЦехШтампЧасыПростои.Комментарий) КАК МаксКомментПростой
+поместить тЭтапыПр
+ИЗ
+	РегистрСведений.Renault_АвтосервисЦехШтампЧасыПростои КАК Renault_АвтосервисЦехШтампЧасыПростои
+	внутреннее соединение  фильтрЗаявки по Renault_АвтосервисЦехШтампЧасыПростои.РабочийДокумент  = фильтрЗаявки.ЗаявкаСсылка
+
+	левое соединение РегистрСведений.Renault_АвтосервисЦехШтампЧасы КАК т1
+	по Renault_АвтосервисЦехШтампЧасыПростои.IDЭтапа = т1.IDЭтапа
+	и Renault_АвтосервисЦехШтампЧасыПростои.РабочийДокумент = т1.РабочийДокумент
+	и Renault_АвтосервисЦехШтампЧасыПростои.ВремяНачало = т1.ВремяОтбивки
+сгруппировать по 
+Renault_АвтосервисЦехШтампЧасыПростои.РабочийДокумент,
+	Renault_АвтосервисЦехШтампЧасыПростои.IDЭтапа,
+	т1.ТипРаботы;
+	// -----
+ВЫБРАТЬ
+	Renault_АвтосервисЦехШтампЧасыИсполнители.РабочийДокумент,
+	Renault_АвтосервисЦехШтампЧасыИсполнители.IDЭтапа,
+	Renault_АвтосервисЦехШтампЧасыИсполнители.ВремяНачало,
+	КОЛИЧЕСТВО(Renault_АвтосервисЦехШтампЧасыИсполнители.Исполнитель) КАК КолвоИсполнителей,
+	Минимум(Renault_АвтосервисЦехШтампЧасыИсполнители.Исполнитель) КАК МинИсполнитель,
+	Максимум(Renault_АвтосервисЦехШтампЧасыИсполнители.Исполнитель) КАК МаксИсполнитель
+	поместить тИсполнители
+ИЗ
+	РегистрСведений.Renault_АвтосервисЦехШтампЧасыИсполнители КАК Renault_АвтосервисЦехШтампЧасыИсполнители
+	внутреннее соединение  фильтрЗаявки по Renault_АвтосервисЦехШтампЧасыИсполнители.РабочийДокумент  = фильтрЗаявки.ЗаявкаСсылка	
+сгруппировать по 
+	Renault_АвтосервисЦехШтампЧасыИсполнители.РабочийДокумент,
+	Renault_АвтосервисЦехШтампЧасыИсполнители.IDЭтапа,
+	Renault_АвтосервисЦехШтампЧасыИсполнители.ВремяНачало;
+
+// --------------
+
+
+ВЫБРАТЬ
+	Renault_АвтосервисЦехШтампЧасыПродуктивные.РабочийДокумент,
+	Renault_АвтосервисЦехШтампЧасыПродуктивные.IDЭтапа,
+	Renault_АвтосервисЦехШтампЧасыПродуктивные.ТипРаботы,
+	МИНИМУМ(Renault_АвтосервисЦехШтампЧасыПродуктивные.Цех) КАК МинЦех,
+	МИНИМУМ(Renault_АвтосервисЦехШтампЧасыПродуктивные.Исполнитель) КАК МинИсполнительОтб,
+	Максимум(Renault_АвтосервисЦехШтампЧасыПродуктивные.Исполнитель) КАК МаксИсполнительОтб,
+	Количество(Renault_АвтосервисЦехШтампЧасыПродуктивные.Исполнитель) КАК КолвоИсполнителейОтб,
+	МИНИМУМ(т1.МинИсполнитель) КАК МинИсполнитель,
+	Максимум(т1.МинИсполнитель) КАК МаксИсполнитель,
+	Количество(т1.КолвоИсполнителей) КАК КолвоИсполнителей,
+	МИНИМУМ(Renault_АвтосервисЦехШтампЧасыПродуктивные.ВремяНачало) КАК МинВремяНачало,
+	Количество(РАЗЛИЧНЫЕ Renault_АвтосервисЦехШтампЧасыПродуктивные.ВремяНачало) КАК КолвоПромежутков,
+	Максимум(Renault_АвтосервисЦехШтампЧасыПродуктивные.ВремяОкончание) КАК МаксВремяОкончание,
+	СУММА(Renault_АвтосервисЦехШтампЧасыПродуктивные.Длительность) КАК ДлителностьВсего,
+	Минимум(Renault_АвтосервисЦехШтампЧасыПродуктивные.Комментарий) КАК МинКомментарий,
+	Максимум(Renault_АвтосервисЦехШтампЧасыПродуктивные.Комментарий) КАК МаксКомментарий,
+	Минимум(Renault_АвтосервисЦехШтампЧасыПродуктивные.СтатусАвтоработы) КАК МинСтатусРаботы,
+	МАКСИМУМ(Renault_АвтосервисЦехШтампЧасыПродуктивные.СтатусАвтоработы) КАК МаксСтатусРаботы
+	поместить тЭтапы
+ИЗ
+	РегистрСведений.Renault_АвтосервисЦехШтампЧасыПродуктивные КАК Renault_АвтосервисЦехШтампЧасыПродуктивные
+	внутреннее соединение  фильтрЗаявки по Renault_АвтосервисЦехШтампЧасыПродуктивные.РабочийДокумент  = фильтрЗаявки.ЗаявкаСсылка	
+	левое соединение тИсполнители как т1 по т1.РабочийДокумент = Renault_АвтосервисЦехШтампЧасыПродуктивные.РабочийДокумент
+	и т1.IDЭтапа = 	Renault_АвтосервисЦехШтампЧасыПродуктивные.IDЭтапа 
+	и т1.ВремяНачало = Renault_АвтосервисЦехШтампЧасыПродуктивные.ВремяНачало
+	СГРУППИРОВАТЬ ПО 
+	Renault_АвтосервисЦехШтампЧасыПродуктивные.РабочийДокумент,
+	Renault_АвтосервисЦехШтампЧасыПродуктивные.IDЭтапа,
+	Renault_АвтосервисЦехШтампЧасыПродуктивные.ТипРаботы;
+	
+// -----
+
+
+ВЫБРАТЬ
+тЭтапы.РабочийДокумент КАК Ссылка,
+тЭтапы.IDЭтапа,
+тЭтапы.ТипРаботы,
+тЭтапы.МинЦех,
+тЭтапы.МинИсполнительОтб,
+	тЭтапы.МаксИсполнительОтб,
+	тЭтапы.КолвоИсполнителейОтб,
+	тЭтапы.МинИсполнитель,
+	тЭтапы.МаксИсполнитель,
+	тЭтапы.КолвоИсполнителей,
+	тЭтапы.МинВремяНачало,
+	тЭтапы.КолвоПромежутков,
+	тЭтапы.МаксВремяОкончание,
+	тЭтапы.ДлителностьВсего,
+	тЭтапы.МинКомментарий,
+	 тЭтапы.МаксКомментарий,
+	тЭтапы.МинКомментарий + тЭтапы.МаксКомментарий КАК КомментарийПрод,
+	тЭтапы.МинСтатусРаботы,
+	тЭтапы.МаксСтатусРаботы,
+	т2.МинЦехПр,
+	т2.МаксЦехПр,
+
+	т2.МинИсполнительПр,
+	т2.МаксИсполнительПр,
+	т2.КолвоИсполнительПр,
+	т2.МинВремяНачалоПр,
+	ЕСТЬNULL(т2.КолвоПростоев,0) КАК КолвоПростоев, 
+	т2.МаксВремяОкончПр,
+	ЕСТЬNULL(т2.ВсегоДлитПростоя, 0) КАК ВсегоДлитПростоя,
+	т2.МинТипПростоя,
+	т2.МинКомментПростой,  т2.МаксКомментПростой
+	
+
+ПОМЕСТИТЬ тЭтапыФакт
+из тЭтапы как тЭтапы левое соединение 
+тЭтапыПр как т2 по 
+тЭтапы.РабочийДокумент = т2.РабочийДокумент
+и тЭтапы.IDЭтапа = т2.IDЭтапа
+и тЭтапы.ТипРаботы = т2.ТипРаботы;
+
+//-----
+
+
+ВЫБРАТЬ
+	
+	Renault_АвтосервисТипРаботы.Порядок+1 Как НомерТипа,
+	Renault_АвтосервисТипРаботы.Ссылка Как ТипРаботы
+Поместить тТипы
+ИЗ
+	Перечисление.Renault_АвтосервисТипРаботы КАК Renault_АвтосервисТипРаботы;
+
+
+ВЫБРАТЬ
+	Renault_CRM_ЗаявкаНаСервисЭтапы.Ссылка,
+	Renault_CRM_ЗаявкаНаСервисЭтапы.IDЭтапа,
+	Renault_CRM_ЗаявкаНаСервисЭтапы.Этап КАК Этап,
+	Renault_CRM_ЗаявкаНаСервисЭтапы.Цех КАК Цех,
+	Renault_CRM_ЗаявкаНаСервисЭтапы.СтатусЭтапа КАК СтатусЭтапа,
+	Renault_CRM_ЗаявкаНаСервисЭтапы.ДлительностьЭтапаПлан КАК ДлительностьЭтапаПлан,
+    Renault_CRM_ЗаявкаНаСервисЭтапы.ДлительностьЭтапаФакт КАК ДлительностьЭтапаФакт
+ПОМЕСТИТЬ тЭтапыШаблон0
+ИЗ
+	Документ.Renault_CRM_ЗаявкаНаСервис.Этапы КАК Renault_CRM_ЗаявкаНаСервисЭтапы
+	 внутреннее соединение  фильтрЗаявки по Renault_CRM_ЗаявкаНаСервисЭтапы.Ссылка  = фильтрЗаявки.ЗаявкаСсылка	
+
+// ГДЕ Renault_CRM_ЗаявкаНаСервисЭтапы.Ссылка = &amp;Ссылка
+	;
+
+ВЫБРАТЬ
+	Renault_CRM_ЗаявкаНаСервисЭтапы.Ссылка,
+		Renault_CRM_ЗаявкаНаСервисЭтапы.IDЭтапа,
+	тТипы.ТипРаботы,
+	МИНИМУМ(тТипы.НомерТипа) КАК НомерТипа,
+	МИНИМУМ(Renault_CRM_ЗаявкаНаСервисЭтапы.Этап) КАК Этап,
+	МИНИМУМ(Renault_CRM_ЗаявкаНаСервисЭтапы.Цех) КАК Цех,
+	МИНИМУМ(Renault_CRM_ЗаявкаНаСервисЭтапы.СтатусЭтапа) КАК СтатусЭтапа,
+	Сумма(Renault_CRM_ЗаявкаНаСервисЭтапы.ДлительностьЭтапаПлан) КАК ДлительностьЭтапаПлан,
+	Сумма(Renault_CRM_ЗаявкаНаСервисЭтапы.ДлительностьЭтапаФакт) КАК ДлительностьЭтапаФакт
+ПОМЕСТИТЬ тЭтапыШаблон
+ИЗ
+   тЭтапыШаблон0   КАК Renault_CRM_ЗаявкаНаСервисЭтапы	,  тТипы КАК тТипы
+	
+// ГДЕ Renault_CRM_ЗаявкаНаСервисЭтапы.Ссылка = &amp;Ссылка
+	Сгруппировать по 
+	Renault_CRM_ЗаявкаНаСервисЭтапы.Ссылка,
+	  Renault_CRM_ЗаявкаНаСервисЭтапы.IDЭтапа,
+	  тТипы.ТипРаботы
+	;
+	
+	// ---
+		
+	ВЫБРАТЬ 
+тЭтапыШаблон.Ссылка,
+ДокументЗаказНаряд.Ссылка КАК ЗаказНаряд,
+ДокументЗаказНаряд.Дата КАК Дата,
+
+/////////////////////////////---------
+	ДокументЗаказНаряд.Автор КАК Автор,
+	ДокументЗаказНаряд.Менеджер КАК Менеджер,
+	ДокументЗаказНаряд.Организация КАК Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	ДокументЗаказНаряд.ВидРемонта КАК ВидРемонта,
+	ДокументЗаказНаряд.Состояние КАК Состояние,
+	ДокументЗаказНаряд.Заказчик КАК Заказчик,
+	ДокументЗаказНаряд.Автомобиль КАК Автомобиль,
+	ДокументЗаказНаряд.Контрагент КАК Контрагент,
+	ДокументЗаказНаряд.Контрагент КАК Клиент,
+	ДокументЗаказНаряд.Цех КАК Цех,
+	ДокументЗаказНаряд.Мастер КАК Мастер,
+	ДокументЗаказНаряд.СуммаДокумента КАК СуммаДокумента,
+	
+	
+		
+
+	
+	тЭтапыШаблон.Ссылка КАК СсылкаЗаявкаНаСервис,
+	тЭтапыШаблон.Ссылка.ДилерскийЦентр КАК ДилерскийЦентрЗаявкаНаСервис,
+	тЭтапыШаблон.Ссылка.Автор КАК АвторЗаявкаНаСервис,
+
+
+
+
+
+////////////////////------------------
+
+тЭтапыШаблон.IDЭтапа,
+тЭтапыШаблон.Этап,
+
+тЭтапыШаблон.ТипРаботы,
+	       тЭтапыШаблон.НомерТипа,
+тОписаниеЭтапа.КолРаботы,
+	  тОписаниеЭтапа.МинРабота Как Работа1,
+	   тОписаниеЭтапа.МинРабота.Артикул Как РаботаАртикул1,
+
+ВЫБОР КОГДА тОписаниеЭтапа.МинРабота = тОписаниеЭтапа.МаксРабота ТОГДА 
+ЗНАЧЕНИЕ(Справочник.Автоработы.ПустаяСсылка) ИНАЧЕ тОписаниеЭтапа.МаксРабота КОНЕЦ 
+КАК Работа2,
+ВЫБОР КОГДА тОписаниеЭтапа.МинРабота = тОписаниеЭтапа.МаксРабота ТОГДА 
+"" ИНАЧЕ тОписаниеЭтапа.МаксРабота.Артикул КОНЕЦ 
+КАК РаботаАртикул2,
+ВЫБОР КОГДА тЭтапыШаблон.НомерТипа =2 ТОГДА 
+тОписаниеЭтапа.СумДлительностьЗН
+ ИНАЧЕ 0 КОНЕЦ 
+КАК СумДлительностьЗН,
+тЭтапыФакт.МинИсполнитель,
+	тЭтапыФакт.МаксИсполнитель,
+	тЭтапыФакт.КолвоИсполнителей,
+	тЭтапыФакт.МинВремяНачало,
+	тЭтапыФакт.КолвоПромежутков,
+	тЭтапыФакт.МаксВремяОкончание,
+	тЭтапыФакт.ДлителностьВсего,
+	тЭтапыФакт.МинКомментарий,
+	 тЭтапыФакт.МаксКомментарий,
+	тЭтапыФакт.КомментарийПрод,
+	тЭтапыФакт.МинСтатусРаботы,
+	тЭтапыФакт.МаксСтатусРаботы,
+	тЭтапыФакт.МинЦехПр,
+	тЭтапыФакт.МаксЦехПр,
+	тЭтапыФакт.МинИсполнительПр,
+	тЭтапыФакт.МаксИсполнительПр,
+	тЭтапыФакт.КолвоИсполнительПр,
+	тЭтапыФакт.МинВремяНачалоПр,
+	тЭтапыФакт.КолвоПростоев, 
+	тЭтапыФакт.МаксВремяОкончПр,
+	тЭтапыФакт.ВсегоДлитПростоя,
+	тЭтапыФакт.МинТипПростоя,
+	тЭтапыФакт.МинКомментПростой,  
+	тЭтапыФакт.МаксКомментПростой
+
+	
+Из тЭтапыШаблон КАК тЭтапыШаблон ЛЕВОЕ СОЕДИНЕНИЕ
+тЭтапыФакт КАК тЭтапыФакт по тЭтапыШаблон.Ссылка = тЭтапыФакт.Ссылка
+и  тЭтапыШаблон.IDЭтапа = тЭтапыФакт.IDЭтапа
+и  тЭтапыШаблон.ТипРаботы = тЭтапыФакт.ТипРаботы
+левое соединение тОписаниеЭтапа КАК тОписаниеЭтапа
+по тЭтапыШаблон.Ссылка = тОписаниеЭтапа.Ссылка
+и  тЭтапыШаблон.IDЭтапа = тОписаниеЭтапа.IDЭтапа
+левое соединение Документ.ЗаказНаряд КАК ДокументЗаказНаряд по  тЭтапыШаблон.Ссылка.ЗаказНаряд = ДокументЗаказНаряд.Ссылка
+
+
+
+УПОРЯДОЧИТЬ по 
+ДокументЗаказНаряд.Дата,
+
+    тЭтапыШаблон.Ссылка,     
+тЭтапыШаблон.Этап,
+	  тЭтапыШаблон.НомерТипа;
+
+</query>
+	</dataSet>
+	<totalField>
+		<dataPath>СумДлительностьЗН</dataPath>
+		<expression>Сумма(СумДлительностьЗН)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДлителностьВсего</dataPath>
+		<expression>Сумма(ДлителностьВсего)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВсегоДлитПростоя</dataPath>
+		<expression>Сумма(ВсегоДлитПростоя)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаКон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+	</parameter>
+	<parameter>
+		<name>ДатаНач</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПодразделениеКомпании</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ДилерскийЦентрЗаявкаНаСервис</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Цех</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаряд</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Автор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидРемонта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Клиент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Этап</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипРаботы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МинИсполнитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РаботаАртикул1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Работа1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Работа2</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МинВремяНачало</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаксВремяОкончание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МинКомментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СумДлительностьЗН</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДлителностьВсего</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВсегоДлитПростоя</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПодразделениеКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>2018-10-01T00:00:00</v8:startDate>
+						<v8:endDate>2018-12-31T23:59:59</v8:endDate>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДатаЗакрытия</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ЗаказНаряд</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>СсылкаЗаявкаНаСервис</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Этап</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>НомерТипа</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Основной</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет по штамп-часам цехов сервиса (DMS)</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПодразделениеКомпании</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ДилерскийЦентрЗаявкаНаСервис</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ВидРемонта</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:item xsi:type="dcsset:StructureItemGroup">
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Цех</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:item xsi:type="dcsset:StructureItemGroup">
+									<dcsset:order>
+										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									</dcsset:order>
+									<dcsset:selection>
+										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									</dcsset:selection>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

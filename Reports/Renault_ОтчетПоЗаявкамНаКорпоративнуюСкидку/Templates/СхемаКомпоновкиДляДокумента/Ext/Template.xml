@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаржаПроцент</dataPath>
+			<field>МаржаПроцент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦенаФактура</dataPath>
+			<field>ЦенаФактура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентСкидки</dataPath>
+			<field>ПроцентСкидки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УчастиеДилера</dataPath>
+			<field>УчастиеДилера</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаржаДилераПроцент</dataPath>
+			<field>МаржаДилераПроцент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникДанных</dataPath>
+			<field>ИсточникДанных</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаржаПроцентRenault</dataPath>
+			<field>МаржаПроцентRenault</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидки</dataPath>
+			<field>СуммаСкидки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаржаСумма</dataPath>
+			<field>МаржаСумма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИзменыДанные</dataPath>
+			<field>ИзменыДанные</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Измены данные</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦенаPVC</dataPath>
+			<field>ЦенаPVC</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УчастиеRenault</dataPath>
+			<field>УчастиеRenault</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦенаPVR</dataPath>
+			<field>ЦенаPVR</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВИН</dataPath>
+			<field>ВИН</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заявка</dataPath>
+			<field>Заявка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦенаFlotte</dataPath>
+			<field>ЦенаFlotte</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_ЗаявкиНаКорпоративнуюСкидку.Заявка,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ВИН,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.Автомобиль,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ЦенаPVR,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ЦенаPVC,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ПроцентСкидки,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.СуммаСкидки,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ЦенаFlotte,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.МаржаПроцент,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.МаржаСумма,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.МаржаДилераПроцент,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.УчастиеДилера,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.МаржаПроцентRenault,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.УчастиеRenault,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ЦенаФактура,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.Статус,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.Дата КАК ИзменыДанные,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ИсточникДанных
+ИЗ
+	РегистрСведений.Renault_ЗаявкиНаКорпоративнуюСкидку КАК Renault_ЗаявкиНаКорпоративнуюСкидку
+ГДЕ
+	Renault_ЗаявкиНаКорпоративнуюСкидку.Заявка = &amp;Заявка
+
+СГРУППИРОВАТЬ ПО
+	Renault_ЗаявкиНаКорпоративнуюСкидку.Заявка,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ВИН,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.Автомобиль,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ЦенаPVR,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ЦенаPVC,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ПроцентСкидки,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.СуммаСкидки,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ЦенаFlotte,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.МаржаПроцент,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.МаржаСумма,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.МаржаДилераПроцент,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.УчастиеДилера,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.МаржаПроцентRenault,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.УчастиеRenault,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ЦенаФактура,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.Статус,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.Дата,
+	Renault_ЗаявкиНаКорпоративнуюСкидку.ИсточникДанных</query>
+	</dataSet>
+	<parameter>
+		<name>Заявка</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Заявка</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.Renault_ЗаявкаНаКорпоративнуюСкидку</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Документ.Renault_ЗаявкаНаКорпоративнуюСкидку.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВИН</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаPVR</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаPVC</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентСкидки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаСкидки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаFlotte</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаржаПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаржаСумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаржаДилераПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УчастиеДилера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаржаПроцентRenault</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УчастиеRenault</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаФактура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИсточникДанных</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Заявка</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ИсточникДанных</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

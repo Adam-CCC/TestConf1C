@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОтменаПроведения" id="193">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.UndoPosting</CommandName>
+				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+				<ExtendedTooltip name="ФормаОтменаПроведенияРасширеннаяПодсказка" id="194"/>
+			</Button>
+			<Popup name="Перейти" id="189">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перейти</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Go</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перейти</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Go</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПерейтиРасширеннаяПодсказка" id="190"/>
+				<ChildItems>
+					<Button name="ФормаПланПродажАвтосервиса" id="191">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПланПродажАвтосервиса</CommandName>
+						<ExtendedTooltip name="ФормаПланПродажАвтосервисаРасширеннаяПодсказка" id="192"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="111">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group cap</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group cap</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="112"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОсновныеДанные" id="113">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основные данные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group key figures</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основные данные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group key figures</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОсновныеДанныеРасширеннаяПодсказка" id="114"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОформлениеДилерскийЦентр" id="195">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа оформление дилерский центр</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group registration dealership</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа оформление дилерский центр</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group registration dealership</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОформлениеДилерскийЦентрРасширеннаяПодсказка" id="196"/>
+					<ChildItems>
+						<PictureDecoration name="ДекорацияДилерскийЦентр" id="197">
+							<Width>4</Width>
+							<Height>1</Height>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Декорация дилерский центр</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Decoration dealership</v8:content>
+								</v8:item>
+							</Title>
+							<PictureSize>AutoSize</PictureSize>
+							<Picture>
+								<xr:Ref>CommonPicture.ЛоготипРено</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ДекорацияДилерскийЦентрКонтекстноеМеню" id="198"/>
+							<ExtendedTooltip name="ДекорацияДилерскийЦентрРасширеннаяПодсказка" id="199"/>
+						</PictureDecoration>
+						<InputField name="ДилерскийЦентр" id="7">
+							<DataPath>Объект.ДилерскийЦентр</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДилерскийЦентрКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ДилерскийЦентрРасширеннаяПодсказка" id="9"/>
+							<Events>
+								<Event name="OnChange">ДилерскийЦентрПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ВидПериода" id="16">
+					<DataPath>Объект.ВидПериода</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВидПериодаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ВидПериодаРасширеннаяПодсказка" id="18"/>
+					<Events>
+						<Event name="OnChange">ВидПериодаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Период" id="13">
+					<DataPath>Объект.Период</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="15"/>
+					<Events>
+						<Event name="OnChange">ПериодПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="20"/>
+			<ChildItems>
+				<Page name="ГруппаДанныеПоОтделам" id="21">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные по отделам</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Data by department</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаДанныеПоОтделамРасширеннаяПодсказка" id="22"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаКнопкаПолеОтделы" id="168">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа кнопка поле отделы</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group key departments Field</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа кнопка поле отделы</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group key departments Field</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКнопкаПолеОтделыРасширеннаяПодсказка" id="169"/>
+							<ChildItems>
+								<InputField name="ОбщаяНастройкаПланированияОтделы" id="175">
+									<DataPath>ОбщаяНастройкаПланированияОтделы</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.Утвержден">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">true</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ОбщаяНастройкаПланированияОтделыКонтекстноеМеню" id="176"/>
+									<ExtendedTooltip name="ОбщаяНастройкаПланированияОтделыРасширеннаяПодсказка" id="177"/>
+								</InputField>
+								<Button name="ЗаполнитьВсеСтрокиОтделы" id="178">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ЗаполнитьВсеСтрокиОтделы</CommandName>
+									<ExtendedTooltip name="ЗаполнитьВсеСтрокиОтделыРасширеннаяПодсказка" id="179"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="ДанныеПоОтделам" id="115">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ДанныеПоОтделам</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ДанныеПоОтделамКонтекстноеМеню" id="116"/>
+							<AutoCommandBar name="ДанныеПоОтделамКоманднаяПанель" id="117">
+								<ChildItems>
+									<Button name="ДанныеПоОтделамЗаполнитьОтделы" id="180">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьОтделы</CommandName>
+										<ExtendedTooltip name="ДанныеПоОтделамЗаполнитьОтделыРасширеннаяПодсказка" id="181"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ДанныеПоОтделамРасширеннаяПодсказка" id="118"/>
+							<SearchStringAddition name="ДанныеПоОтделамСтрокаПоиска" id="119">
+								<AdditionSource>
+									<Item>ДанныеПоОтделам</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДанныеПоОтделамСтрокаПоискаКонтекстноеМеню" id="120"/>
+								<ExtendedTooltip name="ДанныеПоОтделамСтрокаПоискаРасширеннаяПодсказка" id="121"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДанныеПоОтделамСостояниеПросмотра" id="122">
+								<AdditionSource>
+									<Item>ДанныеПоОтделам</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДанныеПоОтделамСостояниеПросмотраКонтекстноеМеню" id="123"/>
+								<ExtendedTooltip name="ДанныеПоОтделамСостояниеПросмотраРасширеннаяПодсказка" id="124"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДанныеПоОтделамУправлениеПоиском" id="125">
+								<AdditionSource>
+									<Item>ДанныеПоОтделам</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДанныеПоОтделамУправлениеПоискомКонтекстноеМеню" id="126"/>
+								<ExtendedTooltip name="ДанныеПоОтделамУправлениеПоискомРасширеннаяПодсказка" id="127"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ДанныеПоОтделамНомерСтроки" id="128">
+									<DataPath>Объект.ДанныеПоОтделам.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДанныеПоОтделамНомерСтрокиКонтекстноеМеню" id="129"/>
+									<ExtendedTooltip name="ДанныеПоОтделамНомерСтрокиРасширеннаяПодсказка" id="130"/>
+								</LabelField>
+								<InputField name="ДанныеПоОтделамОтдел" id="131">
+									<DataPath>Объект.ДанныеПоОтделам.Отдел</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДанныеПоОтделамОтделКонтекстноеМеню" id="132"/>
+									<ExtendedTooltip name="ДанныеПоОтделамОтделРасширеннаяПодсказка" id="133"/>
+									<Events>
+										<Event name="OnChange">ДанныеПоОтделамОтделПриИзменении</Event>
+										<Event name="StartChoice">ДанныеПоОтделамОтделНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<InputField name="ДанныеПоОтделамНастройкаПланирования" id="134">
+									<DataPath>Объект.ДанныеПоОтделам.НастройкаПланирования</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДанныеПоОтделамНастройкаПланированияКонтекстноеМеню" id="135"/>
+									<ExtendedTooltip name="ДанныеПоОтделамНастройкаПланированияРасширеннаяПодсказка" id="136"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаДанныеПоМенеджерам" id="66">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные по менеджерам</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Information managers</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ГруппаДанныеПоМенеджерамРасширеннаяПодсказка" id="67"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаКнопкаПолеМенеджеры" id="164">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа кнопка поле менеджеры</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group key management field</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа кнопка поле менеджеры</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group key management field</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКнопкаПолеМенеджерыРасширеннаяПодсказка" id="165"/>
+							<ChildItems>
+								<InputField name="ОбщаяНастройкаПланированияМенеджеры" id="159">
+									<DataPath>ОбщаяНастройкаПланированияМенеджеры</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.Утвержден">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">true</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ОбщаяНастройкаПланированияМенеджерыКонтекстноеМеню" id="160"/>
+									<ExtendedTooltip name="ОбщаяНастройкаПланированияМенеджерыРасширеннаяПодсказка" id="161"/>
+								</InputField>
+								<Button name="ЗаполнитьВсеСтрокиМенеджеры" id="162">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ЗаполнитьВсеСтрокиМенеджеры</CommandName>
+									<ExtendedTooltip name="ЗаполнитьВсеСтрокиМенеджерыРасширеннаяПодсказка" id="163"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="ДанныеПоМенеджерам" id="137">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ДанныеПоМенеджерам</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ДанныеПоМенеджерамКонтекстноеМеню" id="138"/>
+							<AutoCommandBar name="ДанныеПоМенеджерамКоманднаяПанель" id="139">
+								<ChildItems>
+									<Button name="ДанныеПоМенеджерамЗаполнитьМенеджеры" id="182">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьМенеджеров</CommandName>
+										<ExtendedTooltip name="ДанныеПоМенеджерамЗаполнитьМенеджерыРасширеннаяПодсказка" id="183"/>
+									</Button>
+									<Button name="ДанныеПоМенеджерамЗаполнитьМенеджеровИзДанныхПоОтделам" id="187">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьМенеджеровИзДанныхПоОтделам</CommandName>
+										<ExtendedTooltip name="ДанныеПоМенеджерамЗаполнитьМенеджеровИзДанныхПоОтделамРасширеннаяПодсказка" id="188"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ДанныеПоМенеджерамРасширеннаяПодсказка" id="140"/>
+							<SearchStringAddition name="ДанныеПоМенеджерамСтрокаПоиска" id="141">
+								<AdditionSource>
+									<Item>ДанныеПоМенеджерам</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДанныеПоМенеджерамСтрокаПоискаКонтекстноеМеню" id="142"/>
+								<ExtendedTooltip name="ДанныеПоМенеджерамСтрокаПоискаРасширеннаяПодсказка" id="143"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДанныеПоМенеджерамСостояниеПросмотра" id="144">
+								<AdditionSource>
+									<Item>ДанныеПоМенеджерам</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДанныеПоМенеджерамСостояниеПросмотраКонтекстноеМеню" id="145"/>
+								<ExtendedTooltip name="ДанныеПоМенеджерамСостояниеПросмотраРасширеннаяПодсказка" id="146"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДанныеПоМенеджерамУправлениеПоиском" id="147">
+								<AdditionSource>
+									<Item>ДанныеПоМенеджерам</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДанныеПоМенеджерамУправлениеПоискомКонтекстноеМеню" id="148"/>
+								<ExtendedTooltip name="ДанныеПоМенеджерамУправлениеПоискомРасширеннаяПодсказка" id="149"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ДанныеПоМенеджерамНомерСтроки" id="150">
+									<DataPath>Объект.ДанныеПоМенеджерам.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДанныеПоМенеджерамНомерСтрокиКонтекстноеМеню" id="151"/>
+									<ExtendedTooltip name="ДанныеПоМенеджерамНомерСтрокиРасширеннаяПодсказка" id="152"/>
+								</LabelField>
+								<InputField name="ДанныеПоМенеджерамОтдел" id="184">
+									<DataPath>Объект.ДанныеПоМенеджерам.Отдел</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДанныеПоМенеджерамОтделКонтекстноеМеню" id="185"/>
+									<ExtendedTooltip name="ДанныеПоМенеджерамОтделРасширеннаяПодсказка" id="186"/>
+								</InputField>
+								<InputField name="ДанныеПоМенеджерамМенеджер" id="153">
+									<DataPath>Объект.ДанныеПоМенеджерам.Менеджер</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДанныеПоМенеджерамМенеджерКонтекстноеМеню" id="154"/>
+									<ExtendedTooltip name="ДанныеПоМенеджерамМенеджерРасширеннаяПодсказка" id="155"/>
+									<Events>
+										<Event name="OnChange">ДанныеПоМенеджерамМенеджерПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ДанныеПоМенеджерамНастройкаПланирования" id="156">
+									<DataPath>Объект.ДанныеПоМенеджерам.НастройкаПланирования</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДанныеПоМенеджерамНастройкаПланированияКонтекстноеМеню" id="157"/>
+									<ExtendedTooltip name="ДанныеПоМенеджерамНастройкаПланированияРасширеннаяПодсказка" id="158"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="ГруппаОформлениеАвтор" id="200">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа оформление автор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group registration author</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа оформление автор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group registration author</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОформлениеАвторРасширеннаяПодсказка" id="201"/>
+			<ChildItems>
+				<PictureDecoration name="ДекорацияАвтор" id="202">
+					<Width>2</Width>
+					<Height>1</Height>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация автор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Decoration author</v8:content>
+						</v8:item>
+					</Title>
+					<PictureSize>Proportionally</PictureSize>
+					<Picture>
+						<xr:Ref>CommonPicture.CRM_Менеджер</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ДекорацияАвторКонтекстноеМеню" id="203"/>
+					<ExtendedTooltip name="ДекорацияАвторРасширеннаяПодсказка" id="204"/>
+				</PictureDecoration>
+				<InputField name="Автор" id="10">
+					<DataPath>Объект.Автор</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="АвторКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="12"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.Renault_ПланПродажДляАвтосервиса</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ОбщаяНастройкаПланированияМенеджеры" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общая настройка планирования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Overall planning setting</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_НастрокиПланаПродажАвтосервиса</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбщаяНастройкаПланированияОтделы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общая настройка планирования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Overall planning setting</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_НастрокиПланаПродажАвтосервиса</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьВсеСтрокиМенеджеры" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить все строки менеджеры</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in all the lines managers</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьВсеСтрокиМенеджеры</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьВсеСтрокиОтделы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить все строки отделы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill in all the departments of the line</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьВсеСтрокиОтделы</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьОтделы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по дилерскому центру</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill the center of the dealership at</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить отделы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill departments</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьОтделы</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьМенеджеров" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по дилерскому центру</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill the center of the dealership at</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить менеджеров</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill managers</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьМенеджеров</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьМенеджеровИзДанныхПоОтделам" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить из данных по отделам</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill out the data by department</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить менеджеров из данных по отделам</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Complete management of the data by department</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьМенеджеровИзДанныхПоОтделам</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПланПродажАвтосервиса" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>План продаж автосервиса</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Car sales plan</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>План продаж автосервиса</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Car sales plan</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПланПродажАвтосервиса</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

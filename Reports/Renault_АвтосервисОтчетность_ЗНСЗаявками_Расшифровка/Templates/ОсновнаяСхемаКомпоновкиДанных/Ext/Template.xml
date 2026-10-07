@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДилерскийЦентр</dataPath>
+			<field>ДилерскийЦентр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дилерский центр</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СсылкаЗН</dataPath>
+			<field>СсылкаЗН</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ссылка ЗН</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаЗакрытия</dataPath>
+			<field>ДатаЗакрытия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата закрытия</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заявка</dataPath>
+			<field>Заявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВЫРАЗИТЬ(Работы.Ссылка КАК Документ.ЗаказНаряд) КАК СсылкаЗН,
+	ДЦ.Ссылка КАК ДилерскийЦентр
+ПОМЕСТИТЬ ВсеЗНСРаботами
+ИЗ
+	Документ.ЗаказНаряд.Работы КАК Работы
+	ЛЕВОЕ СОЕДИНЕНИЕ Справочник.CRM_ДилерскиеЦентры КАК ДЦ
+	ПО ЛОЖЬ
+ГДЕ
+	Работы.Ссылка.ДатаЗакрытия &gt;= &amp;ДатаНачала
+	И Работы.Ссылка.ДатаЗакрытия &lt; &amp;ДатаОкончания
+	И ДЦ.Ссылка.ПометкаУдаления = ЛОЖЬ
+	И ДЦ.Ссылка = &amp;ДЦ
+;
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+		КИ.Объект КАК Ссылка
+	ПОМЕСТИТЬ КлиентыСКонтактами
+	ИЗ
+		РегистрСведений.КонтактнаяИнформация КАК КИ
+	ГДЕ
+		КИ.Тип = &amp;ТипТелефон
+		И ПОДСТРОКА(КИ.Представление, 1, 10) &lt;&gt; &amp;ПустаяСтрока
+		И КИ.Объект.Наименование &lt;&gt; &amp;ПустаяСтрока
+	;
+	////////////////////////////////////////////////////////////////////////////////
+	ВЫБРАТЬ РАЗЛИЧНЫЕ
+		Работы.Ссылка КАК Ссылка,
+		Работы.Ссылка.Клиент КАК Клиент
+	ПОМЕСТИТЬ ЗаявкиСРаботами
+	ИЗ
+		Документ.Renault_CRM_ЗаявкаНаСервис.Работы КАК Работы
+	ГДЕ
+		//Работы.Работа.Артикул &lt;&gt; ""
+		Работы.Работа.Наименование &lt;&gt; &amp;ПустаяСтрока
+	;
+	
+	////////////////////////////////////////////////////////////////////////////////
+	ВЫБРАТЬ РАЗЛИЧНЫЕ
+		Товары.Ссылка КАК Ссылка,
+		Товары.Ссылка.Клиент КАК Клиент
+	ПОМЕСТИТЬ ЗаявкиСЗапчастями
+	ИЗ
+		Документ.Renault_CRM_ЗаявкаНаСервис.Товары КАК Товары
+	ГДЕ
+		Товары.Номенклатура.Наименование &lt;&gt; &amp;ПустаяСтрока
+	;
+	
+	////////////////////////////////////////////////////////////////////////////////
+	ВЫБРАТЬ
+		ВсеЗНСРаботами.ДилерскийЦентр КАК ДилерскийЦентр,
+		//СУММА(1) КАК ВсегоЗН,
+		ВсеЗНСРаботами.СсылкаЗН,
+		ВсеЗНСРаботами.СсылкаЗН.ДатаЗакрытия КАК ДатаЗакрытия,
+		ВЫБОР КОГДА НЕ КлиентыСКонтактами.Ссылка ЕСТЬ NULL
+							И (НЕ ЗаявкиСЗапчастями.Ссылка ЕСТЬ NULL
+								ИЛИ НЕ ЗаявкиСРаботами.Ссылка ЕСТЬ NULL) ТОГДА
+				ЕСТЬNULL(ЗаявкиСРаботами.Ссылка, ЗаявкиСЗапчастями.Ссылка)
+		КОНЕЦ КАК Заявка
+		//ЕСТЬNULL(ЗаявкиСРаботами.Ссылка, ЗаявкиСЗапчастями.Ссылка) КАК Заявка
+	
+	ИЗ
+		ВсеЗНСРаботами КАК ВсеЗНСРаботами
+			ЛЕВОЕ СОЕДИНЕНИЕ ЗаявкиСРаботами КАК ЗаявкиСРаботами
+			ПО (ЗаявкиСРаботами.Ссылка.ЗаказНаряд = ВсеЗНСРаботами.СсылкаЗН)
+			ЛЕВОЕ СОЕДИНЕНИЕ ЗаявкиСЗапчастями КАК ЗаявкиСЗапчастями
+			ПО (ЗаявкиСЗапчастями.Ссылка.ЗаказНаряд = ВсеЗНСРаботами.СсылкаЗН)
+			ЛЕВОЕ СОЕДИНЕНИЕ КлиентыСКонтактами КАК КлиентыСКонтактами
+			ПО (КлиентыСКонтактами.Ссылка = ЗаявкиСРаботами.Клиент
+				ИЛИ КлиентыСКонтактами.Ссылка = ЗаявкиСЗапчастями.Клиент)
+	//ГДЕ НЕ КлиентыСКонтактами.Ссылка ЕСТЬ NULL
+	//						И (НЕ ЗаявкиСЗапчастями.Ссылка ЕСТЬ NULL
+	//							ИЛИ НЕ ЗаявкиСРаботами.Ссылка ЕСТЬ NULL)
+	
+	//СГРУППИРОВАТЬ ПО
+	//	ВсеЗНСРаботами.ДилерскийЦентр</query>
+	</dataSet>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПустаяСтрока</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пустая строка</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>100</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТипТелефон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип телефон</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ТипыКонтактнойИнформации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыКонтактнойИнформации.Телефон</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДЦ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ДЦ</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.CRM_ДилерскиеЦентры</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка.Дата</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата заявки</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка.Номер</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер заявки</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СсылкаЗН</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказ-наряд</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка.Автор</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автор</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаЗакрытия</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата закрытия ЗН</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДатаЗакрытия</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ДилерскийЦентр</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

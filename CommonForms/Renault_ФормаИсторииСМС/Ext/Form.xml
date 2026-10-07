@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Клиент" id="1">
+			<DataPath>Клиент</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<OpenButton>true</OpenButton>
+			<ContextMenu name="КлиентКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<Button name="ФормаПоказатьВсеПоКлиенту" id="50">
+			<Type>UsualButton</Type>
+			<Visible>false</Visible>
+			<CommandName>Form.Command.ПоказатьВсеПоКлиенту</CommandName>
+			<ExtendedTooltip name="ФормаПоказатьВсеПоКлиентуРасширеннаяПодсказка" id="51"/>
+		</Button>
+		<UsualGroup name="Подробно" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подробно</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>detail</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подробно</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>detail</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ПодробноРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<Table name="ВсеСМС" id="25">
+					<Representation>List</Representation>
+					<ReadOnly>true</ReadOnly>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ВсеСМС</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ВсеСМСКонтекстноеМеню" id="26"/>
+					<AutoCommandBar name="ВсеСМСКоманднаяПанель" id="27">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ВсеСМСРасширеннаяПодсказка" id="28"/>
+					<SearchStringAddition name="ВсеСМССтрокаПоиска" id="29">
+						<AdditionSource>
+							<Item>ВсеСМС</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВсеСМССтрокаПоискаКонтекстноеМеню" id="30"/>
+						<ExtendedTooltip name="ВсеСМССтрокаПоискаРасширеннаяПодсказка" id="31"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ВсеСМССостояниеПросмотра" id="32">
+						<AdditionSource>
+							<Item>ВсеСМС</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВсеСМССостояниеПросмотраКонтекстноеМеню" id="33"/>
+						<ExtendedTooltip name="ВсеСМССостояниеПросмотраРасширеннаяПодсказка" id="34"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ВсеСМСУправлениеПоиском" id="35">
+						<AdditionSource>
+							<Item>ВсеСМС</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ВсеСМСУправлениеПоискомКонтекстноеМеню" id="36"/>
+						<ExtendedTooltip name="ВсеСМСУправлениеПоискомРасширеннаяПодсказка" id="37"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<InputField name="ВсеСМСДата" id="38">
+							<DataPath>ВсеСМС.Дата</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВсеСМСДатаКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ВсеСМСДатаРасширеннаяПодсказка" id="40"/>
+						</InputField>
+						<InputField name="ВсеСМСТекст" id="41">
+							<DataPath>ВсеСМС.Текст</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВсеСМСТекстКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="ВсеСМСТекстРасширеннаяПодсказка" id="43"/>
+						</InputField>
+						<InputField name="ВсеСМСАвтор" id="44">
+							<DataPath>ВсеСМС.Автор</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВсеСМСАвторКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="ВсеСМСАвторРасширеннаяПодсказка" id="46"/>
+						</InputField>
+						<InputField name="ВсеСМСИсточник" id="47">
+							<DataPath>ВсеСМС.Источник</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВсеСМСИсточникКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ВсеСМСИсточникРасширеннаяПодсказка" id="49"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Клиент" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Client</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type>cfg:CatalogRef.CRM_ПотенциальныеКонтрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НачинаяСДаты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начиная с даты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Starting from the date</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВсеСМС" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все СМС</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>All SMS</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Дата" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>date</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Текст" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текст</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Text</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Автор" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Author</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Сотрудники</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Источник" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Источник</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>A source</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОтбиратьПоДокументу" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбирать по документу</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Filter by document</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДокументОтбора" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ отбора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Document selection</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.Renault_CRM_ОбращениеВАвтоСервис</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Клиенты" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиенты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>clients</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПоказатьВсеПоКлиенту" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать все по клиенту</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show all customers</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать все по клиенту</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show all customers</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьВсеПоКлиенту</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

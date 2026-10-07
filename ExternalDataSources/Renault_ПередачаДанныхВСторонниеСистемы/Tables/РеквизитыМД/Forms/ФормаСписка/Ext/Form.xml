@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<CommandSet>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ОбъектМД" id="77">
+			<DataPath>ОбъектМД</DataPath>
+			<ClearButton>true</ClearButton>
+			<ContextMenu name="ОбъектМДКонтекстноеМеню" id="78"/>
+			<ExtendedTooltip name="ОбъектМДРасширеннаяПодсказка" id="79"/>
+			<Events>
+				<Event name="OnChange">ОбъектМДПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="Список" id="37">
+			<CommandBarLocation>None</CommandBarLocation>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="38"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="39"/>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="40"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="41">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="42"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="43"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="44">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="45"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="46"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="47">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="48"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="49"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Код" id="50">
+					<DataPath>Список.Код</DataPath>
+					<AutoCellHeight>true</AutoCellHeight>
+					<Width>1</Width>
+					<ContextMenu name="КодКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="52"/>
+				</LabelField>
+				<CheckBoxField name="Активно" id="74">
+					<DataPath>Список.Активно</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="АктивноКонтекстноеМеню" id="75"/>
+					<ExtendedTooltip name="АктивноРасширеннаяПодсказка" id="76"/>
+				</CheckBoxField>
+				<ColumnGroup name="грМД" id="88">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="грМДРасширеннаяПодсказка" id="89"/>
+					<ChildItems>
+						<PictureField name="КартинкаМД" id="90">
+							<DataPath>Список.КартинкаМД</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаМДКонтекстноеМеню" id="91"/>
+							<ExtendedTooltip name="КартинкаМДРасширеннаяПодсказка" id="92"/>
+						</PictureField>
+						<LabelField name="ОбъектМД_" id="80">
+							<DataPath>Список.ОбъектМД</DataPath>
+							<ContextMenu name="ОбъектМД_КонтекстноеМеню" id="81"/>
+							<ExtendedTooltip name="ОбъектМД_РасширеннаяПодсказка" id="82"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="грРеквизит" id="83">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="грРеквизитРасширеннаяПодсказка" id="84"/>
+					<ChildItems>
+						<PictureField name="КартинкаРевизит" id="85">
+							<DataPath>Список.КартинкаРевизит</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаРевизитКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="КартинкаРевизитРасширеннаяПодсказка" id="87"/>
+						</PictureField>
+						<LabelField name="Имя" id="68">
+							<DataPath>Список.Имя</DataPath>
+							<AutoCellHeight>true</AutoCellHeight>
+							<Width>1</Width>
+							<ContextMenu name="ИмяКонтекстноеМеню" id="69"/>
+							<ExtendedTooltip name="ИмяРасширеннаяПодсказка" id="70"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="Тип" id="62">
+					<DataPath>Список.Тип</DataPath>
+					<AutoCellHeight>true</AutoCellHeight>
+					<Width>1</Width>
+					<ContextMenu name="ТипКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="ТипРасширеннаяПодсказка" id="64"/>
+				</LabelField>
+				<PictureField name="КартинкаПравила" id="93">
+					<DataPath>Список.КартинкаПравила</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правило</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>rule</v8:content>
+						</v8:item>
+					</Title>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="КартинкаПравилаКонтекстноеМеню" id="94"/>
+					<ExtendedTooltip name="КартинкаПравилаРасширеннаяПодсказка" id="95"/>
+				</PictureField>
+				<LabelField name="Описание" id="65">
+					<DataPath>Список.Описание</DataPath>
+					<AutoCellHeight>true</AutoCellHeight>
+					<Width>1</Width>
+					<ContextMenu name="ОписаниеКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="67"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	//*,
+	Код,
+	Активно,
+	ОбъектМД,
+	Имя,
+	Тип,
+	Описание,
+	&amp;ТекущаяБазаДанных ТекущаяБазаДанных,
+	
+	Выбор Когда Правило Есть NULL Тогда 100 Иначе 11 Конец КартинкаПравила,
+	
+	Выбор 
+		Когда Подстрока(ОбъектМД.Имя,1,22)="Справочники" Тогда 14
+		Когда Подстрока(ОбъектМД.Имя,1,22)="Документы" Тогда 15
+		Когда Подстрока(ОбъектМД.Имя,1,22)="БизнесПроцессы" Тогда 16
+		Когда Подстрока(ОбъектМД.Имя,1,22)="Задачи" Тогда 17
+		Когда Подстрока(ОбъектМД.Имя,1,22)="ПланыСчетов" Тогда 18
+		Когда Подстрока(ОбъектМД.Имя,1,22)="ПланыОбмена" Тогда 19
+		Когда Подстрока(ОбъектМД.Имя,1,23)="ПланыВидовХарактеристик" Тогда 20
+		Когда Подстрока(ОбъектМД.Имя,1,23)="РегистрыСведений" Тогда 13
+	
+		Когда ОбъектМД.Имя Подобно "Справочник.%" Тогда 14
+		Когда ОбъектМД.Имя Подобно "Документ.%" Тогда 15
+		Когда ОбъектМД.Имя Подобно "БизнесПроцесс.%" Тогда 16
+		Когда ОбъектМД.Имя Подобно "Задача.%" Тогда 17
+		Когда ОбъектМД.Имя Подобно "ПланСчетов.%" Тогда 18
+		Когда ОбъектМД.Имя Подобно "ПланОбмена.%" Тогда 19
+		Когда ОбъектМД.Имя Подобно "ПланВидовХарактеристик.%" Тогда 20
+		Когда ОбъектМД.Имя Подобно "РегистрСведений.%" Тогда 13
+		Иначе 0
+	Конец КартинкаМД,
+	
+	Выбор
+		Когда Подстрока(Тип,0,23)="Число" Тогда 1
+		Когда Подстрока(Тип,0,23)="Строка" Тогда 2
+		Когда Подстрока(Тип,0,23)="Дата" Тогда 3
+		Когда Подстрока(Тип,0,23)="Булево" Тогда 4
+		Когда Подстрока(Тип,0,23) Подобно "Перечисление.%" Тогда 11
+		Когда Подстрока(Тип,0,23)="УникальныйИдентификатор" Тогда 5
+		Когда Подстрока(Тип,0,23) Подобно "ВнешнийИсточникДанных.%" Тогда 12
+		Когда Подстрока(Тип,0,200) Подобно "%.%.%" Тогда 6 //составной тип
+		Когда Подстрока(Тип,0,23) Подобно "Справочник.%" Тогда 14
+		Когда Подстрока(Тип,0,23) Подобно "Документ.%" Тогда 15
+		Когда Подстрока(Тип,0,23) Подобно "БизнесПроцесс.%" Тогда 16
+		Когда Подстрока(Тип,0,23) Подобно "Задача.%" Тогда 17
+		Когда Подстрока(Тип,0,23) Подобно "ПланСчетов.%" Тогда 18
+		Когда Подстрока(Тип,0,23) Подобно "ПланОбмена.%" Тогда 19
+		Когда Подстрока(Тип,0,23) Подобно "ПланВидовХарактеристик.%" Тогда 20
+		Иначе 0
+	Конец КартинкаРевизит	
+	
+ИЗ ВнешнийИсточникДанных.Renault_ПередачаДанныхВСторонниеСистемы.Таблица.РеквизитыМД</QueryText>
+				<MainTable>ExternalDataSource.Renault_ПередачаДанныхВСторонниеСистемы.Table.РеквизитыМД</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ОбъектМД</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Имя</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ОбъектМД.БазаДанных</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">ТекущаяБазаДанных</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#D5D5D5</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>AndGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">Активно</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">ОбъектМД.БазаДанных</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:Field">ТекущаяБазаДанных</dcsset:right>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:FormBackColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+						<dcsset:userSettingPresentation xsi:type="xs:string">Метаданные чужой базы</dcsset:userSettingPresentation>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ОбъектМД" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект МД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:ExternalDataSourceTableRef.Renault_ПередачаДанныхВСторонниеСистемы.ОбъектыМД</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

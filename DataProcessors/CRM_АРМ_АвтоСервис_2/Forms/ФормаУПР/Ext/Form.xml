@@ -1,0 +1,2847 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>АРМ Обращения в сервис</v8:content>
+		</v8:item>
+	</Title>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грКонтейнер" id="1">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:FieldBackColor</BackColor>
+			<ExtendedTooltip name="грКонтейнерРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="грМеню" id="3">
+					<VerticalStretch>true</VerticalStretch>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грМенюРасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<Button name="кнЗакрыть" id="5">
+							<Type>UsualButton</Type>
+							<Visible>false</Visible>
+							<Representation>PictureAndText</Representation>
+							<Width>18</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Cross_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="кнЗакрытьРасширеннаяПодсказка" id="6"/>
+						</Button>
+						<LabelDecoration name="Декорация1" id="7">
+							<Height>2</Height>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="9"/>
+						</LabelDecoration>
+						<PictureDecoration name="Декорация3" id="10">
+							<Visible>false</Visible>
+							<Width>18</Width>
+							<Height>2</Height>
+							<PictureSize>Proportionally</PictureSize>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Email_Логотип</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="Декорация3КонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="12"/>
+						</PictureDecoration>
+						<UsualGroup name="кнМеню" id="13">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="кнМенюРасширеннаяПодсказка" id="14"/>
+							<ChildItems>
+								<Button name="кнГрафикЗаписи" id="15">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<Width>18</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМеню</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#BDC3CE</BackColor>
+									<BorderColor>#BDC3CE</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="12" kind="WindowsFont"/>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Calendar_New</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>График записи</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Tasks</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнГрафикЗаписиРасширеннаяПодсказка" id="16"/>
+								</Button>
+								<Button name="кнСтраницаЖурналОбращений" id="21">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<Width>18</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМеню</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#BDC3CE</BackColor>
+									<BorderColor>#BDC3CE</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="12" kind="WindowsFont"/>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Clients_New</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Журнал записи</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Financial services</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнСтраницаЖурналОбращенийРасширеннаяПодсказка" id="22"/>
+								</Button>
+								<Button name="кнОбращения" id="631">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<Width>18</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМеню</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#BDC3CE</BackColor>
+									<BorderColor>#BDC3CE</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="12" kind="WindowsFont"/>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Car_New</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Все заявки</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Insurance policies</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнОбращенияРасширеннаяПодсказка" id="632"/>
+								</Button>
+								<Button name="кнДокомплектация" id="633">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<Width>18</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМеню</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#BDC3CE</BackColor>
+									<BorderColor>#BDC3CE</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="12" kind="WindowsFont"/>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Car_New</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Докомплектация и подготовка</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Insurance policies</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнДокомплектацияРасширеннаяПодсказка" id="634"/>
+								</Button>
+								<Button name="кнМоиЗадачи" id="635">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<Width>18</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМеню</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#BDC3CE</BackColor>
+									<BorderColor>#BDC3CE</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="12" kind="WindowsFont"/>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Car_New</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Мои задачи</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Insurance policies</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнМоиЗадачиРасширеннаяПодсказка" id="636"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа2" id="31">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="32"/>
+					<ChildItems>
+						<UsualGroup name="кнСписка" id="33">
+							<EnableContentChange>true</EnableContentChange>
+							<VerticalStretch>false</VerticalStretch>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="кнСпискаРасширеннаяПодсказка" id="34"/>
+							<ChildItems>
+								<Button name="кнДобавить" id="35">
+									<Type>UsualButton</Type>
+									<Visible>false</Visible>
+									<Representation>PictureAndText</Representation>
+									<Width>11</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМенюСписка</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#E7E7E7</BackColor>
+									<BorderColor>#E7E7E7</BorderColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Plus_New</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Добавить</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Add</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнДобавитьРасширеннаяПодсказка" id="36"/>
+								</Button>
+								<Button name="кнУдалить" id="37">
+									<Type>UsualButton</Type>
+									<Visible>false</Visible>
+									<Representation>PictureAndText</Representation>
+									<Width>11</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМенюСписка</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#E7E7E7</BackColor>
+									<BorderColor>#E7E7E7</BorderColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Cross_New</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Удалить</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Delete</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнУдалитьРасширеннаяПодсказка" id="38"/>
+								</Button>
+								<Button name="кнВыполнить" id="39">
+									<Type>UsualButton</Type>
+									<Visible>false</Visible>
+									<Representation>PictureAndText</Representation>
+									<Width>13</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМенюСписка</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#E7E7E7</BackColor>
+									<BorderColor>#E7E7E7</BorderColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Confirm_New</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выполнить</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Run</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнВыполнитьРасширеннаяПодсказка" id="40"/>
+								</Button>
+								<Button name="кнОтменить" id="41">
+									<Type>UsualButton</Type>
+									<Visible>false</Visible>
+									<Representation>PictureAndText</Representation>
+									<Width>13</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМенюСписка</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#E7E7E7</BackColor>
+									<BorderColor>#E7E7E7</BorderColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Close_New</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отменить</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>cancel</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнОтменитьРасширеннаяПодсказка" id="42"/>
+								</Button>
+								<Button name="кнСостояние" id="43">
+									<Type>UsualButton</Type>
+									<Visible>false</Visible>
+									<Representation>PictureAndText</Representation>
+									<Width>13</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМенюСписка</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#FFCF00</BackColor>
+									<BorderColor>#FFCF00</BorderColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Confirm_NoBorder</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Состояние</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>condition</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнСостояниеРасширеннаяПодсказка" id="44"/>
+								</Button>
+								<LabelDecoration name="Декорация2" id="56">
+									<HorizontalStretch>true</HorizontalStretch>
+									<ContextMenu name="Декорация2КонтекстноеМеню" id="57"/>
+									<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="58"/>
+								</LabelDecoration>
+								<Button name="кнОтбор" id="63">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<Width>10</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМенюСписка</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#FFCF00</BackColor>
+									<BorderColor>#FFCF00</BorderColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Filters_new</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отбор</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Selection</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнОтборРасширеннаяПодсказка" id="64"/>
+								</Button>
+								<Button name="кнОбновить" id="65">
+									<Type>UsualButton</Type>
+									<Representation>Picture</Representation>
+									<Width>4</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМенюСписка</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#E7E7E7</BackColor>
+									<BorderColor>#E7E7E7</BorderColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Refresh_New</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Обновить</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>update</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнОбновитьРасширеннаяПодсказка" id="66"/>
+								</Button>
+								<Button name="кнПериод" id="67">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<Width>10</Width>
+									<Height>2</Height>
+									<CommandName>Form.Command.НажатиеКнМенюСписка</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#E7E7E7</BackColor>
+									<BorderColor>#E7E7E7</BorderColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Calendar_New</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Период</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Period</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="кнПериодРасширеннаяПодсказка" id="68"/>
+								</Button>
+								<Button name="ИзменитьФорму" id="629">
+									<Type>UsualButton</Type>
+									<Representation>Picture</Representation>
+									<Width>4</Width>
+									<Height>2</Height>
+									<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+									<TextColor>#313431</TextColor>
+									<BackColor>#E7E7E7</BackColor>
+									<BorderColor>#E7E7E7</BorderColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_ЗЧ_Настройки</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="630"/>
+								</Button>
+								<PictureDecoration name="Logo" id="69">
+									<Width>13</Width>
+									<Height>2</Height>
+									<HorizontalStretch>false</HorizontalStretch>
+									<VerticalStretch>false</VerticalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Logo</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Logo</v8:content>
+										</v8:item>
+									</Title>
+									<PictureSize>Proportionally</PictureSize>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Logo_128</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="LogoКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="LogoРасширеннаяПодсказка" id="71"/>
+								</PictureDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="грСписка" id="72">
+							<EnableContentChange>true</EnableContentChange>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грСпискаРасширеннаяПодсказка" id="73"/>
+							<ChildItems>
+								<UsualGroup name="спГрафикЗаписи" id="640">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>График записи</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>График записи</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="спГрафикЗаписиРасширеннаяПодсказка" id="641"/>
+									<ChildItems>
+										<SpreadSheetDocumentField name="ПолеТабличногоДокумента" id="637">
+											<DataPath>ПолеТабличногоДокумента</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ContextMenu name="ПолеТабличногоДокументаКонтекстноеМеню" id="638"/>
+											<ExtendedTooltip name="ПолеТабличногоДокументаРасширеннаяПодсказка" id="639"/>
+										</SpreadSheetDocumentField>
+										<UsualGroup name="Группа1" id="645">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="646"/>
+											<ChildItems>
+												<Button name="кнВыделитьНакладки" id="655">
+													<Type>UsualButton</Type>
+													<Representation>PictureAndText</Representation>
+													<CommandName>Form.Command.кнВыделитьНакладки</CommandName>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#E7E7E7</BorderColor>
+													<Font ref="style:NormalTextFont" faceName="Verdana" kind="StyleItem"/>
+													<Picture>
+														<xr:Ref>CommonPicture.Renault_Warning_32_bw</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Выделить накладки</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="кнВыделитьНакладкиРасширеннаяПодсказка" id="656"/>
+												</Button>
+												<Button name="КнопкаПоказыватьВыделениеПоКлиентуНажатие" id="651">
+													<Type>UsualButton</Type>
+													<Representation>PictureAndText</Representation>
+													<CommandName>Form.Command.КнопкаПоказыватьВыделениеПоКлиентуНажатие</CommandName>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#E7E7E7</BorderColor>
+													<Font ref="style:NormalTextFont" faceName="Verdana" kind="StyleItem"/>
+													<Picture>
+														<xr:Ref>CommonPicture.Renault_Client_New</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Выделить по клиенту</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="КнопкаПоказыватьВыделениеПоКлиентуНажатиеРасширеннаяПодсказка" id="652"/>
+												</Button>
+												<Button name="ВыделятьСебя" id="653">
+													<Type>UsualButton</Type>
+													<Representation>PictureAndText</Representation>
+													<CommandName>Form.Command.ВыделятьСебя</CommandName>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#E7E7E7</BorderColor>
+													<Font ref="style:NormalTextFont" faceName="Verdana" kind="StyleItem"/>
+													<Picture>
+														<xr:Ref>CommonPicture.Renault_Manager_New</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<ExtendedTooltip name="ВыделятьСебяРасширеннаяПодсказка" id="654"/>
+												</Button>
+												<Button name="КнопкаПоказатьАрхив" id="647">
+													<Type>UsualButton</Type>
+													<Representation>PictureAndText</Representation>
+													<CommandName>Form.Command.КнопкаПоказатьАрхив</CommandName>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#E7E7E7</BorderColor>
+													<Font ref="style:NormalTextFont" faceName="Verdana" kind="StyleItem"/>
+													<Picture>
+														<xr:Ref>CommonPicture.Renault_Calendar_New</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Архив</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="КнопкаПоказатьАрхивРасширеннаяПодсказка" id="648"/>
+												</Button>
+												<Button name="КомандаОтображатьНеработающих" id="649">
+													<Type>UsualButton</Type>
+													<Representation>PictureAndText</Representation>
+													<CommandName>Form.Command.КомандаОтображатьНеработающих</CommandName>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#E7E7E7</BorderColor>
+													<Font ref="style:NormalTextFont" faceName="Verdana" kind="StyleItem"/>
+													<Picture>
+														<xr:Ref>CommonPicture.Renault_Calendar_New</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Только работающие</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="КомандаОтображатьНеработающихРасширеннаяПодсказка" id="650"/>
+												</Button>
+												<InputField name="пвШагСетки" id="642">
+													<DataPath>ШагПланирования</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Шаг</v8:content>
+														</v8:item>
+													</Title>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleFont ref="style:NormalTextFont" faceName="Verdana" kind="StyleItem"/>
+													<ChoiceButton>true</ChoiceButton>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#313431</BorderColor>
+													<Font ref="style:NormalTextFont" faceName="Verdana" kind="StyleItem"/>
+													<ContextMenu name="пвШагСеткиКонтекстноеМеню" id="643"/>
+													<ExtendedTooltip name="пвШагСеткиРасширеннаяПодсказка" id="644"/>
+												</InputField>
+												<Button name="КнопкаНастройкиЦветов" id="657">
+													<Type>UsualButton</Type>
+													<Representation>Picture</Representation>
+													<CommandName>Form.Command.КнопкаНастройкиЦветов</CommandName>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#E7E7E7</BorderColor>
+													<Picture>
+														<xr:Ref>CommonPicture.Renault_ЗЧ_Настройки</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<ExtendedTooltip name="КнопкаНастройкиЦветовРасширеннаяПодсказка" id="658"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="спСтраницаЖурналОбращений" id="659">
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сп страница журнал обращений</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сп страница журнал обращений</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="спСтраницаЖурналОбращенийРасширеннаяПодсказка" id="660"/>
+									<ChildItems>
+										<CheckBoxField name="ПоказыватьАрхив" id="661">
+											<DataPath>ПоказыватьАрхив</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПоказыватьАрхивКонтекстноеМеню" id="662"/>
+											<ExtendedTooltip name="ПоказыватьАрхивРасширеннаяПодсказка" id="663"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="спОбращения" id="664">
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сп обращения</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сп обращения</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="спОбращенияРасширеннаяПодсказка" id="665"/>
+									<ChildItems>
+										<InputField name="ТекущееОбращение" id="666">
+											<DataPath>ТекущееОбращение</DataPath>
+											<ContextMenu name="ТекущееОбращениеКонтекстноеМеню" id="667"/>
+											<ExtendedTooltip name="ТекущееОбращениеРасширеннаяПодсказка" id="668"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="спДокомплектация" id="669">
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сп докомплектация</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сп докомплектация</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="спДокомплектацияРасширеннаяПодсказка" id="670"/>
+									<ChildItems>
+										<CheckBoxField name="ОтображатьНакладкиНаФорме" id="671">
+											<DataPath>ОтображатьНакладкиНаФорме</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ОтображатьНакладкиНаФормеКонтекстноеМеню" id="672"/>
+											<ExtendedTooltip name="ОтображатьНакладкиНаФормеРасширеннаяПодсказка" id="673"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="спМоиЗадачи" id="674">
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сп мои задачи</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сп мои задачи</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="спМоиЗадачиРасширеннаяПодсказка" id="675"/>
+									<ChildItems>
+										<CheckBoxField name="ПоказыватьАрхив1" id="676">
+											<DataPath>ПоказыватьАрхив</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПоказыватьАрхив1КонтекстноеМеню" id="677"/>
+											<ExtendedTooltip name="ПоказыватьАрхив1РасширеннаяПодсказка" id="678"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_ARM_Менеджеры</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ПунктыМеню" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункты меню</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>menu Items</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТекущаяЗакладкаМеню" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая закладка меню</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Current menu tab</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Дата1" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Дата2" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Отдел" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отдел</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.CRM_Отделы</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДилерскийЦентр" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дилерский центр</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.CRM_ДилерскиеЦентры</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолеТабличногоДокумента" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поле табличного документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet">mxl:SpreadsheetDocument</v8:Type>
+			</Type>
+			<Settings xmlns:mxl="http://v8.1c.ru/8.2/data/spreadsheet" xsi:type="mxl:SpreadsheetDocument">
+				<mxl:columns>
+					<mxl:size>9</mxl:size>
+					<mxl:columnsItem>
+						<mxl:index>0</mxl:index>
+						<mxl:column>
+							<mxl:formatIndex>1</mxl:formatIndex>
+						</mxl:column>
+					</mxl:columnsItem>
+					<mxl:columnsItem>
+						<mxl:index>1</mxl:index>
+						<mxl:column>
+							<mxl:formatIndex>2</mxl:formatIndex>
+						</mxl:column>
+					</mxl:columnsItem>
+					<mxl:columnsItem>
+						<mxl:index>2</mxl:index>
+						<mxl:column>
+							<mxl:formatIndex>3</mxl:formatIndex>
+						</mxl:column>
+					</mxl:columnsItem>
+				</mxl:columns>
+				<mxl:rowsItem>
+					<mxl:index>0</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>4</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>5</mxl:f>
+								<mxl:tl>
+									<v8:item>
+										<v8:lang>#</v8:lang>
+										<v8:content>Цех/Часы</v8:content>
+									</v8:item>
+								</mxl:tl>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:i>2</mxl:i>
+							<mxl:c>
+								<mxl:f>6</mxl:f>
+								<mxl:parameter>Час</mxl:parameter>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>1</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>7</mxl:formatIndex>
+						<mxl:c>
+							<mxl:i>2</mxl:i>
+							<mxl:c>
+								<mxl:f>8</mxl:f>
+								<mxl:parameter>ПромежуточныйШагПланирования</mxl:parameter>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>2</mxl:index>
+					<mxl:row>
+						<mxl:c>
+							<mxl:i>2</mxl:i>
+							<mxl:c>
+								<mxl:f>9</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>3</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>10</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>11</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>12</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>13</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>4</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>14</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>15</mxl:f>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>16</mxl:f>
+								<mxl:parameter>РабочаяТочка</mxl:parameter>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>17</mxl:f>
+								<mxl:detailParameter>Ссылка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>5</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>14</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>18</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>19</mxl:f>
+								<mxl:parameter>ПараметрыРабочейТочки</mxl:parameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>20</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>6</mxl:index>
+					<mxl:row>
+						<mxl:c>
+							<mxl:i>2</mxl:i>
+							<mxl:c>
+								<mxl:f>21</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>7</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>10</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>11</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>12</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>22</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>8</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>23</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>15</mxl:f>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>24</mxl:f>
+								<mxl:parameter>РабочаяТочка</mxl:parameter>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>17</mxl:f>
+								<mxl:detailParameter>Ссылка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>9</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>23</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>18</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>25</mxl:f>
+								<mxl:parameter>ПараметрыРабочейТочки</mxl:parameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>20</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>10</mxl:index>
+					<mxl:row>
+						<mxl:c>
+							<mxl:i>2</mxl:i>
+							<mxl:c>
+								<mxl:f>21</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>11</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>10</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>11</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>12</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>22</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>12</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>23</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>15</mxl:f>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>26</mxl:f>
+								<mxl:parameter>РабочаяТочка</mxl:parameter>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>17</mxl:f>
+								<mxl:detailParameter>Ссылка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>13</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>27</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>18</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>28</mxl:f>
+								<mxl:parameter>ПараметрыРабочейТочки</mxl:parameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>29</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>14</mxl:index>
+					<mxl:row>
+						<mxl:c>
+							<mxl:i>2</mxl:i>
+							<mxl:c>
+								<mxl:f>30</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>15</mxl:index>
+					<mxl:row>
+						<mxl:c>
+							<mxl:i>2</mxl:i>
+							<mxl:c>
+								<mxl:f>21</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>16</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>31</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>32</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>33</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>34</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>17</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>35</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>36</mxl:f>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>37</mxl:f>
+								<mxl:parameter>РабочаяТочка</mxl:parameter>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>38</mxl:f>
+								<mxl:detailParameter>Ссылка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:i>8</mxl:i>
+							<mxl:c>
+								<mxl:f>0</mxl:f>
+								<mxl:tl/>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>18</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>35</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>39</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>37</mxl:f>
+								<mxl:parameter>ПараметрыРабочейТочки</mxl:parameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>9</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>19</mxl:index>
+					<mxl:row>
+						<mxl:c>
+							<mxl:i>2</mxl:i>
+							<mxl:c>
+								<mxl:f>21</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>20</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>10</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>11</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>12</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>22</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>21</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>23</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>40</mxl:f>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>41</mxl:f>
+								<mxl:parameter>РабочаяТочка</mxl:parameter>
+								<mxl:detailParameter>РабочаяТочка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>17</mxl:f>
+								<mxl:detailParameter>Ссылка</mxl:detailParameter>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>22</mxl:index>
+					<mxl:row>
+						<mxl:formatIndex>23</mxl:formatIndex>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>18</mxl:f>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>42</mxl:f>
+								<mxl:parameter>ПараметрыРабочейТочки</mxl:parameter>
+							</mxl:c>
+						</mxl:c>
+						<mxl:c>
+							<mxl:c>
+								<mxl:f>20</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>23</mxl:index>
+					<mxl:row>
+						<mxl:c>
+							<mxl:i>2</mxl:i>
+							<mxl:c>
+								<mxl:f>43</mxl:f>
+							</mxl:c>
+						</mxl:c>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:rowsItem>
+					<mxl:index>29</mxl:index>
+					<mxl:row>
+						<mxl:empty>true</mxl:empty>
+					</mxl:row>
+				</mxl:rowsItem>
+				<mxl:drawing>
+					<mxl:drawingType>Picture</mxl:drawingType>
+					<mxl:id>6</mxl:id>
+					<mxl:formatIndex>44</mxl:formatIndex>
+					<mxl:beginRow>4</mxl:beginRow>
+					<mxl:beginRowOffset>27</mxl:beginRowOffset>
+					<mxl:endRow>5</mxl:endRow>
+					<mxl:endRowOffset>54</mxl:endRowOffset>
+					<mxl:beginColumn>0</mxl:beginColumn>
+					<mxl:beginColumnOffset>15</mxl:beginColumnOffset>
+					<mxl:endColumn>0</mxl:endColumn>
+					<mxl:endColumnOffset>87</mxl:endColumnOffset>
+					<mxl:autoSize>false</mxl:autoSize>
+					<mxl:pictureSize>AutoSize</mxl:pictureSize>
+					<mxl:zOrder>0</mxl:zOrder>
+					<mxl:pictureIndex>1</mxl:pictureIndex>
+				</mxl:drawing>
+				<mxl:drawing>
+					<mxl:drawingType>Picture</mxl:drawingType>
+					<mxl:id>7</mxl:id>
+					<mxl:formatIndex>44</mxl:formatIndex>
+					<mxl:beginRow>8</mxl:beginRow>
+					<mxl:beginRowOffset>3</mxl:beginRowOffset>
+					<mxl:endRow>9</mxl:endRow>
+					<mxl:endRowOffset>42</mxl:endRowOffset>
+					<mxl:beginColumn>0</mxl:beginColumn>
+					<mxl:beginColumnOffset>15</mxl:beginColumnOffset>
+					<mxl:endColumn>0</mxl:endColumn>
+					<mxl:endColumnOffset>87</mxl:endColumnOffset>
+					<mxl:autoSize>false</mxl:autoSize>
+					<mxl:pictureSize>RealSize</mxl:pictureSize>
+					<mxl:zOrder>0</mxl:zOrder>
+					<mxl:pictureIndex>2</mxl:pictureIndex>
+				</mxl:drawing>
+				<mxl:drawing>
+					<mxl:drawingType>Picture</mxl:drawingType>
+					<mxl:id>8</mxl:id>
+					<mxl:formatIndex>44</mxl:formatIndex>
+					<mxl:beginRow>12</mxl:beginRow>
+					<mxl:beginRowOffset>3</mxl:beginRowOffset>
+					<mxl:endRow>14</mxl:endRow>
+					<mxl:endRowOffset>0</mxl:endRowOffset>
+					<mxl:beginColumn>0</mxl:beginColumn>
+					<mxl:beginColumnOffset>6</mxl:beginColumnOffset>
+					<mxl:endColumn>0</mxl:endColumn>
+					<mxl:endColumnOffset>102</mxl:endColumnOffset>
+					<mxl:autoSize>false</mxl:autoSize>
+					<mxl:pictureSize>AutoSize</mxl:pictureSize>
+					<mxl:zOrder>0</mxl:zOrder>
+					<mxl:pictureIndex>3</mxl:pictureIndex>
+				</mxl:drawing>
+				<mxl:drawing>
+					<mxl:drawingType>Picture</mxl:drawingType>
+					<mxl:id>9</mxl:id>
+					<mxl:formatIndex>44</mxl:formatIndex>
+					<mxl:beginRow>21</mxl:beginRow>
+					<mxl:beginRowOffset>3</mxl:beginRowOffset>
+					<mxl:endRow>22</mxl:endRow>
+					<mxl:endRowOffset>41</mxl:endRowOffset>
+					<mxl:beginColumn>0</mxl:beginColumn>
+					<mxl:beginColumnOffset>0</mxl:beginColumnOffset>
+					<mxl:endColumn>0</mxl:endColumn>
+					<mxl:endColumnOffset>101</mxl:endColumnOffset>
+					<mxl:autoSize>false</mxl:autoSize>
+					<mxl:pictureSize>AutoSize</mxl:pictureSize>
+					<mxl:zOrder>0</mxl:zOrder>
+					<mxl:pictureIndex>4</mxl:pictureIndex>
+				</mxl:drawing>
+				<mxl:drawing>
+					<mxl:drawingType>Chart</mxl:drawingType>
+					<mxl:id>10</mxl:id>
+					<mxl:formatIndex>45</mxl:formatIndex>
+					<mxl:beginRow>13</mxl:beginRow>
+					<mxl:beginRowOffset>12</mxl:beginRowOffset>
+					<mxl:endRow>13</mxl:endRow>
+					<mxl:endRowOffset>51</mxl:endRowOffset>
+					<mxl:beginColumn>1</mxl:beginColumn>
+					<mxl:beginColumnOffset>9</mxl:beginColumnOffset>
+					<mxl:endColumn>1</mxl:endColumn>
+					<mxl:endColumnOffset>519</mxl:endColumnOffset>
+					<mxl:autoSize>false</mxl:autoSize>
+					<mxl:pictureSize>Stretch</mxl:pictureSize>
+					<mxl:zOrder>0</mxl:zOrder>
+					<mxl:object xmlns:d6p1="http://v8.1c.ru/8.2/data/chart" xsi:type="d6p1:Chart">
+						<d6p1:seriesCurId>9</d6p1:seriesCurId>
+						<d6p1:pointsCurId>8</d6p1:pointsCurId>
+						<d6p1:isSeriesDesign>true</d6p1:isSeriesDesign>
+						<d6p1:realSeriesCount>1</d6p1:realSeriesCount>
+						<d6p1:realSeriesData>
+							<d6p1:id>2</d6p1:id>
+							<d6p1:color>#D02A35</d6p1:color>
+							<d6p1:line width="2" gap="false">
+								<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+							</d6p1:line>
+							<d6p1:marker>Rhomb</d6p1:marker>
+							<d6p1:text>
+								<v8:item>
+									<v8:lang>#</v8:lang>
+									<v8:content>Серия 1</v8:content>
+								</v8:item>
+							</d6p1:text>
+							<d6p1:strIsChanged>false</d6p1:strIsChanged>
+							<d6p1:isExpand>false</d6p1:isExpand>
+							<d6p1:isIndicator>false</d6p1:isIndicator>
+							<d6p1:colorPriority>false</d6p1:colorPriority>
+						</d6p1:realSeriesData>
+						<d6p1:realExSeriesData>
+							<d6p1:id>1</d6p1:id>
+							<d6p1:color>#991919</d6p1:color>
+							<d6p1:line width="2" gap="false">
+								<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+							</d6p1:line>
+							<d6p1:marker>Rhomb</d6p1:marker>
+							<d6p1:text>
+								<v8:item>
+									<v8:lang>#</v8:lang>
+									<v8:content>Сводная</v8:content>
+								</v8:item>
+							</d6p1:text>
+							<d6p1:strIsChanged>false</d6p1:strIsChanged>
+							<d6p1:isExpand>false</d6p1:isExpand>
+							<d6p1:isIndicator>false</d6p1:isIndicator>
+							<d6p1:colorPriority>false</d6p1:colorPriority>
+						</d6p1:realExSeriesData>
+						<d6p1:isPointsDesign>true</d6p1:isPointsDesign>
+						<d6p1:realPointCount>1</d6p1:realPointCount>
+						<d6p1:realPointData>
+							<d6p1:id>1</d6p1:id>
+							<d6p1:color>#D02A35</d6p1:color>
+							<d6p1:line width="2" gap="false">
+								<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+							</d6p1:line>
+							<d6p1:marker>Rhomb</d6p1:marker>
+							<d6p1:text>
+								<v8:item>
+									<v8:lang>#</v8:lang>
+									<v8:content>Точка 1</v8:content>
+								</v8:item>
+							</d6p1:text>
+							<d6p1:strIsChanged>false</d6p1:strIsChanged>
+							<d6p1:isExpand>false</d6p1:isExpand>
+							<d6p1:isIndicator>false</d6p1:isIndicator>
+							<d6p1:colorPriority>false</d6p1:colorPriority>
+						</d6p1:realPointData>
+						<d6p1:curSeries>0</d6p1:curSeries>
+						<d6p1:curPoint>0</d6p1:curPoint>
+						<d6p1:chartType>Bar</d6p1:chartType>
+						<d6p1:circleLabelType>None</d6p1:circleLabelType>
+						<d6p1:labelsDelimiter>, </d6p1:labelsDelimiter>
+						<d6p1:labelsLocation>EdgeInside</d6p1:labelsLocation>
+						<d6p1:lbFormat/>
+						<d6p1:lbpFormat/>
+						<d6p1:labelsColor>style:FormTextColor</d6p1:labelsColor>
+						<d6p1:labelsFont kind="AutoFont"/>
+						<d6p1:transparentLabelsBkg>true</d6p1:transparentLabelsBkg>
+						<d6p1:labelsBkgColor>auto</d6p1:labelsBkgColor>
+						<d6p1:labelsBorder width="1">
+							<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+						</d6p1:labelsBorder>
+						<d6p1:labelsBorderColor>auto</d6p1:labelsBorderColor>
+						<d6p1:circleExpandMode>None</d6p1:circleExpandMode>
+						<d6p1:chart3Dcrd>SouthWest</d6p1:chart3Dcrd>
+						<d6p1:title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>D7</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>#</v8:lang>
+								<v8:content>D7</v8:content>
+							</v8:item>
+						</d6p1:title>
+						<d6p1:isShowTitle>false</d6p1:isShowTitle>
+						<d6p1:isShowLegend>false</d6p1:isShowLegend>
+						<d6p1:ttlBorder width="0">
+							<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+						</d6p1:ttlBorder>
+						<d6p1:ttlBorderColor>style:BorderColor</d6p1:ttlBorderColor>
+						<d6p1:lgBorder width="0">
+							<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+						</d6p1:lgBorder>
+						<d6p1:lgBorderColor>style:BorderColor</d6p1:lgBorderColor>
+						<d6p1:chBorder width="0">
+							<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+						</d6p1:chBorder>
+						<d6p1:chBorderColor>style:BorderColor</d6p1:chBorderColor>
+						<d6p1:transparent>false</d6p1:transparent>
+						<d6p1:bkgColor>style:FormBackColor</d6p1:bkgColor>
+						<d6p1:isTrnspTtl>true</d6p1:isTrnspTtl>
+						<d6p1:ttlColor>style:FormBackColor</d6p1:ttlColor>
+						<d6p1:isTrnspLeg>true</d6p1:isTrnspLeg>
+						<d6p1:legColor>style:FormBackColor</d6p1:legColor>
+						<d6p1:isTrnspCh>false</d6p1:isTrnspCh>
+						<d6p1:chColor>#FFFFFF</d6p1:chColor>
+						<d6p1:ttlTxtColor>style:FormTextColor</d6p1:ttlTxtColor>
+						<d6p1:legTxtColor>style:FormTextColor</d6p1:legTxtColor>
+						<d6p1:chTxtColor>style:FormTextColor</d6p1:chTxtColor>
+						<d6p1:ttlFont ref="style:TextFont" kind="StyleItem"/>
+						<d6p1:legFont ref="style:TextFont" kind="StyleItem"/>
+						<d6p1:chFont ref="style:TextFont" kind="StyleItem"/>
+						<d6p1:isShowScale>false</d6p1:isShowScale>
+						<d6p1:isShowScaleVL>false</d6p1:isShowScaleVL>
+						<d6p1:isShowSeriesScale>true</d6p1:isShowSeriesScale>
+						<d6p1:isShowPointsScale>false</d6p1:isShowPointsScale>
+						<d6p1:isShowValuesScale>false</d6p1:isShowValuesScale>
+						<d6p1:vsFormat/>
+						<d6p1:xLabelsOrientation>Auto</d6p1:xLabelsOrientation>
+						<d6p1:scaleLine width="1" gap="false">
+							<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+						</d6p1:scaleLine>
+						<d6p1:scaleColor>#A9A9A9</d6p1:scaleColor>
+						<d6p1:isAutoSeriesName>true</d6p1:isAutoSeriesName>
+						<d6p1:isAutoPointName>true</d6p1:isAutoPointName>
+						<d6p1:maxMode>NotDefined</d6p1:maxMode>
+						<d6p1:maxSeries>4</d6p1:maxSeries>
+						<d6p1:maxSeriesPrc>30</d6p1:maxSeriesPrc>
+						<d6p1:spaceMode>None</d6p1:spaceMode>
+						<d6p1:baseVal>0</d6p1:baseVal>
+						<d6p1:isOutline>false</d6p1:isOutline>
+						<d6p1:realPiePoint>0</d6p1:realPiePoint>
+						<d6p1:realStockSeries>0</d6p1:realStockSeries>
+						<d6p1:isLight>true</d6p1:isLight>
+						<d6p1:isGradient>false</d6p1:isGradient>
+						<d6p1:isTransposition>false</d6p1:isTransposition>
+						<d6p1:hideBaseVal>false</d6p1:hideBaseVal>
+						<d6p1:dataTable>false</d6p1:dataTable>
+						<d6p1:dtVerLines>true</d6p1:dtVerLines>
+						<d6p1:dtHorLines>true</d6p1:dtHorLines>
+						<d6p1:dtHAlign>Right</d6p1:dtHAlign>
+						<d6p1:dtFormat/>
+						<d6p1:dtKeys>true</d6p1:dtKeys>
+						<d6p1:paletteKind>Palette32</d6p1:paletteKind>
+						<d6p1:animation>DontUse</d6p1:animation>
+						<d6p1:rebuildTime>787413</d6p1:rebuildTime>
+						<d6p1:isTransposed>false</d6p1:isTransposed>
+						<d6p1:autoTransposition>true</d6p1:autoTransposition>
+						<d6p1:legendScrollEnable>false</d6p1:legendScrollEnable>
+						<d6p1:surfaceColor>#A90000</d6p1:surfaceColor>
+						<d6p1:radarScaleType>Circle</d6p1:radarScaleType>
+						<d6p1:gaugeValuesPresentation>Needle</d6p1:gaugeValuesPresentation>
+						<d6p1:gaugeQualityBands useTextStr="false" useTooltipStr="false"/>
+						<d6p1:beginGaugeAngle>0</d6p1:beginGaugeAngle>
+						<d6p1:endGaugeAngle>180</d6p1:endGaugeAngle>
+						<d6p1:gaugeThickness>5</d6p1:gaugeThickness>
+						<d6p1:gaugeLabelsLocation>InsideScale</d6p1:gaugeLabelsLocation>
+						<d6p1:gaugeLabelsArcDirection>false</d6p1:gaugeLabelsArcDirection>
+						<d6p1:gaugeBushThickness>4</d6p1:gaugeBushThickness>
+						<d6p1:gaugeBushColor>#A9A9A9</d6p1:gaugeBushColor>
+						<d6p1:autoMaxValue>false</d6p1:autoMaxValue>
+						<d6p1:userMaxValue>0</d6p1:userMaxValue>
+						<d6p1:autoMinValue>false</d6p1:autoMinValue>
+						<d6p1:userMinValue>0</d6p1:userMinValue>
+						<d6p1:elementsIsInit>true</d6p1:elementsIsInit>
+						<d6p1:titleIsInit>true</d6p1:titleIsInit>
+						<d6p1:legendIsInit>true</d6p1:legendIsInit>
+						<d6p1:chartIsInit>true</d6p1:chartIsInit>
+						<d6p1:elementsChart>
+							<d6p1:left>0</d6p1:left>
+							<d6p1:right>0</d6p1:right>
+							<d6p1:top>0</d6p1:top>
+							<d6p1:bottom>0</d6p1:bottom>
+						</d6p1:elementsChart>
+						<d6p1:elementsLegend>
+							<d6p1:left>0.8325</d6p1:left>
+							<d6p1:right>0</d6p1:right>
+							<d6p1:top>0.150943396226415</d6p1:top>
+							<d6p1:bottom>0</d6p1:bottom>
+						</d6p1:elementsLegend>
+						<d6p1:elementsTitle>
+							<d6p1:left>0.8325</d6p1:left>
+							<d6p1:right>0</d6p1:right>
+							<d6p1:top>0</d6p1:top>
+							<d6p1:bottom>0.849056603773584</d6p1:bottom>
+						</d6p1:elementsTitle>
+						<d6p1:borderColor>style:BorderColor</d6p1:borderColor>
+						<d6p1:border width="0">
+							<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+						</d6p1:border>
+						<d6p1:dataSourceDescription/>
+						<d6p1:isDataSourceMode>false</d6p1:isDataSourceMode>
+						<d6p1:isRandomizedNewValues>true</d6p1:isRandomizedNewValues>
+						<d6p1:realDataItems>
+							<d6p1:item>
+								<d6p1:valData xsi:type="xs:decimal">6.14</d6p1:valData>
+								<d6p1:valInfo xsi:nil="true"/>
+								<d6p1:toolTip/>
+							</d6p1:item>
+						</d6p1:realDataItems>
+						<d6p1:splineStrain>95</d6p1:splineStrain>
+						<d6p1:translucencePercent>0</d6p1:translucencePercent>
+						<d6p1:funnelNeckHeightPercent>10</d6p1:funnelNeckHeightPercent>
+						<d6p1:funnelNeckWidthPercent>10</d6p1:funnelNeckWidthPercent>
+						<d6p1:funnelGapSumPercent>3</d6p1:funnelGapSumPercent>
+						<d6p1:multiStageLinkLine width="1" gap="false">
+							<v8ui:style xsi:type="v8ui:ChartLineType">Solid</v8ui:style>
+						</d6p1:multiStageLinkLine>
+						<d6p1:multiStageLinkColor>#000000</d6p1:multiStageLinkColor>
+						<d6p1:valuesAxis>
+							<d6p1:minValueDetectionMethod>UseValueWithLimitations</d6p1:minValueDetectionMethod>
+							<d6p1:maxValueDetectionMethod>UseValueWithLimitations</d6p1:maxValueDetectionMethod>
+						</d6p1:valuesAxis>
+						<d6p1:pointsAxis/>
+						<d6p1:pointsScale>
+							<d6p1:titleArea>
+								<d6p1:font kind="AutoFont"/>
+								<d6p1:textColor>auto</d6p1:textColor>
+								<d6p1:backColor>auto</d6p1:backColor>
+								<d6p1:border width="1">
+									<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+								</d6p1:border>
+								<d6p1:borderColor>auto</d6p1:borderColor>
+							</d6p1:titleArea>
+							<d6p1:scaleLabelLocation>None</d6p1:scaleLabelLocation>
+						</d6p1:pointsScale>
+						<d6p1:valuesScale>
+							<d6p1:titleArea>
+								<d6p1:font kind="AutoFont"/>
+								<d6p1:textColor>auto</d6p1:textColor>
+								<d6p1:backColor>auto</d6p1:backColor>
+								<d6p1:border width="1">
+									<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+								</d6p1:border>
+								<d6p1:borderColor>auto</d6p1:borderColor>
+							</d6p1:titleArea>
+							<d6p1:gridLinesShowMode>DontShow</d6p1:gridLinesShowMode>
+							<d6p1:scaleLabelLocation>None</d6p1:scaleLabelLocation>
+						</d6p1:valuesScale>
+						<d6p1:legendPlacement>None</d6p1:legendPlacement>
+						<d6p1:plotAreaPlacement>UseCoordinates</d6p1:plotAreaPlacement>
+						<d6p1:titleAreaPlacement>None</d6p1:titleAreaPlacement>
+						<d6p1:colorPaletteDescription>
+							<d6p1:colorPalette>Palette32</d6p1:colorPalette>
+						</d6p1:colorPaletteDescription>
+						<d6p1:referenceBandsColorPaletteDescription>
+							<d6p1:colorPalette>Palette32</d6p1:colorPalette>
+						</d6p1:referenceBandsColorPaletteDescription>
+					</mxl:object>
+				</mxl:drawing>
+				<mxl:defaultFormatIndex>46</mxl:defaultFormatIndex>
+				<mxl:height>30</mxl:height>
+				<mxl:vgRows>30</mxl:vgRows>
+				<mxl:merge>
+					<mxl:r>0</mxl:r>
+					<mxl:c>0</mxl:c>
+					<mxl:h>1</mxl:h>
+					<mxl:w>1</mxl:w>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>4</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>8</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>12</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>17</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>21</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>4</mxl:r>
+					<mxl:c>-1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>8</mxl:r>
+					<mxl:c>-1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>12</mxl:r>
+					<mxl:c>-1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>17</mxl:r>
+					<mxl:c>-1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:merge>
+					<mxl:r>21</mxl:r>
+					<mxl:c>-1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:merge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>4</mxl:r>
+					<mxl:c>1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>4</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>8</mxl:r>
+					<mxl:c>1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>8</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>12</mxl:r>
+					<mxl:c>1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>12</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>17</mxl:r>
+					<mxl:c>1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>17</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>21</mxl:r>
+					<mxl:c>1</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:horizontalUnmerge>
+					<mxl:r>21</mxl:r>
+					<mxl:c>2</mxl:c>
+					<mxl:h>1</mxl:h>
+				</mxl:horizontalUnmerge>
+				<mxl:namedItem xsi:type="mxl:NamedItemDrawing">
+					<mxl:name>ГистограммаМастер</mxl:name>
+					<mxl:drawingID>10</mxl:drawingID>
+				</mxl:namedItem>
+				<mxl:namedItem xsi:type="mxl:NamedItemCells">
+					<mxl:name>Строка</mxl:name>
+					<mxl:area>
+						<mxl:type>Rows</mxl:type>
+						<mxl:beginRow>16</mxl:beginRow>
+						<mxl:endRow>18</mxl:endRow>
+						<mxl:beginColumn>-1</mxl:beginColumn>
+						<mxl:endColumn>-1</mxl:endColumn>
+					</mxl:area>
+				</mxl:namedItem>
+				<mxl:namedItem xsi:type="mxl:NamedItemCells">
+					<mxl:name>СтрокаМастер</mxl:name>
+					<mxl:area>
+						<mxl:type>Rows</mxl:type>
+						<mxl:beginRow>11</mxl:beginRow>
+						<mxl:endRow>13</mxl:endRow>
+						<mxl:beginColumn>-1</mxl:beginColumn>
+						<mxl:endColumn>-1</mxl:endColumn>
+					</mxl:area>
+				</mxl:namedItem>
+				<mxl:namedItem xsi:type="mxl:NamedItemCells">
+					<mxl:name>СтрокаМойка</mxl:name>
+					<mxl:area>
+						<mxl:type>Rows</mxl:type>
+						<mxl:beginRow>7</mxl:beginRow>
+						<mxl:endRow>9</mxl:endRow>
+						<mxl:beginColumn>-1</mxl:beginColumn>
+						<mxl:endColumn>-1</mxl:endColumn>
+					</mxl:area>
+				</mxl:namedItem>
+				<mxl:namedItem xsi:type="mxl:NamedItemCells">
+					<mxl:name>СтрокаПодменныйАвто</mxl:name>
+					<mxl:area>
+						<mxl:type>Rows</mxl:type>
+						<mxl:beginRow>20</mxl:beginRow>
+						<mxl:endRow>22</mxl:endRow>
+						<mxl:beginColumn>-1</mxl:beginColumn>
+						<mxl:endColumn>-1</mxl:endColumn>
+					</mxl:area>
+				</mxl:namedItem>
+				<mxl:namedItem xsi:type="mxl:NamedItemCells">
+					<mxl:name>СтрокаРемонт</mxl:name>
+					<mxl:area>
+						<mxl:type>Rows</mxl:type>
+						<mxl:beginRow>3</mxl:beginRow>
+						<mxl:endRow>5</mxl:endRow>
+						<mxl:beginColumn>-1</mxl:beginColumn>
+						<mxl:endColumn>-1</mxl:endColumn>
+					</mxl:area>
+				</mxl:namedItem>
+				<mxl:namedItem xsi:type="mxl:NamedItemCells">
+					<mxl:name>Цеха</mxl:name>
+					<mxl:area>
+						<mxl:type>Columns</mxl:type>
+						<mxl:beginRow>-1</mxl:beginRow>
+						<mxl:endRow>-1</mxl:endRow>
+						<mxl:beginColumn>0</mxl:beginColumn>
+						<mxl:endColumn>1</mxl:endColumn>
+					</mxl:area>
+				</mxl:namedItem>
+				<mxl:namedItem xsi:type="mxl:NamedItemCells">
+					<mxl:name>Шаг</mxl:name>
+					<mxl:area>
+						<mxl:type>Columns</mxl:type>
+						<mxl:beginRow>-1</mxl:beginRow>
+						<mxl:endRow>-1</mxl:endRow>
+						<mxl:beginColumn>2</mxl:beginColumn>
+						<mxl:endColumn>2</mxl:endColumn>
+					</mxl:area>
+				</mxl:namedItem>
+				<mxl:namedItem xsi:type="mxl:NamedItemCells">
+					<mxl:name>ШапкаВерх</mxl:name>
+					<mxl:area>
+						<mxl:type>Rows</mxl:type>
+						<mxl:beginRow>0</mxl:beginRow>
+						<mxl:endRow>0</mxl:endRow>
+						<mxl:beginColumn>-1</mxl:beginColumn>
+						<mxl:endColumn>-1</mxl:endColumn>
+					</mxl:area>
+				</mxl:namedItem>
+				<mxl:namedItem xsi:type="mxl:NamedItemCells">
+					<mxl:name>ШапкаНиз</mxl:name>
+					<mxl:area>
+						<mxl:type>Rows</mxl:type>
+						<mxl:beginRow>1</mxl:beginRow>
+						<mxl:endRow>1</mxl:endRow>
+						<mxl:beginColumn>-1</mxl:beginColumn>
+						<mxl:endColumn>-1</mxl:endColumn>
+					</mxl:area>
+				</mxl:namedItem>
+				<mxl:line width="1" gap="false">
+					<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Solid</v8ui:style>
+				</mxl:line>
+				<mxl:line width="1" gap="false">
+					<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">Dotted</v8ui:style>
+				</mxl:line>
+				<mxl:line width="1" gap="false">
+					<v8ui:style xsi:type="v8ui:SpreadsheetDocumentCellLineType">None</v8ui:style>
+				</mxl:line>
+				<mxl:line width="1" gap="false">
+					<v8ui:style xsi:type="v8ui:SpreadsheetDocumentDrawingLineType">None</v8ui:style>
+				</mxl:line>
+				<mxl:font faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+				<mxl:font faceName="Arial" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+				<mxl:font faceName="Arial" height="7" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+				<mxl:font faceName="Arial" height="7" bold="false" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+				<mxl:font faceName="Arial" height="8" bold="false" italic="true" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+				<mxl:font faceName="Arial" height="8" bold="false" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+				<mxl:format>
+					<mxl:width>41</mxl:width>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:width>202</mxl:width>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:width>16</mxl:width>
+				</mxl:format>
+				<mxl:format>
+					<mxl:height>75</mxl:height>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:border>0</mxl:border>
+					<mxl:height>75</mxl:height>
+					<mxl:width>160</mxl:width>
+					<mxl:horizontalAlignment>Center</mxl:horizontalAlignment>
+					<mxl:verticalAlignment>Center</mxl:verticalAlignment>
+					<mxl:backColor>web:LemonChiffon</mxl:backColor>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>0</mxl:font>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:topBorder>0</mxl:topBorder>
+					<mxl:height>75</mxl:height>
+					<mxl:width>16</mxl:width>
+					<mxl:horizontalAlignment>Center</mxl:horizontalAlignment>
+					<mxl:verticalAlignment>Center</mxl:verticalAlignment>
+					<mxl:backColor>web:LemonChiffon</mxl:backColor>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:height>44</mxl:height>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:border>0</mxl:border>
+					<mxl:width>16</mxl:width>
+					<mxl:horizontalAlignment>Left</mxl:horizontalAlignment>
+					<mxl:backColor>web:Khaki</mxl:backColor>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:width>16</mxl:width>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:height>16</mxl:height>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:border>0</mxl:border>
+					<mxl:backColor>style:FormBackColor</mxl:backColor>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:border>0</mxl:border>
+					<mxl:backColor>style:FormBackColor</mxl:backColor>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:border>1</mxl:border>
+					<mxl:height>27</mxl:height>
+					<mxl:width>16</mxl:width>
+					<mxl:backColor>#EBEBEB</mxl:backColor>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:height>80</mxl:height>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>1</mxl:font>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>2</mxl:bottomBorder>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:indent>1</mxl:indent>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>2</mxl:font>
+					<mxl:border>1</mxl:border>
+					<mxl:height>0</mxl:height>
+					<mxl:width>16</mxl:width>
+					<mxl:horizontalAlignment>Left</mxl:horizontalAlignment>
+					<mxl:verticalAlignment>Center</mxl:verticalAlignment>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:fillType>Text</mxl:fillType>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>0</mxl:bottomBorder>
+					<mxl:backColor>style:FormBackColor</mxl:backColor>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>1</mxl:font>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>0</mxl:bottomBorder>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:indent>1</mxl:indent>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:width>16</mxl:width>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>3</mxl:font>
+					<mxl:border>1</mxl:border>
+					<mxl:width>16</mxl:width>
+					<mxl:horizontalAlignment>Left</mxl:horizontalAlignment>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>3</mxl:font>
+					<mxl:border>1</mxl:border>
+					<mxl:height>27</mxl:height>
+					<mxl:width>16</mxl:width>
+					<mxl:horizontalAlignment>Left</mxl:horizontalAlignment>
+					<mxl:backColor>#EBEBEB</mxl:backColor>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:height>48</mxl:height>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>4</mxl:font>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>2</mxl:bottomBorder>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:indent>1</mxl:indent>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>4</mxl:font>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>0</mxl:bottomBorder>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:indent>1</mxl:indent>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>2</mxl:bottomBorder>
+					<mxl:horizontalAlignment>Left</mxl:horizontalAlignment>
+					<mxl:verticalAlignment>Center</mxl:verticalAlignment>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:indent>1</mxl:indent>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:height>93</mxl:height>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>0</mxl:bottomBorder>
+					<mxl:height>48</mxl:height>
+					<mxl:width>202</mxl:width>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:indent>1</mxl:indent>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:width>16</mxl:width>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>3</mxl:font>
+					<mxl:border>1</mxl:border>
+					<mxl:width>16</mxl:width>
+					<mxl:horizontalAlignment>Left</mxl:horizontalAlignment>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:height>16</mxl:height>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:border>0</mxl:border>
+					<mxl:backColor>style:FormBackColor</mxl:backColor>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:border>0</mxl:border>
+					<mxl:backColor>style:FormBackColor</mxl:backColor>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>3</mxl:font>
+					<mxl:border>1</mxl:border>
+					<mxl:height>27</mxl:height>
+					<mxl:width>16</mxl:width>
+					<mxl:horizontalAlignment>Left</mxl:horizontalAlignment>
+					<mxl:backColor>#EBEBEB</mxl:backColor>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:height>80</mxl:height>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>0</mxl:bottomBorder>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:indent>1</mxl:indent>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>2</mxl:font>
+					<mxl:border>1</mxl:border>
+					<mxl:height>0</mxl:height>
+					<mxl:width>16</mxl:width>
+					<mxl:horizontalAlignment>Left</mxl:horizontalAlignment>
+					<mxl:verticalAlignment>Center</mxl:verticalAlignment>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:fillType>Text</mxl:fillType>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>0</mxl:bottomBorder>
+					<mxl:backColor>style:FormBackColor</mxl:backColor>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:border>0</mxl:border>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>5</mxl:font>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>2</mxl:bottomBorder>
+					<mxl:horizontalAlignment>Center</mxl:horizontalAlignment>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:indent>1</mxl:indent>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:leftBorder>0</mxl:leftBorder>
+					<mxl:rightBorder>0</mxl:rightBorder>
+					<mxl:bottomBorder>0</mxl:bottomBorder>
+					<mxl:horizontalAlignment>Center</mxl:horizontalAlignment>
+					<mxl:textPlacement>Cut</mxl:textPlacement>
+					<mxl:fillType>Parameter</mxl:fillType>
+					<mxl:indent>1</mxl:indent>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:font>3</mxl:font>
+					<mxl:width>16</mxl:width>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:format>
+					<mxl:drawingBorder>3</mxl:drawingBorder>
+				</mxl:format>
+				<mxl:format>
+					<mxl:verticalAlignment>Top</mxl:verticalAlignment>
+					<mxl:backColor>style:FieldBackColor</mxl:backColor>
+				</mxl:format>
+				<mxl:format>
+					<mxl:width>72</mxl:width>
+					<mxl:textPlacement>Auto</mxl:textPlacement>
+					<mxl:columnSizeChange>Normal</mxl:columnSizeChange>
+				</mxl:format>
+				<mxl:picture>
+					<mxl:index>0</mxl:index>
+					<mxl:picture t="false" ref="v8ui:Renault_Service_32_Gray"/>
+				</mxl:picture>
+				<mxl:picture>
+					<mxl:index>1</mxl:index>
+					<mxl:picture t="false" ref="v8ui:Renault_CarWash_32_Gray"/>
+				</mxl:picture>
+				<mxl:picture>
+					<mxl:index>2</mxl:index>
+					<mxl:picture t="false" ref="v8ui:Renault_MasterP_32_Gray"/>
+				</mxl:picture>
+				<mxl:picture>
+					<mxl:index>3</mxl:index>
+					<mxl:picture t="false" ref="v8ui:Renault_Car32_Gray"/>
+				</mxl:picture>
+			</Settings>
+		</Attribute>
+		<Attribute name="НачалоРабочегоДня" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало рабочего дня</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонецРабочегоДня" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конец рабочего дня</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ШагПланирования" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаг планирования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказыватьАрхив" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать архив</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НаправлениеЗакраскиЛевоПраво" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Направление закраски лево право</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктураПрочихНастроек" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура прочих настроек</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ТекущийРабочийДень" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий рабочий день</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СтруктураЦветов" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура цветов</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СтруктураВысот" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура высот</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ТолькоРаботающие" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только работающие</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДлительностьПоУмолчаниюПриемкаОбычная" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность по умолчанию приемка обычная</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДлительностьПоУмолчаниюМойка" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность по умолчанию мойка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДлительностьПоУмолчаниюПриемка" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность по умолчанию приемка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДлительностьПоУмолчаниюПриемкаПрямая" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность по умолчанию приемка прямая</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДлительностьПоУмолчаниюВыдача" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Длительность по умолчанию выдача</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыделятьПоКлиенту" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделять по клиенту</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыделятьСебя" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделять себя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтображатьНакладкиНаФорме" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать накладки на форме</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КлиентНаКнопке" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент на кнопке</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РежимСозданияОбращения" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим создания обращения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущийЗаказНаряд" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий заказ наряд</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.Renault_CRM_ЗаявкаНаСервис</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборМашиноместо" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор машиноместо</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_CRM_Мойки</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборВидМашиноместа" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор вид машиноместа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.CRM_ВидыМашиноместВЦеху</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаСоответствияМастеровПриемщиков" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица соответствия мастеров приемщиков</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаСоответствияПостов" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица соответствия постов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаСвободногоВремениПредварительная" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица свободного времени предварительная</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаСвободногоВремени" id="39">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица свободного времени</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЖелаемоеВремяНачала" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Желаемое время начала</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЖелаемоеВремяПриемки" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Желаемое время приемки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидОбращения" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид обращения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_ВидыОбращенийВАвтосервис</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="МассивПостовПоОбращению" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Массив постов по обращению</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущееОбращение" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущее обращение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.Renault_CRM_ОбращениеВАвтоСервис</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровАктивностьПользователя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровПользователь</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровСотрудник</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровЗанятостьСотрудника</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровПричинаЗнаятостиСотрудника</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровПримерноеВремяОкончания</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">АктивностьМенеджеров.АктивностьПользователя</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#E7E7E7</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровАктивностьПользователя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровПользователь</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровСотрудник</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровЗанятостьСотрудника</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровПричинаЗнаятостиСотрудника</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>АктивностьМенеджеровПримерноеВремяОкончания</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">АктивностьМенеджеров.АктивностьПользователя</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">АктивностьМенеджеров.ЗанятостьСотрудника</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.CRM_ЗанятостьСотрудника.Свободен</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#BDC3CE</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="НажатиеКнМеню" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нажатие кн меню</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pressing the menu book</v8:content>
+				</v8:item>
+			</Title>
+			<Action>НажатиеКнМеню</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="НажатиеКнМенюСписка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нажатие меню списка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pressing the menu list</v8:content>
+				</v8:item>
+			</Title>
+			<Action>НажатиеКнМенюСписка</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПереключениеДиаграммы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переключение диаграммы</v8:content>
+				</v8:item>
+			</Title>
+			<Action>ПереключениеДиаграммы</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КнопкаПоказатьАрхив" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка показать архив</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка показать архив</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КнопкаПоказатьАрхив</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаОтображатьНеработающих" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отображать неработающих</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отображать неработающих</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтображатьНеработающих</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КнопкаПоказыватьВыделениеПоКлиентуНажатие" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка показывать выделение по клиенту нажатие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка показывать выделение по клиенту нажатие</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КнопкаПоказыватьВыделениеПоКлиентуНажатие</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВыделятьСебя" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделять себя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделять себя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыделятьСебя</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВыделитьНакладки" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кн выделить накладки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кн выделить накладки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнВыделитьНакладки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КнопкаНастройкиЦветов" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка настройки цветов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка настройки цветов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КнопкаНастройкиЦветов</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

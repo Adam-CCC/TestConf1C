@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Отправка заказов в Рено (DMS) </v8:content>
+		</v8:item>
+	</Title>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<ChildItems>
+		<Table name="Объект" id="1">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Объект</DataPath>
+			<RowPictureDataPath>Объект.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="ОбъектКонтекстноеМеню" id="2">
+				<Autofill>false</Autofill>
+			</ContextMenu>
+			<AutoCommandBar name="ОбъектКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ОбъектОткрытьДопРеквизиты" id="115">
+						<Type>CommandBarButton</Type>
+						<Check>true</Check>
+						<CommandName>Form.Command.ОткрытьДопРеквизиты</CommandName>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ОбъектОткрытьДопРеквизитыРасширеннаяПодсказка" id="116"/>
+					</Button>
+					<Button name="ОбъектОтправитьЗаказ" id="119">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОтправитьЗаказ</CommandName>
+						<ExtendedTooltip name="ОбъектОтправитьЗаказРасширеннаяПодсказка" id="120"/>
+					</Button>
+					<Button name="ОбъектПроверитьОстатки" id="121">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПроверитьОстатки</CommandName>
+						<ExtendedTooltip name="ОбъектПроверитьОстаткиРасширеннаяПодсказка" id="122"/>
+					</Button>
+					<Button name="ОбъектОбновить" id="123">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.Item.Объект.StandardCommand.Refresh</CommandName>
+						<LocationInCommandBar>InCommandBar</LocationInCommandBar>
+						<ExtendedTooltip name="ОбъектОбновитьРасширеннаяПодсказка" id="124"/>
+					</Button>
+					<SearchStringAddition name="Дополнение1" id="112">
+						<AdditionSource>
+							<Item>Объект</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+						<ContextMenu name="Дополнение1КонтекстноеМеню" id="113"/>
+						<ExtendedTooltip name="Дополнение1РасширеннаяПодсказка" id="114"/>
+					</SearchStringAddition>
+					<Button name="ОбъектНастройкаСписка" id="117">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.Объект.StandardCommand.ListSettings</CommandName>
+						<ExtendedTooltip name="ОбъектНастройкаСпискаРасширеннаяПодсказка" id="118"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ОбъектРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ОбъектСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Объект</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбъектСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ОбъектСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ОбъектСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Объект</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбъектСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ОбъектСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ОбъектУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Объект</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбъектУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ОбъектУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<ColumnGroup name="ГруппаДатаНомер" id="192">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дата номер</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дата номер</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДатаНомерРасширеннаяПодсказка" id="193"/>
+					<ChildItems>
+						<LabelField name="Дата" id="29">
+							<DataPath>Объект.Дата</DataPath>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="31"/>
+						</LabelField>
+						<LabelField name="Номер" id="59">
+							<DataPath>Объект.Номер</DataPath>
+							<ContextMenu name="НомерКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="61"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="СсылкаКонтрагент" id="194">
+					<DataPath>Объект.Ссылка.Контрагент</DataPath>
+					<ContextMenu name="СсылкаКонтрагентКонтекстноеМеню" id="195"/>
+					<ExtendedTooltip name="СсылкаКонтрагентРасширеннаяПодсказка" id="196"/>
+				</LabelField>
+				<LabelField name="ТипЗаказа" id="95">
+					<DataPath>Объект.ТипЗаказа</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип заказа</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ТипЗаказаКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="ТипЗаказаРасширеннаяПодсказка" id="97"/>
+				</LabelField>
+				<ColumnGroup name="ГруппаДатаНомерРено" id="197">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дата номер рено</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дата номер рено</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДатаНомерРеноРасширеннаяПодсказка" id="198"/>
+					<ChildItems>
+						<InputField name="ДатаЗаказаРено" id="98">
+							<DataPath>Объект.ДатаЗаказаРено</DataPath>
+							<ContextMenu name="ДатаЗаказаРеноКонтекстноеМеню" id="99"/>
+							<ExtendedTooltip name="ДатаЗаказаРеноРасширеннаяПодсказка" id="100"/>
+						</InputField>
+						<LabelField name="НомерЗаказаРено" id="101">
+							<DataPath>Объект.НомерЗаказаРено</DataPath>
+							<ContextMenu name="НомерЗаказаРеноКонтекстноеМеню" id="102"/>
+							<ExtendedTooltip name="НомерЗаказаРеноРасширеннаяПодсказка" id="103"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="СтатусЗаказа" id="104">
+					<DataPath>Объект.СтатусЗаказа</DataPath>
+					<ContextMenu name="СтатусЗаказаКонтекстноеМеню" id="105"/>
+					<ExtendedTooltip name="СтатусЗаказаРасширеннаяПодсказка" id="106"/>
+				</LabelField>
+				<LabelField name="ДатаОбновления" id="107">
+					<DataPath>Объект.ДатаОбновления</DataPath>
+					<ContextMenu name="ДатаОбновленияКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="ДатаОбновленияРасширеннаяПодсказка" id="109"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<Table name="СсылкаТовары" id="125">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<ReadOnly>true</ReadOnly>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Items.Объект.CurrentData.Ссылка.Товары</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СсылкаТоварыКонтекстноеМеню" id="126"/>
+			<AutoCommandBar name="СсылкаТоварыКоманднаяПанель" id="127"/>
+			<ExtendedTooltip name="СсылкаТоварыРасширеннаяПодсказка" id="128"/>
+			<SearchStringAddition name="СсылкаТоварыСтрокаПоиска" id="129">
+				<AdditionSource>
+					<Item>СсылкаТовары</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СсылкаТоварыСтрокаПоискаКонтекстноеМеню" id="130"/>
+				<ExtendedTooltip name="СсылкаТоварыСтрокаПоискаРасширеннаяПодсказка" id="131"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СсылкаТоварыСостояниеПросмотра" id="132">
+				<AdditionSource>
+					<Item>СсылкаТовары</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СсылкаТоварыСостояниеПросмотраКонтекстноеМеню" id="133"/>
+				<ExtendedTooltip name="СсылкаТоварыСостояниеПросмотраРасширеннаяПодсказка" id="134"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СсылкаТоварыУправлениеПоиском" id="135">
+				<AdditionSource>
+					<Item>СсылкаТовары</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СсылкаТоварыУправлениеПоискомКонтекстноеМеню" id="136"/>
+				<ExtendedTooltip name="СсылкаТоварыУправлениеПоискомРасширеннаяПодсказка" id="137"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="СсылкаТоварыНоменклатураАртикул" id="189">
+					<DataPath>Items.Объект.CurrentData.Ссылка.Товары.Номенклатура.Артикул</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СсылкаТоварыНоменклатураАртикулКонтекстноеМеню" id="190"/>
+					<ExtendedTooltip name="СсылкаТоварыНоменклатураАртикулРасширеннаяПодсказка" id="191"/>
+				</InputField>
+				<InputField name="СсылкаТоварыНоменклатура" id="159">
+					<DataPath>Items.Объект.CurrentData.Ссылка.Товары.Номенклатура</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СсылкаТоварыНоменклатураКонтекстноеМеню" id="160"/>
+					<ExtendedTooltip name="СсылкаТоварыНоменклатураРасширеннаяПодсказка" id="161"/>
+				</InputField>
+				<InputField name="СсылкаТоварыКоличество" id="153">
+					<DataPath>Items.Объект.CurrentData.Ссылка.Товары.Количество</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СсылкаТоварыКоличествоКонтекстноеМеню" id="154"/>
+					<ExtendedTooltip name="СсылкаТоварыКоличествоРасширеннаяПодсказка" id="155"/>
+				</InputField>
+				<InputField name="СсылкаТоварыЕдиницаИзмерения" id="147">
+					<DataPath>Items.Объект.CurrentData.Ссылка.Товары.ЕдиницаИзмерения</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СсылкаТоварыЕдиницаИзмеренияКонтекстноеМеню" id="148"/>
+					<ExtendedTooltip name="СсылкаТоварыЕдиницаИзмеренияРасширеннаяПодсказка" id="149"/>
+				</InputField>
+				<InputField name="СсылкаТоварыЦена" id="186">
+					<DataPath>Items.Объект.CurrentData.Ссылка.Товары.Цена</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СсылкаТоварыЦенаКонтекстноеМеню" id="187"/>
+					<ExtendedTooltip name="СсылкаТоварыЦенаРасширеннаяПодсказка" id="188"/>
+				</InputField>
+				<InputField name="СсылкаТоварыСтавкаНДС" id="171">
+					<DataPath>Items.Объект.CurrentData.Ссылка.Товары.СтавкаНДС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СсылкаТоварыСтавкаНДСКонтекстноеМеню" id="172"/>
+					<ExtendedTooltip name="СсылкаТоварыСтавкаНДСРасширеннаяПодсказка" id="173"/>
+				</InputField>
+				<InputField name="СсылкаТоварыСумма" id="174">
+					<DataPath>Items.Объект.CurrentData.Ссылка.Товары.Сумма</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СсылкаТоварыСуммаКонтекстноеМеню" id="175"/>
+					<ExtendedTooltip name="СсылкаТоварыСуммаРасширеннаяПодсказка" id="176"/>
+				</InputField>
+				<InputField name="СсылкаТоварыСуммаНДС" id="180">
+					<DataPath>Items.Объект.CurrentData.Ссылка.Товары.СуммаНДС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СсылкаТоварыСуммаНДСКонтекстноеМеню" id="181"/>
+					<ExtendedTooltip name="СсылкаТоварыСуммаНДСРасширеннаяПодсказка" id="182"/>
+				</InputField>
+				<InputField name="СсылкаТоварыСуммаВсего" id="177">
+					<DataPath>Items.Объект.CurrentData.Ссылка.Товары.СуммаВсего</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СсылкаТоварыСуммаВсегоКонтекстноеМеню" id="178"/>
+					<ExtendedTooltip name="СсылкаТоварыСуммаВсегоРасширеннаяПодсказка" id="179"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументЗаказПоставщику.Ссылка КАК Ссылка,
+	ДокументЗаказПоставщику.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументЗаказПоставщику.Номер КАК Номер,
+	ДокументЗаказПоставщику.Дата КАК Дата,
+	ДокументЗаказПоставщику.Проведен КАК Проведен,
+	ДокументЗаказПоставщику.Автор КАК Автор,
+	ДокументЗаказПоставщику.Организация КАК Организация,
+	ДокументЗаказПоставщику.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	ДокументЗаказПоставщику.Комментарий КАК Комментарий,
+	ДокументЗаказПоставщику.Контрагент КАК Контрагент,
+	ДокументЗаказПоставщику.ДоговорВзаиморасчетов КАК ДоговорВзаиморасчетов,
+	ДокументЗаказПоставщику.ВалютаДокумента КАК ВалютаДокумента,
+	ДокументЗаказПоставщику.КурсДокумента КАК КурсДокумента,
+	ДокументЗаказПоставщику.ТипЦен КАК ТипЦен,
+	ДокументЗаказПоставщику.СуммаДокумента КАК СуммаДокумента,
+	ДокументЗаказПоставщику.ХозОперация КАК ХозОперация,
+	ДокументЗаказПоставщику.ДокументОснование КАК ДокументОснование,
+	ДокументЗаказПоставщику.СрокПоставки КАК СрокПоставки,
+	ДокументЗаказПоставщику.КурсВалютыУпр КАК КурсВалютыУпр,
+	ДокументЗаказПоставщику.Проект КАК Проект,
+	ДокументЗаказПоставщику.ДатаСоздания КАК ДатаСоздания,
+	ДокументЗаказПоставщику.ДатаОперации КАК ДатаОперации,
+	ДокументЗаказПоставщику.УчитыватьКратность КАК УчитыватьКратность,
+	Renault_ДопРеквизитыЗаказаПоставщику.ПодменныйАвтомобиль КАК ПодменныйАвтомобиль,
+	Renault_ДопРеквизитыЗаказаПоставщику.Автомобиль КАК Автомобиль,
+	Renault_ДопРеквизитыЗаказаПоставщику.ДатаВыдачиПодменногоАвтомобиля КАК ДатаВыдачиПодменногоАвтомобиля,
+	Renault_ДопРеквизитыЗаказаПоставщику.Renault_VIN КАК Renault_VIN,
+	Renault_ДопРеквизитыЗаказаПоставщику.ВыданПодменныйАвтомобиль КАК ВыданПодменныйАвтомобиль,
+	Renault_ДопРеквизитыЗаказаПоставщику.ТипЗаказа КАК ТипЗаказа,
+	Renault_ДопРеквизитыЗаказаПоставщику.ОтправлятьВRenault КАК ОтправлятьВRenault,
+	Renault_ДопРеквизитыЗаказаПоставщику.ТипЗаказаSappr КАК ТипЗаказаSappr,
+	Renault_ДопРеквизитыЗаказаПоставщику.ДатаЗаказаРено КАК ДатаЗаказаРено,
+	Renault_ДопРеквизитыЗаказаПоставщику.НомерЗаказаРено КАК НомерЗаказаРено,
+	Renault_ДопРеквизитыЗаказаПоставщику.СтатусЗаказа КАК СтатусЗаказа,
+	Renault_ДопРеквизитыЗаказаПоставщику.ДатаОбновления КАК ДатаОбновления
+ИЗ
+	Документ.ЗаказПоставщику КАК ДокументЗаказПоставщику
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ДопРеквизитыЗаказаПоставщику КАК Renault_ДопРеквизитыЗаказаПоставщику
+		ПО (Renault_ДопРеквизитыЗаказаПоставщику.ЗаказПоставщику = ДокументЗаказПоставщику.Ссылка)</QueryText>
+				<MainTable>Document.ЗаказПоставщику</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьДопРеквизиты" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть доп реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть доп реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьДопРеквизиты</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">Объект</AssociatedTableElementId>
+		</Command>
+		<Command name="ОтправитьЗаказ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить заказ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить заказ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьЗаказ</Action>
+		</Command>
+		<Command name="ПроверитьОстатки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить остатки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить остатки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПроверитьОстатки</Action>
+		</Command>
+	</Commands>
+</Form>

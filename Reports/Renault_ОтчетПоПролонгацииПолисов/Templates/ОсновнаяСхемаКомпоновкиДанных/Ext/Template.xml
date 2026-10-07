@@ -1,0 +1,769 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АналитикаОтказа</dataPath>
+			<field>АналитикаОтказа</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСтрахования</dataPath>
+			<field>ВидСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаЗвонкаПлановая</dataPath>
+			<field>ДатаЗвонкаПлановая</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончанияСрокаДействия</dataPath>
+			<field>ДатаОкончанияСрокаДействия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КомментарийОтказа</dataPath>
+			<field>КомментарийОтказа</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НовыйПолис</dataPath>
+			<field>НовыйПолис</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерБСО</dataPath>
+			<field>НомерБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Результат</dataPath>
+			<field>Результат</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сделка</dataPath>
+			<field>Сделка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияБСО</dataPath>
+			<field>СерияБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяКомпания</dataPath>
+			<field>СтраховаяКомпания</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховойПолис</dataPath>
+			<field>СтраховойПолис</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТелефонКонтрагента</dataPath>
+			<field>ТелефонКонтрагента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Агент</dataPath>
+			<field>Агент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяКомпанияПоНовомуПолису</dataPath>
+			<field>СтраховаяКомпанияПоНовомуПолису</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяСумма</dataPath>
+			<field>СтраховаяСумма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаПродаж</dataPath>
+			<field>ТочкаПродаж</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорВзаиморасчетов</dataPath>
+			<field>ДоговорВзаиморасчетов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Представление</dataPath>
+			<field>Представление</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_ПролонгацияПолисовСрезПоследних.Период КАК Период,
+	Renault_ПролонгацияПолисовСрезПоследних.Регистратор КАК Регистратор,
+	Renault_ПролонгацияПолисовСрезПоследних.НомерСтроки КАК НомерСтроки,
+	Renault_ПролонгацияПолисовСрезПоследних.Активность КАК Активность,
+	Renault_ПролонгацияПолисовСрезПоследних.Контрагент КАК Контрагент,
+	Renault_ПролонгацияПолисовСрезПоследних.СтраховойПолис КАК СтраховойПолис,
+	Renault_ПролонгацияПолисовСрезПоследних.Результат КАК Результат,
+	Renault_ПролонгацияПолисовСрезПоследних.АналитикаОтказа КАК АналитикаОтказа,
+	Renault_ПролонгацияПолисовСрезПоследних.КомментарийОтказа КАК КомментарийОтказа,
+	Renault_ПролонгацияПолисовСрезПоследних.ДатаЗвонкаПлановая КАК ДатаЗвонкаПлановая,
+	Renault_ПролонгацияПолисовСрезПоследних.Комментарий КАК Комментарий,
+	Renault_ПролонгацияПолисовСрезПоследних.Пользователь КАК Менеджер,
+	Renault_ПролонгацияПолисовСрезПоследних.НовыйПолис КАК НовыйПолис,
+	Renault_ПролонгацияПолисовСрезПоследних.ТочкаПродаж КАК ТочкаПродаж,
+	Renault_ПролонгацияПолисовСрезПоследних.ВидСтрахования КАК ВидСтрахования,
+	Renault_ПролонгацияПолисовСрезПоследних.СтраховаяКомпания КАК СтраховаяКомпания,
+	Renault_ПролонгацияПолисовСрезПоследних.СерияБСО КАК СерияБСО,
+	Renault_ПролонгацияПолисовСрезПоследних.НомерБСО КАК НомерБСО,
+	Renault_ПролонгацияПолисовСрезПоследних.Автомобиль КАК Автомобиль,
+	Renault_ПролонгацияПолисовСрезПоследних.ДатаОкончанияСрокаДействия КАК ДатаОкончанияСрокаДействия
+ПОМЕСТИТЬ ВТ_ПолнаяИсторияЗвонков
+ИЗ
+	РегистрСведений.Renault_ПролонгацияПолисов.СрезПоследних КАК Renault_ПролонгацияПолисовСрезПоследних
+ГДЕ
+	Renault_ПролонгацияПолисовСрезПоследних.КаналВхода = &amp;КаналВхода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Renault_СтраховойПолис.Ссылка КАК Ссылка,
+	ЕСТЬNULL(Renault_СтраховойПолисЗамена.Ссылка, ЗНАЧЕНИЕ(Документ.Renault_СтраховойПолис.ПустаяСсылка)) КАК НовыйПолис,
+	Renault_СтраховойПолис.ЗаменяемыйПолис КАК ЗаменяемыйПолис,
+	Renault_СтраховойПолис.СтраховаяКомпания КАК СтраховаяКомпания,
+	Renault_СтраховойПолис.Контрагент КАК Контрагент,
+	Renault_СтраховойПолис.Автомобиль КАК Автомобиль,
+	Renault_СтраховойПолис.ДатаНачалаСтрахования КАК ДатаНачалаСтрахования,
+	Renault_СтраховойПолис.ДатаОкончанияСтрахования КАК ДатаОкончанияСтрахования,
+	Renault_СтраховойПолис.СерияБСО КАК СерияБСО,
+	Renault_СтраховойПолис.НомерБСО КАК НомерБСО,
+	Renault_СтраховойПолис.ВидСтрахования КАК ВидСтрахования,
+	Renault_СтраховойПолис.ЗаказПокупателя КАК ЗаказПокупателя,
+	Renault_СтраховойПолис.ЗаказПокупателя.ДоговорВзаиморасчетов КАК ДоговорКонтрагента,
+	Renault_СтраховойПолис.ОплатаСК КАК ОплатаСК,
+	Renault_СтраховойПолис.ОплатаЧерезБанк КАК ОплатаЧерезБанк,
+	Renault_СтраховойПолис.ЗаменаБезДоплаты КАК ЗаменаБезДоплаты,
+	Renault_СтраховойПолис.ЗаменяемыйПолис.Контрагент КАК ЗаменяемыйПолисКонтрагент,
+	Renault_СтраховойПолис.ЗаменяемыйПолис.ЗаказПокупателя.ДоговорВзаиморасчетов КАК ЗаменяемыйПолисДоговорКонтрагента,
+	Renault_СтраховойПолис.ЗаменяемыйПолис.ЗаказПокупателя КАК ЗаменяемыйПолисЗаказПокупателя,
+	Renault_СтраховойПолис.Агент КАК Менеджер,
+	Renault_СтраховойПолис.ТочкаПродаж КАК ТочкаПродаж
+ПОМЕСТИТЬ ВТ_ПолисыПоСрокуСтрахования
+ИЗ
+	Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолис
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолисЗамена
+		ПО Renault_СтраховойПолис.Ссылка = Renault_СтраховойПолисЗамена.ЗаменяемыйПолис
+ГДЕ
+	НЕ Renault_СтраховойПолис.ПометкаУдаления
+	И Renault_СтраховойПолис.Проведен
+	И Renault_СтраховойПолис.ДатаОкончанияСтрахования &lt;= &amp;ДатаОкончания
+	И Renault_СтраховойПолис.ДатаОкончанияСтрахования &gt;= &amp;ДатаНачала
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПолисыПоСрокуСтрахования.Ссылка КАК СтраховойПолис,
+	ВТ_ПолисыПоСрокуСтрахования.ЗаменяемыйПолис КАК ЗаменяемыйПолис,
+	ВТ_ПолисыПоСрокуСтрахования.СтраховаяКомпания КАК СтраховаяКомпания,
+	ВТ_ПолисыПоСрокуСтрахования.Контрагент КАК Контрагент,
+	ВТ_ПолисыПоСрокуСтрахования.Автомобиль КАК Автомобиль,
+	ВТ_ПолисыПоСрокуСтрахования.ДатаНачалаСтрахования КАК ДатаНачалаСтрахования,
+	ВТ_ПолисыПоСрокуСтрахования.ДатаОкончанияСтрахования КАК ДатаОкончанияСрокаДействия,
+	ВТ_ПолисыПоСрокуСтрахования.СерияБСО КАК СерияБСО,
+	ВТ_ПолисыПоСрокуСтрахования.НомерБСО КАК НомерБСО,
+	ВТ_ПолисыПоСрокуСтрахования.ВидСтрахования КАК ВидСтрахования,
+	ВТ_ПолисыПоСрокуСтрахования.ЗаказПокупателя КАК ЗаказПокупателя,
+	ВТ_ПолисыПоСрокуСтрахования.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	ВТ_ПолисыПоСрокуСтрахования.ОплатаСК КАК ОплатаСК,
+	ВТ_ПолисыПоСрокуСтрахования.ОплатаЧерезБанк КАК ОплатаЧерезБанк,
+	ВТ_ПолисыПоСрокуСтрахования.ЗаменаБезДоплаты КАК ЗаменаБезДоплаты,
+	ВТ_ПолисыПоСрокуСтрахования.ЗаменяемыйПолисКонтрагент КАК ЗаменяемыйПолисКонтрагент,
+	ВТ_ПолисыПоСрокуСтрахования.ЗаменяемыйПолисДоговорКонтрагента КАК ЗаменяемыйПолисДоговорКонтрагента,
+	ВТ_ПолисыПоСрокуСтрахования.ЗаменяемыйПолисЗаказПокупателя КАК ЗаменяемыйПолисЗаказПокупателя,
+	ВТ_ПолисыПоСрокуСтрахования.Менеджер КАК Менеджер,
+	ВТ_ПолисыПоСрокуСтрахования.ТочкаПродаж КАК ТочкаПродаж
+ПОМЕСТИТЬ ВТ_Полисы
+ИЗ
+	ВТ_ПолисыПоСрокуСтрахования КАК ВТ_ПолисыПоСрокуСтрахования
+ГДЕ
+	ВТ_ПолисыПоСрокуСтрахования.НовыйПолис = ЗНАЧЕНИЕ(Документ.Renault_СтраховойПолис.ПустаяСсылка)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВзаиморасчетыСКонтрагентамиОбороты.Контрагент КАК Контрагент,
+	ВзаиморасчетыСКонтрагентамиОбороты.ДоговорВзаиморасчетов КАК ДоговорКонтрагента,
+	ВзаиморасчетыСКонтрагентамиОбороты.Сделка КАК Сделка
+ПОМЕСТИТЬ ВТ_Оплаты
+ИЗ
+	РегистрНакопления.ВзаиморасчетыКомпании.Обороты(
+			,
+			,
+			Регистратор,
+			(Контрагент, ДоговорВзаиморасчетов, Сделка) В
+				(ВЫБРАТЬ
+					ВТ_ПолисыПоСрокуСтрахования.Контрагент КАК Контрагент,
+					ВТ_ПолисыПоСрокуСтрахования.ДоговорКонтрагента,
+					ВТ_ПолисыПоСрокуСтрахования.ЗаказПокупателя
+				ИЗ
+					ВТ_ПолисыПоСрокуСтрахования КАК ВТ_ПолисыПоСрокуСтрахования)) КАК ВзаиморасчетыСКонтрагентамиОбороты
+ГДЕ
+	ВзаиморасчетыСКонтрагентамиОбороты.СуммаРасход &gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_полисы.СтраховойПолис КАК СтраховойПолис,
+	ВТ_полисы.СтраховаяКомпания КАК СтраховаяКомпания,
+	ВТ_полисы.Контрагент КАК Контрагент,
+	ВТ_полисы.Автомобиль КАК Автомобиль,
+	ВТ_полисы.ДатаНачалаСтрахования КАК ДатаНачалаСтрахования,
+	ВТ_полисы.ДатаОкончанияСрокаДействия КАК ДатаОкончанияСрокаДействия,
+	ВТ_полисы.СерияБСО КАК СерияБСО,
+	ВТ_полисы.НомерБСО КАК НомерБСО,
+	ВТ_полисы.ВидСтрахования КАК ВидСтрахования,
+	ВТ_полисы.ОплатаСК КАК ОплатаСК,
+	ВТ_полисы.ОплатаЧерезБанк КАК ОплатаЧерезБанк,
+	ВТ_полисы.ЗаменяемыйПолис КАК ЗаменяемыйПолис,
+	ВТ_полисы.Менеджер КАК Менеджер,
+	ВТ_полисы.ТочкаПродаж КАК ТочкаПродаж
+ПОМЕСТИТЬ ВТ_ПолисыКПролонгации
+ИЗ
+	ВТ_Полисы КАК ВТ_полисы
+ГДЕ
+	(ВТ_полисы.ОплатаЧерезБанк
+			ИЛИ ВТ_полисы.ОплатаСК)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_полисы.СтраховойПолис,
+	ВТ_полисы.СтраховаяКомпания,
+	ВТ_полисы.Контрагент,
+	ВТ_полисы.Автомобиль,
+	ВТ_полисы.ДатаНачалаСтрахования,
+	ВТ_полисы.ДатаОкончанияСрокаДействия,
+	ВТ_полисы.СерияБСО,
+	ВТ_полисы.НомерБСО,
+	ВТ_полисы.ВидСтрахования,
+	ВТ_полисы.ОплатаСК,
+	ВТ_полисы.ОплатаЧерезБанк,
+	ВТ_полисы.ЗаменяемыйПолис,
+	ВТ_полисы.Менеджер,
+	ВТ_полисы.ТочкаПродаж
+ИЗ
+	ВТ_Полисы КАК ВТ_полисы
+ГДЕ
+	НЕ ВТ_полисы.ОплатаСК
+	И НЕ ВТ_полисы.ОплатаЧерезБанк
+	И (ВТ_полисы.Контрагент, ВТ_полисы.ДоговорКонтрагента, ВТ_полисы.ЗаказПокупателя) В
+			(ВЫБРАТЬ
+				ВТ_Оплаты.Контрагент,
+				ВТ_Оплаты.ДоговорКонтрагента,
+				ВТ_Оплаты.Сделка
+			ИЗ
+				ВТ_Оплаты КАК ВТ_Оплаты)
+	И ВТ_полисы.ЗаменяемыйПолис = ЗНАЧЕНИЕ(Документ.Renault_СтраховойПолис.ПустаяСсылка)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_полисы.СтраховойПолис,
+	ВТ_полисы.СтраховаяКомпания,
+	ВТ_полисы.Контрагент,
+	ВТ_полисы.Автомобиль,
+	ВТ_полисы.ДатаНачалаСтрахования,
+	ВТ_полисы.ДатаОкончанияСрокаДействия,
+	ВТ_полисы.СерияБСО,
+	ВТ_полисы.НомерБСО,
+	ВТ_полисы.ВидСтрахования,
+	ВТ_полисы.ОплатаСК,
+	ВТ_полисы.ОплатаЧерезБанк,
+	ВТ_полисы.ЗаменяемыйПолис,
+	ВТ_полисы.Менеджер,
+	ВТ_полисы.ТочкаПродаж
+ИЗ
+	ВТ_Полисы КАК ВТ_полисы
+ГДЕ
+	НЕ ВТ_полисы.ОплатаСК
+	И НЕ ВТ_полисы.ОплатаЧерезБанк
+	И (ВТ_полисы.Контрагент, ВТ_полисы.ДоговорКонтрагента, ВТ_полисы.ЗаказПокупателя) В
+			(ВЫБРАТЬ
+				ВТ_Оплаты.Контрагент,
+				ВТ_Оплаты.ДоговорКонтрагента,
+				ВТ_Оплаты.Сделка
+			ИЗ
+				ВТ_Оплаты КАК ВТ_Оплаты)
+	И НЕ ВТ_полисы.ЗаменяемыйПолис = ЗНАЧЕНИЕ(Документ.Renault_СтраховойПолис.ПустаяСсылка)
+	И НЕ ВТ_полисы.ЗаменаБезДоплаты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_полисы.СтраховойПолис,
+	ВТ_полисы.СтраховаяКомпания,
+	ВТ_полисы.Контрагент,
+	ВТ_полисы.Автомобиль,
+	ВТ_полисы.ДатаНачалаСтрахования,
+	ВТ_полисы.ДатаОкончанияСрокаДействия,
+	ВТ_полисы.СерияБСО,
+	ВТ_полисы.НомерБСО,
+	ВТ_полисы.ВидСтрахования,
+	ВТ_полисы.ОплатаСК,
+	ВТ_полисы.ОплатаЧерезБанк,
+	ВТ_полисы.ЗаменяемыйПолис,
+	ВТ_полисы.Менеджер,
+	ВТ_полисы.ТочкаПродаж
+ИЗ
+	ВТ_Полисы КАК ВТ_полисы
+ГДЕ
+	НЕ ВТ_полисы.ОплатаСК
+	И НЕ ВТ_полисы.ОплатаЧерезБанк
+	И (ВТ_полисы.ЗаменяемыйПолисКонтрагент, ВТ_полисы.ЗаменяемыйПолисДоговорКонтрагента, ВТ_полисы.ЗаменяемыйПолисЗаказПокупателя) В
+			(ВЫБРАТЬ
+				ВТ_Оплаты.Контрагент,
+				ВТ_Оплаты.ДоговорКонтрагента,
+				ВТ_Оплаты.Сделка
+			ИЗ
+				ВТ_Оплаты КАК ВТ_Оплаты)
+	И НЕ ВТ_полисы.ЗаменяемыйПолис = ЗНАЧЕНИЕ(Документ.Renault_СтраховойПолис.ПустаяСсылка)
+	И ВТ_полисы.ЗаменаБезДоплаты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПолнаяИсторияЗвонков.Контрагент КАК Контрагент,
+	ВТ_ПолнаяИсторияЗвонков.СтраховойПолис КАК СтраховойПолис,
+	ВТ_ПолнаяИсторияЗвонков.ВидСтрахования КАК ВидСтрахования,
+	ВТ_ПолнаяИсторияЗвонков.СерияБСО КАК СерияБСО,
+	ВТ_ПолнаяИсторияЗвонков.НомерБСО КАК НомерБСО,
+	ВТ_ПолнаяИсторияЗвонков.СтраховаяКомпания КАК СтраховаяКомпания,
+	ВТ_ПолнаяИсторияЗвонков.Автомобиль КАК Автомобиль,
+	ВТ_ПолнаяИсторияЗвонков.ДатаОкончанияСрокаДействия КАК ДатаОкончанияСрокаДействия,
+	ВТ_ПолнаяИсторияЗвонков.Результат КАК Результат,
+	ВТ_ПолнаяИсторияЗвонков.АналитикаОтказа КАК АналитикаОтказа,
+	ВТ_ПолнаяИсторияЗвонков.КомментарийОтказа КАК КомментарийОтказа,
+	ВТ_ПолнаяИсторияЗвонков.ДатаЗвонкаПлановая КАК ДатаЗвонкаПлановая,
+	ВТ_ПолнаяИсторияЗвонков.Комментарий КАК Комментарий,
+	ВТ_ПолнаяИсторияЗвонков.НовыйПолис КАК НовыйПолис,
+	ВТ_ПолнаяИсторияЗвонков.Менеджер КАК Менеджер,
+	ВТ_ПолнаяИсторияЗвонков.ТочкаПродаж КАК ТочкаПродаж
+ПОМЕСТИТЬ ВТ_Итоговая
+ИЗ
+	ВТ_ПолнаяИсторияЗвонков КАК ВТ_ПолнаяИсторияЗвонков
+ГДЕ
+	ВТ_ПолнаяИсторияЗвонков.СтраховойПолис В
+			(ВЫБРАТЬ
+				ВТ_ПолисыКПролонгации.СтраховойПолис
+			ИЗ
+				ВТ_ПолисыКПролонгации КАК ВТ_ПолисыКПролонгации)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_ПолисыКПролонгации.Контрагент,
+	ВТ_ПолисыКПролонгации.СтраховойПолис,
+	ВТ_ПолисыКПролонгации.ВидСтрахования,
+	ВТ_ПолисыКПролонгации.СерияБСО,
+	ВТ_ПолисыКПролонгации.НомерБСО,
+	ВТ_ПолисыКПролонгации.СтраховаяКомпания,
+	ВТ_ПолисыКПролонгации.Автомобиль,
+	ВТ_ПолисыКПролонгации.ДатаОкончанияСрокаДействия,
+	NULL,
+	NULL,
+	NULL,
+	ДОБАВИТЬКДАТЕ(ВТ_ПолисыКПролонгации.ДатаОкончанияСрокаДействия, ДЕНЬ, -1 * &amp;КоличествоДнейДляОбзвонаПролонгации),
+	NULL,
+	NULL,
+	ВТ_ПолисыКПролонгации.Менеджер,
+	ВТ_ПолисыКПролонгации.ТочкаПродаж
+ИЗ
+	ВТ_ПолисыКПролонгации КАК ВТ_ПолисыКПролонгации
+ГДЕ
+	НЕ ВТ_ПолисыКПролонгации.СтраховойПолис В
+				(ВЫБРАТЬ
+					ВТ_ПолнаяИсторияЗвонков.СтраховойПолис
+				ИЗ
+					ВТ_ПолнаяИсторияЗвонков КАК ВТ_ПолнаяИсторияЗвонков)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Renault_ПраваИНастройкиПользователейДоступныеРоли.Ссылка КАК Ссылка
+ПОМЕСТИТЬ ВтПравоПросмотра
+ИЗ
+	РегистрСведений.Renault_ПользователиИШаблоныПравИНастроек КАК Renault_ПользователиИШаблоныПравИНастроек
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Renault_ПраваИНастройкиПользователей.ДоступныеРоли КАК Renault_ПраваИНастройкиПользователейДоступныеРоли
+		ПО Renault_ПользователиИШаблоныПравИНастроек.ПраваИНастройки = Renault_ПраваИНастройкиПользователейДоступныеРоли.Ссылка
+			И (Renault_ПраваИНастройкиПользователейДоступныеРоли.Имя = &amp;РуководительОкис)
+			И (Renault_ПользователиИШаблоныПравИНастроек.Пользователь = &amp;Пользователь)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Итоговая.Контрагент КАК Контрагент,
+	ВТ_Итоговая.СтраховойПолис КАК СтраховойПолис,
+	ВТ_Итоговая.ВидСтрахования КАК ВидСтрахования,
+	ВТ_Итоговая.СерияБСО КАК СерияБСО,
+	ВТ_Итоговая.НомерБСО КАК НомерБСО,
+	ВТ_Итоговая.СтраховаяКомпания КАК СтраховаяКомпания,
+	ВТ_Итоговая.Автомобиль КАК Автомобиль,
+	ВТ_Итоговая.ДатаОкончанияСрокаДействия КАК ДатаОкончанияСрокаДействия,
+	ВТ_Итоговая.Результат КАК Результат,
+	ВТ_Итоговая.АналитикаОтказа КАК АналитикаОтказа,
+	ВТ_Итоговая.КомментарийОтказа КАК КомментарийОтказа,
+	ВТ_Итоговая.ДатаЗвонкаПлановая КАК ДатаЗвонкаПлановая,
+	ВТ_Итоговая.Комментарий КАК Комментарий,
+	ВТ_Итоговая.НовыйПолис КАК НовыйПолис,
+	ВЫБОР
+		КОГДА ВтПравоПросмотра.Ссылка ЕСТЬ NULL
+			ТОГДА ""
+		ИНАЧЕ ВложенныйЗапрос.Представление
+	КОНЕЦ КАК ТелефонКонтрагента,
+	ВТ_Итоговая.Менеджер КАК Агент,
+	ВТ_Итоговая.СтраховойПолис.СуммаДокумента КАК СуммаДокумента,
+	ВТ_Итоговая.СтраховойПолис.СтраховаяСумма КАК СтраховаяСумма,
+	1 КАК Количество,
+	ВТ_Итоговая.НовыйПолис.СтраховаяКомпания КАК СтраховаяКомпанияПоНовомуПолису,
+	ВТ_Итоговая.ТочкаПродаж КАК ТочкаПродаж
+ИЗ
+	ВТ_Итоговая КАК ВТ_Итоговая
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			КонтактнаяИнформация.Объект КАК Объект,
+			КонтактнаяИнформация.Представление КАК Представление
+		ИЗ
+			РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+		ГДЕ
+			КонтактнаяИнформация.Тип = &amp;ТипКИ
+			И КонтактнаяИнформация.Объект В
+					(ВЫБРАТЬ РАЗЛИЧНЫЕ
+						ВТ_Итоговая.Контрагент
+					ИЗ
+						ВТ_Итоговая КАК ВТ_Итоговая)) КАК ВложенныйЗапрос
+		ПО ВТ_Итоговая.Контрагент = ВложенныйЗапрос.Объект
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВтПравоПросмотра КАК ВтПравоПросмотра
+		ПО (ИСТИНА)</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КаналВхода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Канал входа</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.Renault_КаналВхода_Страховка</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.Renault_КаналВхода_Страховка.Пролонгация</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТипКИ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип КИ</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ТипыКонтактнойИнформации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыКонтактнойИнформации.Телефон</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КоличествоДнейДляОбзвонаПролонгации</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Количество дней для обзвона пролонгации</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Пользователь</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пользователь</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Пользователи</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Renault_ОбщегоНазначения.ТекущийПользователь()</expression>
+	</parameter>
+	<parameter>
+		<name>РуководительОкис</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Руководитель окис</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.DMS_ДоступныеРоли</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.DMS_ДоступныеРоли.РуководительОКИС</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочкаПродаж</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяКомпания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховойПолис</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СерияБСО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерБСО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОкончанияСрокаДействия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НовыйПолис</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяКомпанияПоНовомуПолису</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Результат</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Комментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АналитикаОтказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КомментарийОтказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяСумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидСтрахования</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.DMS_ВидыФинансовыхУслуг.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>53aac619-0542-40ef-baca-49017731fe55</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СтраховаяКомпания</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>47dcf0a5-58a8-4a0b-85be-c773fa9828e8</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Результат</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>aa938d5a-2f3a-43ee-b439-d5fb4aea0961</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>d8ef7aee-3733-4d7f-9e43-7a6986ee8eae</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ТипКИ</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ТочкаПродаж</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>СтраховаяКомпания</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ВидСтрахования</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

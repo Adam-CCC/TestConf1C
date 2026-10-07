@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Клиент</dataPath>
+			<field>Клиент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаДокументаОбзвона</dataPath>
+			<field>ДатаДокументаОбзвона</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата документа обзвона</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Исполнитель</dataPath>
+			<field>Исполнитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерДокументаОбзвона</dataPath>
+			<field>НомерДокументаОбзвона</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер документа обзвона</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Результат</dataPath>
+			<field>Результат</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Шаг</dataPath>
+			<field>Шаг</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_CommunicationCenter_Обзвон.Клиент,
+	Renault_CommunicationCenter_Обзвон.Исполнитель,
+	Renault_CommunicationCenter_Обзвон.Номер КАК НомерДокументаОбзвона,
+	Renault_CommunicationCenter_Обзвон.Дата КАК ДатаДокументаОбзвона,
+	МАКСИМУМ(Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.НомерСтроки) КАК НомерСтроки,
+	Renault_CommunicationCenter_Обзвон.Ссылка,
+	Renault_CommunicationCenter_ОбзвонПройденныеШаги.Шаг,
+	Renault_CommunicationCenter_ОбзвонПройденныеШаги.КомментарийШага КАК Комментарий
+ПОМЕСТИТЬ ВТОбзвон
+ИЗ
+	Документ.Renault_CommunicationCenter_Обзвон.ПройденныеШаги КАК Renault_CommunicationCenter_ОбзвонПройденныеШаги
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Renault_CommunicationCenter_Обзвон КАК Renault_CommunicationCenter_Обзвон
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CommunicationCenter_Обзвон.РезультатКоммуникации КАК Renault_CommunicationCenter_ОбзвонРезультатКоммуникации
+			ПО Renault_CommunicationCenter_Обзвон.Ссылка = Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.Ссылка
+				И (Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.Результат.ТипРезультата &lt;&gt; &amp;ОкончаниеЗвонка)
+		ПО Renault_CommunicationCenter_ОбзвонПройденныеШаги.Ссылка = Renault_CommunicationCenter_Обзвон.Ссылка
+ГДЕ
+	НЕ Renault_CommunicationCenter_Обзвон.Недозвон
+	И Renault_CommunicationCenter_Обзвон.Проведен
+	И Renault_CommunicationCenter_ОбзвонПройденныеШаги.Шаг = &amp;Шаг
+
+СГРУППИРОВАТЬ ПО
+	Renault_CommunicationCenter_Обзвон.Клиент,
+	Renault_CommunicationCenter_Обзвон.Исполнитель,
+	Renault_CommunicationCenter_Обзвон.Номер,
+	Renault_CommunicationCenter_Обзвон.Дата,
+	Renault_CommunicationCenter_Обзвон.Ссылка,
+	Renault_CommunicationCenter_ОбзвонПройденныеШаги.Шаг,
+	Renault_CommunicationCenter_ОбзвонПройденныеШаги.КомментарийШага
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	1 КАК Количество,
+	Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.Документ,
+	Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.Результат,
+	ВТОбзвон.Клиент КАК Клиент,
+	ВТОбзвон.Исполнитель,
+	ВТОбзвон.НомерДокументаОбзвона,
+	ВТОбзвон.ДатаДокументаОбзвона,
+	ВТОбзвон.Шаг,
+	ВТОбзвон.Комментарий
+ИЗ
+	ВТОбзвон КАК ВТОбзвон
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CommunicationCenter_Обзвон.РезультатКоммуникации КАК Renault_CommunicationCenter_ОбзвонРезультатКоммуникации
+		ПО ВТОбзвон.Ссылка = Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.Ссылка
+			И ВТОбзвон.НомерСтроки = Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.НомерСтроки
+
+УПОРЯДОЧИТЬ ПО
+	Клиент</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<parameter>
+		<name>ОкончаниеЗвонка</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Окончание звонка</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.Renault_ДействияРезультатов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.Renault_ДействияРезультатов.ОкончаниеЗвонка</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Шаг</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Шаг</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Renault_CommunicationCenter_ШагиСхемОбзвона</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Исполнитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Клиент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаДокументаОбзвона</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерДокументаОбзвона</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Результат</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Документ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Комментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Шаг</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ОкончаниеЗвонка</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.Renault_CommunicationCenter_ШагиСхемОбзвона.ПустаяСсылка</dcscor:value>
+					<dcsset:userSettingID>312f31c2-18e8-4069-8a7b-08e6f0f467cb</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Шаг</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>c3d57d79-d5ac-4642-8d72-759ae9e41f7e</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Исполнитель</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Клиент" id="1">
+			<DataPath>Клиент</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<OpenButton>true</OpenButton>
+			<ContextMenu name="КлиентКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="Подробно" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подробно</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>detail</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подробно</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>detail</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ПодробноРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<Table name="ВсеЗвонки" id="6">
+					<Representation>List</Representation>
+					<ReadOnly>true</ReadOnly>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ВсеЗвонки</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ВсеЗвонкиКонтекстноеМеню" id="7"/>
+					<AutoCommandBar name="ВсеЗвонкиКоманднаяПанель" id="8">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ВсеЗвонкиРасширеннаяПодсказка" id="9"/>
+					<SearchStringAddition name="ВсеЗвонкиСтрокаПоиска" id="10">
+						<AdditionSource>
+							<Item>ВсеЗвонки</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВсеЗвонкиСтрокаПоискаКонтекстноеМеню" id="13"/>
+						<ExtendedTooltip name="ВсеЗвонкиСтрокаПоискаРасширеннаяПодсказка" id="14"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ВсеЗвонкиСостояниеПросмотра" id="15">
+						<AdditionSource>
+							<Item>ВсеЗвонки</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВсеЗвонкиСостояниеПросмотраКонтекстноеМеню" id="18"/>
+						<ExtendedTooltip name="ВсеЗвонкиСостояниеПросмотраРасширеннаяПодсказка" id="19"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ВсеЗвонкиУправлениеПоиском" id="20">
+						<AdditionSource>
+							<Item>ВсеЗвонки</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ВсеЗвонкиУправлениеПоискомКонтекстноеМеню" id="23"/>
+						<ExtendedTooltip name="ВсеЗвонкиУправлениеПоискомРасширеннаяПодсказка" id="24"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<InputField name="ВсеЗвонкиКонтакт" id="25">
+							<DataPath>ВсеЗвонки.Контакт</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<OpenButton>true</OpenButton>
+							<ContextMenu name="ВсеЗвонкиКонтактКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="ВсеЗвонкиКонтактРасширеннаяПодсказка" id="27"/>
+						</InputField>
+						<InputField name="ВсеЗвонкиПлановаяДатаКонтакта" id="28">
+							<DataPath>ВсеЗвонки.ПлановаяДатаКонтакта</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВсеЗвонкиПлановаяДатаКонтактаКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ВсеЗвонкиПлановаяДатаКонтактаРасширеннаяПодсказка" id="30"/>
+						</InputField>
+						<CheckBoxField name="ВсеЗвонкиКонтактВыполнен" id="31">
+							<DataPath>ВсеЗвонки.КонтактВыполнен</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ВсеЗвонкиКонтактВыполненКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ВсеЗвонкиКонтактВыполненРасширеннаяПодсказка" id="33"/>
+						</CheckBoxField>
+						<InputField name="ВсеЗвонкиКампания" id="34">
+							<DataPath>ВсеЗвонки.Кампания</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВсеЗвонкиКампанияКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="ВсеЗвонкиКампанияРасширеннаяПодсказка" id="36"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Клиент" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Client</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type>cfg:CatalogRef.CRM_ПотенциальныеКонтрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НачинаяСДаты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начиная с даты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Starting from the date</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВсеЗвонки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все звонки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>All calls</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Контакт" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контакт</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Contact</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.Renault_CommunicationCenter_Обзвон</v8:Type>
+						<v8:Type>cfg:DocumentRef.Renault_КонтактСКлиентом</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПлановаяДатаКонтакта" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Плановая дата контакта</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Planned date of contact</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="КонтактВыполнен" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контакт выполнен</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Contact is made</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Кампания" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кампания</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Campaign</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Renault_CommunicationCenter_СхемыОбзвона</v8:Type>
+						<v8:Type>cfg:CatalogRef.Renault_Кампании</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+</Form>

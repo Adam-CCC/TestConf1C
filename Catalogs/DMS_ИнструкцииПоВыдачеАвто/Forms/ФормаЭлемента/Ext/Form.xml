@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаПечать" id="38">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.Печать</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Print</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаПечатьРасширеннаяПодсказка" id="39"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<ChildItems>
+		<InputField name="Модель" id="7">
+			<DataPath>Объект.Модель</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="МодельКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="МодельРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">МодельПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<Visible>false</Visible>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<Pages name="Группа1" id="19">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="20"/>
+			<ChildItems>
+				<Page name="Группа3" id="23">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Необходимые сведения</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>What You Should Know</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="24"/>
+					<ChildItems>
+						<InputField name="НеобходимыеСведения" id="10">
+							<DataPath>Объект.НеобходимыеСведения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="НеобходимыеСведенияКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="НеобходимыеСведенияРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<InputField name="ДополнительноНеобходимо" id="29">
+							<DataPath>Объект.ДополнительноНеобходимо</DataPath>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="ДополнительноНеобходимоКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="ДополнительноНеобходимоРасширеннаяПодсказка" id="31"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="Группа4" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Полезная информация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Helpful information</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="26"/>
+					<ChildItems>
+						<InputField name="ПолезнаяИнформация" id="13">
+							<DataPath>Объект.ПолезнаяИнформация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="ПолезнаяИнформацияКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ПолезнаяИнформацияРасширеннаяПодсказка" id="15"/>
+						</InputField>
+						<InputField name="ДополнительноПолезно" id="32">
+							<DataPath>Объект.ДополнительноПолезно</DataPath>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="ДополнительноПолезноКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ДополнительноПолезноРасширеннаяПодсказка" id="34"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="Группа5" id="27">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исчерпывающая информация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>comprehensive information</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="28"/>
+					<ChildItems>
+						<InputField name="ИсчерпывающаяИнформация" id="16">
+							<DataPath>Объект.ИсчерпывающаяИнформация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="ИсчерпывающаяИнформацияКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ИсчерпывающаяИнформацияРасширеннаяПодсказка" id="18"/>
+						</InputField>
+						<InputField name="Дополнительно" id="35">
+							<DataPath>Объект.Дополнительно</DataPath>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="ДополнительноКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ДополнительноРасширеннаяПодсказка" id="37"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.DMS_ИнструкцииПоВыдачеАвто</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Печать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>print</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>print</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Печать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

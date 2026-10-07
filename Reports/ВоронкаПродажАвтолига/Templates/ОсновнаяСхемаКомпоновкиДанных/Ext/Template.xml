@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТестДрайв</dataPath>
+			<field>ТестДрайв</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тест-драйв</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выдачи</dataPath>
+			<field>Выдачи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдачи</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВхКлиенты</dataPath>
+			<field>ВхКлиенты</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вх клиенты</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВсегоТрафика</dataPath>
+			<field>ВсегоТрафика</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего трафика</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВхЗвонки</dataPath>
+			<field>ВхЗвонки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вх звонки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сделки</dataPath>
+			<field>Сделки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сделки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	РабочийЛист.Менеджер.Подразделение КАК Подразделение,
+	РабочийЛист.Модель КАК Модель,
+	РабочийЛист.Менеджер КАК Менеджер,
+	РабочийЛист.Контрагент,
+	РабочийЛист.Ссылка КАК Документ,
+	РабочийЛист.Автомобиль КАК Автомобиль,
+	0 КАК ВсегоТрафика,
+	0 КАК ВхЗвонки,
+	0 КАК ВхКлиенты,
+	1 КАК Сделки,
+	0 КАК ТестДрайв,
+	0 КАК Выдачи
+ПОМЕСТИТЬ Результат
+ИЗ
+	Документ.РабочийЛист КАК РабочийЛист
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ЖурналСостояний.СрезПоследних(&amp;ДатаОкончания, Состояние В (ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Сделка), ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Продажа))) КАК ЖурналСостоянийСрезПоследних
+		ПО РабочийЛист.Ссылка = ЖурналСостоянийСрезПоследних.Объект
+ГДЕ
+	ЖурналСостоянийСрезПоследних.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	РегистрацияЗвонковИКонтактов.Участник.Подразделение,
+	РегистрацияЗвонковИКонтактов.РабочийЛист.Модель,
+	РегистрацияЗвонковИКонтактов.Участник,
+	РегистрацияЗвонковИКонтактов.Клиент,
+	РегистрацияЗвонковИКонтактов.РабочийЛист,
+	ЗНАЧЕНИЕ(Справочник.Автомобили.ПустаяСсылка),
+	1,
+	ВЫБОР
+		КОГДА РегистрацияЗвонковИКонтактов.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА РегистрацияЗвонковИКонтактов.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	0,
+	0,
+	0
+ИЗ
+	РегистрСведений.РегистрацияЗвонковИКонтактов КАК РегистрацияЗвонковИКонтактов
+ГДЕ
+	РегистрацияЗвонковИКонтактов.ДатаДень МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+	И РегистрацияЗвонковИКонтактов.РабочийЛист ССЫЛКА Документ.РабочийЛист
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Событие.Продавец.Подразделение,
+	ВЫБОР
+		КОГДА Событие.ДокументОснование ЕСТЬ NULL
+			ТОГДА ЗНАЧЕНИЕ(Справочник.Модели.ПустаяСсылка)
+		КОГДА Событие.ДокументОснование ССЫЛКА Документ.РабочийЛист
+			ТОГДА ВЫРАЗИТЬ(Событие.ДокументОснование КАК Документ.РабочийЛист).Модель
+		ИНАЧЕ ЗНАЧЕНИЕ(Справочник.Модели.ПустаяСсылка)
+	КОНЕЦ,
+	Событие.Продавец,
+	Событие.Контрагент,
+	ВЫБОР
+		КОГДА Событие.ДокументОснование ССЫЛКА Документ.РабочийЛист
+			ТОГДА Событие.ДокументОснование
+		ИНАЧЕ ЗНАЧЕНИЕ(Документ.РабочийЛист.ПустаяСсылка)
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА Событие.Автомобиль = ЗНАЧЕНИЕ(Справочник.Автомобили.ПустаяСсылка)
+			ТОГДА "&lt;Автомобиль не указан&gt;"
+		ИНАЧЕ Событие.Автомобиль
+	КОНЕЦ,
+	0,
+	0,
+	0,
+	0,
+	1,
+	0
+ИЗ
+	Документ.Событие КАК Событие
+ГДЕ
+	Событие.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТестДрайв)
+	И Событие.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И Событие.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Событие.Продавец.Подразделение,
+	Событие.Автомобиль.Модель,
+	Событие.Продавец,
+	Событие.Контрагент,
+	ВЫБОР
+		КОГДА Событие.ДокументОснование ССЫЛКА Документ.РабочийЛист
+			ТОГДА Событие.ДокументОснование
+		ИНАЧЕ ЗНАЧЕНИЕ(Документ.РабочийЛист.ПустаяСсылка)
+	КОНЕЦ,
+	Событие.Автомобиль,
+	0,
+	0,
+	0,
+	0,
+	0,
+	1
+ИЗ
+	Документ.Событие КАК Событие
+ГДЕ
+	Событие.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ВыдачаАвтомобиля)
+	И Событие.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И Событие.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено)
+	И Событие.ПометкаУдаления = ЛОЖЬ
+	И Событие.ДокументОснование ССЫЛКА Документ.РабочийЛист
+	И Событие.ДокументОснование.Статус = ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Продажа)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Результат.Менеджер,
+	Результат.Документ,
+	Результат.Подразделение,
+	Результат.Контрагент,
+	Результат.Автомобиль,
+	Результат.ВсегоТрафика,
+	Результат.ВхЗвонки,
+	Результат.ВхКлиенты,
+	Результат.ТестДрайв,
+	Результат.Сделки,
+	Результат.Выдачи,
+	Результат.Модель
+ИЗ
+	Результат КАК Результат
+ГДЕ
+	ВЫБОР
+			КОГДА &amp;ТолькоДействующиеСотрудники
+				ТОГДА НЕ Результат.Менеджер.ФлагУволен
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА &amp;ТолькоТрейдИн
+				ТОГДА Результат.Документ.ТрейдИн
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>Другие</dataPath>
+		<expression>ВсегоТрафика - ВхЗвонки - ВхКлиенты</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Интернет обращения</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧЦ=5</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>ТестДрайв</dataPath>
+		<expression>Сумма(ТестДрайв)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВсегоТрафика</dataPath>
+		<expression>Сумма(ВсегоТрафика)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВхЗвонки</dataPath>
+		<expression>Сумма(ВхЗвонки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВхКлиенты</dataPath>
+		<expression>Сумма(ВхКлиенты)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Выдачи</dataPath>
+		<expression>Сумма(Выдачи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Сделки</dataPath>
+		<expression>Сумма(Сделки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Другие</dataPath>
+		<expression>Сумма(Другие)</expression>
+	</totalField>
+	<parameter>
+		<name>ВалютаОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>В валюте</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ТолькоДействующиеСотрудники</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Только действующие сотрудники</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТолькоТрейдИн</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Только трейд-ин</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сделки Rate</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ВсегоТрафика = 0
+		Тогда 0
+	Иначе Сделки / ВсегоТрафика * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Всего трафика] = 0
+		Тогда 0
+	Иначе Сделки / [Всего трафика] * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ВсегоТрафика = 0
+		Тогда 0
+	Иначе Сделки / ВсегоТрафика * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда [Всего трафика] = 0
+		Тогда 0
+	Иначе Сделки / [Всего трафика] * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле2</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Другое</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ВсегоТрафика - ВхЗвонки - ВхКлиенты</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>[Всего трафика] - [Вх звонки] - [Вх клиенты]</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ВсегоТрафика - ВхЗвонки - ВхКлиенты</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>[Всего трафика] - [Вх звонки] - [Вх клиенты]</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле3</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>TD Rate</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ВсегоТрафика = 0
+		Тогда 0
+	Иначе ТестДрайв / ВсегоТрафика * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Всего трафика] = 0
+		Тогда 0
+	Иначе [Тест-драйв] / [Всего трафика] * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ВсегоТрафика = 0
+		Тогда 0
+	Иначе ТестДрайв / ВсегоТрафика * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда [Всего трафика] = 0
+		Тогда 0
+	Иначе [Тест-драйв] / [Всего трафика] * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле4</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выдачи Rate</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ВсегоТрафика = 0
+		Тогда 0
+	Иначе Выдачи / ВсегоТрафика * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Всего трафика] = 0
+		Тогда 0
+	Иначе Выдачи / [Всего трафика] * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ВсегоТрафика = 0
+		Тогда 0
+	Иначе Выдачи / ВсегоТрафика * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда [Всего трафика] = 0
+		Тогда 0
+	Иначе Выдачи / [Всего трафика] * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+			</dcsset:userFields>
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Первичные события (ФПК)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВхЗвонки</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Звонки</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВхКлиенты</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Визиты</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Другие</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Интернет обращения</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВсегоТрафика</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тест драйвы</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТестДрайв</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле3</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Конверсия (%)</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сделки</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Сделки</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле1</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Конверсия (%)</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выдачи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Выдачи</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле4</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Конверсия (%)</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>InHierarchy</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>97d5306e-8e92-4761-b7ec-eb820b5bf50f</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТолькоДействующиеСотрудники</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcsset:userSettingID>a86773fd-40dc-4a42-a279-3514c72d6d27</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТолькоТрейдИн</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Подразделение</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Менеджер</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Автомобиль</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветГраницы</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:FormBackColor</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяВысота</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">-1</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле1</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле2</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле3</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле4</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле5</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле6</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле7</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле8</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле9</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле10</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле11</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле12</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Подразделение</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Менеджер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Модель</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

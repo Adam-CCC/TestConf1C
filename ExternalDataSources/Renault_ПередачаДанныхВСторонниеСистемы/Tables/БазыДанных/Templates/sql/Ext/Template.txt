@@ -1,0 +1,319 @@
+﻿USE [master]
+GO
+CREATE DATABASE [DataExchange]
+GO
+USE [DataExchange]
+GO
+
+/*таблица баз данных*/
+
+CREATE TABLE [dbo].[Bases] (
+  [id] int IDENTITY(1, 1) NOT NULL,
+  [name] nvarchar(50) COLLATE Cyrillic_General_CI_AS NOT NULL,
+  [UUID] binary(16) NOT NULL,
+  [description] text COLLATE Cyrillic_General_CI_AS NULL,
+  [package] datetime NULL,
+  CONSTRAINT [Bases_uq] UNIQUE ([UUID]),
+  CONSTRAINT [PK__Bases__3213E83FE18C5310] PRIMARY KEY CLUSTERED ([id])
+)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Информационные базы', 'schema', 'dbo', 'table', 'Bases'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Имя базы', 'schema', 'dbo', 'table', 'Bases', 'column', 'name'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Уникальный идентификатор базы', 'schema', 'dbo', 'table', 'Bases', 'column', 'UUID'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Описание базы', 'schema', 'dbo', 'table', 'Bases', 'column', 'description'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'номер актуального пакета обмена данными', 'schema', 'dbo', 'table', 'Bases', 'column', 'package'
+GO
+
+/*таблица метаданных*/
+
+CREATE TABLE [dbo].[MetaData] (
+  [id] int IDENTITY(1, 1) NOT NULL,
+  [base] int NOT NULL,
+  [name] nvarchar(150) COLLATE Cyrillic_General_CI_AS NOT NULL,
+  [query] text COLLATE Cyrillic_General_CI_AS NULL,
+  [active] bit NULL,
+  [parentId] int CONSTRAINT [parentId] DEFAULT 0 NOT NULL,
+  [ruleUUID] binary(16) NULL,
+  CONSTRAINT [index_id] PRIMARY KEY CLUSTERED ([id]),
+  CONSTRAINT [index_name] UNIQUE ([name], [base]),
+  CONSTRAINT [MetaData_fk] FOREIGN KEY ([base]) 
+  REFERENCES [dbo].[Bases] ([id]) 
+  ON UPDATE NO ACTION
+  ON DELETE CASCADE
+)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Ссылка на базу данных', 'schema', 'dbo', 'table', 'MetaData', 'column', 'base'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Имя объекта метаданных
+Пример:
+Справочник.Номенклатура
+Документ.Реализация.Товары', 'schema', 'dbo', 'table', 'MetaData', 'column', 'name'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Текст запроса к объекту 1С', 'schema', 'dbo', 'table', 'MetaData', 'column', 'query'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Признак активности записи', 'schema', 'dbo', 'table', 'MetaData', 'column', 'active'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Родитель', 'schema', 'dbo', 'table', 'MetaData', 'column', 'parentId'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Уникальный идентификатор для Ссылки на элемент правил конвертации в 1С при выгрузке ', 'schema', 'dbo', 'table', 'MetaData', 'column', 'ruleUUID'
+GO
+
+CREATE NONCLUSTERED INDEX [MetaData_idx] ON [dbo].[MetaData]
+  ([parentId])
+WITH (
+  PAD_INDEX = OFF,
+  DROP_EXISTING = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  SORT_IN_TEMPDB = OFF,
+  ONLINE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
+/*таблица реквизитов метаданных*/
+
+CREATE TABLE [dbo].[MDAttributes] (
+  [id] int IDENTITY(1, 1) NOT NULL,
+  [md] int NOT NULL,
+  [name] nvarchar(150) COLLATE Cyrillic_General_CI_AS NOT NULL,
+  [type] text COLLATE Cyrillic_General_CI_AS NOT NULL,
+  [description] nvarchar(250) COLLATE Cyrillic_General_CI_AS NULL,
+  [active] bit NULL,
+  [ruleUUID] binary(16) NULL,
+  CONSTRAINT [ind_atr_id] PRIMARY KEY CLUSTERED ([id]),
+  CONSTRAINT [ind_atr_name_md] UNIQUE ([name], [md]),
+  CONSTRAINT [mdAttributes_md] FOREIGN KEY ([md]) 
+  REFERENCES [dbo].[MetaData] ([id]) 
+  ON UPDATE NO ACTION
+  ON DELETE CASCADE
+)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Описание метаданных 1C
+каждая строка это реквизит МД и его тип', 'schema', 'dbo', 'table', 'MDAttributes'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Ключ таблицы', 'schema', 'dbo', 'table', 'MDAttributes', 'column', 'id'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Ссылка на таблицу MetaData', 'schema', 'dbo', 'table', 'MDAttributes', 'column', 'md'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'наименование реквизита МД', 'schema', 'dbo', 'table', 'MDAttributes', 'column', 'name'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'тип значения реквизита', 'schema', 'dbo', 'table', 'MDAttributes', 'column', 'type'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Описание реквизита метаданных', 'schema', 'dbo', 'table', 'MDAttributes', 'column', 'description'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Признак активности записи', 'schema', 'dbo', 'table', 'MDAttributes', 'column', 'active'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Уникальный идентификатор для Ссылки на элемент правил конвертации в 1С при выгрузке ', 'schema', 'dbo', 'table', 'MDAttributes', 'column', 'ruleUUID'
+GO
+
+/*таблица ссылок*/
+CREATE TABLE [dbo].[Links] (
+  [id] int IDENTITY(1, 1) NOT NULL,
+  [UUID] binary(16) NOT NULL,
+  [version] char(12) COLLATE Cyrillic_General_CI_AS NOT NULL,
+  [marked] binary(1) NULL,
+  [posted] binary(1) NULL,
+  [description] nvarchar(250) COLLATE Cyrillic_General_CI_AS NOT NULL,
+  [package] datetime NOT NULL,
+  [md] int NULL,
+  [folder] bit NULL,
+  CONSTRAINT [Links_pk] PRIMARY KEY CLUSTERED ([id]),
+  CONSTRAINT [Links_uq] UNIQUE ([id]),
+  CONSTRAINT [Links_fk] FOREIGN KEY ([md]) 
+  REFERENCES [dbo].[MetaData] ([id]) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+)
+ON [PRIMARY]
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Уникальный идентификатор 1С', 'schema', 'dbo', 'table', 'Links', 'column', 'UUID'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Версия данных 1С', 'schema', 'dbo', 'table', 'Links', 'column', 'version'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Пометка удаления. 0 не удален, 1 - удален', 'schema', 'dbo', 'table', 'Links', 'column', 'marked'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'признак проведения документа
+1 - проведен 
+0 - не проведен', 'schema', 'dbo', 'table', 'Links', 'column', 'posted'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Представление данных 1С', 'schema', 'dbo', 'table', 'Links', 'column', 'description'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'номер пакета обмена данных', 'schema', 'dbo', 'table', 'Links', 'column', 'package'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Ссылка на таблицу MetaData', 'schema', 'dbo', 'table', 'Links', 'column', 'md'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Признак группы', 'schema', 'dbo', 'table', 'Links', 'column', 'folder'
+GO
+
+CREATE NONCLUSTERED INDEX [Links_idx] ON [dbo].[Links]
+  ([package])
+WITH (
+  PAD_INDEX = OFF,
+  DROP_EXISTING = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  SORT_IN_TEMPDB = OFF,
+  ONLINE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [Links_idx2] ON [dbo].[Links]
+  ([UUID])
+WITH (
+  PAD_INDEX = OFF,
+  DROP_EXISTING = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  SORT_IN_TEMPDB = OFF,
+  ONLINE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
+/*таблица справочников*/
+CREATE TABLE [dbo].[RefData] (
+  [linkID] int NOT NULL,
+  [mdAttribute] int NOT NULL,
+  [recNumber] int NOT NULL,
+  [value] text COLLATE Cyrillic_General_CI_AS NULL,
+  [valueLink] int NULL,
+  CONSTRAINT [RefData_uq] PRIMARY KEY CLUSTERED ([mdAttribute], [recNumber], [linkID]),
+  CONSTRAINT [RefData_fk] FOREIGN KEY ([mdAttribute]) 
+  REFERENCES [dbo].[MDAttributes] ([id]) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION,
+  CONSTRAINT [RefData_fk2] FOREIGN KEY ([linkID]) 
+  REFERENCES [dbo].[Links] ([id]) 
+  ON UPDATE NO ACTION
+  ON DELETE CASCADE
+)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Ссылка на таблицу Links', 'schema', 'dbo', 'table', 'RefData', 'column', 'linkID'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Ссылка на таблицу ObjectAttributes', 'schema', 'dbo', 'table', 'RefData', 'column', 'mdAttribute'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Номер строки.
+для реквизитов шапки 0
+для реквизитов табличной части 1,2,3...', 'schema', 'dbo', 'table', 'RefData', 'column', 'recNumber'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Значение реквизита представленное строкой
+Булево true/false
+Число -155450.43324
+Дата 24.12.1988 15:04:02', 'schema', 'dbo', 'table', 'RefData', 'column', 'value'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Значение ссылочного типа.
+ссылается на таблицу Links', 'schema', 'dbo', 'table', 'RefData', 'column', 'valueLink'
+GO
+
+CREATE NONCLUSTERED INDEX [RefData_idx] ON [dbo].[RefData]
+  ([valueLink])
+WITH (
+  PAD_INDEX = OFF,
+  DROP_EXISTING = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  SORT_IN_TEMPDB = OFF,
+  ONLINE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO
+
+/*таблица документов*/
+CREATE TABLE [dbo].[DocData] (
+  [linkID] int NOT NULL,
+  [mdAttribute] int NOT NULL,
+  [recNumber] int NOT NULL,
+  [value] text COLLATE Cyrillic_General_CI_AS NULL,
+  [valueLink] int NULL,
+  CONSTRAINT [DocData_pk] PRIMARY KEY CLUSTERED ([linkID], [mdAttribute], [recNumber]),
+  CONSTRAINT [DocData_fk] FOREIGN KEY ([linkID]) 
+  REFERENCES [dbo].[Links] ([id]) 
+  ON UPDATE NO ACTION
+  ON DELETE CASCADE,
+  CONSTRAINT [DocData_fk2] FOREIGN KEY ([mdAttribute]) 
+  REFERENCES [dbo].[MDAttributes] ([id]) 
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+)
+ON [PRIMARY]
+TEXTIMAGE_ON [PRIMARY]
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Ссылка на таблицу Links', 'schema', 'dbo', 'table', 'DocData', 'column', 'linkID'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Ссылка на таблицe ObjectAttributes', 'schema', 'dbo', 'table', 'DocData', 'column', 'mdAttribute'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Номер строки.
+для реквизитов шапки 0
+для реквизитов табличной части 1,2,3...', 'schema', 'dbo', 'table', 'DocData', 'column', 'recNumber'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'Значение реквизита представленное строкой
+Булево true/false
+Число -155450.43324
+Дата 24.12.1988 15:04:02', 'schema', 'dbo', 'table', 'DocData', 'column', 'value'
+GO
+
+EXEC sp_addextendedproperty 'MS_Description', N'значение ссылочного типа, ссылка на таблицу Links', 'schema', 'dbo', 'table', 'DocData', 'column', 'valueLink'
+GO
+
+CREATE NONCLUSTERED INDEX [DocData_idx] ON [dbo].[DocData]
+  ([valueLink])
+WITH (
+  PAD_INDEX = OFF,
+  DROP_EXISTING = OFF,
+  STATISTICS_NORECOMPUTE = OFF,
+  SORT_IN_TEMPDB = OFF,
+  ONLINE = OFF,
+  ALLOW_ROW_LOCKS = ON,
+  ALLOW_PAGE_LOCKS = ON)
+ON [PRIMARY]
+GO

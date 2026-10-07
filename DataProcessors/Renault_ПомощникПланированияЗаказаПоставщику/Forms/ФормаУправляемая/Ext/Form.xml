@@ -1,0 +1,723 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="ГруппаАнализа" id="1">
+			<DataPath>Объект.ГруппаАнализаПродаж</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ГруппаАнализаКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ГруппаАнализаРасширеннаяПодсказка" id="171"/>
+		</InputField>
+		<InputField name="СкладКомпании" id="4">
+			<DataPath>Объект.СкладКомпании</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="СкладКомпанииКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="СкладКомпанииРасширеннаяПодсказка" id="172"/>
+		</InputField>
+		<InputField name="ПериодЗаказа" id="7">
+			<DataPath>Объект.ПериодЗаказа</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПериодЗаказаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ПериодЗаказаРасширеннаяПодсказка" id="173"/>
+		</InputField>
+		<Button name="Заполнить" id="98">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.Заполнить</CommandName>
+			<ExtendedTooltip name="ЗаполнитьРасширеннаяПодсказка" id="174"/>
+		</Button>
+		<Table name="Товары" id="10">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.Товары</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТоварыКонтекстноеМеню" id="11"/>
+			<AutoCommandBar name="ТоварыКоманднаяПанель" id="12"/>
+			<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="175"/>
+			<SearchStringAddition name="ТоварыСтрокаПоиска" id="176">
+				<AdditionSource>
+					<Item>Товары</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТоварыСтрокаПоискаКонтекстноеМеню" id="177"/>
+				<ExtendedTooltip name="ТоварыСтрокаПоискаРасширеннаяПодсказка" id="178"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТоварыСостояниеПросмотра" id="179">
+				<AdditionSource>
+					<Item>Товары</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТоварыСостояниеПросмотраКонтекстноеМеню" id="180"/>
+				<ExtendedTooltip name="ТоварыСостояниеПросмотраРасширеннаяПодсказка" id="181"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТоварыУправлениеПоиском" id="182">
+				<AdditionSource>
+					<Item>Товары</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТоварыУправлениеПоискомКонтекстноеМеню" id="183"/>
+				<ExtendedTooltip name="ТоварыУправлениеПоискомРасширеннаяПодсказка" id="184"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ТоварыНомерСтроки" id="23">
+					<DataPath>Объект.Товары.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыНомерСтрокиКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ТоварыНомерСтрокиРасширеннаяПодсказка" id="185"/>
+				</LabelField>
+				<InputField name="ТоварыНоменклатура" id="26">
+					<DataPath>Объект.Товары.Номенклатура</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыНоменклатураКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ТоварыНоменклатураРасширеннаяПодсказка" id="186"/>
+				</InputField>
+				<InputField name="ТоварыАртикул" id="29">
+					<DataPath>Объект.Товары.Артикул</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыАртикулКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ТоварыАртикулРасширеннаяПодсказка" id="187"/>
+				</InputField>
+				<InputField name="ТоварыСемьяНоменклатуры" id="163">
+					<DataPath>Объект.Товары.ТехСемья</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыСемьяНоменклатурыКонтекстноеМеню" id="164"/>
+					<ExtendedTooltip name="ТоварыСемьяНоменклатурыРасширеннаяПодсказка" id="188"/>
+				</InputField>
+				<InputField name="ТоварыСегментНоменклатуры" id="160">
+					<DataPath>Объект.Товары.Сегмент</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыСегментНоменклатурыКонтекстноеМеню" id="161"/>
+					<ExtendedTooltip name="ТоварыСегментНоменклатурыРасширеннаяПодсказка" id="189"/>
+				</InputField>
+				<InputField name="ТоварыКлассификация" id="32">
+					<DataPath>Объект.Товары.Классификация</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыКлассификацияКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ТоварыКлассификацияРасширеннаяПодсказка" id="190"/>
+				</InputField>
+				<InputField name="ТоварыОстаток" id="35">
+					<DataPath>Объект.Товары.Остаток</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыОстатокКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ТоварыОстатокРасширеннаяПодсказка" id="191"/>
+				</InputField>
+				<InputField name="ТоварыРезерв" id="38">
+					<DataPath>Объект.Товары.Резерв</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыРезервКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ТоварыРезервРасширеннаяПодсказка" id="192"/>
+				</InputField>
+				<InputField name="ТоварыЗаказано" id="41">
+					<DataPath>Объект.Товары.Заказано</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыЗаказаноКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ТоварыЗаказаноРасширеннаяПодсказка" id="193"/>
+				</InputField>
+				<InputField name="ТоварыИтог" id="44">
+					<DataPath>Объект.Товары.СвободныйОстаток</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыИтогКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ТоварыИтогРасширеннаяПодсказка" id="194"/>
+				</InputField>
+				<ColumnGroup name="ТоварыГруппаПродажиВТекущемМесяце" id="100">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в текущем месяце</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales for the current month</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в текущем месяце</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales for the current month</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВТекущемМесяцеРасширеннаяПодсказка" id="195"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВТекущемМесяце" id="47">
+							<DataPath>Объект.Товары.Продажи_М0</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВТекущемМесяцеКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ТоварыПродажиВТекущемМесяцеРасширеннаяПодсказка" id="196"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВТекущемМесяцеКартинка" id="102">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВТекущемМесяцеКартинкаКонтекстноеМеню" id="103"/>
+							<ExtendedTooltip name="ТоварыПродажиВТекущемМесяцеКартинкаРасширеннаяПодсказка" id="197"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце1" id="105">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous month1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце1</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous month1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце1РасширеннаяПодсказка" id="198"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце1" id="50">
+							<DataPath>Объект.Товары.Продажи_М1</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце1КонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце1РасширеннаяПодсказка" id="199"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВПредыдущемМесяце1Картинка" id="107">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце1КартинкаКонтекстноеМеню" id="108"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце1КартинкаРасширеннаяПодсказка" id="200"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце2" id="110">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце2</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце2РасширеннаяПодсказка" id="201"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце2" id="53">
+							<DataPath>Объект.Товары.Продажи_М2</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце2КонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце2РасширеннаяПодсказка" id="202"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВПредыдущемМесяце2Картинка" id="112">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце2КартинкаКонтекстноеМеню" id="113"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце2КартинкаРасширеннаяПодсказка" id="203"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце3" id="115">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце3</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse3</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце3</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse3</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце3РасширеннаяПодсказка" id="204"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце3" id="56">
+							<DataPath>Объект.Товары.Продажи_М3</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце3КонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце3РасширеннаяПодсказка" id="205"/>
+						</InputField>
+						<PictureField name="ПродажиВПредыдущемМесяце3Картинка" id="117">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ПродажиВПредыдущемМесяце3КартинкаКонтекстноеМеню" id="118"/>
+							<ExtendedTooltip name="ПродажиВПредыдущемМесяце3КартинкаРасширеннаяПодсказка" id="206"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце4" id="120">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце4</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse4</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце4</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse4</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце4РасширеннаяПодсказка" id="207"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце4" id="59">
+							<DataPath>Объект.Товары.Продажи_М4</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце4КонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце4РасширеннаяПодсказка" id="208"/>
+						</InputField>
+						<PictureField name="ПродажиВПредыдущемМесяце4Картинка" id="122">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ПродажиВПредыдущемМесяце4КартинкаКонтекстноеМеню" id="123"/>
+							<ExtendedTooltip name="ПродажиВПредыдущемМесяце4КартинкаРасширеннаяПодсказка" id="209"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце5" id="125">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце5</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse5</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце5</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse5</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце5РасширеннаяПодсказка" id="210"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце5" id="62">
+							<DataPath>Объект.Товары.Продажи_М5</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце5КонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце5РасширеннаяПодсказка" id="211"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВПредыдущемМесяце5Картинка" id="127">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце5КартинкаКонтекстноеМеню" id="128"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце5КартинкаРасширеннаяПодсказка" id="212"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце6" id="130">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце6</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse6</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце6</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse6</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце6РасширеннаяПодсказка" id="213"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце6" id="65">
+							<DataPath>Объект.Товары.Продажи_М6</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце6КонтекстноеМеню" id="66"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце6РасширеннаяПодсказка" id="214"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВПредыдущемМесяце6Картинка" id="132">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце6КартинкаКонтекстноеМеню" id="133"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце6КартинкаРасширеннаяПодсказка" id="215"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце7" id="135">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце7</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse7</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце7</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse7</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце7РасширеннаяПодсказка" id="216"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце7" id="68">
+							<DataPath>Объект.Товары.Продажи_М7</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце7КонтекстноеМеню" id="69"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце7РасширеннаяПодсказка" id="217"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВПредыдущемМесяце7Картинка" id="137">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце7КартинкаКонтекстноеМеню" id="138"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце7КартинкаРасширеннаяПодсказка" id="218"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце8" id="140">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце8</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse8</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце8</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse8</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце8РасширеннаяПодсказка" id="219"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце8" id="71">
+							<DataPath>Объект.Товары.Продажи_М8</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце8КонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце8РасширеннаяПодсказка" id="220"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВПредыдущемМесяце8Картинка" id="142">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце8КартинкаКонтекстноеМеню" id="143"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце8КартинкаРасширеннаяПодсказка" id="221"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце9" id="145">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце9</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse9</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце9</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse9</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце9РасширеннаяПодсказка" id="222"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце9" id="74">
+							<DataPath>Объект.Товары.Продажи_М9</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце9КонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце9РасширеннаяПодсказка" id="223"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВПредыдущемМесяце9Картинка" id="147">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце9КартинкаКонтекстноеМеню" id="148"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце9КартинкаРасширеннаяПодсказка" id="224"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце10" id="150">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце10</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse10</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце10</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse10</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце10РасширеннаяПодсказка" id="225"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце10" id="77">
+							<DataPath>Объект.Товары.Продажи_М10</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце10КонтекстноеМеню" id="78"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце10РасширеннаяПодсказка" id="226"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВПредыдущемМесяце10Картинка" id="152">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце10КартинкаКонтекстноеМеню" id="153"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце10КартинкаРасширеннаяПодсказка" id="227"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ТоварыГруппаПродажиВПредыдущемМесяце11" id="155">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце11</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse11</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары группа продажи в предыдущем месяце11</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Products Group sales in the previous mesyatse11</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ТоварыГруппаПродажиВПредыдущемМесяце11РасширеннаяПодсказка" id="228"/>
+					<ChildItems>
+						<InputField name="ТоварыПродажиВПредыдущемМесяце11" id="80">
+							<DataPath>Объект.Товары.Продажи_М11</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце11КонтекстноеМеню" id="81"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце11РасширеннаяПодсказка" id="229"/>
+						</InputField>
+						<PictureField name="ТоварыПродажиВПредыдущемМесяце11Картинка" id="157">
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Стрелки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ТоварыПродажиВПредыдущемМесяце11КартинкаКонтекстноеМеню" id="158"/>
+							<ExtendedTooltip name="ТоварыПродажиВПредыдущемМесяце11КартинкаРасширеннаяПодсказка" id="230"/>
+						</PictureField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ТоварыСреднедневныеПродажи" id="83">
+					<DataPath>Объект.Товары.СредниеПродажи</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыСреднедневныеПродажиКонтекстноеМеню" id="84"/>
+					<ExtendedTooltip name="ТоварыСреднедневныеПродажиРасширеннаяПодсказка" id="231"/>
+				</InputField>
+				<InputField name="ТоварыСтраховойЗапас" id="86">
+					<DataPath>Объект.Товары.СтраховойЗапас</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыСтраховойЗапасКонтекстноеМеню" id="87"/>
+					<ExtendedTooltip name="ТоварыСтраховойЗапасРасширеннаяПодсказка" id="232"/>
+				</InputField>
+				<InputField name="ТоварыТочкаЗаказа" id="89">
+					<DataPath>Объект.Товары.ТочкаЗаказа</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыТочкаЗаказаКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="ТоварыТочкаЗаказаРасширеннаяПодсказка" id="233"/>
+				</InputField>
+				<InputField name="ТоварыЗаказ" id="92">
+					<DataPath>Объект.Товары.Заказ</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыЗаказКонтекстноеМеню" id="93"/>
+					<ExtendedTooltip name="ТоварыЗаказРасширеннаяПодсказка" id="234"/>
+				</InputField>
+				<InputField name="ТоварыКЗаказу" id="95">
+					<DataPath>Объект.Товары.КЗаказу</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыКЗаказуКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="ТоварыКЗаказуРасширеннаяПодсказка" id="235"/>
+				</InputField>
+				<InputField name="ТоварыЦенаPNC" id="166">
+					<DataPath>Объект.Товары.ЦенаPNC</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыЦенаPNCКонтекстноеМеню" id="167"/>
+					<ExtendedTooltip name="ТоварыЦенаPNCРасширеннаяПодсказка" id="236"/>
+				</InputField>
+				<InputField name="ТоварыСтоимостьЗаказа" id="169">
+					<DataPath>Объект.Товары.СтоимостьЗаказа</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТоварыСтоимостьЗаказаКонтекстноеМеню" id="170"/>
+					<ExtendedTooltip name="ТоварыСтоимостьЗаказаРасширеннаяПодсказка" id="237"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_ПомощникПланированияЗаказаПоставщику</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

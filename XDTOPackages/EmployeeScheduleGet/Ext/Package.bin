@@ -1,0 +1,70 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://wa.dms.webservice/EmployeeScheduleGetRequest">
+	<property name="EmployeeScheduleGetRequest" nillable="true"/>
+	<property name="EmployeeScheduleGetResponse" nillable="true"/>
+	<objectType name="ArrayOfEmployeeSchedule">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="EmployeeSchedule" type="d3p1:EmployeeSchedule" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfError">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="Error" type="d3p1:Error" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfSchedule">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="Schedule" type="d3p1:Schedule" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="EmployeeSchedule">
+		<property name="DMSEmployeeNo" type="xs:string" lowerBound="0"/>
+		<property name="FullName" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="Schedules" type="d3p1:ArrayOfSchedule" lowerBound="0"/>
+	</objectType>
+	<objectType name="EmployeeScheduleGet">
+		<property name="DMSEmployeeNo" type="xs:string" lowerBound="0"/>
+		<property name="ScheduleType" type="xs:string" lowerBound="0"/>
+		<property name="SearchDateTimeLocal" type="xs:dateTime" nillable="true"/>
+	</objectType>
+	<objectType name="EmployeeScheduleGetRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="EmployeeScheduleGet" type="d3p1:EmployeeScheduleGet" lowerBound="0"/>
+	</objectType>
+	<objectType name="EmployeeScheduleGetResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeScheduleGetRequest" name="EmployeeSchedules" type="d3p1:ArrayOfEmployeeSchedule" lowerBound="0"/>
+	</objectType>
+	<objectType name="Error">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ResultMessage">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Schedule">
+		<property name="ScheduleType" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSRONo" type="xs:string" lowerBound="0"/>
+		<property name="LicensePlateNo" type="xs:string" lowerBound="0"/>
+		<property name="StartDateTimeLocal" type="xs:dateTime" nillable="true"/>
+		<property name="EndDateTimeLocal" type="xs:dateTime" nillable="true"/>
+	</objectType>
+	<objectType name="TransactionHeader">
+		<property name="CountryID" type="xs:string" lowerBound="0"/>
+		<property name="DistributorID" type="xs:string" lowerBound="0"/>
+		<property name="GroupID" type="xs:string" lowerBound="0"/>
+		<property name="DealerID" type="xs:string" lowerBound="0"/>
+		<property name="DMSCode" type="xs:string" lowerBound="0"/>
+		<property name="DMSVersion" type="xs:string" lowerBound="0"/>
+		<property name="DMSServerUrl" type="xs:string" lowerBound="0"/>
+		<property name="DocumentVersion" type="xs:string" lowerBound="0"/>
+		<property name="Username" type="xs:string" lowerBound="0"/>
+		<property name="Password" type="xs:string" lowerBound="0"/>
+		<property name="TransactionId" type="xs:string" lowerBound="0"/>
+		<property name="TransactionDateTimeUTC" type="xs:dateTime" nillable="true"/>
+		<property name="TransactionDateTimeLocal" type="xs:dateTime" nillable="true"/>
+		<property name="TransactionType" type="xs:string" lowerBound="0"/>
+		<property name="RequestType" type="xs:string" lowerBound="0"/>
+		<property name="RequestPollingToken" type="xs:string" lowerBound="0"/>
+		<property name="VenderTrackingCode" type="xs:string" lowerBound="0"/>
+		<property name="IneterfaceID" type="xs:string" lowerBound="0"/>
+		<property name="PollingToken" type="xs:string" lowerBound="0"/>
+	</objectType>
+</package>

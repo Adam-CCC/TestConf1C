@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Задолженность</dataPath>
+			<field>Задолженность</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаОстаток</dataPath>
+			<field>СуммаОстаток</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДниПросрочки</dataPath>
+			<field>ДниПросрочки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни просрочки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорВзаиморасчетов</dataPath>
+			<field>ДоговорВзаиморасчетов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусДоговора</dataPath>
+			<field>СтатусДоговора</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сделка</dataPath>
+			<field>Сделка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДоговора</dataPath>
+			<field>СуммаДоговора</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтсрочкаПлатежа</dataPath>
+			<field>ОтсрочкаПлатежа</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Клиент</dataPath>
+			<field>Клиент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоМесяца</dataPath>
+			<field>ДоМесяца</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>До месяца</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтОдногоДоДвух</dataPath>
+			<field>ОтОдногоДоДвух</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>От одного до двух</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтДвухДоТрех</dataPath>
+			<field>ОтДвухДоТрех</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>От двух до трех</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СвышеТрех</dataPath>
+			<field>СвышеТрех</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свыше трех</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПросроченнаяЗадолженность</dataPath>
+			<field>ПросроченнаяЗадолженность</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просроченная задолженность</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачалоПросрочки</dataPath>
+			<field>НачалоПросрочки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало просрочки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_Договор.Клиент КАК Клиент,
+	Renault_Договор.РеализацияАвтомобиля.Дата КАК Дата,
+	Renault_Договор.СтатусДоговора КАК СтатусДоговора,
+	Renault_Договор.ОтсрочкаПлатежа КАК ОтсрочкаПлатежа,
+	Renault_Договор.СуммаДоговора КАК СуммаДоговора,
+	Renault_Договор.DMS_ДоговорВзаиморасчетов КАК DMS_ДоговорВзаиморасчетов,
+	ДОБАВИТЬКДАТЕ(Renault_Договор.РеализацияАвтомобиля.Дата, ДЕНЬ, Renault_Договор.ОтсрочкаПлатежа) КАК НачалоПросрочки,
+	Renault_Договор.Ссылка КАК Ссылка
+ПОМЕСТИТЬ ВТДоговоры
+ИЗ
+	Документ.Renault_Договор КАК Renault_Договор
+ГДЕ
+	НЕ Renault_Договор.ПометкаУдаления
+	И Renault_Договор.ОтсрочкаПлатежа &lt;&gt; 0
+	//И Renault_Договор.РеализацияАвтомобиля &lt;&gt; ЗНАЧЕНИЕ(Документ.РеализацияАвтомобилей.ПустаяСсылка)
+	И Renault_Договор.РеализацияАвтомобиля.Проведен
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТДоговоры.Клиент КАК Клиент,
+	ВТДоговоры.DMS_ДоговорВзаиморасчетов КАК DMS_ДоговорВзаиморасчетов,
+	СУММА(ВзаиморасчетыКомпанииОстаткиИОбороты.СуммаПриход - ВзаиморасчетыКомпанииОстаткиИОбороты.СуммаРасход) КАК ПросроченнаяЗадолженность
+ПОМЕСТИТЬ ВтПросроченнаяЗадолженность
+ИЗ
+	ВТДоговоры КАК ВТДоговоры
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.ВзаиморасчетыКомпании.ОстаткиИОбороты(, , Запись, , ) КАК ВзаиморасчетыКомпанииОстаткиИОбороты
+		ПО ВТДоговоры.Клиент = ВзаиморасчетыКомпанииОстаткиИОбороты.Контрагент
+			И ВТДоговоры.DMS_ДоговорВзаиморасчетов = ВзаиморасчетыКомпанииОстаткиИОбороты.ДоговорВзаиморасчетов
+			И ВТДоговоры.НачалоПросрочки &gt;= ВзаиморасчетыКомпанииОстаткиИОбороты.Период
+
+СГРУППИРОВАТЬ ПО
+	ВТДоговоры.Клиент,
+	ВТДоговоры.DMS_ДоговорВзаиморасчетов
+
+ИНДЕКСИРОВАТЬ ПО
+	Клиент,
+	DMS_ДоговорВзаиморасчетов
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЕСТЬNULL(ВзаиморасчетыКомпанииОстатки.СуммаОстаток, 0) КАК СуммаОстаток,
+	ВТДоговоры.СтатусДоговора КАК СтатусДоговора,
+	ВТДоговоры.ОтсрочкаПлатежа КАК ОтсрочкаПлатежа,
+	ВТДоговоры.СуммаДоговора КАК СуммаДоговора,
+	ВЫБОР
+		КОГДА РАЗНОСТЬДАТ(ВТДоговоры.НачалоПросрочки, &amp;ПериодОтчета, ДЕНЬ) &lt; 0
+			ТОГДА 0
+		ИНАЧЕ РАЗНОСТЬДАТ(ВТДоговоры.НачалоПросрочки, &amp;ПериодОтчета, ДЕНЬ)
+	КОНЕЦ КАК ДниПросрочки,
+	ЕСТЬNULL(ВзаиморасчетыКомпанииОстатки.СуммаОстаток, 0) КАК Задолженность,
+	ВТДоговоры.Ссылка КАК Ссылка,
+	ВТДоговоры.Клиент КАК Клиент,
+	ВЫБОР
+		КОГДА ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, ДЕНЬ, РАЗНОСТЬДАТ(ВТДоговоры.НачалоПросрочки, &amp;ПериодОтчета, ДЕНЬ)) &lt;= ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, МЕСЯЦ, 1)
+			ТОГДА ЕСТЬNULL(ВтПросроченнаяЗадолженность.ПросроченнаяЗадолженность, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК ДоМесяца,
+	ВЫБОР
+		КОГДА ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, ДЕНЬ, РАЗНОСТЬДАТ(ВТДоговоры.НачалоПросрочки, &amp;ПериодОтчета, ДЕНЬ)) МЕЖДУ ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, МЕСЯЦ, 1) И ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, МЕСЯЦ, 2)
+			ТОГДА ЕСТЬNULL(ВтПросроченнаяЗадолженность.ПросроченнаяЗадолженность, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК ОтОдногоДоДвух,
+	ВЫБОР
+		КОГДА ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, ДЕНЬ, РАЗНОСТЬДАТ(ВТДоговоры.НачалоПросрочки, &amp;ПериодОтчета, ДЕНЬ)) МЕЖДУ ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, МЕСЯЦ, 2) И ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, МЕСЯЦ, 3)
+			ТОГДА ЕСТЬNULL(ВтПросроченнаяЗадолженность.ПросроченнаяЗадолженность, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК ОтДвухДоТрех,
+	ВЫБОР
+		КОГДА ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, ДЕНЬ, РАЗНОСТЬДАТ(ВТДоговоры.НачалоПросрочки, &amp;ПериодОтчета, ДЕНЬ)) &gt;= ДОБАВИТЬКДАТЕ(ВТДоговоры.НачалоПросрочки, МЕСЯЦ, 3)
+			ТОГДА ЕСТЬNULL(ВтПросроченнаяЗадолженность.ПросроченнаяЗадолженность, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК СвышеТрех,
+	ЕСТЬNULL(ВтПросроченнаяЗадолженность.ПросроченнаяЗадолженность, 0) КАК ПросроченнаяЗадолженность,
+	ВТДоговоры.НачалоПросрочки КАК НачалоПросрочки
+ИЗ
+	ВТДоговоры КАК ВТДоговоры
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ВзаиморасчетыКомпании.Остатки(&amp;ПериодОтчета, ) КАК ВзаиморасчетыКомпанииОстатки
+			ЛЕВОЕ СОЕДИНЕНИЕ ВтПросроченнаяЗадолженность КАК ВтПросроченнаяЗадолженность
+			ПО ВзаиморасчетыКомпанииОстатки.Контрагент = ВтПросроченнаяЗадолженность.Клиент
+				И ВзаиморасчетыКомпанииОстатки.ДоговорВзаиморасчетов = ВтПросроченнаяЗадолженность.DMS_ДоговорВзаиморасчетов
+		ПО ВТДоговоры.DMS_ДоговорВзаиморасчетов = ВзаиморасчетыКомпанииОстатки.ДоговорВзаиморасчетов
+			И ВТДоговоры.Клиент = ВзаиморасчетыКомпанииОстатки.Контрагент</query>
+	</dataSet>
+	<totalField>
+		<dataPath>СуммаДоговора</dataPath>
+		<expression>Сумма(СуммаДоговора)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаОстаток</dataPath>
+		<expression>Сумма(СуммаОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Задолженность</dataPath>
+		<expression>Сумма(Задолженность)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДоМесяца</dataPath>
+		<expression>Сумма(ДоМесяца)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтДвухДоТрех</dataPath>
+		<expression>Сумма(ОтДвухДоТрех)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтОдногоДоДвух</dataPath>
+		<expression>Сумма(ОтОдногоДоДвух)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СвышеТрех</dataPath>
+		<expression>Сумма(СвышеТрех)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПросроченнаяЗадолженность</dataPath>
+		<expression>Сумма(ПросроченнаяЗадолженность)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаДоговора</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Задолженность</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПросроченнаяЗадолженность</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДоМесяца</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтОдногоДоДвух</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтДвухДоТрех</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СвышеТрех</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НачалоПросрочки</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>77576a12-3d86-4745-9f2a-2be0f972052c</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Клиент</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Ссылка</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>СтатусДоговора</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ОтсрочкаПлатежа</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ДниПросрочки</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>НачалоПросрочки</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Ссылка</dcsset:field>
+									<dcsset:lwsTitle>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Договор</v8:content>
+										</v8:item>
+									</dcsset:lwsTitle>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>СтатусДоговора</dcsset:field>
+									<dcsset:lwsTitle>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>статус</v8:content>
+										</v8:item>
+									</dcsset:lwsTitle>
+								</dcsset:item>
+								<dcsset:placement>Together</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ОтсрочкаПлатежа</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ДниПросрочки</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаДоговора</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Задолженность</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПросроченнаяЗадолженность</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ДоМесяца</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ОтОдногоДоДвух</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ОтДвухДоТрех</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СвышеТрех</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>НачалоПросрочки</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:row>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

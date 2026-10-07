@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>HierarchicalList</ExcludedCommand>
+		<ExcludedCommand>LevelDown</ExcludedCommand>
+		<ExcludedCommand>LevelUp</ExcludedCommand>
+		<ExcludedCommand>List</ExcludedCommand>
+		<ExcludedCommand>MoveItem</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>Tree</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="кнКонструктор" id="101">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.кнКонструктор</CommandName>
+				<ExtendedTooltip name="кнКонструкторРасширеннаяПодсказка" id="102"/>
+			</Button>
+			<Button name="кнВыполнитьПроверку" id="85">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.кнВыполнитьПроверку</CommandName>
+				<ExtendedTooltip name="кнВыполнитьПроверкуРасширеннаяПодсказка" id="86"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group Custom Settings</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>Tree</Representation>
+			<DefaultItem>true</DefaultItem>
+			<Height>10</Height>
+			<RowSelectionMode>Row</RowSelectionMode>
+			<HeaderHeight>2</HeaderHeight>
+			<HorizontalLines>false</HorizontalLines>
+			<VerticalLines>false</VerticalLines>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>Copy</ExcludedCommand>
+			</CommandSet>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>false</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<ChildItems>
+					<Button name="кнОбновить" id="99">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="кнОбновитьРасширеннаяПодсказка" id="100"/>
+					</Button>
+					<ButtonGroup name="грВкл" id="75">
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Гр вкл</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>On Gy</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="грВклРасширеннаяПодсказка" id="76"/>
+						<ChildItems>
+							<Button name="кнВкл" id="71">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.кнВкл</CommandName>
+								<ExtendedTooltip name="кнВклРасширеннаяПодсказка" id="72"/>
+							</Button>
+							<Button name="кнВыкл" id="73">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.кнВыкл</CommandName>
+								<ExtendedTooltip name="кнВыклРасширеннаяПодсказка" id="74"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<Popup name="грРежимПросмотра" id="77">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Режим просмотра</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>view mode</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Режим просмотра</v8:content>
+							</v8:item>
+							<v8:item>
+								<v8:lang>en</v8:lang>
+								<v8:content>view mode</v8:content>
+							</v8:item>
+						</ToolTip>
+						<Picture>
+							<xr:Ref>StdPicture.ListViewMode</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="грРежимПросмотраРасширеннаяПодсказка" id="78"/>
+						<ChildItems>
+							<Button name="ФормаСписок" id="79">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.Список.StandardCommand.List</CommandName>
+								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="ФормаСписокРасширеннаяПодсказка" id="80"/>
+							</Button>
+							<Button name="ФормаИерархическийСписок" id="81">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.Список.StandardCommand.HierarchicalList</CommandName>
+								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="ФормаИерархическийСписокРасширеннаяПодсказка" id="82"/>
+							</Button>
+							<Button name="ФормаДерево" id="83">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.Список.StandardCommand.Tree</CommandName>
+								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="ФормаДеревоРасширеннаяПодсказка" id="84"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+				<Event name="AfterDeleteRow">СписокПослеУдаления</Event>
+				<Event name="OnChange">СписокПриИзменении</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="Код" id="130">
+					<DataPath>Список.Code</DataPath>
+					<Width>1</Width>
+					<ContextMenu name="КодКонтекстноеМеню" id="131"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="132"/>
+				</LabelField>
+				<CheckBoxField name="Активно" id="28">
+					<DataPath>Список.Активно</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активно</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Actively</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.Renault_Chek</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="АктивноКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="АктивноРасширеннаяПодсказка" id="30"/>
+				</CheckBoxField>
+				<CheckBoxField name="ТолькоЧтение" id="87">
+					<DataPath>Список.ТолькоЧтение</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Только
+чтение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Only
+reading</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Только чтение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Only reading</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.Renault_НеРедактировать</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТолькоЧтениеКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="ТолькоЧтениеРасширеннаяПодсказка" id="89"/>
+				</CheckBoxField>
+				<LabelField name="ВнешниеМетаданные" id="34">
+					<DataPath>Список.ВнешниеМетаданные</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Внешние Метаданные
+(Источник)</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>External Metadata
+(A source)</v8:content>
+						</v8:item>
+					</Title>
+					<HeaderPicture>
+						<xr:Ref>StdPicture.ExternalDataSource</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<Width>1</Width>
+					<ContextMenu name="ВнешниеМетаданныеКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ВнешниеМетаданныеРасширеннаяПодсказка" id="36"/>
+				</LabelField>
+				<ColumnGroup name="Внутренние" id="103">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Внутренние</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>internal</v8:content>
+						</v8:item>
+					</Title>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ВнутренниеРасширеннаяПодсказка" id="104"/>
+					<ChildItems>
+						<PictureField name="Картинка" id="105">
+							<DataPath>Список.Картинка</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="КартинкаКонтекстноеМеню" id="106"/>
+							<ExtendedTooltip name="КартинкаРасширеннаяПодсказка" id="107"/>
+						</PictureField>
+						<LabelField name="Наименование" id="16">
+							<DataPath>Список.Description</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Внутренние Метаданные
+(Приемник)</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Internal Metadata
+(Receiver)</v8:content>
+								</v8:item>
+							</Title>
+							<HeaderPicture>
+								<xr:Ref>StdPicture.Attribute</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</HeaderPicture>
+							<Width>1</Width>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="18"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="грПравилоПоиска" id="113">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="грПравилоПоискаРасширеннаяПодсказка" id="114"/>
+					<ChildItems>
+						<PictureField name="ИндексКартинкиПравилоПоиска" id="115">
+							<DataPath>Список.ИндексКартинкиПравилоПоиска</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ИндексКартинкиПравилоПоискаКонтекстноеМеню" id="116"/>
+							<ExtendedTooltip name="ИндексКартинкиПравилоПоискаРасширеннаяПодсказка" id="117"/>
+						</PictureField>
+						<LabelField name="ПравилоПоиска" id="93">
+							<DataPath>Список.ПравилоПоиска</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Правило
+поиска</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>rule
+searching</v8:content>
+								</v8:item>
+							</Title>
+							<Width>1</Width>
+							<ContextMenu name="ПравилоПоискаКонтекстноеМеню" id="94"/>
+							<ExtendedTooltip name="ПравилоПоискаРасширеннаяПодсказка" id="95"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="грПравило" id="108">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="грПравилоРасширеннаяПодсказка" id="109"/>
+					<ChildItems>
+						<PictureField name="ИндексКартинкиПравило" id="110">
+							<DataPath>Список.ИндексКартинкиПравило</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="ИндексКартинкиПравилоКонтекстноеМеню" id="111"/>
+							<ExtendedTooltip name="ИндексКартинкиПравилоРасширеннаяПодсказка" id="112"/>
+						</PictureField>
+						<LabelField name="Правило" id="37">
+							<DataPath>Список.Правило</DataPath>
+							<Width>1</Width>
+							<ContextMenu name="ПравилоКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="ПравилоРасширеннаяПодсказка" id="39"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="Комментарий" id="31">
+					<DataPath>Список.Комментарий</DataPath>
+					<Width>1</Width>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<Table name="Реквизиты" id="40">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<Height>10</Height>
+			<HeaderHeight>2</HeaderHeight>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Реквизиты</DataPath>
+			<RowPictureDataPath>Реквизиты.Картинка</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>StdPicture.Attribute</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</RowsPicture>
+			<CommandSet>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="РеквизитыКонтекстноеМеню" id="41"/>
+			<AutoCommandBar name="РеквизитыКоманднаяПанель" id="42"/>
+			<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="43"/>
+			<SearchStringAddition name="РеквизитыСтрокаПоиска" id="44">
+				<AdditionSource>
+					<Item>Реквизиты</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РеквизитыСтрокаПоискаКонтекстноеМеню" id="45"/>
+				<ExtendedTooltip name="РеквизитыСтрокаПоискаРасширеннаяПодсказка" id="46"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РеквизитыСостояниеПросмотра" id="47">
+				<AdditionSource>
+					<Item>Реквизиты</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РеквизитыСостояниеПросмотраКонтекстноеМеню" id="48"/>
+				<ExtendedTooltip name="РеквизитыСостояниеПросмотраРасширеннаяПодсказка" id="49"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РеквизитыУправлениеПоиском" id="50">
+				<AdditionSource>
+					<Item>Реквизиты</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РеквизитыУправлениеПоискомКонтекстноеМеню" id="51"/>
+				<ExtendedTooltip name="РеквизитыУправлениеПоискомРасширеннаяПодсказка" id="52"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="РеквизитыНомерСтроки" id="133">
+					<DataPath>Реквизиты.LineNumber</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№ строки</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>number line</v8:content>
+						</v8:item>
+					</Title>
+					<Width>1</Width>
+					<ContextMenu name="РеквизитыНомерСтрокиКонтекстноеМеню" id="134"/>
+					<ExtendedTooltip name="РеквизитыНомерСтрокиРасширеннаяПодсказка" id="135"/>
+				</LabelField>
+				<CheckBoxField name="РеквизитыАктивно" id="59">
+					<DataPath>Реквизиты.Активно</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Активно</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Actively</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HeaderPicture>
+						<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РеквизитыАктивноКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="РеквизитыАктивноРасширеннаяПодсказка" id="61"/>
+				</CheckBoxField>
+				<CheckBoxField name="РеквизитыТолькоЧтение" id="90">
+					<DataPath>Реквизиты.ТолькоЧтение</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Только
+чтение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Only
+reading</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Только чтение</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Only reading</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HeaderPicture>
+						<xr:Ref>CommonPicture.Renault_НеРедактировать</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РеквизитыТолькоЧтениеКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="РеквизитыТолькоЧтениеРасширеннаяПодсказка" id="92"/>
+				</CheckBoxField>
+				<CheckBoxField name="РеквизитыПоиск" id="136">
+					<DataPath>Реквизиты.Поиск</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HeaderPicture>
+						<xr:Ref>StdPicture.InputFieldOpen</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РеквизитыПоискКонтекстноеМеню" id="137"/>
+					<ExtendedTooltip name="РеквизитыПоискРасширеннаяПодсказка" id="138"/>
+				</CheckBoxField>
+				<LabelField name="РеквизитыВнешнийРеквизит" id="62">
+					<DataPath>Реквизиты.ВнешнийРеквизит</DataPath>
+					<HeaderPicture>
+						<xr:Ref>StdPicture.ExternalDataSource</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<Width>1</Width>
+					<ContextMenu name="РеквизитыВнешнийРеквизитКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="РеквизитыВнешнийРеквизитРасширеннаяПодсказка" id="64"/>
+				</LabelField>
+				<LabelField name="РеквизитыРеквизит" id="68">
+					<DataPath>Реквизиты.Реквизит</DataPath>
+					<HeaderPicture>
+						<xr:Ref>StdPicture.Attribute</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</HeaderPicture>
+					<Width>1</Width>
+					<ContextMenu name="РеквизитыРеквизитКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="РеквизитыРеквизитРасширеннаяПодсказка" id="70"/>
+				</LabelField>
+				<ColumnGroup name="грПравилоПоискаРек" id="123">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="грПравилоПоискаРекРасширеннаяПодсказка" id="124"/>
+					<ChildItems>
+						<PictureField name="РеквизитыИндексКартинкиПравилоПоиска" id="125">
+							<DataPath>Реквизиты.ИндексКартинкиПравилоПоиска</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="РеквизитыИндексКартинкиПравилоПоискаКонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="РеквизитыИндексКартинкиПравилоПоискаРасширеннаяПодсказка" id="127"/>
+						</PictureField>
+						<LabelField name="РеквизитыПравилоПоиска" id="96">
+							<DataPath>Реквизиты.ПравилоПоиска</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Правило
+посика</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>rule
+posik</v8:content>
+								</v8:item>
+							</Title>
+							<Width>1</Width>
+							<ContextMenu name="РеквизитыПравилоПоискаКонтекстноеМеню" id="97"/>
+							<ExtendedTooltip name="РеквизитыПравилоПоискаРасширеннаяПодсказка" id="98"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="грПравилоРек" id="118">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="грПравилоРекРасширеннаяПодсказка" id="119"/>
+					<ChildItems>
+						<PictureField name="РеквизитыИндексКартинкиПравило" id="120">
+							<DataPath>Реквизиты.ИндексКартинкиПравило</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="РеквизитыИндексКартинкиПравилоКонтекстноеМеню" id="121"/>
+							<ExtendedTooltip name="РеквизитыИндексКартинкиПравилоРасширеннаяПодсказка" id="122"/>
+						</PictureField>
+						<LabelField name="РеквизитыПравило" id="65">
+							<DataPath>Реквизиты.Правило</DataPath>
+							<Width>1</Width>
+							<ContextMenu name="РеквизитыПравилоКонтекстноеМеню" id="66"/>
+							<ExtendedTooltip name="РеквизитыПравилоРасширеннаяПодсказка" id="67"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>Выбрать
+	//*,
+	Код,
+	Наименование,
+	Активно,
+	ТолькоЧтение,
+	ВнешниеМетаданные,
+	Комментарий,
+	
+	Правило,
+	Выбор //картинка правил
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Формула) Тогда 11
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Программа) Тогда 7
+		//Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Построитель) Тогда -
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Булево) Тогда 4
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Дата) Тогда 3
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Число) Тогда 1
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Строка) Тогда 2
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Ссылка) Тогда 6
+		Иначе 100
+	Конец ИндексКартинкиПравило,
+	
+	ПравилоПоиска,
+	Выбор //картинка правил поиска
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Формула) Тогда 11
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Программа) Тогда 7
+		//Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Построитель) Тогда -
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Булево) Тогда 4
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Дата) Тогда 3
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Число) Тогда 1
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Строка) Тогда 2
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Ссылка) Тогда 6
+		Иначе 100
+	Конец ИндексКартинкиПравилоПоиска,
+	
+	Выбор //картинка метаданных
+		Когда Наименование Подобно "Справочник.%" Тогда 14
+		Когда Наименование Подобно "Документ.%" Тогда 15
+		Когда Наименование Подобно "БизнесПроцесс.%" Тогда 16
+		Когда Наименование Подобно "Задача.%" Тогда 17
+		Когда Наименование Подобно "ПланСчетов.%" Тогда 18
+		Когда Наименование Подобно "ПланОбмена.%" Тогда 19
+		Когда Наименование Подобно "ПланВидовХарактеристик.%" Тогда 20
+		Когда Наименование Подобно "РегистрСведений.%" Тогда 13
+		Иначе 0
+	Конец Картинка
+	
+Из Справочник.Renault_КонвертацияДанных</QueryText>
+				<MainTable>Catalog.Renault_КонвертацияДанных</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Активно</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:FormBackColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Реквизиты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Requisites</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	НомерСтроки,
+	Активно,
+	ТолькоЧтение,
+	ВнешнийРеквизит,
+	Реквизит,
+	Правило,
+	ПравилоПоиска,
+	Поиск,
+	Истина Картинка,
+	Выбор
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Формула) Тогда 11
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Программа) Тогда 7
+		//Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Построитель) Тогда -
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Булево) Тогда 4
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Дата) Тогда 3
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Число) Тогда 1
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Строка) Тогда 2
+		Когда Правило.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Ссылка) Тогда 6
+		Иначе 100
+	Конец ИндексКартинкиПравило,
+	Выбор 
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Формула) Тогда 11
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Программа) Тогда 7
+		//Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Построитель) Тогда -
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Булево) Тогда 4
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Дата) Тогда 3
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Число) Тогда 1
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Строка) Тогда 2
+		Когда ПравилоПоиска.ВидПравила=Значение(Перечисление.Renault_ВидыПравил.Ссылка) Тогда 6
+		Иначе 100
+	Конец ИндексКартинкиПравилоПоиска
+	
+ИЗ Справочник.Renault_КонвертацияДанных.Реквизиты
+ГДЕ Ссылка=&amp;Ссылка</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Активно</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:FormBackColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнВкл" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить выделенные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>including the allocation of</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить выделенные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>including the allocation of</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВкл</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВыкл" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выключить выделенные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Disable selected</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выключить выделенные</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Disable selected</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВкл</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВыполнитьПроверку" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить проверку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>check Now</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить проверку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>check Now</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckSyntax</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВыполнитьПроверку</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнКонструктор" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конструктор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Constructor</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конструктор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Constructor</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataCompositionSettingsWizard</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнКонструктор</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

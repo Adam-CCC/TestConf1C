@@ -1,0 +1,902 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяКомпания</dataPath>
+			<field>СтраховаяКомпания</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Агент</dataPath>
+			<field>Агент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОплаты</dataPath>
+			<field>ВидОплаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСтрахования</dataPath>
+			<field>ВидСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВознаграждениеБрокера</dataPath>
+			<field>ВознаграждениеБрокера</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вознаграждение брокера, руб</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачалаСтрахования</dataPath>
+			<field>ДатаНачалаСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончанияСтрахования</dataPath>
+			<field>ДатаОкончанияСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсходныйПолисСсылка</dataPath>
+			<field>ИсходныйПолисСсылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КВБордеро</dataPath>
+			<field>КВБордеро</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бордеро, %</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КВДВОУ</dataPath>
+			<field>КВДВОУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ДВОУ, %</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КвитанцияНомерБСО</dataPath>
+			<field>КвитанцияНомерБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КвитанцияСерияБСО</dataPath>
+			<field>КвитанцияСерияБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Серия</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КвитанцияТипБСО</dataPath>
+			<field>КвитанцияТипБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КВОбщ</dataPath>
+			<field>КВОбщ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КВ, %</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=5; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерБСО</dataPath>
+			<field>НомерБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер бланка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Полис</dataPath>
+			<field>Полис</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентСкидкиЗасчетКВ</dataPath>
+			<field>ПроцентСкидкиЗасчетКВ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скидка, %</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияБСО</dataPath>
+			<field>СерияБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Серия</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособОплаты</dataPath>
+			<field>СпособОплаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Взнос, руб</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаКОплатеПоПолису</dataPath>
+			<field>СуммаКОплатеПоПолису</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипБСО</dataPath>
+			<field>ТипБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаПродаж</dataPath>
+			<field>ТочкаПродаж</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Банк</dataPath>
+			<field>Банк</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Страхователь</dataPath>
+			<field>Страхователь</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Телефон</dataPath>
+			<field>Телефон</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВыдачи</dataPath>
+			<field>ДатаВыдачи</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВзаиморасчетыСКонтрагентами.ДоговорВзаиморасчетов КАК ДоговорКонтрагента,
+	ВЫБОР
+		КОГДА ВзаиморасчетыСКонтрагентами.Регистратор ССЫЛКА Документ.РасходныйКассовыйОрдер
+			ТОГДА РасходныйКассовыйОрдер.Сделка
+		ИНАЧЕ ВзаиморасчетыСКонтрагентами.Сделка
+	КОНЕЦ КАК Сделка,
+	ВзаиморасчетыСКонтрагентами.Регистратор.Организация КАК Организация,
+	ВзаиморасчетыСКонтрагентами.Контрагент КАК Контрагент,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(РасходныйКассовыйОрдер.СтатьяДДС, ЗНАЧЕНИЕ(Справочник.СтатьиДДС.ПустаяСсылка)) = &amp;Возврат
+			ТОГДА -ВзаиморасчетыСКонтрагентами.Сумма
+		ИНАЧЕ ВзаиморасчетыСКонтрагентами.Сумма
+	КОНЕЦ КАК СуммаВзаиморасчетов,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(ВзаиморасчетыСКонтрагентами.Регистратор) = ТИП(Документ.ПриходныйКассовыйОрдер)
+				ИЛИ ТИПЗНАЧЕНИЯ(ВзаиморасчетыСКонтрагентами.Регистратор) = ТИП(Документ.РасходныйКассовыйОрдер)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_СпособыОплатыСтраховыхПолисов.НАЛ)
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.Renault_СпособыОплатыСтраховыхПолисов.БНАЛ)
+	КОНЕЦ КАК СпособОплаты,
+	ВзаиморасчетыСКонтрагентами.Регистратор КАК ПлатежныйДокумент
+ПОМЕСТИТЬ ВТ_ВзаиморасчетыЗаПериод
+ИЗ
+	РегистрНакопления.ВзаиморасчетыКомпании КАК ВзаиморасчетыСКонтрагентами
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.РасходныйКассовыйОрдер КАК РасходныйКассовыйОрдер
+		ПО ВзаиморасчетыСКонтрагентами.Регистратор = РасходныйКассовыйОрдер.Ссылка
+ГДЕ
+	ВзаиморасчетыСКонтрагентами.Период МЕЖДУ НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ДЕНЬ) И КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ)
+	И (ВзаиморасчетыСКонтрагентами.Регистратор ССЫЛКА Документ.ПриходныйКассовыйОрдер
+			ИЛИ ВзаиморасчетыСКонтрагентами.Регистратор ССЫЛКА Документ.РасходныйКассовыйОрдер
+			ИЛИ ВзаиморасчетыСКонтрагентами.Регистратор ССЫЛКА Документ.ЧекНаОплату)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаменыБезДоплаты.Ссылка,
+	ЗаменыБезДоплаты.ЗаменяемыйПолис,
+	ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ЗаменыБезДоплаты.Ссылка.Дата, МЕСЯЦ) = НАЧАЛОПЕРИОДА(ЗаменыБезДоплаты.ЗаменяемыйПолис.Дата, МЕСЯЦ)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ЗаменаВЭтомМесяце
+ПОМЕСТИТЬ ВТ_ЗаменыБезДоплаты
+ИЗ
+	(ВЫБРАТЬ
+		Renault_СтраховойПолис.Ссылка КАК Ссылка,
+		Renault_СтраховойПолис.ЗаменяемыйПолис КАК ЗаменяемыйПолис
+	ИЗ
+		Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолис
+	ГДЕ
+		Renault_СтраховойПолис.Дата МЕЖДУ НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ДЕНЬ) И КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ)
+		И Renault_СтраховойПолис.Проведен
+		И НЕ Renault_СтраховойПолис.ПометкаУдаления
+		И Renault_СтраховойПолис.ЗаменаБезДоплаты) КАК ЗаменыБезДоплаты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ВзаиморасчетыЗаПериод.СуммаВзаиморасчетов КАК Сумма,
+	Renault_СтраховойПолис.Ссылка,
+	ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОплатСтраховыхПолисов.ОплатаПоКассе) КАК ВидОплаты,
+	ВТ_ВзаиморасчетыЗаПериод.СпособОплаты,
+	Renault_СтраховойПолис.СуммаДокумента КАК СуммаКОплатеПоПолису,
+	ВТ_ВзаиморасчетыЗаПериод.ПлатежныйДокумент
+ПОМЕСТИТЬ ВТ_ПолисыЗаПериод
+ИЗ
+	ВТ_ВзаиморасчетыЗаПериод КАК ВТ_ВзаиморасчетыЗаПериод
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолис
+		ПО ВТ_ВзаиморасчетыЗаПериод.Контрагент = Renault_СтраховойПолис.Контрагент
+			И ВТ_ВзаиморасчетыЗаПериод.ДоговорКонтрагента = Renault_СтраховойПолис.ЗаказПокупателя.ДоговорВзаиморасчетов
+			И ВТ_ВзаиморасчетыЗаПериод.Сделка = Renault_СтраховойПолис.ЗаказПокупателя
+ГДЕ
+	НЕ Renault_СтраховойПолис.ОплатаЧерезБанк
+	И НЕ Renault_СтраховойПолис.ОплатаСК
+	И НЕ Renault_СтраховойПолис.ЗаменаБезДоплаты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Renault_СтраховойПолис.СуммаДокумента,
+	Renault_СтраховойПолис.Ссылка,
+	ВЫБОР
+		КОГДА Renault_СтраховойПолис.ОплатаСК
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОплатСтраховыхПолисов.ОплатаПоКассе)
+		КОГДА Renault_СтраховойПолис.ОплатаЧерезБанк
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОплатСтраховыхПолисов.ОплатаЧерезБанк)
+	КОНЕЦ,
+	NULL,
+	Renault_СтраховойПолис.СуммаДокумента,
+	NULL
+ИЗ
+	Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолис
+ГДЕ
+	(Renault_СтраховойПолис.ОплатаСК
+			ИЛИ Renault_СтраховойПолис.ОплатаЧерезБанк)
+	И Renault_СтраховойПолис.Дата МЕЖДУ НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ДЕНЬ) И КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ)
+	И Renault_СтраховойПолис.Проведен
+	И НЕ Renault_СтраховойПолис.ПометкаУдаления
+	И НЕ Renault_СтраховойПолис.ЗаменаБезДоплаты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПолисыЗаПериод.Ссылка КАК ИсходныйПолисСсылка,
+	ВТ_ПолисыЗаПериод.Сумма,
+	Renault_СтраховойПолис.СтраховаяКомпания,
+	Renault_СтраховойПолис.ТочкаПродаж,
+	Renault_СтраховойПолис.ВидСтрахования,
+	Renault_СтраховойПолис.ДатаВыдачи,
+	Renault_СтраховойПолис.ДатаНачалаСтрахования,
+	Renault_СтраховойПолис.ДатаОкончанияСтрахования,
+	Renault_СтраховойПолис.Контрагент,
+	ВЫБОР
+		КОГДА Renault_ОплатаСтраховогоПолиса.Агент ЕСТЬ NULL
+			ТОГДА Renault_СтраховойПолис.Агент
+		ИНАЧЕ Renault_ОплатаСтраховогоПолиса.Агент
+	КОНЕЦ КАК Агент,
+	Renault_СтраховойПолис.ТипБСО,
+	Renault_СтраховойПолис.СерияБСО,
+	Renault_СтраховойПолис.НомерБСО,
+	Renault_СтраховойПолис.ПроцентСкидкиЗасчетКВ,
+	ВТ_ПолисыЗаПериод.ВидОплаты,
+	ВТ_ПолисыЗаПериод.СпособОплаты,
+	ВЫБОР
+		КОГДА НЕ ВТ_ЗаменыБезДоплаты.Ссылка ЕСТЬ NULL
+				И ВТ_ЗаменыБезДоплаты.ЗаменаВЭтомМесяце
+			ТОГДА ВТ_ЗаменыБезДоплаты.Ссылка
+		ИНАЧЕ ВТ_ПолисыЗаПериод.Ссылка
+	КОНЕЦ КАК Полис,
+	ВТ_ПолисыЗаПериод.СуммаКОплатеПоПолису,
+	Renault_СтраховойПолис.Банк,
+	Renault_ОплатаСтраховогоПолиса.ТипБСО КАК КвитанцияТипБСО,
+	Renault_ОплатаСтраховогоПолиса.СерияБСО КАК КвитанцияСерияБСО,
+	Renault_ОплатаСтраховогоПолиса.НомерБСО КАК КвитанцияНомерБСО
+ПОМЕСТИТЬ ВТ_ПолисыСУчетомЗамен
+ИЗ
+	ВТ_ПолисыЗаПериод КАК ВТ_ПолисыЗаПериод
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолис
+		ПО ВТ_ПолисыЗаПериод.Ссылка = Renault_СтраховойПолис.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ЗаменыБезДоплаты КАК ВТ_ЗаменыБезДоплаты
+		ПО ВТ_ПолисыЗаПериод.Ссылка = ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис
+			И (ВЫБОР
+				КОГДА НЕ ВТ_ЗаменыБезДоплаты.Ссылка ЕСТЬ NULL
+					ТОГДА ВТ_ЗаменыБезДоплаты.ЗаменаВЭтомМесяце
+				ИНАЧЕ ЛОЖЬ
+			КОНЕЦ)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_ОплатаСтраховогоПолиса КАК Renault_ОплатаСтраховогоПолиса
+		ПО ВТ_ПолисыЗаПериод.ПлатежныйДокумент = Renault_ОплатаСтраховогоПолиса.ПлатежныйДокумент
+			И (Renault_ОплатаСтраховогоПолиса.Проведен)
+			И (НЕ Renault_ОплатаСтраховогоПолиса.ПометкаУдаления)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис,
+	0,
+	ВТ_ЗаменыБезДоплаты.Ссылка.СтраховаяКомпания,
+	ВТ_ЗаменыБезДоплаты.Ссылка.ТочкаПродаж,
+	ВТ_ЗаменыБезДоплаты.Ссылка.ВидСтрахования,
+	ВТ_ЗаменыБезДоплаты.Ссылка.ДатаВыдачи,
+	ВТ_ЗаменыБезДоплаты.Ссылка.ДатаНачалаСтрахования,
+	ВТ_ЗаменыБезДоплаты.Ссылка.ДатаОкончанияСтрахования,
+	ВТ_ЗаменыБезДоплаты.Ссылка.Контрагент,
+	ВТ_ЗаменыБезДоплаты.Ссылка.Агент,
+	ВТ_ЗаменыБезДоплаты.Ссылка.ТипБСО,
+	ВТ_ЗаменыБезДоплаты.Ссылка.СерияБСО,
+	ВТ_ЗаменыБезДоплаты.Ссылка.НомерБСО,
+	ВТ_ЗаменыБезДоплаты.Ссылка.ПроцентСкидкиЗасчетКВ,
+	NULL,
+	NULL,
+	ВТ_ЗаменыБезДоплаты.Ссылка,
+	0,
+	ВТ_ЗаменыБезДоплаты.Ссылка.Банк,
+	NULL,
+	NULL,
+	NULL
+ИЗ
+	ВТ_ЗаменыБезДоплаты КАК ВТ_ЗаменыБезДоплаты
+ГДЕ
+	НЕ ВТ_ЗаменыБезДоплаты.ЗаменаВЭтомМесяце
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис,
+	0,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.СтраховаяКомпания,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.ТочкаПродаж,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.ВидСтрахования,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.ДатаВыдачи,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.ДатаНачалаСтрахования,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.ДатаОкончанияСтрахования,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.Контрагент,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.Агент,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.ТипБСО,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.СерияБСО,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.НомерБСО,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.ПроцентСкидкиЗасчетКВ,
+	NULL,
+	NULL,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис,
+	0,
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис.Банк,
+	NULL,
+	NULL,
+	NULL
+ИЗ
+	ВТ_ЗаменыБезДоплаты КАК ВТ_ЗаменыБезДоплаты
+ГДЕ
+	ВТ_ЗаменыБезДоплаты.ЗаменяемыйПолис &lt;&gt; ЗНАЧЕНИЕ(Документ.Renault_СтраховойПолис.ПустаяСсылка)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Renault_СтраховойПолис.Ссылка,
+	Renault_ОплатаСтраховогоПолиса.СуммаДокумента,
+	Renault_СтраховойПолис.СтраховаяКомпания,
+	Renault_СтраховойПолис.ТочкаПродаж,
+	Renault_СтраховойПолис.ВидСтрахования,
+	Renault_СтраховойПолис.ДатаВыдачи,
+	Renault_СтраховойПолис.ДатаНачалаСтрахования,
+	Renault_СтраховойПолис.ДатаОкончанияСтрахования,
+	Renault_СтраховойПолис.Контрагент,
+	ВЫБОР
+		КОГДА Renault_ОплатаСтраховогоПолиса.Агент ЕСТЬ NULL
+			ТОГДА Renault_СтраховойПолис.Агент
+		ИНАЧЕ Renault_ОплатаСтраховогоПолиса.Агент
+	КОНЕЦ,
+	Renault_СтраховойПолис.ТипБСО,
+	Renault_СтраховойПолис.СерияБСО,
+	Renault_СтраховойПолис.НомерБСО,
+	Renault_СтраховойПолис.ПроцентСкидкиЗасчетКВ,
+	NULL,
+	NULL,
+	Renault_СтраховойПолис.Ссылка,
+	Renault_СтраховойПолис.СуммаДокумента,
+	Renault_СтраховойПолис.Банк,
+	Renault_ОплатаСтраховогоПолиса.ТипБСО,
+	Renault_ОплатаСтраховогоПолиса.СерияБСО,
+	Renault_ОплатаСтраховогоПолиса.НомерБСО
+ИЗ
+	Документ.Renault_ОплатаСтраховогоПолиса КАК Renault_ОплатаСтраховогоПолиса
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолис
+		ПО Renault_ОплатаСтраховогоПолиса.СтраховойПолис = Renault_СтраховойПолис.Ссылка
+ГДЕ
+	НЕ Renault_СтраховойПолис.ОплатаСК
+	И НЕ Renault_СтраховойПолис.ОплатаЧерезБанк
+	И (Renault_ОплатаСтраховогоПолиса.ОплатаСК
+			ИЛИ Renault_ОплатаСтраховогоПолиса.ОплатаЧерезБанк)
+	И Renault_ОплатаСтраховогоПолиса.Дата МЕЖДУ НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ДЕНЬ) И КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ)
+	И Renault_СтраховойПолис.Проведен
+	И НЕ Renault_СтраховойПолис.ПометкаУдаления
+	И Renault_ОплатаСтраховогоПолиса.Проведен
+	И НЕ Renault_ОплатаСтраховогоПолиса.ПометкаУдаления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПолисыСУчетомЗамен.ИсходныйПолисСсылка,
+	ВТ_ПолисыСУчетомЗамен.Сумма,
+	ВТ_ПолисыСУчетомЗамен.СтраховаяКомпания,
+	ВТ_ПолисыСУчетомЗамен.ТочкаПродаж,
+	ВТ_ПолисыСУчетомЗамен.ВидСтрахования,
+	ВТ_ПолисыСУчетомЗамен.ДатаВыдачи,
+	ВТ_ПолисыСУчетомЗамен.ДатаНачалаСтрахования,
+	ВТ_ПолисыСУчетомЗамен.ДатаОкончанияСтрахования,
+	ВТ_ПолисыСУчетомЗамен.Контрагент КАК Страхователь,
+	ВЫБОР
+		КОГДА ВТ_ПолисыСУчетомЗамен.ИсходныйПолисСсылка = ВТ_ПолисыСУчетомЗамен.Полис
+			ТОГДА ВТ_ПолисыСУчетомЗамен.ТипБСО
+		ИНАЧЕ ВТ_ПолисыСУчетомЗамен.Полис.ТипБСО
+	КОНЕЦ КАК ТипБСО,
+	ВЫБОР
+		КОГДА ВТ_ПолисыСУчетомЗамен.ИсходныйПолисСсылка = ВТ_ПолисыСУчетомЗамен.Полис
+			ТОГДА ВТ_ПолисыСУчетомЗамен.СерияБСО
+		ИНАЧЕ ВТ_ПолисыСУчетомЗамен.Полис.СерияБСО
+	КОНЕЦ КАК СерияБСО,
+	ВЫБОР
+		КОГДА ВТ_ПолисыСУчетомЗамен.ИсходныйПолисСсылка = ВТ_ПолисыСУчетомЗамен.Полис
+			ТОГДА ВТ_ПолисыСУчетомЗамен.НомерБСО
+		ИНАЧЕ ВТ_ПолисыСУчетомЗамен.Полис.НомерБСО
+	КОНЕЦ КАК НомерБСО,
+	ВТ_ПолисыСУчетомЗамен.ПроцентСкидкиЗасчетКВ,
+	ВТ_ПолисыСУчетомЗамен.ВидОплаты,
+	ВТ_ПолисыСУчетомЗамен.СпособОплаты,
+	ВТ_ПолисыСУчетомЗамен.Полис,
+	Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВБордеро,
+	Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВДВОУ,
+	Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВБордеро + Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВДВОУ КАК КВОбщ,
+	ВЫБОР
+		КОГДА Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВБордеро + Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВДВОУ &gt; 0
+			ТОГДА ВЫРАЗИТЬ(ВТ_ПолисыСУчетомЗамен.Сумма * (Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВБордеро + Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.КВДВОУ - ВТ_ПолисыСУчетомЗамен.ПроцентСкидкиЗасчетКВ) / 100 КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ КАК ВознаграждениеБрокера,
+	ВТ_ПолисыСУчетомЗамен.СуммаКОплатеПоПолису,
+	ВТ_ПолисыСУчетомЗамен.Банк,
+	ВЫБОР
+		КОГДА ВложенныйЗапрос.НовыйТип ЕСТЬ NULL
+			ТОГДА ВТ_ПолисыСУчетомЗамен.КвитанцияТипБСО
+		ИНАЧЕ ВложенныйЗапрос.НовыйТип
+	КОНЕЦ КАК КвитанцияТипБСО,
+	ВЫБОР
+		КОГДА ВложенныйЗапрос.НовыйСерия ЕСТЬ NULL
+			ТОГДА ВТ_ПолисыСУчетомЗамен.КвитанцияСерияБСО
+		ИНАЧЕ ВложенныйЗапрос.НовыйСерия
+	КОНЕЦ КАК КвитанцияСерияБСО,
+	ВЫБОР
+		КОГДА ВложенныйЗапрос.НовыйНомер ЕСТЬ NULL
+			ТОГДА ВТ_ПолисыСУчетомЗамен.КвитанцияНомерБСО
+		ИНАЧЕ ВложенныйЗапрос.НовыйНомер
+	КОНЕЦ КАК КвитанцияНомерБСО,
+	ВТ_ПолисыСУчетомЗамен.Агент,
+	ВЫБОР
+		КОГДА &amp;ЕстьПравоВидетьТелефоны
+			ТОГДА КИ.Представление
+		ИНАЧЕ ""
+	КОНЕЦ КАК Телефон
+ИЗ
+	ВТ_ПолисыСУчетомЗамен КАК ВТ_ПолисыСУчетомЗамен
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ФинансовыеПолитикиСтраховыхКомпаний.СрезПоследних(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ), ) КАК Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних
+		ПО ВТ_ПолисыСУчетомЗамен.СтраховаяКомпания = Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.СтраховаяКомпания
+			И ВТ_ПолисыСУчетомЗамен.ВидСтрахования = Renault_ФинансовыеПолитикиСтраховыхКомпанийСрезПоследних.ВидСтрахования
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Renault_ЗаменыБСО.Организация КАК Организация,
+			Renault_ЗаменыБСО.НовыйСК КАК НовыйСК,
+			Renault_ЗаменыБСО.НовыйТип КАК НовыйТип,
+			Renault_ЗаменыБСО.НовыйСерия КАК НовыйСерия,
+			Renault_ЗаменыБСО.НовыйНомер КАК НовыйНомер,
+			Renault_ЗаменыБСО.СтарыйСК КАК СтарыйСК,
+			Renault_ЗаменыБСО.СтарыйТип КАК СтарыйТип,
+			Renault_ЗаменыБСО.СтарыйСерия КАК СтарыйСерия,
+			Renault_ЗаменыБСО.СтарыйНомер КАК СтарыйНомер
+		ИЗ
+			РегистрСведений.Renault_ЗаменыБСО КАК Renault_ЗаменыБСО
+		ГДЕ
+			Renault_ЗаменыБСО.АлгоритмЗамены = ЗНАЧЕНИЕ(Перечисление.Renault_АлгоритмыЗаменыБСО.ЗаменаКвитанции)) КАК ВложенныйЗапрос
+		ПО ВТ_ПолисыСУчетомЗамен.СтраховаяКомпания = ВложенныйЗапрос.СтарыйСК
+			И ВТ_ПолисыСУчетомЗамен.КвитанцияТипБСО = ВложенныйЗапрос.СтарыйТип
+			И ВТ_ПолисыСУчетомЗамен.КвитанцияСерияБСО = ВложенныйЗапрос.СтарыйСерия
+			И ВТ_ПолисыСУчетомЗамен.КвитанцияНомерБСО = ВложенныйЗапрос.СтарыйНомер
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ВТ_ПолисыСУчетомЗамен.Полис КАК Полис
+		ИЗ
+			ВТ_ПолисыСУчетомЗамен КАК ВТ_ПолисыСУчетомЗамен
+		
+		СГРУППИРОВАТЬ ПО
+			ВТ_ПолисыСУчетомЗамен.Полис) КАК ВложенныеФайлы
+		ПО ВТ_ПолисыСУчетомЗамен.Полис = ВложенныеФайлы.Полис
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			КонтактнаяИнформация.Объект КАК Объект,
+			КонтактнаяИнформация.Представление КАК Представление
+		ИЗ
+			РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+		ГДЕ
+			КонтактнаяИнформация.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Телефон)
+			И КонтактнаяИнформация.ЗначениеПоУмолчанию) КАК КИ
+		ПО ВТ_ПолисыСУчетомЗамен.Контрагент = КИ.Объект</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ПеречислениеВСК</dataPath>
+		<expression>Сумма - ВознаграждениеБрокера</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Перечисление в СК</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+				<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>15</v8:Digits>
+				<v8:FractionDigits>2</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВознаграждениеБрокера</dataPath>
+		<expression>Сумма(ВознаграждениеБрокера)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПеречислениеВСК</dataPath>
+		<expression>Сумма(ПеречислениеВСК)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>ВЫБОР КОГДА &amp;КонецПериода = ДАТАВРЕМЯ(1,1,1,0,0,0) ТОГДА ТЕКУЩАЯДАТА() ИНАЧЕ &amp;КонецПериода КОНЕЦ</expression>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ЕстьПравоВидетьТелефоны</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Есть право видеть телефоны</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<expression>РольДоступна("Renault_РуководительОКИС")</expression>
+	</parameter>
+	<parameter>
+		<name>Возврат</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Возврат</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиДДС</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.СтатьиДДС.ВозвратПокупателю</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяКомпания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БСО</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТипБСО</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СерияБСО</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НомерБСО</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Квитанция</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:field>КвитанцияТипБСО</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КвитанцияСерияБСО</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КвитанцияНомерБСО</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные полиса</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Страхователь</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Телефон</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаВыдачи</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаНачалаСтрахования</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаОкончанияСтрахования</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Банк</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаКОплатеПоПолису</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидОплаты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СпособОплаты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Агент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочкаПродаж</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КВ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КВБордеро</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КВДВОУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>SpecialColumn</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентСкидкиЗасчетКВ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КВОбщ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВознаграждениеБрокера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПеречислениеВСК</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидСтрахования</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>68b1915b-2f52-453b-a5df-ff6557c68386</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СтраховаяКомпания</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>982f684c-53a2-4671-99a7-302e246798ac</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Агент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>103f4d31-0af9-4f04-9229-3b3c071c6fde</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидОплаты</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>006320d3-615c-4ea7-a421-47de157d79e2</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СпособОплаты</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>5f4b9719-6eab-4975-9f8b-08a0255200a7</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Страхователь</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>8df8e33a-b119-4945-90ca-58128e60a706</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТочкаПродаж</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>345e7001-83b0-47ff-9cea-32285df8c82a</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>ff46f40d-cada-4198-b1ee-ecd42b66a206</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>242d1c65-8df3-4bdb-bc7f-ab465a21806b</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemAuto"/>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

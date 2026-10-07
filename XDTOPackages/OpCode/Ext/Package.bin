@@ -1,0 +1,113 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://wa.dms.webservice/OPCodeGetRequest">
+	<property name="OPCodeGetRequest" nillable="true"/>
+	<property name="OPCodeGetResponse" nillable="true"/>
+	<objectType name="ArrayOfError">
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="Error" type="d3p1:Error" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfOPCode">
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="OPCode" type="d3p1:OPCode" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfPart">
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="Part" type="d3p1:Part" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Error">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="OPCode">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Description" type="xs:string" lowerBound="0"/>
+		<property name="OPCodeType" type="xs:string" lowerBound="0"/>
+		<property name="DisplayOPCode" type="xs:string" lowerBound="0"/>
+		<property name="DisplayOPDescription" type="xs:string" lowerBound="0"/>
+		<property name="Make" type="xs:string" lowerBound="0"/>
+		<property name="Model" type="xs:string" lowerBound="0"/>
+		<property name="Engine" type="xs:string" lowerBound="0"/>
+		<property name="Year" type="xs:string" lowerBound="0"/>
+		<property name="Mileage" type="xs:string" lowerBound="0"/>
+		<property name="Period" type="xs:string" lowerBound="0"/>
+		<property name="DefLinePaymentMethod" type="xs:string" lowerBound="0"/>
+		<property name="CorrectionLOP" type="xs:string" lowerBound="0"/>
+		<property name="SkillLevel" type="xs:string" lowerBound="0"/>
+		<property name="HazardMaterialCharge" type="xs:string" lowerBound="0"/>
+		<property name="EstimatedHours" type="xs:string" lowerBound="0"/>
+		<property name="PredefinedCauseDescription" type="xs:string" lowerBound="0"/>
+		<property name="CPSIND" type="xs:string" lowerBound="0"/>
+		<property name="MandatoryYN" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="PriceType" type="d3p1:PriceType" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="Parts" type="d3p1:ArrayOfPart" lowerBound="0"/>
+	</objectType>
+	<objectType name="OPCodeGet">
+		<property name="DMSRONo" type="xs:string" lowerBound="0"/>
+		<property name="DMSROID" type="xs:string" lowerBound="0"/>
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Description" type="xs:string" lowerBound="0"/>
+		<property name="Make" type="xs:string" lowerBound="0"/>
+		<property name="Model" type="xs:string" lowerBound="0"/>
+		<property name="Year" type="xs:string" lowerBound="0"/>
+		<property name="Engine" type="xs:string" lowerBound="0"/>
+		<property name="Mileage" type="xs:string" lowerBound="0"/>
+		<property name="Category" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="OPCodeGetRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="OPCodeGet" type="d3p1:OPCodeGet" lowerBound="0"/>
+	</objectType>
+	<objectType name="OPCodeGetResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="OPCodes" type="d3p1:ArrayOfOPCode" lowerBound="0"/>
+	</objectType>
+	<objectType name="Part">
+		<property name="Manufacturer" type="xs:string" lowerBound="0"/>
+		<property name="PartNumber" type="xs:string" lowerBound="0"/>
+		<property name="PartDescription" type="xs:string" lowerBound="0"/>
+		<property name="Make" type="xs:string" lowerBound="0"/>
+		<property name="PartStatus" type="xs:string" lowerBound="0"/>
+		<property name="PartType" type="xs:string" lowerBound="0"/>
+		<property name="QuantityOnHand" type="xs:string" lowerBound="0"/>
+		<property name="StockStatus" type="xs:string" lowerBound="0"/>
+		<property name="DisplayPartNumber" type="xs:string" lowerBound="0"/>
+		<property name="Remarks" type="xs:string" lowerBound="0"/>
+		<property name="UnitOfMeasure" type="xs:string" lowerBound="0"/>
+		<property name="StockQuantity" type="xs:string" lowerBound="0"/>
+		<property name="Quantity" type="xs:string" lowerBound="0"/>
+		<property name="ServiceType" type="xs:string" lowerBound="0"/>
+		<property name="DisplayRemarks" type="xs:string" lowerBound="0"/>
+		<property name="MandatoryYN" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/OPCodeGetRequest" name="PriceType" type="d3p1:PriceType" lowerBound="0"/>
+	</objectType>
+	<objectType name="PriceType">
+		<property name="UnitPrice" type="xs:string" lowerBound="0"/>
+		<property name="TotalPrice" type="xs:string" lowerBound="0"/>
+		<property name="TotalPriceIncludeTax" type="xs:string" lowerBound="0"/>
+		<property name="DiscountRate" type="xs:string" lowerBound="0"/>
+		<property name="DiscountPrice" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ResultMessage">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="TransactionHeader">
+		<property name="CountryID" type="xs:string" lowerBound="0"/>
+		<property name="DistributorID" type="xs:string" lowerBound="0"/>
+		<property name="GroupID" type="xs:string" lowerBound="0"/>
+		<property name="DealerID" type="xs:string" lowerBound="0"/>
+		<property name="DMSCode" type="xs:string" lowerBound="0"/>
+		<property name="DMSVersion" type="xs:string" lowerBound="0"/>
+		<property name="DMSServerUrl" type="xs:string" lowerBound="0"/>
+		<property name="DocumentVersion" type="xs:string" lowerBound="0"/>
+		<property name="Username" type="xs:string" lowerBound="0"/>
+		<property name="Password" type="xs:string" lowerBound="0"/>
+		<property name="TransactionId" type="xs:string" lowerBound="0"/>
+		<property name="TransactionDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionType" type="xs:string" lowerBound="0"/>
+		<property name="RequestType" type="xs:string" lowerBound="0"/>
+		<property name="RequestPollingToken" type="xs:string" lowerBound="0"/>
+		<property name="VenderTrackingCode" type="xs:string" lowerBound="0"/>
+		<property name="IneterfaceID" type="xs:string" lowerBound="0"/>
+		<property name="PollingToken" type="xs:string" lowerBound="0"/>
+	</objectType>
+</package>

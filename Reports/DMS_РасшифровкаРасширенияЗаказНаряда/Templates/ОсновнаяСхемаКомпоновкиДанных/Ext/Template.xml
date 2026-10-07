@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Работа</dataPath>
+			<field>Работа</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Длительность</dataPath>
+			<field>Длительность</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Нормочас</dataPath>
+			<field>Нормочас</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦенаРабот</dataPath>
+			<field>Цена</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРабот</dataPath>
+			<field>Сумма</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Ссылка КАК Ссылка,
+	Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Работа КАК Работа,
+	Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Длительность КАК Длительность,
+	Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Нормочас КАК Нормочас,
+	Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Цена КАК Цена,
+	Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Сумма КАК Сумма
+ИЗ
+	Документ.Renault_CRM_ЗаявкаНаСервис.РаботыДополнениеПланшет КАК Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет
+ГДЕ
+	Renault_CRM_ЗаявкаНаСервисРаботыДополнениеПланшет.Ссылка = &amp;Заявка</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных2</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦенаЗапчастей</dataPath>
+			<field>Цена</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаЗапчастей</dataPath>
+			<field>Сумма</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Ссылка КАК Ссылка,
+	Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Номенклатура КАК Номенклатура,
+	Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Количество КАК Количество,
+	Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Цена КАК Цена,
+	Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Сумма КАК Сумма
+ИЗ
+	Документ.Renault_CRM_ЗаявкаНаСервис.ТоварыДополнениеПланшет КАК Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет
+ГДЕ
+	Renault_CRM_ЗаявкаНаСервисТоварыДополнениеПланшет.Ссылка = &amp;Заявка</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Длительность</dataPath>
+		<expression>Сумма(Длительность)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаЗапчастей</dataPath>
+		<expression>Сумма(СуммаЗапчастей)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРабот</dataPath>
+		<expression>Сумма(СуммаРабот)</expression>
+	</totalField>
+	<parameter>
+		<name>Заявка</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Заявка</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.Renault_CRM_ЗаявкаНаСервис</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Документ.Renault_CRM_ЗаявкаНаСервис.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заявка</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Документ.Renault_CRM_ЗаявкаНаСервис.ПустаяСсылка</dcscor:value>
+					<dcsset:userSettingID>8c605185-205b-437b-9f73-d06a018882e4</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+						<dcsset:use>false</dcsset:use>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Работа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Длительность</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЦенаРабот</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаРабот</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Заголовок</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Работы</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+						<dcsset:use>false</dcsset:use>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Номенклатура</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Количество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЦенаЗапчастей</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаЗапчастей</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Заголовок</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Запчасти</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

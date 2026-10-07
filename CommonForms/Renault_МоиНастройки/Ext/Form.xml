@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="НастройкиЗапускаАРМов" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автозапуск при старте системы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Autorun at system startup</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки запуска АРМов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Settings start workstations</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="НастройкиЗапускаАРМовРасширеннаяПодсказка" id="63"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="12">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="64"/>
+					<ChildItems>
+						<CheckBoxField name="ЗапускатьПриСтартеАРМАдминистартора" id="14">
+							<DataPath>ЗапускатьПриСтартеАРМАдминистартора</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>АРМ Администратор зала</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>APM administrator hall</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗапускатьПриСтартеАРМАдминистартораКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="ЗапускатьПриСтартеАРМАдминистартораРасширеннаяПодсказка" id="65"/>
+							<Events>
+								<Event name="OnChange">ЗапускатьПриСтартеАРМАдминистартораПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ЗапускатьПриСтартеАРММенеджера" id="16">
+							<DataPath>ЗапускатьПриСтартеАРММенеджера</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>АРМ Менеджер ОП</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ARM Manager OP</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗапускатьПриСтартеАРММенеджераКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ЗапускатьПриСтартеАРММенеджераРасширеннаяПодсказка" id="66"/>
+							<Events>
+								<Event name="OnChange">ЗапускатьПриСтартеАРММенеджераПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ЗапускатьПриСтартеАРМРОПа" id="18">
+							<DataPath>ЗапускатьПриСтартеАРМРОПа</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>АРМ Руководитель ОП</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ARM Chief OP</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗапускатьПриСтартеАРМРОПаКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ЗапускатьПриСтартеАРМРОПаРасширеннаяПодсказка" id="67"/>
+							<Events>
+								<Event name="OnChange">ЗапускатьПриСтартеАРМРОПаПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ЗапускатьПриСтартеАРМАвтосклад" id="27">
+							<DataPath>ЗапускатьПриСтартеАРМАвтосклад</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>АРМ Автосклад</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>ARM Avtosklad</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗапускатьПриСтартеАРМАвтоскладКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="ЗапускатьПриСтартеАРМАвтоскладРасширеннаяПодсказка" id="68"/>
+							<Events>
+								<Event name="OnChange">ЗапускатьПриСтартеАРМАвтоскладПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа2" id="13">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="69"/>
+					<ChildItems>
+						<CheckBoxField name="ЗапускатьПриСтартеАРМАвтосервис" id="37">
+							<DataPath>ЗапускатьПриСтартеАРМАвтосервис</DataPath>
+							<Enabled>false</Enabled>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>АРМ Автосервис</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>APM Auto</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗапускатьПриСтартеАРМАвтосервисКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="ЗапускатьПриСтартеАРМАвтосервисРасширеннаяПодсказка" id="70"/>
+							<Events>
+								<Event name="OnChange">ЗапускатьПриСтартеАРМАвтосервисПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ЗапускатьПриСтартеПанельСообщений" id="20">
+							<DataPath>ЗапускатьПриСтартеПанельСообщений</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Панель сообщений</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>message bar</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗапускатьПриСтартеПанельСообщенийКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ЗапускатьПриСтартеПанельСообщенийРасширеннаяПодсказка" id="71"/>
+							<Events>
+								<Event name="OnChange">ЗапускатьПриСтартеПанельСообщенийПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ЗапускатьПриСтартеИзменениеСтатусовРабот" id="39">
+							<DataPath>ЗапускатьИзменениеСтатусовРабот</DataPath>
+							<Enabled>false</Enabled>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Изменение статусов работ</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Changing Job Status</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗапускатьПриСтартеИзменениеСтатусовРаботКонтекстноеМеню" id="40"/>
+							<ExtendedTooltip name="ЗапускатьПриСтартеИзменениеСтатусовРаботРасширеннаяПодсказка" id="72"/>
+							<Events>
+								<Event name="OnChange">ИзменениеСтатусовАвтоработПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ЗапускатьПриСтартеИзменениеСтатусовМоек" id="41">
+							<DataPath>ЗапускатьИзменениеСтатусовМоек</DataPath>
+							<Enabled>false</Enabled>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Изменение статусов постов моек</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Changing the status of sinks posts</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЗапускатьПриСтартеИзменениеСтатусовМоекКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="ЗапускатьПриСтартеИзменениеСтатусовМоекРасширеннаяПодсказка" id="73"/>
+							<Events>
+								<Event name="OnChange">ЗапускатьПриСтартеИзменениеСтатусовМоекПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКонтактнаяИнформация" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контактная информация для КП</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Contact Information for KP</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа контактная информация</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group contacts</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаКонтактнаяИнформацияРасширеннаяПодсказка" id="74"/>
+			<ChildItems>
+				<InputField name="Емаил" id="23">
+					<DataPath>Емаил</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Email</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Email</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ЕмаилКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ЕмаилРасширеннаяПодсказка" id="75"/>
+					<Events>
+						<Event name="OnChange">ЕмаилПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Телефон" id="25">
+					<DataPath>Телефон</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Телефон</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Phone</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ТелефонКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ТелефонРасширеннаяПодсказка" id="76"/>
+					<Events>
+						<Event name="OnChange">ТелефонПриИзменении</Event>
+					</Events>
+				</InputField>
+				<UsualGroup name="ГрНастройкиКП" id="29">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки отправки КП</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>KP Sending options</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Гр настройки КП</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Gy manual settings</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<ExtendedTooltip name="ГрНастройкиКПРасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<InputField name="УчетнаяЗаписьПочты" id="30">
+							<DataPath>УчетнаяЗаписьПочты</DataPath>
+							<ContextMenu name="УчетнаяЗаписьПочтыКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="УчетнаяЗаписьПочтыРасширеннаяПодсказка" id="78"/>
+							<Events>
+								<Event name="OnChange">УчетнаяЗаписьПочтыПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ТемаСообщенияКП" id="32">
+							<DataPath>ТемаСообщенияКП</DataPath>
+							<ContextMenu name="ТемаСообщенияКПКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ТемаСообщенияКПРасширеннаяПодсказка" id="79"/>
+							<Events>
+								<Event name="OnChange">ТемаСообщенияКППриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ТекстСообщенияКП" id="34">
+							<DataPath>ТекстСообщенияКП</DataPath>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="ТекстСообщенияКПКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="ТекстСообщенияКПРасширеннаяПодсказка" id="80"/>
+							<Events>
+								<Event name="OnChange">ТекстСообщенияКППриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<RadioButtonField name="КЦ_РольПользователя" id="61">
+			<DataPath>КЦ_РольПользователя</DataPath>
+			<RadioButtonType>Auto</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Администратор</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.Renault_КонтактЦентр_РолиПользователей.EnumValue.Администратор</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Менеджер</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.Renault_КонтактЦентр_РолиПользователей.EnumValue.Менеджер</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="КЦ_РольПользователяКонтекстноеМеню" id="62"/>
+			<ExtendedTooltip name="КЦ_РольПользователяРасширеннаяПодсказка" id="81"/>
+			<Events>
+				<Event name="OnChange">КЦ_РольПользователяПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ЗапускатьПриСтартеАРМАдминистартора" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запускать при старте АРМАдминистартора</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run at startup ARMAdministartora</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапускатьПриСтартеАРММенеджера" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запускать при старте АРММенеджера</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run at startup ARMMenedzhera</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапускатьПриСтартеАРМРОПа" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запускать при старте АРМ  РОПа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run at startup ARM Ropa</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапускатьПриСтартеПанельСообщений" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запускать при старте панель сообщений</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run at startup message bar</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Емаил" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Емаил</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Email</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Телефон" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Телефон</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Phone</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапускатьПриСтартеАРМАвтосклад" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запускать при старте АРМАвтосклад</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run at startup ARMAvtosklad</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="УчетнаяЗаписьПочты" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учетная запись почты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Mail Account</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.УчетныеЗаписиЭлектроннойПочты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТемаСообщенияКП" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тема сообщения КП</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Subject CP posts</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстСообщенияКП" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст сообщения КП</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>KP text messages</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапускатьПриСтартеАРМАвтосервис" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запускать при старте АРМАвтосервис</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run at startup ARMAvtoservis</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапускатьИзменениеСтатусовРабот" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запускать изменение статусов работ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Start changing the status of work</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапускатьИзменениеСтатусовМоек" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запускать изменение статусов моек</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run the change statuses sinks</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КЦ_РольПользователя" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Роль пользователя (Контакт-центр)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Renault_КонтактЦентр_РолиПользователей</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

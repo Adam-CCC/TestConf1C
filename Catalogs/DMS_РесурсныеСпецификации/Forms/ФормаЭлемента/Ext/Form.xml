@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеКод" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group name code</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group name code</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодРасширеннаяПодсказка" id="42"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<EditMode>EnterOnInput</EditMode>
+					<BackColor>style:ReportHeaderBackColor</BackColor>
+					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>11</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНаименованиеПолноеАртикул" id="54">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование полное артикул</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group name full article</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование полное артикул</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group name full article</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеПолноеАртикулРасширеннаяПодсказка" id="55"/>
+			<ChildItems>
+				<InputField name="НаименованиеПолное" id="51">
+					<DataPath>Объект.НаименованиеПолное</DataPath>
+					<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="НаименованиеПолноеРасширеннаяПодсказка" id="53"/>
+				</InputField>
+				<InputField name="Артикул" id="19">
+					<DataPath>Объект.Артикул</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>11</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="АртикулКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="АртикулРасширеннаяПодсказка" id="21"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Родитель" id="7">
+			<DataPath>Объект.Parent</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<Pages name="Страницы" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="46"/>
+			<ChildItems>
+				<Page name="СтраницаСоставАвторабот" id="47">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состав авторабот</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Composition avtorabot</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состав авторабот</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Composition avtorabot</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаСоставАвтоработРасширеннаяПодсказка" id="48"/>
+					<ChildItems>
+						<Table name="СоставАвторабот" id="22">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.СоставАвторабот</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СоставАвтоработКонтекстноеМеню" id="23"/>
+							<AutoCommandBar name="СоставАвтоработКоманднаяПанель" id="24"/>
+							<ExtendedTooltip name="СоставАвтоработРасширеннаяПодсказка" id="25"/>
+							<SearchStringAddition name="СоставАвтоработСтрокаПоиска" id="26">
+								<AdditionSource>
+									<Item>СоставАвторабот</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставАвтоработСтрокаПоискаКонтекстноеМеню" id="27"/>
+								<ExtendedTooltip name="СоставАвтоработСтрокаПоискаРасширеннаяПодсказка" id="28"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СоставАвтоработСостояниеПросмотра" id="29">
+								<AdditionSource>
+									<Item>СоставАвторабот</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставАвтоработСостояниеПросмотраКонтекстноеМеню" id="30"/>
+								<ExtendedTooltip name="СоставАвтоработСостояниеПросмотраРасширеннаяПодсказка" id="31"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СоставАвтоработУправлениеПоиском" id="32">
+								<AdditionSource>
+									<Item>СоставАвторабот</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СоставАвтоработУправлениеПоискомКонтекстноеМеню" id="33"/>
+								<ExtendedTooltip name="СоставАвтоработУправлениеПоискомРасширеннаяПодсказка" id="34"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeDeleteRow">СоставАвтоработПередУдалением</Event>
+								<Event name="OnActivateRow">СоставАвтоработПриАктивизацииСтроки</Event>
+								<Event name="OnStartEdit">СоставАвтоработПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СоставАвтоработНомерСтроки" id="35">
+									<DataPath>Объект.СоставАвторабот.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СоставАвтоработНомерСтрокиКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="СоставАвтоработНомерСтрокиРасширеннаяПодсказка" id="37"/>
+								</LabelField>
+								<LabelField name="СоставАвтоработАвтоработаАртикул" id="114">
+									<DataPath>Объект.СоставАвторабот.Авторабота.Артикул</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СоставАвтоработАвтоработаАртикулКонтекстноеМеню" id="115"/>
+									<ExtendedTooltip name="СоставАвтоработАвтоработаАртикулРасширеннаяПодсказка" id="116"/>
+								</LabelField>
+								<InputField name="СоставАвтоработАвторабота" id="38">
+									<DataPath>Объект.СоставАвторабот.Авторабота</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>16</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СоставАвтоработАвтоработаКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="СоставАвтоработАвтоработаРасширеннаяПодсказка" id="40"/>
+								</InputField>
+								<InputField name="СоставАвтоработКодОперации" id="94">
+									<DataPath>Объект.СоставАвторабот.КодОперации</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СоставАвтоработКодОперацииКонтекстноеМеню" id="95"/>
+									<ExtendedTooltip name="СоставАвтоработКодОперацииРасширеннаяПодсказка" id="96"/>
+								</InputField>
+								<InputField name="СоставАвтоработВремяВыполнения" id="97">
+									<DataPath>Объект.СоставАвторабот.ВремяВыполнения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>9</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧЦ=15; ЧДЦ=2; ЧН=-</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>CC = 15; CHDTS = 2; = CHN -</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧЦ=15; ЧДЦ=2; ЧН=-</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>CC = 15; CHDTS = 2; = CHN -</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="СоставАвтоработВремяВыполненияКонтекстноеМеню" id="98"/>
+									<ExtendedTooltip name="СоставАвтоработВремяВыполненияРасширеннаяПодсказка" id="99"/>
+								</InputField>
+								<InputField name="СоставАвтоработКлючСвязи" id="91">
+									<DataPath>Объект.СоставАвторабот.КлючСвязи</DataPath>
+									<Visible>false</Visible>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СоставАвтоработКлючСвязиКонтекстноеМеню" id="92"/>
+									<ExtendedTooltip name="СоставАвтоработКлючСвязиРасширеннаяПодсказка" id="93"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Pages name="СтраницыСвязанныхИсключенныхРабот" id="117">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы связанных исключенных работ</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Pages related to the excluded works</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы связанных исключенных работ</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Pages related to the excluded works</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>TabsOnTop</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыСвязанныхИсключенныхРаботРасширеннаяПодсказка" id="118"/>
+							<ChildItems>
+								<Page name="СтраницаСвязанныеРаботы" id="119">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Связанные работы</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Related work</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Связанные работы</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Related work</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаСвязанныеРаботыРасширеннаяПодсказка" id="120"/>
+									<ChildItems>
+										<Table name="СвязанныеАвтоработы" id="69">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.СвязанныеАвтоработы</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="СвязанныеАвтоработыКонтекстноеМеню" id="70"/>
+											<AutoCommandBar name="СвязанныеАвтоработыКоманднаяПанель" id="71"/>
+											<ExtendedTooltip name="СвязанныеАвтоработыРасширеннаяПодсказка" id="72"/>
+											<SearchStringAddition name="СвязанныеАвтоработыСтрокаПоиска" id="73">
+												<AdditionSource>
+													<Item>СвязанныеАвтоработы</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="СвязанныеАвтоработыСтрокаПоискаКонтекстноеМеню" id="74"/>
+												<ExtendedTooltip name="СвязанныеАвтоработыСтрокаПоискаРасширеннаяПодсказка" id="75"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="СвязанныеАвтоработыСостояниеПросмотра" id="76">
+												<AdditionSource>
+													<Item>СвязанныеАвтоработы</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="СвязанныеАвтоработыСостояниеПросмотраКонтекстноеМеню" id="77"/>
+												<ExtendedTooltip name="СвязанныеАвтоработыСостояниеПросмотраРасширеннаяПодсказка" id="78"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="СвязанныеАвтоработыУправлениеПоиском" id="79">
+												<AdditionSource>
+													<Item>СвязанныеАвтоработы</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="СвязанныеАвтоработыУправлениеПоискомКонтекстноеМеню" id="80"/>
+												<ExtendedTooltip name="СвязанныеАвтоработыУправлениеПоискомРасширеннаяПодсказка" id="81"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeAddRow">СвязанныеАвтоработыПередНачаломДобавления</Event>
+												<Event name="OnStartEdit">СвязанныеАвтоработыПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="СвязанныеАвтоработыНомерСтроки" id="82">
+													<DataPath>Объект.СвязанныеАвтоработы.LineNumber</DataPath>
+													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="СвязанныеАвтоработыНомерСтрокиКонтекстноеМеню" id="83"/>
+													<ExtendedTooltip name="СвязанныеАвтоработыНомерСтрокиРасширеннаяПодсказка" id="84"/>
+												</LabelField>
+												<LabelField name="СвязанныеАвтоработыАвтоработаАртикул" id="111">
+													<DataPath>Объект.СвязанныеАвтоработы.Авторабота.Артикул</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="СвязанныеАвтоработыАвтоработаАртикулКонтекстноеМеню" id="112"/>
+													<ExtendedTooltip name="СвязанныеАвтоработыАвтоработаАртикулРасширеннаяПодсказка" id="113"/>
+												</LabelField>
+												<InputField name="СвязанныеАвтоработыАвторабота" id="85">
+													<DataPath>Объект.СвязанныеАвтоработы.Авторабота</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>16</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="СвязанныеАвтоработыАвтоработаКонтекстноеМеню" id="86"/>
+													<ExtendedTooltip name="СвязанныеАвтоработыАвтоработаРасширеннаяПодсказка" id="87"/>
+												</InputField>
+												<InputField name="СвязанныеАвтоработыКодОперации" id="108">
+													<DataPath>Объект.СвязанныеАвтоработы.КодОперации</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="СвязанныеАвтоработыКодОперацииКонтекстноеМеню" id="109"/>
+													<ExtendedTooltip name="СвязанныеАвтоработыКодОперацииРасширеннаяПодсказка" id="110"/>
+												</InputField>
+												<InputField name="СвязанныеАвтоработыВремяВыполнения" id="105">
+													<DataPath>Объект.СвязанныеАвтоработы.ВремяВыполнения</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>9</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Format>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ЧЦ=15; ЧДЦ=2; ЧН=-</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>CC = 15; CHDTS = 2; = CHN -</v8:content>
+														</v8:item>
+													</Format>
+													<EditFormat>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>ЧЦ=15; ЧДЦ=2; ЧН=-</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>CC = 15; CHDTS = 2; = CHN -</v8:content>
+														</v8:item>
+													</EditFormat>
+													<ContextMenu name="СвязанныеАвтоработыВремяВыполненияКонтекстноеМеню" id="106"/>
+													<ExtendedTooltip name="СвязанныеАвтоработыВремяВыполненияРасширеннаяПодсказка" id="107"/>
+												</InputField>
+												<InputField name="СвязанныеАвтоработыРесурснаяСпецификация" id="102">
+													<DataPath>Объект.СвязанныеАвтоработы.РесурснаяСпецификация</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>16</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="СвязанныеАвтоработыРесурснаяСпецификацияКонтекстноеМеню" id="103"/>
+													<ExtendedTooltip name="СвязанныеАвтоработыРесурснаяСпецификацияРасширеннаяПодсказка" id="104"/>
+												</InputField>
+												<InputField name="СвязанныеАвтоработыКлючСвязи" id="88">
+													<DataPath>Объект.СвязанныеАвтоработы.КлючСвязи</DataPath>
+													<Visible>false</Visible>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="СвязанныеАвтоработыКлючСвязиКонтекстноеМеню" id="89"/>
+													<ExtendedTooltip name="СвязанныеАвтоработыКлючСвязиРасширеннаяПодсказка" id="90"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаИсключенныеРаботы" id="121">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Исключенные работы</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Excluded work</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница исключенные работы</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Page excluded works</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаИсключенныеРаботыРасширеннаяПодсказка" id="122"/>
+									<ChildItems>
+										<Table name="ИсключаемыеАвтоработы" id="123">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ИсключаемыеАвтоработы</DataPath>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ИсключаемыеАвтоработыКонтекстноеМеню" id="124"/>
+											<AutoCommandBar name="ИсключаемыеАвтоработыКоманднаяПанель" id="125"/>
+											<ExtendedTooltip name="ИсключаемыеАвтоработыРасширеннаяПодсказка" id="126"/>
+											<SearchStringAddition name="ИсключаемыеАвтоработыСтрокаПоиска" id="127">
+												<AdditionSource>
+													<Item>ИсключаемыеАвтоработы</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ИсключаемыеАвтоработыСтрокаПоискаКонтекстноеМеню" id="128"/>
+												<ExtendedTooltip name="ИсключаемыеАвтоработыСтрокаПоискаРасширеннаяПодсказка" id="129"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ИсключаемыеАвтоработыСостояниеПросмотра" id="130">
+												<AdditionSource>
+													<Item>ИсключаемыеАвтоработы</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ИсключаемыеАвтоработыСостояниеПросмотраКонтекстноеМеню" id="131"/>
+												<ExtendedTooltip name="ИсключаемыеАвтоработыСостояниеПросмотраРасширеннаяПодсказка" id="132"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ИсключаемыеАвтоработыУправлениеПоиском" id="133">
+												<AdditionSource>
+													<Item>ИсключаемыеАвтоработы</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ИсключаемыеАвтоработыУправлениеПоискомКонтекстноеМеню" id="134"/>
+												<ExtendedTooltip name="ИсключаемыеАвтоработыУправлениеПоискомРасширеннаяПодсказка" id="135"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeAddRow">ИсключаемыеАвтоработыПередНачаломДобавления</Event>
+												<Event name="OnStartEdit">ИсключаемыеАвтоработыПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ИсключаемыеАвтоработыНомерСтроки" id="136">
+													<DataPath>Объект.ИсключаемыеАвтоработы.LineNumber</DataPath>
+													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ИсключаемыеАвтоработыНомерСтрокиКонтекстноеМеню" id="137"/>
+													<ExtendedTooltip name="ИсключаемыеАвтоработыНомерСтрокиРасширеннаяПодсказка" id="138"/>
+												</LabelField>
+												<LabelField name="ИсключаемыеАвтоработыАвтоработаАртикул" id="154">
+													<DataPath>Объект.ИсключаемыеАвтоработы.Авторабота.Артикул</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ИсключаемыеАвтоработыАвтоработаАртикулКонтекстноеМеню" id="155"/>
+													<ExtendedTooltip name="ИсключаемыеАвтоработыАвтоработаАртикулРасширеннаяПодсказка" id="156"/>
+												</LabelField>
+												<InputField name="ИсключаемыеАвтоработыАвторабота" id="139">
+													<DataPath>Объект.ИсключаемыеАвтоработы.Авторабота</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>16</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ИсключаемыеАвтоработыАвтоработаКонтекстноеМеню" id="140"/>
+													<ExtendedTooltip name="ИсключаемыеАвтоработыАвтоработаРасширеннаяПодсказка" id="141"/>
+												</InputField>
+												<InputField name="ИсключаемыеАвтоработыКодОперации" id="145">
+													<DataPath>Объект.ИсключаемыеАвтоработы.КодОперации</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ИсключаемыеАвтоработыКодОперацииКонтекстноеМеню" id="146"/>
+													<ExtendedTooltip name="ИсключаемыеАвтоработыКодОперацииРасширеннаяПодсказка" id="147"/>
+												</InputField>
+												<InputField name="ИсключаемыеАвтоработыВремяВыполнения" id="142">
+													<DataPath>Объект.ИсключаемыеАвтоработы.ВремяВыполнения</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ИсключаемыеАвтоработыВремяВыполненияКонтекстноеМеню" id="143"/>
+													<ExtendedTooltip name="ИсключаемыеАвтоработыВремяВыполненияРасширеннаяПодсказка" id="144"/>
+												</InputField>
+												<InputField name="ИсключаемыеАвтоработыРесурснаяСпецификация" id="151">
+													<DataPath>Объект.ИсключаемыеАвтоработы.РесурснаяСпецификация</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>16</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ИсключаемыеАвтоработыРесурснаяСпецификацияКонтекстноеМеню" id="152"/>
+													<ExtendedTooltip name="ИсключаемыеАвтоработыРесурснаяСпецификацияРасширеннаяПодсказка" id="153"/>
+												</InputField>
+												<InputField name="ИсключаемыеАвтоработыКлючСвязи" id="148">
+													<DataPath>Объект.ИсключаемыеАвтоработы.КлючСвязи</DataPath>
+													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ИсключаемыеАвтоработыКлючСвязиКонтекстноеМеню" id="149"/>
+													<ExtendedTooltip name="ИсключаемыеАвтоработыКлючСвязиРасширеннаяПодсказка" id="150"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаОписание" id="49">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Description</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница описание</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page description</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаОписаниеРасширеннаяПодсказка" id="50"/>
+					<ChildItems>
+						<InputField name="Описание" id="16">
+							<DataPath>Объект.Описание</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОписаниеКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="18"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДополнительно" id="59">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Additionally</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница дополнительно</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>MORE</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДополнительноРасширеннаяПодсказка" id="60"/>
+					<ChildItems>
+						<InputField name="Автор" id="56">
+							<DataPath>Объект.Автор</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<ContextMenu name="АвторКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="58"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.DMS_РесурсныеСпецификации</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="МаксимальныйКлючСвязи" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Максимальный ключ связи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Maximum communication key</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоСвязанных" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество связанных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number of related</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоИсключенных" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество исключенных</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The number of excluded</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

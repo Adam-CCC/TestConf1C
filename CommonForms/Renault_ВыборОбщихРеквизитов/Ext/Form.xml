@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<ChildItemsWidth>Equal</ChildItemsWidth>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грПринадлежностьДокумента" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принадлежность документа</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гр принадлежность документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="грПринадлежностьДокументаРасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<InputField name="ПодразделениеКомпании" id="1">
+					<DataPath>ПодразделениеКомпании</DataPath>
+					<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ContextMenu name="ПодразделениеКомпанииКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ПодразделениеКомпанииРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Организация" id="4">
+					<DataPath>Организация</DataPath>
+					<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Проект" id="7">
+					<DataPath>Проект</DataPath>
+					<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ContextMenu name="ПроектКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ПроектРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<CheckBoxField name="РегламентированныйУчет" id="14">
+					<DataPath>РегламентированныйУчет</DataPath>
+					<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РегламентированныйУчетКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="РегламентированныйУчетРасширеннаяПодсказка" id="16"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="грАвторМенеджер" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создатель / последний редактор</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гр автор менеджер</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="грАвторМенеджерРасширеннаяПодсказка" id="13"/>
+			<ChildItems>
+				<InputField name="Автор" id="17">
+					<DataPath>Автор</DataPath>
+					<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ContextMenu name="АвторКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="19"/>
+				</InputField>
+				<InputField name="Менеджер" id="20">
+					<DataPath>Менеджер</DataPath>
+					<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ContextMenu name="МенеджерКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="МенеджерРасширеннаяПодсказка" id="22"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="грДокументОснование" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ-основание</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гр документ основание</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="грДокументОснованиеРасширеннаяПодсказка" id="24"/>
+			<ChildItems>
+				<InputField name="ДокументОснование" id="25">
+					<DataPath>ДокументОснование</DataPath>
+					<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="27"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="грШтрихКод" id="28">
+			<Enabled>false</Enabled>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Штрих-Код</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гр штрих код</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="грШтрихКодРасширеннаяПодсказка" id="29"/>
+			<ChildItems>
+				<InputField name="ШтрихКод" id="30">
+					<DataPath>ШтрихКод</DataPath>
+					<Enabled>false</Enabled>
+					<TitleFont ref="style:LargeTextFont" kind="StyleItem"/>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<ContextMenu name="ШтрихКодКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="ШтрихКодРасширеннаяПодсказка" id="32"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="КоманднаяПанель" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Командная панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<HorizontalAlign>Right</HorizontalAlign>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="КоманднаяПанельРасширеннаяПодсказка" id="38"/>
+			<ChildItems>
+				<LabelDecoration name="Декорация1" id="43">
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="45"/>
+				</LabelDecoration>
+				<Button name="Применить" id="39">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>13</Width>
+					<Height>1</Height>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.Command.Применить</CommandName>
+					<TextColor>#313431</TextColor>
+					<BackColor>#FFCF00</BackColor>
+					<BorderColor>#FFCF00</BorderColor>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<Picture>
+						<xr:Ref>CommonPicture.Renault_Confirm_NoBorder</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ПрименитьРасширеннаяПодсказка" id="40"/>
+				</Button>
+				<Button name="Закрыть" id="46">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>13</Width>
+					<Height>1</Height>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<TextColor>#313431</TextColor>
+					<BackColor>#BDC3CE</BackColor>
+					<BorderColor>#BDC3CE</BorderColor>
+					<Font ref="style:LargeTextFont" kind="StyleItem"/>
+					<Picture>
+						<xr:Ref>CommonPicture.Renault_Cross_New</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="47"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПодразделениеКомпании" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение компании</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПодразделенияКомпании</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Проект" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проект</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Проекты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РегламентированныйУчет" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регламентированный учет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Автор" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автор</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="Менеджер" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ДокументОснование" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Док. основание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DocumentRef</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ШтрихКод" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Штрих-Код</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбработкаОбъектШтрихКоды" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обработка объект штрих коды</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_ШтрихКоды</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользованиеШтрихКодов" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование штрих кодов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Применить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Применить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Применить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Применить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

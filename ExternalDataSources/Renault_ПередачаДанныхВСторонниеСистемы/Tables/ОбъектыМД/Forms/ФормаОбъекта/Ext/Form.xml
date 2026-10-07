@@ -1,0 +1,999 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормакнОбновить" id="67">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.кнОбновить</CommandName>
+				<ExtendedTooltip name="ФормакнОбновитьРасширеннаяПодсказка" id="68"/>
+			</Button>
+			<Button name="ФормакнВыполнитьПроверкуРеквизитов" id="92">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.кнВыполнитьПроверкуРеквизитов</CommandName>
+				<ExtendedTooltip name="ФормакнВыполнитьПроверкуРеквизитовРасширеннаяПодсказка" id="93"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="55">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="56"/>
+			<ChildItems>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Код</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<LabelDecoration name="Декорация1" id="57">
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="59"/>
+				</LabelDecoration>
+				<PictureDecoration name="Декорация3" id="153">
+					<Width>2</Width>
+					<Height>1</Height>
+					<Picture>
+						<xr:Ref>CommonPicture.Renault_Chek</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Декорация3КонтекстноеМеню" id="154"/>
+					<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="155"/>
+				</PictureDecoration>
+				<CheckBoxField name="Активно" id="52">
+					<DataPath>Объект.Активно</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="АктивноКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="АктивноРасширеннаяПодсказка" id="54"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Родитель" id="89">
+			<DataPath>Объект.Родитель</DataPath>
+			<ClearButton>true</ClearButton>
+			<ContextMenu name="РодительКонтекстноеМеню" id="90"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="91"/>
+			<Events>
+				<Event name="StartChoice">РодительНачалоВыбора</Event>
+				<Event name="Clearing">РодительОчистка</Event>
+			</Events>
+		</InputField>
+		<LabelField name="ИБ" id="94">
+			<DataPath>Объект.БазаДанных</DataPath>
+			<ContextMenu name="ИБКонтекстноеМеню" id="95"/>
+			<ExtendedTooltip name="ИБРасширеннаяПодсказка" id="96"/>
+		</LabelField>
+		<InputField name="Имя" id="4">
+			<DataPath>Объект.Имя</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ChoiceButton>true</ChoiceButton>
+			<ContextMenu name="ИмяКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ИмяРасширеннаяПодсказка" id="6"/>
+			<Events>
+				<Event name="StartChoice">МетаданныеНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="Группа2" id="133">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="134"/>
+			<ChildItems>
+				<LabelDecoration name="Декорация2" id="135">
+					<Width>11</Width>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заполнять по ...</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Декорация2КонтекстноеМеню" id="136"/>
+					<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="137"/>
+				</LabelDecoration>
+				<RadioButtonField name="СпособЗаполнения" id="130">
+					<DataPath>СпособЗаполнения</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Tumbler</RadioButtonType>
+					<ColumnsCount>2</ColumnsCount>
+					<EqualColumnsWidth>true</EqualColumnsWidth>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>по запросу</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ПоЗапросу</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>по метаданным</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">ПоМД</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="СпособЗаполненияКонтекстноеМеню" id="131"/>
+					<ExtendedTooltip name="СпособЗаполненияРасширеннаяПодсказка" id="132"/>
+					<Events>
+						<Event name="OnChange">РежимыЗаполненияРеквизитов</Event>
+					</Events>
+				</RadioButtonField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="42"/>
+			<ChildItems>
+				<Page name="СтрТекстЗапроса" id="43">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текст запроса</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Стр текст запроса</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ExtendedTooltip name="СтрТекстЗапросаРасширеннаяПодсказка" id="44"/>
+					<ChildItems>
+						<CommandBar name="Команды" id="69">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Команды</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="КомандыРасширеннаяПодсказка" id="70"/>
+							<ChildItems>
+								<Popup name="грАвтоТекстЗапроса" id="107">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Авто текст запроса</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Авто текст запроса</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Picture>
+										<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<Representation>PictureAndText</Representation>
+									<ExtendedTooltip name="грАвтоТекстЗапросаРасширеннаяПодсказка" id="108"/>
+									<ChildItems>
+										<Button name="кнАвтоТекстЗапросаВсе" id="111">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.кнАвтоТекстЗапросаВсе</CommandName>
+											<ExtendedTooltip name="кнАвтоТекстЗапросаВсеРасширеннаяПодсказка" id="112"/>
+										</Button>
+										<Button name="кнАвтоТекстЗапросаВсеПлюсРеквизитыЧтения" id="109">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.кнАвтоТекстЗапросаПредопределенныеИМД</CommandName>
+											<ExtendedTooltip name="кнАвтоТекстЗапросаВсеПлюсРеквизитыЧтенияРасширеннаяПодсказка" id="110"/>
+										</Button>
+										<Button name="кнАвтоТекстЗапросаОбязательные" id="115">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.кнАвтоТекстЗапросаПредопределенные</CommandName>
+											<ExtendedTooltip name="кнАвтоТекстЗапросаОбязательныеРасширеннаяПодсказка" id="116"/>
+										</Button>
+										<Button name="кнАвтоТекстЗапросаМД" id="113">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.кнАвтоТекстЗапросаМД</CommandName>
+											<ExtendedTooltip name="кнАвтоТекстЗапросаМДРасширеннаяПодсказка" id="114"/>
+										</Button>
+									</ChildItems>
+								</Popup>
+								<Button name="кнКонструкторЗапроса" id="83">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.кнКонструкторЗапроса</CommandName>
+									<ExtendedTooltip name="кнКонструкторЗапросаРасширеннаяПодсказка" id="84"/>
+								</Button>
+								<Button name="кнКомментарий" id="85">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.кнКомментарий</CommandName>
+									<ExtendedTooltip name="кнКомментарийРасширеннаяПодсказка" id="86"/>
+								</Button>
+								<Button name="кнУдалитьКомментарий" id="87">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.кнУдалитьКомментарий</CommandName>
+									<ExtendedTooltip name="кнУдалитьКомментарийРасширеннаяПодсказка" id="88"/>
+								</Button>
+								<Button name="кнОчиститьЗапрос" id="81">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.кнОчиститьЗапрос</CommandName>
+									<ExtendedTooltip name="кнОчиститьЗапросРасширеннаяПодсказка" id="82"/>
+								</Button>
+								<Button name="кнСправка" id="140">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.кнСправка</CommandName>
+									<ExtendedTooltip name="кнСправкаРасширеннаяПодсказка" id="141"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+						<InputField name="ТекстЗапроса" id="7">
+							<DataPath>Объект.ТекстЗапроса</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ExtendedEdit>true</ExtendedEdit>
+							<ChoiceButton>false</ChoiceButton>
+							<ChoiceButtonPicture>
+								<xr:Ref>StdPicture.QueryWizard</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ChoiceButtonPicture>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пустой запрос заполнит реквизиты по метаданным</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ТекстЗапросаКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ТекстЗапросаРасширеннаяПодсказка" id="9"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтрРеквизиты" id="45">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Стр реквизиты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтрРеквизитыРасширеннаяПодсказка" id="46"/>
+					<ChildItems>
+						<Table name="Реквизиты" id="10">
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<RowSelectionMode>Row</RowSelectionMode>
+							<HorizontalLines>false</HorizontalLines>
+							<VerticalLines>false</VerticalLines>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Реквизиты</DataPath>
+							<RowPictureDataPath>Реквизиты.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="РеквизитыКонтекстноеМеню" id="11"/>
+							<AutoCommandBar name="РеквизитыКоманднаяПанель" id="12">
+								<ChildItems>
+									<Popup name="кнЗаполнитьРеквизиты" id="117">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Заполнить</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Записать</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>StdPicture.DataCompositionSettingsWizard</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<Representation>PictureAndText</Representation>
+										<ExtendedTooltip name="кнЗаполнитьРеквизитыРасширеннаяПодсказка" id="118"/>
+										<ChildItems>
+											<Button name="кнЗаписатьРеквизитыПоЗапросу" id="138">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.кнЗаписатьРеквизитыПоЗапросу</CommandName>
+												<ExtendedTooltip name="кнЗаписатьРеквизитыПоЗапросуРасширеннаяПодсказка" id="139"/>
+											</Button>
+											<Button name="кнЗаписатьПредопределенныеРеквизиты" id="121">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.кнЗаписатьПредопределенныеРеквизиты</CommandName>
+												<ExtendedTooltip name="кнЗаписатьПредопределенныеРеквизитыРасширеннаяПодсказка" id="122"/>
+											</Button>
+											<Button name="кнЗаписатьРеквизитыМД" id="123">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.кнЗаписатьРеквизитыМД</CommandName>
+												<ExtendedTooltip name="кнЗаписатьРеквизитыМДРасширеннаяПодсказка" id="124"/>
+											</Button>
+											<Button name="кнЗаписатьРеквизитыМДИПредопределенные" id="125">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.кнЗаписатьРеквизитыМДИПредопределенные</CommandName>
+												<ExtendedTooltip name="кнЗаписатьРеквизитыМДИПредопределенныеРасширеннаяПодсказка" id="126"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Button name="КнВкл" id="99">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.кнВкл</CommandName>
+										<ExtendedTooltip name="КнВклРасширеннаяПодсказка" id="100"/>
+									</Button>
+									<Button name="КнВыкл" id="103">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.кнВыкл</CommandName>
+										<ExtendedTooltip name="КнВыклРасширеннаяПодсказка" id="104"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="РеквизитыРасширеннаяПодсказка" id="13"/>
+							<SearchStringAddition name="РеквизитыСтрокаПоиска" id="14">
+								<AdditionSource>
+									<Item>Реквизиты</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РеквизитыСтрокаПоискаКонтекстноеМеню" id="15"/>
+								<ExtendedTooltip name="РеквизитыСтрокаПоискаРасширеннаяПодсказка" id="16"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="РеквизитыСостояниеПросмотра" id="17">
+								<AdditionSource>
+									<Item>Реквизиты</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="РеквизитыСостояниеПросмотраКонтекстноеМеню" id="18"/>
+								<ExtendedTooltip name="РеквизитыСостояниеПросмотраРасширеннаяПодсказка" id="19"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="РеквизитыУправлениеПоиском" id="20">
+								<AdditionSource>
+									<Item>Реквизиты</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="РеквизитыУправлениеПоискомКонтекстноеМеню" id="21"/>
+								<ExtendedTooltip name="РеквизитыУправлениеПоискомРасширеннаяПодсказка" id="22"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="РеквизитыКод" id="127">
+									<DataPath>Реквизиты.Код</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="РеквизитыКодКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="РеквизитыКодРасширеннаяПодсказка" id="129"/>
+								</LabelField>
+								<CheckBoxField name="РеквизитыАктивно" id="60">
+									<DataPath>Реквизиты.Активно</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Активно</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HeaderPicture>
+										<xr:Ref>CommonPicture.Renault_Chek</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РеквизитыАктивноКонтекстноеМеню" id="61"/>
+									<ExtendedTooltip name="РеквизитыАктивноРасширеннаяПодсказка" id="62"/>
+								</CheckBoxField>
+								<ColumnGroup name="грРеквизит" id="142">
+									<Group>InCell</Group>
+									<ExtendedTooltip name="грРеквизитРасширеннаяПодсказка" id="143"/>
+									<ChildItems>
+										<PictureField name="РеквизитыКартинкаРеквизита" id="144">
+											<DataPath>Реквизиты.КартинкаРеквизита</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</ValuesPicture>
+											<FileDragMode>AsFile</FileDragMode>
+											<ContextMenu name="РеквизитыКартинкаРеквизитаКонтекстноеМеню" id="145"/>
+											<ExtendedTooltip name="РеквизитыКартинкаРеквизитаРасширеннаяПодсказка" id="146"/>
+										</PictureField>
+										<LabelField name="РеквизитыИмя" id="49">
+											<DataPath>Реквизиты.Имя</DataPath>
+											<Width>1</Width>
+											<ContextMenu name="РеквизитыИмяКонтекстноеМеню" id="50"/>
+											<ExtendedTooltip name="РеквизитыИмяРасширеннаяПодсказка" id="51"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<LabelField name="РеквизитыТип" id="35">
+									<DataPath>Реквизиты.Тип</DataPath>
+									<AutoCellHeight>true</AutoCellHeight>
+									<Width>1</Width>
+									<ContextMenu name="РеквизитыТипКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="РеквизитыТипРасширеннаяПодсказка" id="37"/>
+								</LabelField>
+								<PictureField name="РеквизитыКартинкаПравила" id="147">
+									<DataPath>Реквизиты.КартинкаПравила</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Правило</v8:content>
+										</v8:item>
+									</Title>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.Renault_МетаданныеОбмена</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="РеквизитыКартинкаПравилаКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="РеквизитыКартинкаПравилаРасширеннаяПодсказка" id="149"/>
+								</PictureField>
+								<LabelField name="РеквизитыОписание" id="38">
+									<DataPath>Реквизиты.Описание</DataPath>
+									<AutoCellHeight>true</AutoCellHeight>
+									<Width>1</Width>
+									<ContextMenu name="РеквизитыОписаниеКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="РеквизитыОписаниеРасширеннаяПодсказка" id="40"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<InputField name="Правило" id="150">
+			<DataPath>Правило</DataPath>
+			<ClearButton>true</ClearButton>
+			<ContextMenu name="ПравилоКонтекстноеМеню" id="151"/>
+			<ExtendedTooltip name="ПравилоРасширеннаяПодсказка" id="152"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:ExternalDataSourceTableObject.Renault_ПередачаДанныхВСторонниеСистемы.ОбъектыМД</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Реквизиты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	*,
+	Выбор Когда Правило Есть NULL Тогда 100 Иначе 11 Конец КартинкаПравила,
+	Выбор 
+		Когда Подстрока(Тип,0,23)="Число" Тогда 1
+		Когда Подстрока(Тип,0,23)="Строка" Тогда 2
+		Когда Подстрока(Тип,0,23)="Дата" Тогда 3
+		Когда Подстрока(Тип,0,23)="Булево" Тогда 4
+		Когда Подстрока(Тип,0,23) Подобно "Перечисление.%" Тогда 11
+		Когда Подстрока(Тип,0,23)="УникальныйИдентификатор" Тогда 5
+		Когда Подстрока(Тип,0,23) Подобно "ВнешнийИсточникДанных.%" Тогда 12
+		Когда Подстрока(Тип,0,200) Подобно "%.%.%" Тогда 6 //составной тип
+		Когда Подстрока(Тип,0,23) Подобно "Справочник.%" Тогда 14
+		Когда Подстрока(Тип,0,23) Подобно "Документ.%" Тогда 15
+		Когда Подстрока(Тип,0,23) Подобно "БизнесПроцесс.%" Тогда 16
+		Когда Подстрока(Тип,0,23) Подобно "Задача.%" Тогда 17
+		Когда Подстрока(Тип,0,23) Подобно "ПланСчетов.%" Тогда 18
+		Когда Подстрока(Тип,0,23) Подобно "ПланОбмена.%" Тогда 19
+		Когда Подстрока(Тип,0,23) Подобно "ПланВидовХарактеристик.%" Тогда 20
+		Иначе 0
+	Конец КартинкаРеквизита	
+ИЗ ВнешнийИсточникДанных.Renault_ПередачаДанныхВСторонниеСистемы.Таблица.РеквизитыМД</QueryText>
+				<MainTable>ExternalDataSource.Renault_ПередачаДанныхВСторонниеСистемы.Table.РеквизитыМД</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Имя</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Активно</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:FormBackColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СпособЗаполнения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ заполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Правило" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правило</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_Правила</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнВклГр" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВкл</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВыклГр" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выключить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выключить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВкл</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнОбновить" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнОбновить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнАвтоТекстЗапросаВсе" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнАвтоТекстЗапроса</Action>
+			<Representation>Text</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнОчиститьЗапрос" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Нет</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнОчиститьЗапрос</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнКонструкторЗапроса" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конструктор запроса</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конструктор запроса</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.QueryWizard</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнКонструкторЗапроса</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнКомментарий" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+Num /</Shortcut>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Комментарий</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнКомментарий</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнУдалитьКомментарий" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить комментарий</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+Shift+Num /</Shortcut>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_КомментарийУбрать</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнУдалитьКомментарий</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВыполнитьПроверкуРеквизитов" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить проверку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить проверку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckSyntax</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВыполнитьПроверкуРеквизитов</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВкл" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить выделенные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить выделенные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВкл</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВыкл" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выключить выделенные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выключить выделенные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВкл</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнАвтоТекстЗапросаМД" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только реквизиты метаданных</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только реквизиты метаданных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнАвтоТекстЗапроса</Action>
+			<Representation>Text</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнАвтоТекстЗапросаПредопределенные" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только предопределенные реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только предопределенные реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнАвтоТекстЗапроса</Action>
+			<Representation>Text</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнАвтоТекстЗапросаПредопределенныеИМД" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только предопределенные реквизиты и реквизиты метаданных</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только предопределенные реквизиты и реквизиты метаданных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнАвтоТекстЗапроса</Action>
+			<Representation>Text</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнЗаписатьПредопределенныеРеквизиты" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предопределенные реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предопределенные реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнЗаполнитьРеквизиты</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнЗаписатьРеквизитыМД" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты метаданных</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты метаданных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнЗаполнитьРеквизиты</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнЗаписатьРеквизитыМДИПредопределенные" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты метаданных и предопределенные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты метаданных и предопределенные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнЗаполнитьРеквизиты</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнЗаписатьТолькоСсылки" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только ссылки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только ссылки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнЗаполнитьРеквизиты</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнЗаписатьРеквизитыПоЗапросу" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По запросу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По запросу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнЗаполнитьРеквизиты</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнСправка" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Справка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Справка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Вопрос</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнСправка</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

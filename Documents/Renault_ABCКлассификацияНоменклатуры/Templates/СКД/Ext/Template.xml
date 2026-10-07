@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Партия</dataPath>
+			<field>Партия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГТД</dataPath>
+			<field>ГТД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Класс</dataPath>
+			<field>Класс</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Класс</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Class</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Покупатель</dataPath>
+			<field>Покупатель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХозОперация</dataPath>
+			<field>ХозОперация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сегмент</dataPath>
+			<field>Сегмент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проект</dataPath>
+			<field>Проект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладКомпании</dataPath>
+			<field>СкладКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТехСемья</dataPath>
+			<field>ТехСемья</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДС</dataPath>
+			<field>СтавкаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусПартии</dataPath>
+			<field>СтатусПартии</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Показатель</dataPath>
+			<field>Показатель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показатель</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Index</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПродажи</dataPath>
+			<field>ДокументПродажи</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХарактеристикаНоменклатуры</dataPath>
+			<field>ХарактеристикаНоменклатуры</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Авторабота</dataPath>
+			<field>Авторабота</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорВзаиморасчетов</dataPath>
+			<field>ДоговорВзаиморасчетов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КлассСтарый</dataPath>
+			<field>КлассСтарый</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Класс старый</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>old class</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Артикул</dataPath>
+			<field>Артикул</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+    СправочникНоменклатура.Ссылка КАК Номенклатура
+ПОМЕСТИТЬ ВТ_Номенклатура
+ИЗ
+    Справочник.Номенклатура КАК СправочникНоменклатура
+ГДЕ
+    СправочникНоменклатура.ВидНоменклатуры = ЗНАЧЕНИЕ(Перечисление.ВидыНоменклатуры.Товар)
+    И НЕ СправочникНоменклатура.ЭтоГруппа
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+    Номенклатура.Ссылка КАК НоменклатураСтарая,
+    Номенклатура1.Ссылка КАК НоменклатураНовая
+ПОМЕСТИТЬ ВТ_Замены
+ИЗ
+    РегистрСведений.Renault_ЗаменыРеферансов КАК Renault_ЗаменыРеферансов
+        ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Номенклатура КАК Номенклатура
+        ПО Renault_ЗаменыРеферансов.АртикулНоменклатуры = Номенклатура.Артикул
+        ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Номенклатура КАК Номенклатура1
+        ПО Renault_ЗаменыРеферансов.АртикулЗамены = Номенклатура1.Артикул
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+    ВТ_Номенклатура.Номенклатура,
+    ВТ_Номенклатура.Номенклатура КАК Замена
+ПОМЕСТИТЬ ВТ_НоменклатураСЗаменами
+ИЗ
+    ВТ_Номенклатура КАК ВТ_Номенклатура
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+    ВТ_Номенклатура.Номенклатура,
+    ВТ_Замены.НоменклатураСтарая
+ИЗ
+    ВТ_Номенклатура КАК ВТ_Номенклатура
+        ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Замены КАК ВТ_Замены
+        ПО ВТ_Номенклатура.Номенклатура = ВТ_Замены.НоменклатураНовая
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+    Renault_СобственныеКонтрагенты.Контрагент
+ПОМЕСТИТЬ ВТ_СобственныеКонтрагенты
+ИЗ
+    РегистрСведений.Renault_СобственныеКонтрагенты КАК Renault_СобственныеКонтрагенты
+ГДЕ
+    Renault_СобственныеКонтрагенты.ВидКонтрагента В (ЗНАЧЕНИЕ(Перечисление.Renault_ВидыСобственныхКонтрагентов.Организация), ЗНАЧЕНИЕ(Перечисление.Renault_ВидыСобственныхКонтрагентов.ОптовикR3))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+    ВТ_НоменклатураСЗаменами.Номенклатура,
+    СУММА(ВЫБОР
+            КОГДА &amp;Показатель = ЗНАЧЕНИЕ(Перечисление.Renault_ABCПоказатели.Выручка)
+                ТОГДА ЕСТЬNULL(ПродажиОбороты.СуммаОборот, 0)
+            КОГДА &amp;Показатель = ЗНАЧЕНИЕ(Перечисление.Renault_ABCПоказатели.Количество)
+                ТОГДА ЕСТЬNULL(ПродажиОбороты.КоличествоОборот, 0)
+            ИНАЧЕ ЕСТЬNULL(ПродажиОбороты.СуммаОборот, 0) - ЕСТЬNULL(ПродажиОбороты.СебестоимостьОборот, 0)
+        КОНЕЦ) КАК Показатель
+ПОМЕСТИТЬ ВТ_Продажи
+ИЗ
+    ВТ_НоменклатураСЗаменами КАК ВТ_НоменклатураСЗаменами
+        ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.Продажи.Обороты(
+                &amp;НачалоПериода,
+                &amp;КонецПериода,
+                ,
+                НЕ Покупатель В
+                        (ВЫБРАТЬ
+                            Таб.Контрагент
+                        ИЗ
+                            ВТ_СобственныеКонтрагенты КАК Таб)) КАК ПродажиОбороты
+        ПО ВТ_НоменклатураСЗаменами.Замена = ПродажиОбороты.Номенклатура
+
+СГРУППИРОВАТЬ ПО
+    ВТ_НоменклатураСЗаменами.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+    ВТ_Продажи.Номенклатура КАК Номенклатура,
+    ВЫБОР
+        КОГДА Renault_СтатусыНоменклатуры.Статус = ЗНАЧЕНИЕ(Справочник.Renault_СтатусыНоменклатуры.OFF)
+            ТОГДА 0
+        ИНАЧЕ ВТ_Продажи.Показатель
+    КОНЕЦ КАК Показатель,
+    ЕСТЬNULL(Renault_ABCКлассификацияНоменклатурыСрезПоследних.Класс, ЗНАЧЕНИЕ(Перечисление.Renault_ABCКлассификация.НеКлассифицирован)) КАК КлассСтарый,
+    ЗНАЧЕНИЕ(Перечисление.Renault_ABCКлассификация.НеКлассифицирован) КАК Класс,
+    Renault_КаталогРеферансов.Модель,
+    Renault_КаталогРеферансов.ТехСемья,
+    Renault_КаталогРеферансов.Сегмент,
+    Renault_КаталогРеферансов.Проект,
+    ВТ_Продажи.Номенклатура.Артикул КАК Артикул,
+    Renault_СтатусыНоменклатуры.Статус
+ИЗ
+    ВТ_Продажи КАК ВТ_Продажи
+        ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ABCКлассификацияНоменклатуры.СрезПоследних(&amp;Период, ) КАК Renault_ABCКлассификацияНоменклатурыСрезПоследних
+        ПО ВТ_Продажи.Номенклатура = Renault_ABCКлассификацияНоменклатурыСрезПоследних.Номенклатура
+        ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_КаталогРеферансов КАК Renault_КаталогРеферансов
+        ПО ВТ_Продажи.Номенклатура.Артикул = Renault_КаталогРеферансов.Артикул
+        ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_СтатусыНоменклатуры КАК Renault_СтатусыНоменклатуры
+        ПО ВТ_Продажи.Номенклатура = Renault_СтатусыНоменклатуры.Номенклатура</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Beginning of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>End of period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Period</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Показатель</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Показатель</v8:content>
+			</v8:item>
+			<v8:item>
+				<v8:lang>en</v8:lang>
+				<v8:content>Index</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.Renault_ABCПоказатели</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Показатель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КлассСтарый</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Класс</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СкладКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Показатель</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

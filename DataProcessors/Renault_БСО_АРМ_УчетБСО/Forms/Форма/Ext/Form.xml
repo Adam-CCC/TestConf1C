@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Бланки строгой отчетности</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>strict reporting forms</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грКонтейнер" id="1">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:FieldBackColor</BackColor>
+			<ExtendedTooltip name="грКонтейнерРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="грКнопки" id="3">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грКнопкиРасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<Button name="кнЗакрыть" id="38">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнДействие</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Закрыть</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>close</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнЗакрытьРасширеннаяПодсказка" id="39"/>
+						</Button>
+						<LabelDecoration name="Декорация2" id="35">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="37"/>
+						</LabelDecoration>
+						<Button name="кнДобавить" id="33">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Item.СпБСО.StandardCommand.Create</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#E7E7E7</BackColor>
+							<BorderColor>#E7E7E7</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Plus_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Добавить</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Add</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнДобавитьРасширеннаяПодсказка" id="34"/>
+						</Button>
+						<Button name="кнУдалить" id="31">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Item.СпБСО.StandardCommand.SetDeletionMark</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#E7E7E7</BackColor>
+							<BorderColor>#E7E7E7</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Cross_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Удалить</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Delete</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнУдалитьРасширеннаяПодсказка" id="32"/>
+						</Button>
+						<Button name="кнОбновить" id="5">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Item.СпБСО.StandardCommand.Refresh</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#E7E7E7</BackColor>
+							<BorderColor>#E7E7E7</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Refresh_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обновить</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>update</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнОбновитьРасширеннаяПодсказка" id="6"/>
+						</Button>
+						<LabelDecoration name="Декорация1" id="22">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="24"/>
+						</LabelDecoration>
+						<Button name="кнПериод" id="7">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнДействие</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#E7E7E7</BackColor>
+							<BorderColor>#E7E7E7</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Calendar_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Период</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Period</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнПериодРасширеннаяПодсказка" id="8"/>
+						</Button>
+						<Button name="кнОтбор" id="12">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнДействие</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#E7E7E7</BackColor>
+							<BorderColor>#E7E7E7</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Filters_new</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Selection</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнОтборРасширеннаяПодсказка" id="13"/>
+						</Button>
+						<PictureDecoration name="Logo" id="9">
+							<Width>12</Width>
+							<Height>2</Height>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Logo</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Logo</v8:content>
+								</v8:item>
+							</Title>
+							<PictureSize>Proportionally</PictureSize>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Logo_128</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="LogoКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="LogoРасширеннаяПодсказка" id="11"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа1" id="40">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="41"/>
+					<ChildItems>
+						<UsualGroup name="грЛевая" id="92">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грЛеваяРасширеннаяПодсказка" id="93"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация4" id="94">
+									<VerticalStretch>true</VerticalStretch>
+									<ContextMenu name="Декорация4КонтекстноеМеню" id="95"/>
+									<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="96"/>
+								</LabelDecoration>
+								<UsualGroup name="кнЗакладки" id="14">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="кнЗакладкиРасширеннаяПодсказка" id="15"/>
+									<ChildItems>
+										<Button name="кнПриход" id="16">
+											<Type>UsualButton</Type>
+											<Representation>PictureAndText</Representation>
+											<Width>12</Width>
+											<Height>2</Height>
+											<CommandName>Form.Command.кнДействие</CommandName>
+											<TextColor>#313431</TextColor>
+											<BackColor>#BDC3CE</BackColor>
+											<BorderColor>#BDC3CE</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Приход</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Coming</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="кнПриходРасширеннаяПодсказка" id="17"/>
+										</Button>
+										<Button name="кнРасход" id="20">
+											<Type>UsualButton</Type>
+											<Representation>PictureAndText</Representation>
+											<Width>12</Width>
+											<Height>2</Height>
+											<CommandName>Form.Command.кнДействие</CommandName>
+											<TextColor>#313431</TextColor>
+											<BackColor>#BDC3CE</BackColor>
+											<BorderColor>#BDC3CE</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Расход</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Consumption</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="кнРасходРасширеннаяПодсказка" id="21"/>
+										</Button>
+										<Button name="кнВозврат" id="18">
+											<Type>UsualButton</Type>
+											<Representation>PictureAndText</Representation>
+											<Width>12</Width>
+											<Height>2</Height>
+											<CommandName>Form.Command.кнДействие</CommandName>
+											<TextColor>#313431</TextColor>
+											<BackColor>#BDC3CE</BackColor>
+											<BorderColor>#BDC3CE</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Возврат</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Return</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="кнВозвратРасширеннаяПодсказка" id="19"/>
+										</Button>
+										<Button name="кнПолисы" id="90">
+											<Type>UsualButton</Type>
+											<Representation>PictureAndText</Representation>
+											<Width>12</Width>
+											<Height>2</Height>
+											<CommandName>Form.Command.кнДействие</CommandName>
+											<TextColor>#313431</TextColor>
+											<BackColor>#BDC3CE</BackColor>
+											<BorderColor>#BDC3CE</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Страховые 
+полисы</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>insurance
+policies</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="кнПолисыРасширеннаяПодсказка" id="91"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<LabelDecoration name="Декорация3" id="87">
+									<VerticalStretch>true</VerticalStretch>
+									<ContextMenu name="Декорация3КонтекстноеМеню" id="88"/>
+									<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="89"/>
+								</LabelDecoration>
+								<UsualGroup name="грОтчеты" id="29">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отчеты</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Reports</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#313431</TitleTextColor>
+									<Group>Vertical</Group>
+									<Representation>NormalSeparation</Representation>
+									<BackColor>#E7E7E7</BackColor>
+									<ExtendedTooltip name="грОтчетыРасширеннаяПодсказка" id="30"/>
+									<ChildItems>
+										<Button name="кнОтчетСостояние" id="27">
+											<Type>UsualButton</Type>
+											<Representation>PictureAndText</Representation>
+											<Width>12</Width>
+											<Height>2</Height>
+											<CommandName>Form.Command.кнДействие</CommandName>
+											<TextColor>#313431</TextColor>
+											<BackColor>#BDC3CE</BackColor>
+											<BorderColor>#BDC3CE</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Состояние</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>condition</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="кнОтчетСостояниеРасширеннаяПодсказка" id="28"/>
+										</Button>
+										<Button name="кнОтчетДвижения" id="25">
+											<Type>UsualButton</Type>
+											<Representation>PictureAndText</Representation>
+											<Width>12</Width>
+											<Height>2</Height>
+											<CommandName>Form.Command.кнДействие</CommandName>
+											<TextColor>#313431</TextColor>
+											<BackColor>#BDC3CE</BackColor>
+											<BorderColor>#BDC3CE</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Движения</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>of movement</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="кнОтчетДвиженияРасширеннаяПодсказка" id="26"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="грСписки" id="42">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грСпискиРасширеннаяПодсказка" id="43"/>
+							<ChildItems>
+								<Table name="СпБСО" id="44">
+									<CommandBarLocation>None</CommandBarLocation>
+									<UseAlternationRowColor>true</UseAlternationRowColor>
+									<EnableStartDrag>true</EnableStartDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>СпБСО</DataPath>
+									<RowPictureDataPath>СпБСО.DefaultPicture</RowPictureDataPath>
+									<BorderColor>#E7E7E7</BorderColor>
+									<AutoRefresh>false</AutoRefresh>
+									<AutoRefreshPeriod>60</AutoRefreshPeriod>
+									<Period>
+										<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+										<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+										<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+									</Period>
+									<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+									<RestoreCurrentRow>false</RestoreCurrentRow>
+									<TopLevelParent xsi:nil="true"/>
+									<ShowRoot>true</ShowRoot>
+									<AllowRootChoice>false</AllowRootChoice>
+									<UpdateOnDataChange>Auto</UpdateOnDataChange>
+									<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+									<ContextMenu name="СпБСОКонтекстноеМеню" id="45"/>
+									<AutoCommandBar name="СпБСОКоманднаяПанель" id="46"/>
+									<ExtendedTooltip name="СпБСОРасширеннаяПодсказка" id="47"/>
+									<SearchStringAddition name="СпБСОСтрокаПоиска" id="48">
+										<AdditionSource>
+											<Item>СпБСО</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СпБСОСтрокаПоискаКонтекстноеМеню" id="49"/>
+										<ExtendedTooltip name="СпБСОСтрокаПоискаРасширеннаяПодсказка" id="50"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="СпБСОСостояниеПросмотра" id="51">
+										<AdditionSource>
+											<Item>СпБСО</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СпБСОСостояниеПросмотраКонтекстноеМеню" id="52"/>
+										<ExtendedTooltip name="СпБСОСостояниеПросмотраРасширеннаяПодсказка" id="53"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="СпБСОУправлениеПоиском" id="54">
+										<AdditionSource>
+											<Item>СпБСО</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="СпБСОУправлениеПоискомКонтекстноеМеню" id="55"/>
+										<ExtendedTooltip name="СпБСОУправлениеПоискомРасширеннаяПодсказка" id="56"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<LabelField name="СпПриходДата" id="57">
+											<DataPath>СпБСО.Date</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<Width>1</Width>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#E7E7E7</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СпПриходДатаКонтекстноеМеню" id="58"/>
+											<ExtendedTooltip name="СпПриходДатаРасширеннаяПодсказка" id="59"/>
+										</LabelField>
+										<LabelField name="СпПриходНомер" id="60">
+											<DataPath>СпБСО.Number</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<Width>1</Width>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#E7E7E7</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СпПриходНомерКонтекстноеМеню" id="61"/>
+											<ExtendedTooltip name="СпПриходНомерРасширеннаяПодсказка" id="62"/>
+										</LabelField>
+										<LabelField name="СпПриходОрганизация" id="63">
+											<DataPath>СпБСО.Организация</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<Width>1</Width>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#E7E7E7</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СпПриходОрганизацияКонтекстноеМеню" id="64"/>
+											<ExtendedTooltip name="СпПриходОрганизацияРасширеннаяПодсказка" id="65"/>
+										</LabelField>
+										<LabelField name="СпПриходПодразделение" id="66">
+											<DataPath>СпБСО.Подразделение</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<Width>1</Width>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#E7E7E7</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СпПриходПодразделениеКонтекстноеМеню" id="67"/>
+											<ExtendedTooltip name="СпПриходПодразделениеРасширеннаяПодсказка" id="68"/>
+										</LabelField>
+										<LabelField name="СпПриходБланкСтрогойОтчетности" id="69">
+											<DataPath>СпБСО.БланкСтрогойОтчетности</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>БСО</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>BSO</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<Width>1</Width>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#E7E7E7</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СпПриходБланкСтрогойОтчетностиКонтекстноеМеню" id="70"/>
+											<ExtendedTooltip name="СпПриходБланкСтрогойОтчетностиРасширеннаяПодсказка" id="71"/>
+										</LabelField>
+										<LabelField name="СпПриходСерия" id="72">
+											<DataPath>СпБСО.Серия</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<Width>1</Width>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#E7E7E7</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СпПриходСерияКонтекстноеМеню" id="73"/>
+											<ExtendedTooltip name="СпПриходСерияРасширеннаяПодсказка" id="74"/>
+										</LabelField>
+										<LabelField name="СпПриходАвтор" id="81">
+											<DataPath>СпБСО.Автор</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<Width>1</Width>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#E7E7E7</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СпПриходАвторКонтекстноеМеню" id="82"/>
+											<ExtendedTooltip name="СпПриходАвторРасширеннаяПодсказка" id="83"/>
+										</LabelField>
+										<LabelField name="СпПриходКомментарий" id="84">
+											<DataPath>СпБСО.Комментарий</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<Width>1</Width>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#E7E7E7</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СпПриходКомментарийКонтекстноеМеню" id="85"/>
+											<ExtendedTooltip name="СпПриходКомментарийРасширеннаяПодсказка" id="86"/>
+										</LabelField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_БСО_АРМ_УчетБСО</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СпБСО" id="2">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Document.Renault_БСО_ПриходБланковСтрогойОтчетности</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Автор</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Пользователи.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Организации.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.ПодразделенияКомпании.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнДействие" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Button</v8:content>
+				</v8:item>
+			</Title>
+			<Action>кнДействие</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

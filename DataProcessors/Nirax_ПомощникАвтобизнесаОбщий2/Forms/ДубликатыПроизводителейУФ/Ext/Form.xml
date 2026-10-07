@@ -1,0 +1,919 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Дубликаты производителей</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="Страницы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<Page name="СтраницаПроизводители" id="34">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Производители</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дубликаты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПроизводителиРасширеннаяПодсказка" id="35"/>
+					<ChildItems>
+						<Table name="Производители" id="36">
+							<Representation>List</Representation>
+							<TitleLocation>Top</TitleLocation>
+							<ReadOnly>true</ReadOnly>
+							<Header>false</Header>
+							<HorizontalLines>false</HorizontalLines>
+							<VerticalLines>false</VerticalLines>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<DataPath>Производители</DataPath>
+							<RowPictureDataPath>Производители.Check</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Abs>RowsPicture.png</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</RowsPicture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Производители имеющие дубликаты</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПроизводителиКонтекстноеМеню" id="37"/>
+							<AutoCommandBar name="ПроизводителиКоманднаяПанель" id="38">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПроизводителиРасширеннаяПодсказка" id="39"/>
+							<SearchStringAddition name="ПроизводителиСтрокаПоиска" id="40">
+								<AdditionSource>
+									<Item>Производители</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПроизводителиСтрокаПоискаКонтекстноеМеню" id="41"/>
+								<ExtendedTooltip name="ПроизводителиСтрокаПоискаРасширеннаяПодсказка" id="42"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПроизводителиСостояниеПросмотра" id="43">
+								<AdditionSource>
+									<Item>Производители</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПроизводителиСостояниеПросмотраКонтекстноеМеню" id="44"/>
+								<ExtendedTooltip name="ПроизводителиСостояниеПросмотраРасширеннаяПодсказка" id="45"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПроизводителиУправлениеПоиском" id="46">
+								<AdditionSource>
+									<Item>Производители</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПроизводителиУправлениеПоискомКонтекстноеМеню" id="47"/>
+								<ExtendedTooltip name="ПроизводителиУправлениеПоискомРасширеннаяПодсказка" id="48"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ПроизводителиВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ПроизводителиПредставление" id="49">
+									<DataPath>Производители.Presentation</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПроизводителиПредставлениеКонтекстноеМеню" id="50"/>
+									<ExtendedTooltip name="ПроизводителиПредставлениеРасширеннаяПодсказка" id="51"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДубликаты" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дубликаты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница дубликаты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДубликатыРасширеннаяПодсказка" id="4"/>
+					<ChildItems>
+						<UsualGroup name="Группа1" id="74">
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="75"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация1" id="76">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дубликаты бренда:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация1КонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="78"/>
+								</LabelDecoration>
+								<InputField name="Бренд" id="79">
+									<DataPath>Бренд</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<DropListButton>false</DropListButton>
+									<ChoiceButton>false</ChoiceButton>
+									<ClearButton>false</ClearButton>
+									<SpinButton>false</SpinButton>
+									<OpenButton>false</OpenButton>
+									<CreateButton>false</CreateButton>
+									<BackColor>style:FormBackColor</BackColor>
+									<BorderColor>style:FormBackColor</BorderColor>
+									<ContextMenu name="БрендКонтекстноеМеню" id="80"/>
+									<ExtendedTooltip name="БрендРасширеннаяПодсказка" id="81"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="Дубликаты" id="5">
+							<Representation>List</Representation>
+							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Дубликаты</DataPath>
+							<RowPictureDataPath>Дубликаты.Пометка</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Abs>RowsPicture.png</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</RowsPicture>
+							<CommandSet>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>CancelSearch</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Find</ExcludedCommand>
+								<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>SearchEverywhere</ExcludedCommand>
+								<ExcludedCommand>SearchHistory</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+								<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+							</CommandSet>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ДубликатыКонтекстноеМеню" id="6"/>
+							<AutoCommandBar name="ДубликатыКоманднаяПанель" id="7">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="Назад" id="72">
+										<Type>CommandBarButton</Type>
+										<Height>1</Height>
+										<CommandName>Form.Command.Назад</CommandName>
+										<ExtendedTooltip name="НазадРасширеннаяПодсказка" id="73"/>
+									</Button>
+									<Button name="ПоказатьНоменклатуру" id="26">
+										<Type>CommandBarButton</Type>
+										<Height>2</Height>
+										<CommandName>Form.Command.ПоказатьНоменклатуру</CommandName>
+										<ExtendedTooltip name="ПоказатьНоменклатуруРасширеннаяПодсказка" id="27"/>
+									</Button>
+									<Button name="ИзменитьБренд" id="24">
+										<Type>CommandBarButton</Type>
+										<Height>2</Height>
+										<CommandName>Form.Command.ИзменитьБренд</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Изменить
+Бренд</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ИзменитьБрендРасширеннаяПодсказка" id="25"/>
+									</Button>
+									<Button name="ДубликатыКнопка1" id="140">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПометитьПроизводителя</CommandName>
+										<ExtendedTooltip name="ДубликатыКнопка1РасширеннаяПодсказка" id="141"/>
+									</Button>
+									<Button name="ОбновитьДубликаты" id="132">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОбновитьДубликаты</CommandName>
+										<ExtendedTooltip name="ОбновитьДубликатыРасширеннаяПодсказка" id="133"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ДубликатыРасширеннаяПодсказка" id="8"/>
+							<SearchStringAddition name="ДубликатыСтрокаПоиска" id="9">
+								<AdditionSource>
+									<Item>Дубликаты</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДубликатыСтрокаПоискаКонтекстноеМеню" id="10"/>
+								<ExtendedTooltip name="ДубликатыСтрокаПоискаРасширеннаяПодсказка" id="11"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДубликатыСостояниеПросмотра" id="12">
+								<AdditionSource>
+									<Item>Дубликаты</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДубликатыСостояниеПросмотраКонтекстноеМеню" id="13"/>
+								<ExtendedTooltip name="ДубликатыСостояниеПросмотраРасширеннаяПодсказка" id="14"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДубликатыУправлениеПоиском" id="15">
+								<AdditionSource>
+									<Item>Дубликаты</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДубликатыУправлениеПоискомКонтекстноеМеню" id="16"/>
+								<ExtendedTooltip name="ДубликатыУправлениеПоискомРасширеннаяПодсказка" id="17"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ДубликатыВыбор</Event>
+								<Event name="OnActivateRow">ДубликатыПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ДубликатыПроизводитель" id="18">
+									<DataPath>Дубликаты.Производитель</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДубликатыПроизводительКонтекстноеМеню" id="19"/>
+									<ExtendedTooltip name="ДубликатыПроизводительРасширеннаяПодсказка" id="20"/>
+								</InputField>
+								<InputField name="ДубликатыНоменклатур" id="21">
+									<DataPath>Дубликаты.Номенклатур</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДубликатыНоменклатурКонтекстноеМеню" id="22"/>
+									<ExtendedTooltip name="ДубликатыНоменклатурРасширеннаяПодсказка" id="23"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<CommandBar name="Группа6" id="144">
+							<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="145"/>
+							<ChildItems>
+								<Button name="УдалитьДубликат" id="28">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.УдалитьДубликат</CommandName>
+									<ExtendedTooltip name="УдалитьДубликатРасширеннаяПодсказка" id="29"/>
+								</Button>
+								<Button name="УдалитьДубликаты" id="30">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.Command.УдалитьДубликаты</CommandName>
+									<ExtendedTooltip name="УдалитьДубликатыРасширеннаяПодсказка" id="31"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+						<UsualGroup name="Группа4" id="111">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="112"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация4" id="113">
+									<Width>48</Width>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>При удалении дубликата номенклатура изменяет производителя на бренд. Если такой артикул уже есть у бренда, то он изменяется в соответствии с шаблоном - заменой &amp;А на артикул.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация4КонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="115"/>
+								</LabelDecoration>
+								<UsualGroup name="Группа5" id="122">
+									<Group>AlwaysHorizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="123"/>
+									<ChildItems>
+										<InputField name="Шаблон" id="116">
+											<DataPath>Шаблон</DataPath>
+											<ContextMenu name="ШаблонКонтекстноеМеню" id="117"/>
+											<ExtendedTooltip name="ШаблонРасширеннаяПодсказка" id="118"/>
+											<Events>
+												<Event name="OnChange">СохранитьНастройки</Event>
+											</Events>
+										</InputField>
+										<CheckBoxField name="ПометитьНаУдаление" id="127">
+											<DataPath>ПометитьНаУдаление</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПометитьНаУдалениеКонтекстноеМеню" id="128"/>
+											<ExtendedTooltip name="ПометитьНаУдалениеРасширеннаяПодсказка" id="129"/>
+											<Events>
+												<Event name="OnChange">СохранитьНастройки</Event>
+											</Events>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<LabelDecoration name="Декорация5" id="119">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>После этого дубликат производителя всегда помечается на удаление. </v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация5КонтекстноеМеню" id="120"/>
+									<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="121"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаНоменклатуры" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница номенклатуры</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНоменклатурыРасширеннаяПодсказка" id="53"/>
+					<ChildItems>
+						<UsualGroup name="Группа3" id="82">
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="83"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация2" id="84">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номенклатура производителя:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация2КонтекстноеМеню" id="85"/>
+									<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="86"/>
+								</LabelDecoration>
+								<LabelDecoration name="Декорация3" id="87">
+									<ContextMenu name="Декорация3КонтекстноеМеню" id="88"/>
+									<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="89"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="Номенклатура" id="90">
+							<Representation>List</Representation>
+							<ReadOnly>true</ReadOnly>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Номенклатура</DataPath>
+							<RowPictureDataPath>Номенклатура.Пометка</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Abs>RowsPicture.png</xr:Abs>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</RowsPicture>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="НоменклатураКонтекстноеМеню" id="91"/>
+							<AutoCommandBar name="НоменклатураКоманднаяПанель" id="92">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="НоменклатураНазад" id="109">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Назад</CommandName>
+										<ExtendedTooltip name="НоменклатураНазадРасширеннаяПодсказка" id="110"/>
+									</Button>
+									<Button name="ИзменитьНоменклатуру" id="134">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ИзменитьНоменклатуру</CommandName>
+										<ExtendedTooltip name="ИзменитьНоменклатуруРасширеннаяПодсказка" id="135"/>
+									</Button>
+									<Button name="ПометитьНоменклатуру" id="142">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПометитьНоменклатуру</CommandName>
+										<ExtendedTooltip name="ПометитьНоменклатуруРасширеннаяПодсказка" id="143"/>
+									</Button>
+									<Button name="ОбновитьНоменклатуру" id="136">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОбновитьНоменклатуру</CommandName>
+										<ExtendedTooltip name="ОбновитьНоменклатуруРасширеннаяПодсказка" id="137"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="93"/>
+							<SearchStringAddition name="НоменклатураСтрокаПоиска" id="94">
+								<AdditionSource>
+									<Item>Номенклатура</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НоменклатураСтрокаПоискаКонтекстноеМеню" id="95"/>
+								<ExtendedTooltip name="НоменклатураСтрокаПоискаРасширеннаяПодсказка" id="96"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="НоменклатураСостояниеПросмотра" id="97">
+								<AdditionSource>
+									<Item>Номенклатура</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="НоменклатураСостояниеПросмотраКонтекстноеМеню" id="98"/>
+								<ExtendedTooltip name="НоменклатураСостояниеПросмотраРасширеннаяПодсказка" id="99"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="НоменклатураУправлениеПоиском" id="100">
+								<AdditionSource>
+									<Item>Номенклатура</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="НоменклатураУправлениеПоискомКонтекстноеМеню" id="101"/>
+								<ExtendedTooltip name="НоменклатураУправлениеПоискомРасширеннаяПодсказка" id="102"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="НоменклатураАртикул" id="103">
+									<DataPath>Номенклатура.Артикул</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>6</Width>
+									<ContextMenu name="НоменклатураАртикулКонтекстноеМеню" id="104"/>
+									<ExtendedTooltip name="НоменклатураАртикулРасширеннаяПодсказка" id="105"/>
+								</InputField>
+								<InputField name="НоменклатураНоменклатура" id="106">
+									<DataPath>Номенклатура.Номенклатура</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НоменклатураНоменклатураКонтекстноеМеню" id="107"/>
+									<ExtendedTooltip name="НоменклатураНоменклатураРасширеннаяПодсказка" id="108"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Nirax_ПомощникАвтобизнесаОбщий2</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Дубликаты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дубликаты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Производитель" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Производитель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="Номенклатур" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатур</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Бренд" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бренд</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="Производители" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Производители</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Номенклатура" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Артикул" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Артикул</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>50</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Номенклатура" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Производитель" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Производитель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="АртикулДляПоиска" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Артикул для поиска</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>50</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Пометка" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Дубликат" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дубликат</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="имяПроизводитель" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя производитель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="имяАртикул" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя артикул</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="имяАртикулДляПоиска" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя артикул для поиска</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Шаблон" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шаблон</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПометитьНаУдаление" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>и пометить на удаление</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НоменклатураАртикул</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Номенклатура.Дубликат</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ИзменитьБренд" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить бренд</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить бренд</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИзменитьБренд</Action>
+		</Command>
+		<Command name="УдалитьДубликаты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить дубликаты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить дубликаты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьДубликаты</Action>
+		</Command>
+		<Command name="УдалитьДубликат" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить  дубликат</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить дубликат</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьДубликат</Action>
+		</Command>
+		<Command name="ПоказатьНоменклатуру" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать номенклатуру</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьНоменклатуру</Action>
+		</Command>
+		<Command name="Назад" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назад</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Back</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Назад</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="ОбновитьДубликаты" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить дубликаты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить дубликаты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьДубликаты</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="ИзменитьНоменклатуру" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить номенклатуру</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить номенклатуру</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Change</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ИзменитьНоменклатуру</Action>
+		</Command>
+		<Command name="ОбновитьНоменклатуру" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить номенклатуру</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить номенклатуру</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьНоменклатуру</Action>
+		</Command>
+		<Command name="ПометитьПроизводителя" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пометить/снять пометку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пометить/снять пометку удаления</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MarkToDelete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПометитьПроизводителя</Action>
+		</Command>
+		<Command name="ПометитьНоменклатуру" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пометить/снять пометку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пометить/снять пометку номенклатуры на удаление</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MarkToDelete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПометитьНоменклатуру</Action>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,886 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Партия</dataPath>
+			<field>Партия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГТД</dataPath>
+			<field>ГТД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Покупатель</dataPath>
+			<field>Покупатель</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХозОперация</dataPath>
+			<field>ХозОперация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладКомпании</dataPath>
+			<field>СкладКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДС</dataPath>
+			<field>СтавкаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусПартии</dataPath>
+			<field>СтатусПартии</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПродажи</dataPath>
+			<field>ДокументПродажи</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорВзаиморасчетов</dataPath>
+			<field>ДоговорВзаиморасчетов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВнутренниеЗаказНаряды</dataPath>
+			<field>ВнутренниеЗаказНаряды</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Внутренние заказ наряды</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусРеализации</dataPath>
+			<field>СтатусРеализации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус реализации</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Версия</dataPath>
+			<field>Версия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Версия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Version</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цвет</dataPath>
+			<field>Цвет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Colour</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цена</dataPath>
+			<field>Цена</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Price</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Стоимость</dataPath>
+			<field>Стоимость</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>cost of</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Модель</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПродажи</dataPath>
+			<field>ДатаПродажи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата продажи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Date of sale</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Продавец</dataPath>
+			<field>Продавец</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продавец</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоАвто</dataPath>
+			<field>КоличествоАвто</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество авто</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>VIN</dataPath>
+			<field>VIN</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наценка</dataPath>
+			<field>Наценка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наценка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>mark-up</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипАвтомобиля</dataPath>
+			<field>ТипАвтомобиля</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Скидка</dataPath>
+			<field>Скидка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скидка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>A discount</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КАСКО</dataPath>
+			<field>КАСКО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КАСКО</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>CASCO</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНачисленныхВозмещений</dataPath>
+			<field>СуммаНачисленныхВозмещений</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма начисленных возмещений</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановаяНаценка</dataPath>
+			<field>ПлановаяНаценка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановая наценка</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>8</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПланируемыхВозмещений</dataPath>
+			<field>СуммаПланируемыхВозмещений</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма планируемых возмещений</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановаяНаценкаБезНачисленныхВозмещений</dataPath>
+			<field>ПлановаяНаценкаБезНачисленныхВозмещений</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановая наценка без начисленных возмещений</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>7</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Прибыль</dataPath>
+			<field>Прибыль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибыль</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Profit</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Организации.ИНН КАК ИНН
+ПОМЕСТИТЬ ВТОрганизации
+ИЗ
+	Справочник.Организации КАК Организации
+ГДЕ
+	НЕ Организации.ПометкаУдаления
+	И Организации.ИНН &lt;&gt; ""
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СкладыКомпании.Ссылка КАК СкладКомпании
+ПОМЕСТИТЬ ВТСкладыНовыхАвто
+ИЗ
+	Справочник.СкладыКомпании КАК СкладыКомпании
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_РеквизитыСкладовКомпании КАК Renault_РеквизитыСкладовКомпании
+		ПО СкладыКомпании.Ссылка = Renault_РеквизитыСкладовКомпании.СкладКомпании
+ГДЕ
+	ЕСТЬNULL(Renault_РеквизитыСкладовКомпании.СкладПодержанныхАвто, ЛОЖЬ) = ЛОЖЬ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ПродажиАвтомобилейОбороты.Автомобиль КАК Автомобиль,
+	ВЫРАЗИТЬ(ПродажиАвтомобилейОбороты.ДокументПродажи КАК Документ.РеализацияАвтомобилей).Дата КАК ДатаРеализации,
+	ПродажиАвтомобилейОбороты.СуммаОборот КАК Цена,
+	ПродажиАвтомобилейОбороты.СкладКомпании КАК СкладКомпании,
+	ПродажиАвтомобилейОбороты.КоличествоОборот КАК КоличествоАвто,
+	ПродажиАвтомобилейОбороты.Покупатель КАК Покупатель,
+	ВЫРАЗИТЬ(ПродажиАвтомобилейОбороты.ДокументПродажи КАК Документ.РеализацияАвтомобилей).Менеджер КАК Продавец,
+	ПродажиАвтомобилейОбороты.СебестоимостьОборот КАК Стоимость,
+	ПродажиАвтомобилейОбороты.Автомобиль.VIN КАК VIN,
+	ПродажиАвтомобилейОбороты.Период КАК Период,
+	ЕСТЬNULL(CRM_ДополнительнаяИнформацияПоАвтомобилям.ТипАвтомобиля, ЗНАЧЕНИЕ(Справочник.Renault_ТипыАвтомобилей.ПустаяСсылка)) КАК ТипАвтомобиля,
+	ЕСТЬNULL(Renault_ДоговорСоставДоговора.Идентификатор, "") КАК ИдентификаторСтрокиДоговора,
+	МАКСИМУМ(ЕСТЬNULL(ПродажиАвтомобилейОбороты1.Период, ДАТАВРЕМЯ(1, 1, 1))) КАК ДатаПредыдущейРеализации,
+	Renault_ДоговорСоставДоговора.ВключитьТрейдИнВДоговор КАК ВключитьТрейдИнВДоговор,
+	Renault_ДоговорСоставДоговора.ВключитьУтилизациюВДоговор КАК ВключитьУтилизациюВДоговор,
+	ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаТрейдИн, 0) + ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаВозмещенияПоУтилизации, 0) + ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаПоПрочимСкидкам, 0) + ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаСкидокПоКоммерческимАкциям, 0) КАК Скидка,
+	ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаСтраховки, 0) КАК КАСКО,
+	ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаСубсидииПоКредиту, 0) КАК Субсидия
+ПОМЕСТИТЬ мУчетПродажОстатков
+ИЗ
+	РегистрНакопления.ПродажиАвтомобилей.Обороты(&amp;НачалоПериода, &amp;КонецПериода, Запись, ХозОперация = &amp;РеализацияАвто) КАК ПродажиАвтомобилейОбороты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТСкладыНовыхАвто КАК ВТСкладыНовыхАвто
+		ПО ПродажиАвтомобилейОбороты.СкладКомпании = ВТСкладыНовыхАвто.СкладКомпании
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.CRM_ДополнительнаяИнформацияПоАвтомобилям КАК CRM_ДополнительнаяИнформацияПоАвтомобилям
+		ПО ПродажиАвтомобилейОбороты.Автомобиль = CRM_ДополнительнаяИнформацияПоАвтомобилям.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ПродажиАвтомобилей.Обороты(, , Запись, ХозОперация = &amp;РеализацияАвто) КАК ПродажиАвтомобилейОбороты1
+		ПО ПродажиАвтомобилейОбороты.Автомобиль = ПродажиАвтомобилейОбороты1.Автомобиль
+			И ПродажиАвтомобилейОбороты.Период &gt; ПродажиАвтомобилейОбороты1.Период
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_Договор.СоставДоговора КАК Renault_ДоговорСоставДоговора
+		ПО ПродажиАвтомобилейОбороты.ДокументПродажи = Renault_ДоговорСоставДоговора.РеализацияАвтомобиля
+			И (Renault_ДоговорСоставДоговора.Ссылка.Проведен)
+
+СГРУППИРОВАТЬ ПО
+	ПродажиАвтомобилейОбороты.Автомобиль,
+	ВЫРАЗИТЬ(ПродажиАвтомобилейОбороты.ДокументПродажи КАК Документ.РеализацияАвтомобилей).Дата,
+	ПродажиАвтомобилейОбороты.СуммаОборот,
+	ПродажиАвтомобилейОбороты.СкладКомпании,
+	ПродажиАвтомобилейОбороты.КоличествоОборот,
+	ПродажиАвтомобилейОбороты.Покупатель,
+	ВЫРАЗИТЬ(ПродажиАвтомобилейОбороты.ДокументПродажи КАК Документ.РеализацияАвтомобилей).Менеджер,
+	ПродажиАвтомобилейОбороты.СебестоимостьОборот,
+	ПродажиАвтомобилейОбороты.Автомобиль.VIN,
+	ПродажиАвтомобилейОбороты.Период,
+	ЕСТЬNULL(CRM_ДополнительнаяИнформацияПоАвтомобилям.ТипАвтомобиля, ЗНАЧЕНИЕ(Справочник.Renault_ТипыАвтомобилей.ПустаяСсылка)),
+	Renault_ДоговорСоставДоговора.ВключитьТрейдИнВДоговор,
+	Renault_ДоговорСоставДоговора.ВключитьУтилизациюВДоговор,
+	ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаСтраховки, 0),
+	ЕСТЬNULL(Renault_ДоговорСоставДоговора.Идентификатор, ""),
+	ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаТрейдИн, 0) + ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаВозмещенияПоУтилизации, 0) + ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаПоПрочимСкидкам, 0) + ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаСкидокПоКоммерческимАкциям, 0),
+	ЕСТЬNULL(Renault_ДоговорСоставДоговора.СуммаСубсидииПоКредиту, 0)
+
+ИНДЕКСИРОВАТЬ ПО
+	Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ДокументЗаказНаряд.Автомобиль КАК Автомобиль,
+	ДокументЗаказНаряд.СуммаДокумента КАК ВнутренниеЗаказНаряды,
+	ДокументЗаказНаряд.Дата КАК Дата
+ПОМЕСТИТЬ ВТЗаказНаряды
+ИЗ
+	Документ.ЗаказНаряд КАК ДокументЗаказНаряд
+ГДЕ
+	ДокументЗаказНаряд.Автомобиль В
+			(ВЫБРАТЬ РАЗЛИЧНЫЕ
+				мУчетПродажОстатков.Автомобиль
+			ИЗ
+				мУчетПродажОстатков КАК мУчетПродажОстатков)
+	И ДокументЗаказНаряд.DMS_Обслуживание = ЗНАЧЕНИЕ(Справочник.Renault_Advanced_ТипыОбслуживания.Внутренний)
+	И ДокументЗаказНаряд.DMS_СтатусЗаказНаряда = ЗНАЧЕНИЕ(Справочник.Renault_Advanced_СтатусыЗаказНарядов.Закрыт)
+	И ДокументЗаказНаряд.DMS_ВидОбслуживания.ЗаСчетОтделаПродаж
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	ДокументЗаказПокупателя.Автомобиль,
+	ДокументЗаказПокупателя.СуммаДокумента,
+	ДокументЗаказПокупателя.Дата
+ИЗ
+	Документ.ЗаказПокупателя КАК ДокументЗаказПокупателя
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.Renault_Advanced_ДополнительныеРеквизитыЗаказПокупателя КАК Renault_Advanced_ДополнительныеРеквизитыЗаказПокупателя
+		ПО ДокументЗаказПокупателя.Ссылка = Renault_Advanced_ДополнительныеРеквизитыЗаказПокупателя.Заказ
+ГДЕ
+	ДокументЗаказПокупателя.Автомобиль В
+			(ВЫБРАТЬ РАЗЛИЧНЫЕ
+				мУчетПродажОстатков.Автомобиль
+			ИЗ
+				мУчетПродажОстатков КАК мУчетПродажОстатков)
+	И ДокументЗаказПокупателя.Renault_advanced_ТипОбслуживания = ЗНАЧЕНИЕ(Справочник.Renault_Advanced_ТипыОбслуживания.Внутренний)
+	И Renault_Advanced_ДополнительныеРеквизитыЗаказПокупателя.Статус = ЗНАЧЕНИЕ(Справочник.Renault_Advanced_СтатусыЗаказНарядов.Закрыт)
+	И ДокументЗаказПокупателя.Renault_advanced_ВидОбслуживания.ЗаСчетОтделаПродаж
+
+ИНДЕКСИРОВАТЬ ПО
+	Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТЗаказНаряды.Автомобиль КАК Автомобиль,
+	СУММА(ВТЗаказНаряды.ВнутренниеЗаказНаряды) КАК ВнутренниеЗаказНаряды,
+	мУчетПродажОстатков.Период КАК ДатаРеализации
+ПОМЕСТИТЬ ВТВнутренниеЗН
+ИЗ
+	ВТЗаказНаряды КАК ВТЗаказНаряды
+		ЛЕВОЕ СОЕДИНЕНИЕ мУчетПродажОстатков КАК мУчетПродажОстатков
+		ПО ВТЗаказНаряды.Автомобиль = мУчетПродажОстатков.Автомобиль
+			И (ВТЗаказНаряды.Дата МЕЖДУ мУчетПродажОстатков.ДатаПредыдущейРеализации И мУчетПродажОстатков.Период)
+ГДЕ
+	мУчетПродажОстатков.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+СГРУППИРОВАТЬ ПО
+	ВТЗаказНаряды.Автомобиль,
+	мУчетПродажОстатков.Период
+
+ИНДЕКСИРОВАТЬ ПО
+	Автомобиль,
+	ДатаРеализации
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	DMS_КоммерческиеАкцииУсловия.Ссылка КАК Ссылка,
+	МАКСИМУМ(DMS_КоммерческиеАкцииУсловия.ЗначениеСкидки) КАК ЗначениеСкидки,
+	МАКСИМУМ(DMS_КоммерческиеАкцииУсловия.ЗначениеСкидкиУчастиеДилера) КАК ЗначениеСкидкиУчастиеДилера,
+	DMS_КоммерческиеАкцииУсловия.ВариантСкидки КАК ВариантСкидки,
+	DMS_КоммерческиеАкцииУсловия.Ссылка.ТипАкции КАК Вид,
+	мУчетПродажОстатков.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ ВТ_Подготовка
+ИЗ
+	мУчетПродажОстатков КАК мУчетПродажОстатков
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.DMS_КоммерческиеАкции.Условия КАК DMS_КоммерческиеАкцииУсловия
+		ПО (ВЫБОР
+				КОГДА DMS_КоммерческиеАкцииУсловия.Объект ССЫЛКА Справочник.Модели
+					ТОГДА мУчетПродажОстатков.Автомобиль.Модель = DMS_КоммерческиеАкцииУсловия.Объект
+				ИНАЧЕ ВЫБОР
+						КОГДА DMS_КоммерческиеАкцииУсловия.Объект ССЫЛКА Справочник.ВариантыКомплектации
+							ТОГДА мУчетПродажОстатков.Автомобиль.ВариантКомплектации = DMS_КоммерческиеАкцииУсловия.Объект
+						ИНАЧЕ ВЫБОР
+								КОГДА ТИПЗНАЧЕНИЯ(DMS_КоммерческиеАкцииУсловия.Объект) = ТИП(СТРОКА)
+									ТОГДА (ВЫРАЗИТЬ(мУчетПродажОстатков.Автомобиль.VIN КАК СТРОКА(20))) = DMS_КоммерческиеАкцииУсловия.Объект
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ)
+			И (DMS_КоммерческиеАкцииУсловия.ВариантСкидки = ЗНАЧЕНИЕ(Перечисление.DMS_ВариантыСкидки.Сумма))
+			И (DMS_КоммерческиеАкцииУсловия.ОкончаниеДействия &gt;= &amp;НачалоПериода
+				ИЛИ DMS_КоммерческиеАкцииУсловия.ОкончаниеДействия = ДАТАВРЕМЯ(1, 1, 1))
+			И (DMS_КоммерческиеАкцииУсловия.НачалоДействия &lt;= &amp;КонецПериода)
+			И (ВЫБОР
+				КОГДА DMS_КоммерческиеАкцииУсловия.Ссылка.ТипАкции = 2
+						И НЕ мУчетПродажОстатков.ВключитьТрейдИнВДоговор
+					ТОГДА ЛОЖЬ
+				КОГДА DMS_КоммерческиеАкцииУсловия.Ссылка.ТипАкции = 3
+						И НЕ мУчетПродажОстатков.ВключитьУтилизациюВДоговор
+					ТОГДА ЛОЖЬ
+				ИНАЧЕ ИСТИНА
+			КОНЕЦ)
+
+СГРУППИРОВАТЬ ПО
+	DMS_КоммерческиеАкцииУсловия.Ссылка,
+	DMS_КоммерческиеАкцииУсловия.ВариантСкидки,
+	DMS_КоммерческиеАкцииУсловия.Ссылка.ТипАкции,
+	мУчетПродажОстатков.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Подготовка.Ссылка КАК Ссылка,
+	ВТ_Подготовка.ЗначениеСкидки КАК ЗначениеСкидки,
+	ВТ_Подготовка.ЗначениеСкидкиУчастиеДилера КАК ЗначениеСкидкиУчастиеДилера,
+	ВТ_Подготовка.ВариантСкидки КАК ВариантСкидки,
+	ВТ_Подготовка.Вид КАК Вид,
+	DMS_КоммерческиеАкцииГодыВыпуска.Год КАК ГодВыпускаУсловие,
+	ВТ_Подготовка.Автомобиль КАК Автомобиль,
+	ВТ_Подготовка.Автомобиль.ГодВыпуска КАК ГодВыпуска
+ПОМЕСТИТЬ ВТ_АкцииУсловия
+ИЗ
+	ВТ_Подготовка КАК ВТ_Подготовка
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.DMS_КоммерческиеАкции.ГодыВыпуска КАК DMS_КоммерческиеАкцииГодыВыпуска
+		ПО ВТ_Подготовка.Ссылка = DMS_КоммерческиеАкцииГодыВыпуска.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВТ_АкцииУсловия.Ссылка,
+	ВТ_АкцииУсловия.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ ВТ_АкцииКИсключению
+ИЗ
+	ВТ_АкцииУсловия КАК ВТ_АкцииУсловия
+ГДЕ
+	ВТ_АкцииУсловия.ГодВыпускаУсловие = 2015
+	И (ВЫРАЗИТЬ(ГОД(ВТ_АкцииУсловия.ГодВыпуска) КАК ЧИСЛО)) &lt;&gt; 2015
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВТ_АкцииУсловия.Ссылка,
+	ВТ_АкцииУсловия.Автомобиль
+ИЗ
+	ВТ_АкцииУсловия КАК ВТ_АкцииУсловия
+ГДЕ
+	ВТ_АкцииУсловия.ГодВыпускаУсловие = 2016
+	И (ВЫРАЗИТЬ(ГОД(ВТ_АкцииУсловия.ГодВыпуска) КАК ЧИСЛО)) &lt;&gt; 2016
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	ВТ_АкцииУсловия.Ссылка,
+	ВТ_АкцииУсловия.Автомобиль
+ИЗ
+	ВТ_АкцииУсловия КАК ВТ_АкцииУсловия
+ГДЕ
+	ВТ_АкцииУсловия.ГодВыпускаУсловие = 2017
+	И (ВЫРАЗИТЬ(ГОД(ВТ_АкцииУсловия.ГодВыпуска) КАК ЧИСЛО)) &lt;&gt; 2017
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВТ_АкцииУсловия.Ссылка,
+	ВТ_АкцииУсловия.Автомобиль
+ИЗ
+	ВТ_АкцииУсловия КАК ВТ_АкцииУсловия
+ГДЕ
+	ВТ_АкцииУсловия.ГодВыпускаУсловие = 2018
+	И (ВЫРАЗИТЬ(ГОД(ВТ_АкцииУсловия.ГодВыпуска) КАК ЧИСЛО)) &lt;&gt; 2018
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ ПЕРВЫЕ 1
+	МАКСИМУМ(ВТ_АкцииУсловия.ЗначениеСкидки) КАК ЗначениеСкидки,
+	МАКСИМУМ(ВТ_АкцииУсловия.ЗначениеСкидкиУчастиеДилера) КАК ЗначениеСкидкиУчастиеДилера,
+	ВТ_АкцииУсловия.Автомобиль КАК Автомобиль
+ПОМЕСТИТЬ ВТАкцииПоАвто
+ИЗ
+	ВТ_АкцииУсловия КАК ВТ_АкцииУсловия
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_АкцииКИсключению КАК ВТ_АкцииКИсключению
+		ПО ВТ_АкцииУсловия.Автомобиль = ВТ_АкцииКИсключению.Автомобиль
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АкцииУсловия.Автомобиль
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	мУчетПродажОстатков.Автомобиль КАК Автомобиль,
+	мУчетПродажОстатков.ДатаРеализации КАК ДатаПродажи,
+	мУчетПродажОстатков.Цена КАК Цена,
+	мУчетПродажОстатков.СкладКомпании КАК Склад,
+	мУчетПродажОстатков.КоличествоАвто КАК КоличествоАвто,
+	мУчетПродажОстатков.Покупатель КАК Покупатель,
+	мУчетПродажОстатков.Продавец КАК Продавец,
+	мУчетПродажОстатков.Стоимость КАК Стоимость,
+	мУчетПродажОстатков.VIN КАК VIN,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(CRM_СостояниеАвтомобилейПроизводителя_v2.Модель, ЗНАЧЕНИЕ(Справочник.модели.пустаяСсылка)) = ЗНАЧЕНИЕ(Справочник.модели.пустаяСсылка)
+			ТОГДА мУчетПродажОстатков.Автомобиль.Модель
+		ИНАЧЕ CRM_СостояниеАвтомобилейПроизводителя_v2.Модель
+	КОНЕЦ КАК Модель,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(CRM_СостояниеАвтомобилейПроизводителя_v2.Версия, ЗНАЧЕНИЕ(Справочник.ВариантыКомплектации.пустаяСсылка)) = ЗНАЧЕНИЕ(Справочник.ВариантыКомплектации.пустаяСсылка)
+			ТОГДА мУчетПродажОстатков.Автомобиль.ВариантКомплектации
+		ИНАЧЕ CRM_СостояниеАвтомобилейПроизводителя_v2.Версия
+	КОНЕЦ КАК Версия,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(CRM_СостояниеАвтомобилейПроизводителя_v2.Цвет, ЗНАЧЕНИЕ(Справочник.Цвета.пустаяСсылка)) = ЗНАЧЕНИЕ(Справочник.Цвета.пустаяСсылка)
+			ТОГДА мУчетПродажОстатков.Автомобиль.Цвет
+		ИНАЧЕ CRM_СостояниеАвтомобилейПроизводителя_v2.Цвет
+	КОНЕЦ КАК Цвет,
+	ЕСТЬNULL(CRM_СостояниеАвтомобилейПроизводителя_v2.Статус, НЕОПРЕДЕЛЕНО) КАК СтатусРеализации,
+	ЕСТЬNULL(ВТВнутренниеЗН.ВнутренниеЗаказНаряды, 0) КАК ВнутренниеЗаказНаряды,
+	мУчетПродажОстатков.Цена - мУчетПродажОстатков.Стоимость КАК Наценка,
+	мУчетПродажОстатков.Цена - мУчетПродажОстатков.Стоимость - мУчетПродажОстатков.Скидка КАК Прибыль,
+	мУчетПродажОстатков.ТипАвтомобиля КАК ТипАвтомобиля,
+	мУчетПродажОстатков.Скидка КАК Скидка,
+	мУчетПродажОстатков.КАСКО КАК КАСКО,
+	ЕСТЬNULL(CRM_СостояниеАвтомобилейПроизводителя_v2.DEALER_PRICE_DISC, 0) КАК СуммаНачисленныхВозмещений,
+	мУчетПродажОстатков.Цена - мУчетПродажОстатков.Стоимость - ЕСТЬNULL(ВТВнутренниеЗН.ВнутренниеЗаказНаряды, 0) + ЕСТЬNULL(ВТАкцииПоАвто.ЗначениеСкидки, 0) - ЕСТЬNULL(ВТАкцииПоАвто.ЗначениеСкидкиУчастиеДилера, 0) + мУчетПродажОстатков.Субсидия / 1.18 КАК ПлановаяНаценка,
+	мУчетПродажОстатков.Цена - мУчетПродажОстатков.Стоимость - ЕСТЬNULL(ВТВнутренниеЗН.ВнутренниеЗаказНаряды, 0) + ЕСТЬNULL(ВТАкцииПоАвто.ЗначениеСкидки, 0) - ЕСТЬNULL(ВТАкцииПоАвто.ЗначениеСкидкиУчастиеДилера, 0) + мУчетПродажОстатков.Субсидия / 1.18 - ЕСТЬNULL(CRM_СостояниеАвтомобилейПроизводителя_v2.DEALER_PRICE_DISC, 0) КАК ПлановаяНаценкаБезНачисленныхВозмещений,
+	ЕСТЬNULL(ВТАкцииПоАвто.ЗначениеСкидки, 0) - ЕСТЬNULL(ВТАкцииПоАвто.ЗначениеСкидкиУчастиеДилера, 0) + мУчетПродажОстатков.Субсидия / 1.18 КАК СуммаПланируемыхВозмещений
+ИЗ
+	мУчетПродажОстатков КАК мУчетПродажОстатков
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.CRM_СостояниеАвтомобилейПроизводителя_v2 КАК CRM_СостояниеАвтомобилейПроизводителя_v2
+		ПО мУчетПродажОстатков.Автомобиль = CRM_СостояниеАвтомобилейПроизводителя_v2.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТВнутренниеЗН КАК ВТВнутренниеЗН
+		ПО мУчетПродажОстатков.Автомобиль = ВТВнутренниеЗН.Автомобиль
+			И мУчетПродажОстатков.Период = ВТВнутренниеЗН.ДатаРеализации
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТАкцииПоАвто КАК ВТАкцииПоАвто
+		ПО мУчетПродажОстатков.Автомобиль = ВТАкцииПоАвто.Автомобиль</query>
+	</dataSet>
+	<totalField>
+		<dataPath>КоличествоАвто</dataPath>
+		<expression>Сумма(КоличествоАвто)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВнутренниеЗаказНаряды</dataPath>
+		<expression>Сумма(ВнутренниеЗаказНаряды)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПлановаяНаценка</dataPath>
+		<expression>Сумма(ПлановаяНаценка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПлановаяНаценкаБезНачисленныхВозмещений</dataPath>
+		<expression>Сумма(ПлановаяНаценкаБезНачисленныхВозмещений)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Наценка</dataPath>
+		<expression>Сумма(Наценка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Скидка</dataPath>
+		<expression>Сумма(Скидка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Стоимость</dataPath>
+		<expression>Сумма(Стоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНачисленныхВозмещений</dataPath>
+		<expression>Сумма(СуммаНачисленныхВозмещений)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаПланируемыхВозмещений</dataPath>
+		<expression>Сумма(СуммаПланируемыхВозмещений)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Прибыль</dataPath>
+		<expression>Сумма(Прибыль)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>КОНЕЦПЕРИОДА(&amp;КонецПериода, "День")</expression>
+	</parameter>
+	<parameter>
+		<name>РеализацияАвто</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Реализация авто</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ХозОперации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ХозОперации.РеализацияАвтомобилей</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СистемныеПоля.НомерПоПорядкуВГруппировке</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Склад</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автомобиль</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Модель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Версия</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Цвет</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>VIN</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТипАвтомобиля</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Покупатель</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Partner</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Стоимость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Цена</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Скидка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Наценка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КАСКО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНачисленныхВозмещений</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВнутренниеЗаказНаряды</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Прибыль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоАвто</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановаяНаценка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлановаяНаценкаБезНачисленныхВозмещений</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаПланируемыхВозмещений</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипАвтомобиля</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+					<dcsset:userSettingID>592ab33f-14c0-4da3-82a3-b7bb113dec40</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcscor:value>
+					<dcsset:userSettingID>92da9a91-5b8e-4542-b081-1d6034bd2060</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>3a4f89f8-ed0e-49ea-9c6c-70c82c28b816</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РеализацияАвто</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Продавец</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

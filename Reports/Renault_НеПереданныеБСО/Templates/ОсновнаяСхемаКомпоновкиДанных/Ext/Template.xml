@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяКомпания</dataPath>
+			<field>СтраховаяКомпания</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерБСО</dataPath>
+			<field>НомерБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер бланка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Полис</dataPath>
+			<field>Полис</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияБСО</dataPath>
+			<field>СерияБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Серия</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипБСО</dataPath>
+			<field>ТипБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АктСдачи</dataPath>
+			<field>АктСдачи</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Бордеро</dataPath>
+			<field>Бордеро</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОперации</dataPath>
+			<field>ВидОперации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВстречноеБордеро</dataPath>
+			<field>ВстречноеБордеро</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДВОУ</dataPath>
+			<field>ДВОУ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОплатаПолиса</dataPath>
+			<field>ОплатаПолиса</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_СтатусыБСОСрезПоследних.Организация КАК Организация,
+	Renault_СтатусыБСОСрезПоследних.СтраховаяКомпания КАК СтраховаяКомпания,
+	Renault_СтатусыБСОСрезПоследних.ТипБСО КАК ТипБСО,
+	Renault_СтатусыБСОСрезПоследних.СерияБСО КАК СерияБСО,
+	Renault_СтатусыБСОСрезПоследних.НомерБСО КАК НомерБСО
+ПОМЕСТИТЬ ВТ_ПроданныеБСО
+ИЗ
+	РегистрСведений.Renault_СтатусыБСО.СрезПоследних(КОНЕЦПЕРИОДА(&amp;Дата1, ДЕНЬ), ) КАК Renault_СтатусыБСОСрезПоследних
+ГДЕ
+	Renault_СтатусыБСОСрезПоследних.Статус = ЗНАЧЕНИЕ(перечисление.Renault_СтатусыБСО.Продан)
+
+ИНДЕКСИРОВАТЬ ПО
+	Организация,
+	СтраховаяКомпания,
+	ТипБСО,
+	СерияБСО,
+	НомерБСО
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВТ_ПроданныеБСО.Организация КАК Организация,
+	ВТ_ПроданныеБСО.СтраховаяКомпания КАК СтраховаяКомпания,
+	ВТ_ПроданныеБСО.ТипБСО КАК ТипБСО,
+	ВТ_ПроданныеБСО.СерияБСО КАК СерияБСО,
+	ВТ_ПроданныеБСО.НомерБСО КАК НомерБСО
+ПОМЕСТИТЬ ВТ_БезБордеро
+ИЗ
+	ВТ_ПроданныеБСО КАК ВТ_ПроданныеБСО
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.Renault_ПринятыеВОтчетностьБСО.Обороты(, КОНЕЦПЕРИОДА(&amp;Дата2, ДЕНЬ), , ВидОперации В (ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.Бордеро), ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.ВстречноеБордеро))) КАК Renault_ПринятыеВОтчетностьБСООбороты
+		ПО ВТ_ПроданныеБСО.Организация = Renault_ПринятыеВОтчетностьБСООбороты.Организация
+			И ВТ_ПроданныеБСО.СтраховаяКомпания = Renault_ПринятыеВОтчетностьБСООбороты.СтраховаяКомпания
+			И ВТ_ПроданныеБСО.ТипБСО = Renault_ПринятыеВОтчетностьБСООбороты.ТипБСО
+			И ВТ_ПроданныеБСО.СерияБСО = Renault_ПринятыеВОтчетностьБСООбороты.СерияБСО
+			И ВТ_ПроданныеБСО.НомерБСО = Renault_ПринятыеВОтчетностьБСООбороты.ВидОперации
+ГДЕ
+	Renault_ПринятыеВОтчетностьБСООбороты.НомерБСО ЕСТЬ NULL 
+
+ИНДЕКСИРОВАТЬ ПО
+	Организация,
+	СтраховаяКомпания,
+	ТипБСО,
+	СерияБСО,
+	НомерБСО
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПроданныеБСО.Организация КАК Организация,
+	ВТ_ПроданныеБСО.СтраховаяКомпания КАК СтраховаяКомпания,
+	ВТ_ПроданныеБСО.ТипБСО КАК ТипБСО,
+	ВТ_ПроданныеБСО.СерияБСО КАК СерияБСО,
+	ВТ_ПроданныеБСО.НомерБСО КАК НомерБСО
+ПОМЕСТИТЬ ВТ_ВОрганизации
+ИЗ
+	ВТ_ПроданныеБСО КАК ВТ_ПроданныеБСО
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.Renault_БСОВОрганизации.Остатки(КОНЕЦПЕРИОДА(&amp;Дата2, ДЕНЬ), ) КАК Renault_БСОВОрганизацииОстатки
+		ПО ВТ_ПроданныеБСО.Организация = Renault_БСОВОрганизацииОстатки.Организация
+			И ВТ_ПроданныеБСО.СтраховаяКомпания = Renault_БСОВОрганизацииОстатки.СтраховаяКомпания
+			И ВТ_ПроданныеБСО.ТипБСО = Renault_БСОВОрганизацииОстатки.ТипБСО
+			И ВТ_ПроданныеБСО.СерияБСО = Renault_БСОВОрганизацииОстатки.СерияБСО
+			И ВТ_ПроданныеБСО.НомерБСО = Renault_БСОВОрганизацииОстатки.НомерБСО
+ГДЕ
+	ЕСТЬNULL(Renault_БСОВОрганизацииОстатки.КоличествоОстаток, 0) = 0
+
+ИНДЕКСИРОВАТЬ ПО
+	ТипБСО,
+	СтраховаяКомпания,
+	Организация,
+	НомерБСО,
+	СерияБСО
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_БезБордеро.Организация КАК Организация,
+	ВТ_БезБордеро.СтраховаяКомпания КАК СтраховаяКомпания,
+	ВТ_БезБордеро.ТипБСО КАК ТипБСО,
+	ВТ_БезБордеро.СерияБСО КАК СерияБСО,
+	ВТ_БезБордеро.НомерБСО КАК НомерБСО
+ПОМЕСТИТЬ ВТСписокБСО
+ИЗ
+	ВТ_БезБордеро КАК ВТ_БезБордеро
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	ВТ_ВОрганизации.Организация,
+	ВТ_ВОрганизации.СтраховаяКомпания,
+	ВТ_ВОрганизации.ТипБСО,
+	ВТ_ВОрганизации.СерияБСО,
+	ВТ_ВОрганизации.НомерБСО
+ИЗ
+	ВТ_ВОрганизации КАК ВТ_ВОрганизации
+
+ИНДЕКСИРОВАТЬ ПО
+	НомерБСО,
+	СерияБСО,
+	ТипБСО,
+	СтраховаяКомпания,
+	Организация
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТСписокБСО.Организация КАК Организация,
+	ВТСписокБСО.СтраховаяКомпания КАК СтраховаяКомпания,
+	ВТСписокБСО.ТипБСО КАК ТипБСО,
+	ВТСписокБСО.СерияБСО КАК СерияБСО,
+	ВТСписокБСО.НомерБСО КАК НомерБСО,
+	ЕСТЬNULL(Renault_СтраховойПолис.Ссылка, ЗНАЧЕНИЕ(Документ.Renault_СтраховойПолис.ПустаяСсылка)) КАК Полис,
+	ЕСТЬNULL(Renault_ОплатаСтраховогоПолиса.Ссылка, ЗНАЧЕНИЕ(Документ.Renault_ОплатаСтраховогоПолиса.ПустаяСсылка)) КАК ОплатаПолиса,
+	ЕСТЬNULL(АктыСдачи.Ссылка, ЗНАЧЕНИЕ(Документ.Renault_АктСдачиПриемкиБСО.ПустаяСсылка)) КАК АктСдачи,
+	ЕСТЬNULL(Бордеро.Ссылка, ЗНАЧЕНИЕ(Документ.Renault_АктСдачиПриемкиБСО.ПустаяСсылка)) КАК Бордеро,
+	ЕСТЬNULL(ВстречноеБордеро.Ссылка, ЗНАЧЕНИЕ(Документ.Renault_АктСдачиПриемкиБСО.ПустаяСсылка)) КАК ВстречноеБордеро,
+	ЕСТЬNULL(ДВОУ.Ссылка, ЗНАЧЕНИЕ(Документ.Renault_АктСдачиПриемкиБСО.ПустаяСсылка)) КАК ДВОУ
+ИЗ
+	ВТСписокБСО КАК ВТСписокБСО
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолис
+		ПО ВТСписокБСО.Организация = Renault_СтраховойПолис.Организация
+			И ВТСписокБСО.СтраховаяКомпания = Renault_СтраховойПолис.СтраховаяКомпания
+			И ВТСписокБСО.ТипБСО = Renault_СтраховойПолис.ТипБСО
+			И ВТСписокБСО.СерияБСО = Renault_СтраховойПолис.СерияБСО
+			И ВТСписокБСО.НомерБСО = Renault_СтраховойПолис.НомерБСО
+			И (Renault_СтраховойПолис.Проведен)
+			И (НЕ Renault_СтраховойПолис.ПометкаУдаления)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_ОплатаСтраховогоПолиса КАК Renault_ОплатаСтраховогоПолиса
+		ПО ВТСписокБСО.Организация = Renault_ОплатаСтраховогоПолиса.Организация
+			И ВТСписокБСО.СтраховаяКомпания = Renault_ОплатаСтраховогоПолиса.СтраховойПолис.СтраховаяКомпания
+			И ВТСписокБСО.ТипБСО = Renault_ОплатаСтраховогоПолиса.ТипБСО
+			И ВТСписокБСО.СерияБСО = Renault_ОплатаСтраховогоПолиса.СерияБСО
+			И ВТСписокБСО.НомерБСО = Renault_ОплатаСтраховогоПолиса.НомерБСО
+			И (Renault_ОплатаСтраховогоПолиса.Проведен)
+			И (НЕ Renault_ОплатаСтраховогоПолиса.ПометкаУдаления)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_АктСдачиПриемкиБСО.БСО КАК АктыСдачи
+		ПО ВТСписокБСО.Организация = АктыСдачи.Ссылка.Организация
+			И ВТСписокБСО.СтраховаяКомпания = АктыСдачи.Ссылка.СтраховаяКомпания
+			И ВТСписокБСО.ТипБСО = АктыСдачи.ТипБСО
+			И ВТСписокБСО.СерияБСО = АктыСдачи.СерияБСО
+			И ВТСписокБСО.НомерБСО = АктыСдачи.НомерБСО
+			И (АктыСдачи.Ссылка.Проведен)
+			И (НЕ АктыСдачи.Ссылка.ПометкаУдаления)
+			И (АктыСдачи.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.АктСдачиПриемки))
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_АктСдачиПриемкиБСО.БСО КАК Бордеро
+		ПО ВТСписокБСО.Организация = Бордеро.Ссылка.Организация
+			И ВТСписокБСО.СтраховаяКомпания = Бордеро.Ссылка.СтраховаяКомпания
+			И ВТСписокБСО.ТипБСО = Бордеро.ТипБСО
+			И ВТСписокБСО.СерияБСО = Бордеро.СерияБСО
+			И ВТСписокБСО.НомерБСО = Бордеро.НомерБСО
+			И (Бордеро.Ссылка.Проведен)
+			И (Бордеро.Ссылка.ПометкаУдаления)
+			И (Бордеро.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.Бордеро))
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_АктСдачиПриемкиБСО.БСО КАК ДВОУ
+		ПО ВТСписокБСО.Организация = ДВОУ.Ссылка.Организация
+			И ВТСписокБСО.СтраховаяКомпания = ДВОУ.Ссылка.СтраховаяКомпания
+			И ВТСписокБСО.ТипБСО = ДВОУ.ТипБСО
+			И ВТСписокБСО.СерияБСО = ДВОУ.СерияБСО
+			И ВТСписокБСО.НомерБСО = ДВОУ.НомерБСО
+			И (ДВОУ.Ссылка.Проведен)
+			И (ДВОУ.Ссылка.ПометкаУдаления)
+			И (ДВОУ.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.ДВОУ))
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_АктСдачиПриемкиБСО.БСО КАК ВстречноеБордеро
+		ПО ВТСписокБСО.Организация = ВстречноеБордеро.Ссылка.Организация
+			И ВТСписокБСО.СтраховаяКомпания = ВстречноеБордеро.Ссылка.СтраховаяКомпания
+			И ВТСписокБСО.ТипБСО = ВстречноеБордеро.ТипБСО
+			И ВТСписокБСО.СерияБСО = ВстречноеБордеро.СерияБСО
+			И ВТСписокБСО.НомерБСО = ВстречноеБордеро.НомерБСО
+			И (ВстречноеБордеро.Ссылка.Проведен)
+			И (ВстречноеБордеро.Ссылка.ПометкаУдаления)
+			И (ВстречноеБордеро.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.ВстречноеБордеро))
+
+УПОРЯДОЧИТЬ ПО
+	Организация,
+	СтраховаяКомпания,
+	ТипБСО,
+	СерияБСО,
+	НомерБСО</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Дата1</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата 1</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Дата2</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата 2</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипБСО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СерияБСО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерБСО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Полис</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОплатаПолиса</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АктСдачи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Бордеро</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВстречноеБордеро</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДВОУ</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СтраховаяКомпания</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>83d9f71e-a8d8-4d38-a783-0b9bac6cb87d</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипБСО</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>0cc18b0f-0928-4597-880f-03c90964473f</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СерияБСО</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>08097474-8f90-4102-8446-a60b08e823ad</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НомерБСО</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+					<dcsset:userSettingID>7dae971b-cef9-4eb3-b017-951f9b8b812c</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>ff46f40d-cada-4198-b1ee-ecd42b66a206</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>242d1c65-8df3-4bdb-bc7f-ab465a21806b</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Дата1</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>23c974be-1444-467d-b5f6-590c104f2dd7</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Дата2</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>9887cda8-011b-4836-9198-a39bc01080f3</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>СтраховаяКомпания</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТипБСО</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СерияБСО</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>НомерБСО</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Полис</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ОплатаПолиса</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>АктСдачи</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Бордеро</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ВстречноеБордеро</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДВОУ</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

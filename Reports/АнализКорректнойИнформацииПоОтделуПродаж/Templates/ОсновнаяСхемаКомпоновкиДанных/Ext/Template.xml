@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоКорректных</dataPath>
+			<field>КоличествоКорректных</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОбщее</dataPath>
+			<field>КоличествоОбщее</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Результат</dataPath>
+			<field>Результат</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Содержание</dataPath>
+			<field>Содержание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Телефон</dataPath>
+			<field>Телефон</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерРЛ</dataPath>
+			<field>МенеджерРЛ</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	1 КАК КоличествоОбщее,
+	РабочийЛист.Ссылка КАК Ссылка,
+	РабочийЛист.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	РабочийЛист.Менеджер КАК Менеджер
+ПОМЕСТИТЬ РЛ
+{ВЫБРАТЬ
+	КоличествоОбщее,
+	Ссылка.*,
+	ПодразделениеКомпании.*,
+	Менеджер.*}
+ИЗ
+	Документ.РабочийЛист КАК РабочийЛист
+ГДЕ
+	РабочийЛист.Проведен
+	И РабочийЛист.Дата МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РЛ.КоличествоОбщее КАК КоличествоОбщее,
+	РЛ.Ссылка КАК Ссылка,
+	РЛ.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	РЛ.Менеджер КАК Менеджер,
+	ВЫБОР
+		КОГДА РЛ.Ссылка.Менеджер &lt;&gt; ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)
+				И РЛ.Ссылка.Модель &lt;&gt; ЗНАЧЕНИЕ(Справочник.Модели.ПустаяСсылка)
+				И РЛ.Ссылка.НомерТелефона &lt;&gt; ""
+				И (ВЫРАЗИТЬ(РЛ.Ссылка.Контрагент КАК СТРОКА(5))) &lt;&gt; "     "
+				И (ВЫРАЗИТЬ(Событие.Результат КАК СТРОКА(5))) &lt;&gt; ""
+				И (ВЫРАЗИТЬ(Событие.Содержание КАК СТРОКА(5))) &lt;&gt; ""
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК КоличествоКорректных,
+	ВЫБОР
+		КОГДА РЛ.Ссылка.Менеджер &lt;&gt; ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)
+			ТОГДА "Менеджер"
+		ИНАЧЕ ""
+	КОНЕЦ КАК МенеджерРЛ,
+	ВЫБОР
+		КОГДА РЛ.Ссылка.Модель &lt;&gt; ЗНАЧЕНИЕ(Справочник.Модели.ПустаяСсылка)
+			ТОГДА "Модель"
+		ИНАЧЕ ""
+	КОНЕЦ КАК Модель,
+	ВЫБОР
+		КОГДА РЛ.Ссылка.НомерТелефона &lt;&gt; ""
+			ТОГДА "Телефон"
+		ИНАЧЕ ""
+	КОНЕЦ КАК Телефон,
+	ВЫБОР
+		КОГДА (ВЫРАЗИТЬ(РЛ.Ссылка.Контрагент КАК СТРОКА(5))) &lt;&gt; "     "
+				И (ВЫРАЗИТЬ(Событие.Результат КАК СТРОКА(5))) &lt;&gt; ""
+				И (ВЫРАЗИТЬ(Событие.Содержание КАК СТРОКА(5))) &lt;&gt; ""
+			ТОГДА "Контрагент"
+		ИНАЧЕ ""
+	КОНЕЦ КАК Контрагент,
+	ВЫБОР
+		КОГДА (ВЫРАЗИТЬ(Событие.Результат КАК СТРОКА(5))) &lt;&gt; ""
+			ТОГДА "Результат"
+		ИНАЧЕ ""
+	КОНЕЦ КАК Результат,
+	ВЫБОР
+		КОГДА (ВЫРАЗИТЬ(Событие.Содержание КАК СТРОКА(5))) &lt;&gt; ""
+			ТОГДА "Содержание"
+		ИНАЧЕ ""
+	КОНЕЦ КАК Содержание
+{ВЫБРАТЬ
+	КоличествоОбщее,
+	Ссылка.*,
+	ПодразделениеКомпании.*,
+	Менеджер.*,
+	КоличествоКорректных,
+	Модель,
+	Телефон,
+	Контрагент,
+	Результат,
+	Содержание,
+	МенеджерРЛ}
+ИЗ
+	РЛ КАК РЛ
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Событие КАК Событие
+		ПО РЛ.Ссылка = Событие.ДокументОснование
+ГДЕ
+	Событие.ДокументОснование В
+			(ВЫБРАТЬ
+				РабЛист.Ссылка
+			ИЗ
+				РЛ КАК РабЛист)
+	И Событие.Проведен</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ПроцентКорректных</dataPath>
+		<expression>КоличествоКорректных/КоличествоОбщее*100</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Процент корректных</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>ПроцентКорректных</dataPath>
+		<expression>Среднее(ПроцентКорректных)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОбщее</dataPath>
+		<expression>Сумма(КоличествоОбщее)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоКорректных</dataPath>
+		<expression>Сумма(КоличествоКорректных)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Контрагент</dataPath>
+		<expression>Количество(Контрагент)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>МенеджерРЛ</dataPath>
+		<expression>Количество(МенеджерРЛ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Модель</dataPath>
+		<expression>Количество(Модель)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Результат</dataPath>
+		<expression>Количество(Результат)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Содержание</dataPath>
+		<expression>Количество(Содержание)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Телефон</dataPath>
+		<expression>Количество(Телефон)</expression>
+	</totalField>
+	<parameter>
+		<name>ВалютаОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>В валюте</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоКорректных</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоКорректных</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоОбщее</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентКорректных</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МенеджерРЛ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Модель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Телефон</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Результат</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Содержание</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ПодразделениеКомпании</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Менеджер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Ссылка</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+								<dcsset:use>false</dcsset:use>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Ссылка</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>МенеджерРЛ</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Модель</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Контрагент</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Телефон</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Результат</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Содержание</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

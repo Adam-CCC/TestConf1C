@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Использован</dataPath>
+			<field>Использован</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерБСО</dataPath>
+			<field>НомерБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияБСО</dataPath>
+			<field>СерияБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяКомпания</dataPath>
+			<field>СтраховаяКомпания</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипБСО</dataPath>
+			<field>ТипБСО</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаПродаж</dataPath>
+			<field>ТочкаПродаж</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_БСОНаТочкеПродажОстатки.ТипБСО,
+	Renault_БСОНаТочкеПродажОстатки.СтраховаяКомпания,
+	ВЫБОР
+		КОГДА Renault_СтатусыБСОСрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыБСО.ПринятИзСК)
+				ИЛИ Renault_СтатусыБСОСрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыБСО.ПереданНаТочку)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыБСО.Чистый)
+		ИНАЧЕ Renault_СтатусыБСОСрезПоследних.Статус
+	КОНЕЦ КАК Статус,
+	ВЫБОР
+		КОГДА НЕ Renault_СтраховыеПолисы.СтраховаяКомпания ЕСТЬ NULL 
+				ИЛИ НЕ Renault_КвитанцииКПолисам.СтраховаяКомпания ЕСТЬ NULL 
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК Использован,
+	Renault_БСОНаТочкеПродажОстатки.ТочкаПродаж,
+	1 КАК Количество
+ИЗ
+	РегистрНакопления.Renault_БСОНаТочкеПродаж.Остатки(, ) КАК Renault_БСОНаТочкеПродажОстатки
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_СтатусыБСО.СрезПоследних(, ) КАК Renault_СтатусыБСОСрезПоследних
+		ПО Renault_БСОНаТочкеПродажОстатки.Организация = Renault_СтатусыБСОСрезПоследних.Организация
+			И Renault_БСОНаТочкеПродажОстатки.СтраховаяКомпания = Renault_СтатусыБСОСрезПоследних.СтраховаяКомпания
+			И Renault_БСОНаТочкеПродажОстатки.ТипБСО = Renault_СтатусыБСОСрезПоследних.ТипБСО
+			И Renault_БСОНаТочкеПродажОстатки.СерияБСО = Renault_СтатусыБСОСрезПоследних.СерияБСО
+			И Renault_БСОНаТочкеПродажОстатки.НомерБСО = Renault_СтатусыБСОСрезПоследних.НомерБСО
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.Renault_СтраховыеПолисы КАК Renault_СтраховыеПолисы
+		ПО Renault_БСОНаТочкеПродажОстатки.СтраховаяКомпания = Renault_СтраховыеПолисы.СтраховаяКомпания
+			И Renault_БСОНаТочкеПродажОстатки.ТипБСО = Renault_СтраховыеПолисы.ТипБСО
+			И Renault_БСОНаТочкеПродажОстатки.СерияБСО = Renault_СтраховыеПолисы.СерияБСО
+			И Renault_БСОНаТочкеПродажОстатки.НомерБСО = Renault_СтраховыеПолисы.НомерБСО
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_КвитанцииКПолисам КАК Renault_КвитанцииКПолисам
+		ПО Renault_БСОНаТочкеПродажОстатки.СтраховаяКомпания = Renault_КвитанцииКПолисам.СтраховаяКомпания
+			И Renault_БСОНаТочкеПродажОстатки.ТипБСО = Renault_КвитанцииКПолисам.ТипБСО
+			И Renault_БСОНаТочкеПродажОстатки.СерияБСО = Renault_КвитанцииКПолисам.СерияБСО
+			И Renault_БСОНаТочкеПродажОстатки.НомерБСО = Renault_КвитанцииКПолисам.НомерБСО</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяКомпания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипБСО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТочкаПродаж</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Подразделения.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>d2ca0f8f-9ed2-4ae4-b5d8-f034666d66d8</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статус</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Количество</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Статус</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтраховаяКомпания</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Количество</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СтраховаяКомпания</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ТипБСО</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Количество</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТипБСО</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

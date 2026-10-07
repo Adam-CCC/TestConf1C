@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="102">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="195"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаШапка" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основные данные</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа шапка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="196"/>
+					<ChildItems>
+						<UsualGroup name="Группа2" id="104">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="197"/>
+							<ChildItems>
+								<InputField name="СхемаОбзвона" id="4">
+									<DataPath>Запись.СхемаОбзвона</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="СхемаОбзвонаКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="СхемаОбзвонаРасширеннаяПодсказка" id="198"/>
+								</InputField>
+								<InputField name="Клиент" id="1">
+									<DataPath>Запись.Клиент</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="КлиентКонтекстноеМеню" id="2"/>
+									<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="199"/>
+								</InputField>
+								<InputField name="ПлановаяДата" id="7">
+									<DataPath>Запись.ПлановаяДата</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ПлановаяДатаКонтекстноеМеню" id="8"/>
+									<ExtendedTooltip name="ПлановаяДатаРасширеннаяПодсказка" id="200"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="Полисы" id="106">
+							<TitleLocation>Top</TitleLocation>
+							<ReadOnly>true</ReadOnly>
+							<Height>6</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Полисы</DataPath>
+							<RowPictureDataPath>Полисы.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Полисы</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="ПолисыКонтекстноеМеню" id="107"/>
+							<AutoCommandBar name="ПолисыКоманднаяПанель" id="108">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПолисыРасширеннаяПодсказка" id="201"/>
+							<SearchStringAddition name="ПолисыСтрокаПоиска" id="202">
+								<AdditionSource>
+									<Item>Полисы</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПолисыСтрокаПоискаКонтекстноеМеню" id="203"/>
+								<ExtendedTooltip name="ПолисыСтрокаПоискаРасширеннаяПодсказка" id="204"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПолисыСостояниеПросмотра" id="205">
+								<AdditionSource>
+									<Item>Полисы</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПолисыСостояниеПросмотраКонтекстноеМеню" id="206"/>
+								<ExtendedTooltip name="ПолисыСостояниеПросмотраРасширеннаяПодсказка" id="207"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПолисыУправлениеПоиском" id="208">
+								<AdditionSource>
+									<Item>Полисы</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПолисыУправлениеПоискомКонтекстноеМеню" id="209"/>
+								<ExtendedTooltip name="ПолисыУправлениеПоискомРасширеннаяПодсказка" id="210"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПолисыДата" id="119">
+									<DataPath>Полисы.Date</DataPath>
+									<ContextMenu name="ПолисыДатаКонтекстноеМеню" id="120"/>
+									<ExtendedTooltip name="ПолисыДатаРасширеннаяПодсказка" id="211"/>
+								</LabelField>
+								<LabelField name="ПолисыНомер" id="125">
+									<DataPath>Полисы.Number</DataPath>
+									<ContextMenu name="ПолисыНомерКонтекстноеМеню" id="126"/>
+									<ExtendedTooltip name="ПолисыНомерРасширеннаяПодсказка" id="212"/>
+								</LabelField>
+								<LabelField name="ПолисыСсылка" id="131">
+									<DataPath>Полисы.Ref</DataPath>
+									<ContextMenu name="ПолисыСсылкаКонтекстноеМеню" id="132"/>
+									<ExtendedTooltip name="ПолисыСсылкаРасширеннаяПодсказка" id="213"/>
+								</LabelField>
+								<LabelField name="ПолисыАвтомобиль" id="134">
+									<DataPath>Полисы.Автомобиль</DataPath>
+									<ContextMenu name="ПолисыАвтомобильКонтекстноеМеню" id="135"/>
+									<ExtendedTooltip name="ПолисыАвтомобильРасширеннаяПодсказка" id="214"/>
+								</LabelField>
+								<LabelField name="ПолисыАгент" id="137">
+									<DataPath>Полисы.Агент</DataPath>
+									<ContextMenu name="ПолисыАгентКонтекстноеМеню" id="138"/>
+									<ExtendedTooltip name="ПолисыАгентРасширеннаяПодсказка" id="215"/>
+								</LabelField>
+								<LabelField name="ПолисыВидДействияДоговора" id="140">
+									<DataPath>Полисы.ВидДействияДоговора</DataPath>
+									<ContextMenu name="ПолисыВидДействияДоговораКонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="ПолисыВидДействияДоговораРасширеннаяПодсказка" id="216"/>
+								</LabelField>
+								<LabelField name="ПолисыВидСтрахования" id="143">
+									<DataPath>Полисы.ВидСтрахования</DataPath>
+									<ContextMenu name="ПолисыВидСтрахованияКонтекстноеМеню" id="144"/>
+									<ExtendedTooltip name="ПолисыВидСтрахованияРасширеннаяПодсказка" id="217"/>
+								</LabelField>
+								<LabelField name="ПолисыДатаВыдачи" id="146">
+									<DataPath>Полисы.ДатаВыдачи</DataPath>
+									<ContextMenu name="ПолисыДатаВыдачиКонтекстноеМеню" id="147"/>
+									<ExtendedTooltip name="ПолисыДатаВыдачиРасширеннаяПодсказка" id="218"/>
+								</LabelField>
+								<LabelField name="ПолисыДатаНачалаСтрахования" id="149">
+									<DataPath>Полисы.ДатаНачалаСтрахования</DataPath>
+									<ContextMenu name="ПолисыДатаНачалаСтрахованияКонтекстноеМеню" id="150"/>
+									<ExtendedTooltip name="ПолисыДатаНачалаСтрахованияРасширеннаяПодсказка" id="219"/>
+								</LabelField>
+								<LabelField name="ПолисыДатаОкончанияСтрахования" id="152">
+									<DataPath>Полисы.ДатаОкончанияСтрахования</DataPath>
+									<ContextMenu name="ПолисыДатаОкончанияСтрахованияКонтекстноеМеню" id="153"/>
+									<ExtendedTooltip name="ПолисыДатаОкончанияСтрахованияРасширеннаяПодсказка" id="220"/>
+								</LabelField>
+								<LabelField name="ПолисыДатаОплаты" id="155">
+									<DataPath>Полисы.ДатаОплаты</DataPath>
+									<ContextMenu name="ПолисыДатаОплатыКонтекстноеМеню" id="156"/>
+									<ExtendedTooltip name="ПолисыДатаОплатыРасширеннаяПодсказка" id="221"/>
+								</LabelField>
+								<LabelField name="ПолисыКонтрагент" id="158">
+									<DataPath>Полисы.Контрагент</DataPath>
+									<ContextMenu name="ПолисыКонтрагентКонтекстноеМеню" id="159"/>
+									<ExtendedTooltip name="ПолисыКонтрагентРасширеннаяПодсказка" id="222"/>
+								</LabelField>
+								<LabelField name="ПолисыНомерБСО" id="161">
+									<DataPath>Полисы.НомерБСО</DataPath>
+									<ContextMenu name="ПолисыНомерБСОКонтекстноеМеню" id="162"/>
+									<ExtendedTooltip name="ПолисыНомерБСОРасширеннаяПодсказка" id="223"/>
+								</LabelField>
+								<LabelField name="ПолисыОрганизация" id="164">
+									<DataPath>Полисы.Организация</DataPath>
+									<ContextMenu name="ПолисыОрганизацияКонтекстноеМеню" id="165"/>
+									<ExtendedTooltip name="ПолисыОрганизацияРасширеннаяПодсказка" id="224"/>
+								</LabelField>
+								<LabelField name="ПолисыПлательщик" id="167">
+									<DataPath>Полисы.Плательщик</DataPath>
+									<ContextMenu name="ПолисыПлательщикКонтекстноеМеню" id="168"/>
+									<ExtendedTooltip name="ПолисыПлательщикРасширеннаяПодсказка" id="225"/>
+								</LabelField>
+								<LabelField name="ПолисыСерияБСО" id="170">
+									<DataPath>Полисы.СерияБСО</DataPath>
+									<ContextMenu name="ПолисыСерияБСОКонтекстноеМеню" id="171"/>
+									<ExtendedTooltip name="ПолисыСерияБСОРасширеннаяПодсказка" id="226"/>
+								</LabelField>
+								<LabelField name="ПолисыСостояние" id="173">
+									<DataPath>Полисы.Состояние</DataPath>
+									<ContextMenu name="ПолисыСостояниеКонтекстноеМеню" id="174"/>
+									<ExtendedTooltip name="ПолисыСостояниеРасширеннаяПодсказка" id="227"/>
+								</LabelField>
+								<LabelField name="ПолисыСрокСтрахования" id="176">
+									<DataPath>Полисы.СрокСтрахования</DataPath>
+									<ContextMenu name="ПолисыСрокСтрахованияКонтекстноеМеню" id="177"/>
+									<ExtendedTooltip name="ПолисыСрокСтрахованияРасширеннаяПодсказка" id="228"/>
+								</LabelField>
+								<LabelField name="ПолисыСтраховаяКомпания" id="179">
+									<DataPath>Полисы.СтраховаяКомпания</DataPath>
+									<ContextMenu name="ПолисыСтраховаяКомпанияКонтекстноеМеню" id="180"/>
+									<ExtendedTooltip name="ПолисыСтраховаяКомпанияРасширеннаяПодсказка" id="229"/>
+								</LabelField>
+								<LabelField name="ПолисыТипБСО" id="182">
+									<DataPath>Полисы.ТипБСО</DataPath>
+									<ContextMenu name="ПолисыТипБСОКонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="ПолисыТипБСОРасширеннаяПодсказка" id="230"/>
+								</LabelField>
+								<LabelField name="ПолисыТочкаПродаж" id="185">
+									<DataPath>Полисы.ТочкаПродаж</DataPath>
+									<ContextMenu name="ПолисыТочкаПродажКонтекстноеМеню" id="186"/>
+									<ExtendedTooltip name="ПолисыТочкаПродажРасширеннаяПодсказка" id="231"/>
+								</LabelField>
+								<CheckBoxField name="ПолисыЭтоПролонгация" id="188">
+									<DataPath>Полисы.ЭтоПролонгация</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПолисыЭтоПролонгацияКонтекстноеМеню" id="189"/>
+									<ExtendedTooltip name="ПолисыЭтоПролонгацияРасширеннаяПодсказка" id="232"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДанныеКлиента" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коммуникация</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа данные клиента</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ГруппаДанныеКлиентаРасширеннаяПодсказка" id="233"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаКоммуникация" id="18">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа коммуникация</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаКоммуникацияРасширеннаяПодсказка" id="234"/>
+							<ChildItems>
+								<InputField name="ДокументОбзвона" id="10">
+									<DataPath>Запись.ДокументОбзвона</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ДокументОбзвонаКонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="ДокументОбзвонаРасширеннаяПодсказка" id="235"/>
+								</InputField>
+								<InputField name="ДатаОбзвона" id="13">
+									<DataPath>Запись.ДатаОбзвона</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<ContextMenu name="ДатаОбзвонаКонтекстноеМеню" id="14"/>
+									<ExtendedTooltip name="ДатаОбзвонаРасширеннаяПодсказка" id="236"/>
+								</InputField>
+								<Button name="ПрослушатьЗапись" id="191">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<Width>20</Width>
+									<Height>3</Height>
+									<CommandName>Form.Command.ПрослушатьЗапись</CommandName>
+									<BackColor>#FFCC00</BackColor>
+									<Picture>
+										<xr:Ref>CommonPicture.Renault_Наушники</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="ПрослушатьЗаписьРасширеннаяПодсказка" id="237"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="ИсторияВзаимодействияПоКлиенту" id="22">
+							<TitleLocation>Top</TitleLocation>
+							<ReadOnly>true</ReadOnly>
+							<Height>6</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ИсторияВзаимодействияПоКлиенту</DataPath>
+							<RowPictureDataPath>ИсторияВзаимодействияПоКлиенту.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>История контактов с клиентов</v8:content>
+								</v8:item>
+							</Title>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="ИсторияВзаимодействияПоКлиентуКонтекстноеМеню" id="23"/>
+							<AutoCommandBar name="ИсторияВзаимодействияПоКлиентуКоманднаяПанель" id="24">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуРасширеннаяПодсказка" id="238"/>
+							<SearchStringAddition name="ИсторияВзаимодействияПоКлиентуСтрокаПоиска" id="239">
+								<AdditionSource>
+									<Item>ИсторияВзаимодействияПоКлиенту</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИсторияВзаимодействияПоКлиентуСтрокаПоискаКонтекстноеМеню" id="240"/>
+								<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуСтрокаПоискаРасширеннаяПодсказка" id="241"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИсторияВзаимодействияПоКлиентуСостояниеПросмотра" id="242">
+								<AdditionSource>
+									<Item>ИсторияВзаимодействияПоКлиенту</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИсторияВзаимодействияПоКлиентуСостояниеПросмотраКонтекстноеМеню" id="243"/>
+								<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуСостояниеПросмотраРасширеннаяПодсказка" id="244"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИсторияВзаимодействияПоКлиентуУправлениеПоиском" id="245">
+								<AdditionSource>
+									<Item>ИсторияВзаимодействияПоКлиенту</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИсторияВзаимодействияПоКлиентуУправлениеПоискомКонтекстноеМеню" id="246"/>
+								<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуУправлениеПоискомРасширеннаяПодсказка" id="247"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnActivateRow">ИсторияВзаимодействияПоКлиентуПриАктивизацииСтроки</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ИсторияВзаимодействияПоКлиентуСхемаОбзвона" id="56">
+									<DataPath>ИсторияВзаимодействияПоКлиенту.СхемаОбзвона</DataPath>
+									<ContextMenu name="ИсторияВзаимодействияПоКлиентуСхемаОбзвонаКонтекстноеМеню" id="57"/>
+									<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуСхемаОбзвонаРасширеннаяПодсказка" id="248"/>
+								</LabelField>
+								<LabelField name="ИсторияВзаимодействияПоКлиентуДата" id="35">
+									<DataPath>ИсторияВзаимодействияПоКлиенту.Date</DataPath>
+									<ContextMenu name="ИсторияВзаимодействияПоКлиентуДатаКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуДатаРасширеннаяПодсказка" id="249"/>
+								</LabelField>
+								<LabelField name="ИсторияВзаимодействияПоКлиентуСсылка" id="38">
+									<DataPath>ИсторияВзаимодействияПоКлиенту.Ref</DataPath>
+									<ContextMenu name="ИсторияВзаимодействияПоКлиентуСсылкаКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуСсылкаРасширеннаяПодсказка" id="250"/>
+								</LabelField>
+								<LabelField name="ИсторияВзаимодействияПоКлиентуРезультат" id="53">
+									<DataPath>ИсторияВзаимодействияПоКлиенту.Результат</DataPath>
+									<ContextMenu name="ИсторияВзаимодействияПоКлиентуРезультатКонтекстноеМеню" id="54"/>
+									<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуРезультатРасширеннаяПодсказка" id="251"/>
+								</LabelField>
+								<LabelField name="ИсторияВзаимодействияПоКлиентуДокумент" id="41">
+									<DataPath>ИсторияВзаимодействияПоКлиенту.Документ</DataPath>
+									<ContextMenu name="ИсторияВзаимодействияПоКлиентуДокументКонтекстноеМеню" id="42"/>
+									<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуДокументРасширеннаяПодсказка" id="252"/>
+								</LabelField>
+								<CheckBoxField name="ИсторияВзаимодействияПоКлиентуНедозвон" id="50">
+									<DataPath>ИсторияВзаимодействияПоКлиенту.Недозвон</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИсторияВзаимодействияПоКлиентуНедозвонКонтекстноеМеню" id="51"/>
+									<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуНедозвонРасширеннаяПодсказка" id="253"/>
+								</CheckBoxField>
+								<LabelField name="ИсторияВзаимодействияПоКлиентуИсполнитель" id="44">
+									<DataPath>ИсторияВзаимодействияПоКлиенту.Исполнитель</DataPath>
+									<ContextMenu name="ИсторияВзаимодействияПоКлиентуИсполнительКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуИсполнительРасширеннаяПодсказка" id="254"/>
+								</LabelField>
+								<LabelField name="ИсторияВзаимодействияПоКлиентуФайлЗаписиРазговора" id="193">
+									<DataPath>ИсторияВзаимодействияПоКлиенту.ФайлЗаписиРазговора</DataPath>
+									<ContextMenu name="ИсторияВзаимодействияПоКлиентуФайлЗаписиРазговораКонтекстноеМеню" id="194"/>
+									<ExtendedTooltip name="ИсторияВзаимодействияПоКлиентуФайлЗаписиРазговораРасширеннаяПодсказка" id="255"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.Renault_CommunicationCenter_ИнформацияПоОбзвонам</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Полисы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полисы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументRenault_СтраховойПолис.Ссылка,
+	ДокументRenault_СтраховойПолис.ПометкаУдаления,
+	ДокументRenault_СтраховойПолис.Номер,
+	ДокументRenault_СтраховойПолис.Дата,
+	ДокументRenault_СтраховойПолис.Проведен,
+	ДокументRenault_СтраховойПолис.Автомобиль,
+	ДокументRenault_СтраховойПолис.Агент,
+	ДокументRenault_СтраховойПолис.ВидДействияДоговора,
+	ДокументRenault_СтраховойПолис.ВидСтрахования,
+	ДокументRenault_СтраховойПолис.ДатаВыдачи,
+	ДокументRenault_СтраховойПолис.ДатаНачалаСтрахования,
+	ДокументRenault_СтраховойПолис.ДатаОкончанияСтрахования,
+	ДокументRenault_СтраховойПолис.Контрагент,
+	ДокументRenault_СтраховойПолис.НомерБСО,
+	ДокументRenault_СтраховойПолис.Организация,
+	ДокументRenault_СтраховойПолис.Плательщик,
+	ДокументRenault_СтраховойПолис.СерияБСО,
+	ДокументRenault_СтраховойПолис.Состояние,
+	ДокументRenault_СтраховойПолис.СрокСтрахования,
+	ДокументRenault_СтраховойПолис.СтраховаяКомпания,
+	ДокументRenault_СтраховойПолис.ТипБСО,
+	ДокументRenault_СтраховойПолис.ТочкаПродаж,
+	ДокументRenault_СтраховойПолис.ЭтоПролонгация,
+	МИНИМУМ(Renault_СтраховойПолисГрафикОплаты.ДатаОплаты) КАК ДатаОплаты
+ИЗ
+	Документ.Renault_СтраховойПолис КАК ДокументRenault_СтраховойПолис
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СтраховойПолис.ГрафикОплаты КАК Renault_СтраховойПолисГрафикОплаты
+		ПО ДокументRenault_СтраховойПолис.Ссылка = Renault_СтраховойПолисГрафикОплаты.Ссылка
+			И (Renault_СтраховойПолисГрафикОплаты.ДатаОплаты &gt;= &amp;ТекущаяДата)
+ГДЕ
+	ДокументRenault_СтраховойПолис.Контрагент = &amp;Контрагент
+
+СГРУППИРОВАТЬ ПО
+	ДокументRenault_СтраховойПолис.Ссылка,
+	ДокументRenault_СтраховойПолис.ПометкаУдаления,
+	ДокументRenault_СтраховойПолис.Номер,
+	ДокументRenault_СтраховойПолис.Дата,
+	ДокументRenault_СтраховойПолис.Проведен,
+	ДокументRenault_СтраховойПолис.Автомобиль,
+	ДокументRenault_СтраховойПолис.Агент,
+	ДокументRenault_СтраховойПолис.ВидДействияДоговора,
+	ДокументRenault_СтраховойПолис.ВидСтрахования,
+	ДокументRenault_СтраховойПолис.ДатаВыдачи,
+	ДокументRenault_СтраховойПолис.ДатаНачалаСтрахования,
+	ДокументRenault_СтраховойПолис.ДатаОкончанияСтрахования,
+	ДокументRenault_СтраховойПолис.Контрагент,
+	ДокументRenault_СтраховойПолис.НомерБСО,
+	ДокументRenault_СтраховойПолис.Организация,
+	ДокументRenault_СтраховойПолис.Плательщик,
+	ДокументRenault_СтраховойПолис.СерияБСО,
+	ДокументRenault_СтраховойПолис.Состояние,
+	ДокументRenault_СтраховойПолис.СрокСтрахования,
+	ДокументRenault_СтраховойПолис.СтраховаяКомпания,
+	ДокументRenault_СтраховойПолис.ТипБСО,
+	ДокументRenault_СтраховойПолис.ТочкаПродаж,
+	ДокументRenault_СтраховойПолис.ЭтоПролонгация</QueryText>
+				<MainTable>Document.Renault_СтраховойПолис</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Дата</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ИсторияВзаимодействияПоКлиенту" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История взаимодействия по клиенту</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	Renault_CommunicationCenter_Обзвон.Ссылка,
+	Renault_CommunicationCenter_Обзвон.Дата,
+	Renault_CommunicationCenter_Обзвон.Клиент,
+	Renault_CommunicationCenter_Обзвон.Исполнитель,
+	Renault_CommunicationCenter_Обзвон.Недозвон,
+	Renault_CommunicationCenter_Обзвон.СхемаОбзвона,
+	Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.Результат,
+	Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.Документ,
+	Renault_CommunicationCenter_Обзвон.ФайлЗаписиРазговора
+ИЗ
+	Документ.Renault_CommunicationCenter_Обзвон КАК Renault_CommunicationCenter_Обзвон
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CommunicationCenter_Обзвон.РезультатКоммуникации КАК Renault_CommunicationCenter_ОбзвонРезультатКоммуникации
+		ПО Renault_CommunicationCenter_Обзвон.Ссылка = Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.Ссылка
+			И (Renault_CommunicationCenter_ОбзвонРезультатКоммуникации.НомерСтроки = 1)
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Renault_CommunicationCenter_СхемыОбзвона.Исполнители КАК Renault_CommunicationCenter_СхемыОбзвонаИсполнители
+		ПО Renault_CommunicationCenter_Обзвон.СхемаОбзвона = Renault_CommunicationCenter_СхемыОбзвонаИсполнители.Ссылка
+			И (ВЫБОР  
+			    КОГДА &amp;РуководительОФУ 
+			    	ТОГДА ИСТИНА
+				КОГДА Renault_CommunicationCenter_СхемыОбзвонаИсполнители.Исполнитель ССЫЛКА Справочник.CRM_Отделы
+					ТОГДА Renault_CommunicationCenter_СхемыОбзвонаИсполнители.Исполнитель В (&amp;Отдел)
+				КОГДА Renault_CommunicationCenter_СхемыОбзвонаИсполнители.Исполнитель ССЫЛКА Справочник.ПодразделенияКомпании
+					ТОГДА Renault_CommunicationCenter_СхемыОбзвонаИсполнители.Исполнитель = &amp;Подразделение
+				ИНАЧЕ Renault_CommunicationCenter_СхемыОбзвонаИсполнители.Исполнитель = &amp;Пользователь
+			КОНЕЦ)
+ГДЕ
+	Renault_CommunicationCenter_Обзвон.Проведен
+	И Renault_CommunicationCenter_Обзвон.Клиент = &amp;Клиент
+	И Renault_CommunicationCenter_Обзвон.СхемаОбзвона.Родитель В ИЕРАРХИИ (ЗНАЧЕНИЕ(Справочник.Renault_CommunicationCenter_СхемыОбзвона.Пролонгация))</QueryText>
+				<MainTable>Document.Renault_CommunicationCenter_Обзвон</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПрослушатьЗапись" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прослушать запись</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прослушать запись</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПрослушатьЗапись</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

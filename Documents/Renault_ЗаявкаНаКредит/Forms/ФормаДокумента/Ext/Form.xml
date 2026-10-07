@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<CommandBarLocation>None</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грКонтейнер" id="151">
+			<TitleTextColor>#313431</TitleTextColor>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:FieldBackColor</BackColor>
+			<ExtendedTooltip name="грКонтейнерРасширеннаяПодсказка" id="152"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="125">
+					<Visible>false</Visible>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="126"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокФормы" id="173">
+							<Height>2</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextColor>#313431</TextColor>
+							<Font ref="sys:DefaultGUIFont" height="12" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заявка на кредит в банк</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>An application for a loan in the bank</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<ContextMenu name="ЗаголовокФормыКонтекстноеМеню" id="174"/>
+							<ExtendedTooltip name="ЗаголовокФормыРасширеннаяПодсказка" id="175"/>
+						</LabelDecoration>
+						<PictureDecoration name="Logo" id="170">
+							<Width>16</Width>
+							<Height>2</Height>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Logo</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Logo</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Logo_128</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="LogoКонтекстноеМеню" id="171"/>
+							<ExtendedTooltip name="LogoРасширеннаяПодсказка" id="172"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа7" id="348">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="349"/>
+					<ChildItems>
+						<UsualGroup name="грЛевая" id="127">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гр левая</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Gy left</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грЛеваяРасширеннаяПодсказка" id="128"/>
+							<ChildItems>
+								<UsualGroup name="Группа4" id="178">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="179"/>
+									<ChildItems>
+										<InputField name="Номер" id="1">
+											<DataPath>Объект.Number</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>14</Width>
+											<BorderColor>#9CA6B2</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+											<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+										</InputField>
+										<InputField name="Дата" id="4">
+											<DataPath>Объект.Date</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>19</Width>
+											<BorderColor>#9CA6B2</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+											<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="Автомобиль" id="34">
+									<DataPath>Объект.Автомобиль</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>1</Width>
+									<ChoiceButton>true</ChoiceButton>
+									<ClearButton>true</ClearButton>
+									<OpenButton>true</OpenButton>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="АвтомобильКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="АвтомобильРасширеннаяПодсказка" id="36"/>
+									<Events>
+										<Event name="OnChange">АвтомобильПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="Версия" id="290">
+									<DataPath>Объект.Версия</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<Width>1</Width>
+									<ListChoiceMode>true</ListChoiceMode>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="ВерсияКонтекстноеМеню" id="291"/>
+									<ExtendedTooltip name="ВерсияРасширеннаяПодсказка" id="292"/>
+								</InputField>
+								<InputField name="СтоимостьАвтомобиля" id="345">
+									<DataPath>Объект.СтоимостьАвтомобиля</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<TitleLocation>Left</TitleLocation>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="СтоимостьАвтомобиляКонтекстноеМеню" id="346"/>
+									<ExtendedTooltip name="СтоимостьАвтомобиляРасширеннаяПодсказка" id="347"/>
+								</InputField>
+								<InputField name="Клиент" id="22">
+									<DataPath>Объект.Клиент</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<OpenButton>true</OpenButton>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="КлиентКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="24"/>
+								</InputField>
+								<InputField name="Банк" id="309">
+									<DataPath>Объект.Банк</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="БанкКонтекстноеМеню" id="310"/>
+									<ExtendedTooltip name="БанкРасширеннаяПодсказка" id="311"/>
+									<Events>
+										<Event name="OnChange">БанкПредоставляющийКредитПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="КредитноеПредложение" id="330">
+									<DataPath>Объект.КредитноеПредложение</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<TitleLocation>Left</TitleLocation>
+									<HorizontalStretch>true</HorizontalStretch>
+									<ChoiceParameterLinks>
+										<xr:Link>
+											<xr:Name>Отбор.Владелец</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.Банк</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+									</ChoiceParameterLinks>
+									<ChoiceParameters>
+										<app:item name="Отбор.Владелец">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Catalog.Банки.EmptyRef</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="КредитноеПредложениеКонтекстноеМеню" id="331"/>
+									<ExtendedTooltip name="КредитноеПредложениеРасширеннаяПодсказка" id="332"/>
+									<Events>
+										<Event name="StartChoice">КредитноеПредложениеНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<UsualGroup name="Группа2" id="359">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="360"/>
+									<ChildItems>
+										<InputField name="СрокКредита" id="315">
+											<DataPath>Объект.СрокКредита</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<HorizontalStretch>true</HorizontalStretch>
+											<SpinButton>true</SpinButton>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#9CA6B2</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="СрокКредитаКонтекстноеМеню" id="316"/>
+											<ExtendedTooltip name="СрокКредитаРасширеннаяПодсказка" id="317"/>
+										</InputField>
+										<InputField name="СтавкаБанка" id="312">
+											<DataPath>Объект.СтавкаБанка</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<HorizontalStretch>true</HorizontalStretch>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#9CA6B2</BorderColor>
+											<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+											<ContextMenu name="СтавкаБанкаКонтекстноеМеню" id="313"/>
+											<ExtendedTooltip name="СтавкаБанкаРасширеннаяПодсказка" id="314"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<LabelDecoration name="Декорация2" id="350">
+							<Width>1</Width>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="351"/>
+							<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="352"/>
+						</LabelDecoration>
+						<UsualGroup name="грПравая" id="129">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Гр правая</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Gy right</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грПраваяРасширеннаяПодсказка" id="130"/>
+							<ChildItems>
+								<LabelField name="РабочийЛист" id="356">
+									<DataPath>Объект.РабочийЛист</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧГ=0</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>* P = 0</v8:content>
+										</v8:item>
+									</Format>
+									<Hiperlink>true</Hiperlink>
+									<TextColor>#313431</TextColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="РабочийЛистКонтекстноеМеню" id="357"/>
+									<ExtendedTooltip name="РабочийЛистРасширеннаяПодсказка" id="358"/>
+									<Events>
+										<Event name="Click">РабочийЛистНажатие</Event>
+									</Events>
+								</LabelField>
+								<InputField name="ДилерскийЦентр" id="19">
+									<DataPath>Объект.ДилерскийЦентр</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<TitleLocation>Left</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>28</Width>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="ДилерскийЦентрКонтекстноеМеню" id="20"/>
+									<ExtendedTooltip name="ДилерскийЦентрРасширеннаяПодсказка" id="21"/>
+								</InputField>
+								<InputField name="Автор" id="61">
+									<DataPath>Объект.Автор</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<EditMode>EnterOnInput</EditMode>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="АвторКонтекстноеМеню" id="62"/>
+									<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="63"/>
+								</InputField>
+								<InputField name="ПервоночальныйВзносПроцент" id="318">
+									<DataPath>Объект.ПервоначальныйВзносПроцент</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Первоначальный взнос %</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>An initial fee %</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<ClearButton>true</ClearButton>
+									<SpinButton>true</SpinButton>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="ПервоночальныйВзносПроцентКонтекстноеМеню" id="319"/>
+									<ExtendedTooltip name="ПервоночальныйВзносПроцентРасширеннаяПодсказка" id="320"/>
+									<Events>
+										<Event name="OnChange">ПервоначальныйВзносПроцентПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ПервоночальныйВзнос" id="321">
+									<DataPath>Объект.ПервоначальныйВзнос</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<SpinButton>true</SpinButton>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="ПервоночальныйВзносКонтекстноеМеню" id="322"/>
+									<ExtendedTooltip name="ПервоночальныйВзносРасширеннаяПодсказка" id="323"/>
+									<Events>
+										<Event name="OnChange">ПервоначальныйВзносПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ЕжемесячныйПлатеж" id="324">
+									<DataPath>Объект.ЕжемесячныйПлатеж</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<SpinButton>true</SpinButton>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="ЕжемесячныйПлатежКонтекстноеМеню" id="325"/>
+									<ExtendedTooltip name="ЕжемесячныйПлатежРасширеннаяПодсказка" id="326"/>
+								</InputField>
+								<InputField name="Сумма" id="303">
+									<DataPath>Объект.СуммаКредита</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="СуммаКонтекстноеМеню" id="304"/>
+									<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="305"/>
+								</InputField>
+								<InputField name="СуммаНДС" id="327">
+									<DataPath>Объект.СуммаНДС</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<Width>24</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+									<ContextMenu name="СуммаНДСКонтекстноеМеню" id="328"/>
+									<ExtendedTooltip name="СуммаНДСРасширеннаяПодсказка" id="329"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="Комментарий" id="16">
+					<TitleTextColor>#313431</TitleTextColor>
+					<EditMode>EnterOnInput</EditMode>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<UsualGroup name="грКнопки" id="135">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грКнопкиРасширеннаяПодсказка" id="136"/>
+					<ChildItems>
+						<Button name="ПровестиИЗакрыть" id="139">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<DefaultButton>true</DefaultButton>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.PostAndClose</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Confirm_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ПровестиИЗакрытьРасширеннаяПодсказка" id="140"/>
+						</Button>
+						<Button name="Провести" id="145">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Post</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Confirm_NoBorder</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ПровестиРасширеннаяПодсказка" id="146"/>
+						</Button>
+						<Button name="Записать" id="141">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Write</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Записать</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="142"/>
+						</Button>
+						<Button name="УстановитьПометкуУдаления" id="147">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.SetDeletionMark</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Cross_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Удаление</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>removal</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="УстановитьПометкуУдаленияРасширеннаяПодсказка" id="148"/>
+						</Button>
+						<Button name="ОтменаПроведения" id="143">
+							<Type>UsualButton</Type>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.UndoPosting</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ОтменаПроведенияРасширеннаяПодсказка" id="144"/>
+						</Button>
+						<Button name="Перечитать" id="149">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Reread</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Refresh_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обновить</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>update</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ПеречитатьРасширеннаяПодсказка" id="150"/>
+						</Button>
+						<LabelDecoration name="Декорация1" id="297">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="298"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="299"/>
+						</LabelDecoration>
+						<Button name="кнКалькулятор" id="343">
+							<Type>UsualButton</Type>
+							<Visible>false</Visible>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнКалькулятор</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Калькулятор</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Calculator</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнКалькуляторРасширеннаяПодсказка" id="344"/>
+						</Button>
+						<Button name="кнСостояние" id="295">
+							<Type>UsualButton</Type>
+							<Width>17</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнСостояние</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<ExtendedTooltip name="кнСостояниеРасширеннаяПодсказка" id="296"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.Renault_ЗаявкаНаКредит</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнСостояние" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние ...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Condition ...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать состояние</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select state</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьСостояние</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнКалькулятор" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Калькулятор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Calculator</v8:content>
+				</v8:item>
+			</Title>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Calc_New</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнКалькулятор</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

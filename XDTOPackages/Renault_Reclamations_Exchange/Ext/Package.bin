@@ -1,0 +1,124 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://renault-nissan.com/schema/Reclamations_Exchange">
+	<objectType name="ЭлементТипНоменклатуры">
+		<property name="Наименование" type="xs:string"/>
+		<property name="ОсновнаяБазоваяЕдиницаИзмеренияКод" type="xs:string"/>
+		<property name="Весовой" type="xs:boolean"/>
+		<property name="ВидНоменклатуры" type="xs:string"/>
+	</objectType>
+	<objectType name="ЭлементПроизводитель">
+		<property name="Наименование" type="xs:string"/>
+		<property name="СтранаПроисхождения" type="xs:string"/>
+	</objectType>
+	<objectType name="ЭлементРешенияПоРекламациям">
+		<property name="Наименование" type="xs:string"/>
+		<property name="ПолноеНаименование" type="xs:string"/>
+		<property name="Описание" type="xs:string"/>
+		<property name="Произвольное" type="xs:boolean"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+	</objectType>
+	<objectType name="ЭлементПредложенияПоРекламациям">
+		<property name="Наименование" type="xs:string"/>
+		<property name="Описание" type="xs:string"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+	</objectType>
+	<objectType name="ЭлементНоменклатура">
+		<property name="НаименованиеИностранное" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="Артикул" type="xs:string"/>
+		<property name="БазоваяЕдиницаКод" type="xs:string"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="ТипНоменклатуры" type="d3p1:ЭлементТипНоменклатуры"/>
+		<property name="ВидНоменклатуры" type="xs:string"/>
+		<property name="СтранаПроисхождения" type="xs:string" nillable="true"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="Производитель" type="d3p1:ЭлементПроизводитель" nillable="true"/>
+	</objectType>
+	<objectType name="ЭлементКлассификацияОтказов">
+		<property name="Наименование" type="xs:string"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+	</objectType>
+	<objectType name="СтрокаФотография">
+		<property name="Идентификатор" type="xs:anyType"/>
+		<property name="ИмяФайла" type="xs:anyType"/>
+		<property name="ДатаСохранения" type="xs:dateTime"/>
+		<property name="Комментарий" type="xs:anyType"/>
+		<property name="БинарныеДанные" type="xs:base64Binary"/>
+	</objectType>
+	<objectType name="ФотографииРекламации" open="true" sequenced="true">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="Фотография" type="d3p1:СтрокаФотография" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ДокументРекламацияИзDMS">
+		<property name="UUID" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="НомерДокДилера" type="xs:string" form="Attribute"/>
+		<property name="ДатаДокДилера" type="xs:dateTime" form="Attribute"/>
+		<property name="АвторДилера" type="xs:string" form="Attribute"/>
+		<property name="НомерКоробки" type="xs:string" form="Attribute"/>
+		<property name="НомерМеста" type="xs:string" form="Attribute"/>
+		<property name="НомерТТН" type="xs:string" form="Attribute"/>
+		<property name="ПредложениеИнициатора" form="Attribute"/>
+		<property name="НомерПунктаДоставки" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="ТекущийСтатус" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="ТипЗаказа" type="xs:string" form="Attribute"/>
+		<property name="АктОПоврежденииСТК" type="xs:boolean"/>
+		<property name="ВалютаДокумента" type="xs:string"/>
+		<property name="ВидРекламации" type="xs:string"/>
+		<property name="ДатаДокВх" type="xs:date"/>
+		<property name="ДатаПолученияГруза" type="xs:date"/>
+		<property name="Количество" type="xs:decimal"/>
+		<property name="КоличествоМестЗафактурованно" type="xs:decimal"/>
+		<property name="КоличествоМестПовреждено" type="xs:decimal"/>
+		<property name="КоличествоМестПолучено" type="xs:decimal"/>
+		<property name="КоличествоПлан" type="xs:decimal"/>
+		<property name="КомментарийДилера" type="xs:anyType"/>
+		<property name="КурсДокумента" type="xs:decimal"/>
+		<property name="НаличиеСборочнойКарты" type="xs:boolean"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="Номенклатура" type="d3p1:ЭлементНоменклатура" nillable="true"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="НоменклатураПлан" type="d3p1:ЭлементНоменклатура" nillable="true"/>
+		<property name="НомерДокВх" type="xs:anyType"/>
+		<property name="Сумма" type="xs:decimal"/>
+		<property name="СуммаПлан" type="xs:decimal"/>
+		<property name="ФИОВодителя" type="xs:string"/>
+		<property name="Цена" type="xs:decimal"/>
+		<property name="ЦенаПлан" type="xs:decimal"/>
+		<property name="СтавкаНДС" type="xs:integer" nillable="true"/>
+		<property name="СтавкаНДСПлан" type="xs:integer" nillable="true"/>
+		<property name="СуммаНДС" type="xs:decimal"/>
+		<property name="СуммаНДСПлан" type="xs:decimal"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="ТЧФотографии" type="d3p1:ФотографииРекламации" nillable="true"/>
+		<property name="ИННОрганизации" type="xs:string"/>
+		<property name="КонтактныйEmail" type="xs:string"/>
+	</objectType>
+	<objectType name="СписокРекламацийИзDMS">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="Рекламация" type="d3p1:ДокументРекламацияИзDMS" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ДокументРекламацияДляDMS">
+		<property name="UUID" type="xs:string"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="Решение" type="d3p1:ЭлементРешенияПоРекламациям" nillable="true"/>
+		<property name="ОписаниеРешения" type="xs:string"/>
+		<property name="ДатаПринятияРешения" type="xs:dateTime"/>
+		<property name="СтатусПубличный" type="xs:string"/>
+		<property name="СуммаВозмещения" type="xs:decimal"/>
+		<property name="КоличествоНормоЧасов" type="xs:decimal"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="КлассификацияОтказов" type="d3p1:ЭлементКлассификацияОтказов" nillable="true"/>
+	</objectType>
+	<objectType name="СписокРекламацийДляDMS">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="Рекламация" type="d3p1:ДокументРекламацияДляDMS" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ИнформацияОбОшибке">
+		<property name="GUID" type="xs:string"/>
+		<property name="ОписаниеОшибки" type="xs:string"/>
+	</objectType>
+	<objectType name="РезультатВыполнения">
+		<property name="ЗавершенУспешно" type="xs:boolean"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="ОписаниеОшибок" type="d3p1:ИнформацияОбОшибке" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписокРекламацийИзDMS_Обновление">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="РекламацияСсылка" type="d3p1:РекламацияСсылка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="РекламацияСсылка">
+		<property name="UUID" type="xs:string"/>
+		<property name="ОрганизацияИНН" type="xs:string"/>
+	</objectType>
+	<objectType name="СписокРекламацийДляDMS_Обновление">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/Reclamations_Exchange" name="Рекламация" type="d3p1:ДокументРекламацияДляDMS" lowerBound="0" upperBound="-1"/>
+	</objectType>
+</package>

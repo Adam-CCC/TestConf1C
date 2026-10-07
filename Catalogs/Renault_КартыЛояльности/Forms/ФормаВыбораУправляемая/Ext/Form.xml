@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОтбор" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group selection</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group selection</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтборРасширеннаяПодсказка" id="51"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОтборКонтрагентКарта" id="64">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор контрагент карта</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group selection counterparty map</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор контрагент карта</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group selection counterparty map</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборКонтрагентКартаРасширеннаяПодсказка" id="65"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаКонтрагентОтбор" id="71">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа контрагент отбор</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group counterparty selection</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа контрагент отбор</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group counterparty selection</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКонтрагентОтборРасширеннаяПодсказка" id="72"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьОтборКонтрагент" id="73">
+									<DataPath>ИспользоватьОтборКонтрагент</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьОтборКонтрагентКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="ИспользоватьОтборКонтрагентРасширеннаяПодсказка" id="75"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьОтборКонтрагентПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="КонтрагентОтбор" id="52">
+									<DataPath>КонтрагентОтбор</DataPath>
+									<ClearButton>true</ClearButton>
+									<ContextMenu name="КонтрагентОтборКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="КонтрагентОтборРасширеннаяПодсказка" id="54"/>
+									<Events>
+										<Event name="OnChange">КонтрагентОтборПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаБонуснаяКартаОтбор" id="76">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа бонусная карта отбор</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group bonus card selection</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа бонусная карта отбор</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group bonus card selection</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаБонуснаяКартаОтборРасширеннаяПодсказка" id="77"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьБонуснаяКартаОтбор" id="78">
+									<DataPath>ИспользоватьБонуснаяКартаОтбор</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьБонуснаяКартаОтборКонтекстноеМеню" id="79"/>
+									<ExtendedTooltip name="ИспользоватьБонуснаяКартаОтборРасширеннаяПодсказка" id="80"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьБонуснаяКартаОтборПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="БонуснаяКартаОтбор" id="61">
+									<DataPath>БонуснаяКартаОтбор</DataPath>
+									<ClearButton>true</ClearButton>
+									<ContextMenu name="БонуснаяКартаОтборКонтекстноеМеню" id="62"/>
+									<ExtendedTooltip name="БонуснаяКартаОтборРасширеннаяПодсказка" id="63"/>
+									<Events>
+										<Event name="OnChange">БонуснаяКартаОтборПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="НомерБонуснойКартыОтбор" id="55">
+							<DataPath>НомерБонуснойКартыОтбор</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>№ карты</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>number card</v8:content>
+								</v8:item>
+							</Title>
+							<ClearButton>true</ClearButton>
+							<ContextMenu name="НомерБонуснойКартыОтборКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="НомерБонуснойКартыОтборРасширеннаяПодсказка" id="57"/>
+							<Events>
+								<Event name="OnChange">НомерБонуснойКартыОтборПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОтборПрочее" id="66">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор прочее</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group selection etc.</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор прочее</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group selection etc.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборПрочееРасширеннаяПодсказка" id="67"/>
+					<ChildItems>
+						<RadioButtonField name="ПереключательПерсонализированаОтбор" id="68">
+							<DataPath>ПереключательПерсонализированаОтбор</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Персонализированость</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>personalization</v8:content>
+								</v8:item>
+							</Title>
+							<RadioButtonType>Auto</RadioButtonType>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>По всем</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>For all</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">0</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Персонализирована</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>personalized</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Не персонализирована</v8:content>
+											</v8:item>
+											<v8:item>
+												<v8:lang>en</v8:lang>
+												<v8:content>Do not personalized</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:decimal">2</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПереключательПерсонализированаОтборКонтекстноеМеню" id="69"/>
+							<ExtendedTooltip name="ПереключательПерсонализированаОтборРасширеннаяПодсказка" id="70"/>
+							<Events>
+								<Event name="OnChange">ПереключательПерсонализированаОтборПриИзменении</Event>
+							</Events>
+						</RadioButtonField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<ChoiceMode>true</ChoiceMode>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>true</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Наименование" id="14">
+					<DataPath>Список.Description</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="DMS_ВидКартыЛояльности" id="35">
+					<DataPath>Список.DMS_ВидКартыЛояльности</DataPath>
+					<ContextMenu name="DMS_ВидКартыЛояльностиКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="DMS_ВидКартыЛояльностиРасширеннаяПодсказка" id="37"/>
+				</LabelField>
+				<LabelField name="DMS_ТипКарты" id="38">
+					<DataPath>Список.DMS_ТипКарты</DataPath>
+					<ContextMenu name="DMS_ТипКартыКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="DMS_ТипКартыРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+				<LabelField name="Код" id="17">
+					<DataPath>Список.Code</DataPath>
+					<ContextMenu name="КодКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<LabelField name="Контрагент" id="20">
+					<DataPath>Список.Контрагент</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Клиент</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Client</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<CheckBoxField name="Персонализирована" id="47">
+					<DataPath>Список.Персонализирована</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПерсонализированаКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ПерсонализированаРасширеннаяПодсказка" id="49"/>
+				</CheckBoxField>
+				<CheckBoxField name="Недействительна" id="26">
+					<DataPath>Список.Недействительна</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="НедействительнаКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="НедействительнаРасширеннаяПодсказка" id="28"/>
+				</CheckBoxField>
+				<LabelField name="ДилерскийЦентр" id="29">
+					<DataPath>Список.ДилерскийЦентр</DataPath>
+					<ContextMenu name="ДилерскийЦентрКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ДилерскийЦентрРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<LabelField name="ПрограммаЛояльности" id="32">
+					<DataPath>Список.ПрограммаЛояльности</DataPath>
+					<ContextMenu name="ПрограммаЛояльностиКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ПрограммаЛояльностиРасширеннаяПодсказка" id="34"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>~Список.ВидКартыЛояльности</Field>
+				<Field>~Список.ТипКарты</Field>
+				<Field>Список.Ref</Field>
+				<Field>Список.ДилерскийЦентр</Field>
+				<Field>Список.Контрагент</Field>
+				<Field>Список.Персонализирована</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	КартыЛояльности.Ссылка,
+	КартыЛояльности.ПометкаУдаления,
+	КартыЛояльности.Предопределенный,
+	КартыЛояльности.Код,
+	КартыЛояльности.Наименование,
+	КартыЛояльности.Контрагент,
+	КартыЛояльности.Примечание,
+	КартыЛояльности.ДатаВыдачи,
+	КартыЛояльности.КемВыдана,
+	КартыЛояльности.Недействительна,
+	КартыЛояльности.ДилерскийЦентр,
+	КартыЛояльности.ПрограммаЛояльности,
+	КартыЛояльности.DMS_ВидКартыЛояльности КАК DMS_ВидКартыЛояльности,
+	КартыЛояльности.DMS_ТипКарты КАК DMS_ТипКарты,
+	КартыЛояльности.DMS_КартаЗамены КАК DMS_КартаЗамены,
+	ЕСТЬNULL(КартыЛояльности.DMS_ВидКартыЛояльности.Персонализирована, ЛОЖЬ) КАК Персонализирована
+ИЗ
+	Справочник.Renault_КартыЛояльности КАК КартыЛояльности
+ГДЕ
+	(КартыЛояльности.DMS_ТипКарты = &amp;ТипКарты
+			ИЛИ &amp;ТипКарты = ЗНАЧЕНИЕ(Перечисление.DMS_ТипыКартЛояльности.ПустаяСсылка))</QueryText>
+				<MainTable>Catalog.Renault_КартыЛояльности</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="КонтрагентОтбор" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Client</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НомерБонуснойКартыОтбор" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер бонусной карты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number bonus card</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>30</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="БонуснаяКартаОтбор" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бонусная карта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Bonus card</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_КартыЛояльности</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПереключательПерсонализированаОтбор" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переключатель персонализирована отбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Switch personalized selection</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьОтборКонтрагент" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать отбор контрагент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use a selection of the counterparty</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьБонуснаяКартаОтбор" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать бонусная карта отбор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Use bonus card selection</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

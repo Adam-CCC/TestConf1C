@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапкаСписка" id="100">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка списка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group cap list</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка списка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group cap list</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаСпискаРасширеннаяПодсказка" id="117"/>
+			<ChildItems>
+				<InputField name="Период" id="102">
+					<DataPath>Период</DataPath>
+					<ContextMenu name="ПериодКонтекстноеМеню" id="103"/>
+					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="118"/>
+					<Events>
+						<Event name="OnChange">ПериодПриИзменении</Event>
+					</Events>
+				</InputField>
+				<CommandBar name="ГруппаКомандыСписка" id="98">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа команды списка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Team Group list</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа команды списка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Team Group list</v8:content>
+						</v8:item>
+					</ToolTip>
+					<CommandSource>Item.СписокПродаж</CommandSource>
+					<ExtendedTooltip name="ГруппаКомандыСпискаРасширеннаяПодсказка" id="119"/>
+				</CommandBar>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="СписокПродаж" id="1">
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>СписокПродаж</DataPath>
+			<RowPictureDataPath>СписокПродаж.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокПродажКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокПродажКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокПродажРасширеннаяПодсказка" id="120"/>
+			<SearchStringAddition name="СписокПродажСтрокаПоиска" id="121">
+				<AdditionSource>
+					<Item>СписокПродаж</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПродажСтрокаПоискаКонтекстноеМеню" id="122"/>
+				<ExtendedTooltip name="СписокПродажСтрокаПоискаРасширеннаяПодсказка" id="123"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокПродажСостояниеПросмотра" id="124">
+				<AdditionSource>
+					<Item>СписокПродаж</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПродажСостояниеПросмотраКонтекстноеМеню" id="125"/>
+				<ExtendedTooltip name="СписокПродажСостояниеПросмотраРасширеннаяПодсказка" id="126"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокПродажУправлениеПоиском" id="127">
+				<AdditionSource>
+					<Item>СписокПродаж</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПродажУправлениеПоискомКонтекстноеМеню" id="128"/>
+				<ExtendedTooltip name="СписокПродажУправлениеПоискомРасширеннаяПодсказка" id="129"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокПродажВыбор</Event>
+				<Event name="OnActivateRow">СписокПродажПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="СписокПродажДатаПродажи" id="29">
+					<DataPath>СписокПродаж.ДатаПродажи</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>date</v8:content>
+						</v8:item>
+					</Title>
+					<Width>1</Width>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yy</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>DF = dd.MM.yy</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокПродажДатаПродажиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СписокПродажДатаПродажиРасширеннаяПодсказка" id="130"/>
+				</LabelField>
+				<LabelField name="СписокПродажТипКлиента" id="74">
+					<DataPath>СписокПродаж.ТипКлиента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>A type</v8:content>
+						</v8:item>
+					</Title>
+					<Width>1</Width>
+					<ContextMenu name="СписокПродажТипКлиентаКонтекстноеМеню" id="75"/>
+					<ExtendedTooltip name="СписокПродажТипКлиентаРасширеннаяПодсказка" id="131"/>
+				</LabelField>
+				<ColumnGroup name="СписокПродажГруппа1" id="108">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="СписокПродажГруппа1РасширеннаяПодсказка" id="132"/>
+					<ChildItems>
+						<PictureField name="СписокПродажЕстьФайлы" id="110">
+							<DataPath>СписокПродаж.ЕстьФайлыVIN</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Содержание</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СписокПродажЕстьФайлыКонтекстноеМеню" id="111"/>
+							<ExtendedTooltip name="СписокПродажЕстьФайлыРасширеннаяПодсказка" id="133"/>
+						</PictureField>
+						<LabelField name="СписокПродажVIN" id="23">
+							<DataPath>СписокПродаж.VIN</DataPath>
+							<TitleBackColor>style:ReportLineColor</TitleBackColor>
+							<Width>17</Width>
+							<ContextMenu name="СписокПродажVINКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="СписокПродажVINРасширеннаяПодсказка" id="134"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="СписокПродажМодель" id="56">
+					<DataPath>СписокПродаж.Модель</DataPath>
+					<Width>9</Width>
+					<ContextMenu name="СписокПродажМодельКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="СписокПродажМодельРасширеннаяПодсказка" id="135"/>
+				</LabelField>
+				<LabelField name="СписокПродажВерсия" id="26">
+					<DataPath>СписокПродаж.Версия</DataPath>
+					<Width>9</Width>
+					<ContextMenu name="СписокПродажВерсияКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СписокПродажВерсияРасширеннаяПодсказка" id="136"/>
+				</LabelField>
+				<LabelField name="СписокПродажDISC_COMMENT" id="20">
+					<DataPath>СписокПродаж.DISC_COMMENT</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Скидка от Rn</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Discount on Rn</v8:content>
+						</v8:item>
+					</Title>
+					<Width>12</Width>
+					<ContextMenu name="СписокПродажDISC_COMMENTКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокПродажDISC_COMMENTРасширеннаяПодсказка" id="137"/>
+				</LabelField>
+				<LabelField name="СписокПродажКлиентПоSEDRE" id="35">
+					<DataPath>СписокПродаж.КлиентПоSEDRE</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Клиент SEDRE</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Client SEDRE</v8:content>
+						</v8:item>
+					</Title>
+					<Width>14</Width>
+					<ContextMenu name="СписокПродажКлиентПоSEDREКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="СписокПродажКлиентПоSEDREРасширеннаяПодсказка" id="138"/>
+				</LabelField>
+				<LabelField name="СписокПродажЦенаPVR" id="89">
+					<DataPath>СписокПродаж.ЦенаPVR</DataPath>
+					<Width>1</Width>
+					<ContextMenu name="СписокПродажЦенаPVRКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="СписокПродажЦенаPVRРасширеннаяПодсказка" id="139"/>
+				</LabelField>
+				<LabelField name="СписокПродажЦенаPVC" id="86">
+					<DataPath>СписокПродаж.ЦенаPVC</DataPath>
+					<Width>1</Width>
+					<ContextMenu name="СписокПродажЦенаPVCКонтекстноеМеню" id="87"/>
+					<ExtendedTooltip name="СписокПродажЦенаPVCРасширеннаяПодсказка" id="140"/>
+				</LabelField>
+				<LabelField name="СписокПродажСуммаСкидки" id="71">
+					<DataPath>СписокПродаж.СуммаСкидки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Скидка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>A discount</v8:content>
+						</v8:item>
+					</Title>
+					<Width>1</Width>
+					<ContextMenu name="СписокПродажСуммаСкидкиКонтекстноеМеню" id="72"/>
+					<ExtendedTooltip name="СписокПродажСуммаСкидкиРасширеннаяПодсказка" id="141"/>
+				</LabelField>
+				<LabelField name="СписокПродажКорпКлиент" id="38">
+					<DataPath>СписокПродаж.КорпКлиент</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Корп. клиент</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Corp. client</v8:content>
+						</v8:item>
+					</Title>
+					<Width>13</Width>
+					<ContextMenu name="СписокПродажКорпКлиентКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="СписокПродажКорпКлиентРасширеннаяПодсказка" id="142"/>
+				</LabelField>
+				<LabelField name="СписокПродажМенеджерКлиента" id="105">
+					<DataPath>СписокПродаж.МенеджерКлиента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Менеджер</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Manager</v8:content>
+						</v8:item>
+					</Title>
+					<Width>11</Width>
+					<ContextMenu name="СписокПродажМенеджерКлиентаКонтекстноеМеню" id="106"/>
+					<ExtendedTooltip name="СписокПродажМенеджерКлиентаРасширеннаяПодсказка" id="143"/>
+				</LabelField>
+				<ColumnGroup name="СписокПродажГруппа2" id="113">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="СписокПродажГруппа2РасширеннаяПодсказка" id="144"/>
+					<ChildItems>
+						<PictureField name="СписокПродажЕстьФайлыЗаявка" id="115">
+							<DataPath>СписокПродаж.ЕстьФайлыЗаявка</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.Содержание</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="СписокПродажЕстьФайлыЗаявкаКонтекстноеМеню" id="116"/>
+							<ExtendedTooltip name="СписокПродажЕстьФайлыЗаявкаРасширеннаяПодсказка" id="145"/>
+						</PictureField>
+						<LabelField name="СписокПродажЗаявка" id="32">
+							<DataPath>СписокПродаж.Заявка</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Заявка</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Application</v8:content>
+								</v8:item>
+							</Title>
+							<TitleBackColor>style:ReportLineColor</TitleBackColor>
+							<Width>10</Width>
+							<ContextMenu name="СписокПродажЗаявкаКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="СписокПродажЗаявкаРасширеннаяПодсказка" id="146"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="СписокПродажСтатус" id="68">
+					<DataPath>СписокПродаж.Статус</DataPath>
+					<TitleBackColor>style:ReportLineColor</TitleBackColor>
+					<Width>10</Width>
+					<ContextMenu name="СписокПродажСтатусКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="СписокПродажСтатусРасширеннаяПодсказка" id="147"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_ОтчетПоПродажамВSedre</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СписокПродаж" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список продаж</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List of sales</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокПродаж.Автомобиль</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	CRM_СостояниеАвтомобилейПроизводителя_v2.VIN,
+	CRM_СостояниеАвтомобилейПроизводителя_v2.MODEL КАК Модель,
+	CRM_СостояниеАвтомобилейПроизводителя_v2.VERSION КАК Версия,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.Ссылка.Клиент КАК КорпКлиент,
+	CRM_СостояниеАвтомобилейПроизводителя_v2.DATEOFSALE КАК ДатаПродажи,
+	CRM_СостояниеАвтомобилейПроизводителя_v2.CLIENTTYPE КАК ТипКлиента,
+	CRM_СостояниеАвтомобилейПроизводителя_v2.NAMECL1 КАК КлиентПоSEDRE,
+	СостоянияVINВЗаявках.Статус,
+	СостоянияVINВЗаявках.Заявка,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.Ссылка.Клиент.Менеджер КАК МенеджерКлиента,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ПроцентСкидки,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаPVC,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаFlotte,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.СуммаСкидки,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаПроцент,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаСумма,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.УчастиеДилера,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаПроцентRenault,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.УчастиеRenault,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаФактура,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ЦенаPVR,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ПроцентДилера,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ПроцентРено,
+	Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.МаржаДилераПроцент,
+	CRM_СостояниеАвтомобилейПроизводителя_v2.DISC_COMMENT,
+	CRM_СостояниеАвтомобилейПроизводителя_v2.Автомобиль,
+	ВЫБОР
+		КОГДА КартинкиИФайлыVIN.Объект ЕСТЬ NULL 
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ЕстьФайлыVIN,
+	ВЫБОР
+		КОГДА КартинкиИФайлыЗаявка.Объект ЕСТЬ NULL 
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ЕстьФайлыЗаявка
+ИЗ
+	РегистрСведений.CRM_СостояниеАвтомобилейПроизводителя_v2 КАК CRM_СостояниеАвтомобилейПроизводителя_v2
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_ЗаявкаНаКорпоративнуюСкидку.ТаблицаВИН КАК Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.Renault_СостоянияVINВЗаявках КАК СостоянияVINВЗаявках
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+					МАКСИМУМ(СостоянияVINВЗаявках.Заявка.Дата) КАК Дата,
+					СостоянияVINВЗаявках.VIN КАК VIN
+				ИЗ
+					РегистрСведений.Renault_СостоянияVINВЗаявках КАК СостоянияVINВЗаявках
+				
+				СГРУППИРОВАТЬ ПО
+					СостоянияVINВЗаявках.VIN) КАК табл
+				ПО СостоянияVINВЗаявках.VIN = табл.VIN
+					И СостоянияVINВЗаявках.Заявка.Дата = табл.Дата
+			ПО Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.Ссылка = СостоянияVINВЗаявках.Заявка
+				И Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ВИН = СостоянияVINВЗаявках.VIN.VIN
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КартинкиИФайлы КАК КартинкиИФайлыVIN
+			ПО Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.Ссылка = КартинкиИФайлыVIN.Объект
+				И Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ВИН = КартинкиИФайлыVIN.Идентификатор
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КартинкиИФайлы КАК КартинкиИФайлыЗаявка
+			ПО Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.Ссылка = КартинкиИФайлыЗаявка.Объект
+				И ("Заявка на корпоративную скидку" = КартинкиИФайлыЗаявка.Идентификатор)
+		ПО (Renault_ЗаявкаНаКорпоративнуюСкидкуТаблицаВИН.ВИН = CRM_СостояниеАвтомобилейПроизводителя_v2.VIN)
+ГДЕ
+	CRM_СостояниеАвтомобилейПроизводителя_v2.DATEOFSALE &gt;= &amp;НачалоПериода
+	И CRM_СостояниеАвтомобилейПроизводителя_v2.DATEOFSALE &lt;= &amp;КонецПериода
+	И CRM_СостояниеАвтомобилейПроизводителя_v2.CLIENTTYPE В (1, 2, 3, 4)</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ДатаПродажи</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Период" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Period</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Клиент" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Client</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_КорпоративныеКлиенты</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

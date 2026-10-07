@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Акция</dataPath>
+			<field>Акция</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Акция</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидки</dataPath>
+			<field>СуммаСкидки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма скидки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автовыбор</dataPath>
+			<field>Автовыбор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипАкции</dataPath>
+			<field>ТипАкции</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВладелецАкции</dataPath>
+			<field>ВладелецАкции</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачала</dataPath>
+			<field>ДатаНачала</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Описание</dataPath>
+			<field>Описание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОкончания</dataPath>
+			<field>ДатаОкончания</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата окончания</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Спр.Ссылка КАК Акция,
+	ВЫБОР
+		КОГДА НЕ(ТЧ.НачалоДействия = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+					И ТЧ.ОкончаниеДействия = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0))
+			ТОГДА ТЧ.НачалоДействия
+		ИНАЧЕ Спр.НачалоДействия
+	КОНЕЦ КАК ДатаНачала,
+	ВЫБОР
+		КОГДА НЕ(ТЧ.НачалоДействия = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+					И ТЧ.ОкончаниеДействия = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0))
+			ТОГДА ТЧ.ОкончаниеДействия
+		ИНАЧЕ Спр.ОкончаниеДействия
+	КОНЕЦ КАК ДатаОкончания,
+	ВЫРАЗИТЬ(Спр.Описание КАК СТРОКА(300)) КАК Описание,
+	ВЫБОР
+		КОГДА ТЧ.Ссылка ЕСТЬ NULL
+			ТОГДА 0
+		ИНАЧЕ ВЫБОР
+				КОГДА ТЧ.ВариантСкидки = ЗНАЧЕНИЕ(Перечисление.DMS_ВариантыСкидки.Процент)
+					ТОГДА &amp;СуммаБазы * ТЧ.ЗначениеСкидки / 100
+				ИНАЧЕ ТЧ.ЗначениеСкидки
+			КОНЕЦ
+	КОНЕЦ КАК СуммаСкидки,
+	Спр.ВладелецАкции,
+	Спр.Автовыбор,
+	ВЫБОР
+		КОГДА Спр.ТипАкции = 0
+			ТОГДА "Все"
+		КОГДА Спр.ТипАкции = 1
+			ТОГДА "Кредит"
+		КОГДА Спр.ТипАкции = 2
+			ТОГДА "TradeIn"
+		КОГДА Спр.ТипАкции = 3
+			ТОГДА "Утилизация"
+	КОНЕЦ КАК ТипАкции
+ИЗ
+	Справочник.DMS_КоммерческиеАкции КАК Спр
+		ПОЛНОЕ СОЕДИНЕНИЕ Справочник.DMS_КоммерческиеАкции.Условия КАК ТЧ
+		ПО Спр.Ссылка = ТЧ.Ссылка
+ГДЕ
+	Спр.Активность
+	И НАЧАЛОПЕРИОДА(&amp;ТекДата, ДЕНЬ) МЕЖДУ Спр.НачалоДействия И Спр.ОкончаниеДействия
+	И ВЫБОР
+			КОГДА ТЧ.Ссылка ЕСТЬ NULL
+				ТОГДА ИСТИНА
+			ИНАЧЕ ТЧ.НачалоДействия = ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+					ИЛИ НАЧАЛОПЕРИОДА(&amp;ТекДата, ДЕНЬ) МЕЖДУ ТЧ.НачалоДействия И ТЧ.ОкончаниеДействия
+		КОНЕЦ
+	И Спр.Ссылка В
+			(ВЫБРАТЬ
+				Справочник.DMS_КоммерческиеАкции.Ссылка
+			ИЗ
+				Справочник.DMS_КоммерческиеАкции
+			ГДЕ
+				НЕ Справочник.DMS_КоммерческиеАкции.Ссылка В
+						(ВЫБРАТЬ
+							Справочник.DMS_КоммерческиеАкции.ГодыВыпуска.Ссылка
+						ИЗ
+							Справочник.DMS_КоммерческиеАкции.ГодыВыпуска)
+		
+			ОБЪЕДИНИТЬ
+		
+			ВЫБРАТЬ
+				Справочник.DMS_КоммерческиеАкции.ГодыВыпуска.Ссылка
+			ИЗ
+				Справочник.DMS_КоммерческиеАкции.ГодыВыпуска
+			ГДЕ
+				Справочник.DMS_КоммерческиеАкции.ГодыВыпуска.Год = &amp;Год)
+	И Спр.Ссылка В
+			(ВЫБРАТЬ
+				Справочник.DMS_КоммерческиеАкции.Ссылка
+			ИЗ
+				Справочник.DMS_КоммерческиеАкции
+			ГДЕ
+				НЕ Справочник.DMS_КоммерческиеАкции.Ссылка В
+						(ВЫБРАТЬ
+							Справочник.DMS_КоммерческиеАкции.ДилерскиеЦентры.Ссылка
+						ИЗ
+							Справочник.DMS_КоммерческиеАкции.ДилерскиеЦентры)
+		
+			ОБЪЕДИНИТЬ
+		
+			ВЫБРАТЬ
+				Справочник.DMS_КоммерческиеАкции.ДилерскиеЦентры.Ссылка
+			ИЗ
+				Справочник.DMS_КоммерческиеАкции.ДилерскиеЦентры
+			ГДЕ
+				Справочник.DMS_КоммерческиеАкции.ДилерскиеЦентры.ДилерскийЦентр = &amp;ДилерскийЦентр)
+	И ВЫБОР
+			КОГДА Спр.ВладелецАкции = ЗНАЧЕНИЕ(Перечисление.DMS_ВладельцыСервисов.Контрагент)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ТЧ.Объект = &amp;ВариантКомплектации
+					ИЛИ ТЧ.Объект = &amp;Модель
+					ИЛИ ТЧ.Объект = &amp;VIN
+		КОНЕЦ</query>
+	</dataSet>
+	<parameter>
+		<name>VIN</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>VIN</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Модели</v8:Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВариантыКомплектации</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>20</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВариантКомплектации</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вариант комплектации</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Модели</v8:Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВариантыКомплектации</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>20</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Год</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Год</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>4</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДилерскийЦентр</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дилерский центр</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.CRM_ДилерскиеЦентры</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Модель</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Модель</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Модели</v8:Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВариантыКомплектации</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>20</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СуммаБазы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сумма базы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тек дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Акция</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаНачала</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОкончания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Описание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаСкидки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипАкции</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВладелецАкции</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автовыбор</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВариантКомплектации</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Модель</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,4107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекстЗапроса</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<title xsi:type="xs:string">Автомобиль</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Автомобили</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильДанные</dataPath>
+			<field>АвтомобильДанные</field>
+			<title xsi:type="xs:string">Данные об автомобиле</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>158</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОплаты</dataPath>
+			<field>ВидОплаты</field>
+			<title xsi:type="xs:string">Вид оплаты</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.ВидыОплаты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+			<title xsi:type="xs:string">Вид ремонта</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ВидыРемонта</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяВыполненияРабот</dataPath>
+			<field>ВремяВыполненияРабот</field>
+			<title xsi:type="xs:string">Время выполнения работ</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=3</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодВыпуска</dataPath>
+			<field>ГодВыпуска</field>
+			<title xsi:type="xs:string">Год выпуска автомобиля</title>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд</dataPath>
+			<field>ЗаказНаряд</field>
+			<title xsi:type="xs:string">Заказ-наряд</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЗаказНаряд</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникИнформации</dataPath>
+			<field>ИсточникИнформации</field>
+			<title xsi:type="xs:string">Реклама</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ИсточникиИнформации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоАвтомобилей</dataPath>
+			<field>КоличествоАвтомобилей</field>
+			<title xsi:type="xs:string">Количество автомобилей</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">17</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаказНарядов</dataPath>
+			<field>КоличествоЗаказНарядов</field>
+			<title xsi:type="xs:string">Количество заказ-нарядов</title>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=0</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">17</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="xs:string">Контрагент</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+			<title xsi:type="xs:string">Модель</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Модели</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="xs:string">Организация</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодГод</dataPath>
+			<field>ПериодГод</field>
+			<title xsi:type="xs:string">По годам</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень</dataPath>
+			<field>ПериодДень</field>
+			<title xsi:type="xs:string">По дням</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=дд.ММ.гггг</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКвартал</dataPath>
+			<field>ПериодКвартал</field>
+			<title xsi:type="xs:string">По кварталам</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='к "квартал" гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц</dataPath>
+			<field>ПериодМесяц</field>
+			<title xsi:type="xs:string">По месяцам</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='ММММ гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНеделя</dataPath>
+			<field>ПериодНеделя</field>
+			<title xsi:type="xs:string">По неделям</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='"Неделя с" дд.ММ.гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+			<title xsi:type="xs:string">Подразделение</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цех</dataPath>
+			<field>Цех</field>
+			<title xsi:type="xs:string">Цех</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Цеха</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость</dataPath>
+			<field>Себестоимость</field>
+			<title xsi:type="xs:string">Себестоимость деталей</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+			<title xsi:type="xs:string">Состояние</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ВидыСостоянийЗаказНарядов</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+			<title xsi:type="xs:string">Всего по заказ-наряду</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНоменклатуры</dataPath>
+			<field>СуммаНоменклатуры</field>
+			<title xsi:type="xs:string">Запчастей</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРабот</dataPath>
+			<field>СуммаРабот</field>
+			<title xsi:type="xs:string">Работ</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиДокумента</dataPath>
+			<field>СуммаСкидкиДокумента</field>
+			<title xsi:type="xs:string">Скидки по заказ-наряду</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиНоменклатуры</dataPath>
+			<field>СуммаСкидкиНоменклатуры</field>
+			<title xsi:type="xs:string">Скидки запчастей</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиРабот</dataPath>
+			<field>СуммаСкидкиРабот</field>
+			<title xsi:type="xs:string">Скидки работ</title>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15;ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВаловаяПрибыль</dataPath>
+			<field>ВаловаяПрибыль</field>
+			<useRestriction>
+				<group>true</group>
+			</useRestriction>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентПоЗч</dataPath>
+			<field>ПроцентПоЗч</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентПоРаботам</dataPath>
+			<field>ПроцентПоРаботам</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПремияПоРаботам</dataPath>
+			<field>ПремияПоРаботам</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СреднийЧек</dataPath>
+			<field>СреднийЧек</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентКоммерческий</dataPath>
+			<field>ПроцентКоммерческий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>% коммерческий</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПремияЗЧ</dataPath>
+			<field>ПремияЗЧ</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибыльПоЗЧ</dataPath>
+			<field>ПрибыльПоЗЧ</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонтаКоммерческий</dataPath>
+			<field>ВидРемонтаКоммерческий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Коммерческий</dataPath>
+			<field>Коммерческий</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рентабельность</dataPath>
+			<field>Рентабельность</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПремияРаботамБезНДС</dataPath>
+			<field>ПремияРаботамБезНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Премия работам без НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПремияЗЧБезНДС</dataPath>
+			<field>ПремияЗЧБезНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Премия ЗЧБез НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВаловаяПрибыльБезНДС</dataPath>
+			<field>ВаловаяПрибыльБезНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валовая прибыль без НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибыльПоЗЧБезНДС</dataPath>
+			<field>ПрибыльПоЗЧБезНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибыль по ЗЧБез НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядРаботы.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядРаботы.СуммаСкидки * ЗаказНарядРаботы.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки,
+	ЗаказНарядРаботы.СуммаНДС КАК СуммаНДС
+ПОМЕСТИТЬ ДокументЗаказНарядРаботы
+ИЗ
+	Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+ГДЕ
+	НЕ ЗаказНарядРаботы.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядРаботы.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядРаботы.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядРаботы.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядРаботы.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядРаботы.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядРаботы.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядРаботы.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядРаботы.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядРаботы.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядРаботы.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядРаботы.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядРаботы.Ссылка,
+	ЗаказНарядРаботы.СуммаНДС
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядРаботы.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядРаботы.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядРаботы.СуммаСкидки * ЗаказНарядРаботы.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки,
+	ЗаказНарядРаботы.СуммаНДС КАК СуммаНДС
+ПОМЕСТИТЬ ДокументКомплектацияАвтомобиляРаботы
+ИЗ
+	Документ.КомплектацияАвтомобиля.Работы КАК ЗаказНарядРаботы
+ГДЕ
+	НЕ ЗаказНарядРаботы.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядРаботы.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядРаботы.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядРаботы.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядРаботы.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядРаботы.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядРаботы.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядРаботы.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядРаботы.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядРаботы.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядРаботы.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядРаботы.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядРаботы.Ссылка,
+	ЗаказНарядРаботы.СуммаНДС
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядРаботы.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядТовары.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядТовары.СуммаСкидки * ЗаказНарядТовары.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки,
+	ЗаказНарядТовары.СуммаНДС КАК СуммаНДС
+ПОМЕСТИТЬ ДокументЗаказНарядТовары
+ИЗ
+	Документ.ЗаказНаряд.Товары КАК ЗаказНарядТовары
+ГДЕ
+	НЕ ЗаказНарядТовары.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядТовары.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядТовары.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядТовары.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядТовары.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядТовары.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядТовары.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядТовары.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядТовары.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядТовары.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядТовары.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядТовары.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядТовары.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядТовары.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядТовары.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядТовары.Ссылка,
+	ЗаказНарядТовары.СуммаНДС
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядТовары.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядТовары.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядТовары.СуммаСкидки * ЗаказНарядТовары.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки,
+	ЗаказНарядТовары.СуммаНДС КАК СуммаНДС
+ПОМЕСТИТЬ ДокументКомплектацияАвтомобиляТовары
+ИЗ
+	Документ.КомплектацияАвтомобиля.Товары КАК ЗаказНарядТовары
+ГДЕ
+	НЕ ЗаказНарядТовары.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядТовары.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядТовары.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядТовары.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядТовары.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядТовары.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядТовары.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядТовары.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядТовары.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядТовары.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядТовары.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядТовары.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядТовары.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядТовары.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядТовары.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядТовары.Ссылка,
+	ЗаказНарядТовары.СуммаНДС
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядТовары.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ ТоварыВПроизводствеОбороты
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.ЗаказНаряд
+{ГДЕ
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Организация).* КАК Организация,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ПодразделениеКомпании).* КАК ПодразделениеКомпании,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд)).* КАК ЗаказНаряд,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Цех).* КАК Цех,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидРемонта).* КАК ВидРемонта,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Состояние) КАК Состояние,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидОплаты).* КАК ВидОплаты,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль).* КАК Автомобиль,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.ГодВыпуска) КАК ГодВыпуска,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.Модель).* КАК Модель,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Контрагент).* КАК Контрагент,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ИсточникИнформации).* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ ТоварыВПроизводствеКАОбороты
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.КомплектацияАвтомобиля
+{ГДЕ
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Организация).* КАК Организация,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ПодразделениеКомпании).* КАК ПодразделениеКомпании,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд)).* КАК ЗаказНаряд,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Цех).* КАК Цех,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидРемонта).* КАК ВидРемонта,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Состояние) КАК Состояние,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидОплаты).* КАК ВидОплаты,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль).* КАК Автомобиль,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.ГодВыпуска) КАК ГодВыпуска,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.Модель).* КАК Модель,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Контрагент).* КАК Контрагент,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ИсточникИнформации).* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументЗаказНаряд.Организация КАК Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	ДокументЗаказНаряд.Ссылка КАК ЗаказНаряд,
+	ДокументЗаказНаряд.Цех КАК Цех,
+	ДокументЗаказНаряд.Автомобиль КАК Автомобиль,
+	ДокументЗаказНаряд.Автомобиль.Модель КАК Модель,
+	ДокументЗаказНаряд.Контрагент КАК Контрагент,
+	ДокументЗаказНаряд.ИсточникИнформации КАК ИсточникИнформации,
+	ДокументЗаказНаряд.ВидРемонта КАК ВидРемонта,
+	ДокументЗаказНаряд.Состояние КАК Состояние,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ДокументЗаказНаряд.ВидОплаты КАК ВидОплаты,
+	"VIN: " + ДокументЗаказНаряд.Автомобиль.VIN + "; " + ДокументЗаказНаряд.Автомобиль.Модель.Наименование + "; №куз.: " + ДокументЗаказНаряд.Автомобиль.НомерКузова КАК АвтомобильДанные,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ДЕНЬ) КАК ПериодДень,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, НЕДЕЛЯ) КАК ПериодНеделя,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, МЕСЯЦ) КАК ПериодМесяц,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, КВАРТАЛ) КАК ПериодКвартал,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ГОД) КАК ПериодГод,
+	1 КАК КоличествоЗаказНарядов,
+	1 КАК КоличествоАвтомобилей,
+	ДокументЗаказНаряд.ВремяВыполненияРабот КАК ВремяВыполненияРабот,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаРабот,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаСкидкиРабот,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаНоменклатурыДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаНоменклатуры,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаСкидкиНоменклатуры,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаДокумента,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаСкидкиДокумента,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК Себестоимость,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ - ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ВаловаяПрибыль,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ = 0
+						ТОГДА 0
+					ИНАЧЕ (ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ - ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+								ТОГДА 0
+							ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+						КОНЕЦ) / ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ * 100
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК Рентабельность,
+	ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0) КАК ПроцентПоЗч,
+	ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0) КАК ПроцентПоРаботам,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПремияПоРаботам,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ / 1 * 100 КАК ПроцентКоммерческий,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК Коммерческий,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ / 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК СреднийЧек,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПремияЗЧ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПрибыльПоЗЧ,
+	ДокументЗаказНаряд.ВидРемонта.Коммерческий КАК ВидРемонтаКоммерческий,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ДокументЗаказНаряд.СуммаНДСТовары - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПремияЗЧБезНДС,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаРаботДокумента - (ДокументЗаказНаряд.СуммаНДС - ДокументЗаказНаряд.СуммаНДСТовары)) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПремияРаботамБезНДС,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаДокумента - ДокументЗаказНаряд.СуммаНДС) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ - ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ВаловаяПрибыльБезНДС,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ДокументЗаказНаряд.СуммаНДСТовары - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПрибыльПоЗЧБезНДС
+{ВЫБРАТЬ
+	Организация.* КАК Организация,
+	ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНаряд.* КАК ЗаказНаряд,
+	Цех.* КАК Цех,
+	Автомобиль.* КАК Автомобиль,
+	ГодВыпуска КАК ГодВыпуска,
+	Модель.* КАК Модель,
+	Контрагент.* КАК Контрагент,
+	ИсточникИнформации.* КАК ИсточникИнформации,
+	ВидРемонта.* КАК ВидРемонта,
+	Состояние КАК Состояние,
+	ВидОплаты.* КАК ВидОплаты,
+	АвтомобильДанные КАК АвтомобильДанные,
+	ПериодДень КАК ПериодДень,
+	ПериодНеделя КАК ПериодНеделя,
+	ПериодМесяц КАК ПериодМесяц,
+	ПериодКвартал КАК ПериодКвартал,
+	ПериодГод КАК ПериодГод,
+	КоличествоЗаказНарядов КАК КоличествоЗаказНарядов,
+	КоличествоАвтомобилей КАК КоличествоАвтомобилей,
+	ВремяВыполненияРабот КАК ВремяВыполненияРабот,
+	СуммаРабот КАК СуммаРабот,
+	СуммаСкидкиРабот КАК СуммаСкидкиРабот,
+	СуммаНоменклатуры КАК СуммаНоменклатуры,
+	СуммаСкидкиНоменклатуры КАК СуммаСкидкиНоменклатуры,
+	СуммаДокумента КАК СуммаДокумента,
+	СуммаСкидкиДокумента КАК СуммаСкидкиДокумента,
+	Себестоимость КАК Себестоимость,
+	ВаловаяПрибыль КАК ВаловаяПрибыль,
+	Рентабельность,
+	ПроцентПоЗч,
+	ПроцентПоРаботам,
+	ПремияПоРаботам,
+	СреднийЧек,
+	Коммерческий КАК Коммерческий,
+	ПроцентКоммерческий,
+	ПремияЗЧ,
+	ПрибыльПоЗЧ,
+	ВидРемонтаКоммерческий,
+	Рентабельность,
+	ПремияЗЧБезНДС,
+	ПремияРаботамБезНДС,
+	ВаловаяПрибыльБезНДС,
+	ПрибыльПоЗЧБезНДС}
+ИЗ
+	Документ.ЗаказНаряд КАК ДокументЗаказНаряд
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументЗаказНарядТовары КАК ДокументЗаказНарядТовары
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядТовары.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументЗаказНарядРаботы КАК ДокументЗаказНарядРаботы
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядРаботы.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ТоварыВПроизводствеОбороты КАК ТоварыВПроизводствеОбороты
+		ПО ДокументЗаказНаряд.Ссылка = ТоварыВПроизводствеОбороты.ЗаказНаряд}
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПроцентОтчисленийМастеруПоВидамРемонта.СрезПоследних(&amp;ДатаОкончания, ) КАК ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних
+		ПО ДокументЗаказНаряд.Диспетчер = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Сотрудник
+			И ДокументЗаказНаряд.ВидРемонта = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.ВидРемонта
+ГДЕ
+	НЕ ДокументЗаказНаряд.ПометкаУдаления
+	И ВЫБОР
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ДокументЗаказНаряд.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ДокументЗаказНаряд.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ДокументЗаказНаряд.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ДокументЗаказНаряд.Организация.* КАК Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ДокументЗаказНаряд.Ссылка.* КАК ЗаказНаряд,
+	ДокументЗаказНаряд.Цех.* КАК Цех,
+	ДокументЗаказНаряд.ВидРемонта.* КАК ВидРемонта,
+	ДокументЗаказНаряд.Состояние КАК Состояние,
+	ДокументЗаказНаряд.ВидОплаты.* КАК ВидОплаты,
+	ДокументЗаказНаряд.Автомобиль.* КАК Автомобиль,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ДокументЗаказНаряд.Автомобиль.Модель.* КАК Модель,
+	ДокументЗаказНаряд.Контрагент.* КАК Контрагент,
+	ДокументЗаказНаряд.ИсточникИнформации.* КАК ИсточникИнформации,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаРабот,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0)) КАК СуммаСкидкиРабот,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаНоменклатурыДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаНоменклатуры,
+	(ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиНоменклатуры,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаДокумента,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиДокумента,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+				ТОГДА 0
+			ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК Себестоимость,
+	ДокументЗаказНаряд.ВидРемонта.Коммерческий}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ДокументЗаказНаряд.Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании,
+	ДокументЗаказНаряд.Ссылка,
+	ДокументЗаказНаряд.Цех,
+	ДокументЗаказНаряд.Автомобиль,
+	ДокументЗаказНаряд.Автомобиль.Модель,
+	ДокументЗаказНаряд.Контрагент,
+	ДокументЗаказНаряд.ИсточникИнформации,
+	ДокументЗаказНаряд.ВидРемонта,
+	ДокументЗаказНаряд.Состояние,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска,
+	ДокументЗаказНаряд.ВидОплаты,
+	"VIN: " + ДокументЗаказНаряд.Автомобиль.VIN + "; " + ДокументЗаказНаряд.Автомобиль.Модель.Наименование + "; №куз.: " + ДокументЗаказНаряд.Автомобиль.НомерКузова,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ДЕНЬ),
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, НЕДЕЛЯ),
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, МЕСЯЦ),
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, КВАРТАЛ),
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ГОД),
+	1,
+	1,
+	ДокументЗаказНаряд.ВремяВыполненияРабот,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаНоменклатурыДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ - ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ = 0
+						ТОГДА 0
+					ИНАЧЕ (ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ - ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+								ТОГДА 0
+							ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+						КОНЕЦ) / ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ * 100
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0),
+	ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0),
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ / 1 * 100,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ / 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ДокументЗаказНаряд.ВидРемонта.Коммерческий,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ДокументЗаказНарядТовары.СуммаНДС - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаРаботДокумента - ДокументЗаказНарядРаботы.СуммаНДС) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента - (ДокументЗаказНарядРаботы.СуммаНДС + ДокументЗаказНарядТовары.СуммаНДС) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ - ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ДокументЗаказНарядТовары.СуммаНДС - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ
+ИЗ
+	Документ.КомплектацияАвтомобиля КАК ДокументЗаказНаряд
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументКомплектацияАвтомобиляТовары КАК ДокументЗаказНарядТовары
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядТовары.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументКомплектацияАвтомобиляРаботы КАК ДокументЗаказНарядРаботы
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядРаботы.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ТоварыВПроизводствеКАОбороты КАК ТоварыВПроизводствеОбороты
+		ПО ДокументЗаказНаряд.Ссылка = ТоварыВПроизводствеОбороты.ЗаказНаряд}
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПроцентОтчисленийМастеруПоВидамРемонта.СрезПоследних(&amp;ДатаОкончания, ) КАК ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних
+		ПО ДокументЗаказНаряд.Диспетчер = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Сотрудник
+			И ДокументЗаказНаряд.ВидРемонта = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.ВидРемонта
+ГДЕ
+	НЕ ДокументЗаказНаряд.ПометкаУдаления
+	И ВЫБОР
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ДокументЗаказНаряд.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ДокументЗаказНаряд.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ДокументЗаказНаряд.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ДокументЗаказНаряд.Организация.* КАК Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ДокументЗаказНаряд.Ссылка.* КАК ЗаказНаряд,
+	ДокументЗаказНаряд.Цех.* КАК Цех,
+	ДокументЗаказНаряд.ВидРемонта.* КАК ВидРемонта,
+	ДокументЗаказНаряд.Состояние КАК Состояние,
+	ДокументЗаказНаряд.ВидОплаты.* КАК ВидОплаты,
+	ДокументЗаказНаряд.Автомобиль.* КАК Автомобиль,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ДокументЗаказНаряд.Автомобиль.Модель.* КАК Модель,
+	ДокументЗаказНаряд.Контрагент.* КАК Контрагент,
+	ДокументЗаказНаряд.ИсточникИнформации.* КАК ИсточникИнформации,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаРабот,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0)) КАК СуммаСкидкиРабот,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаНоменклатурыДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаНоменклатуры,
+	(ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиНоменклатуры,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаДокумента,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиДокумента,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+				ТОГДА 0
+			ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК Себестоимость,
+	ДокументЗаказНаряд.ВидРемонта.Коммерческий}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СреднийКоммерческий</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОплаты</dataPath>
+			<field>ВидОплаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонтаКоммерческий</dataPath>
+			<field>ВидРемонтаКоммерческий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодВыпуска</dataPath>
+			<field>ГодВыпуска</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд</dataPath>
+			<field>ЗаказНаряд</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникИнформации</dataPath>
+			<field>ИсточникИнформации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость</dataPath>
+			<field>Себестоимость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНоменклатуры</dataPath>
+			<field>СуммаНоменклатуры</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРабот</dataPath>
+			<field>СуммаРабот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиДокумента</dataPath>
+			<field>СуммаСкидкиДокумента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиНоменклатуры</dataPath>
+			<field>СуммаСкидкиНоменклатуры</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиРабот</dataPath>
+			<field>СуммаСкидкиРабот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цех</dataPath>
+			<field>Цех</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Коммерческий1</dataPath>
+			<field>Коммерческий1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента1</dataPath>
+			<field>СуммаДокумента1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль1</dataPath>
+			<field>Автомобиль1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильДанные1</dataPath>
+			<field>АвтомобильДанные1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВаловаяПрибыль1</dataPath>
+			<field>ВаловаяПрибыль1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОплаты1</dataPath>
+			<field>ВидОплаты1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта1</dataPath>
+			<field>ВидРемонта1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонтаКоммерческий1</dataPath>
+			<field>ВидРемонтаКоммерческий1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяВыполненияРабот1</dataPath>
+			<field>ВремяВыполненияРабот1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодВыпуска1</dataPath>
+			<field>ГодВыпуска1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд1</dataPath>
+			<field>ЗаказНаряд1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникИнформации1</dataPath>
+			<field>ИсточникИнформации1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоАвтомобилей1</dataPath>
+			<field>КоличествоАвтомобилей1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаказНарядов1</dataPath>
+			<field>КоличествоЗаказНарядов1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент1</dataPath>
+			<field>Контрагент1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель1</dataPath>
+			<field>Модель1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация1</dataPath>
+			<field>Организация1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодГод1</dataPath>
+			<field>ПериодГод1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень1</dataPath>
+			<field>ПериодДень1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКвартал1</dataPath>
+			<field>ПериодКвартал1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц1</dataPath>
+			<field>ПериодМесяц1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНеделя1</dataPath>
+			<field>ПериодНеделя1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании1</dataPath>
+			<field>ПодразделениеКомпании1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПремияЗЧ1</dataPath>
+			<field>ПремияЗЧ1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПремияПоРаботам1</dataPath>
+			<field>ПремияПоРаботам1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибыльПоЗЧ1</dataPath>
+			<field>ПрибыльПоЗЧ1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентКоммерческий1</dataPath>
+			<field>ПроцентКоммерческий1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентПоЗч1</dataPath>
+			<field>ПроцентПоЗч1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентПоРаботам1</dataPath>
+			<field>ПроцентПоРаботам1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рентабильность1</dataPath>
+			<field>Рентабильность1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость1</dataPath>
+			<field>Себестоимость1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние1</dataPath>
+			<field>Состояние1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СреднийЧек1</dataPath>
+			<field>СреднийЧек1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНоменклатуры1</dataPath>
+			<field>СуммаНоменклатуры1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРабот1</dataPath>
+			<field>СуммаРабот1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиДокумента1</dataPath>
+			<field>СуммаСкидкиДокумента1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиНоменклатуры1</dataPath>
+			<field>СуммаСкидкиНоменклатуры1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиРабот1</dataPath>
+			<field>СуммаСкидкиРабот1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цех1</dataPath>
+			<field>Цех1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядРаботы.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядРаботы.СуммаСкидки * ЗаказНарядРаботы.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументЗаказНарядРаботы
+ИЗ
+	Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+ГДЕ
+	НЕ ЗаказНарядРаботы.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядРаботы.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядРаботы.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядРаботы.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядРаботы.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядРаботы.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядРаботы.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядРаботы.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядРаботы.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядРаботы.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядРаботы.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядРаботы.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядРаботы.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядРаботы.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядТовары.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядТовары.СуммаСкидки * ЗаказНарядТовары.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументЗаказНарядТовары
+ИЗ
+	Документ.ЗаказНаряд.Товары КАК ЗаказНарядТовары
+ГДЕ
+	НЕ ЗаказНарядТовары.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядТовары.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядТовары.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядТовары.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядТовары.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядТовары.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядТовары.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядТовары.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядТовары.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядТовары.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядТовары.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядТовары.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядТовары.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядТовары.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядТовары.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядТовары.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядТовары.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ ТоварыВПроизводствеОбороты
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.ЗаказНаряд
+{ГДЕ
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Организация).* КАК Организация,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ПодразделениеКомпании).* КАК ПодразделениеКомпании,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд)).* КАК ЗаказНаряд,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Цех).* КАК Цех,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидРемонта).* КАК ВидРемонта,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Состояние) КАК Состояние,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидОплаты).* КАК ВидОплаты,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль).* КАК Автомобиль,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.ГодВыпуска) КАК ГодВыпуска,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.Модель).* КАК Модель,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Контрагент).* КАК Контрагент,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ИсточникИнформации).* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядРаботы.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядРаботы.СуммаСкидки * ЗаказНарядРаботы.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументКомплектацияАвтомобиляРаботы
+ИЗ
+	Документ.КомплектацияАвтомобиля.Работы КАК ЗаказНарядРаботы
+ГДЕ
+	НЕ ЗаказНарядРаботы.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядРаботы.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядРаботы.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядРаботы.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядРаботы.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядРаботы.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядРаботы.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядРаботы.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядРаботы.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядРаботы.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядРаботы.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядРаботы.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядРаботы.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядРаботы.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядТовары.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядТовары.СуммаСкидки * ЗаказНарядТовары.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументКомплектацияАвтомобиляТовары
+ИЗ
+	Документ.КомплектацияАвтомобиля.Товары КАК ЗаказНарядТовары
+ГДЕ
+	НЕ ЗаказНарядТовары.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядТовары.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядТовары.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядТовары.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядТовары.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядТовары.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядТовары.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядТовары.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядТовары.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядТовары.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядТовары.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядТовары.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядТовары.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядТовары.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядТовары.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядТовары.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядТовары.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ ТоварыВПроизводствеКАОбороты
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.КомплектацияАвтомобиля
+{ГДЕ
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Организация).* КАК Организация,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ПодразделениеКомпании).* КАК ПодразделениеКомпании,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд)).* КАК ЗаказНаряд,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Цех).* КАК Цех,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидРемонта).* КАК ВидРемонта,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Состояние) КАК Состояние,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидОплаты).* КАК ВидОплаты,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль).* КАК Автомобиль,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.ГодВыпуска) КАК ГодВыпуска,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.Модель).* КАК Модель,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Контрагент).* КАК Контрагент,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ИсточникИнформации).* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументЗаказНаряд.Организация КАК Организация1,
+	ДокументЗаказНаряд.ПодразделениеКомпании КАК ПодразделениеКомпании1,
+	ДокументЗаказНаряд.Ссылка КАК ЗаказНаряд1,
+	ДокументЗаказНаряд.Цех КАК Цех1,
+	ДокументЗаказНаряд.Автомобиль КАК Автомобиль1,
+	ДокументЗаказНаряд.Автомобиль.Модель КАК Модель1,
+	ДокументЗаказНаряд.Контрагент КАК Контрагент1,
+	ДокументЗаказНаряд.ИсточникИнформации КАК ИсточникИнформации1,
+	ДокументЗаказНаряд.ВидРемонта КАК ВидРемонта1,
+	ДокументЗаказНаряд.Состояние КАК Состояние1,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска КАК ГодВыпуска1,
+	ДокументЗаказНаряд.ВидОплаты КАК ВидОплаты1,
+	"VIN: " + ДокументЗаказНаряд.Автомобиль.VIN + "; " + ДокументЗаказНаряд.Автомобиль.Модель.Наименование + "; №куз.: " + ДокументЗаказНаряд.Автомобиль.НомерКузова КАК АвтомобильДанные1,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ДЕНЬ) КАК ПериодДень1,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, НЕДЕЛЯ) КАК ПериодНеделя1,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, МЕСЯЦ) КАК ПериодМесяц1,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, КВАРТАЛ) КАК ПериодКвартал1,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ГОД) КАК ПериодГод1,
+	1 КАК КоличествоЗаказНарядов1,
+	1 КАК КоличествоАвтомобилей1,
+	ДокументЗаказНаряд.ВремяВыполненияРабот КАК ВремяВыполненияРабот1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаРабот1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаСкидкиРабот1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаНоменклатурыДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаНоменклатуры1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаСкидкиНоменклатуры1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаДокумента1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаСкидкиДокумента1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК Себестоимость1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ - ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ВаловаяПрибыль1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ = 0
+						ТОГДА 0
+					ИНАЧЕ (ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ - ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+								ТОГДА 0
+							ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+						КОНЕЦ) / ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ * 100
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК Рентабильность1,
+	ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0) КАК ПроцентПоЗч1,
+	ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0) КАК ПроцентПоРаботам1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПремияПоРаботам1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ / 1 * 100 КАК ПроцентКоммерческий1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК Коммерческий1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ / 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК СреднийЧек1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПремияЗЧ1,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (ДокументЗаказНаряд.СуммаНоменклатурыДокумента - ВЫБОР
+							КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПрибыльПоЗЧ1,
+	ДокументЗаказНаряд.ВидРемонта.Коммерческий КАК ВидРемонтаКоммерческий1
+{ВЫБРАТЬ
+	Организация1.* КАК Организация1,
+	ПодразделениеКомпании1.* КАК ПодразделениеКомпании1,
+	ЗаказНаряд1.* КАК ЗаказНаряд1,
+	Цех1.* КАК Цех1,
+	Автомобиль1.* КАК Автомобиль1,
+	ГодВыпуска1 КАК ГодВыпуска1,
+	Модель1.* КАК Модель1,
+	Контрагент1.* КАК Контрагент1,
+	ИсточникИнформации1.* КАК ИсточникИнформации1,
+	ВидРемонта1.* КАК ВидРемонта1,
+	Состояние1 КАК Состояние1,
+	ВидОплаты1.* КАК ВидОплаты1,
+	АвтомобильДанные1 КАК АвтомобильДанные1,
+	ПериодДень1 КАК ПериодДень1,
+	ПериодНеделя1 КАК ПериодНеделя1,
+	ПериодМесяц1 КАК ПериодМесяц1,
+	ПериодКвартал1 КАК ПериодКвартал1,
+	ПериодГод1 КАК ПериодГод1,
+	КоличествоЗаказНарядов1 КАК КоличествоЗаказНарядов1,
+	КоличествоАвтомобилей1 КАК КоличествоАвтомобилей1,
+	ВремяВыполненияРабот1 КАК ВремяВыполненияРабот1,
+	СуммаРабот1 КАК СуммаРабот1,
+	СуммаСкидкиРабот1 КАК СуммаСкидкиРабот1,
+	СуммаНоменклатуры1 КАК СуммаНоменклатуры1,
+	СуммаСкидкиНоменклатуры1 КАК СуммаСкидкиНоменклатуры1,
+	СуммаДокумента1 КАК СуммаДокумента1,
+	СуммаСкидкиДокумента1 КАК СуммаСкидкиДокумента1,
+	Себестоимость1 КАК Себестоимость1,
+	ВаловаяПрибыль1 КАК ВаловаяПрибыль1,
+	Рентабильность1 КАК Рентабильность1,
+	ПроцентПоЗч1 КАК ПроцентПоЗч1,
+	ПроцентПоРаботам1 КАК ПроцентПоРаботам1,
+	ПремияПоРаботам1 КАК ПремияПоРаботам1,
+	СреднийЧек1 КАК СреднийЧек1,
+	Коммерческий1 КАК Коммерческий1,
+	ПроцентКоммерческий1 КАК ПроцентКоммерческий1,
+	ПремияЗЧ1 КАК ПремияЗЧ1,
+	ПрибыльПоЗЧ1 КАК ПрибыльПоЗЧ1,
+	ВидРемонтаКоммерческий1 КАК ВидРемонтаКоммерческий1}
+ИЗ
+	Документ.ЗаказНаряд КАК ДокументЗаказНаряд
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументЗаказНарядТовары КАК ДокументЗаказНарядТовары
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядТовары.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументЗаказНарядРаботы КАК ДокументЗаказНарядРаботы
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядРаботы.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ТоварыВПроизводствеОбороты КАК ТоварыВПроизводствеОбороты
+		ПО ДокументЗаказНаряд.Ссылка = ТоварыВПроизводствеОбороты.ЗаказНаряд}
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПроцентОтчисленийМастеруПоВидамРемонта.СрезПоследних(&amp;ДатаОкончания, ) КАК ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних
+		ПО ДокументЗаказНаряд.Диспетчер = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Сотрудник
+			И ДокументЗаказНаряд.ВидРемонта = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.ВидРемонта
+ГДЕ
+	НЕ ДокументЗаказНаряд.ПометкаУдаления
+	И ВЫБОР
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ДокументЗаказНаряд.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ДокументЗаказНаряд.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ДокументЗаказНаряд.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+	И ДокументЗаказНаряд.ВидРемонта.Коммерческий
+{ГДЕ
+	ДокументЗаказНаряд.Организация.* КАК Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ДокументЗаказНаряд.Ссылка.* КАК ЗаказНаряд,
+	ДокументЗаказНаряд.Цех.* КАК Цех,
+	ДокументЗаказНаряд.ВидРемонта.* КАК ВидРемонта,
+	ДокументЗаказНаряд.Состояние КАК Состояние,
+	ДокументЗаказНаряд.ВидОплаты.* КАК ВидОплаты,
+	ДокументЗаказНаряд.Автомобиль.* КАК Автомобиль,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ДокументЗаказНаряд.Автомобиль.Модель.* КАК Модель,
+	ДокументЗаказНаряд.Контрагент.* КАК Контрагент,
+	ДокументЗаказНаряд.ИсточникИнформации.* КАК ИсточникИнформации,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаРабот,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0)) КАК СуммаСкидкиРабот,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаНоменклатурыДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаНоменклатуры,
+	(ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиНоменклатуры,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаДокумента,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиДокумента,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+				ТОГДА 0
+			ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК Себестоимость,
+	ДокументЗаказНаряд.ВидРемонта.Коммерческий}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КомплектацияАвтомобиля.Организация,
+	КомплектацияАвтомобиля.ПодразделениеКомпании,
+	КомплектацияАвтомобиля.Ссылка,
+	КомплектацияАвтомобиля.Цех,
+	КомплектацияАвтомобиля.Автомобиль,
+	КомплектацияАвтомобиля.Автомобиль.Модель,
+	КомплектацияАвтомобиля.Контрагент,
+	КомплектацияАвтомобиля.ИсточникИнформации,
+	КомплектацияАвтомобиля.ВидРемонта,
+	КомплектацияАвтомобиля.Состояние,
+	КомплектацияАвтомобиля.Автомобиль.ГодВыпуска,
+	КомплектацияАвтомобиля.ВидОплаты,
+	"VIN: " + КомплектацияАвтомобиля.Автомобиль.VIN + "; " + КомплектацияАвтомобиля.Автомобиль.Модель.Наименование + "; №куз.: " + КомплектацияАвтомобиля.Автомобиль.НомерКузова,
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, ДЕНЬ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, НЕДЕЛЯ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, МЕСЯЦ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, КВАРТАЛ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, ГОД),
+	1,
+	1,
+	КомплектацияАвтомобиля.ВремяВыполненияРабот,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ КомплектацияАвтомобиля.СуммаРаботДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументКомплектацияАвтомобиляРаботы.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ КомплектацияАвтомобиля.СуммаНоменклатурыДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументКомплектацияАвтомобиляТовары.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ДокументКомплектацияАвтомобиляРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументКомплектацияАвтомобиляТовары.СуммаСкидки, 0)
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ - ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+						ТОГДА 0
+					ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ВЫБОР
+							КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ = 0
+						ТОГДА 0
+					ИНАЧЕ (ВЫБОР
+							КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ - ВЫБОР
+							КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+								ТОГДА 0
+							ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+						КОНЕЦ) / ВЫБОР
+							КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ * 100
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0),
+	ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0),
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ КомплектацияАвтомобиля.СуммаРаботДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Работы, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ / 1 * 100,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ / 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (КомплектацияАвтомобиля.СуммаНоменклатурыДокумента - ВЫБОР
+							КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ * ЕСТЬNULL(ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Запчасти, 0) / 100
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+						ТОГДА 0
+					ИНАЧЕ (КомплектацияАвтомобиля.СуммаНоменклатурыДокумента - ВЫБОР
+							КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+								ТОГДА ВЫБОР
+										КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+											ТОГДА 0
+										ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+									КОНЕЦ
+							ИНАЧЕ 0
+						КОНЕЦ) * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+ИЗ
+	Документ.КомплектацияАвтомобиля КАК КомплектацияАвтомобиля
+		ЛЕВОЕ СОЕДИНЕНИЕ ДокументКомплектацияАвтомобиляТовары КАК ДокументКомплектацияАвтомобиляТовары
+		ПО КомплектацияАвтомобиля.Ссылка = ДокументКомплектацияАвтомобиляТовары.ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ ДокументКомплектацияАвтомобиляРаботы КАК ДокументКомплектацияАвтомобиляРаботы
+		ПО КомплектацияАвтомобиля.Ссылка = ДокументКомплектацияАвтомобиляРаботы.ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ ТоварыВПроизводствеКАОбороты КАК ТоварыВПроизводствеКАОбороты
+		ПО КомплектацияАвтомобиля.Ссылка = ТоварыВПроизводствеКАОбороты.ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПроцентОтчисленийМастеруПоВидамРемонта.СрезПоследних(&amp;ДатаОкончания, ) КАК ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних
+		ПО КомплектацияАвтомобиля.Диспетчер = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Сотрудник
+			И КомплектацияАвтомобиля.ВидРемонта = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.ВидРемонта
+ГДЕ
+	НЕ КомплектацияАвтомобиля.ПометкаУдаления
+	И ВЫБОР
+			КОГДА КомплектацияАвтомобиля.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА КомплектацияАвтомобиля.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА КомплектацияАвтомобиля.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА КомплектацияАвтомобиля.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ КомплектацияАвтомобиля.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+	И КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+{ГДЕ
+	КомплектацияАвтомобиля.Организация.* КАК Организация,
+	КомплектацияАвтомобиля.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	КомплектацияАвтомобиля.Ссылка.* КАК ЗаказНаряд,
+	КомплектацияАвтомобиля.Цех.* КАК Цех,
+	КомплектацияАвтомобиля.ВидРемонта.* КАК ВидРемонта,
+	КомплектацияАвтомобиля.Состояние КАК Состояние,
+	КомплектацияАвтомобиля.ВидОплаты.* КАК ВидОплаты,
+	КомплектацияАвтомобиля.Автомобиль.* КАК Автомобиль,
+	КомплектацияАвтомобиля.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	КомплектацияАвтомобиля.Автомобиль.Модель.* КАК Модель,
+	КомплектацияАвтомобиля.Контрагент.* КАК Контрагент,
+	КомплектацияАвтомобиля.ИсточникИнформации.* КАК ИсточникИнформации,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ КомплектацияАвтомобиля.СуммаРаботДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаРабот,
+	(ЕСТЬNULL(ДокументКомплектацияАвтомобиляРаботы.СуммаСкидки, 0)) КАК СуммаСкидкиРабот,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ КомплектацияАвтомобиля.СуммаНоменклатурыДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаНоменклатуры,
+	(ЕСТЬNULL(ДокументКомплектацияАвтомобиляТовары.СуммаСкидки, 0)) КАК СуммаСкидкиНоменклатуры,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаДокумента,
+	(ЕСТЬNULL(ДокументКомплектацияАвтомобиляРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументКомплектацияАвтомобиляТовары.СуммаСкидки, 0)) КАК СуммаСкидкиДокумента,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+				ТОГДА 0
+			ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК Себестоимость,
+	КомплектацияАвтомобиля.ВидРемонта.Коммерческий}</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>РентабильностьОбщая</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильДанные</dataPath>
+			<field>АвтомобильДанные</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОплаты</dataPath>
+			<field>ВидОплаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонтаКоммерческий</dataPath>
+			<field>ВидРемонтаКоммерческий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид ремонта.Коммерческий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяВыполненияРабот</dataPath>
+			<field>ВремяВыполненияРабот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодВыпуска</dataPath>
+			<field>ГодВыпуска</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд</dataPath>
+			<field>ЗаказНаряд</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникИнформации</dataPath>
+			<field>ИсточникИнформации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоАвтомобилей</dataPath>
+			<field>КоличествоАвтомобилей</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодГод</dataPath>
+			<field>ПериодГод</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень</dataPath>
+			<field>ПериодДень</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКвартал</dataPath>
+			<field>ПериодКвартал</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц</dataPath>
+			<field>ПериодМесяц</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНеделя</dataPath>
+			<field>ПериодНеделя</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость</dataPath>
+			<field>Себестоимость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНоменклатуры</dataPath>
+			<field>СуммаНоменклатуры</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРабот</dataPath>
+			<field>СуммаРабот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиДокумента</dataPath>
+			<field>СуммаСкидкиДокумента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиНоменклатуры</dataPath>
+			<field>СуммаСкидкиНоменклатуры</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиРабот</dataPath>
+			<field>СуммаСкидкиРабот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цех</dataPath>
+			<field>Цех</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаказНарядовОб</dataPath>
+			<field>КоличествоЗаказНарядовОб</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РентабельностьОбщая</dataPath>
+			<field>РентабельностьОбщая</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядРаботы.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядРаботы.СуммаСкидки * ЗаказНарядРаботы.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументЗаказНарядРаботы
+ИЗ
+	Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+ГДЕ
+	НЕ ЗаказНарядРаботы.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядРаботы.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядРаботы.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядРаботы.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядРаботы.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядРаботы.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядРаботы.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядРаботы.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядРаботы.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядРаботы.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядРаботы.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядРаботы.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядРаботы.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядРаботы.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	КомплектацияАвтомобиляРаботы.Ссылка КАК ЗаказНаряд,
+	СУММА(КомплектацияАвтомобиляРаботы.СуммаСкидки * КомплектацияАвтомобиляРаботы.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументКомплектацияРаботы
+ИЗ
+	Документ.КомплектацияАвтомобиля.Работы КАК КомплектацияАвтомобиляРаботы
+ГДЕ
+	НЕ КомплектацияАвтомобиляРаботы.Ссылка.ПометкаУдаления
+	И НЕ КомплектацияАвтомобиляРаботы.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА КомплектацияАвтомобиляРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА КомплектацияАвтомобиляРаботы.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА КомплектацияАвтомобиляРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА КомплектацияАвтомобиляРаботы.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ КомплектацияАвтомобиляРаботы.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	КомплектацияАвтомобиляРаботы.Ссылка.Организация.* КАК Организация,
+	КомплектацияАвтомобиляРаботы.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	КомплектацияАвтомобиляРаботы.Ссылка.* КАК ЗаказНаряд,
+	КомплектацияАвтомобиляРаботы.Ссылка.Цех.* КАК Цех,
+	КомплектацияАвтомобиляРаботы.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	КомплектацияАвтомобиляРаботы.Ссылка.Состояние КАК Состояние,
+	КомплектацияАвтомобиляРаботы.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	КомплектацияАвтомобиляРаботы.Ссылка.Автомобиль.* КАК Автомобиль,
+	КомплектацияАвтомобиляРаботы.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	КомплектацияАвтомобиляРаботы.Ссылка.Автомобиль.Модель.* КАК Модель,
+	КомплектацияАвтомобиляРаботы.Ссылка.Контрагент.* КАК Контрагент,
+	КомплектацияАвтомобиляРаботы.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	КомплектацияАвтомобиляРаботы.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(КомплектацияАвтомобиляРаботы.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядТовары.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядТовары.СуммаСкидки * ЗаказНарядТовары.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументЗаказНарядТовары
+ИЗ
+	Документ.ЗаказНаряд.Товары КАК ЗаказНарядТовары
+ГДЕ
+	НЕ ЗаказНарядТовары.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядТовары.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядТовары.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядТовары.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядТовары.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядТовары.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядТовары.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядТовары.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядТовары.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядТовары.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядТовары.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядТовары.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядТовары.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядТовары.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядТовары.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядТовары.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядТовары.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	КомплектацияАвтомобиляТовары.Ссылка КАК ЗаказНаряд,
+	СУММА(КомплектацияАвтомобиляТовары.СуммаСкидки * КомплектацияАвтомобиляТовары.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументКомплектацияТовары
+ИЗ
+	Документ.КомплектацияАвтомобиля.Товары КАК КомплектацияАвтомобиляТовары
+ГДЕ
+	НЕ КомплектацияАвтомобиляТовары.Ссылка.ПометкаУдаления
+	И НЕ КомплектацияАвтомобиляТовары.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА КомплектацияАвтомобиляТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА КомплектацияАвтомобиляТовары.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА КомплектацияАвтомобиляТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА КомплектацияАвтомобиляТовары.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ КомплектацияАвтомобиляТовары.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	КомплектацияАвтомобиляТовары.Ссылка.Организация.* КАК Организация,
+	КомплектацияАвтомобиляТовары.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	КомплектацияАвтомобиляТовары.Ссылка.* КАК ЗаказНаряд,
+	КомплектацияАвтомобиляТовары.Ссылка.Цех.* КАК Цех,
+	КомплектацияАвтомобиляТовары.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	КомплектацияАвтомобиляТовары.Ссылка.Состояние КАК Состояние,
+	КомплектацияАвтомобиляТовары.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	КомплектацияАвтомобиляТовары.Ссылка.Автомобиль.* КАК Автомобиль,
+	КомплектацияАвтомобиляТовары.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	КомплектацияАвтомобиляТовары.Ссылка.Автомобиль.Модель.* КАК Модель,
+	КомплектацияАвтомобиляТовары.Ссылка.Контрагент.* КАК Контрагент,
+	КомплектацияАвтомобиляТовары.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	КомплектацияАвтомобиляТовары.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(КомплектацияАвтомобиляТовары.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ ТоварыВПроизводствеОбороты
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.ЗаказНаряд
+{ГДЕ
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Организация).* КАК Организация,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ПодразделениеКомпании).* КАК ПодразделениеКомпании,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд)).* КАК ЗаказНаряд,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Цех).* КАК Цех,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидРемонта).* КАК ВидРемонта,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Состояние) КАК Состояние,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидОплаты).* КАК ВидОплаты,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль).* КАК Автомобиль,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.ГодВыпуска) КАК ГодВыпуска,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.Модель).* КАК Модель,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Контрагент).* КАК Контрагент,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ИсточникИнформации).* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ ТоварыВПроизводствеКАОбороты
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.КомплектацияАвтомобиля
+{ГДЕ
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Организация).* КАК Организация,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ПодразделениеКомпании).* КАК ПодразделениеКомпании,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд)).* КАК ЗаказНаряд,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Цех).* КАК Цех,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидРемонта).* КАК ВидРемонта,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Состояние) КАК Состояние,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидОплаты).* КАК ВидОплаты,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль).* КАК Автомобиль,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.ГодВыпуска) КАК ГодВыпуска,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.Модель).* КАК Модель,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Контрагент).* КАК Контрагент,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ИсточникИнформации).* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументЗаказНаряд.Организация КАК Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	ДокументЗаказНаряд.Ссылка КАК ЗаказНаряд,
+	ДокументЗаказНаряд.Цех КАК Цех,
+	ДокументЗаказНаряд.Автомобиль КАК Автомобиль,
+	ДокументЗаказНаряд.Автомобиль.Модель КАК Модель,
+	ДокументЗаказНаряд.Контрагент КАК Контрагент,
+	ДокументЗаказНаряд.ИсточникИнформации КАК ИсточникИнформации,
+	ДокументЗаказНаряд.ВидРемонта КАК ВидРемонта,
+	ДокументЗаказНаряд.Состояние КАК Состояние,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ДокументЗаказНаряд.ВидОплаты КАК ВидОплаты,
+	"VIN: " + ДокументЗаказНаряд.Автомобиль.VIN + "; " + ДокументЗаказНаряд.Автомобиль.Модель.Наименование + "; №куз.: " + ДокументЗаказНаряд.Автомобиль.НомерКузова КАК АвтомобильДанные,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ДЕНЬ) КАК ПериодДень,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, НЕДЕЛЯ) КАК ПериодНеделя,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, МЕСЯЦ) КАК ПериодМесяц,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, КВАРТАЛ) КАК ПериодКвартал,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ГОД) КАК ПериодГод,
+	1 КАК КоличествоЗаказНарядовОб,
+	1 КАК КоличествоАвтомобилей,
+	ДокументЗаказНаряд.ВремяВыполненияРабот КАК ВремяВыполненияРабот,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.СуммаДокумента = 0
+			ТОГДА 0
+		ИНАЧЕ (ВЫБОР
+				КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+					ТОГДА 0
+				ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+			КОНЕЦ - ВЫБОР
+				КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+					ТОГДА 0
+				ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+			КОНЕЦ) / ДокументЗаказНаряд.СуммаДокумента * 100
+	КОНЕЦ КАК РентабельностьОбщая
+{ВЫБРАТЬ
+	Организация.* КАК Организация,
+	ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНаряд.* КАК ЗаказНаряд,
+	Цех.* КАК Цех,
+	Автомобиль.* КАК Автомобиль,
+	ГодВыпуска КАК ГодВыпуска,
+	Модель.* КАК Модель,
+	Контрагент.* КАК Контрагент,
+	ИсточникИнформации.* КАК ИсточникИнформации,
+	ВидРемонта.* КАК ВидРемонта,
+	Состояние КАК Состояние,
+	ВидОплаты.* КАК ВидОплаты,
+	АвтомобильДанные КАК АвтомобильДанные,
+	ПериодДень КАК ПериодДень,
+	ПериодНеделя КАК ПериодНеделя,
+	ПериодМесяц КАК ПериодМесяц,
+	ПериодКвартал КАК ПериодКвартал,
+	ПериодГод КАК ПериодГод,
+	КоличествоАвтомобилей КАК КоличествоАвтомобилей,
+	ВремяВыполненияРабот КАК ВремяВыполненияРабот,
+	РентабельностьОбщая КАК РентабельностьОбщая,
+	КоличествоЗаказНарядовОб}
+ИЗ
+	Документ.ЗаказНаряд КАК ДокументЗаказНаряд
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументЗаказНарядТовары КАК ДокументЗаказНарядТовары
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядТовары.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументЗаказНарядРаботы КАК ДокументЗаказНарядРаботы
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядРаботы.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ТоварыВПроизводствеОбороты КАК ТоварыВПроизводствеОбороты
+		ПО ДокументЗаказНаряд.Ссылка = ТоварыВПроизводствеОбороты.ЗаказНаряд}
+ГДЕ
+	НЕ ДокументЗаказНаряд.ПометкаУдаления
+	И ВЫБОР
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ДокументЗаказНаряд.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ДокументЗаказНаряд.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ДокументЗаказНаряд.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ДокументЗаказНаряд.Организация.* КАК Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ДокументЗаказНаряд.Ссылка.* КАК ЗаказНаряд,
+	ДокументЗаказНаряд.Цех.* КАК Цех,
+	ДокументЗаказНаряд.ВидРемонта.* КАК ВидРемонта,
+	ДокументЗаказНаряд.Состояние КАК Состояние,
+	ДокументЗаказНаряд.ВидОплаты.* КАК ВидОплаты,
+	ДокументЗаказНаряд.Автомобиль.* КАК Автомобиль,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ДокументЗаказНаряд.Автомобиль.Модель.* КАК Модель,
+	ДокументЗаказНаряд.Контрагент.* КАК Контрагент,
+	ДокументЗаказНаряд.ИсточникИнформации.* КАК ИсточникИнформации,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаРабот,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0)) КАК СуммаСкидкиРабот,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаНоменклатурыДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаНоменклатуры,
+	(ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиНоменклатуры,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаДокумента,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиДокумента,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+				ТОГДА 0
+			ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК Себестоимость,
+	ДокументЗаказНаряд.ВидРемонта.Коммерческий}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КомплектацияАвтомобиля.Организация,
+	КомплектацияАвтомобиля.ПодразделениеКомпании,
+	КомплектацияАвтомобиля.Ссылка,
+	КомплектацияАвтомобиля.Цех,
+	КомплектацияАвтомобиля.Автомобиль,
+	КомплектацияАвтомобиля.Автомобиль.Модель,
+	КомплектацияАвтомобиля.Контрагент,
+	КомплектацияАвтомобиля.ИсточникИнформации,
+	КомплектацияАвтомобиля.ВидРемонта,
+	КомплектацияАвтомобиля.Состояние,
+	КомплектацияАвтомобиля.Автомобиль.ГодВыпуска,
+	КомплектацияАвтомобиля.ВидОплаты,
+	"VIN: " + КомплектацияАвтомобиля.Автомобиль.VIN + "; " + КомплектацияАвтомобиля.Автомобиль.Модель.Наименование + "; №куз.: " + КомплектацияАвтомобиля.Автомобиль.НомерКузова,
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, ДЕНЬ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, НЕДЕЛЯ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, МЕСЯЦ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, КВАРТАЛ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, ГОД),
+	1,
+	1,
+	КомплектацияАвтомобиля.ВремяВыполненияРабот,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.СуммаДокумента = 0
+			ТОГДА 0
+		ИНАЧЕ (ВЫБОР
+				КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+					ТОГДА 0
+				ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+			КОНЕЦ - ВЫБОР
+				КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+					ТОГДА 0
+				ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+			КОНЕЦ) / КомплектацияАвтомобиля.СуммаДокумента * 100
+	КОНЕЦ
+ИЗ
+	Документ.КомплектацияАвтомобиля КАК КомплектацияАвтомобиля
+		ЛЕВОЕ СОЕДИНЕНИЕ ДокументКомплектацияТовары КАК ДокументКомплектацияТовары
+		ПО КомплектацияАвтомобиля.Ссылка = ДокументКомплектацияТовары.ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ ДокументКомплектацияРаботы КАК ДокументКомплектацияРаботы
+		ПО КомплектацияАвтомобиля.Ссылка = ДокументКомплектацияРаботы.ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ ТоварыВПроизводствеКАОбороты КАК ТоварыВПроизводствеКАОбороты
+		ПО КомплектацияАвтомобиля.Ссылка = ТоварыВПроизводствеКАОбороты.ЗаказНаряд
+ГДЕ
+	НЕ КомплектацияАвтомобиля.ПометкаУдаления
+	И ВЫБОР
+			КОГДА КомплектацияАвтомобиля.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА КомплектацияАвтомобиля.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА КомплектацияАвтомобиля.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА КомплектацияАвтомобиля.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ КомплектацияАвтомобиля.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	КомплектацияАвтомобиля.Организация.* КАК Организация,
+	КомплектацияАвтомобиля.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	КомплектацияАвтомобиля.Ссылка.* КАК ЗаказНаряд,
+	КомплектацияАвтомобиля.Цех.* КАК Цех,
+	КомплектацияАвтомобиля.ВидРемонта.* КАК ВидРемонта,
+	КомплектацияАвтомобиля.Состояние КАК Состояние,
+	КомплектацияАвтомобиля.ВидОплаты.* КАК ВидОплаты,
+	КомплектацияАвтомобиля.Автомобиль.* КАК Автомобиль,
+	КомплектацияАвтомобиля.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	КомплектацияАвтомобиля.Автомобиль.Модель.* КАК Модель,
+	КомплектацияАвтомобиля.Контрагент.* КАК Контрагент,
+	КомплектацияАвтомобиля.ИсточникИнформации.* КАК ИсточникИнформации,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ КомплектацияАвтомобиля.СуммаРаботДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаРабот,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ КомплектацияАвтомобиля.СуммаНоменклатурыДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаНоменклатуры,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаДокумента,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+				ТОГДА 0
+			ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК Себестоимость,
+	КомплектацияАвтомобиля.ВидРемонта.Коммерческий}</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>РентабильностьКом</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АвтомобильДанные</dataPath>
+			<field>АвтомобильДанные</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОплаты</dataPath>
+			<field>ВидОплаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонтаКоммерческий</dataPath>
+			<field>ВидРемонтаКоммерческий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяВыполненияРабот</dataPath>
+			<field>ВремяВыполненияРабот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГодВыпуска</dataPath>
+			<field>ГодВыпуска</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд</dataPath>
+			<field>ЗаказНаряд</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсточникИнформации</dataPath>
+			<field>ИсточникИнформации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоАвтомобилей</dataPath>
+			<field>КоличествоАвтомобилей</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодГод</dataPath>
+			<field>ПериодГод</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень</dataPath>
+			<field>ПериодДень</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодКвартал</dataPath>
+			<field>ПериодКвартал</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодМесяц</dataPath>
+			<field>ПериодМесяц</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодНеделя</dataPath>
+			<field>ПериодНеделя</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКомпании</dataPath>
+			<field>ПодразделениеКомпании</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость</dataPath>
+			<field>Себестоимость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Состояние</dataPath>
+			<field>Состояние</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНоменклатуры</dataPath>
+			<field>СуммаНоменклатуры</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРабот</dataPath>
+			<field>СуммаРабот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиДокумента</dataPath>
+			<field>СуммаСкидкиДокумента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиНоменклатуры</dataPath>
+			<field>СуммаСкидкиНоменклатуры</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСкидкиРабот</dataPath>
+			<field>СуммаСкидкиРабот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цех</dataPath>
+			<field>Цех</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаказНарядовКом</dataPath>
+			<field>КоличествоЗаказНарядовКом</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РентабельностьКом</dataPath>
+			<field>РентабельностьКом</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядРаботы.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядРаботы.СуммаСкидки * ЗаказНарядРаботы.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументЗаказНарядРаботы
+ИЗ
+	Документ.ЗаказНаряд.Работы КАК ЗаказНарядРаботы
+ГДЕ
+	НЕ ЗаказНарядРаботы.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядРаботы.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядРаботы.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядРаботы.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядРаботы.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядРаботы.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядРаботы.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядРаботы.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядРаботы.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядРаботы.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядРаботы.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядРаботы.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядРаботы.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядРаботы.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядРаботы.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядРаботы.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	КомплектацияАвтомобиляРаботы.Ссылка КАК ЗаказНаряд,
+	СУММА(КомплектацияАвтомобиляРаботы.СуммаСкидки * КомплектацияАвтомобиляРаботы.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументКомплектацияРаботы
+ИЗ
+	Документ.КомплектацияАвтомобиля.Работы КАК КомплектацияАвтомобиляРаботы
+ГДЕ
+	НЕ КомплектацияАвтомобиляРаботы.Ссылка.ПометкаУдаления
+	И НЕ КомплектацияАвтомобиляРаботы.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА КомплектацияАвтомобиляРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА КомплектацияАвтомобиляРаботы.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА КомплектацияАвтомобиляРаботы.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА КомплектацияАвтомобиляРаботы.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ КомплектацияАвтомобиляРаботы.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	КомплектацияАвтомобиляРаботы.Ссылка.Организация.* КАК Организация,
+	КомплектацияАвтомобиляРаботы.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	КомплектацияАвтомобиляРаботы.Ссылка.* КАК ЗаказНаряд,
+	КомплектацияАвтомобиляРаботы.Ссылка.Цех.* КАК Цех,
+	КомплектацияАвтомобиляРаботы.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	КомплектацияАвтомобиляРаботы.Ссылка.Состояние КАК Состояние,
+	КомплектацияАвтомобиляРаботы.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	КомплектацияАвтомобиляРаботы.Ссылка.Автомобиль.* КАК Автомобиль,
+	КомплектацияАвтомобиляРаботы.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	КомплектацияАвтомобиляРаботы.Ссылка.Автомобиль.Модель.* КАК Модель,
+	КомплектацияАвтомобиляРаботы.Ссылка.Контрагент.* КАК Контрагент,
+	КомплектацияАвтомобиляРаботы.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	КомплектацияАвтомобиляРаботы.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(КомплектацияАвтомобиляРаботы.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗаказНарядТовары.Ссылка КАК ЗаказНаряд,
+	СУММА(ЗаказНарядТовары.СуммаСкидки * ЗаказНарядТовары.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументЗаказНарядТовары
+ИЗ
+	Документ.ЗаказНаряд.Товары КАК ЗаказНарядТовары
+ГДЕ
+	НЕ ЗаказНарядТовары.Ссылка.ПометкаУдаления
+	И НЕ ЗаказНарядТовары.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ЗаказНарядТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ЗаказНарядТовары.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ЗаказНарядТовары.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	ЗаказНарядТовары.Ссылка.Организация.* КАК Организация,
+	ЗаказНарядТовары.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНарядТовары.Ссылка.* КАК ЗаказНаряд,
+	ЗаказНарядТовары.Ссылка.Цех.* КАК Цех,
+	ЗаказНарядТовары.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	ЗаказНарядТовары.Ссылка.Состояние КАК Состояние,
+	ЗаказНарядТовары.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	ЗаказНарядТовары.Ссылка.Автомобиль.* КАК Автомобиль,
+	ЗаказНарядТовары.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ЗаказНарядТовары.Ссылка.Автомобиль.Модель.* КАК Модель,
+	ЗаказНарядТовары.Ссылка.Контрагент.* КАК Контрагент,
+	ЗаказНарядТовары.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядТовары.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ЗаказНарядТовары.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	КомплектацияАвтомобиляТовары.Ссылка КАК ЗаказНаряд,
+	СУММА(КомплектацияАвтомобиляТовары.СуммаСкидки * КомплектацияАвтомобиляТовары.Ссылка.КурсДокумента / &amp;КурсВалютыОтчета) КАК СуммаСкидки
+ПОМЕСТИТЬ ДокументКомплектацияТовары
+ИЗ
+	Документ.КомплектацияАвтомобиля.Товары КАК КомплектацияАвтомобиляТовары
+ГДЕ
+	НЕ КомплектацияАвтомобиляТовары.Ссылка.ПометкаУдаления
+	И НЕ КомплектацияАвтомобиляТовары.Ссылка.КурсДокумента = 0
+	И ВЫБОР
+			КОГДА КомплектацияАвтомобиляТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА КомплектацияАвтомобиляТовары.Ссылка.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА КомплектацияАвтомобиляТовары.Ссылка.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА КомплектацияАвтомобиляТовары.Ссылка.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ КомплектацияАвтомобиляТовары.Ссылка.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+{ГДЕ
+	КомплектацияАвтомобиляТовары.Ссылка.Организация.* КАК Организация,
+	КомплектацияАвтомобиляТовары.Ссылка.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	КомплектацияАвтомобиляТовары.Ссылка.* КАК ЗаказНаряд,
+	КомплектацияАвтомобиляТовары.Ссылка.Цех.* КАК Цех,
+	КомплектацияАвтомобиляТовары.Ссылка.ВидРемонта.* КАК ВидРемонта,
+	КомплектацияАвтомобиляТовары.Ссылка.Состояние КАК Состояние,
+	КомплектацияАвтомобиляТовары.Ссылка.ВидОплаты.* КАК ВидОплаты,
+	КомплектацияАвтомобиляТовары.Ссылка.Автомобиль.* КАК Автомобиль,
+	КомплектацияАвтомобиляТовары.Ссылка.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	КомплектацияАвтомобиляТовары.Ссылка.Автомобиль.Модель.* КАК Модель,
+	КомплектацияАвтомобиляТовары.Ссылка.Контрагент.* КАК Контрагент,
+	КомплектацияАвтомобиляТовары.Ссылка.ИсточникИнформации.* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	КомплектацияАвтомобиляТовары.Ссылка
+
+ИМЕЮЩИЕ
+	НЕ СУММА(КомплектацияАвтомобиляТовары.СуммаСкидки) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ ТоварыВПроизводствеОбороты
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.ЗаказНаряд
+{ГДЕ
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Организация).* КАК Организация,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ПодразделениеКомпании).* КАК ПодразделениеКомпании,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд)).* КАК ЗаказНаряд,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Цех).* КАК Цех,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидРемонта).* КАК ВидРемонта,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Состояние) КАК Состояние,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидОплаты).* КАК ВидОплаты,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль).* КАК Автомобиль,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.ГодВыпуска) КАК ГодВыпуска,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.Модель).* КАК Модель,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Контрагент).* КАК Контрагент,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ИсточникИнформации).* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ ТоварыВПроизводствеКАОбороты
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.КомплектацияАвтомобиля
+{ГДЕ
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Организация).* КАК Организация,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ПодразделениеКомпании).* КАК ПодразделениеКомпании,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд)).* КАК ЗаказНаряд,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Цех).* КАК Цех,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидРемонта).* КАК ВидРемонта,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Состояние) КАК Состояние,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ВидОплаты).* КАК ВидОплаты,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль).* КАК Автомобиль,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.ГодВыпуска) КАК ГодВыпуска,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Автомобиль.Модель).* КАК Модель,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).Контрагент).* КАК Контрагент,
+	(ВЫРАЗИТЬ(ТоварыВПроизводстве.Регистратор КАК Документ.ЗаказНаряд).ИсточникИнформации).* КАК ИсточникИнформации}
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументЗаказНаряд.Организация КАК Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании КАК ПодразделениеКомпании,
+	ДокументЗаказНаряд.Ссылка КАК ЗаказНаряд,
+	ДокументЗаказНаряд.Цех КАК Цех,
+	ДокументЗаказНаряд.Автомобиль КАК Автомобиль,
+	ДокументЗаказНаряд.Автомобиль.Модель КАК Модель,
+	ДокументЗаказНаряд.Контрагент КАК Контрагент,
+	ДокументЗаказНаряд.ИсточникИнформации КАК ИсточникИнформации,
+	ДокументЗаказНаряд.ВидРемонта КАК ВидРемонта,
+	ДокументЗаказНаряд.Состояние КАК Состояние,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ДокументЗаказНаряд.ВидОплаты КАК ВидОплаты,
+	"VIN: " + ДокументЗаказНаряд.Автомобиль.VIN + "; " + ДокументЗаказНаряд.Автомобиль.Модель.Наименование + "; №куз.: " + ДокументЗаказНаряд.Автомобиль.НомерКузова КАК АвтомобильДанные,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ДЕНЬ) КАК ПериодДень,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, НЕДЕЛЯ) КАК ПериодНеделя,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, МЕСЯЦ) КАК ПериодМесяц,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, КВАРТАЛ) КАК ПериодКвартал,
+	НАЧАЛОПЕРИОДА(ДокументЗаказНаряд.Дата, ГОД) КАК ПериодГод,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК КоличествоЗаказНарядовКом,
+	1 КАК КоличествоАвтомобилей,
+	ДокументЗаказНаряд.ВремяВыполненияРабот КАК ВремяВыполненияРабот,
+	ВЫБОР
+		КОГДА ДокументЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ = 0
+						ТОГДА 0
+					ИНАЧЕ (ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ - ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+								ТОГДА 0
+							ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+						КОНЕЦ) / ВЫБОР
+							КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ * 100
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК РентабельностьКом
+{ВЫБРАТЬ
+	Организация.* КАК Организация,
+	ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ЗаказНаряд.* КАК ЗаказНаряд,
+	Цех.* КАК Цех,
+	Автомобиль.* КАК Автомобиль,
+	ГодВыпуска КАК ГодВыпуска,
+	Модель.* КАК Модель,
+	Контрагент.* КАК Контрагент,
+	ИсточникИнформации.* КАК ИсточникИнформации,
+	ВидРемонта.* КАК ВидРемонта,
+	Состояние КАК Состояние,
+	ВидОплаты.* КАК ВидОплаты,
+	АвтомобильДанные КАК АвтомобильДанные,
+	ПериодДень КАК ПериодДень,
+	ПериодНеделя КАК ПериодНеделя,
+	ПериодМесяц КАК ПериодМесяц,
+	ПериодКвартал КАК ПериодКвартал,
+	ПериодГод КАК ПериодГод,
+	КоличествоАвтомобилей КАК КоличествоАвтомобилей,
+	ВремяВыполненияРабот КАК ВремяВыполненияРабот,
+	РентабельностьКом КАК РентабельностьКом,
+	КоличествоЗаказНарядовКом}
+ИЗ
+	Документ.ЗаказНаряд КАК ДокументЗаказНаряд
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументЗаказНарядТовары КАК ДокументЗаказНарядТовары
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядТовары.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ДокументЗаказНарядРаботы КАК ДокументЗаказНарядРаботы
+		ПО ДокументЗаказНаряд.Ссылка = ДокументЗаказНарядРаботы.ЗаказНаряд}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ТоварыВПроизводствеОбороты КАК ТоварыВПроизводствеОбороты
+		ПО ДокументЗаказНаряд.Ссылка = ТоварыВПроизводствеОбороты.ЗаказНаряд}
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПроцентОтчисленийМастеруПоВидамРемонта.СрезПоследних(&amp;ДатаОкончания, ) КАК ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних
+		ПО ДокументЗаказНаряд.Диспетчер = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Сотрудник
+			И ДокументЗаказНаряд.ВидРемонта = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.ВидРемонта
+ГДЕ
+	НЕ ДокументЗаказНаряд.ПометкаУдаления
+	И ВЫБОР
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА ДокументЗаказНаряд.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА ДокументЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА ДокументЗаказНаряд.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ ДокументЗаказНаряд.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+	И ДокументЗаказНаряд.ВидРемонта.Коммерческий
+{ГДЕ
+	ДокументЗаказНаряд.Организация.* КАК Организация,
+	ДокументЗаказНаряд.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	ДокументЗаказНаряд.Ссылка.* КАК ЗаказНаряд,
+	ДокументЗаказНаряд.Цех.* КАК Цех,
+	ДокументЗаказНаряд.ВидРемонта.* КАК ВидРемонта,
+	ДокументЗаказНаряд.Состояние КАК Состояние,
+	ДокументЗаказНаряд.ВидОплаты.* КАК ВидОплаты,
+	ДокументЗаказНаряд.Автомобиль.* КАК Автомобиль,
+	ДокументЗаказНаряд.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	ДокументЗаказНаряд.Автомобиль.Модель.* КАК Модель,
+	ДокументЗаказНаряд.Контрагент.* КАК Контрагент,
+	ДокументЗаказНаряд.ИсточникИнформации.* КАК ИсточникИнформации,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаРаботДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаРабот,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0)) КАК СуммаСкидкиРабот,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаНоменклатурыДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаНоменклатуры,
+	(ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиНоменклатуры,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ ДокументЗаказНаряд.СуммаДокумента * ДокументЗаказНаряд.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаДокумента,
+	(ЕСТЬNULL(ДокументЗаказНарядРаботы.СуммаСкидки, 0) + ЕСТЬNULL(ДокументЗаказНарядТовары.СуммаСкидки, 0)) КАК СуммаСкидкиДокумента,
+	(ВЫБОР
+			КОГДА ДокументЗаказНаряд.КурсВалютыУпр = 0
+				ТОГДА 0
+			ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеОбороты.Себестоимость, 0) * ДокументЗаказНаряд.КурсВалютыУпр / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК Себестоимость,
+	ДокументЗаказНаряд.ВидРемонта.Коммерческий}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КомплектацияАвтомобиля.Организация,
+	КомплектацияАвтомобиля.ПодразделениеКомпании,
+	КомплектацияАвтомобиля.Ссылка,
+	КомплектацияАвтомобиля.Цех,
+	КомплектацияАвтомобиля.Автомобиль,
+	КомплектацияАвтомобиля.Автомобиль.Модель,
+	КомплектацияАвтомобиля.Контрагент,
+	КомплектацияАвтомобиля.ИсточникИнформации,
+	КомплектацияАвтомобиля.ВидРемонта,
+	КомплектацияАвтомобиля.Состояние,
+	КомплектацияАвтомобиля.Автомобиль.ГодВыпуска,
+	КомплектацияАвтомобиля.ВидОплаты,
+	"VIN: " + КомплектацияАвтомобиля.Автомобиль.VIN + "; " + КомплектацияАвтомобиля.Автомобиль.Модель.Наименование + "; №куз.: " + КомплектацияАвтомобиля.Автомобиль.НомерКузова,
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, ДЕНЬ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, НЕДЕЛЯ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, МЕСЯЦ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, КВАРТАЛ),
+	НАЧАЛОПЕРИОДА(КомплектацияАвтомобиля.Дата, ГОД),
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	1,
+	КомплектацияАвтомобиля.ВремяВыполненияРабот,
+	ВЫБОР
+		КОГДА КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ВЫБОР
+							КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ = 0
+						ТОГДА 0
+					ИНАЧЕ (ВЫБОР
+							КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ - ВЫБОР
+							КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+								ТОГДА 0
+							ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+						КОНЕЦ) / ВЫБОР
+							КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+								ТОГДА 0
+							ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+						КОНЕЦ * 100
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ
+ИЗ
+	Документ.КомплектацияАвтомобиля КАК КомплектацияАвтомобиля
+		ЛЕВОЕ СОЕДИНЕНИЕ ДокументКомплектацияТовары КАК ДокументКомплектацияТовары
+		ПО КомплектацияАвтомобиля.Ссылка = ДокументКомплектацияТовары.ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ ДокументКомплектацияРаботы КАК ДокументКомплектацияРаботы
+		ПО КомплектацияАвтомобиля.Ссылка = ДокументКомплектацияРаботы.ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ ТоварыВПроизводствеКАОбороты КАК ТоварыВПроизводствеКАОбороты
+		ПО КомплектацияАвтомобиля.Ссылка = ТоварыВПроизводствеКАОбороты.ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПроцентОтчисленийМастеруПоВидамРемонта.СрезПоследних(&amp;ДатаОкончания, ) КАК ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних
+		ПО КомплектацияАвтомобиля.Диспетчер = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.Сотрудник
+			И КомплектацияАвтомобиля.ВидРемонта = ПроцентОтчисленийМастеруПоВидамРемонтаСрезПоследних.ВидРемонта
+ГДЕ
+	НЕ КомплектацияАвтомобиля.ПометкаУдаления
+	И ВЫБОР
+			КОГДА КомплектацияАвтомобиля.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+				ТОГДА КомплектацияАвтомобиля.ДатаЗакрытия МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			КОГДА КомплектацияАвтомобиля.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Выполнен)
+				ТОГДА КомплектацияАвтомобиля.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			ИНАЧЕ КомплектацияАвтомобиля.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+		КОНЕЦ
+	И КомплектацияАвтомобиля.ВидРемонта.Коммерческий
+{ГДЕ
+	КомплектацияАвтомобиля.Организация.* КАК Организация,
+	КомплектацияАвтомобиля.ПодразделениеКомпании.* КАК ПодразделениеКомпании,
+	КомплектацияАвтомобиля.Ссылка.* КАК ЗаказНаряд,
+	КомплектацияАвтомобиля.Цех.* КАК Цех,
+	КомплектацияАвтомобиля.ВидРемонта.* КАК ВидРемонта,
+	КомплектацияАвтомобиля.Состояние КАК Состояние,
+	КомплектацияАвтомобиля.ВидОплаты.* КАК ВидОплаты,
+	КомплектацияАвтомобиля.Автомобиль.* КАК Автомобиль,
+	КомплектацияАвтомобиля.Автомобиль.ГодВыпуска КАК ГодВыпуска,
+	КомплектацияАвтомобиля.Автомобиль.Модель.* КАК Модель,
+	КомплектацияАвтомобиля.Контрагент.* КАК Контрагент,
+	КомплектацияАвтомобиля.ИсточникИнформации.* КАК ИсточникИнформации,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ КомплектацияАвтомобиля.СуммаРаботДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаРабот,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ КомплектацияАвтомобиля.СуммаНоменклатурыДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаНоменклатуры,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсДокумента = 0
+				ТОГДА 0
+			ИНАЧЕ КомплектацияАвтомобиля.СуммаДокумента * КомплектацияАвтомобиля.КурсДокумента / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК СуммаДокумента,
+	(ВЫБОР
+			КОГДА КомплектацияАвтомобиля.КурсВалютыУпр = 0
+				ТОГДА 0
+			ИНАЧЕ ЕСТЬNULL(ТоварыВПроизводствеКАОбороты.Себестоимость, 0) * КомплектацияАвтомобиля.КурсВалютыУпр / &amp;КурсВалютыОтчета
+		КОНЕЦ) КАК Себестоимость,
+	КомплектацияАвтомобиля.ВидРемонта.Коммерческий}</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>ТекстЗапроса</sourceDataSet>
+		<destinationDataSet>СреднийКоммерческий</destinationDataSet>
+		<sourceExpression>ЗаказНаряд</sourceExpression>
+		<destinationExpression>ЗаказНаряд1</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ТекстЗапроса</sourceDataSet>
+		<destinationDataSet>РентабильностьОбщая</destinationDataSet>
+		<sourceExpression>ЗаказНаряд</sourceExpression>
+		<destinationExpression>ЗаказНаряд</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ТекстЗапроса</sourceDataSet>
+		<destinationDataSet>РентабильностьКом</destinationDataSet>
+		<sourceExpression>ЗаказНаряд</sourceExpression>
+		<destinationExpression>ЗаказНаряд</destinationExpression>
+	</dataSetLink>
+	<calculatedField>
+		<dataPath>СреднийЧекКоммерческий</dataPath>
+		<expression>СуммаДокумента1/Коммерческий1 </expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Средний чек коммерческий</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>КоличествоЗаказНарядов</dataPath>
+		<expression>Сумма(КоличествоЗаказНарядов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоАвтомобилей</dataPath>
+		<expression>КОЛИЧЕСТВО(РАЗЛИЧНЫЕ Автомобиль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВремяВыполненияРабот</dataPath>
+		<expression>Сумма(ВремяВыполненияРабот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРабот</dataPath>
+		<expression>Сумма(СуммаРабот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаСкидкиРабот</dataPath>
+		<expression>Сумма(СуммаСкидкиРабот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНоменклатуры</dataPath>
+		<expression>Сумма(СуммаНоменклатуры)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаСкидкиНоменклатуры</dataPath>
+		<expression>Сумма(СуммаСкидкиНоменклатуры)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДокумента</dataPath>
+		<expression>Сумма(СуммаДокумента)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаСкидкиДокумента</dataPath>
+		<expression>Сумма(СуммаСкидкиДокумента)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Себестоимость</dataPath>
+		<expression>Сумма(Себестоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Рентабельность</dataPath>
+		<expression>Среднее(Рентабельность)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВаловаяПрибыль</dataPath>
+		<expression>Сумма(ВаловаяПрибыль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентПоЗч</dataPath>
+		<expression>Среднее(ПроцентПоЗч)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентПоРаботам</dataPath>
+		<expression>Среднее(ПроцентПоРаботам)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПремияПоРаботам</dataPath>
+		<expression>Сумма(ПремияПоРаботам)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СреднийЧек</dataPath>
+		<expression>Среднее(СреднийЧек)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Коммерческий</dataPath>
+		<expression>Сумма(Коммерческий)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентКоммерческий</dataPath>
+		<expression>Среднее(ПроцентКоммерческий)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПремияЗЧ</dataPath>
+		<expression>Сумма(ПремияЗЧ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПрибыльПоЗЧ</dataPath>
+		<expression>Сумма(ПрибыльПоЗЧ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СреднийЧекКоммерческий</dataPath>
+		<expression>Среднее(СреднийЧекКоммерческий)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗаказНарядовКом</dataPath>
+		<expression>Сумма(КоличествоЗаказНарядовКом)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗаказНарядовОб</dataPath>
+		<expression>Сумма(КоличествоЗаказНарядовОб)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РентабельностьОбщая</dataPath>
+		<expression>Среднее(РентабельностьОбщая)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РентабельностьКом</dataPath>
+		<expression>выбор когда Сумма(СуммаДокумента) &lt;&gt; 0 тогда Сумма(ВаловаяПрибыль)/Сумма(СуммаДокумента)*100 Иначе 0 конец</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПремияЗЧБезНДС</dataPath>
+		<expression>Сумма(ПремияЗЧБезНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПремияРаботамБезНДС</dataPath>
+		<expression>Сумма(ПремияРаботамБезНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВаловаяПрибыльБезНДС</dataPath>
+		<expression>Сумма(ВаловаяПрибыльБезНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПрибыльПоЗЧБезНДС</dataPath>
+		<expression>Сумма(ПрибыльПоЗЧБезНДС)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>КурсВалютыОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Курс валюты отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВалютаОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>В валюте</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>КоличествоЗаказНарядов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>КоличествоАвтомобилей</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ВремяВыполненияРабот</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаРабот</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СуммаСкидкиРабот</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНоменклатуры</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СуммаСкидкиНоменклатуры</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СуммаСкидкиДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Себестоимость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВаловаяПрибыль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибыльПоЗЧ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентПоЗч</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПремияЗЧ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентПоРаботам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПремияПоРаботам</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СреднийЧекКоммерческий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Коммерческий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентКоммерческий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РентабельностьКом</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РентабельностьОбщая</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПремияЗЧБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПремияРаботамБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВаловаяПрибыльБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрибыльПоЗЧ</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПодразделениеКомпании</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Цех</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.ВидыСостоянийЗаказНарядов.Закрыт</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ЗаказНаряд</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Модель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автомобиль</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидОплаты</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидРемонта</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ГодВыпуска</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВалютаОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ЗаказНаряд.Диспетчер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ЗаказНаряд.ВидРемонта</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:row>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

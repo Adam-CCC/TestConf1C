@@ -1,0 +1,661 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во автомобилей</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВремяВыполненияРабот</dataPath>
+			<field>ВремяВыполненияРабот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Диспетчер</dataPath>
+			<field>Диспетчер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд</dataPath>
+			<field>ЗаказНаряд</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во ЗН</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолВоКоммерческих</dataPath>
+			<field>КолВоКоммерческих</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во коммерческих</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МесячныйОсталось</dataPath>
+			<field>МесячныйОсталось</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Осталось добрать до месячного плана</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МП_ВП_ДневнойПроцент</dataPath>
+			<field>МП_ВП_ДневнойПроцент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>% выполнения дневного плана</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПланВыручка</dataPath>
+			<field>ПланВыручка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>План на день</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПланДниРабочие</dataPath>
+			<field>ПланДниРабочие</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>План кол-во рабочих дней</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПланМесячный</dataPath>
+			<field>ПланМесячный</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>План на месяц</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентКоммерческих</dataPath>
+			<field>ПроцентКоммерческих</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Процент коммерческих ЗН</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентМесячный</dataPath>
+			<field>ПроцентМесячный</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>% выполнения месячного плана</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Рентабельность</dataPath>
+			<field>Рентабельность</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость</dataPath>
+			<field>Себестоимость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаЗаказНаряда</dataPath>
+			<field>СуммаЗаказНаряда</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего по ЗН</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаЗапчастей</dataPath>
+			<field>СуммаЗапчастей</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма по запчастям</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРабот</dataPath>
+			<field>СуммаРабот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма по работам</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФактВыручка</dataPath>
+			<field>ФактВыручка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факт выручка за день</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФактДней</dataPath>
+			<field>ФактДней</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Факт дней рабочих</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	ЗаказНаряд.Диспетчер,
+	ЗаказНаряд.ВидРемонта,
+	ЗаказНаряд.Ссылка КАК ЗаказНаряд,
+	ЗаказНаряд.Автомобиль,
+	СУММА(ЗаказНаряд.СуммаДокумента) КАК СуммаЗаказНаряда,
+	СУММА(ЗаказНаряд.СуммаНоменклатурыДокумента) КАК СуммаЗапчастей,
+	СУММА(ЗаказНаряд.СуммаРаботДокумента) КАК СуммаРабот,
+	ЗаказНаряд.ВремяВыполненияРабот,
+	ЗаказНаряд.Цех,
+	&amp;ВалютаОтчета,
+	&amp;КурсВалютыОтчета,
+	МАКСИМУМ(ЗапросПланДни.ПланДниРабочие) КАК ПланДниРабочие,
+	МАКСИМУМ(ЗапросДниФакт.ФактДней) КАК ФактДней
+ПОМЕСТИТЬ ВТВыборЗаказНаряда
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ПланПоРабочимДнямСрезПоследних.Сотрудник КАК Сотрудник,
+			МАКСИМУМ(ПланПоРабочимДнямСрезПоследних.Значение) КАК ПланДниРабочие
+		ИЗ
+			РегистрСведений.ПланПоРабочимДням.СрезПоследних(&amp;ДатаОкончания, ) КАК ПланПоРабочимДнямСрезПоследних
+		
+		СГРУППИРОВАТЬ ПО
+			ПланПоРабочимДнямСрезПоследних.Сотрудник) КАК ЗапросПланДни
+		ПО ЗаказНаряд.Диспетчер = ЗапросПланДни.Сотрудник
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			РегистрацияВремениСотрудника.Сотрудник КАК Сотрудник,
+			КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ЕСТЬNULL(КОНЕЦПЕРИОДА(РегистрацияВремениСотрудника.Период, ДЕНЬ), 0)) КАК ФактДней
+		ИЗ
+			РегистрСведений.РегистрацияВремениСотрудника КАК РегистрацияВремениСотрудника
+		ГДЕ
+			РегистрацияВремениСотрудника.Период МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			И РегистрацияВремениСотрудника.ВидОтметки = ЗНАЧЕНИЕ(Справочник.ВидыОтметокВремени.Работа)
+			И РегистрацияВремениСотрудника.Продолжительность &lt;&gt; 0
+		
+		СГРУППИРОВАТЬ ПО
+			РегистрацияВремениСотрудника.Сотрудник) КАК ЗапросДниФакт
+		ПО ЗаказНаряд.Диспетчер = ЗапросДниФакт.Сотрудник
+ГДЕ
+	ЗаказНаряд.Проведен
+	И ЗаказНаряд.Состояние = ЗНАЧЕНИЕ(Справочник.ВидыСостоянийЗаказНарядов.Закрыт)
+	И ЗаказНаряд.Дата МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНаряд.Диспетчер,
+	ЗаказНаряд.ВремяВыполненияРабот,
+	ЗаказНаряд.ВидРемонта,
+	ЗаказНаряд.Ссылка,
+	ЗаказНаряд.Автомобиль,
+	ЗаказНаряд.Цех
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварыВПроизводстве.Регистратор КАК ЗаказНаряд,
+	СУММА(ТоварыВПроизводстве.СуммаУпр) КАК Себестоимость
+ПОМЕСТИТЬ ВТСебестоимостьДеталей
+ИЗ
+	РегистрНакопления.ТоварыВПроизводстве КАК ТоварыВПроизводстве
+ГДЕ
+	ТоварыВПроизводстве.Период МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+	И ТоварыВПроизводстве.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ТоварыВПроизводстве.Регистратор ССЫЛКА Документ.ЗаказНаряд
+
+СГРУППИРОВАТЬ ПО
+	ТоварыВПроизводстве.Регистратор
+
+ИМЕЮЩИЕ
+	НЕ СУММА(ТоварыВПроизводстве.СуммаУпр) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТВыборЗаказНаряда.Диспетчер КАК Диспетчер,
+	ВТВыборЗаказНаряда.ВидРемонта КАК ВидРемонта,
+	ВТВыборЗаказНаряда.Автомобиль КАК Автомобиль,
+	ВТВыборЗаказНаряда.ЗаказНаряд КАК ЗаказНаряд,
+	ВЫБОР
+		КОГДА ВТВыборЗаказНаряда.ЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК КолВоКоммерческих,
+	ВЫБОР
+		КОГДА ВТВыборЗаказНаряда.ЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВТВыборЗаказНаряда.СуммаЗаказНаряда
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаЗаказНаряда,
+	ВЫБОР
+		КОГДА ВТВыборЗаказНаряда.ЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВТВыборЗаказНаряда.СуммаЗапчастей
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаЗапчастей,
+	ВЫБОР
+		КОГДА ВТВыборЗаказНаряда.ЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВТВыборЗаказНаряда.СуммаРабот
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаРабот,
+	ВТВыборЗаказНаряда.ВремяВыполненияРабот КАК ВремяВыполненияРабот,
+	ВЫБОР
+		КОГДА ВТВыборЗаказНаряда.ЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВТТоварыВПроизводствеОбороты.Себестоимость
+		ИНАЧЕ 0
+	КОНЕЦ КАК Себестоимость,
+	0 КАК ПроцентКоммерческих,
+	МП_ВП_Факт.ПланВыручка КАК ПланВыручка,
+	ЕСТЬNULL(ВТВыборЗаказНаряда.СуммаЗаказНаряда, 0) - ЕСТЬNULL(ВТТоварыВПроизводствеОбороты.Себестоимость, 0) КАК ФактВыручка,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(МП_ВП_Факт.ПланВыручка, 0) * ЕСТЬNULL(ВТВыборЗаказНаряда.ФактДней, 0) = 0
+			ТОГДА 0
+		ИНАЧЕ ВЫРАЗИТЬ((ЕСТЬNULL(ВТВыборЗаказНаряда.СуммаЗаказНаряда, 0) - ЕСТЬNULL(ВТТоварыВПроизводствеОбороты.Себестоимость, 0)) / (ЕСТЬNULL(МП_ВП_Факт.ПланВыручка, 0) * ЕСТЬNULL(ВТВыборЗаказНаряда.ФактДней, 0)) * 100 КАК ЧИСЛО(15, 2))
+	КОНЕЦ КАК МП_ВП_ДневнойПроцент,
+	ЕСТЬNULL(ВТВыборЗаказНаряда.ПланДниРабочие, 0) * ЕСТЬNULL(МП_ВП_Факт.ПланВыручка, 0) КАК ПланМесячный,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВТВыборЗаказНаряда.ПланДниРабочие, 0) * ЕСТЬNULL(МП_ВП_Факт.ПланВыручка, 0) = 0
+			ТОГДА 0
+		ИНАЧЕ ВЫРАЗИТЬ((ЕСТЬNULL(ВТВыборЗаказНаряда.СуммаЗаказНаряда, 0) - ЕСТЬNULL(ВТТоварыВПроизводствеОбороты.Себестоимость, 0)) / (ЕСТЬNULL(ВТВыборЗаказНаряда.ПланДниРабочие, 0) * ЕСТЬNULL(МП_ВП_Факт.ПланВыручка, 0)) * 100 КАК ЧИСЛО(15, 2))
+	КОНЕЦ КАК ПроцентМесячный,
+	ВЫБОР
+		КОГДА ВТВыборЗаказНаряда.ЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ЕСТЬNULL(ВТВыборЗаказНаряда.ПланДниРабочие, 0) * ЕСТЬNULL(МП_ВП_Факт.ПланВыручка, 0) - (ЕСТЬNULL(ВТВыборЗаказНаряда.СуммаЗаказНаряда, 0) - ЕСТЬNULL(ВТТоварыВПроизводствеОбороты.Себестоимость, 0))
+		ИНАЧЕ 0
+	КОНЕЦ КАК МесячныйОсталось,
+	ВЫБОР
+		КОГДА ВТВыборЗаказНаряда.ЗаказНаряд.ВидРемонта.Коммерческий
+			ТОГДА ВЫБОР
+					КОГДА ЕСТЬNULL(ВТВыборЗаказНаряда.СуммаЗаказНаряда, 0) - ЕСТЬNULL(ВТТоварыВПроизводствеОбороты.Себестоимость, 0) = 0
+						ТОГДА 0
+					ИНАЧЕ ВЫРАЗИТЬ(ЕСТЬNULL(ВТВыборЗаказНаряда.СуммаЗаказНаряда, 0) / (ЕСТЬNULL(ВТВыборЗаказНаряда.СуммаЗаказНаряда, 0) - ЕСТЬNULL(ВТТоварыВПроизводствеОбороты.Себестоимость, 0)) * 100 КАК ЧИСЛО(15, 2))
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК Рентабельность,
+	ВТВыборЗаказНаряда.ФактДней КАК ФактДней,
+	ВТВыборЗаказНаряда.ПланДниРабочие КАК ПланДниРабочие
+ИЗ
+	ВТВыборЗаказНаряда КАК ВТВыборЗаказНаряда
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТСебестоимостьДеталей КАК ВТТоварыВПроизводствеОбороты
+		ПО ВТВыборЗаказНаряда.ЗаказНаряд = ВТТоварыВПроизводствеОбороты.ЗаказНаряд
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ДнейвнойПланПоВыручкеСрезПоследних.Сотрудник КАК Сотрудник,
+			СУММА(ДнейвнойПланПоВыручкеСрезПоследних.Значение) КАК ПланВыручка
+		ИЗ
+			РегистрСведений.ДнейвнойПланПоВыручке.СрезПоследних(&amp;ДатаОкончания, ) КАК ДнейвнойПланПоВыручкеСрезПоследних
+		ГДЕ
+			ДнейвнойПланПоВыручкеСрезПоследних.ВидРемонта.Коммерческий
+		
+		СГРУППИРОВАТЬ ПО
+			ДнейвнойПланПоВыручкеСрезПоследних.Сотрудник) КАК МП_ВП_Факт
+		ПО ВТВыборЗаказНаряда.Диспетчер = МП_ВП_Факт.Сотрудник</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Автомобиль</dataPath>
+		<expression>КОЛИЧЕСТВО(РАЗЛИЧНЫЕ Автомобиль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВремяВыполненияРабот</dataPath>
+		<expression>СУММА(ВремяВыполненияРабот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗаказНаряд</dataPath>
+		<expression>КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ЗаказНаряд)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КолВоКоммерческих</dataPath>
+		<expression>СУММА(КолВоКоммерческих)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>МесячныйОсталось</dataPath>
+		<expression>МАКСИМУМ(ПланДниРабочие) * МАКСИМУМ(ПланВыручка) - (СУММА(СуммаЗаказНаряда) - СУММА(Себестоимость))</expression>
+	</totalField>
+	<totalField>
+		<dataPath>МП_ВП_ДневнойПроцент</dataPath>
+		<expression>(СУММА(СуммаЗаказНаряда) - СУММА(Себестоимость)) / (МАКСИМУМ(ФактДней) * МАКСИМУМ(ПланВыручка)) * 100</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПланВыручка</dataPath>
+		<expression>Максимум(ПланВыручка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПланМесячный</dataPath>
+		<expression>Максимум(ПланМесячный)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентКоммерческих</dataPath>
+		<expression>СУММА(КолВоКоммерческих) / КОЛИЧЕСТВО(РАЗЛИЧНЫЕ Автомобиль) * 100</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентМесячный</dataPath>
+		<expression>(СУММА(СуммаЗаказНаряда) - СУММА(Себестоимость)) / (МАКСИМУМ(ПланДниРабочие) * МАКСИМУМ(ПланВыручка)) * 100</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Рентабельность</dataPath>
+		<expression>ВЫБОР
+	КОГДА СУММА(СуммаЗаказНаряда) = 0
+		ТОГДА 0
+	ИНАЧЕ (СУММА(СуммаЗаказНаряда) - СУММА(Себестоимость)) / СУММА(СуммаЗаказНаряда) * 100
+КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Себестоимость</dataPath>
+		<expression>Сумма(Себестоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаЗаказНаряда</dataPath>
+		<expression>Сумма(СуммаЗаказНаряда)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаЗапчастей</dataPath>
+		<expression>Сумма(СуммаЗапчастей)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРабот</dataPath>
+		<expression>Сумма(СуммаРабот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФактВыручка</dataPath>
+		<expression>Сумма(СуммаЗаказНаряда)-Сумма(Себестоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФактДней</dataPath>
+		<expression>Максимум(ФактДней)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПланДниРабочие</dataPath>
+		<expression>Максимум(ПланДниРабочие)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВалютаОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Валюта отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>КурсВалютыОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Курс валюты отчета</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидРемонта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Диспетчер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаряд</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВремяВыполненияРабот</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаРабот</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаЗапчастей</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаЗаказНаряда</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Себестоимость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КолВоКоммерческих</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентКоммерческих</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланДниРабочие</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФактДней</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФактВыручка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланВыручка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МП_ВП_ДневнойПроцент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланМесячный</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентМесячный</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МесячныйОсталось</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Рентабельность</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Диспетчер</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ВидРемонта</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Рентабельность</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>МП_ВП_ДневнойПроцент</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПроцентМесячный</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ВремяВыполненияРабот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаЗаказНаряда</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Автомобиль</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ЗаказНаряд</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>КолВоКоммерческих</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>МесячныйОсталось</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПланВыручка</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПланМесячный</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПроцентКоммерческих</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Себестоимость</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаЗапчастей</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаРабот</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Диспетчер</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ВидРемонта</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,855 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Поиск организации Online</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Search Online organization</v8:content>
+		</v8:item>
+	</Title>
+	<Width>120</Width>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грКонтейнер" id="54">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:FieldBackColor</BackColor>
+			<ExtendedTooltip name="грКонтейнерРасширеннаяПодсказка" id="55"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="6">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="7"/>
+					<ChildItems>
+						<InputField name="СтрокаПоиска" id="1">
+							<DataPath>СтрокаПоиска</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Организация</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Organization</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#313431</TitleTextColor>
+							<Width>50</Width>
+							<TextColor>#313431</TextColor>
+							<BorderColor>#9CA6B2</BorderColor>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Введите ИНН, ОГРН, наименование, адрес или ФИО</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Enter TIN, BIN, name, address or name</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="СтрокаПоискаКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="СтрокаПоискаРасширеннаяПодсказка" id="3"/>
+							<Events>
+								<Event name="TextEditEnd">СтрокаПоискаОкончаниеВводаТекста</Event>
+							</Events>
+						</InputField>
+						<Button name="кнПоиск" id="4">
+							<Type>UsualButton</Type>
+							<Visible>false</Visible>
+							<Representation>PictureAndText</Representation>
+							<CommandName>Form.Command.кнПоиск</CommandName>
+							<Picture>
+								<xr:Ref>StdPicture.InputFieldOpen</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Найти</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>To find</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнПоискРасширеннаяПодсказка" id="5"/>
+						</Button>
+						<InputField name="Регион" id="11">
+							<DataPath>Регион</DataPath>
+							<TitleTextColor>#313431</TitleTextColor>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChooseType>false</ChooseType>
+							<TextColor>#313431</TextColor>
+							<BorderColor>#9CA6B2</BorderColor>
+							<ContextMenu name="РегионКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="13"/>
+							<Events>
+								<Event name="OnChange">ЗадатьОтбор</Event>
+							</Events>
+						</InputField>
+						<InputField name="Индустрия" id="8">
+							<DataPath>Индустрия</DataPath>
+							<TitleTextColor>#313431</TitleTextColor>
+							<ListChoiceMode>true</ListChoiceMode>
+							<TextColor>#313431</TextColor>
+							<BorderColor>#9CA6B2</BorderColor>
+							<ContextMenu name="ИндустрияКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="ИндустрияРасширеннаяПодсказка" id="10"/>
+							<Events>
+								<Event name="OnChange">ЗадатьОтбор</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<Table name="Список" id="14">
+					<Representation>List</Representation>
+					<CommandBarLocation>None</CommandBarLocation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<Height>17</Height>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Список</DataPath>
+					<BorderColor>#9CA6B2</BorderColor>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="СписокКонтекстноеМеню" id="15"/>
+					<AutoCommandBar name="СписокКоманднаяПанель" id="16"/>
+					<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="17"/>
+					<SearchStringAddition name="СписокСтрокаПоиска" id="18">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="19"/>
+						<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="20"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокСостояниеПросмотра" id="21">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="22"/>
+						<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="23"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокУправлениеПоиском" id="24">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="25"/>
+						<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="26"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">СписокВыбор</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="СписокНаименование" id="27">
+							<DataPath>Список.Наименование</DataPath>
+							<TitleTextColor>#313431</TitleTextColor>
+							<TitleBackColor>#BDC3CE</TitleBackColor>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoCellHeight>true</AutoCellHeight>
+							<Height>6</Height>
+							<Border width="1">
+								<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+							</Border>
+							<BorderColor>#E7E7E7</BorderColor>
+							<ContextMenu name="СписокНаименованиеКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="СписокНаименованиеРасширеннаяПодсказка" id="29"/>
+						</LabelField>
+						<InputField name="СписокИнформация" id="51">
+							<DataPath>Список.Информация</DataPath>
+							<TitleTextColor>#313431</TitleTextColor>
+							<TitleBackColor>#BDC3CE</TitleBackColor>
+							<EditMode>EnterOnInput</EditMode>
+							<AutoCellHeight>true</AutoCellHeight>
+							<Width>30</Width>
+							<Height>6</Height>
+							<BorderColor>#E7E7E7</BorderColor>
+							<ContextMenu name="СписокИнформацияКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="СписокИнформацияРасширеннаяПодсказка" id="53"/>
+						</InputField>
+						<ColumnGroup name="СписокГруппа2" id="82">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Реквизиты</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Requisites</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#313431</TitleTextColor>
+							<Width>1</Width>
+							<Group>Horizontal</Group>
+							<TitleBackColor>#BDC3CE</TitleBackColor>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="СписокГруппа2РасширеннаяПодсказка" id="83"/>
+							<ChildItems>
+								<ColumnGroup name="СписокГруппа1" id="72">
+									<Width>8</Width>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="СписокГруппа1РасширеннаяПодсказка" id="73"/>
+									<ChildItems>
+										<InputField name="ИмяИНН" id="69">
+											<DataPath>Список.ИмяИНН</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#BDC3CE</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>8</Width>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#E7E7E7</BorderColor>
+											<ContextMenu name="ИмяИННКонтекстноеМеню" id="70"/>
+											<ExtendedTooltip name="ИмяИННРасширеннаяПодсказка" id="71"/>
+										</InputField>
+										<InputField name="СписокИмяОГРН" id="74">
+											<DataPath>Список.ИмяОГРН</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#BDC3CE</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>8</Width>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#E7E7E7</BorderColor>
+											<ContextMenu name="СписокИмяОГРНКонтекстноеМеню" id="75"/>
+											<ExtendedTooltip name="СписокИмяОГРНРасширеннаяПодсказка" id="76"/>
+										</InputField>
+										<InputField name="СписокИмяДатаРегистрации" id="77">
+											<DataPath>Список.ИмяДатаРегистрации</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#BDC3CE</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>8</Width>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#E7E7E7</BorderColor>
+											<ContextMenu name="СписокИмяДатаРегистрацииКонтекстноеМеню" id="78"/>
+											<ExtendedTooltip name="СписокИмяДатаРегистрацииРасширеннаяПодсказка" id="79"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="грРеквизиты" id="80">
+									<TitleTextColor>#313431</TitleTextColor>
+									<Width>12</Width>
+									<ShowTitle>false</ShowTitle>
+									<TitleBackColor>#E7E7E7</TitleBackColor>
+									<ExtendedTooltip name="грРеквизитыРасширеннаяПодсказка" id="81"/>
+									<ChildItems>
+										<LabelField name="СписокИНН" id="30">
+											<DataPath>Список.ИНН</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#BDC3CE</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoCellHeight>true</AutoCellHeight>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>12</Width>
+											<Height>6</Height>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#E7E7E7</BorderColor>
+											<ContextMenu name="СписокИННКонтекстноеМеню" id="31"/>
+											<ExtendedTooltip name="СписокИННРасширеннаяПодсказка" id="32"/>
+										</LabelField>
+										<InputField name="СписокОГРН" id="39">
+											<DataPath>Список.ОГРН</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#BDC3CE</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoCellHeight>true</AutoCellHeight>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>12</Width>
+											<Height>6</Height>
+											<BorderColor>#E7E7E7</BorderColor>
+											<ContextMenu name="СписокОГРНКонтекстноеМеню" id="40"/>
+											<ExtendedTooltip name="СписокОГРНРасширеннаяПодсказка" id="41"/>
+										</InputField>
+										<InputField name="СписокДатаРегистрации" id="36">
+											<DataPath>Список.ДатаРегистрации</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#BDC3CE</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoCellHeight>true</AutoCellHeight>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>12</Width>
+											<Height>6</Height>
+											<BorderColor>#E7E7E7</BorderColor>
+											<ContextMenu name="СписокДатаРегистрацииКонтекстноеМеню" id="37"/>
+											<ExtendedTooltip name="СписокДатаРегистрацииРасширеннаяПодсказка" id="38"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="СписокГруппа3" id="97">
+							<Group>InCell</Group>
+							<ExtendedTooltip name="СписокГруппа3РасширеннаяПодсказка" id="98"/>
+							<ChildItems>
+								<PictureField name="СписокСсылкаАдреса" id="99">
+									<DataPath>Список.СсылкаАдреса</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ShowInHeader>false</ShowInHeader>
+									<ValuesPicture>
+										<xr:Ref>CommonPicture.Renault_Geo</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</ValuesPicture>
+									<FileDragMode>AsFile</FileDragMode>
+									<ContextMenu name="СписокСсылкаАдресаКонтекстноеМеню" id="100"/>
+									<ExtendedTooltip name="СписокСсылкаАдресаРасширеннаяПодсказка" id="101"/>
+									<Events>
+										<Event name="Click">СписокСсылкаАдресаНажатие</Event>
+									</Events>
+								</PictureField>
+								<LabelField name="СписокАдрес" id="33">
+									<DataPath>Список.Адрес</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TitleBackColor>#BDC3CE</TitleBackColor>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoCellHeight>true</AutoCellHeight>
+									<Width>30</Width>
+									<Height>6</Height>
+									<Border width="1">
+										<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+									</Border>
+									<BorderColor>#E7E7E7</BorderColor>
+									<ContextMenu name="СписокАдресКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="СписокАдресРасширеннаяПодсказка" id="35"/>
+									<Events>
+										<Event name="Click">СписокАдресНажатие</Event>
+									</Events>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</Table>
+				<UsualGroup name="грКнопки" id="56">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грКнопкиРасширеннаяПодсказка" id="57"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация2" id="91">
+							<TextColor>#313431</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Page</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="93"/>
+						</LabelDecoration>
+						<Button name="кнПредыдущий" id="84">
+							<Type>UsualButton</Type>
+							<Width>7</Width>
+							<Height>1</Height>
+							<CommandName>Form.Command.кнПредыдущий</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="кнПредыдущийРасширеннаяПодсказка" id="85"/>
+						</Button>
+						<InputField name="НомерСтраницы" id="88">
+							<DataPath>НомерСтраницы</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Page</v8:content>
+								</v8:item>
+							</Title>
+							<TitleTextColor>#313431</TitleTextColor>
+							<TitleLocation>None</TitleLocation>
+							<Width>3</Width>
+							<TextColor>#313431</TextColor>
+							<BorderColor>#9CA6B2</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+							<ContextMenu name="НомерСтраницыКонтекстноеМеню" id="89"/>
+							<ExtendedTooltip name="НомерСтраницыРасширеннаяПодсказка" id="90"/>
+							<Events>
+								<Event name="OnChange">НомерСтраницыПриИзменении</Event>
+							</Events>
+						</InputField>
+						<Button name="кнСледующий" id="86">
+							<Type>UsualButton</Type>
+							<Width>7</Width>
+							<Height>1</Height>
+							<CommandName>Form.Command.кнСледующий</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="кнСледующийРасширеннаяПодсказка" id="87"/>
+						</Button>
+						<LabelDecoration name="Декорация1" id="66">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="67"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="68"/>
+						</LabelDecoration>
+						<Button name="кнВыбрать" id="64">
+							<Type>UsualButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<Width>12</Width>
+							<Height>1</Height>
+							<CommandName>Form.Command.кнВыбрать</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выбрать</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Choose</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="кнВыбратьРасширеннаяПодсказка" id="65"/>
+						</Button>
+						<Button name="кнОтмена" id="62">
+							<Type>UsualButton</Type>
+							<Representation>Text</Representation>
+							<Width>12</Width>
+							<Height>1</Height>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отмена</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>cancellation</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="кнОтменаРасширеннаяПодсказка" id="63"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СтрокаПоиска" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строка поиска</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Search line</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Индустрия" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индустрия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Industry</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Регион" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регион</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Region</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Список" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Наименование" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИНН" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ИНН</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>INN</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Адрес" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Address</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаРегистрации" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата регистрации</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>registration date</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОГРН" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОГРН</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>BIN</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Информация" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Информация</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Information</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИмяИНН" id="6">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>15</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИмяОГРН" id="7">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>15</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИмяДатаРегистрации" id="8">
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>15</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СсылкаАдреса" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка адреса</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>reference address</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Картинка" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Картинка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Picture</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="НомерСтраницы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Page number</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнПоиск" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поиск</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Search</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кн поиск</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>KH search</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнПоиск</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВыбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Choose</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Choose</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Confirm_NoBorder</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВыбрать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнСледующий" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Следующий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Following</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Следующий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Following</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renaut_Right_New</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнСледующий</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнПредыдущий" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предыдущий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Previous</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предыдущий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Previous</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Left_New</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнПредыдущий</Action>
+			<Representation>Picture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

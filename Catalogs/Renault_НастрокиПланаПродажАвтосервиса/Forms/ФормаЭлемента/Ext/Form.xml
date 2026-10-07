@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group cap</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group cap</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="51"/>
+			<ChildItems>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Родитель" id="7">
+					<DataPath>Объект.Parent</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РодительКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="9"/>
+				</InputField>
+				<CheckBoxField name="Утвержден" id="189">
+					<DataPath>Объект.Утвержден</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УтвержденКонтекстноеМеню" id="190"/>
+					<ExtendedTooltip name="УтвержденРасширеннаяПодсказка" id="191"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ДанныеПоБонусамМалусам" id="105">
+			<CommandBarLocation>None</CommandBarLocation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ДанныеПоБонусамМалусам</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ДанныеПоБонусамМалусамКонтекстноеМеню" id="106"/>
+			<AutoCommandBar name="ДанныеПоБонусамМалусамКоманднаяПанель" id="107"/>
+			<ExtendedTooltip name="ДанныеПоБонусамМалусамРасширеннаяПодсказка" id="108"/>
+			<SearchStringAddition name="ДанныеПоБонусамМалусамСтрокаПоиска" id="109">
+				<AdditionSource>
+					<Item>ДанныеПоБонусамМалусам</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДанныеПоБонусамМалусамСтрокаПоискаКонтекстноеМеню" id="110"/>
+				<ExtendedTooltip name="ДанныеПоБонусамМалусамСтрокаПоискаРасширеннаяПодсказка" id="111"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДанныеПоБонусамМалусамСостояниеПросмотра" id="112">
+				<AdditionSource>
+					<Item>ДанныеПоБонусамМалусам</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДанныеПоБонусамМалусамСостояниеПросмотраКонтекстноеМеню" id="113"/>
+				<ExtendedTooltip name="ДанныеПоБонусамМалусамСостояниеПросмотраРасширеннаяПодсказка" id="114"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДанныеПоБонусамМалусамУправлениеПоиском" id="115">
+				<AdditionSource>
+					<Item>ДанныеПоБонусамМалусам</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДанныеПоБонусамМалусамУправлениеПоискомКонтекстноеМеню" id="116"/>
+				<ExtendedTooltip name="ДанныеПоБонусамМалусамУправлениеПоискомРасширеннаяПодсказка" id="117"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">ДанныеПоБонусамМалусамПриАктивизацииСтроки</Event>
+				<Event name="OnChange">ДанныеПоБонусамМалусамПриИзменении</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДанныеПоБонусамМалусамНомерСтроки" id="118">
+					<DataPath>Объект.ДанныеПоБонусамМалусам.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоБонусамМалусамНомерСтрокиКонтекстноеМеню" id="119"/>
+					<ExtendedTooltip name="ДанныеПоБонусамМалусамНомерСтрокиРасширеннаяПодсказка" id="120"/>
+				</LabelField>
+				<InputField name="ДанныеПоБонусамМалусамВидПланирования" id="121">
+					<DataPath>Объект.ДанныеПоБонусамМалусам.ВидПланирования</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоБонусамМалусамВидПланированияКонтекстноеМеню" id="122"/>
+					<ExtendedTooltip name="ДанныеПоБонусамМалусамВидПланированияРасширеннаяПодсказка" id="123"/>
+				</InputField>
+				<InputField name="ДанныеПоБонусамМалусамВидБонуса" id="124">
+					<DataPath>Объект.ДанныеПоБонусамМалусам.ВидБонуса</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоБонусамМалусамВидБонусаКонтекстноеМеню" id="125"/>
+					<ExtendedTooltip name="ДанныеПоБонусамМалусамВидБонусаРасширеннаяПодсказка" id="126"/>
+				</InputField>
+				<InputField name="ДанныеПоБонусамМалусамЗначениеДляВидаБонуса" id="127">
+					<DataPath>Объект.ДанныеПоБонусамМалусам.ЗначениеДляВидаБонуса</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение для бонуса</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Value for bonus</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоБонусамМалусамЗначениеДляВидаБонусаКонтекстноеМеню" id="128"/>
+					<ExtendedTooltip name="ДанныеПоБонусамМалусамЗначениеДляВидаБонусаРасширеннаяПодсказка" id="129"/>
+				</InputField>
+				<InputField name="ДанныеПоБонусамМалусамВидМалуса" id="130">
+					<DataPath>Объект.ДанныеПоБонусамМалусам.ВидМалуса</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоБонусамМалусамВидМалусаКонтекстноеМеню" id="131"/>
+					<ExtendedTooltip name="ДанныеПоБонусамМалусамВидМалусаРасширеннаяПодсказка" id="132"/>
+				</InputField>
+				<InputField name="ДанныеПоБонусамМалусамЗначениеДляВидаМалуса" id="133">
+					<DataPath>Объект.ДанныеПоБонусамМалусам.ЗначениеДляВидаМалуса</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение для малуса</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Value for malus</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоБонусамМалусамЗначениеДляВидаМалусаКонтекстноеМеню" id="134"/>
+					<ExtendedTooltip name="ДанныеПоБонусамМалусамЗначениеДляВидаМалусаРасширеннаяПодсказка" id="135"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Table name="ДанныеПоВидамПланированияБуфер" id="136">
+			<Representation>List</Representation>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ДанныеПоВидамПланированияБуфер</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ДанныеПоВидамПланированияБуферКонтекстноеМеню" id="137"/>
+			<AutoCommandBar name="ДанныеПоВидамПланированияБуферКоманднаяПанель" id="138"/>
+			<ExtendedTooltip name="ДанныеПоВидамПланированияБуферРасширеннаяПодсказка" id="139"/>
+			<SearchStringAddition name="ДанныеПоВидамПланированияБуферСтрокаПоиска" id="140">
+				<AdditionSource>
+					<Item>ДанныеПоВидамПланированияБуфер</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДанныеПоВидамПланированияБуферСтрокаПоискаКонтекстноеМеню" id="141"/>
+				<ExtendedTooltip name="ДанныеПоВидамПланированияБуферСтрокаПоискаРасширеннаяПодсказка" id="142"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДанныеПоВидамПланированияБуферСостояниеПросмотра" id="143">
+				<AdditionSource>
+					<Item>ДанныеПоВидамПланированияБуфер</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДанныеПоВидамПланированияБуферСостояниеПросмотраКонтекстноеМеню" id="144"/>
+				<ExtendedTooltip name="ДанныеПоВидамПланированияБуферСостояниеПросмотраРасширеннаяПодсказка" id="145"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДанныеПоВидамПланированияБуферУправлениеПоиском" id="146">
+				<AdditionSource>
+					<Item>ДанныеПоВидамПланированияБуфер</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДанныеПоВидамПланированияБуферУправлениеПоискомКонтекстноеМеню" id="147"/>
+				<ExtendedTooltip name="ДанныеПоВидамПланированияБуферУправлениеПоискомРасширеннаяПодсказка" id="148"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeAddRow">ДанныеПоВидамПланированияБуферПередНачаломДобавления</Event>
+				<Event name="OnStartEdit">ДанныеПоВидамПланированияБуферПриНачалеРедактирования</Event>
+				<Event name="AfterDeleteRow">ДанныеПоВидамПланированияБуферПослеУдаления</Event>
+				<Event name="OnActivateCell">ДанныеПоВидамПланированияБуферПриАктивизацииЯчейки</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ДанныеПоВидамПланированияБуферВидПланирования" id="149">
+					<DataPath>ДанныеПоВидамПланированияБуфер.ВидПланирования</DataPath>
+					<Visible>false</Visible>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоВидамПланированияБуферВидПланированияКонтекстноеМеню" id="150"/>
+					<ExtendedTooltip name="ДанныеПоВидамПланированияБуферВидПланированияРасширеннаяПодсказка" id="151"/>
+				</InputField>
+				<InputField name="ДанныеПоВидамПланированияБуферРесурсПланирования" id="152">
+					<DataPath>ДанныеПоВидамПланированияБуфер.РесурсПланирования</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоВидамПланированияБуферРесурсПланированияКонтекстноеМеню" id="153"/>
+					<ExtendedTooltip name="ДанныеПоВидамПланированияБуферРесурсПланированияРасширеннаяПодсказка" id="154"/>
+					<Events>
+						<Event name="OnChange">ДанныеПоВидамПланированияБуферРесурсПланированияПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ДанныеПоВидамПланированияБуферСуммаРесурса" id="155">
+					<DataPath>ДанныеПоВидамПланированияБуфер.СуммаРесурса</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоВидамПланированияБуферСуммаРесурсаКонтекстноеМеню" id="156"/>
+					<ExtendedTooltip name="ДанныеПоВидамПланированияБуферСуммаРесурсаРасширеннаяПодсказка" id="157"/>
+				</InputField>
+				<InputField name="ДанныеПоВидамПланированияБуферКоличествоРесурса" id="158">
+					<DataPath>ДанныеПоВидамПланированияБуфер.КоличествоРесурса</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДанныеПоВидамПланированияБуферКоличествоРесурсаКонтекстноеМеню" id="159"/>
+					<ExtendedTooltip name="ДанныеПоВидамПланированияБуферКоличествоРесурсаРасширеннаяПодсказка" id="160"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="ГруппаОформлениеАвтор" id="195">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа оформление автор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group registration author</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа оформление автор</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group registration author</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОформлениеАвторРасширеннаяПодсказка" id="196"/>
+			<ChildItems>
+				<PictureDecoration name="ДекорацияАвтор" id="197">
+					<Width>2</Width>
+					<Height>1</Height>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация автор</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Decoration author</v8:content>
+						</v8:item>
+					</Title>
+					<PictureSize>Proportionally</PictureSize>
+					<Picture>
+						<xr:Ref>CommonPicture.CRM_Менеджер</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ДекорацияАвторКонтекстноеМеню" id="198"/>
+					<ExtendedTooltip name="ДекорацияАвторРасширеннаяПодсказка" id="199"/>
+				</PictureDecoration>
+				<InputField name="Автор" id="192">
+					<DataPath>Объект.Автор</DataPath>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="АвторКонтекстноеМеню" id="193"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="194"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.Renault_НастрокиПланаПродажАвтосервиса</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДанныеПоВидамПланированияБуфер" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные по видам планирования буфер</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Data by type buffer plan</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ВидПланирования" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид планирования</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Type planning</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Renault_ВидыПланированияПланаПродажАвтосервиса</v8:Type>
+					</Type>
+				</Column>
+				<Column name="РесурсПланирования" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ресурс планирования</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>planning Resource</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+						<v8:Type>cfg:CatalogRef.Автоработы</v8:Type>
+						<v8:Type>cfg:CatalogRef.ВидыРемонта</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СуммаРесурса" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма ресурса</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The amount of resource</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоРесурса" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество ресурса</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Number of resource</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТекущийВидПланирования" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий вид планирования</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Current view of planning</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_ВидыПланированияПланаПродажАвтосервиса</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветФонаСтрокиСДанными" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет фона строки с данными</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Color lines background data</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветФонаСтрокиСОшибками" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет фона строки с ошибками</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Color lines background with errors</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветФонаСтандартный" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет фона стандартный</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The background color of the standard</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Оформить" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Contents</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

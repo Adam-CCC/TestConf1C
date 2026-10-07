@@ -1,0 +1,229 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://gate.renault.ru/dataMart-spareparts" elementFormQualified="true" attributeFormQualified="false">
+	<property name="spareparts">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property name="ver" lowerBound="1" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+					<pattern>[0-9]{1,2}\.[0-9]{1,2}</pattern>
+				</typeDef>
+			</property>
+			<property name="bir" lowerBound="1" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+					<pattern>[0-9]{8}</pattern>
+				</typeDef>
+			</property>
+			<property name="site" lowerBound="1" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+					<pattern>[0-9]{8}-[0-9]{3}</pattern>
+				</typeDef>
+			</property>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-spareparts" name="invoice" type="d4p1:Invoice" lowerBound="0" upperBound="-1" nillable="true"/>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-spareparts" name="repairOrder" type="d4p1:RepairOrder" lowerBound="0" upperBound="-1" nillable="true"/>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-spareparts" name="retailSale" type="d4p1:RetailSale" lowerBound="0" upperBound="-1" nillable="true"/>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-spareparts" name="carSale" type="d4p1:CarSale" lowerBound="0" upperBound="-1" nillable="true"/>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-spareparts" name="warranty" type="d4p1:Warranty" lowerBound="0" upperBound="-1" nillable="true"/>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-spareparts" name="writeOff" type="d4p1:WriteOff" lowerBound="0" upperBound="-1" nillable="true"/>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-spareparts" name="return" type="d4p1:Return" lowerBound="0" upperBound="-1" nillable="true"/>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-spareparts" name="purchase" type="d4p1:Purchase" lowerBound="0" upperBound="-1" nillable="true"/>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-spareparts" name="stock" type="d4p1:Stock" lowerBound="0" upperBound="-1" nillable="true"/>
+		</typeDef>
+	</property>
+	<valueType name="RepairType" base="xs:string" variety="Atomic">
+		<pattern>Слесарный ремонт|Регулярное ТО|Регулярное ТО\+Слесарный ремонт|Мойка|Дополнительное оборудование|Гарантия слесарный ремонт|Гарантия кузовной ремонт|Кузовной ремонт|Внутренний ремонт|Сервисные продукты</pattern>
+	</valueType>
+	<valueType name="String25" base="xs:string" variety="Atomic" maxLength="25"/>
+	<valueType name="String255" base="xs:string" variety="Atomic" maxLength="255"/>
+	<valueType name="UUID" base="xs:string" variety="Atomic">
+		<pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
+	</valueType>
+	<valueType name="UploadingMode" base="xs:string" variety="Atomic">
+		<pattern>C|U|D</pattern>
+	</valueType>
+	<valueType name="VATRate" base="xs:decimal" variety="Atomic">
+		<enumeration>0.0</enumeration>
+		<enumeration>10.0</enumeration>
+		<enumeration>18.0</enumeration>
+		<enumeration>20.0</enumeration>
+	</valueType>
+	<valueType name="VIN" base="xs:string" variety="Atomic">
+		<pattern>[0123456789ABCDEFGHJKLMNPRSTUVWXYZ-]{8,17}</pattern>
+	</valueType>
+	<objectType name="CarSale" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="documentNumber" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="VIN" type="d3p1:VIN"/>
+		<property name="TIN" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[0-9]{10}([0-9]{2})?</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="spareparts" type="d3p1:Parts"/>
+	</objectType>
+	<objectType name="Invoice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="documentNumber" type="d3p1:String25"/>
+		<property name="TIN">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[0-9]{10}([0-9]{2})?</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="spareparts" type="d3p1:Parts"/>
+	</objectType>
+	<objectType name="Purchase" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="documentNumber" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="invoiceNumber" type="d3p1:String25"/>
+		<property name="TIN">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[0-9]{10}([0-9]{2})?</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="spareparts" type="d3p1:PurchaseParts"/>
+	</objectType>
+	<objectType name="Qty" ordered="false" sequenced="true">
+		<property name="qty" type="xs:decimal"/>
+		<property name="unit" type="xs:string"/>
+		<property name="coef" type="xs:decimal"/>
+	</objectType>
+	<objectType name="RepairOrder" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="documentNumber" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="repairType" type="d3p1:RepairType"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="VIN" type="d3p1:VIN"/>
+		<property name="TIN" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[0-9]{10}([0-9]{2})?</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="spareparts" type="d3p1:Parts"/>
+	</objectType>
+	<objectType name="RetailSale" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="documentNumber" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="spareparts" type="d3p1:Parts"/>
+	</objectType>
+	<objectType name="Return" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="documentNumber" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="saleDocumentNumber" type="d3p1:String25"/>
+		<property name="TIN" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[0-9]{10}([0-9]{2})?</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="spareparts" type="d3p1:Parts"/>
+	</objectType>
+	<objectType name="Sparepart" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="reference" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="name" type="d3p1:String255"/>
+	</objectType>
+	<objectType name="Stock" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="spareparts" type="d3p1:StockSpareparts"/>
+	</objectType>
+	<objectType name="Warranty" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="documentNumber" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="repairType" type="d3p1:RepairType"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="VIN" type="d3p1:VIN"/>
+		<property name="TIN" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[0-9]{10}([0-9]{2})?</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="spareparts" type="d3p1:WarrantyParts"/>
+	</objectType>
+	<objectType name="WriteOff" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property name="date" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="documentNumber" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="VIN" type="d3p1:VIN" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="spareparts" type="d3p1:WriteOffParts"/>
+	</objectType>
+	<objectType name="spareparts" open="true">
+		<property name="ver" form="Attribute"/>
+		<property name="bir" form="Attribute"/>
+		<property name="site" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="CarSale" type="d3p1:CarSale"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="Invoice" type="d3p1:Invoice"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="Purchase" type="d3p1:Purchase"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="Qty" type="d3p1:Qty"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="RepairOrder" type="d3p1:RepairOrder"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="RetailSale" type="d3p1:RetailSale"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="Return" type="d3p1:Return"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="Sparepart" type="d3p1:Sparepart"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="Stock" type="d3p1:Stock"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="Warranty" type="d3p1:Warranty"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="WriteOff" type="d3p1:WriteOff"/>
+	</objectType>
+	<objectType name="Parts" open="true" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="line" type="d3p1:line" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="line" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="sparepart" type="d3p1:Sparepart"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="qty" type="d3p1:Qty"/>
+		<property name="amount" type="xs:decimal"/>
+		<property name="discount" type="xs:decimal"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="VATRate" type="d3p1:VATRate"/>
+		<property name="VAT" type="xs:decimal"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="marking" type="d3p1:marking"/>
+	</objectType>
+	<objectType name="StockSpareparts" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="line" type="d3p1:StockSparepartsLine" upperBound="-1"/>
+	</objectType>
+	<objectType name="StockSparepartsLine">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="sparepart" type="d3p1:Sparepart"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="qty" type="d3p1:Qty"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="workshop" type="d3p1:Qty"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="ordered" type="d3p1:Qty"/>
+		<property name="lastDelivery" type="xs:date" lowerBound="0"/>
+	</objectType>
+	<objectType name="marking" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="mark" type="d3p1:mark" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="mark">
+		<property name="mark" form="Text"/>
+	</objectType>
+	<objectType name="WarrantyParts" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="line" type="d3p1:WarrantyPartsLine" upperBound="-1"/>
+	</objectType>
+	<objectType name="WarrantyPartsLine">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="sparepart" type="d3p1:Sparepart"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="qty" type="d3p1:Qty"/>
+		<property name="amount" type="xs:decimal"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="marking" type="d3p1:marking"/>
+	</objectType>
+	<objectType name="PurchaseParts" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="line" type="d3p1:PurchasePartsLine" upperBound="-1"/>
+	</objectType>
+	<objectType name="PurchasePartsLine">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="sparepart" type="d3p1:Sparepart"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="qty" type="d3p1:Qty"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="marking" type="d3p1:marking"/>
+	</objectType>
+	<objectType name="WriteOffParts" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="line" type="d3p1:WriteOffPartsLine" upperBound="-1"/>
+	</objectType>
+	<objectType name="WriteOffPartsLine">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="sparepart" type="d3p1:Sparepart"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="qty" type="d3p1:Qty"/>
+		<property name="amount" type="xs:decimal"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-spareparts" name="marking" type="d3p1:marking"/>
+	</objectType>
+</package>

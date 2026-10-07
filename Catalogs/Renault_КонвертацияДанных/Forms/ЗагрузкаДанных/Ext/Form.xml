@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<CommandSet>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="БазаДанных" id="10">
+			<DataPath>БазаДанных</DataPath>
+			<ListChoiceMode>true</ListChoiceMode>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="БазаДанныхКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="БазаДанныхРасширеннаяПодсказка" id="12"/>
+			<Events>
+				<Event name="OnChange">БазаДанныхПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="НомерПоследнегоЗагруженногоПакета" id="1">
+			<DataPath>НомерПоследнегоЗагруженногоПакета</DataPath>
+			<ClearButton>true</ClearButton>
+			<ContextMenu name="НомерПоследнегоЗагруженногоПакетаКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НомерПоследнегоЗагруженногоПакетаРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="НомерПоследнегоВыгруженногоПакета" id="18">
+			<DataPath>НомерПоследнегоВыгруженногоПакета</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="НомерПоследнегоВыгруженногоПакетаКонтекстноеМеню" id="19"/>
+			<ExtendedTooltip name="НомерПоследнегоВыгруженногоПакетаРасширеннаяПодсказка" id="20"/>
+		</InputField>
+		<LabelDecoration name="Декорация1" id="21">
+			<TextColor>#003366</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Будут загружены пакеты БОЛЕЕ последнего загруженного и МЕНЕЕ последнего выгруженного.
+Ссылки с номерами пакетов БОЛЕЕ последнего выгруженного - могут быть в процессе выгрузки.</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Later packages loaded and unloaded LEAST the last will be loaded.
+Links with numbers packages a later discharged - can be in the process of unloading.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="Декорация1КонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="23"/>
+		</LabelDecoration>
+		<CheckBoxField name="Перезаписать" id="15">
+			<DataPath>Перезаписать</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ПерезаписатьКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="ПерезаписатьРасширеннаяПодсказка" id="17"/>
+		</CheckBoxField>
+		<CommandBar name="Группа1" id="8">
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="9"/>
+			<ChildItems>
+				<Button name="кнВыполнить" id="4">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.кнВыполнить</CommandName>
+					<ExtendedTooltip name="кнВыполнитьРасширеннаяПодсказка" id="5"/>
+				</Button>
+				<Button name="Закрыть" id="6">
+					<Type>CommandBarButton</Type>
+					<Representation>Text</Representation>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="7"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="НомерПоследнегоЗагруженногоПакета" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер последнего загруженного пакета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Number of the last downloaded package</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="БазаДанных" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>База данных для обмена</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The database for the exchange of</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:ExternalDataSourceTableRef.Renault_ПередачаДанныхВСторонниеСистемы.БазыДанных</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Перезаписать" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить перезапись если версия объекта не изменилась</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Dub version if the object has not changed</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НомерПоследнегоВыгруженногоПакета" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер последнего выгруженного пакета</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Room recently discharged package</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="кнВыполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Run</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.GenerateReport</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВыполнить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

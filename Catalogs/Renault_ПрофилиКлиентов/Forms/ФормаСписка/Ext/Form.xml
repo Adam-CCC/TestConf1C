@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаполнитьПрофили" id="35">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗаполнитьПрофили</CommandName>
+				<ExtendedTooltip name="ФормаЗаполнитьПрофилиРасширеннаяПодсказка" id="36"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="GoldenIdПредставление" id="40">
+					<DataPath>Список.GoldenIdPresentation</DataPath>
+					<ContextMenu name="GoldenIdПредставлениеКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="GoldenIdПредставлениеРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+				<PictureField name="СовпадениеПоКонтактнойИнформации" id="32">
+					<DataPath>Список.ИндексСовпадениеПоКонтактнойИнформации</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>2</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.СтатусыСобытийЖурналаРегистрации</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="СовпадениеПоКонтактнойИнформацииКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СовпадениеПоКонтактнойИнформацииРасширеннаяПодсказка" id="34"/>
+				</PictureField>
+				<LabelField name="Код" id="14">
+					<DataPath>Список.Code</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="КодКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="Фамилия" id="23">
+					<DataPath>Список.Фамилия</DataPath>
+					<Width>20</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ФамилияКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ФамилияРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="Имя" id="17">
+					<DataPath>Список.Имя</DataPath>
+					<Width>20</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ИмяКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ИмяРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<LabelField name="Отчество" id="20">
+					<DataPath>Список.Отчество</DataPath>
+					<Width>20</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ОтчествоКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ОтчествоРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="ДатаРождения" id="26">
+					<DataPath>Список.ДатаРождения</DataPath>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy; ДП=-</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>DF = dd.MM.yyyy; DP = -</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="ДатаРожденияКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ДатаРожденияРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<LabelField name="КоличествоКлиентов" id="29">
+					<DataPath>Список.КоличествоКлиентов</DataPath>
+					<HorizontalAlign>Left</HorizontalAlign>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="КоличествоКлиентовКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="КоличествоКлиентовРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="37">
+					<DataPath>Список.Ref</DataPath>
+					<Width>5</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="39"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникRenault_ПрофилиКлиентов.Ссылка,
+	СправочникRenault_ПрофилиКлиентов.ПометкаУдаления,
+	СправочникRenault_ПрофилиКлиентов.Предопределенный,
+	СправочникRenault_ПрофилиКлиентов.Код,
+	СправочникRenault_ПрофилиКлиентов.БлокироватьЗвонки,
+	СправочникRenault_ПрофилиКлиентов.БлокироватьИнформационныеСообщения,
+	СправочникRenault_ПрофилиКлиентов.БлокироватьМаркетинговыеСообщения,
+	СправочникRenault_ПрофилиКлиентов.БлокироватьПисьма,
+	СправочникRenault_ПрофилиКлиентов.БлокироватьСМС,
+	СправочникRenault_ПрофилиКлиентов.БлокироватьСрочныеСообщения,
+	СправочникRenault_ПрофилиКлиентов.ГруппаПрофилей,
+	СправочникRenault_ПрофилиКлиентов.ЗвонитьПо,
+	СправочникRenault_ПрофилиКлиентов.ЗвонитьС,
+	СправочникRenault_ПрофилиКлиентов.Имя,
+	СправочникRenault_ПрофилиКлиентов.КоличествоКлиентов,
+	СправочникRenault_ПрофилиКлиентов.Отчество,
+	СправочникRenault_ПрофилиКлиентов.Фамилия,
+	СправочникRenault_ПрофилиКлиентов.ДатаРождения,
+	СправочникRenault_ПрофилиКлиентов.СовпадениеПоКонтактнойИнформации,
+	ВЫБОР
+		КОГДА СправочникRenault_ПрофилиКлиентов.СовпадениеПоКонтактнойИнформации
+			ТОГДА 2
+		ИНАЧЕ 3
+	КОНЕЦ КАК ИндексСовпадениеПоКонтактнойИнформации,
+	СправочникRenault_ПрофилиКлиентов.Клиенты.(
+		Ссылка,
+		НомерСтроки,
+		Клиент,
+		ПоФИО,
+		ПоТелефону,
+		ПоАдресуЭлектроннойПочты,
+		ПоАвтомобилю
+	),
+	СправочникRenault_ПрофилиКлиентов.КонтактыКлиента.(
+		Ссылка,
+		НомерСтроки,
+		Клиент,
+		ТипКонтакта,
+		Контакт
+	),
+	СправочникRenault_ПрофилиКлиентов.РодственныеСвязи.(
+		Ссылка,
+		НомерСтроки,
+		ПрофильРодственника,
+		СтепеньРодства,
+		Тест
+	),
+	ПРЕДСТАВЛЕНИЕ(СправочникRenault_ПрофилиКлиентов.GoldenId)
+ИЗ
+	Справочник.Renault_ПрофилиКлиентов КАК СправочникRenault_ПрофилиКлиентов</QueryText>
+				<MainTable>Catalog.Renault_ПрофилиКлиентов</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьПрофили" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить/Обновить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Fill / Update</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить профили</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Complete profile</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьПрофили</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

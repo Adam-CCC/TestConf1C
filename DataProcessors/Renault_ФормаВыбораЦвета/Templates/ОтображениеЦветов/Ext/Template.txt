@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+</head>
+<script type="text/javascript">
+
+	if(!document.getElementById)document.getElementById=function(elemID){return eval("document.all['" + elemID + "']");}
+
+	function rgb2hex(r,g,b){
+		return (
+			(0x100 | r).toString(16).substr(1)+
+			(0x100 | g).toString(16).substr(1)+
+			(0x100 | b).toString(16).substr(1));
+	}
+
+	function setColor(element,r,g,b){
+		element.style.backgroundColor='#'+rgb2hex(r,g,b);
+		element.style.color=0.213*r+0.715*g+0.072*b<127.5 ? '#ffffff' : '#000000';
+	}
+
+	function setOldColor(r,g,b){setColor(document.getElementById("oldColor"),r,g,b);}
+
+	function setNewColor(r,g,b){setColor(document.getElementById("newColor"),r,g,b);}
+
+	function doLoad(){
+		document.ondragstart = function(){return false};
+		document.onselectstart = function(e){if(!e)e=window.event;e.returnValue=false;};
+		document.ontextmenu = function(){return false};
+		document.oncontextmenu = function(e){
+			if(!e)e=window.event;
+			if (e.preventDefault)
+				e.preventDefault();
+			else
+				e.returnValue= false;
+			return false;
+		}
+	}
+</script>
+<style>
+body{
+	background-color: #ffffff;
+	-moz-user-select: none;
+}
+</style> 
+<body onload="doLoad" scroll="no">
+	<div style="position:absolute;height:22px;width:112px;left:18px;top:4px;border:1px solid #b3ac86;">
+		<div id="oldColor" style="position:absolute;left:2px;top:2px;width:53px;height:16px;display:block"><span></span></div>
+		<div id="newColor" style="position:absolute;left:55px;top:2px;width:53px;height:16px;display:block"><span></span></div>
+	</div>
+</div>
+</html>

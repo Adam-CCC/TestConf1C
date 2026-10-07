@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="50">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="63"/>
+			<ChildItems>
+				<Table name="Список" id="1">
+					<Representation>List</Representation>
+					<CommandBarLocation>None</CommandBarLocation>
+					<DefaultItem>true</DefaultItem>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<InitialTreeView>ExpandTopLevel</InitialTreeView>
+					<EnableStartDrag>true</EnableStartDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Список</DataPath>
+					<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="СписокКонтекстноеМеню" id="2">
+						<ChildItems>
+							<Button name="СписокКонтекстноеМенюОтправитьНаПроверку" id="57">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОтправитьНаПроверку</CommandName>
+								<ExtendedTooltip name="СписокКонтекстноеМенюОтправитьНаПроверкуРасширеннаяПодсказка" id="64"/>
+							</Button>
+						</ChildItems>
+					</ContextMenu>
+					<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="65"/>
+					<SearchStringAddition name="СписокСтрокаПоиска" id="66">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="67"/>
+						<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="68"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокСостояниеПросмотра" id="69">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="70"/>
+						<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="71"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокУправлениеПоиском" id="72">
+						<AdditionSource>
+							<Item>Список</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="73"/>
+						<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="74"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">СписокВыбор</Event>
+						<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="Автомобиль" id="59">
+							<DataPath>Список.Автомобиль</DataPath>
+							<ContextMenu name="АвтомобильКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="АвтомобильРасширеннаяПодсказка" id="75"/>
+						</LabelField>
+						<LabelField name="Дата" id="14">
+							<DataPath>Список.Date</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=dd.MM.yyyy</v8:content>
+								</v8:item>
+							</Format>
+							<ContextMenu name="ДатаКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="76"/>
+						</LabelField>
+						<LabelField name="НомерPVR" id="54">
+							<DataPath>Список.НомерPVR</DataPath>
+							<ContextMenu name="НомерPVRКонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="НомерPVRРасширеннаяПодсказка" id="77"/>
+						</LabelField>
+						<LabelField name="ВхДокНомер" id="23">
+							<DataPath>Список.ВхДокНомер</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер ТТН</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ВхДокНомерКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="ВхДокНомерРасширеннаяПодсказка" id="78"/>
+						</LabelField>
+						<LabelField name="ВхДокДата" id="20">
+							<DataPath>Список.ВхДокДата</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата ТТН</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ВхДокДатаКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ВхДокДатаРасширеннаяПодсказка" id="79"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+				<Button name="ЗаполнитьСоставКомиссии" id="52">
+					<Type>UsualButton</Type>
+					<Visible>false</Visible>
+					<CommandName>Form.Command.ЗаполнитьСоставКомиссии</CommandName>
+					<ExtendedTooltip name="ЗаполнитьСоставКомиссииРасширеннаяПодсказка" id="80"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="103">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История статусов</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="104"/>
+			<ChildItems>
+				<Table name="ИсторияСтатусов" id="105">
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<Height>8</Height>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ИсторияСтатусов</DataPath>
+					<RowPictureDataPath>ИсторияСтатусов.DefaultPicture</RowPictureDataPath>
+					<CommandSet>
+						<ExcludedCommand>CancelSearch</ExcludedCommand>
+						<ExcludedCommand>Change</ExcludedCommand>
+						<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+						<ExcludedCommand>Find</ExcludedCommand>
+						<ExcludedCommand>FindByCurrentValue</ExcludedCommand>
+						<ExcludedCommand>ListSettings</ExcludedCommand>
+						<ExcludedCommand>OutputList</ExcludedCommand>
+						<ExcludedCommand>Refresh</ExcludedCommand>
+						<ExcludedCommand>SearchHistory</ExcludedCommand>
+						<ExcludedCommand>SetDateInterval</ExcludedCommand>
+						<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+					</CommandSet>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="ИсторияСтатусовКонтекстноеМеню" id="106"/>
+					<AutoCommandBar name="ИсторияСтатусовКоманднаяПанель" id="107"/>
+					<ExtendedTooltip name="ИсторияСтатусовРасширеннаяПодсказка" id="108"/>
+					<SearchStringAddition name="ИсторияСтатусовСтрокаПоиска" id="109">
+						<AdditionSource>
+							<Item>ИсторияСтатусов</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ИсторияСтатусовСтрокаПоискаКонтекстноеМеню" id="110"/>
+						<ExtendedTooltip name="ИсторияСтатусовСтрокаПоискаРасширеннаяПодсказка" id="111"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ИсторияСтатусовСостояниеПросмотра" id="112">
+						<AdditionSource>
+							<Item>ИсторияСтатусов</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ИсторияСтатусовСостояниеПросмотраКонтекстноеМеню" id="113"/>
+						<ExtendedTooltip name="ИсторияСтатусовСостояниеПросмотраРасширеннаяПодсказка" id="114"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ИсторияСтатусовУправлениеПоиском" id="115">
+						<AdditionSource>
+							<Item>ИсторияСтатусов</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ИсторияСтатусовУправлениеПоискомКонтекстноеМеню" id="116"/>
+						<ExtendedTooltip name="ИсторияСтатусовУправлениеПоискомРасширеннаяПодсказка" id="117"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ИсторияСтатусовВыбор</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="ИсторияСтатусовСтатус" id="124">
+							<DataPath>ИсторияСтатусов.Статус</DataPath>
+							<ContextMenu name="ИсторияСтатусовСтатусКонтекстноеМеню" id="125"/>
+							<ExtendedTooltip name="ИсторияСтатусовСтатусРасширеннаяПодсказка" id="126"/>
+						</LabelField>
+						<LabelField name="ИсторияСтатусовПериод" id="118">
+							<DataPath>ИсторияСтатусов.Period</DataPath>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=dd.MM.yyyy</v8:content>
+								</v8:item>
+							</Format>
+							<ContextMenu name="ИсторияСтатусовПериодКонтекстноеМеню" id="119"/>
+							<ExtendedTooltip name="ИсторияСтатусовПериодРасширеннаяПодсказка" id="120"/>
+						</LabelField>
+						<LabelField name="ИсторияСтатусовКоментарий" id="121">
+							<DataPath>ИсторияСтатусов.Коментарий</DataPath>
+							<ContextMenu name="ИсторияСтатусовКоментарийКонтекстноеМеню" id="122"/>
+							<ExtendedTooltip name="ИсторияСтатусовКоментарийРасширеннаяПодсказка" id="123"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ref</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументDMS_КартаКачестваПоставки.Ссылка,
+	ДокументDMS_КартаКачестваПоставки.Номер,
+	ДокументDMS_КартаКачестваПоставки.Дата,
+	ДокументDMS_КартаКачестваПоставки.Автомобиль,
+	ПоступлениеАвтомобилейАвтомобили.Ссылка КАК ТТНСсылка,
+	ПоступлениеАвтомобилейАвтомобили.Ссылка.ВхДокНомер,
+	ПоступлениеАвтомобилейАвтомобили.Ссылка.ВхДокДата,
+	Renault_ДопРеквизитыПоступленияАвтомобилей.ПредседательКомиссии,
+	Renault_ДопРеквизитыПоступленияАвтомобилей.СоставКомиссии1,
+	Renault_ДопРеквизитыПоступленияАвтомобилей.СоставКомиссии2,
+	Renault_ДопРеквизитыПоступленияАвтомобилей.СоставКомиссии3,
+	ДокументDMS_КартаКачестваПоставки.НомерPVR
+ИЗ
+	Документ.DMS_КартаКачестваПоставки КАК ДокументDMS_КартаКачестваПоставки
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеАвтомобилей.Автомобили КАК ПоступлениеАвтомобилейАвтомобили
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ДопРеквизитыПоступленияАвтомобилей КАК Renault_ДопРеквизитыПоступленияАвтомобилей
+			ПО ПоступлениеАвтомобилейАвтомобили.Ссылка = Renault_ДопРеквизитыПоступленияАвтомобилей.ПоступлениеАвтомобилей
+		ПО ДокументDMS_КартаКачестваПоставки.VIN = ПоступлениеАвтомобилейАвтомобили.VIN
+			И (ПоступлениеАвтомобилейАвтомобили.Ссылка.Проведен = ИСТИНА)
+ГДЕ
+	ДокументDMS_КартаКачестваПоставки.СостАвтоСоотвТребКачестваПримеки = ЛОЖЬ</QueryText>
+				<MainTable>Document.DMS_КартаКачестваПоставки</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Ссылка.СтатусPVR</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Renault_СтатусыPVR.ОжидаетПроверки</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#9CA6B2</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ТТНСсылка</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+					</dcsset:item>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СоставКомиссии" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состав комиссии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="СоставКомиссии" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состав комиссии</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Сотрудник" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сотрудник</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Сотрудники</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Должность" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Должность</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Должности</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТекГруппировка" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тек группировка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentObject.ПоступлениеАвтомобилей</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ТекГруппировка.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ИсторияСтатусов" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История статусов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	Renault_ИсторияСтатусовPVR.Период,
+	Renault_ИсторияСтатусовPVR.Статус,
+	Renault_ИсторияСтатусовPVR.Коментарий
+ИЗ
+	РегистрСведений.Renault_ИсторияСтатусовPVR КАК Renault_ИсторияСтатусовPVR
+ГДЕ
+	Renault_ИсторияСтатусовPVR.Объект = &amp;Объект</QueryText>
+				<MainTable>InformationRegister.Renault_ИсторияСтатусовPVR</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьСоставКомиссии" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить состав комиссии</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить состав комиссии</v8:content>
+				</v8:item>
+			</ToolTip>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтправитьНаПроверку" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить на проверку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить на проверку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьНаПроверку</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Получить" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Получить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

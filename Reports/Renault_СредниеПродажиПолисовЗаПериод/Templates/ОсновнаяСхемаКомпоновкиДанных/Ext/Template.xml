@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных2</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПолисКоличество</dataPath>
+			<field>ПолисКоличество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаКОплатеПоПолису</dataPath>
+			<field>СуммаКОплатеПоПолису</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаОплаты</dataPath>
+			<field>СуммаОплаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаПродаж</dataPath>
+			<field>ТочкаПродаж</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСтрахования</dataPath>
+			<field>ВидСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОплаты</dataPath>
+			<field>ВидОплаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаКомиссии</dataPath>
+			<field>СуммаКомиссии</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Агент</dataPath>
+			<field>Агент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяКомпания</dataPath>
+			<field>СтраховаяКомпания</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВзаиморасчетыСКонтрагентами.ДоговорВзаиморасчетов КАК ДоговорКонтрагента,
+	ВзаиморасчетыСКонтрагентами.Сделка КАК Сделка,
+//	ВзаиморасчетыСКонтрагентами.Организация КАК Организация,
+	ВзаиморасчетыСКонтрагентами.Контрагент КАК Контрагент,
+	СУММА(ВзаиморасчетыСКонтрагентами.Сумма) КАК СуммаВзаиморасчетов,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(ВзаиморасчетыСКонтрагентами.Регистратор) = ТИП(Документ.ПриходныйКассовыйОрдер)
+				ИЛИ ТИПЗНАЧЕНИЯ(ВзаиморасчетыСКонтрагентами.Регистратор) = ТИП(Документ.РасходныйКассовыйОрдер)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_СпособыОплатыСтраховыхПолисов.НАЛ)
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.Renault_СпособыОплатыСтраховыхПолисов.БНАЛ)
+	КОНЕЦ КАК СпособОплаты,
+	ВзаиморасчетыСКонтрагентами.Регистратор КАК ПлатежныйДокумент
+ПОМЕСТИТЬ ВТ_ВзаиморасчетыЗаПериод
+ИЗ РегистрНакопления.ВзаиморасчетыКомпании КАК ВзаиморасчетыСКонтрагентами
+ГДЕ
+	ВзаиморасчетыСКонтрагентами.Период МЕЖДУ НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ДЕНЬ) И КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ)
+	И(ВзаиморасчетыСКонтрагентами.Регистратор ССЫЛКА Документ.ПриходныйКассовыйОрдер
+		ИЛИ ВзаиморасчетыСКонтрагентами.Регистратор ССЫЛКА Документ.РасходныйКассовыйОрдер
+		ИЛИ ВзаиморасчетыСКонтрагентами.Регистратор ССЫЛКА Документ.ЧекНаОплату
+	)
+
+СГРУППИРОВАТЬ ПО
+	ВзаиморасчетыСКонтрагентами.Контрагент,
+//	ВзаиморасчетыСКонтрагентами.Организация,
+	ВзаиморасчетыСКонтрагентами.Сделка,
+	ВзаиморасчетыСКонтрагентами.ДоговорВзаиморасчетов,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(ВзаиморасчетыСКонтрагентами.Регистратор) = ТИП(Документ.ПриходныйКассовыйОрдер)
+				ИЛИ ТИПЗНАЧЕНИЯ(ВзаиморасчетыСКонтрагентами.Регистратор) = ТИП(Документ.РасходныйКассовыйОрдер)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_СпособыОплатыСтраховыхПолисов.НАЛ)
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.Renault_СпособыОплатыСтраховыхПолисов.БНАЛ)
+	КОНЕЦ,
+	ВзаиморасчетыСКонтрагентами.Регистратор
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Renault_СтраховойПолис.Ссылка,
+	Renault_СтраховойПолис.Дата,
+	Renault_СтраховойПолис.Организация,
+	Renault_СтраховойПолис.Контрагент,
+	Renault_СтраховойПолис.ЗаказПокупателя.ДоговорВзаиморасчетов ДоговорКонтрагента,
+	Renault_СтраховойПолис.СуммаДокумента,
+	Renault_СтраховойПолис.ЗаказПокупателя,
+	Renault_СтраховойПолис.ОплатаСК,
+	Renault_СтраховойПолис.ОплатаЧерезБанк,
+	Renault_СтраховойПолис.ТочкаПродаж,
+	ВЫБОР
+		КОГДА Renault_СтраховойПолис.СуммаДокумента &lt; 3000
+				И Renault_СтраховойПолис.ВидСтрахования = &amp;ВидСТрахованияКаско
+			ТОГДА &amp;ВидСтрахованияДГО
+		ИНАЧЕ Renault_СтраховойПолис.ВидСтрахования
+	КОНЕЦ КАК ВидСтрахования,
+//	Renault_СтраховойПолис.Отдел,
+	Renault_СтраховойПолис.СтраховаяКомпания,
+	Renault_СтраховойПолис.ПроцентСкидкиЗасчетКВ,
+	Renault_СтраховойПолис.Агент
+ПОМЕСТИТЬ ВТ_ПолисыЗаПериод
+ИЗ
+	Документ.Renault_СтраховойПолис КАК Renault_СтраховойПолис
+ГДЕ
+	Renault_СтраховойПолис.Дата МЕЖДУ НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ДЕНЬ) И КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ)
+	И (Renault_СтраховойПолис.Состояние = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыСтраховыхПолисов.Продан)
+			ИЛИ Renault_СтраховойПолис.Состояние = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыСтраховыхПолисов.Вработе))
+	И Renault_СтраховойПолис.ЗаменяемыйПолис = ЗНАЧЕНИЕ(Документ.Renault_СтраховойПолис.ПустаяСсылка)
+	И Renault_СтраховойПолис.Проведен
+	И НЕ Renault_СтраховойПолис.ПометкаУдаления
+	И Renault_СтраховойПолис.ДатаНачалаСтрахования &gt;= &amp;ДатаНачалаСтрахования
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(ВТ_ВзаиморасчетыЗаПериод.СуммаВзаиморасчетов) КАК СуммаОплаты,
+	ВТ_ПолисыЗаПериод.Ссылка КАК ПолисСсылка,
+	ВТ_ПолисыЗаПериод.ТочкаПродаж,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_ПолисыЗаПериод.Ссылка) КАК ПолисКоличество,
+//	ВТ_ПолисыЗаПериод.Отдел,
+	ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОплатСтраховыхПолисов.ОплатаПоКассе) КАК СпособОплаты,
+	ВТ_ПолисыЗаПериод.ВидСтрахования
+ПОМЕСТИТЬ ВТ_ПолисыИОплаты
+ИЗ
+	ВТ_ВзаиморасчетыЗаПериод КАК ВТ_ВзаиморасчетыЗаПериод
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ПолисыЗаПериод КАК ВТ_ПолисыЗаПериод
+		ПО ВТ_ВзаиморасчетыЗаПериод.ДоговорКонтрагента = ВТ_ПолисыЗаПериод.ДоговорКонтрагента
+			И ВТ_ВзаиморасчетыЗаПериод.Сделка = ВТ_ПолисыЗаПериод.ЗаказПокупателя
+			И ВТ_ВзаиморасчетыЗаПериод.Контрагент = ВТ_ПолисыЗаПериод.Контрагент
+ГДЕ
+	НЕ ВТ_ПолисыЗаПериод.ОплатаСК
+	И НЕ ВТ_ПолисыЗаПериод.ОплатаЧерезБанк
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ПолисыЗаПериод.ТочкаПродаж,
+	ВТ_ПолисыЗаПериод.Ссылка,
+//	ВТ_ПолисыЗаПериод.Отдел,
+	ВТ_ПолисыЗаПериод.ВидСтрахования
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	СУММА(ВТ_ПолисыЗаПериод.СуммаДокумента),
+	ВТ_ПолисыЗаПериод.Ссылка,
+	ВТ_ПолисыЗаПериод.ТочкаПродаж,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ВТ_ПолисыЗаПериод.Ссылка),
+//	ВТ_ПолисыЗаПериод.Отдел,
+	ВЫБОР
+		КОГДА ВТ_ПолисыЗаПериод.ОплатаСК
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОплатСтраховыхПолисов.ОплатаПоКассе)
+		КОГДА ВТ_ПолисыЗаПериод.ОплатаЧерезБанк
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОплатСтраховыхПолисов.ОплатаЧерезБанк)
+	КОНЕЦ,
+	ВТ_ПолисыЗаПериод.ВидСтрахования
+ИЗ
+	ВТ_ПолисыЗаПериод КАК ВТ_ПолисыЗаПериод
+ГДЕ
+	(ВТ_ПолисыЗаПериод.ОплатаСК
+			ИЛИ ВТ_ПолисыЗаПериод.ОплатаЧерезБанк)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ПолисыЗаПериод.ТочкаПродаж,
+	ВТ_ПолисыЗаПериод.Ссылка,
+//	ВТ_ПолисыЗаПериод.Отдел,
+	ВТ_ПолисыЗаПериод.ВидСтрахования,
+	ВЫБОР
+		КОГДА ВТ_ПолисыЗаПериод.ОплатаСК
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОплатСтраховыхПолисов.ОплатаПоКассе)
+		КОГДА ВТ_ПолисыЗаПериод.ОплатаЧерезБанк
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОплатСтраховыхПолисов.ОплатаЧерезБанк)
+	КОНЕЦ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПолисыЗаПериод.Ссылка,
+	МАКСИМУМ(Renault_ФинансовыеПолитикиСтраховыхКомпаний.КВБордеро) КАК КВБордеро,
+	МАКСИМУМ(Renault_ФинансовыеПолитикиСтраховыхКомпаний.КВДВОУ) КАК КВДВОУ
+ПОМЕСТИТЬ ВТ_ФинПолитика
+ИЗ
+	ВТ_ПолисыЗаПериод КАК ВТ_ПолисыЗаПериод
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ФинансовыеПолитикиСтраховыхКомпаний КАК Renault_ФинансовыеПолитикиСтраховыхКомпаний
+		ПО ВТ_ПолисыЗаПериод.СтраховаяКомпания = Renault_ФинансовыеПолитикиСтраховыхКомпаний.СтраховаяКомпания
+			И ВТ_ПолисыЗаПериод.ВидСтрахования = Renault_ФинансовыеПолитикиСтраховыхКомпаний.ВидСтрахования
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ПолисыЗаПериод.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПолисыИОплаты.ТочкаПродаж,
+	ВТ_ПолисыИОплаты.СуммаОплаты КАК СуммаОплаты,
+	ВТ_ПолисыИОплаты.ПолисСсылка,
+	ВТ_ПолисыИОплаты.ПолисКоличество КАК ПолисКоличество,
+	ВТ_ПолисыЗаПериод.СуммаДокумента КАК СуммаКОплатеПоПолису,
+//	ВТ_ПолисыИОплаты.Отдел,
+	ВТ_ПолисыИОплаты.СпособОплаты,
+	ВТ_ПолисыЗаПериод.ВидСтрахования,
+	ВЫБОР
+		КОГДА ВТ_ФинПолитика.КВБордеро + ВТ_ФинПолитика.КВДВОУ &gt; 0
+			ТОГДА ВЫРАЗИТЬ(ВТ_ПолисыИОплаты.СуммаОплаты * (ВТ_ФинПолитика.КВБордеро - ВТ_ПолисыЗаПериод.ПроцентСкидкиЗасчетКВ) / 100 КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаКомиссии,
+	ВТ_ПолисыЗаПериод.Агент,
+	ВТ_ПолисыЗаПериод.СтраховаяКомпания
+ПОМЕСТИТЬ ВТ_ССуммойПоПолису
+ИЗ
+	ВТ_ПолисыИОплаты КАК ВТ_ПолисыИОплаты
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ПолисыЗаПериод КАК ВТ_ПолисыЗаПериод
+		ПО ВТ_ПолисыИОплаты.ПолисСсылка = ВТ_ПолисыЗаПериод.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ФинПолитика КАК ВТ_ФинПолитика
+		ПО ВТ_ПолисыИОплаты.ПолисСсылка = ВТ_ФинПолитика.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ССуммойПоПолису.ТочкаПродаж,
+	СУММА(ВТ_ССуммойПоПолису.ПолисКоличество) КАК ПолисКоличество,
+	СУММА(ВТ_ССуммойПоПолису.СуммаОплаты) КАК СуммаОплаты,
+	СУММА(ВТ_ССуммойПоПолису.СуммаКОплатеПоПолису) КАК СуммаКОплатеПоПолису,
+//	ВТ_ССуммойПоПолису.Отдел,
+	ВТ_ССуммойПоПолису.СпособОплаты КАК ВидОплаты,
+	ВТ_ССуммойПоПолису.ВидСтрахования,
+	СУММА(ВТ_ССуммойПоПолису.СуммаКомиссии) КАК СуммаКомиссии,
+	ВТ_ССуммойПоПолису.Агент,
+	ВТ_ССуммойПоПолису.СтраховаяКомпания
+ИЗ
+	ВТ_ССуммойПоПолису КАК ВТ_ССуммойПоПолису
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ССуммойПоПолису.ТочкаПродаж,
+//	ВТ_ССуммойПоПолису.Отдел,
+	ВТ_ССуммойПоПолису.СпособОплаты,
+	ВТ_ССуммойПоПолису.ВидСтрахования,
+	ВТ_ССуммойПоПолису.Агент,
+	ВТ_ССуммойПоПолису.СтраховаяКомпания</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>СреднееПоОплате</dataPath>
+		<expression>выбор когда ПолисКоличество = 0 тогда 0 иначе СуммаОплаты/ПолисКоличество конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Среднее по оплате</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СреднееПоПродаже</dataPath>
+		<expression>выбор когда ПолисКоличество = 0 тогда 0 иначе СуммаКОплатеПоПолису/ПолисКоличество конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Среднее по продаже</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>ПолисКоличество</dataPath>
+		<expression>Сумма(ПолисКоличество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаКОплатеПоПолису</dataPath>
+		<expression>Сумма(СуммаКОплатеПоПолису)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаОплаты</dataPath>
+		<expression>Сумма(СуммаОплаты)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СреднееПоОплате</dataPath>
+		<expression>Среднее(СреднееПоОплате)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СреднееПоПродаже</dataPath>
+		<expression>Среднее(СреднееПоПродаже)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаКомиссии</dataPath>
+		<expression>Сумма(СуммаКомиссии)</expression>
+	</totalField>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>ВидСтрахованияДГО</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид страхования ДГО</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВидСТрахованияКаско</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид с трахования каско</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачалаСтрахования</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала страхования</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">2013-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочкаПродаж</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидОплаты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПолисКоличество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаКОплатеПоПолису</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаОплаты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СреднееПоОплате</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СреднееПоПродаже</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаКомиссии</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТочкаПродаж</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Подразделения.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>ddcaf60b-1e0e-45c4-88bd-7dd15fb2d301</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидСтрахования</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.бит_ВидыСтрахования.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>a170534f-952f-4efd-8eb2-89b2def47b36</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Отдел</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидОплаты</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Агент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Пользователи.ПустаяСсылка</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СтраховаяКомпания</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидСтрахованияДГО</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.бит_ВидыСтрахования.ПустаяСсылка</dcscor:value>
+					<dcsset:userSettingID>2289d59b-65d2-4669-8156-adc5a07d3ac3</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВидСТрахованияКаско</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.бит_ВидыСтрахования.ПустаяСсылка</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТочкаПродаж</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТочкаПродаж</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПолисКоличество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаКОплатеПоПолису</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаОплаты</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СреднееПоОплате</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СреднееПоПродаже</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаКомиссии</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Отдел</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПолисКоличество</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаКОплатеПоПолису</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаОплаты</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СреднееПоОплате</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СреднееПоПродаже</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаКомиссии</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ВидСтрахования</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПолисКоличество</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаКОплатеПоПолису</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаОплаты</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СреднееПоОплате</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СреднееПоПродаже</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаКомиссии</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

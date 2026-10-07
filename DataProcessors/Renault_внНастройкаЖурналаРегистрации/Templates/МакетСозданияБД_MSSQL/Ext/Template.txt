@@ -1,0 +1,412 @@
+﻿USE [master]
+GO
+CREATE DATABASE [History]
+GO
+ALTER DATABASE [History] SET ANSI_NULL_DEFAULT OFF
+GO
+ALTER DATABASE [History] SET ANSI_NULLS OFF
+GO
+ALTER DATABASE [History] SET ANSI_PADDING OFF
+GO
+ALTER DATABASE [History] SET ANSI_WARNINGS OFF
+GO
+ALTER DATABASE [History] SET ARITHABORT OFF
+GO
+ALTER DATABASE [History] SET AUTO_CLOSE OFF
+GO
+ALTER DATABASE [History] SET AUTO_CREATE_STATISTICS ON
+GO
+ALTER DATABASE [History] SET AUTO_SHRINK OFF
+GO
+ALTER DATABASE [History] SET AUTO_UPDATE_STATISTICS ON
+GO
+ALTER DATABASE [History] SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+ALTER DATABASE [History] SET CURSOR_DEFAULT  GLOBAL
+GO
+ALTER DATABASE [History] SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+ALTER DATABASE [History] SET NUMERIC_ROUNDABORT OFF
+GO
+ALTER DATABASE [History] SET QUOTED_IDENTIFIER OFF
+GO
+ALTER DATABASE [History] SET RECURSIVE_TRIGGERS OFF
+GO
+ALTER DATABASE [History] SET  DISABLE_BROKER
+GO
+ALTER DATABASE [History] SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+ALTER DATABASE [History] SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+ALTER DATABASE [History] SET TRUSTWORTHY OFF
+GO
+ALTER DATABASE [History] SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+ALTER DATABASE [History] SET PARAMETERIZATION SIMPLE
+GO
+ALTER DATABASE [History] SET READ_COMMITTED_SNAPSHOT OFF
+GO
+ALTER DATABASE [History] SET  READ_WRITE
+GO
+ALTER DATABASE [History] SET RECOVERY SIMPLE
+GO
+ALTER DATABASE [History] SET  MULTI_USER
+GO
+ALTER DATABASE [History] SET PAGE_VERIFY CHECKSUM
+GO
+ALTER DATABASE [History] SET DB_CHAINING OFF
+GO
+USE [History]
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROCEDURE [dbo].[clear_db]
+AS
+BEGIN
+	BEGIN TRANSACTION;
+	SET NOCOUNT ON;	
+	DELETE FROM journ_rec;
+	DELETE FROM journ;
+	DELETE FROM props;	
+	DELETE FROM metadata;
+	DELETE FROM users;
+	DELETE FROM computers;
+	COMMIT;
+END
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[bases](
+	[uid] [smallint] IDENTITY(1,1) NOT NULL,
+	[caption] [nvarchar](100) NULL,
+ CONSTRAINT [PK_bases] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[computers](
+	[uid] [int] IDENTITY(1,1) NOT NULL,
+	[caption] [nvarchar](80) NOT NULL,
+	[base_uid] [smallint] NULL,
+ CONSTRAINT [PK_computers] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[events](
+	[uid] [tinyint] NOT NULL,
+	[caption] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_events] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[metadata_types](
+	[uid] [tinyint] NOT NULL,
+	[caption] [nvarchar](255) NOT NULL,
+ CONSTRAINT [PK_metadata_types] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[journ](
+	[uid] [bigint] IDENTITY(1,1) NOT NULL,
+	[datechange] [datetime] NOT NULL,
+	[base_uid] [smallint] NULL,
+	[rib_uid] [smallint] NULL,
+	[object_guid] [nvarchar](100) NULL,
+	[meta_uid] [int] NULL,
+	[user_uid] [int] NULL,
+	[computer_uid] [int] NULL,
+	[ver] [int] NULL,
+	[event_uid] [tinyint] NULL,
+	[caption] [nvarchar](500) NULL
+ CONSTRAINT [PK_journ] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[metadata](
+	[uid] [int] IDENTITY(1,1) NOT NULL,
+	[caption] [nvarchar](300) NULL,
+	[type_uid] [tinyint] NULL,
+	[base_uid] [smallint] NULL,
+ CONSTRAINT [PK_metadata] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[metadata]  WITH CHECK ADD  CONSTRAINT [FK_metadata_bases] FOREIGN KEY([base_uid])
+REFERENCES [dbo].[bases] ([uid])
+GO
+ALTER TABLE [dbo].[metadata] CHECK CONSTRAINT [FK_metadata_bases]
+GO
+ALTER TABLE [dbo].[metadata]  WITH CHECK ADD  CONSTRAINT [FK_metadata_metadata_types] FOREIGN KEY([type_uid])
+REFERENCES [dbo].[metadata_types] ([uid])
+GO
+ALTER TABLE [dbo].[metadata] CHECK CONSTRAINT [FK_metadata_metadata_types]
+GO
+
+CREATE TABLE [dbo].[props](
+	[uid] [int] IDENTITY(1,1) NOT NULL,
+	[meta_uid] [int] NULL,
+	[nametp] [nvarchar](150) NULL,
+	[namerec] [nvarchar](150) NULL
+ CONSTRAINT [PK_props] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[props]  WITH CHECK ADD  CONSTRAINT [FK_props_metadata] FOREIGN KEY([meta_uid])
+REFERENCES [dbo].[metadata] ([uid])
+GO
+
+ALTER TABLE [dbo].[props] CHECK CONSTRAINT [FK_props_metadata]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[journ_rec](
+	[uid] [bigint] IDENTITY(1,1) NOT NULL,
+	[journ_uid] [bigint] NOT NULL,
+	[prop_uid] [int] NULL,
+	[numtp] [int] NULL,
+	[oldview] [nvarchar](max) NULL,
+	[newview] [nvarchar](max) NULL,
+	[typerec] [tinyint] NULL,
+	[oldval] [nvarchar](max) NULL,
+	[newval] [nvarchar](max) NULL,
+	[namerec] [nvarchar](max) NULL
+ CONSTRAINT [PK_journ_table_part] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+-- Добавление FK
+ALTER TABLE [dbo].[journ_rec] WITH CHECK ADD CONSTRAINT [FK_journ_rec_props] FOREIGN KEY([prop_uid])
+REFERENCES [dbo].[props] ([uid])
+GO
+
+ALTER TABLE [dbo].[props] ADD  CONSTRAINT [DF_props_nametp]  DEFAULT ('') FOR [nametp]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ribs](
+	[uid] [smallint] IDENTITY(1,1) NOT NULL,
+	[base_uid] [smallint] NULL,
+	[caption] [nvarchar](100) NULL,
+ CONSTRAINT [PK_ribs] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[users](
+	[uid] [int] IDENTITY(1,1) NOT NULL,
+	[caption] [nvarchar](255) NOT NULL,
+	[base_uid] [smallint] NULL,
+ CONSTRAINT [PK_users] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[journ_view]
+AS
+SELECT     TOP (100) PERCENT dbo.journ.uid, dbo.journ.datechange, dbo.journ.ver, dbo.journ.caption, dbo.computers.caption AS computer, 
+                      dbo.users.caption AS userchange, dbo.metadata.caption AS meta, dbo.events.caption AS event, dbo.ribs.caption AS ribcaption, dbo.journ.base_uid
+FROM         dbo.journ LEFT OUTER JOIN
+                      dbo.computers ON dbo.journ.computer_uid = dbo.computers.uid LEFT OUTER JOIN
+                      dbo.users ON dbo.journ.user_uid = dbo.users.uid LEFT OUTER JOIN
+                      dbo.metadata ON dbo.journ.meta_uid = dbo.metadata.uid LEFT OUTER JOIN
+                      dbo.ribs ON dbo.journ.rib_uid = dbo.ribs.uid LEFT OUTER JOIN
+                      dbo.events ON dbo.journ.event_uid = dbo.events.uid
+ORDER BY dbo.journ.uid
+
+GO
+
+CREATE NONCLUSTERED INDEX [IX_journ_bases] ON [dbo].[journ]
+(
+	[base_uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [IX_journ_object_guid] ON [dbo].[journ]
+(
+	[object_guid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [IX_journ_rib] ON [dbo].[journ]
+(
+	[rib_uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [IX_journ_users] ON [dbo].[journ]
+(
+	[user_uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [IX_journ_rec] ON [dbo].[journ_rec]
+(
+	[journ_uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[journ] ADD  CONSTRAINT [DF_journ_ver]  DEFAULT ((0)) FOR [ver]
+GO
+ALTER TABLE [dbo].[journ_rec] ADD  CONSTRAINT [DF_journ_rec_numtp]  DEFAULT ((0)) FOR [numtp]
+GO
+ALTER TABLE [dbo].[computers]  WITH CHECK ADD  CONSTRAINT [FK_computers_bases] FOREIGN KEY([base_uid])
+REFERENCES [dbo].[bases] ([uid])
+GO
+ALTER TABLE [dbo].[computers] CHECK CONSTRAINT [FK_computers_bases]
+GO
+ALTER TABLE [dbo].[journ]  WITH CHECK ADD  CONSTRAINT [FK_journ_bases] FOREIGN KEY([base_uid])
+REFERENCES [dbo].[bases] ([uid])
+GO
+ALTER TABLE [dbo].[journ] CHECK CONSTRAINT [FK_journ_bases]
+GO
+ALTER TABLE [dbo].[journ]  WITH CHECK ADD  CONSTRAINT [FK_journ_computers] FOREIGN KEY([computer_uid])
+REFERENCES [dbo].[computers] ([uid])
+GO
+ALTER TABLE [dbo].[journ] CHECK CONSTRAINT [FK_journ_computers]
+GO
+ALTER TABLE [dbo].[journ]  WITH CHECK ADD  CONSTRAINT [FK_journ_events] FOREIGN KEY([event_uid])
+REFERENCES [dbo].[events] ([uid])
+GO
+ALTER TABLE [dbo].[journ] CHECK CONSTRAINT [FK_journ_events]
+GO
+ALTER TABLE [dbo].[journ]  WITH CHECK ADD  CONSTRAINT [FK_journ_metadata] FOREIGN KEY([meta_uid])
+REFERENCES [dbo].[metadata] ([uid])
+GO
+ALTER TABLE [dbo].[journ] CHECK CONSTRAINT [FK_journ_metadata]
+GO
+ALTER TABLE [dbo].[journ]  WITH CHECK ADD  CONSTRAINT [FK_journ_ribs] FOREIGN KEY([rib_uid])
+REFERENCES [dbo].[ribs] ([uid])
+GO
+ALTER TABLE [dbo].[journ] CHECK CONSTRAINT [FK_journ_ribs]
+GO
+ALTER TABLE [dbo].[journ]  WITH CHECK ADD  CONSTRAINT [FK_journ_users] FOREIGN KEY([user_uid])
+REFERENCES [dbo].[users] ([uid])
+GO
+ALTER TABLE [dbo].[journ] CHECK CONSTRAINT [FK_journ_users]
+GO
+ALTER TABLE [dbo].[ribs]  WITH CHECK ADD  CONSTRAINT [FK_ribs_bases] FOREIGN KEY([base_uid])
+REFERENCES [dbo].[bases] ([uid])
+GO
+ALTER TABLE [dbo].[ribs] CHECK CONSTRAINT [FK_ribs_bases]
+GO
+ALTER TABLE [dbo].[users]  WITH CHECK ADD  CONSTRAINT [FK_users_bases] FOREIGN KEY([base_uid])
+REFERENCES [dbo].[bases] ([uid])
+GO
+ALTER TABLE [dbo].[users] CHECK CONSTRAINT [FK_users_bases]
+GO
+
+CREATE NONCLUSTERED INDEX [IX_journ_meta] ON [dbo].[journ]
+(
+	[meta_uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [IX_props_meta] ON [dbo].[props]
+(
+	[meta_uid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (0, N'')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (1, N'Документ')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (2, N'Справочник')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (3, N'План видов характеристик')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (4, N'Константа')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (5, N'План счетов')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (6, N'План видов расчета')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (7, N'План обмена')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (8, N'Задача')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (9, N'Бизес-процесс')
+INSERT [dbo].[metadata_types] ([uid], [caption]) VALUES (10,N'Регистр сведений')
+
+INSERT [dbo].[events] ([uid], [caption]) VALUES (0, N'Начальное заполнение')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (1, N'Создание')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (2, N'Изменение')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (3, N'Проведение')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (4, N'Физическое удаление')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (5, N'Установлена пометка на удаление')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (6, N'Снята пометка на удаление')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (7, N'Отмена проведения')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (8, N'Запись')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (9, N'Начало сеанса')
+INSERT [dbo].[events] ([uid], [caption]) VALUES (10, N'Завершение сеанса')
+GO

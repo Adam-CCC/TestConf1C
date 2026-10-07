@@ -1,0 +1,1859 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаДнейНедели" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дней недели</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дней недели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДнейНеделиРасширеннаяПодсказка" id="141"/>
+			<ChildItems>
+				<Button name="КомандаПредыдущаяНеделя" id="114">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<Width>5</Width>
+					<Height>7</Height>
+					<CommandName>Form.Command.КомандаПредыдущаяНеделя</CommandName>
+					<Font ref="sys:DefaultGUIFont" height="12" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<Picture>
+						<xr:Abs>Picture.bmp</xr:Abs>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+						<xr:TransparentPixel x="9" y="12"/>
+					</Picture>
+					<ExtendedTooltip name="КомандаПредыдущаяНеделяРасширеннаяПодсказка" id="142"/>
+				</Button>
+				<UsualGroup name="ГруппаД1" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаД1РасширеннаяПодсказка" id="143"/>
+					<ChildItems>
+						<LabelField name="ДатаДня_Д1" id="83">
+							<DataPath>ДатаДня_Д1</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>26</Width>
+							<Height>2</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd MMMM, ddd.'</v8:content>
+								</v8:item>
+							</Format>
+							<Hiperlink>true</Hiperlink>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ДатаДня_Д1КонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="ДатаДня_Д1РасширеннаяПодсказка" id="144"/>
+							<Events>
+								<Event name="Click">ДатаДня_Д1Нажатие</Event>
+							</Events>
+						</LabelField>
+						<ProgressBarField name="ИндикаторЗаполненности_Д1" id="44">
+							<DataPath>ИндикаторЗаполненности_Д1</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>2</Height>
+							<ShowPercent>true</ShowPercent>
+							<ContextMenu name="ИндикаторЗаполненности_Д1КонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="ИндикаторЗаполненности_Д1РасширеннаяПодсказка" id="145"/>
+						</ProgressBarField>
+						<LabelDecoration name="Декорация_Записи_Д1" id="81">
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<TextColor>style:FieldTextColor</TextColor>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>0/0</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="Декорация_Записи_Д1КонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="Декорация_Записи_Д1РасширеннаяПодсказка" id="146"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаД2" id="47">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаД2РасширеннаяПодсказка" id="147"/>
+					<ChildItems>
+						<LabelField name="ДатаДня_Д2" id="85">
+							<DataPath>ДатаДня_Д2</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>26</Width>
+							<Height>2</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd MMMM, ddd.'</v8:content>
+								</v8:item>
+							</Format>
+							<Hiperlink>true</Hiperlink>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ДатаДня_Д2КонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="ДатаДня_Д2РасширеннаяПодсказка" id="148"/>
+							<Events>
+								<Event name="Click">ДатаДня_Д2Нажатие</Event>
+							</Events>
+						</LabelField>
+						<ProgressBarField name="ИндикаторЗаполненности_Д2" id="53">
+							<DataPath>ИндикаторЗаполненности_Д2</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>2</Height>
+							<ShowPercent>true</ShowPercent>
+							<ContextMenu name="ИндикаторЗаполненности_Д2КонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="ИндикаторЗаполненности_Д2РасширеннаяПодсказка" id="149"/>
+						</ProgressBarField>
+						<LabelDecoration name="Декорация_Записи_Д2" id="89">
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<TextColor>style:FieldTextColor</TextColor>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>0/0</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="Декорация_Записи_Д2КонтекстноеМеню" id="90"/>
+							<ExtendedTooltip name="Декорация_Записи_Д2РасширеннаяПодсказка" id="150"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаД3" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаД3РасширеннаяПодсказка" id="151"/>
+					<ChildItems>
+						<LabelField name="ДатаДня_Д3" id="87">
+							<DataPath>ДатаДня_Д3</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>26</Width>
+							<Height>2</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd MMMM, ddd.'</v8:content>
+								</v8:item>
+							</Format>
+							<Hiperlink>true</Hiperlink>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ДатаДня_Д3КонтекстноеМеню" id="88"/>
+							<ExtendedTooltip name="ДатаДня_Д3РасширеннаяПодсказка" id="152"/>
+							<Events>
+								<Event name="Click">ДатаДня_Д3Нажатие</Event>
+							</Events>
+						</LabelField>
+						<ProgressBarField name="ИндикаторЗаполненности_Д3" id="55">
+							<DataPath>ИндикаторЗаполненности_Д3</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>2</Height>
+							<ShowPercent>true</ShowPercent>
+							<ContextMenu name="ИндикаторЗаполненности_Д3КонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="ИндикаторЗаполненности_Д3РасширеннаяПодсказка" id="153"/>
+						</ProgressBarField>
+						<LabelDecoration name="Декорация_Записи_Д3" id="91">
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<TextColor>style:FieldTextColor</TextColor>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>0/0</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="Декорация_Записи_Д3КонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="Декорация_Записи_Д3РасширеннаяПодсказка" id="154"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаД4" id="49">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаД4РасширеннаяПодсказка" id="155"/>
+					<ChildItems>
+						<LabelField name="ДатаДня_Д4" id="95">
+							<DataPath>ДатаДня_Д4</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>26</Width>
+							<Height>2</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd MMMM, ddd.'</v8:content>
+								</v8:item>
+							</Format>
+							<Hiperlink>true</Hiperlink>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ДатаДня_Д4КонтекстноеМеню" id="96"/>
+							<ExtendedTooltip name="ДатаДня_Д4РасширеннаяПодсказка" id="156"/>
+							<Events>
+								<Event name="Click">ДатаДня_Д4Нажатие</Event>
+							</Events>
+						</LabelField>
+						<ProgressBarField name="ИндикаторЗаполненности_Д4" id="57">
+							<DataPath>ИндикаторЗаполненности_Д4</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>2</Height>
+							<ShowPercent>true</ShowPercent>
+							<ContextMenu name="ИндикаторЗаполненности_Д4КонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="ИндикаторЗаполненности_Д4РасширеннаяПодсказка" id="157"/>
+						</ProgressBarField>
+						<LabelDecoration name="Декорация_Записи_Д4" id="93">
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<TextColor>style:FieldTextColor</TextColor>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>0/0</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="Декорация_Записи_Д4КонтекстноеМеню" id="94"/>
+							<ExtendedTooltip name="Декорация_Записи_Д4РасширеннаяПодсказка" id="158"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаД5" id="50">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаД5РасширеннаяПодсказка" id="159"/>
+					<ChildItems>
+						<LabelField name="ДатаДня_Д5" id="99">
+							<DataPath>ДатаДня_Д5</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>26</Width>
+							<Height>2</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd MMMM, ddd.'</v8:content>
+								</v8:item>
+							</Format>
+							<Hiperlink>true</Hiperlink>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ДатаДня_Д5КонтекстноеМеню" id="100"/>
+							<ExtendedTooltip name="ДатаДня_Д5РасширеннаяПодсказка" id="160"/>
+							<Events>
+								<Event name="Click">ДатаДня_Д5Нажатие</Event>
+							</Events>
+						</LabelField>
+						<ProgressBarField name="ИндикаторЗаполненности_Д5" id="59">
+							<DataPath>ИндикаторЗаполненности_Д5</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>2</Height>
+							<ShowPercent>true</ShowPercent>
+							<ContextMenu name="ИндикаторЗаполненности_Д5КонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="ИндикаторЗаполненности_Д5РасширеннаяПодсказка" id="161"/>
+						</ProgressBarField>
+						<LabelDecoration name="Декорация_Записи_Д5" id="97">
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<TextColor>style:FieldTextColor</TextColor>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>0/0</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="Декорация_Записи_Д5КонтекстноеМеню" id="98"/>
+							<ExtendedTooltip name="Декорация_Записи_Д5РасширеннаяПодсказка" id="162"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаД6" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаД6РасширеннаяПодсказка" id="163"/>
+					<ChildItems>
+						<LabelField name="ДатаДня_Д6" id="103">
+							<DataPath>ДатаДня_Д6</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>26</Width>
+							<Height>2</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd MMMM, ddd.'</v8:content>
+								</v8:item>
+							</Format>
+							<Hiperlink>true</Hiperlink>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ДатаДня_Д6КонтекстноеМеню" id="104"/>
+							<ExtendedTooltip name="ДатаДня_Д6РасширеннаяПодсказка" id="164"/>
+							<Events>
+								<Event name="Click">ДатаДня_Д6Нажатие</Event>
+							</Events>
+						</LabelField>
+						<ProgressBarField name="ИндикаторЗаполненности_Д6" id="61">
+							<DataPath>ИндикаторЗаполненности_Д6</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>2</Height>
+							<ShowPercent>true</ShowPercent>
+							<ContextMenu name="ИндикаторЗаполненности_Д6КонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ИндикаторЗаполненности_Д6РасширеннаяПодсказка" id="165"/>
+						</ProgressBarField>
+						<LabelDecoration name="Декорация_Записи_Д6" id="101">
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<TextColor>style:FieldTextColor</TextColor>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>0/0</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="Декорация_Записи_Д6КонтекстноеМеню" id="102"/>
+							<ExtendedTooltip name="Декорация_Записи_Д6РасширеннаяПодсказка" id="166"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаД7" id="52">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа д1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Height>7</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<Group>Vertical</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаД7РасширеннаяПодсказка" id="167"/>
+					<ChildItems>
+						<LabelField name="ДатаДня_Д7" id="107">
+							<DataPath>ДатаДня_Д7</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<Width>26</Width>
+							<Height>2</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Format>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ='dd MMMM, ddd.'</v8:content>
+								</v8:item>
+							</Format>
+							<Hiperlink>true</Hiperlink>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ДатаДня_Д7КонтекстноеМеню" id="108"/>
+							<ExtendedTooltip name="ДатаДня_Д7РасширеннаяПодсказка" id="168"/>
+							<Events>
+								<Event name="Click">ДатаДня_Д7Нажатие</Event>
+							</Events>
+						</LabelField>
+						<ProgressBarField name="ИндикаторЗаполненности_Д7" id="63">
+							<DataPath>ИндикаторЗаполненности_Д7</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>1</Width>
+							<Height>2</Height>
+							<ShowPercent>true</ShowPercent>
+							<ContextMenu name="ИндикаторЗаполненности_Д7КонтекстноеМеню" id="64"/>
+							<ExtendedTooltip name="ИндикаторЗаполненности_Д7РасширеннаяПодсказка" id="169"/>
+						</ProgressBarField>
+						<LabelDecoration name="Декорация_Записи_Д7" id="105">
+							<HorizontalStretch>true</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<TextColor>style:FieldTextColor</TextColor>
+							<Font ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>0/0</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="Декорация_Записи_Д7КонтекстноеМеню" id="106"/>
+							<ExtendedTooltip name="Декорация_Записи_Д7РасширеннаяПодсказка" id="170"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<Button name="КомандаСледующаяНеделя" id="115">
+					<Type>UsualButton</Type>
+					<Representation>Picture</Representation>
+					<Width>5</Width>
+					<Height>7</Height>
+					<CommandName>Form.Command.КомандаСледующаяНеделя</CommandName>
+					<Picture>
+						<xr:Abs>Picture.bmp</xr:Abs>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+						<xr:TransparentPixel x="20" y="11"/>
+					</Picture>
+					<ExtendedTooltip name="КомандаСледующаяНеделяРасширеннаяПодсказка" id="171"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ДинамическийСписок" id="10">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ДинамическийСписок</DataPath>
+			<RowPictureDataPath>ДинамическийСписок.DefaultPicture</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
+				<ExcludedCommand>Find</ExcludedCommand>
+				<ExcludedCommand>ListSettings</ExcludedCommand>
+				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>Refresh</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>15</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="ДинамическийСписокКонтекстноеМеню" id="11"/>
+			<AutoCommandBar name="ДинамическийСписокКоманднаяПанель" id="12">
+				<ChildItems>
+					<Button name="ДинамическийСписокКомандаОбновитьСписок" id="41">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаОбновитьСписок</CommandName>
+						<ExtendedTooltip name="ДинамическийСписокКомандаОбновитьСписокРасширеннаяПодсказка" id="172"/>
+					</Button>
+					<Button name="ДинамическийСписокКомандаПеренестиЗаявкуНаПеремещение" id="127">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаПеренестиЗаявкуНаПеремещение</CommandName>
+						<ExtendedTooltip name="ДинамическийСписокКомандаПеренестиЗаявкуНаПеремещениеРасширеннаяПодсказка" id="173"/>
+					</Button>
+					<Button name="ДинамическийСписокКомандаОтчетПланПеремещений" id="134">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаОтчетПланПеремещений</CommandName>
+						<ExtendedTooltip name="ДинамическийСписокКомандаОтчетПланПеремещенийРасширеннаяПодсказка" id="174"/>
+					</Button>
+					<Button name="ДинамическийСписокКомандаЗаблокироватьЗапись" id="135">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаЗаблокироватьЗапись</CommandName>
+						<ExtendedTooltip name="ДинамическийСписокКомандаЗаблокироватьЗаписьРасширеннаяПодсказка" id="175"/>
+					</Button>
+					<Button name="ДинамическийСписокКомандаРазблокироватьЗапись" id="138">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаРазблокироватьЗапись</CommandName>
+						<ExtendedTooltip name="ДинамическийСписокКомандаРазблокироватьЗаписьРасширеннаяПодсказка" id="176"/>
+					</Button>
+					<Button name="ДинамическийСписокКомандаОткрытьЗаявку" id="139">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.КомандаОткрытьЗаявку</CommandName>
+						<ExtendedTooltip name="ДинамическийСписокКомандаОткрытьЗаявкуРасширеннаяПодсказка" id="177"/>
+					</Button>
+					<Button name="ДинамическийСписокСоздатьЗаявкуНаВыдачу" id="140">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СоздатьЗаявкуНаВыдачу</CommandName>
+						<ExtendedTooltip name="ДинамическийСписокСоздатьЗаявкуНаВыдачуРасширеннаяПодсказка" id="178"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДинамическийСписокРасширеннаяПодсказка" id="179"/>
+			<SearchStringAddition name="ДинамическийСписокСтрокаПоиска" id="180">
+				<AdditionSource>
+					<Item>ДинамическийСписок</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДинамическийСписокСтрокаПоискаКонтекстноеМеню" id="181"/>
+				<ExtendedTooltip name="ДинамическийСписокСтрокаПоискаРасширеннаяПодсказка" id="182"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДинамическийСписокСостояниеПросмотра" id="183">
+				<AdditionSource>
+					<Item>ДинамическийСписок</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДинамическийСписокСостояниеПросмотраКонтекстноеМеню" id="184"/>
+				<ExtendedTooltip name="ДинамическийСписокСостояниеПросмотраРасширеннаяПодсказка" id="185"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДинамическийСписокУправлениеПоиском" id="186">
+				<AdditionSource>
+					<Item>ДинамическийСписок</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДинамическийСписокУправлениеПоискомКонтекстноеМеню" id="187"/>
+				<ExtendedTooltip name="ДинамическийСписокУправлениеПоискомРасширеннаяПодсказка" id="188"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ДинамическийСписокВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДинамическийСписокВремя" id="15">
+					<DataPath>ДинамическийСписок.Время</DataPath>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=ЧЧ:мм</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="ДинамическийСписокВремяКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="ДинамическийСписокВремяРасширеннаяПодсказка" id="189"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокРабочиеОтметки" id="125">
+					<DataPath>ДинамическийСписок.РабочиеОтметки</DataPath>
+					<Width>30</Width>
+					<ContextMenu name="ДинамическийСписокРабочиеОтметкиКонтекстноеМеню" id="126"/>
+					<ExtendedTooltip name="ДинамическийСписокРабочиеОтметкиРасширеннаяПодсказка" id="190"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокАвтомобиль" id="13">
+					<DataPath>ДинамическийСписок.Автомобиль</DataPath>
+					<ContextMenu name="ДинамическийСписокАвтомобильКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ДинамическийСписокАвтомобильРасширеннаяПодсказка" id="191"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокVIN" id="117">
+					<DataPath>ДинамическийСписок.VIN</DataPath>
+					<ContextMenu name="ДинамическийСписокVINКонтекстноеМеню" id="118"/>
+					<ExtendedTooltip name="ДинамическийСписокVINРасширеннаяПодсказка" id="192"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокВнутреннийНомер" id="123">
+					<DataPath>ДинамическийСписок.ВнутреннийНомер</DataPath>
+					<ContextMenu name="ДинамическийСписокВнутреннийНомерКонтекстноеМеню" id="124"/>
+					<ExtendedTooltip name="ДинамическийСписокВнутреннийНомерРасширеннаяПодсказка" id="193"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокСкладОтправитель" id="33">
+					<DataPath>ДинамическийСписок.СкладОтправитель</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад отправитель</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДинамическийСписокСкладОтправительКонтекстноеМеню" id="34"/>
+					<ExtendedTooltip name="ДинамическийСписокСкладОтправительРасширеннаяПодсказка" id="194"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокСкладПолучатель" id="35">
+					<DataPath>ДинамическийСписок.СкладПолучатель</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад получатель</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДинамическийСписокСкладПолучательКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ДинамическийСписокСкладПолучательРасширеннаяПодсказка" id="195"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокСтатусЗаявки" id="132">
+					<DataPath>ДинамическийСписок.СтатусЗаявки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДинамическийСписокСтатусЗаявкиКонтекстноеМеню" id="133"/>
+					<ExtendedTooltip name="ДинамическийСписокСтатусЗаявкиРасширеннаяПодсказка" id="196"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокКонтрагент" id="25">
+					<DataPath>ДинамическийСписок.Контрагент</DataPath>
+					<ContextMenu name="ДинамическийСписокКонтрагентКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ДинамическийСписокКонтрагентРасширеннаяПодсказка" id="197"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПродавец" id="31">
+					<DataPath>ДинамическийСписок.Продавец</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ответственный (в заявке)</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДинамическийСписокПродавецКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ДинамическийСписокПродавецРасширеннаяПодсказка" id="198"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокКомментарийСлужбыПП" id="119">
+					<DataPath>ДинамическийСписок.КомментарийСлужбыПП</DataPath>
+					<ContextMenu name="ДинамическийСписокКомментарийСлужбыППКонтекстноеМеню" id="120"/>
+					<ExtendedTooltip name="ДинамическийСписокКомментарийСлужбыППРасширеннаяПодсказка" id="199"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокКомментарий" id="23">
+					<DataPath>ДинамическийСписок.Комментарий</DataPath>
+					<ContextMenu name="ДинамическийСписокКомментарийКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ДинамическийСписокКомментарийРасширеннаяПодсказка" id="200"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокДатаЗаписи" id="17">
+					<DataPath>ДинамическийСписок.ДатаЗаписи</DataPath>
+					<ContextMenu name="ДинамическийСписокДатаЗаписиКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ДинамическийСписокДатаЗаписиРасширеннаяПодсказка" id="201"/>
+				</LabelField>
+				<CheckBoxField name="ДинамическийСписокДопОборудование" id="19">
+					<DataPath>ДинамическийСписок.ДопОборудование</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДО</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДинамическийСписокДопОборудованиеКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ДинамическийСписокДопОборудованиеРасширеннаяПодсказка" id="202"/>
+				</CheckBoxField>
+				<LabelField name="ДинамическийСписокТекущийСклад" id="37">
+					<DataPath>ДинамическийСписок.ТекущийСклад</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущий склад</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДинамическийСписокТекущийСкладКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ДинамическийСписокТекущийСкладРасширеннаяПодсказка" id="203"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокЗаявкаНаПеремещение" id="128">
+					<DataPath>ДинамическийСписок.ЗаявкаНаПеремещение</DataPath>
+					<ContextMenu name="ДинамическийСписокЗаявкаНаПеремещениеКонтекстноеМеню" id="129"/>
+					<ExtendedTooltip name="ДинамическийСписокЗаявкаНаПеремещениеРасширеннаяПодсказка" id="204"/>
+				</LabelField>
+				<CheckBoxField name="ДинамическийСписокСозданДокументПеремещения" id="130">
+					<DataPath>ДинамическийСписок.СозданДокументПеремещения</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Создан док. перемещения</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДинамическийСписокСозданДокументПеремещенияКонтекстноеМеню" id="131"/>
+					<ExtendedTooltip name="ДинамическийСписокСозданДокументПеремещенияРасширеннаяПодсказка" id="205"/>
+				</CheckBoxField>
+				<CheckBoxField name="ДинамическийСписокЗаписьЗаблокирована" id="136">
+					<DataPath>ДинамическийСписок.ЗаписьЗаблокирована</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДинамическийСписокЗаписьЗаблокированаКонтекстноеМеню" id="137"/>
+					<ExtendedTooltip name="ДинамическийСписокЗаписьЗаблокированаРасширеннаяПодсказка" id="206"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="ГруппаНижняяПанель" id="110">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа нижняя панель</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа нижняя панель</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНижняяПанельРасширеннаяПодсказка" id="207"/>
+			<ChildItems>
+				<LabelDecoration name="Декорация1" id="111">
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="112"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="208"/>
+				</LabelDecoration>
+				<Button name="КомандаСоздатьПеремещения" id="116">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.КомандаСоздатьПеремещения</CommandName>
+					<ExtendedTooltip name="КомандаСоздатьПеремещенияРасширеннаяПодсказка" id="209"/>
+				</Button>
+				<Button name="Закрыть" id="109">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<ExtendedTooltip name="ЗакрытьРасширеннаяПодсказка" id="210"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ИндикаторЗаполненности_Д1" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индикатор заполненности д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДинамическийСписок" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Динамический список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~ДинамическийСписок.Зарезервиравано</Field>
+				<Field>~ДинамическийСписок.ПНУ</Field>
+				<Field>ДинамическийСписок.VIN</Field>
+				<Field>ДинамическийСписок.Автомобиль</Field>
+				<Field>ДинамическийСписок.ВнутреннийНомер</Field>
+				<Field>ДинамическийСписок.Время</Field>
+				<Field>ДинамическийСписок.ДатаЗаписи</Field>
+				<Field>ДинамическийСписок.ДопОборудование</Field>
+				<Field>ДинамическийСписок.ЗаписьЗаблокирована</Field>
+				<Field>ДинамическийСписок.ЗаявкаНаПеремещение</Field>
+				<Field>ДинамическийСписок.Комментарий</Field>
+				<Field>ДинамическийСписок.КомментарийСлужбыПП</Field>
+				<Field>ДинамическийСписок.Контрагент</Field>
+				<Field>ДинамическийСписок.НельзяИзменять</Field>
+				<Field>ДинамическийСписок.Ответственный</Field>
+				<Field>ДинамическийСписок.Продавец</Field>
+				<Field>ДинамическийСписок.РабочиеОтметки</Field>
+				<Field>ДинамическийСписок.СкладОтправитель</Field>
+				<Field>ДинамическийСписок.СкладПолучатель</Field>
+				<Field>ДинамическийСписок.СозданДокументПеремещения</Field>
+				<Field>ДинамическийСписок.Статус</Field>
+				<Field>ДинамическийСписок.СтатусЗаявки</Field>
+				<Field>ДинамическийСписок.ТекущийСклад</Field>
+				<Field>ДинамическийСписок.ЭтоЗапись</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ЕСТЬNULL(ВЗ_ПустыеЗаписи.ДатаВремя, ВЗ_ПланПеремещений.ДатаПлан) КАК Время,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.Автомобиль, ЗНАЧЕНИЕ(Справочник.Автомобили.ПустаяСсылка)) КАК Автомобиль,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.Контрагент, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка)) КАК Контрагент,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.Продавец, ЗНАЧЕНИЕ(Справочник.Пользователи.ПустаяСсылка)) КАК Продавец,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.СкладОтправитель, ЗНАЧЕНИЕ(Справочник.СкладыКомпании.ПустаяСсылка)) КАК СкладОтправитель,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.СкладПолучатель, ЗНАЧЕНИЕ(Справочник.СкладыКомпании.ПустаяСсылка)) КАК СкладПолучатель,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.ДопОборудование, ЛОЖЬ) КАК ДопОборудование,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.Комментарий, "") КАК Комментарий,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.Ответственный, ЗНАЧЕНИЕ(Справочник.Пользователи.ПустаяСсылка)) КАК Ответственный,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.ДатаЗаписи, ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)) КАК ДатаЗаписи,
+	ЕСТЬNULL(ОстаткиАвтомобилейОстатки.СкладКомпании, ЗНАЧЕНИЕ(Справочник.СкладыКомпании.ПустаяСсылка)) КАК ТекущийСклад,
+	ВЫБОР
+		КОГДА ВЗ_ПланПеремещений.Автомобиль ЕСТЬ NULL
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ЭтоЗапись,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЗ_ПустыеЗаписи.ДатаВремя, ВЗ_ПланПеремещений.ДатаПлан) &lt; &amp;ДатаЗапретаИзменения
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК НельзяИзменять,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.VIN, "") КАК VIN,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.КомментарийСлужбыПП, "") КАК КомментарийСлужбыПП,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.Статус, "") КАК Статус,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.ВнутреннийНомер, "") КАК ВнутреннийНомер,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.РабочиеОтметки, "") КАК РабочиеОтметки,
+	ВЗ_ПланПеремещений.ЗаявкаНаПеремещение КАК ЗаявкаНаПеремещение,
+	ВЗ_ПланПеремещений.СозданДокументПеремещения КАК СозданДокументПеремещения,
+	ЕСТЬNULL(ВЗ_ПланПеремещений.СтатусПеремещения, "Заявка") КАК СтатусЗаявки,
+	ВЗ_ПланПеремещений.ЗаписьЗаблокирована
+ИЗ
+	(ВЫБРАТЬ
+		ДОБАВИТЬКДАТЕ(ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(&amp;ВыводимаяДата, ДЕНЬ), МИНУТА, ЕСТЬNULL(ВЗ_Время.Минут, 0)), ЧАС, ЕСТЬNULL(ВЗ_Время.Часов, 0)) КАК ДатаВремя
+	ИЗ
+		(ВЫБРАТЬ
+			NULL КАК Часов,
+			NULL КАК Минут
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			9,
+			0
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			10,
+			0
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			11,
+			0
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			12,
+			0
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			13,
+			0
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			14,
+			0
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			15,
+			0
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			16,
+			0
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			17,
+			0
+		
+		ОБЪЕДИНИТЬ ВСЕ
+		
+		ВЫБРАТЬ
+			18,
+			0) КАК ВЗ_Время
+	ГДЕ
+		НЕ ВЗ_Время.Часов ЕСТЬ NULL
+		И НЕ ВЗ_Время.Минут ЕСТЬ NULL) КАК ВЗ_ПустыеЗаписи
+		ПОЛНОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ПланПеремещений.ДатаПлан КАК ДатаПлан,
+			ПланПеремещений.Автомобиль КАК Автомобиль,
+			ПланПеремещений.Контрагент КАК Контрагент,
+			ПланПеремещений.Продавец КАК Продавец,
+			ПланПеремещений.СкладОтправитель КАК СкладОтправитель,
+			ПланПеремещений.СкладПолучатель КАК СкладПолучатель,
+			ПланПеремещений.ДопОборудование КАК ДопОборудование,
+			ПланПеремещений.ПНУ КАК ПНУ,
+			ПланПеремещений.Комментарий КАК Комментарий,
+			ПланПеремещений.Ответственный КАК Ответственный,
+			ПланПеремещений.ДатаЗаписи КАК ДатаЗаписи,
+			ПланПеремещений.Зарезервировано КАК Зарезервировано,
+			ПланПеремещений.Автомобиль.VIN КАК VIN,
+			ВЗ_КомментарииКАвтомобилям.Комментарий КАК КомментарийСлужбыПП,
+			Renault_ПотребностьПеремещения.Статус КАК Статус,
+			Renault_РазмещениеАвтомобилей.Место КАК ВнутреннийНомер,
+			ПланПеремещений.РабочиеОтметки КАК РабочиеОтметки,
+			ПланПеремещений.ПотребностьПеремещения КАК ЗаявкаНаПеремещение,
+			ВЫБОР
+				КОГДА ПланПеремещений.ДокументПеремещения = ЗНАЧЕНИЕ(Документ.ПеремещениеАвтомобилей.ПустаяСсылка)
+					ТОГДА ЛОЖЬ
+				ИНАЧЕ ИСТИНА
+			КОНЕЦ КАК СозданДокументПеремещения,
+			ПеремещениеАвтомобилейАвтомобили.Ссылка.DMS_Статус КАК СтатусПеремещения,
+			ПланПеремещений.ЗаписьЗаблокирована КАК ЗаписьЗаблокирована
+		ИЗ
+			РегистрСведений.Renault_ПланПеремещения КАК ПланПеремещений
+				ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+					Renault_КомментарииКАвтомобилю.Автомобиль КАК Автомобиль,
+					Renault_КомментарииКАвтомобилю.Комментарий КАК Комментарий
+				ИЗ
+					РегистрСведений.Renault_КомментарииКАвтомобилю КАК Renault_КомментарииКАвтомобилю
+				ГДЕ
+					Renault_КомментарииКАвтомобилю.Автомобиль.Ссылка ЕСТЬ НЕ NULL ) КАК ВЗ_КомментарииКАвтомобилям
+				ПО ПланПеремещений.Автомобиль = ВЗ_КомментарииКАвтомобилям.Автомобиль
+				ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_РазмещениеАвтомобилей КАК Renault_РазмещениеАвтомобилей
+				ПО (ВЫБОР
+						КОГДА ПланПеремещений.Автомобиль &lt;&gt; ЗНАЧЕНИЕ(Справочник.Автомобили.ПустаяСсылка)
+							ТОГДА ПланПеремещений.Автомобиль = Renault_РазмещениеАвтомобилей.Автомобиль
+						ИНАЧЕ ЛОЖЬ
+					КОНЕЦ)
+				ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_ПотребностьПеремещения КАК Renault_ПотребностьПеремещения
+					ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПеремещениеАвтомобилей.Автомобили КАК ПеремещениеАвтомобилейАвтомобили
+					ПО Renault_ПотребностьПеремещения.Ссылка = ПеремещениеАвтомобилейАвтомобили.DMS_Потребность
+						И (ПеремещениеАвтомобилейАвтомобили.Ссылка.Проведен)
+				ПО ПланПеремещений.ПотребностьПеремещения = Renault_ПотребностьПеремещения.Ссылка
+					И (Renault_ПотребностьПеремещения.Проведен)
+		ГДЕ
+			(ПланПеремещений.Автомобиль &lt;&gt; ЗНАЧЕНИЕ(Справочник.Автомобили.ПустаяСсылка)
+					ИЛИ ПланПеремещений.Зарезервировано = ИСТИНА
+					ИЛИ ПланПеремещений.ЗаписьЗаблокирована = ИСТИНА)) КАК ВЗ_ПланПеремещений
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ОстаткиАвтомобилей.Остатки(&amp;ТекущаяДата, ) КАК ОстаткиАвтомобилейОстатки
+			ПО ВЗ_ПланПеремещений.Автомобиль = ОстаткиАвтомобилейОстатки.Автомобиль
+		ПО ВЗ_ПустыеЗаписи.ДатаВремя = ВЗ_ПланПеремещений.ДатаПлан
+ГДЕ
+	НАЧАЛОПЕРИОДА(ЕСТЬNULL(ВЗ_ПустыеЗаписи.ДатаВремя, ВЗ_ПланПеремещений.ДатаПлан), ДЕНЬ) = НАЧАЛОПЕРИОДА(&amp;ВыводимаяДата, ДЕНЬ)</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Время</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Пар_ТекущаяДата" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пар_Текущая дата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндикаторЗаполненности_Д2" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индикатор заполненности д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндикаторЗаполненности_Д3" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индикатор заполненности д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндикаторЗаполненности_Д4" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индикатор заполненности д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндикаторЗаполненности_Д5" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индикатор заполненности д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндикаторЗаполненности_Д6" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индикатор заполненности д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндикаторЗаполненности_Д7" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индикатор заполненности д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Гл_ДатаНедели" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гл дата недели</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаДня_Д1" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата дня д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаДня_Д2" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата дня д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаДня_Д3" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата дня д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаДня_Д4" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата дня д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаДня_Д5" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата дня д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаДня_Д6" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата дня д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаДня_Д7" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата дня д1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Гл_ТекстЗапроса" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гл текст запроса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Гл_НачалоИнтервала" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гл начало интервала</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Гл_КонецИнтервала" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гл конец интервала</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Гл_ИнтервалВМинутах" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гл интервал в минутах</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Гл_ТаблицаКоличествоЗаписей" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гл таблица количество записей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Дата" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоФакт" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество факт</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КоличествоПлан" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество план</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="МоментПоиска" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Момент поиска</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>36</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТекущийПользователь" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий пользователь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Гл_НадоОбновитьНадписи" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гл надо обновить надписи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Право_РедактироватьПланПеремещений" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Право редактировать план перемещений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Право_РаботаСПланомПеремещений" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Право работа с планом перемещений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Гл_ИнтервалБлокировкиЗаписей" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гл интервал блокировки записей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокАвтомобиль</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДинамическийСписок.Зарезервировано</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Gainsboro</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Зарезервировано</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокТекущийСклад</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокСкладОтправитель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокСкладПолучатель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокПродавец</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокКонтрагент</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокДопОборудование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокПНУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокЗарезервировано</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДинамическийСписок.Зарезервировано</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Gainsboro</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Зарезервировано</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписок</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДинамическийСписок.Зарезервировано</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Gainsboro</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Зарезервировано</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписок</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДинамическийСписок.НельзяИзменять</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Gainsboro</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписокСтатусЗаявки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДинамическийСписок.ЗаявкаНаПеремещение</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Документ.Renault_ЗаявкаНаПеремещениеАвтомобилей.ПустаяСсылка</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДинамическийСписок</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДинамическийСписок.ЗаписьЗаблокирована</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#800080</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаОбновитьСписок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда обновить список</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда обновить список</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаОбновитьСписок</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаПредыдущаяНеделя" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда предыдущая неделя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда предыдущая неделя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаПредыдущаяНеделя</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаСледующаяНеделя" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда следующая неделя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда следующая неделя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveRight</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаСледующаяНеделя</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаСоздатьПеремещения" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать перемещения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда создать перемещения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСоздатьПеремещения</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаПеренестиЗаявкуНаПеремещение" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенести заявку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перенести заявку на перемещение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Sort</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаПеренестиЗаявкуНаПеремещение</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаОтчетПланПеремещений" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть отчет "План перемещений"</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда отчет план перемещений</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОтчетПланПеремещений</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаЗаблокироватьЗапись" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заблокировать запись</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда заблокировать запись</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаЗаблокироватьЗапись</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаРазблокироватьЗапись" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разблокировать запись</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда разблокировать запись</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаРазблокироватьЗапись</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаОткрытьЗаявку" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть заявку</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда открыть заявку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаОткрытьЗаявку</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СоздатьЗаявкуНаВыдачу" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать заявку на выдачу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать заявку на выдачу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьЗаявкуНаВыдачу</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

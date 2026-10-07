@@ -1,0 +1,1088 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГруппаТоваров</dataPath>
+			<field>ГруппаТоваров</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоляВАссортименте</dataPath>
+			<field>ДоляВАссортименте</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоляСебестоимости</dataPath>
+			<field>ДоляСебестоимости</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗапасНаПродажу</dataPath>
+			<field>ЗапасНаПродажу</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоДнейБезПродаж</dataPath>
+			<field>КоличествоДнейБезПродаж</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбщКоличПоКаталогу</dataPath>
+			<field>ОбщКоличПоКаталогу</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокВЯчейке</dataPath>
+			<field>ОстатокВЯчейке</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ячейка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокНаСкладе</dataPath>
+			<field>ОстатокНаСкладе</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Партия</dataPath>
+			<field>Партия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость</dataPath>
+			<field>Себестоимость</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СебестоимостьПоТипуЦен</dataPath>
+			<field>СебестоимостьПоТипуЦен</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СебестоимостьУпр</dataPath>
+			<field>СебестоимостьУпр</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладКомпании</dataPath>
+			<field>СкладКомпании</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусПартии</dataPath>
+			<field>СтатусПартии</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекущийРасход</dataPath>
+			<field>ТекущийРасход</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХарактеристикаНоменклатуры</dataPath>
+			<field>ХарактеристикаНоменклатуры</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ОстаткиПоСкладу.СкладКомпании КАК СкладКомпании,
+	ОстаткиПоСкладу.СуммаОстаток КАК ОбщСумма,
+	ОстаткиПоСкладу.КоличествоОстаток КАК ОбщКоличПоКаталогу
+ПОМЕСТИТЬ ТабРасчетаДолей
+ИЗ
+	РегистрНакопления.ПартииТоваровКомпании.Остатки(&amp;ДатаОкончания, ) КАК ОстаткиПоСкладу
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаОстатков.СкладКомпании КАК СкладКомпании,
+	ТаблицаОстатков.Номенклатура КАК Номенклатура,
+	ВЫБОР
+		КОГДА СУММА(ТаблицаОстатков.Оборот) &gt; 0
+			ТОГДА 2
+		КОГДА СУММА(ТаблицаОстатков.НачальныйЗапас) = 0
+			ТОГДА 2
+		ИНАЧЕ 1
+	КОНЕЦ КАК ГруппаТоваров,
+	СУММА(ТаблицаОстатков.Сумма) КАК Себестоимость,
+	СУММА(ТаблицаОстатков.СуммаУпр) КАК СебестоимостьУпр,
+	СУММА(ТаблицаОстатков.НачальныйЗапас) КАК НачальныйЗапас,
+	СУММА(ТаблицаОстатков.НачальныйЗапас2) КАК НачальныйЗапас2,
+	СУММА(ТаблицаОстатков.Оборот) КАК ОборотПродаж,
+	СУММА(ТаблицаОстатков.Оборот2) КАК ОборотПродаж2,
+	СУММА(ТаблицаОстатков.КонечныйЗапас) КАК КонечныйЗапас
+ПОМЕСТИТЬ ТабНеликвидовИКандидатов
+ИЗ
+	(ВЫБРАТЬ
+		Остатки.СкладКомпании КАК СкладКомпании,
+		Остатки.Номенклатура КАК Номенклатура,
+		0 КАК Сумма,
+		0 КАК СуммаУпр,
+		Остатки.КоличествоОстаток КАК НачальныйЗапас,
+		0 КАК НачальныйЗапас2,
+		0 КАК Оборот,
+		0 КАК Оборот2,
+		0 КАК КонечныйЗапас
+	ИЗ
+		РегистрНакопления.ПартииТоваровКомпании.Остатки(&amp;ДатаНеликвидов, {(Номенклатура).* КАК Номенклатура, (СкладКомпании).* КАК СкладКомпании, (Партия).* КАК Партия, (Партия.Контрагент).* КАК Контрагент, (СкладКомпании.Подразделение).* КАК Подразделение, (СкладКомпании.Организация).* КАК Организация}) КАК Остатки
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Остатки.СкладКомпании,
+		Остатки.Номенклатура,
+		0,
+		0,
+		ВЫБОР
+			КОГДА Остатки.Партия = &amp;ПартияТоваровОтрицательныхОстатков
+				ТОГДА 0
+			КОГДА Остатки.Партия.Дата &lt;= &amp;ДатаНеликвидов
+				ТОГДА Остатки.КоличествоОстаток
+			ИНАЧЕ 0
+		КОНЕЦ,
+		Остатки.КоличествоОстаток,
+		0,
+		0,
+		0
+	ИЗ
+		РегистрНакопления.ПартииТоваровКомпании.Остатки(&amp;ДатаПретендентов, {(Номенклатура).* КАК Номенклатура, (СкладКомпании).* КАК СкладКомпании, (Партия).* КАК Партия, (Партия.Контрагент).* КАК Контрагент, (СкладКомпании.Подразделение).* КАК Подразделение, (СкладКомпании.Организация).* КАК Организация}) КАК Остатки
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Остатки.СкладКомпании,
+		Остатки.Номенклатура,
+		Остатки.СуммаОстаток,
+		Остатки.СуммаУпрОстаток,
+		0,
+		0,
+		0,
+		0,
+		Остатки.КоличествоОстаток
+	ИЗ
+		РегистрНакопления.ПартииТоваровКомпании.Остатки(&amp;ДатаОкончания, {(Номенклатура).* КАК Номенклатура, (СкладКомпании).* КАК СкладКомпании, (Партия).* КАК Партия, (Партия.Контрагент).* КАК Контрагент, (СкладКомпании.Подразделение).* КАК Подразделение, (СкладКомпании.Организация).* КАК Организация}) КАК Остатки
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ПартииТоваровКомпании.СкладКомпании,
+		ПартииТоваровКомпании.Номенклатура,
+		0,
+		0,
+		0,
+		0,
+		СУММА(ПартииТоваровКомпании.Количество),
+		0,
+		0
+	ИЗ
+		РегистрНакопления.ПартииТоваровКомпании КАК ПартииТоваровКомпании
+	ГДЕ
+		ПартииТоваровКомпании.Период &gt;= &amp;ДатаНеликвидов
+		И ПартииТоваровКомпании.Период &lt; &amp;ДатаПретендентов
+		И ПартииТоваровКомпании.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+		И НЕ ПартииТоваровКомпании.Регистратор ССЫЛКА Документ.ПеремещениеТоваров
+	{ГДЕ
+		ПартииТоваровКомпании.Номенклатура.* КАК Номенклатура,
+		ПартииТоваровКомпании.СкладКомпании.* КАК СкладКомпании,
+		ПартииТоваровКомпании.Партия.* КАК Партия,
+		ПартииТоваровКомпании.Партия.Контрагент.* КАК Контрагент,
+		ПартииТоваровКомпании.СкладКомпании.Подразделение.* КАК Подразделение,
+		ПартииТоваровКомпании.СкладКомпании.Организация.* КАК Организация}
+	
+	СГРУППИРОВАТЬ ПО
+		ПартииТоваровКомпании.СкладКомпании,
+		ПартииТоваровКомпании.Номенклатура
+	
+	ИМЕЮЩИЕ
+		СУММА(ПартииТоваровКомпании.Количество) &gt; 0
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ПартииТоваровКомпании.СкладКомпании,
+		ПартииТоваровКомпании.Номенклатура,
+		0,
+		0,
+		0,
+		0,
+		0,
+		СУММА(ПартииТоваровКомпании.Количество),
+		0
+	ИЗ
+		РегистрНакопления.ПартииТоваровКомпании КАК ПартииТоваровКомпании
+	ГДЕ
+		ПартииТоваровКомпании.Период &gt;= &amp;ДатаПретендентов
+		И ПартииТоваровКомпании.Период &lt;= &amp;ДатаОкончания
+		И ПартииТоваровКомпании.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+		И НЕ ПартииТоваровКомпании.Регистратор ССЫЛКА Документ.ПеремещениеТоваров
+	{ГДЕ
+		ПартииТоваровКомпании.Номенклатура.* КАК Номенклатура,
+		ПартииТоваровКомпании.СкладКомпании.* КАК СкладКомпании,
+		ПартииТоваровКомпании.Партия.* КАК Партия,
+		ПартииТоваровКомпании.Партия.Контрагент.* КАК Контрагент,
+		ПартииТоваровКомпании.СкладКомпании.Подразделение.* КАК Подразделение,
+		ПартииТоваровКомпании.СкладКомпании.Организация.* КАК Организация}
+	
+	СГРУППИРОВАТЬ ПО
+		ПартииТоваровКомпании.СкладКомпании,
+		ПартииТоваровКомпании.Номенклатура
+	
+	ИМЕЮЩИЕ
+		СУММА(ПартииТоваровКомпании.Количество) &gt; 0) КАК ТаблицаОстатков
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаОстатков.СкладКомпании,
+	ТаблицаОстатков.Номенклатура
+
+ИМЕЮЩИЕ
+	СУММА(ТаблицаОстатков.НачальныйЗапас2) &gt; 0 И
+	СУММА(ТаблицаОстатков.Оборот2) = 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТабНеликвидовИКандидатов.Номенклатура КАК Номенклатура,
+	Цены.Период КАК Период,
+	Цены.Цена КАК Цена,
+	МАКСИМУМ(Цены.ТипЦен.ВалютаЦены) КАК ТипЦенВалютаЦены
+ПОМЕСТИТЬ ТаблицаЦен
+ИЗ
+	ТабНеликвидовИКандидатов КАК ТабНеликвидовИКандидатов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.Цены КАК Цены
+		ПО ТабНеликвидовИКандидатов.Номенклатура = Цены.Номенклатура
+			И (Цены.Период &lt;= &amp;ДатаОкончания)
+			И (Цены.ТипЦен = &amp;ТипЦены)
+			И (Цены.ПодразделениеКомпании = &amp;ТекПодразделение)
+			И (Цены.Контрагент = ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))
+			И (Цены.ХарактеристикаНоменклатуры = ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка))
+			И (Цены.ЕдиницаИзмерения = ЗНАЧЕНИЕ(Справочник.ЕдиницыИзмерения.ПустаяСсылка))
+ГДЕ
+	Цены.Период &lt;= &amp;ДатаОкончания
+
+СГРУППИРОВАТЬ ПО
+	ТабНеликвидовИКандидатов.Номенклатура,
+	Цены.Период,
+	Цены.Цена
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаЦен.Номенклатура КАК Номенклатура,
+	МАКСИМУМ(ТаблицаЦен.Период) КАК Период
+ПОМЕСТИТЬ СрезПоследних
+ИЗ
+	ТаблицаЦен КАК ТаблицаЦен
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаЦен.Номенклатура
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СрезПоследних.Номенклатура КАК Номенклатура,
+	МАКСИМУМ(ТаблицаЦен.Цена) КАК Цена,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ТаблицаЦен.ТипЦенВалютаЦены) КАК ТипЦенВалютаЦены
+ПОМЕСТИТЬ ЦеныПодразделения
+ИЗ
+	СрезПоследних КАК СрезПоследних
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ТаблицаЦен КАК ТаблицаЦен
+		ПО СрезПоследних.Номенклатура = ТаблицаЦен.Номенклатура
+			И СрезПоследних.Период = ТаблицаЦен.Период
+
+СГРУППИРОВАТЬ ПО
+	СрезПоследних.Номенклатура
+
+ИМЕЮЩИЕ
+	МАКСИМУМ(ТаблицаЦен.Цена) &gt; 0
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ СрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ ТаблицаЦен
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТабНеликвидовИКандидатов.Номенклатура КАК Номенклатура,
+	Цены.Период КАК Период,
+	Цены.Цена КАК Цена
+ПОМЕСТИТЬ ТаблицаЦенДляВсейКомпании
+ИЗ
+	ТабНеликвидовИКандидатов КАК ТабНеликвидовИКандидатов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.Цены КАК Цены
+		ПО ТабНеликвидовИКандидатов.Номенклатура = Цены.Номенклатура
+			И (Цены.Период &lt;= &amp;ДатаОкончания)
+			И (Цены.ТипЦен = &amp;ТипЦены)
+			И (Цены.ПодразделениеКомпании = &amp;ВсяКомпания)
+			И (Цены.Контрагент = ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))
+			И (Цены.ХарактеристикаНоменклатуры = ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка))
+			И (Цены.ЕдиницаИзмерения = ЗНАЧЕНИЕ(Справочник.ЕдиницыИзмерения.ПустаяСсылка))
+ГДЕ
+	Цены.Период &lt;= &amp;ДатаОкончания
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаЦен.Номенклатура КАК Номенклатура,
+	МАКСИМУМ(ТаблицаЦен.Период) КАК Период
+ПОМЕСТИТЬ СрезПоследнихДляВсейКомпании
+ИЗ
+	ТаблицаЦенДляВсейКомпании КАК ТаблицаЦен
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаЦен.Номенклатура
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СрезПоследних.Номенклатура КАК Номенклатура,
+	МАКСИМУМ(ТаблицаЦен.Цена) КАК Цена
+ПОМЕСТИТЬ ЦеныДляВсейКомпании
+ИЗ
+	СрезПоследнихДляВсейКомпании КАК СрезПоследних
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ТаблицаЦенДляВсейКомпании КАК ТаблицаЦен
+		ПО СрезПоследних.Номенклатура = ТаблицаЦен.Номенклатура
+			И СрезПоследних.Период = ТаблицаЦен.Период
+
+СГРУППИРОВАТЬ ПО
+	СрезПоследних.Номенклатура
+
+ИМЕЮЩИЕ
+	МАКСИМУМ(ТаблицаЦен.Цена) &gt; 0
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ СрезПоследнихДляВсейКомпании
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ ТаблицаЦенДляВсейКомпании
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТабРасхода.СкладКомпании КАК СкладКомпании,
+	ТабРасхода.Номенклатура,
+	НАЧАЛОПЕРИОДА(ПартииТоваровКомпании.Период, МЕСЯЦ) КАК Период,
+	СУММА(ПартииТоваровКомпании.Количество) КАК Количество
+ПОМЕСТИТЬ ТаблицаРасхода
+ИЗ
+	ТабНеликвидовИКандидатов КАК ТабРасхода
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.ПартииТоваровКомпании КАК ПартииТоваровКомпании
+		ПО ТабРасхода.Номенклатура = ПартииТоваровКомпании.Номенклатура
+			И (ПартииТоваровКомпании.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход))
+			И (НЕ ПартииТоваровКомпании.Регистратор ССЫЛКА Документ.ПеремещениеТоваров)
+			И (ПартииТоваровКомпании.Период &lt;= &amp;ДатаОкончания)
+			И ТабРасхода.СкладКомпании = ПартииТоваровКомпании.СкладКомпании
+ГДЕ
+	ПартииТоваровКомпании.Период &lt;= &amp;ДатаОкончания
+{ГДЕ
+	ПартииТоваровКомпании.Номенклатура.* КАК Номенклатура,
+	ПартииТоваровКомпании.СкладКомпании.* КАК СкладКомпании,
+	ПартииТоваровКомпании.Партия.* КАК Партия,
+	ПартииТоваровКомпании.Партия.Контрагент.* КАК Контрагент,
+	ПартииТоваровКомпании.СкладКомпании.Подразделение.* КАК Подразделение,
+	ПартииТоваровКомпании.СкладКомпании.Организация.* КАК Организация}
+
+СГРУППИРОВАТЬ ПО
+	ТабРасхода.СкладКомпании,
+	ТабРасхода.Номенклатура,
+	НАЧАЛОПЕРИОДА(ПартииТоваровКомпании.Период, МЕСЯЦ)
+
+ИМЕЮЩИЕ
+	СУММА(ПартииТоваровКомпании.Количество) &lt;&gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТабПрихода.СкладКомпании КАК СкладКомпании,
+	ТабПрихода.Номенклатура КАК Номенклатура,
+	МИНИМУМ(НАЧАЛОПЕРИОДА(ВЫБОР
+				КОГДА ПартииТоваровКомпании.Партия = &amp;ПартияТоваровОтрицательныхОстатков
+					ТОГДА ПартииТоваровКомпании.Период
+				ИНАЧЕ ПартииТоваровКомпании.Партия.Дата
+			КОНЕЦ, МЕСЯЦ)) КАК Период,
+	РАЗНОСТЬДАТ(МИНИМУМ(НАЧАЛОПЕРИОДА(ВЫБОР
+					КОГДА ПартииТоваровКомпании.Партия = &amp;ПартияТоваровОтрицательныхОстатков
+						ТОГДА ПартииТоваровКомпании.Период
+					ИНАЧЕ ПартииТоваровКомпании.Партия.Дата
+				КОНЕЦ, МЕСЯЦ)), &amp;ДатаОкончания, МЕСЯЦ) КАК КоличествоДнейБезПродаж
+ПОМЕСТИТЬ ТаблицаПодсчетДнейБезПродаж
+ИЗ
+	ТабНеликвидовИКандидатов КАК ТабПрихода
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.ПартииТоваровКомпании КАК ПартииТоваровКомпании
+		ПО ТабПрихода.Номенклатура = ПартииТоваровКомпании.Номенклатура
+			И (ПартииТоваровКомпании.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход))
+			И (ПартииТоваровКомпании.Период &lt;= &amp;ДатаОкончания)
+			И ТабПрихода.СкладКомпании = ПартииТоваровКомпании.СкладКомпании
+		ЛЕВОЕ СОЕДИНЕНИЕ ТаблицаРасхода КАК ТабРасхода
+		ПО ТабПрихода.Номенклатура = ТабРасхода.Номенклатура
+			И ТабПрихода.СкладКомпании = ТабРасхода.СкладКомпании
+ГДЕ
+	ТабРасхода.Период ЕСТЬ NULL 
+{ГДЕ
+	ПартииТоваровКомпании.Номенклатура.* КАК Номенклатура,
+	ПартииТоваровКомпании.СкладКомпании.* КАК СкладКомпании,
+	ПартииТоваровКомпании.Партия.* КАК Партия,
+	ПартииТоваровКомпании.Партия.Контрагент.* КАК Контрагент,
+	ПартииТоваровКомпании.СкладКомпании.Подразделение.* КАК Подразделение,
+	ПартииТоваровКомпании.СкладКомпании.Организация.* КАК Организация}
+
+СГРУППИРОВАТЬ ПО
+	ТабПрихода.СкладКомпании,
+	ТабПрихода.Номенклатура
+
+ИМЕЮЩИЕ
+	СУММА(ПартииТоваровКомпании.Количество) &lt;&gt; 0
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ТаблицаРасхода.СкладКомпании,
+	ТаблицаРасхода.Номенклатура,
+	МАКСИМУМ(ТаблицаРасхода.Период),
+	РАЗНОСТЬДАТ(МАКСИМУМ(ТаблицаРасхода.Период), &amp;ДатаОкончания, МЕСЯЦ)
+ИЗ
+	ТаблицаРасхода КАК ТаблицаРасхода
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаРасхода.СкладКомпании,
+	ТаблицаРасхода.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТаблицаПодсчетДнейБезПродаж.СкладКомпании КАК СкладКомпании,
+	ТаблицаПодсчетДнейБезПродаж.Номенклатура КАК Номенклатура,
+	СУММА(ТаблицаПодсчетДнейБезПродаж.КоличествоДнейБезПродаж) КАК КоличествоДнейБезПродаж,
+	СУММА(ЕСТЬNULL(ТаблицаРасходов.Количество, 0)) / &amp;КоличествоМесяцевДляРасчета КАК ТекущийРасход
+ПОМЕСТИТЬ ТаблицаПрошлыхПродаж
+ИЗ
+	ТаблицаПодсчетДнейБезПродаж КАК ТаблицаПодсчетДнейБезПродаж
+		ЛЕВОЕ СОЕДИНЕНИЕ ТаблицаРасхода КАК ТаблицаРасходов
+		ПО ТаблицаПодсчетДнейБезПродаж.Номенклатура = ТаблицаРасходов.Номенклатура
+			И ТаблицаПодсчетДнейБезПродаж.Период &gt;= ТаблицаРасходов.Период
+			И (РАЗНОСТЬДАТ(ТаблицаРасходов.Период, ТаблицаПодсчетДнейБезПродаж.Период, МЕСЯЦ) &lt; &amp;КоличествоМесяцевДляРасчета)
+			И ТаблицаПодсчетДнейБезПродаж.СкладКомпании = ТаблицаРасходов.СкладКомпании
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаПодсчетДнейБезПродаж.СкладКомпании,
+	ТаблицаПодсчетДнейБезПродаж.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ ТаблицаПодсчетДнейБезПродаж
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ ТаблицаРасхода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТабНеликвидовИКандидатов.СкладКомпании КАК СкладКомпании,
+	ТабНеликвидовИКандидатов.Номенклатура КАК Номенклатура,
+	ВЫБОР
+		КОГДА ТабНеликвидовИКандидатов.ГруппаТоваров = 1
+			ТОГДА "Неликвидные товары"
+		ИНАЧЕ "Претенденты в неликвидные товары"
+	КОНЕЦ КАК ГруппаТоваров,
+	СУММА(ТабНеликвидовИКандидатов.Себестоимость) КАК Себестоимость,
+	СУММА(ТабНеликвидовИКандидатов.СебестоимостьУпр) КАК СебестоимостьУпр,
+	СУММА(ТабНеликвидовИКандидатов.КонечныйЗапас) КАК Количество,
+	СУММА(ТабНеликвидовИКандидатов.КонечныйЗапас * ЕСТЬNULL(ЦеныПодразделения.Цена, ЕСТЬNULL(ЦеныДляВсейКомпании.Цена, 0))) КАК СебестоимостьПоТипуЦен,
+	СУММА(ТабРасчетаДолей.ОбщКоличПоКаталогу) КАК ОбщКоличПоКаталогу,
+	СУММА(ЕСТЬNULL(ТаблицаПрошлыхПродаж.КоличествоДнейБезПродаж, 0)) КАК КоличествоДнейБезПродаж,
+	СУММА(ЕСТЬNULL(ТаблицаПрошлыхПродаж.ТекущийРасход, 0)) КАК ТекущийРасход,
+	СУММА(&amp;КурсВалютыОтчета) КАК Валюта,
+	СУММА(ВЫБОР
+			КОГДА ТаблицаПрошлыхПродаж.ТекущийРасход ЕСТЬ NULL 
+					ИЛИ ТаблицаПрошлыхПродаж.ТекущийРасход = 0
+				ТОГДА 0
+			ИНАЧЕ ТабНеликвидовИКандидатов.КонечныйЗапас / ТаблицаПрошлыхПродаж.ТекущийРасход
+		КОНЕЦ) КАК ЗапасНаПродажу,
+	СУММА(ВЫБОР
+			КОГДА ТабРасчетаДолей.ОбщСумма ЕСТЬ NULL 
+				ТОГДА 0
+			ИНАЧЕ ЕСТЬNULL(ТабНеликвидовИКандидатов.Себестоимость, 0) / ТабРасчетаДолей.ОбщСумма * 100
+		КОНЕЦ) КАК ДоляСебестоимости,
+	СУММА(ВЫБОР
+			КОГДА ТабРасчетаДолей.ОбщКоличПоКаталогу ЕСТЬ NULL 
+				ТОГДА 100
+			ИНАЧЕ ТабНеликвидовИКандидатов.КонечныйЗапас / ТабРасчетаДолей.ОбщКоличПоКаталогу * 100
+		КОНЕЦ) КАК ДоляВАссортименте,
+	СУММА(ТаблицаОстатки.КоличествоОстаток) КАК ОстатокНаСкладе,
+	МАКСИМУМ(ТаблицаЯчейки.ЯчейкаХранения) КАК ОстатокВЯчейке
+{ВЫБРАТЬ
+	СкладКомпании.* КАК СкладКомпании,
+	Номенклатура.* КАК Номенклатура,
+	Количество КАК Количество,
+	Себестоимость КАК Себестоимость,
+	ЗапасНаПродажу КАК ЗапасНаПродажу,
+	КоличествоДнейБезПродаж КАК КоличествоДнейБезПродаж,
+	СебестоимостьПоТипуЦен КАК СебестоимостьПоТипуЦен,
+	ДоляВАссортименте КАК ДоляВАссортименте,
+	ДоляСебестоимости КАК ДоляСебестоимости,
+	Валюта КАК Валюта,
+	ТекущийРасход КАК ТекущийРасход,
+	ГруппаТоваров КАК ГруппаТоваров,
+	ОстатокНаСкладе КАК ОстатокНаСкладе}
+ИЗ
+	ТабНеликвидовИКандидатов КАК ТабНеликвидовИКандидатов
+		{ЛЕВОЕ СОЕДИНЕНИЕ ТабРасчетаДолей КАК ТабРасчетаДолей
+		ПО (ТабРасчетаДолей.СкладКомпании = ТабНеликвидовИКандидатов.СкладКомпании)}
+		ЛЕВОЕ СОЕДИНЕНИЕ ЦеныПодразделения КАК ЦеныПодразделения
+		ПО ТабНеликвидовИКандидатов.Номенклатура = ЦеныПодразделения.Номенклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ ЦеныДляВсейКомпании КАК ЦеныДляВсейКомпании
+		ПО ТабНеликвидовИКандидатов.Номенклатура = ЦеныДляВсейКомпании.Номенклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ ТаблицаПрошлыхПродаж КАК ТаблицаПрошлыхПродаж
+		ПО ТабНеликвидовИКандидатов.Номенклатура = ТаблицаПрошлыхПродаж.Номенклатура
+			И ТабНеликвидовИКандидатов.СкладКомпании = ТаблицаПрошлыхПродаж.СкладКомпании
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ОстаткиТоваровКомпанииОстатки.Номенклатура КАК Номенклатура,
+			ОстаткиТоваровКомпанииОстатки.СкладКомпании КАК СкладКомпании,
+			ОстаткиТоваровКомпанииОстатки.КоличествоОстаток КАК КоличествоОстаток
+		ИЗ
+			РегистрНакопления.ОстаткиТоваровКомпании.Остатки(&amp;ДатаОкончания, ) КАК ОстаткиТоваровКомпанииОстатки) КАК ТаблицаОстатки
+		ПО ТабНеликвидовИКандидатов.Номенклатура = ТаблицаОстатки.Номенклатура
+			И ТабНеликвидовИКандидатов.СкладКомпании = ТаблицаОстатки.СкладКомпании
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			НоменклатураЯчейкиХранения.Ссылка КАК Номенклатура,
+			НоменклатураЯчейкиХранения.СкладКомпании КАК СкладКомпании,
+			МАКСИМУМ(НоменклатураЯчейкиХранения.ЯчейкаХранения) КАК ЯчейкаХранения
+		ИЗ
+			Справочник.Номенклатура.ЯчейкиХранения КАК НоменклатураЯчейкиХранения
+		
+		СГРУППИРОВАТЬ ПО
+			НоменклатураЯчейкиХранения.Ссылка,
+			НоменклатураЯчейкиХранения.СкладКомпании) КАК ТаблицаЯчейки
+		ПО ТабНеликвидовИКандидатов.СкладКомпании = ТаблицаЯчейки.СкладКомпании
+			И ТабНеликвидовИКандидатов.Номенклатура = ТаблицаЯчейки.Номенклатура
+ГДЕ
+	ВЫБОР
+			КОГДА ТабНеликвидовИКандидатов.ГруппаТоваров = 1
+				ТОГДА ИСТИНА
+			КОГДА ТабНеликвидовИКандидатов.КонечныйЗапас ЕСТЬ NULL 
+					ИЛИ ТабНеликвидовИКандидатов.КонечныйЗапас = 0
+				ТОГДА ЛОЖЬ
+			КОГДА ТаблицаПрошлыхПродаж.ТекущийРасход ЕСТЬ NULL 
+					ИЛИ ТаблицаПрошлыхПродаж.ТекущийРасход = 0
+				ТОГДА ИСТИНА
+			ИНАЧЕ ТабНеликвидовИКандидатов.КонечныйЗапас / ТаблицаПрошлыхПродаж.ТекущийРасход &gt;= &amp;КритичныйЗапас
+		КОНЕЦ
+
+СГРУППИРОВАТЬ ПО
+	ТабНеликвидовИКандидатов.СкладКомпании,
+	ТабНеликвидовИКандидатов.Номенклатура,
+	ВЫБОР
+		КОГДА ТабНеликвидовИКандидатов.ГруппаТоваров = 1
+			ТОГДА "Неликвидные товары"
+		ИНАЧЕ "Претенденты в неликвидные товары"
+	КОНЕЦ</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ДоляВАссортименте</dataPath>
+		<expression>Сумма(ДоляВАссортименте)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДоляСебестоимости</dataPath>
+		<expression>Сумма(ДоляСебестоимости)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗапасНаПродажу</dataPath>
+		<expression>Сумма(ЗапасНаПродажу)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоДнейБезПродаж</dataPath>
+		<expression>Сумма(КоличествоДнейБезПродаж)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОбщКоличПоКаталогу</dataPath>
+		<expression>Сумма(ОбщКоличПоКаталогу)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОстатокНаСкладе</dataPath>
+		<expression>Сумма(ОстатокНаСкладе)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Себестоимость</dataPath>
+		<expression>Сумма(Себестоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СебестоимостьПоТипуЦен</dataPath>
+		<expression>Сумма(СебестоимостьПоТипуЦен)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СебестоимостьУпр</dataPath>
+		<expression>Сумма(СебестоимостьУпр)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТекущийРасход</dataPath>
+		<expression>Сумма(ТекущийРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОстатокВЯчейке</dataPath>
+		<expression>Максимум(ОстатокВЯчейке)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНеликвидов</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата неликвидов</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаПретендентов</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата претендентов</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВалютаОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>В валюте</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ВсяКомпания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вся компания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ПодразделенияКомпании.ОсновноеПодразделение</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КоличествоМесяцевДляРасчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Количество месяцев для расчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КритичныйЗапас</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Критичный запас</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПартияТоваровОтрицательныхОстатков</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Партия товаров отрицательных остатков</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:TypeSet xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:Characteristic.ТипыПартий</v8:TypeSet>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекПодразделение</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тек подразделение</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ПодразделенияКомпании</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТипЦены</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип цены</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыЦен</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КурсВалютыОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Курс валюты отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ГруппаТоваров</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СкладКомпании</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Себестоимость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗапасНаПродажу</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТекущийРасход</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДоляСебестоимости</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДоляВАссортименте</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокНаСкладе</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокВЯчейке</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Валюта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>КоличествоДнейБезПродаж</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ОбщКоличПоКаталогу</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СебестоимостьПоТипуЦен</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СебестоимостьУпр</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ДоляВАссортименте</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ДоляСебестоимости</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Себестоимость</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>СкладКомпании</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>ДоляВАссортименте</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>ДоляСебестоимости</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>Себестоимость</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>ОстатокВЯчейке</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Текст</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string"/>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ГруппаТоваров</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ДоляВАссортименте</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>ДоляСебестоимости</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Себестоимость</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter/>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Формат</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ОстатокВЯчейке</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter/>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Текст</dcscor:parameter>
+									<dcscor:value xsi:type="xs:string"/>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+					</dcsset:conditionalAppearance>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Номенклатура</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

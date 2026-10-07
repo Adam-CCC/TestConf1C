@@ -1,0 +1,279 @@
+﻿<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<style>
+
+:root{
+	--baseC: rgb(255,207,0);
+	--baseBG: rgb(240,240,240);
+	--baseBG2: rgb(102,102,102);
+	--fontC: #000;
+}
+
+*{
+	font-family: verdana,helvetica,arial,sans-serif;
+	font-size: 20pt;
+	color: var(--fontC);
+	margin:0;
+	padding:0;
+}
+
+.master{
+	width:20%;
+	text-align:center;
+}
+.master :first-child{
+	max-width: 200pt;
+}
+
+td{
+	padding:10pt;
+}
+
+#tData{
+	width:100%;
+	text-align:center;
+	opacity:1;
+}
+
+#time,#caption, .timeSec{ font-size:40pt; }
+#logo :first-child{ max-height: 80pt; }
+
+@font-face {
+	font-family: Musara;
+/*	src: local(musara), url(file:///C:/Users/user/Desktop/Автономер/RoadNumbers2.0/RoadNumbers.otf); */
+/*	src: url(data:font/otf;base64,%Шрифт%); */
+}
+
+/*
+thead td{
+	text-align:center;
+}
+*/
+.musara{
+	font-family:musara;
+}
+
+.cont{
+	width:100%;
+	background-color:var(--baseBG);
+	margin-bottom: 10pt;
+}
+
+.sheet{
+	width:100%;
+	border-collapse: collapse;
+}
+
+.sheet thead{
+	border-bottom: 2pt solid var(--baseBG2); 
+}
+
+.sheet tbody:before{line-height:1px; content:"\200C"; display:block;}
+
+.sheet tbody td{
+	border-bottom: 8pt solid var(--baseBG);
+	background-color: var(--baseC);
+}
+</style>
+<style id='css'></style>
+</head>
+<body>
+
+<table width='100%'>
+<tbody>
+<tr>
+<td width='25%'><span id='date'></span><br><span id='time'></span></td>
+<td id='caption' valign='middle' width='50%' align='center'></td>
+<td id='logo' width='25%' align='right'></td>
+</tr>
+</tbody>
+</table>
+<div id='tData'></div>
+<script>
+
+Number.prototype.pad=function(size){
+	let s=String(this);
+	while(s.length<(size||2)){s='0'+s;}
+	return s
+};
+function updateTime(){
+	let CurrentTime=new Date();
+	document.getElementById('time').innerHTML=CurrentTime.getHours().pad()+'<span class="timeSec">:</span>'+CurrentTime.getMinutes().pad();
+	document.getElementById('date').innerText=CurrentTime.getDate().pad()+'.'+(CurrentTime.getMonth()+1).pad()+'.'+CurrentTime.getFullYear();
+	setTimeout(updateTime,60000);
+}
+updateTime();
+
+function updateSec(hide){
+	//document.getElementsByClassName('timeSec')[0].style.display=hide;	
+	//document.getElementsByClassName('timeSec')[0].innerHTML=(hide=='none')?'&nbsp;':':';	
+	document.getElementsByClassName('timeSec')[0].style.color=(hide=='none')?'#fff':'var(--fontC)';	
+	setTimeout(updateSec,1000,(hide=='inline')?'none':'inline');
+}
+updateSec('inline');
+
+function render(mObj, timeout)
+{
+	let table,tbody,thead,tr,mRow,td,img,div;
+	let tObj = mObj.length > 0 ? mObj[0] : null;
+	
+	if (tObj)
+	{
+		table=document.createElement('table');
+		table.className='cont';
+		document.getElementById('tData').append(table);
+		
+		tbody=document.createElement('tbody');
+		table.append(tbody);
+		mRow=document.createElement('tr');
+		tbody.append(mRow);
+		
+		//мастер
+		td=document.createElement('td');
+		td.className='master';
+		mRow.append(td);
+
+		img=document.createElement('img');
+		//img.src=tObj.img; 
+		img.src='data:image;base64,'+tObj.img;
+		td.append(img);
+		td.append(document.createElement('br'));
+		
+		div=document.createElement('div');
+		div.append(document.createTextNode(tObj.user));
+		td.append(div);
+		
+		//расписание
+		td=document.createElement('td');
+		mRow.append(td);
+
+		table=document.createElement('table');
+		table.className='sheet';
+		td.append(table);
+		thead=document.createElement('thead');
+		table.append(thead);
+		tr=document.createElement('tr');
+		tr.innerHTML="<td width='10%'>Время</td><td width='15%'>Автомобиль</td><td width='55%'>Клиент</td><td width='20%'>Состояние</td>";
+		thead.append(tr);
+		
+		tbody=document.createElement('tbody');
+		table.append(tbody);
+			
+		let i;		
+		for (i = 0; i < tObj.tab.length; i++)
+		{
+			let el=tObj.tab[i];
+
+			tr=document.createElement('tr');
+			tbody.append(tr);
+
+			td=document.createElement('td');
+			td.append(document.createTextNode(el.time));
+			tr.append(td);
+
+			td=document.createElement('td');
+			if(el.auto.number)
+			{
+				td.append(document.createTextNode(el.auto.number));
+			}
+			else
+			{		
+				td.append(document.createTextNode(el.auto));
+			} 			
+			tr.append(td);
+
+			td=document.createElement('td');
+			td.append(document.createTextNode(el.client));
+			tr.append(td);
+
+			td=document.createElement('td');
+			td.append(document.createTextNode(el.status));
+			tr.append(td);
+			
+			
+			let space=window.innerHeight - table.getBoundingClientRect().height;
+			console.log(space, tr.getBoundingClientRect().height*2);
+			
+			if( space < tr.getBoundingClientRect().height*2 )
+			{
+				++i;
+				break;
+			}
+		}
+		
+		if (i == tObj.tab.length)
+		{
+			mObj.splice(0, 1);
+		}
+		else
+		{
+			tObj.tab.splice(0, i);
+		}
+	}
+	
+	setTimeout(setVisible, timeout*1000, mObj, timeout);
+}
+
+function setVisible(mObj,timeout){
+	let cont=document.getElementById('tData');
+	let opacity=Number(cont.style.opacity);
+	if(opacity>=0){
+		cont.style.opacity=opacity-0.05;
+		cont.style.filter='alpha(opacity='+(100*opacity-0.05)+')';
+		setTimeout(setVisible,50,mObj,timeout);
+	}else{	
+		cont.innerHTML='';
+		cont.style.opacity=1;
+		cont.style.filter='alpha(opacity=100)';
+		if(mObj && mObj.length>0){ render(mObj,timeout); }else{ getData(); /*alert('запрос новой страницы'); */ }
+	}
+}
+
+let url=window.location;
+let json={
+	method: 'POST', // *GET, POST, PUT, DELETE, etc.
+	mode: 'cors', // no-cors, cors, *same-origin
+	cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+	credentials: 'same-origin', // include, *same-origin, omit
+	headers:{ 'Content-Type': 'application/json'}, // 'Content-Type': 'application/x-www-form-urlencoded',
+	redirect: 'follow', // manual, *follow, error
+	referrer: 'no-referrer', // no-referrer, *client
+	body: JSON.stringify({sessionID:'%IDСессии%'}) // тип данных в body должен соответвовать значению заголовка "Content-Type"
+};
+
+function getData(){
+	fetch(url,json).then(function(response){
+		if(response.ok){
+			response.json().then(function(obj){
+				
+				//стиль
+				document.getElementById('css').innerText=':root{ --baseC: '+obj.baseColor+'; }';
+				
+				//заголовок
+				document.getElementById('caption').innerText=obj.caption;
+				
+				//логотип
+				let logo=document.getElementById('logo');
+				logo.innerHTML='';
+				img=document.createElement('img');
+				img.src='data:image;base64,'+obj.logo;
+				logo.append(img);
+
+				document.getElementById('tData').innerHTML='';
+				render(obj.data, obj.timeout ? obj.timeout : minTime);
+			});
+		}else{
+			//console.log('Ашыпка: ' + response.status + ': ' + response.statusText);
+			document.getElementById('tData').innerHTML='<img src="https://i.pinimg.com/originals/83/12/b6/8312b6818e3eebe8cb3fe009a9bafd1c.gif"><br><h>Отсутствует связь с сервером</h>';
+			setTimeout(getData,minTime*1000);
+		}
+	});
+}
+
+let minTime=5;
+getData();
+
+</script>
+
+</body></html>

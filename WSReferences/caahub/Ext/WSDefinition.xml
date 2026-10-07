@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://tempuri.org/CAManuHub/cadatahub"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="http://tempuri.org/CAManuHub/cadatahub"
+		targetNamespace="http://tempuri.org/CAManuHub/cadatahub">
+	<types>
+		<s:schema xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+				xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+				xmlns:s="http://www.w3.org/2001/XMLSchema"
+				xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+				xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				elementFormDefault="qualified"
+				targetNamespace="http://tempuri.org/CAManuHub/cadatahub">
+			<s:element name="AddCustomer">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Submission"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddCustomerResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddCustomerResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddEnquiry">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Submission"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddEnquiryResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddEnquiryResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddActivity">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Submission"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddActivityResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddActivityResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddVehicleStock">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Submission"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddVehicleStockResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddVehicleStockResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AckCentralLead">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="mfgenquiryurn"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AckCentralLeadResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AckCentralLeadResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddVehicleBusy">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Submission"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddVehicleBusyResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddVehicleBusyResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CancelVehicleBusy">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Submission"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CancelVehicleBusyResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="CancelVehicleBusyResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUser">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Submission"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AddUserResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="AddUserResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetCentralLeads">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="StartDate"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="EndDate"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetCentralLeadsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetCentralLeadsResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetMarketingTerms">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetMarketingTermsResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetMarketingTermsResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetCustomerVehicles">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetCustomerVehiclesResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetCustomerVehiclesResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetDealerFitAccessories">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="DealerShipID"
+								type="s:string"/>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="Password"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GetDealerFitAccessoriesResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0"
+								maxOccurs="1"
+								name="GetDealerFitAccessoriesResult"
+								type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</types>
+	<message name="AddCustomerSoapIn">
+		<part name="parameters"
+				element="tns:AddCustomer"/>
+	</message>
+	<message name="AddCustomerSoapOut">
+		<part name="parameters"
+				element="tns:AddCustomerResponse"/>
+	</message>
+	<message name="AddEnquirySoapIn">
+		<part name="parameters"
+				element="tns:AddEnquiry"/>
+	</message>
+	<message name="AddEnquirySoapOut">
+		<part name="parameters"
+				element="tns:AddEnquiryResponse"/>
+	</message>
+	<message name="AddActivitySoapIn">
+		<part name="parameters"
+				element="tns:AddActivity"/>
+	</message>
+	<message name="AddActivitySoapOut">
+		<part name="parameters"
+				element="tns:AddActivityResponse"/>
+	</message>
+	<message name="AddVehicleStockSoapIn">
+		<part name="parameters"
+				element="tns:AddVehicleStock"/>
+	</message>
+	<message name="AddVehicleStockSoapOut">
+		<part name="parameters"
+				element="tns:AddVehicleStockResponse"/>
+	</message>
+	<message name="AckCentralLeadSoapIn">
+		<part name="parameters"
+				element="tns:AckCentralLead"/>
+	</message>
+	<message name="AckCentralLeadSoapOut">
+		<part name="parameters"
+				element="tns:AckCentralLeadResponse"/>
+	</message>
+	<message name="AddVehicleBusySoapIn">
+		<part name="parameters"
+				element="tns:AddVehicleBusy"/>
+	</message>
+	<message name="AddVehicleBusySoapOut">
+		<part name="parameters"
+				element="tns:AddVehicleBusyResponse"/>
+	</message>
+	<message name="CancelVehicleBusySoapIn">
+		<part name="parameters"
+				element="tns:CancelVehicleBusy"/>
+	</message>
+	<message name="CancelVehicleBusySoapOut">
+		<part name="parameters"
+				element="tns:CancelVehicleBusyResponse"/>
+	</message>
+	<message name="AddUserSoapIn">
+		<part name="parameters"
+				element="tns:AddUser"/>
+	</message>
+	<message name="AddUserSoapOut">
+		<part name="parameters"
+				element="tns:AddUserResponse"/>
+	</message>
+	<message name="GetCentralLeadsSoapIn">
+		<part name="parameters"
+				element="tns:GetCentralLeads"/>
+	</message>
+	<message name="GetCentralLeadsSoapOut">
+		<part name="parameters"
+				element="tns:GetCentralLeadsResponse"/>
+	</message>
+	<message name="GetMarketingTermsSoapIn">
+		<part name="parameters"
+				element="tns:GetMarketingTerms"/>
+	</message>
+	<message name="GetMarketingTermsSoapOut">
+		<part name="parameters"
+				element="tns:GetMarketingTermsResponse"/>
+	</message>
+	<message name="GetCustomerVehiclesSoapIn">
+		<part name="parameters"
+				element="tns:GetCustomerVehicles"/>
+	</message>
+	<message name="GetCustomerVehiclesSoapOut">
+		<part name="parameters"
+				element="tns:GetCustomerVehiclesResponse"/>
+	</message>
+	<message name="GetDealerFitAccessoriesSoapIn">
+		<part name="parameters"
+				element="tns:GetDealerFitAccessories"/>
+	</message>
+	<message name="GetDealerFitAccessoriesSoapOut">
+		<part name="parameters"
+				element="tns:GetDealerFitAccessoriesResponse"/>
+	</message>
+	<portType name="cadatahubSoap">
+		<operation name="AddCustomer">
+			<input name="AddCustomerRequest"
+					message="tns:AddCustomerSoapIn"/>
+			<output name="AddCustomerResponse"
+					message="tns:AddCustomerSoapOut"/>
+		</operation>
+		<operation name="AddEnquiry">
+			<input name="AddEnquiryRequest"
+					message="tns:AddEnquirySoapIn"/>
+			<output name="AddEnquiryResponse"
+					message="tns:AddEnquirySoapOut"/>
+		</operation>
+		<operation name="AddActivity">
+			<input name="AddActivityRequest"
+					message="tns:AddActivitySoapIn"/>
+			<output name="AddActivityResponse"
+					message="tns:AddActivitySoapOut"/>
+		</operation>
+		<operation name="AddVehicleStock">
+			<input name="AddVehicleStockRequest"
+					message="tns:AddVehicleStockSoapIn"/>
+			<output name="AddVehicleStockResponse"
+					message="tns:AddVehicleStockSoapOut"/>
+		</operation>
+		<operation name="AckCentralLead">
+			<input name="AckCentralLeadRequest"
+					message="tns:AckCentralLeadSoapIn"/>
+			<output name="AckCentralLeadResponse"
+					message="tns:AckCentralLeadSoapOut"/>
+		</operation>
+		<operation name="AddVehicleBusy">
+			<input name="AddVehicleBusyRequest"
+					message="tns:AddVehicleBusySoapIn"/>
+			<output name="AddVehicleBusyResponse"
+					message="tns:AddVehicleBusySoapOut"/>
+		</operation>
+		<operation name="CancelVehicleBusy">
+			<input name="CancelVehicleBusyRequest"
+					message="tns:CancelVehicleBusySoapIn"/>
+			<output name="CancelVehicleBusyResponse"
+					message="tns:CancelVehicleBusySoapOut"/>
+		</operation>
+		<operation name="AddUser">
+			<input name="AddUserRequest"
+					message="tns:AddUserSoapIn"/>
+			<output name="AddUserResponse"
+					message="tns:AddUserSoapOut"/>
+		</operation>
+		<operation name="GetCentralLeads">
+			<input name="GetCentralLeadsRequest"
+					message="tns:GetCentralLeadsSoapIn"/>
+			<output name="GetCentralLeadsResponse"
+					message="tns:GetCentralLeadsSoapOut"/>
+		</operation>
+		<operation name="GetMarketingTerms">
+			<input name="GetMarketingTermsRequest"
+					message="tns:GetMarketingTermsSoapIn"/>
+			<output name="GetMarketingTermsResponse"
+					message="tns:GetMarketingTermsSoapOut"/>
+		</operation>
+		<operation name="GetCustomerVehicles">
+			<input name="GetCustomerVehiclesRequest"
+					message="tns:GetCustomerVehiclesSoapIn"/>
+			<output name="GetCustomerVehiclesResponse"
+					message="tns:GetCustomerVehiclesSoapOut"/>
+		</operation>
+		<operation name="GetDealerFitAccessories">
+			<input name="GetDealerFitAccessoriesRequest"
+					message="tns:GetDealerFitAccessoriesSoapIn"/>
+			<output name="GetDealerFitAccessoriesResponse"
+					message="tns:GetDealerFitAccessoriesSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="cadatahubSoap"
+			type="tns:cadatahubSoap">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="AddCustomer">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/AddCustomer"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddEnquiry">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/AddEnquiry"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddActivity">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/AddActivity"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddVehicleStock">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/AddVehicleStock"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AckCentralLead">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/AckCentralLead"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddVehicleBusy">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/AddVehicleBusy"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CancelVehicleBusy">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/CancelVehicleBusy"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AddUser">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/AddUser"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetCentralLeads">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/GetCentralLeads"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetMarketingTerms">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/GetMarketingTerms"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetCustomerVehicles">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/GetCustomerVehicles"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetDealerFitAccessories">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/CAManuHub/cadatahub/GetDealerFitAccessories"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="cadatahub">
+		<port name="cadatahubSoap"
+				binding="tns:cadatahubSoap">
+			<soapbind:address location="https://dx.caahub.com/CANissanRUDealerHubTest/hub.asmx"/>
+		</port>
+	</service>
+</definitions>

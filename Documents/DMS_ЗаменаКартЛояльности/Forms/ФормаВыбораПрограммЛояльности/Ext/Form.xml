@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="38">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="39"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="40">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="41"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="ДекорацияВыберитеВидКарты" id="35">
+			<TextColor>style:FieldSelectionBackColor</TextColor>
+			<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выберите вид карты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select the type of card</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ДекорацияВыберитеВидКартыКонтекстноеМеню" id="36"/>
+			<ExtendedTooltip name="ДекорацияВыберитеВидКартыРасширеннаяПодсказка" id="37"/>
+		</LabelDecoration>
+		<Table name="ТаблицаВариантовЗамены" id="1">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ТаблицаВариантовЗамены</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТаблицаВариантовЗаменыКонтекстноеМеню" id="2">
+				<Autofill>false</Autofill>
+			</ContextMenu>
+			<AutoCommandBar name="ТаблицаВариантовЗаменыКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ТаблицаВариантовЗаменыРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ТаблицаВариантовЗаменыСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ТаблицаВариантовЗамены</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаВариантовЗаменыСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ТаблицаВариантовЗаменыСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТаблицаВариантовЗаменыСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ТаблицаВариантовЗамены</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаВариантовЗаменыСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ТаблицаВариантовЗаменыСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТаблицаВариантовЗаменыУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ТаблицаВариантовЗамены</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаВариантовЗаменыУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ТаблицаВариантовЗаменыУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeAddRow">ТаблицаВариантовЗаменыПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">ТаблицаВариантовЗаменыПередУдалением</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ТаблицаВариантовЗаменыКонтрагент" id="14">
+					<DataPath>ТаблицаВариантовЗамены.Контрагент</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаВариантовЗаменыКонтрагентКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ТаблицаВариантовЗаменыКонтрагентРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<InputField name="ТаблицаВариантовЗаменыВидОперации" id="17">
+					<DataPath>ТаблицаВариантовЗамены.ВидОперации</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаВариантовЗаменыВидОперацииКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ТаблицаВариантовЗаменыВидОперацииРасширеннаяПодсказка" id="19"/>
+				</InputField>
+				<InputField name="ТаблицаВариантовЗаменыДата" id="20">
+					<DataPath>ТаблицаВариантовЗамены.Дата</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаВариантовЗаменыДатаКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ТаблицаВариантовЗаменыДатаРасширеннаяПодсказка" id="22"/>
+				</InputField>
+				<InputField name="ТаблицаВариантовЗаменыКартаИсточник" id="23">
+					<DataPath>ТаблицаВариантовЗамены.КартаИсточник</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаВариантовЗаменыКартаИсточникКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ТаблицаВариантовЗаменыКартаИсточникРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<CheckBoxField name="ТаблицаВариантовЗаменыВыбрать" id="32">
+					<DataPath>ТаблицаВариантовЗамены.Выбрать</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТаблицаВариантовЗаменыВыбратьКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ТаблицаВариантовЗаменыВыбратьРасширеннаяПодсказка" id="34"/>
+					<Events>
+						<Event name="OnChange">ТаблицаВариантовЗаменыВыбратьПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="ТаблицаВариантовЗаменыВидКарты" id="26">
+					<DataPath>ТаблицаВариантовЗамены.ВидКарты</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаВариантовЗаменыВидКартыКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ТаблицаВариантовЗаменыВидКартыРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="ТаблицаВариантовЗаменыНоминал" id="29">
+					<DataPath>ТаблицаВариантовЗамены.Номинал</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаВариантовЗаменыНоминалКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ТаблицаВариантовЗаменыНоминалРасширеннаяПодсказка" id="31"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТаблицаВариантовЗамены" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица вариантов замены</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Table replacement options</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Контрагент" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Клиент</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Client</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидОперации" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид операции</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>transaction Type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.DMS_ВидыОперацийКартЛояльности</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Дата" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>date</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="КартаИсточник" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Карта источник</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Map source</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Renault_КартыЛояльности</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидКарты" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>map View</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.DMS_ВидыКартЛояльности</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Номинал" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номинал</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>rating</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Выбрать" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбрать</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Choose</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="КартаПриемник" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Карта приемник</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Map receiver</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Renault_КартыЛояльности</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЗаказНаряд" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказ-наряд</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Work Order</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.ЗаказНаряд</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Choose</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Choose</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Выбрать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

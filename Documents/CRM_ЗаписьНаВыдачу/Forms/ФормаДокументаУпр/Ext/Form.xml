@@ -1,0 +1,1231 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Width>120</Width>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandBarLocation>None</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Help</ExcludedCommand>
+	</CommandSet>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грКонтейнер" id="151">
+			<TitleTextColor>#313431</TitleTextColor>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:FieldBackColor</BackColor>
+			<ExtendedTooltip name="грКонтейнерРасширеннаяПодсказка" id="152"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="125">
+					<Visible>false</Visible>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="126"/>
+					<ChildItems>
+						<LabelDecoration name="ЗаголовокФормы" id="173">
+							<Height>2</Height>
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextColor>#313431</TextColor>
+							<Font ref="sys:DefaultGUIFont" height="12" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>заголовок... кредит</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>header ... loan</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<ContextMenu name="ЗаголовокФормыКонтекстноеМеню" id="174"/>
+							<ExtendedTooltip name="ЗаголовокФормыРасширеннаяПодсказка" id="175"/>
+						</LabelDecoration>
+						<PictureDecoration name="Logo" id="170">
+							<Width>16</Width>
+							<Height>2</Height>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Logo</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Logo</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Logo_128</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<FileDragMode>AsFile</FileDragMode>
+							<ContextMenu name="LogoКонтекстноеМеню" id="171"/>
+							<ExtendedTooltip name="LogoРасширеннаяПодсказка" id="172"/>
+						</PictureDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа5" id="348">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="349"/>
+					<ChildItems>
+						<UsualGroup name="грЛевая" id="350">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грЛеваяРасширеннаяПодсказка" id="351"/>
+							<ChildItems>
+								<UsualGroup name="Группа4" id="299">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="300"/>
+									<ChildItems>
+										<InputField name="Номер" id="301">
+											<DataPath>Объект.Number</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#9CA6B2</BorderColor>
+											<ContextMenu name="НомерКонтекстноеМеню" id="302"/>
+											<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="303"/>
+										</InputField>
+										<LabelDecoration name="Декорация4" id="441">
+											<ContextMenu name="Декорация4КонтекстноеМеню" id="442"/>
+											<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="443"/>
+										</LabelDecoration>
+										<InputField name="Дата" id="304">
+											<DataPath>Объект.Date</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>18</Width>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#9CA6B2</BorderColor>
+											<ContextMenu name="ДатаКонтекстноеМеню" id="305"/>
+											<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="306"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="Клиент" id="345">
+									<DataPath>Объект.Клиент</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>6</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="КлиентКонтекстноеМеню" id="346"/>
+									<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="347"/>
+									<Events>
+										<Event name="OnChange">КонтрагентПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="VIN" id="939">
+									<DataPath>Объект.VIN</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="VINКонтекстноеМеню" id="940"/>
+									<ExtendedTooltip name="VINРасширеннаяПодсказка" id="941"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<LabelDecoration name="Декорация6" id="737">
+							<Width>1</Width>
+							<ContextMenu name="Декорация6КонтекстноеМеню" id="738"/>
+							<ExtendedTooltip name="Декорация6РасширеннаяПодсказка" id="739"/>
+						</LabelDecoration>
+						<UsualGroup name="грПравая" id="352">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грПраваяРасширеннаяПодсказка" id="353"/>
+							<ChildItems>
+								<InputField name="IDK" id="936">
+									<DataPath>Объект.IDK</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Рабочий лист</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="IDKКонтекстноеМеню" id="937"/>
+									<ExtendedTooltip name="IDKРасширеннаяПодсказка" id="938"/>
+								</InputField>
+								<InputField name="ДилерскийЦентр" id="948">
+									<DataPath>Объект.ДилерскийЦентр</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="ДилерскийЦентрКонтекстноеМеню" id="949"/>
+									<ExtendedTooltip name="ДилерскийЦентрРасширеннаяПодсказка" id="950"/>
+								</InputField>
+								<InputField name="ДоговорНаПродажуАвтомобиля" id="334">
+									<DataPath>Объект.ДоговорНаПродажуАвтомобиля</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Договор</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#313431</TitleTextColor>
+									<Width>5</Width>
+									<HorizontalStretch>true</HorizontalStretch>
+									<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+									<ChoiceParameterLinks>
+										<xr:Link>
+											<xr:Name>Отбор.Владелец</xr:Name>
+											<xr:DataPath xsi:type="xs:string">1/0:97908346-b282-4607-8c92-6412b9c75681</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+									</ChoiceParameterLinks>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="ДоговорНаПродажуАвтомобиляКонтекстноеМеню" id="335"/>
+									<ExtendedTooltip name="ДоговорНаПродажуАвтомобиляРасширеннаяПодсказка" id="336"/>
+									<Events>
+										<Event name="OnChange">КонтрагентПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаДатаВремяВыдачи" id="922">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата, время выдачи</v8:content>
+						</v8:item>
+					</Title>
+					<TitleTextColor>#313431</TitleTextColor>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>#F0F0F0</BackColor>
+					<ExtendedTooltip name="ГруппаДатаВремяВыдачиРасширеннаяПодсказка" id="923"/>
+					<ChildItems>
+						<UsualGroup name="Группа2" id="975">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="976"/>
+							<ChildItems>
+								<InputField name="ДатаВыдачи" id="956">
+									<DataPath>Объект.ДатаВыдачи</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ='дд.ММ.гггг ЧЧ:мм'</v8:content>
+										</v8:item>
+									</EditFormat>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="ДатаВыдачиКонтекстноеМеню" id="957"/>
+									<ExtendedTooltip name="ДатаВыдачиРасширеннаяПодсказка" id="958"/>
+									<Events>
+										<Event name="OnChange">ДатаВыдачиПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ДатаНачала" id="945">
+									<DataPath>Объект.ДатаНачала</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ='дд.ММ.гггг ЧЧ:мм'</v8:content>
+										</v8:item>
+									</EditFormat>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="946"/>
+									<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="947"/>
+									<Events>
+										<Event name="OnChange">ДатаНачалаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="Продолжительность" id="951">
+									<DataPath>Объект.Продолжительность</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Длительность, мин</v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="ПродолжительностьКонтекстноеМеню" id="952"/>
+									<ExtendedTooltip name="ПродолжительностьРасширеннаяПодсказка" id="953"/>
+									<Events>
+										<Event name="OnChange">ПродолжительностьПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<LabelDecoration name="Декорация3" id="979">
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация3КонтекстноеМеню" id="980"/>
+							<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="981"/>
+						</LabelDecoration>
+						<UsualGroup name="Группа3" id="977">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="978"/>
+							<ChildItems>
+								<InputField name="ЗонаВыдачи" id="972">
+									<DataPath>Объект.ЗонаВыдачи</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="ЗонаВыдачиКонтекстноеМеню" id="973"/>
+									<ExtendedTooltip name="ЗонаВыдачиРасширеннаяПодсказка" id="974"/>
+								</InputField>
+								<InputField name="ХозОперация" id="969">
+									<DataPath>Объект.ХозОперация</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="ХозОперацияКонтекстноеМеню" id="970"/>
+									<ExtendedTooltip name="ХозОперацияРасширеннаяПодсказка" id="971"/>
+								</InputField>
+								<InputField name="Менеджер" id="942">
+									<DataPath>Объект.Менеджер</DataPath>
+									<TitleTextColor>#313431</TitleTextColor>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<ContextMenu name="МенеджерКонтекстноеМеню" id="943"/>
+									<ExtendedTooltip name="МенеджерРасширеннаяПодсказка" id="944"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="СтрокаАвтомобили" id="959">
+					<DataPath>Объект.СтрокаАвтомобили</DataPath>
+					<TitleTextColor>#313431</TitleTextColor>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<ContextMenu name="СтрокаАвтомобилиКонтекстноеМеню" id="960"/>
+					<ExtendedTooltip name="СтрокаАвтомобилиРасширеннаяПодсказка" id="961"/>
+				</InputField>
+				<InputField name="СогласиеНаОбработкуПервональныхДанных" id="982">
+					<DataPath>Объект.СогласиеНаОбработкуПерсональныхДанных</DataPath>
+					<ContextMenu name="СогласиеНаОбработкуПервональныхДанныхКонтекстноеМеню" id="983"/>
+					<ExtendedTooltip name="СогласиеНаОбработкуПервональныхДанныхРасширеннаяПодсказка" id="984"/>
+				</InputField>
+				<UsualGroup name="грТовары" id="475">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Товары</v8:content>
+						</v8:item>
+					</Title>
+					<TitleFont ref="sys:DefaultGUIFont" height="12" kind="WindowsFont"/>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кредитные предложения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грТоварыРасширеннаяПодсказка" id="476"/>
+					<ChildItems>
+						<UsualGroup name="ТЧ" id="266">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ТЧ</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>PM</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ТЧ</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>PM</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ТЧРасширеннаяПодсказка" id="267"/>
+							<ChildItems>
+								<UsualGroup name="кнМеню" id="268">
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Кн меню</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>KH menu</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="кнМенюРасширеннаяПодсказка" id="269"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация5" id="276">
+											<Visible>false</Visible>
+											<Height>1</Height>
+											<ContextMenu name="Декорация5КонтекстноеМеню" id="277"/>
+											<ExtendedTooltip name="Декорация5РасширеннаяПодсказка" id="278"/>
+										</LabelDecoration>
+										<Button name="кнТовары" id="679">
+											<Type>UsualButton</Type>
+											<Visible>false</Visible>
+											<Representation>PictureAndText</Representation>
+											<Width>18</Width>
+											<Height>2</Height>
+											<CommandName>Form.Command.кнЗакладка</CommandName>
+											<TextColor>#313431</TextColor>
+											<BackColor>#BDC3CE</BackColor>
+											<BorderColor>#BDC3CE</BorderColor>
+											<Font ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+											<Picture>
+												<xr:Ref>CommonPicture.Renault_WheelDisk</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</Picture>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Товары</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="кнТоварыРасширеннаяПодсказка" id="680"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="грТелоТЧ" id="279">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="грТелоТЧРасширеннаяПодсказка" id="280"/>
+									<ChildItems>
+										<UsualGroup name="грКнопкиТЧ" id="156">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="грКнопкиТЧРасширеннаяПодсказка" id="157"/>
+											<ChildItems>
+												<Button name="кнДобавить" id="158">
+													<Type>UsualButton</Type>
+													<Representation>PictureAndText</Representation>
+													<Width>12</Width>
+													<Height>1</Height>
+													<CommandName>Form.Command.кнопкиТЧ</CommandName>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#E7E7E7</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+													<Picture>
+														<xr:Ref>CommonPicture.Renault_Plus_New</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Добавить</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Add</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="кнДобавитьРасширеннаяПодсказка" id="159"/>
+												</Button>
+												<Button name="кнУдалить" id="160">
+													<Type>UsualButton</Type>
+													<Representation>PictureAndText</Representation>
+													<Width>12</Width>
+													<Height>1</Height>
+													<CommandName>Form.Command.кнопкиТЧ</CommandName>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#E7E7E7</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+													<Picture>
+														<xr:Ref>CommonPicture.Renault_Cross_New</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Удалить</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Delete</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="кнУдалитьРасширеннаяПодсказка" id="161"/>
+												</Button>
+												<Button name="кнОбновить" id="295">
+													<Type>UsualButton</Type>
+													<Representation>PictureAndText</Representation>
+													<Width>12</Width>
+													<Height>1</Height>
+													<CommandName>Form.Command.кнопкиТЧ</CommandName>
+													<TextColor>#313431</TextColor>
+													<BackColor>#E7E7E7</BackColor>
+													<BorderColor>#E7E7E7</BorderColor>
+													<Font ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+													<Picture>
+														<xr:Ref>CommonPicture.Renault_Refresh_New</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Обновить</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>update</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="кнОбновитьРасширеннаяПодсказка" id="296"/>
+												</Button>
+												<LabelDecoration name="Декорация1" id="153">
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="Декорация1КонтекстноеМеню" id="154"/>
+													<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="155"/>
+												</LabelDecoration>
+												<CommandBar name="КоманднаяПанельТовары" id="618">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Командная панель товары</v8:content>
+														</v8:item>
+													</Title>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleFont ref="sys:DefaultGUIFont" height="10" kind="WindowsFont"/>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Командная панель товары</v8:content>
+														</v8:item>
+													</ToolTip>
+													<HorizontalLocation>Right</HorizontalLocation>
+													<ExtendedTooltip name="КоманднаяПанельТоварыРасширеннаяПодсказка" id="619"/>
+													<ChildItems>
+														<Popup name="Заполнение" id="622">
+															<Visible>false</Visible>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Заполнение</v8:content>
+																</v8:item>
+															</Title>
+															<TitleTextColor>#313431</TitleTextColor>
+															<TitleFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Заполнение</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Picture>
+																<xr:Ref>CommonPicture.Renault_Confirm_NoBorder</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<BackColor>#FFCF00</BackColor>
+															<BorderColor>#FFCF00</BorderColor>
+															<ExtendedTooltip name="ЗаполнениеРасширеннаяПодсказка" id="623"/>
+															<ChildItems>
+																<Button name="ЗаполнитьЗаказамиКонтрагенту" id="691">
+																	<Type>CommandBarButton</Type>
+																	<CommandName>Form.Command.ЗаполнитьПоДокументуОснования</CommandName>
+																	<ExtendedTooltip name="ЗаполнитьЗаказамиКонтрагентуРасширеннаяПодсказка" id="692"/>
+																</Button>
+															</ChildItems>
+														</Popup>
+														<Popup name="ПодборВТабличнуюЧасть" id="620">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Подбор</v8:content>
+																</v8:item>
+															</Title>
+															<TitleTextColor>#313431</TitleTextColor>
+															<TitleFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Подбор в табличную часть</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Picture>
+																<xr:Ref>CommonPicture.Renault_Confirm_NoBorder</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<BackColor>#FFCF00</BackColor>
+															<BorderColor>#FFCF00</BorderColor>
+															<ExtendedTooltip name="ПодборВТабличнуюЧастьРасширеннаяПодсказка" id="621"/>
+														</Popup>
+													</ChildItems>
+												</CommandBar>
+											</ChildItems>
+										</UsualGroup>
+										<Table name="Товары" id="210">
+											<CommandBarLocation>None</CommandBarLocation>
+											<Height>5</Height>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.АвтомобилиДляВыдачи</DataPath>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#9CA6B2</BorderColor>
+											<TitleTextColor>style:FieldBackColor</TitleTextColor>
+											<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ТоварыКонтекстноеМеню" id="211"/>
+											<AutoCommandBar name="ТоварыКоманднаяПанель" id="212">
+												<Autofill>false</Autofill>
+											</AutoCommandBar>
+											<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="213"/>
+											<SearchStringAddition name="ТоварыСтрокаПоиска" id="214">
+												<AdditionSource>
+													<Item>Товары</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТоварыСтрокаПоискаКонтекстноеМеню" id="215"/>
+												<ExtendedTooltip name="ТоварыСтрокаПоискаРасширеннаяПодсказка" id="216"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТоварыСостояниеПросмотра" id="217">
+												<AdditionSource>
+													<Item>Товары</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ТоварыСостояниеПросмотраКонтекстноеМеню" id="218"/>
+												<ExtendedTooltip name="ТоварыСостояниеПросмотраРасширеннаяПодсказка" id="219"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТоварыУправлениеПоиском" id="220">
+												<AdditionSource>
+													<Item>Товары</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ТоварыУправлениеПоискомКонтекстноеМеню" id="221"/>
+												<ExtendedTooltip name="ТоварыУправлениеПоискомРасширеннаяПодсказка" id="222"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="OnEditEnd">ТоварыПриОкончанииРедактирования</Event>
+												<Event name="OnChange">КонтрагентПриИзменении</Event>
+											</Events>
+											<ChildItems>
+												<InputField name="ТоварыАвтомобиль" id="927">
+													<DataPath>Объект.АвтомобилиДляВыдачи.Автомобиль</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleBackColor>#E7E7E7</TitleBackColor>
+													<EditMode>EnterOnInput</EditMode>
+													<FooterTextColor>#313431</FooterTextColor>
+													<FooterBackColor>#E7E7E7</FooterBackColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<ContextMenu name="ТоварыАвтомобильКонтекстноеМеню" id="928"/>
+													<ExtendedTooltip name="ТоварыАвтомобильРасширеннаяПодсказка" id="929"/>
+												</InputField>
+												<InputField name="ТоварыVIN" id="930">
+													<DataPath>Объект.АвтомобилиДляВыдачи.VIN</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleBackColor>#E7E7E7</TitleBackColor>
+													<EditMode>EnterOnInput</EditMode>
+													<FooterTextColor>#313431</FooterTextColor>
+													<FooterBackColor>#E7E7E7</FooterBackColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<ContextMenu name="ТоварыVINКонтекстноеМеню" id="931"/>
+													<ExtendedTooltip name="ТоварыVINРасширеннаяПодсказка" id="932"/>
+												</InputField>
+												<CheckBoxField name="ТоварыВыбран" id="933">
+													<DataPath>Объект.АвтомобилиДляВыдачи.Выбран</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleBackColor>#E7E7E7</TitleBackColor>
+													<EditMode>EnterOnInput</EditMode>
+													<FooterTextColor>#313431</FooterTextColor>
+													<FooterBackColor>#E7E7E7</FooterBackColor>
+													<CheckBoxType>Auto</CheckBoxType>
+													<BorderColor>#9CA6B2</BorderColor>
+													<ContextMenu name="ТоварыВыбранКонтекстноеМеню" id="934"/>
+													<ExtendedTooltip name="ТоварыВыбранРасширеннаяПодсказка" id="935"/>
+												</CheckBoxField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="Комментарий" id="16">
+					<DataPath>Объект.Комментарий</DataPath>
+					<TitleTextColor>#313431</TitleTextColor>
+					<EditMode>EnterOnInput</EditMode>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<TextColor>#313431</TextColor>
+					<BorderColor>#9CA6B2</BorderColor>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<UsualGroup name="грКнопки" id="135">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грКнопкиРасширеннаяПодсказка" id="136"/>
+					<ChildItems>
+						<Button name="ПровестиИЗакрыть" id="139">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<DefaultButton>true</DefaultButton>
+							<Width>10</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.PostAndClose</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Confirm_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ПровестиИЗакрытьРасширеннаяПодсказка" id="140"/>
+						</Button>
+						<Button name="Провести" id="145">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>10</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Post</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Confirm_NoBorder</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ПровестиРасширеннаяПодсказка" id="146"/>
+						</Button>
+						<Button name="Записать" id="141">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>10</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Write</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Записать</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="142"/>
+						</Button>
+						<Button name="УстановитьПометкуУдаления" id="147">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<Width>10</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.SetDeletionMark</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Cross_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Удаление</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>removal</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="УстановитьПометкуУдаленияРасширеннаяПодсказка" id="148"/>
+						</Button>
+						<Button name="ОтменаПроведения" id="143">
+							<Type>UsualButton</Type>
+							<Width>10</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.UndoPosting</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отменить
+проведение</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ОтменаПроведенияРасширеннаяПодсказка" id="144"/>
+						</Button>
+						<Button name="Перечитать" id="149">
+							<Type>UsualButton</Type>
+							<Representation>Picture</Representation>
+							<Width>4</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Reread</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Refresh_New</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Обновить</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>update</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="ПеречитатьРасширеннаяПодсказка" id="150"/>
+						</Button>
+						<LabelDecoration name="Декорация2" id="162">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="163"/>
+							<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="164"/>
+						</LabelDecoration>
+						<Button name="кнСтатус" id="967">
+							<Type>UsualButton</Type>
+							<Width>15</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнСтатус</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Статус...</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="кнСтатусРасширеннаяПодсказка" id="968"/>
+						</Button>
+						<Button name="кнПечать" id="536">
+							<Type>UsualButton</Type>
+							<Visible>false</Visible>
+							<Representation>PictureAndText</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнПечать</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Печать</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>print</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="кнПечатьРасширеннаяПодсказка" id="537"/>
+						</Button>
+						<Button name="кнИзменитьФорму" id="137">
+							<Type>UsualButton</Type>
+							<Representation>Picture</Representation>
+							<Width>3</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_ЗЧ_Настройки</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="кнИзменитьФормуРасширеннаяПодсказка" id="138"/>
+						</Button>
+						<Button name="кнВернутьВЗадачи" id="165">
+							<Type>UsualButton</Type>
+							<Visible>false</Visible>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнВернутьВЗадачи</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вернуть
+в задачи</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Return
+challenges in</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="кнВернутьВЗадачиРасширеннаяПодсказка" id="166"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.CRM_ЗаписьНаВыдачу</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="спЗакладки" id="2">
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Settings>
+		</Attribute>
+		<Attribute name="ОсновнаяЗаявка" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная заявка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>main application</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.Renault_ЗаявкаНаКредит</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОрганизацияПодразделение" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация подразделение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+				<v8:Type>cfg:CatalogRef.ПодразделенияКомпании</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="ТекущаяЗакладкаМеню" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая закладка меню</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Ставка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ЕжемесячныйПлатеж</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СрокКредита</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Банк</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>КредитноеПредложение</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СуммаКредита</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ЕжемесячныйПлатеж</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПервоначальныйВзнос</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПервоночальныйВзносПроцент</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_Банк</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_КредитноеПредложение</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_ЗаявкаВБанк</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_Сумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_ЕжемесячныйПлатеж</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_Ставка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_Срок</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_ПервоночальныйВзнос</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_ПервоночальныйВзносПроцент</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявки_Состояние</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.РасчетКредита.Основной</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПредоставленныеДокументы</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПредоставленныеДокументы.Основной</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="кнСостояние" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние ...</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Condition ...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать состояние</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Select state</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьСостояние</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнВернутьВЗадачи" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернуть в задачи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Return to the task</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вернуть в задачи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Return to the task</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Left_New</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнВернутьВЗадачи</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнЗакладка" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content> </v8:content>
+				</v8:item>
+			</Title>
+			<Action>кнЗакладка</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнопкиТЧ" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content> </v8:content>
+				</v8:item>
+			</Title>
+			<Action>кнопкиТЧ</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнПечать" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>print</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>print</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Печать</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнПечать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьПоДокументуОснования" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по документу основания</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по документу основания</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КоманднаяПанельТоварыЗаполнение</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнСтатус" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кн статус</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кн статус</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>кнСтатус</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

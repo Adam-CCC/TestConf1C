@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ТаблицаДанных" id="1">
+			<Representation>List</Representation>
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ТаблицаДанных</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТаблицаДанныхКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ТаблицаДанныхКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="ТаблицаДанныхНайти" id="35">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ТаблицаДанных.StandardCommand.Find</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ТаблицаДанныхНайтиРасширеннаяПодсказка" id="36"/>
+					</Button>
+					<Button name="ТаблицаДанныхОтменитьПоиск" id="37">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ТаблицаДанных.StandardCommand.CancelSearch</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ТаблицаДанныхОтменитьПоискРасширеннаяПодсказка" id="38"/>
+					</Button>
+					<Button name="ТаблицаДанныхВывестиСписок" id="39">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ТаблицаДанных.StandardCommand.OutputList</CommandName>
+						<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+						<ExtendedTooltip name="ТаблицаДанныхВывестиСписокРасширеннаяПодсказка" id="40"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ТаблицаДанныхРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ТаблицаДанныхСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ТаблицаДанных</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаДанныхСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ТаблицаДанныхСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТаблицаДанныхСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ТаблицаДанных</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаДанныхСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ТаблицаДанныхСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТаблицаДанныхУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ТаблицаДанных</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаДанныхУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ТаблицаДанныхУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="ТаблицаДанныхАвтомобильVIN" id="14">
+					<DataPath>ТаблицаДанных.Автомобиль.VIN</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаДанныхАвтомобильVINКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ТаблицаДанныхАвтомобильVINРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<InputField name="ТаблицаДанныхАвтомобильМодель" id="17">
+					<DataPath>ТаблицаДанных.Автомобиль.Модель</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Модель</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаДанныхАвтомобильМодельКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ТаблицаДанныхАвтомобильМодельРасширеннаяПодсказка" id="19"/>
+				</InputField>
+				<InputField name="ТаблицаДанныхMADC" id="20">
+					<DataPath>ТаблицаДанных.MADC</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаДанныхMADCКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ТаблицаДанныхMADCРасширеннаяПодсказка" id="22"/>
+				</InputField>
+				<InputField name="ТаблицаДанныхПрошлаяОперация" id="23">
+					<DataPath>ТаблицаДанных.ПрошлаяОперация</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаДанныхПрошлаяОперацияКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ТаблицаДанныхПрошлаяОперацияРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<InputField name="ТаблицаДанныхДатаПрошлойОперации" id="26">
+					<DataPath>ТаблицаДанных.ДатаПрошлойОперации</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаДанныхДатаПрошлойОперацииКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ТаблицаДанныхДатаПрошлойОперацииРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="ТаблицаДанныхСледующаяОперация" id="29">
+					<DataPath>ТаблицаДанных.СледующаяОперация</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаДанныхСледующаяОперацияКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ТаблицаДанныхСледующаяОперацияРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<InputField name="ТаблицаДанныхДатаСледующейОперации" id="32">
+					<DataPath>ТаблицаДанных.ДатаСледующейОперации</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаДанныхДатаСледующейОперацииКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ТаблицаДанныхДатаСледующейОперацииРасширеннаяПодсказка" id="34"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТаблицаДанных" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Автомобиль" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автомобиль</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Автомобили</v8:Type>
+					</Type>
+				</Column>
+				<Column name="MADC" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>MADC</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаПрошлойОперации" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата прошлой операции</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаСледующейОперации" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата следующей операции</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПрошлаяОперация" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прошлая операция</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СледующаяОперация" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Следующая операция</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Месяц" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Месяц</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>2</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ГруппаПерсональныйМенеджер" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Персональный менеджер</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Personal manager</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа персональный менеджер</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group account manager</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПерсональныйМенеджерРасширеннаяПодсказка" id="37"/>
+			<ChildItems>
+				<CheckBoxField name="ПерсональныйМенеджер" id="38">
+					<DataPath>Объект.ПерсональныйМенеджер</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПерсональныйМенеджерКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ПерсональныйМенеджерРасширеннаяПодсказка" id="40"/>
+					<Events>
+						<Event name="OnChange">ПерсональныйМенеджерПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="Менеджер" id="41">
+					<DataPath>Объект.Менеджер</DataPath>
+					<ContextMenu name="МенеджерКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="МенеджерРасширеннаяПодсказка" id="43"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНачислениеБонусов" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа начисление бонусов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group Bonuses</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа начисление бонусов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group Bonuses</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНачислениеБонусовРасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<CheckBoxField name="НачисляютсяБонусыВДеньРожденияКлиента" id="4">
+					<DataPath>Объект.НачисляютсяБонусыВДеньРожденияКлиента</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="НачисляютсяБонусыВДеньРожденияКлиентаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НачисляютсяБонусыВДеньРожденияКлиентаРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">НачисляютсяБонусыПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="СуммаБонуса" id="7">
+					<DataPath>Объект.СуммаБонуса</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>на сумму</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>to the amount of</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СуммаБонусаКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="СуммаБонусаРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаБеслатныеРаботыУслуги" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Беслатные работы/услуги</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Free work / services</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа беслатные работы услуги</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Free Work Services Group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Vertical</Group>
+			<ExtendedTooltip name="ГруппаБеслатныеРаботыУслугиРасширеннаяПодсказка" id="35"/>
+			<ChildItems>
+				<CheckBoxField name="ПредоставляетсяБесплатнаяУслугаРабота" id="10">
+					<DataPath>Объект.ПредоставляетсяБесплатнаяУслугаРабота</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПредоставляетсяБесплатнаяУслугаРаботаКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ПредоставляетсяБесплатнаяУслугаРаботаРасширеннаяПодсказка" id="12"/>
+					<Events>
+						<Event name="OnChange">ПредоставляетсяБесплатнаяУслугаРаботаПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<Table name="БесплатныеРаботыУслуги" id="13">
+					<Representation>List</Representation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.БесплатныеРаботыУслуги</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="БесплатныеРаботыУслугиКонтекстноеМеню" id="14"/>
+					<AutoCommandBar name="БесплатныеРаботыУслугиКоманднаяПанель" id="15"/>
+					<ExtendedTooltip name="БесплатныеРаботыУслугиРасширеннаяПодсказка" id="16"/>
+					<SearchStringAddition name="БесплатныеРаботыУслугиСтрокаПоиска" id="17">
+						<AdditionSource>
+							<Item>БесплатныеРаботыУслуги</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="БесплатныеРаботыУслугиСтрокаПоискаКонтекстноеМеню" id="18"/>
+						<ExtendedTooltip name="БесплатныеРаботыУслугиСтрокаПоискаРасширеннаяПодсказка" id="19"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="БесплатныеРаботыУслугиСостояниеПросмотра" id="20">
+						<AdditionSource>
+							<Item>БесплатныеРаботыУслуги</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="БесплатныеРаботыУслугиСостояниеПросмотраКонтекстноеМеню" id="21"/>
+						<ExtendedTooltip name="БесплатныеРаботыУслугиСостояниеПросмотраРасширеннаяПодсказка" id="22"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="БесплатныеРаботыУслугиУправлениеПоиском" id="23">
+						<AdditionSource>
+							<Item>БесплатныеРаботыУслуги</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="БесплатныеРаботыУслугиУправлениеПоискомКонтекстноеМеню" id="24"/>
+						<ExtendedTooltip name="БесплатныеРаботыУслугиУправлениеПоискомРасширеннаяПодсказка" id="25"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="БесплатныеРаботыУслугиНомерСтроки" id="26">
+							<DataPath>Объект.БесплатныеРаботыУслуги.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="БесплатныеРаботыУслугиНомерСтрокиКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="БесплатныеРаботыУслугиНомерСтрокиРасширеннаяПодсказка" id="28"/>
+						</LabelField>
+						<InputField name="БесплатныеРаботыУслугиУслугаРабота" id="29">
+							<DataPath>Объект.БесплатныеРаботыУслуги.УслугаРабота</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="БесплатныеРаботыУслугиУслугаРаботаКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="БесплатныеРаботыУслугиУслугаРаботаРасширеннаяПодсказка" id="31"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.DMS_ПривилегииВладельцамБонусныхКарт</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,28 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://sokolmotors.ru/autoru">
+	<objectType name="catalog">
+		<property xmlns:d3p1="http://sokolmotors.ru/autoru" name="mark" type="d3p1:mark"/>
+	</objectType>
+	<objectType name="mark">
+		<property name="code" lowerBound="1" upperBound="1"/>
+		<property xmlns:d3p1="http://sokolmotors.ru/autoru" name="folder" type="d3p1:folder"/>
+	</objectType>
+	<objectType name="folder">
+		<property name="model"/>
+		<property name="generation"/>
+		<property xmlns:d3p1="http://sokolmotors.ru/autoru" name="modification" type="d3p1:modification"/>
+	</objectType>
+	<objectType name="modification">
+		<property name="mark_id"/>
+		<property name="folder_id"/>
+		<property name="modification_id"/>
+		<property name="configuration_id"/>
+		<property name="tech_param_id"/>
+		<property name="body_type"/>
+		<property name="years"/>
+		<property xmlns:d3p1="http://sokolmotors.ru/autoru" name="complectations" type="d3p1:complectation" nillable="true"/>
+	</objectType>
+	<objectType name="complectation">
+		<property name="id" lowerBound="1" upperBound="1" nillable="false" form="Attribute"/>
+		<property name="name" form="Text"/>
+	</objectType>
+</package>

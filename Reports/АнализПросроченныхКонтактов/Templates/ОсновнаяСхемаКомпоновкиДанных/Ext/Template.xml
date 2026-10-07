@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РабочийЛист</dataPath>
+			<field>РабочийЛист</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПросроченноеСобытие</dataPath>
+			<field>ПросроченноеСобытие</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтработанноеПросроченноеСобытие</dataPath>
+			<field>ОтработанноеПросроченноеСобытие</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Просроченных</dataPath>
+			<field>Просроченных</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДилерскийЦентр</dataPath>
+			<field>ДилерскийЦентр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дилерский центр</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Всего</dataPath>
+			<field>Всего</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	РабочийЛист.Ссылка КАК РабочийЛист,
+	РабочийЛист.ПодразделениеКомпании.ДилерскийЦентр КАК ДилерскийЦентр
+ПОМЕСТИТЬ ТаблицаРабочихЛистов
+ИЗ
+	Документ.РабочийЛист КАК РабочийЛист
+ГДЕ
+	РабочийЛист.Статус &lt;&gt; ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Отказ)
+	И РабочийЛист.Статус &lt;&gt; ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.ОшибочныйНомер)
+	И РабочийЛист.Статус &lt;&gt; ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.СделкаОтказ)
+	И РабочийЛист.Проведен
+	И РабочийЛист.Статус &lt;&gt; ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста._г_База)
+	И РабочийЛист.Статус &lt;&gt; ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Архив)
+	И РабочийЛист.ДатаСоздания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Событие.ДокументОснование КАК РабочийЛист,
+	Событие.Ссылка КАК Событие,
+	Событие.ДатаНачала КАК ДатаНачала
+ПОМЕСТИТЬ Просроченные
+ИЗ
+	Документ.Событие КАК Событие
+ГДЕ
+	Событие.ДокументОснование ССЫЛКА Документ.РабочийЛист
+	И Событие.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Запланировано)
+	И Событие.ДатаНачала &lt; &amp;ТекущаяДата
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Событие.ДокументОснование КАК РабочийЛист
+ПОМЕСТИТЬ Запланированные
+ИЗ
+	Документ.Событие КАК Событие
+ГДЕ
+	Событие.ДокументОснование ССЫЛКА Документ.РабочийЛист
+	И Событие.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Запланировано)
+	И Событие.ДатаНачала &gt;= &amp;ТекущаяДата
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Событие.ДокументОснование КАК РабочийЛист,
+	Событие.Ссылка КАК Событие,
+	Событие.ДатаНачала
+ПОМЕСТИТЬ Отработанные
+ИЗ
+	Документ.Событие КАК Событие
+ГДЕ
+	Событие.ДокументОснование ССЫЛКА Документ.РабочийЛист
+	И Событие.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено)
+	И Событие.ДатаНачала &lt; &amp;ТекущаяДата
+	И Событие.Ссылка В
+			(ВЫБРАТЬ
+				ЖурналСостояний.Объект
+			ИЗ
+				РегистрСведений.ЖурналСостояний КАК ЖурналСостояний
+			ГДЕ
+				ЖурналСостояний.Объект ССЫЛКА Документ.Событие
+				И (ВЫРАЗИТЬ(ЖурналСостояний.Состояние КАК Перечисление.СостоянияСобытий)) = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено)
+				И ЖурналСостояний.Период МЕЖДУ &amp;НачПериодаОтработано И &amp;КонПериодаОтработано)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Запланированные.РабочийЛист
+ПОМЕСТИТЬ ОтработанныеРезультат
+ИЗ
+	Запланированные КАК Запланированные
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Отработанные КАК Отработанные
+		ПО Запланированные.РабочийЛист = Отработанные.РабочийЛист
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Просроченные.РабочийЛист,
+	Просроченные.Событие,
+	Просроченные.ДатаНачала
+ПОМЕСТИТЬ ПросроченныеРезультат
+ИЗ
+	Просроченные КАК Просроченные
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ТаблицаРабочихЛистов.РабочийЛист,
+	ЗНАЧЕНИЕ(Документ.Событие.ПустаяСсылка),
+	ДАТАВРЕМЯ(1, 1, 1)
+ИЗ
+	ТаблицаРабочихЛистов КАК ТаблицаРабочихЛистов
+		ЛЕВОЕ СОЕДИНЕНИЕ Запланированные КАК Запланированные
+		ПО ТаблицаРабочихЛистов.РабочийЛист = Запланированные.РабочийЛист
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Событие КАК Событие
+		ПО ТаблицаРабочихЛистов.РабочийЛист = Событие.ДокументОснование
+ГДЕ
+	Запланированные.РабочийЛист ЕСТЬ NULL
+	И НЕ Событие.Ссылка ЕСТЬ NULL
+	И НЕ ТаблицаРабочихЛистов.РабочийЛист В
+				(ВЫБРАТЬ
+					Просроченные.РабочийЛист
+				ИЗ
+					Просроченные КАК Просроченные)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ТаблицаРабочихЛистов.РабочийЛист,
+	ЗНАЧЕНИЕ(Документ.Событие.ПустаяСсылка),
+	ДАТАВРЕМЯ(1, 1, 1)
+ИЗ
+	ТаблицаРабочихЛистов КАК ТаблицаРабочихЛистов
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Событие КАК Событие
+		ПО ТаблицаРабочихЛистов.РабочийЛист = Событие.ДокументОснование
+ГДЕ
+	Событие.Ссылка ЕСТЬ NULL
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаРабочихЛистов.РабочийЛист,
+	ТаблицаРабочихЛистов.РабочийЛист.Статус КАК Статус,
+	ТаблицаРабочихЛистов.РабочийЛист.Менеджер КАК Менеджер,
+	ТаблицаРабочихЛистов.РабочийЛист.Контрагент КАК Контрагент,
+	ТаблицаРабочихЛистов.ДилерскийЦентр,
+	ПросроченныеРезультат.Событие КАК ПросроченноеСобытие,
+	0 КАК ОтработанноеПросроченноеСобытие,
+	1 КАК Просроченных,
+	0 КАК Всего
+ИЗ
+	ТаблицаРабочихЛистов КАК ТаблицаРабочихЛистов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ПросроченныеРезультат КАК ПросроченныеРезультат
+		ПО ТаблицаРабочихЛистов.РабочийЛист = ПросроченныеРезультат.РабочийЛист
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ТаблицаРабочихЛистов.РабочийЛист.Ссылка,
+	ТаблицаРабочихЛистов.РабочийЛист.Статус,
+	ТаблицаРабочихЛистов.РабочийЛист.Менеджер,
+	ТаблицаРабочихЛистов.РабочийЛист.Контрагент,
+	ТаблицаРабочихЛистов.ДилерскийЦентр,
+	ЗНАЧЕНИЕ(Документ.Событие.ПустаяСсылка),
+	1,
+	0,
+	0
+ИЗ
+	ТаблицаРабочихЛистов КАК ТаблицаРабочихЛистов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ОтработанныеРезультат КАК ОтработанныеРезультат
+		ПО ТаблицаРабочихЛистов.РабочийЛист = ОтработанныеРезультат.РабочийЛист
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Запланированные.РабочийЛист,
+	Запланированные.РабочийЛист.Статус,
+	Запланированные.РабочийЛист.Менеджер,
+	Запланированные.РабочийЛист.Контрагент,
+	Запланированные.РабочийЛист.ПодразделениеКомпании.ДилерскийЦентр,
+	ЗНАЧЕНИЕ(Документ.Событие.ПустаяСсылка),
+	0,
+	0,
+	1
+ИЗ
+	Запланированные КАК Запланированные</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Просроченных</dataPath>
+		<expression>Сумма(Просроченных)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтработанноеПросроченноеСобытие</dataPath>
+		<expression>Сумма(ОтработанноеПросроченноеСобытие)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Всего</dataPath>
+		<expression>Сумма(Всего)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПериодОтработанныхСобытий</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период отработки событий</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ДЛФ=D</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+	</parameter>
+	<parameter>
+		<name>КонПериодаОтработано</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Кон периода отработано</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КОНЕЦПЕРИОДА(&amp;ПериодОтработанныхСобытий.ДатаОкончания, "ДЕНЬ")</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачПериодаОтработано</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Нач периода отработано</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтработанныхСобытий.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отношение просроченных</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression/>
+					<dcsset:detailExpressionPresentation/>
+					<dcsset:totalExpression>Выбор
+	Когда Всего = 0
+		Тогда 0
+	Иначе Просроченных / Всего
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда Всего = 0
+		Тогда 0
+	Иначе Просроченных / Всего
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+			</dcsset:userFields>
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РабочийЛист</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Статус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПросроченноеСобытие</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Просроченных</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОтработанноеПросроченноеСобытие</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отработано просроченных</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Всего</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПользовательскиеПоля.Поле1</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ДилерскийЦентр</dcsset:left>
+					<dcsset:comparisonType>Filled</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтработанныхСобытий</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>35adc915-4e6a-4c0a-8751-6e4de2f69561</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТекущаяДата</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>РабочийЛист.Менеджер</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>РабочийЛист.Контрагент</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>РабочийЛист</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле1</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Менеджер</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

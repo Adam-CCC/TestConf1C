@@ -1,0 +1,87 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://wa.dms.webservice/EmployeeGetRequest">
+	<property name="EmployeeGetRequest" nillable="true"/>
+	<property name="EmployeeGetResponse" nillable="true"/>
+	<objectType name="ArrayOfEmployee">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="Employee" type="d3p1:Employee" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfError">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="Error" type="d3p1:Error" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfRole">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="Role" type="d3p1:Role" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Employee">
+		<property name="DMSEmployeeNo" type="xs:string" lowerBound="0"/>
+		<property name="LastName" type="xs:string" lowerBound="0"/>
+		<property name="MiddleName" type="xs:string" lowerBound="0"/>
+		<property name="FirstName" type="xs:string" lowerBound="0"/>
+		<property name="FullName" type="xs:string" lowerBound="0"/>
+		<property name="Salution" type="xs:string" lowerBound="0"/>
+		<property name="Gender" type="xs:string" lowerBound="0"/>
+		<property name="Language" type="xs:string" lowerBound="0"/>
+		<property name="SkillsetString" type="xs:string" lowerBound="0"/>
+		<property name="Title" type="xs:string" lowerBound="0"/>
+		<property name="MobileNumber" type="xs:string" lowerBound="0"/>
+		<property name="PhoneNumber" type="xs:string" lowerBound="0"/>
+		<property name="Email" type="xs:string" lowerBound="0"/>
+		<property name="LoginID" type="xs:string" lowerBound="0"/>
+		<property name="LoginPassword" type="xs:string" lowerBound="0"/>
+		<property name="EmployeeStatus" type="xs:string" lowerBound="0"/>
+		<property name="Group" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="ManagementFields" type="d3p1:ManagementFields" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="Roles" type="d3p1:ArrayOfRole" lowerBound="0"/>
+	</objectType>
+	<objectType name="EmployeeGet">
+		<property name="DMSEmployeeNo" type="xs:string" lowerBound="0"/>
+		<property name="LoginID" type="xs:string" lowerBound="0"/>
+		<property name="LastModifiedDateTimeFromUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="LastModifiedDateTimeToUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="EmployeeGetRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="EmployeeGet" type="d3p1:EmployeeGet" lowerBound="0"/>
+	</objectType>
+	<objectType name="EmployeeGetResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/EmployeeGetRequest" name="Employees" type="d3p1:ArrayOfEmployee" lowerBound="0"/>
+	</objectType>
+	<objectType name="Error">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ManagementFields">
+		<property name="CreateDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="LastModifiedDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ResultMessage">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Role">
+		<property name="RoleName" type="xs:string" lowerBound="0"/>
+		<property name="RoleUserID" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="TransactionHeader">
+		<property name="CountryID" type="xs:string" lowerBound="0"/>
+		<property name="DistributorID" type="xs:string" lowerBound="0"/>
+		<property name="GroupID" type="xs:string" lowerBound="0"/>
+		<property name="DealerID" type="xs:string" lowerBound="0"/>
+		<property name="DMSCode" type="xs:string" lowerBound="0"/>
+		<property name="DMSVersion" type="xs:string" lowerBound="0"/>
+		<property name="DMSServerUrl" type="xs:string" lowerBound="0"/>
+		<property name="DocumentVersion" type="xs:string" lowerBound="0"/>
+		<property name="Username" type="xs:string" lowerBound="0"/>
+		<property name="Password" type="xs:string" lowerBound="0"/>
+		<property name="TransactionId" type="xs:string" lowerBound="0"/>
+		<property name="TransactionDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionType" type="xs:string" lowerBound="0"/>
+		<property name="RequestType" type="xs:string" lowerBound="0"/>
+		<property name="RequestPollingToken" type="xs:string" lowerBound="0"/>
+		<property name="VenderTrackingCode" type="xs:string" lowerBound="0"/>
+		<property name="IneterfaceID" type="xs:string" lowerBound="0"/>
+		<property name="PollingToken" type="xs:string" lowerBound="0"/>
+	</objectType>
+</package>

@@ -1,0 +1,146 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://renault-nissan.com/schema/datatable">
+	<objectType name="ЭлементБанк">
+		<property name="БикБанка" type="xs:string" localName="БикБанка"/>
+		<property name="Наименование" type="xs:string" localName="Наименование"/>
+		<property name="КоррСчет" type="xs:string" nillable="true" localName="КоррСчет"/>
+		<property name="Адрес" type="xs:string" nillable="true" localName="Адрес"/>
+		<property name="Телефоны" type="xs:string" nillable="true" localName="Телефоны"/>
+		<property name="Город" type="xs:string" nillable="true" localName="Город"/>
+	</objectType>
+	<objectType name="ЭлементМодель">
+		<property name="Артикул" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="МаскаVIN" type="xs:string" nillable="true"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="ДоступныеЦвета" type="d3p1:Цвета" lowerBound="0" nillable="true"/>
+		<property name="КодВалютыУчета" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType name="ЭлементЦвет">
+		<property name="Наименование" type="xs:string"/>
+		<property name="ЦветПоГИБДД" type="xs:string"/>
+		<property name="Артикул" type="xs:string"/>
+	</objectType>
+	<objectType name="ЭлементОпция">
+		<property name="Артикул" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="ПризнакНабора" type="xs:boolean"/>
+		<property name="ПризнакКомплекта" type="xs:boolean"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="СоставНабора" type="d3p1:Опции"/>
+	</objectType>
+	<objectType name="ЭлементКомплектация">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Владелец" type="d3p1:ЭлементМодель"/>
+		<property name="Артикул" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="МежсервисныйИнтервалТО" type="xs:float" nillable="true"/>
+		<property name="МежсервисныйПробегТО" type="xs:float" nillable="true"/>
+		<property name="КодВалютыУчета" type="xs:string" nillable="true"/>
+		<property name="ТипКузова" type="xs:string" nillable="true"/>
+		<property name="ТипКПП" type="xs:string" nillable="true"/>
+		<property name="ТипДвигателя" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType name="ЭлементКредитнаяПрограмма">
+		<property name="Наименование" type="xs:string" localName="Наименование"/>
+		<property name="СсылкаНаКалькулятор" type="xs:string" localName="СсылкаНаКалькулятор"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Банк" type="d3p1:ЭлементБанк" localName="Банк"/>
+		<property name="ГодоваяСтавка" type="xs:float" nillable="true" default="0" localName="ГодоваяСтавка"/>
+		<property name="Описание" type="xs:string" localName="Описание"/>
+		<property name="МинимальныйСрокКредита" type="xs:integer" nillable="true" default="0" localName="МинимальныйСрокКредита"/>
+		<property name="МаксимальныйСрокКредита" type="xs:integer" nillable="true" default="0" localName="МаксимальныйСрокКредита"/>
+		<property name="МинимальныйПервоначальныйВзнос" type="xs:integer" nillable="true" default="0" localName="МинимальныйПервоначальныйВзнос"/>
+		<property name="МаксимальныйПервоначальныйВзнос" type="xs:integer" nillable="true" default="0" localName="МаксимальныйПервоначальныйВзнос"/>
+		<property name="СтавкаБанка" type="xs:integer" nillable="true" default="0" localName="СтавкаБанка"/>
+		<property name="МаркетинговаяСтавка" type="xs:integer" nillable="true" default="0" localName="МаркетинговаяСтавка"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="ПрименениеКредитныхПрограмм" type="d3p1:ПрименениеКредитныхПрограмм" localName="ПрименениеКредитныхПрограмм"/>
+		<property name="Идентификатор" type="xs:string" localName="Идентификатор"/>
+	</objectType>
+	<objectType name="ЭлементКартинка">
+		<property name="Идентификатор" type="xs:string"/>
+		<property name="КодМодели" type="xs:string" nillable="true"/>
+		<property name="КодКомплектации" type="xs:string" nillable="true"/>
+		<property name="Картинка" type="xs:base64Binary"/>
+		<property name="КодЦвета" type="xs:string" nillable="true"/>
+		<property name="ИмяФайла" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType name="ЭлементПродленнаяГарантия">
+		<property name="Наименование" type="xs:string"/>
+		<property name="Идентификатор" type="xs:string" localName="Идентификатор"/>
+	</objectType>
+	<objectType name="Картинки">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Картинка" type="d3p1:ЭлементКартинка" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Комплектации">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Комплектация" type="d3p1:ЭлементКомплектация" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="КредитныеПрограммы" open="true" sequenced="true">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="КредитнаяПрограмма" type="d3p1:ЭлементКредитнаяПрограмма" lowerBound="0" upperBound="-1" nillable="true" localName="КредитнаяПрограмма"/>
+	</objectType>
+	<objectType name="Модели">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Модель" type="d3p1:ЭлементМодель" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Опции">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="ЭлементОпция" type="d3p1:ЭлементОпция" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Цвета" open="true">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Цвет" type="d3p1:ЭлементЦвет" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Все">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Модели" type="d3p1:Модели" nillable="true"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Опции" type="d3p1:Опции" nillable="true"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Цвета" type="d3p1:Цвета" lowerBound="1" nillable="true"/>
+	</objectType>
+	<objectType name="AOC_Комплектация" open="true">
+		<property name="Период" type="xs:dateTime" localName="Период"/>
+		<property name="Модель" type="xs:string" localName="Модель"/>
+		<property name="ВариантКомплектации" type="xs:string" localName="ВариантКомплектации"/>
+		<property name="КодМодели" type="xs:string" nillable="true" localName="КодМодели"/>
+		<property name="КодКомплектации" type="xs:string" nillable="true" localName="КодКомплектации"/>
+		<property name="ЦенаКлиентская" type="xs:float" nillable="true" default="0" localName="ЦенаКлиентская"/>
+		<property name="ЦенаДилерская" type="xs:float" nillable="true" default="0" localName="ЦенаДилерская"/>
+		<property name="Тариф" type="xs:string" nillable="true" localName="Тариф"/>
+		<property name="Идентификатор" type="xs:string" nillable="true" localName="Идентификатор"/>
+		<property name="КодМоделиФр" type="xs:string" nillable="true" localName="КодМоделиФр"/>
+		<property name="Гамма" type="xs:string" nillable="true" localName="Гамма"/>
+		<property name="ДвигательОбъем" type="xs:float" nillable="true" default="0" localName="ДвигательОбъем"/>
+		<property name="ДвигательТипТоплива" type="xs:string" nillable="true" localName="ДвигательТипТоплива"/>
+		<property name="ДвигательЛС" type="xs:float" nillable="true" default="0" localName="ДвигательЛС"/>
+		<property name="Двигатель_кВт" type="xs:float" nillable="true" default="0" localName="Двигатель_кВт"/>
+		<property name="Двигатель_НормаЕвро" type="xs:string" nillable="true" localName="Двигатель_НормаЕвро"/>
+		<property name="МассаMax" type="xs:float" nillable="true" default="0" localName="МассаMax"/>
+		<property name="МассаMin" type="xs:float" nillable="true" default="0" localName="МассаMin"/>
+		<property name="НаименованиеТарифа" type="xs:string" nillable="true" localName="НаименованиеТарифа"/>
+	</objectType>
+	<objectType name="AOC_Опция" open="true">
+		<property name="Период" type="xs:dateTime"/>
+		<property name="Тариф" type="xs:string" nillable="true" localName="Тариф"/>
+		<property name="ВариантКомплектации" type="xs:string" nillable="true" localName="ВариантКомплектации"/>
+		<property name="КодОпции" type="xs:string" nillable="true" localName="КодОпции"/>
+		<property name="Идентификатор" type="xs:string" nillable="true" localName="Идентификатор"/>
+		<property name="ЦенаКлиентская" type="xs:float" nillable="true" default="0" localName="ЦенаКлиентская"/>
+		<property name="ЦенаДилерская" type="xs:float" nillable="true" default="0" localName="ЦенаДилерская"/>
+		<property name="Базовая" type="xs:boolean" nillable="true" default="false" localName="Базовая"/>
+		<property name="НаименованиеОпции" type="xs:string" nillable="true" localName="НаименованиеОпции"/>
+	</objectType>
+	<objectType name="AOC_Комплектации" open="true" sequenced="true">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Комплектация" type="d3p1:AOC_Комплектация" lowerBound="0" upperBound="-1" nillable="true" localName="Комплектация"/>
+	</objectType>
+	<objectType name="AOC_Опции" open="true" sequenced="true">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Опция" type="d3p1:AOC_Опция" lowerBound="0" upperBound="-1" nillable="true" localName="Опция"/>
+	</objectType>
+	<objectType name="AOC" open="true">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Комплектации" type="d3p1:AOC_Комплектации" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Опции" type="d3p1:AOC_Опции" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ПродленныеГарантии">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="ПродленнаяГарантия" type="d3p1:ЭлементПродленнаяГарантия" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СтрокаПрименениеКредитныхПрограмм" open="false">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Модель" type="d3p1:ЭлементМодель"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="Версия" type="d3p1:ЭлементКомплектация"/>
+		<property name="ГодПроизводства" type="xs:integer" localName="ГодПроизводства"/>
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="ПГВПодарок" type="d3p1:ЭлементПродленнаяГарантия" nillable="true" localName="ПГВПодарок"/>
+	</objectType>
+	<objectType name="ПрименениеКредитныхПрограмм" open="true">
+		<property xmlns:d3p1="http://renault-nissan.com/schema/datatable" name="СтрокиПримКредПрограмм" type="d3p1:СтрокаПрименениеКредитныхПрограмм" lowerBound="0" upperBound="-1" nillable="true" localName="СтрокиПримКредПрограмм"/>
+	</objectType>
+</package>

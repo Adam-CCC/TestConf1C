@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Журнал проверки и зарядки АКБ</v8:content>
+		</v8:item>
+	</Title>
+	<Width>400</Width>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОтборы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отборы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отборы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтборыРасширеннаяПодсказка" id="73"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОтборыЛеваяКолонка" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отборы левая колонка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отборы правая колонка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборыЛеваяКолонкаРасширеннаяПодсказка" id="74"/>
+					<ChildItems>
+						<InputField name="Территория" id="15">
+							<DataPath>Территория</DataPath>
+							<ClearButton>true</ClearButton>
+							<OpenButton>false</OpenButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ContextMenu name="ТерриторияКонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="ТерриторияРасширеннаяПодсказка" id="75"/>
+							<Events>
+								<Event name="OnChange">ТерриторияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="Декорация2" id="63">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="64"/>
+							<ExtendedTooltip name="Декорация2РасширеннаяПодсказка" id="76"/>
+						</LabelDecoration>
+						<CheckBoxField name="ТребуетсяЗарядитьАКБ" id="65">
+							<DataPath>ТребуетсяЗарядитьАКБ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Требуется зарядить АКБ</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ТребуетсяЗарядитьАКБКонтекстноеМеню" id="66"/>
+							<ExtendedTooltip name="ТребуетсяЗарядитьАКБРасширеннаяПодсказка" id="77"/>
+							<Events>
+								<Event name="OnChange">ТребуетсяЗарядитьАКБПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ПоказыватьПроданныеАвтомобили" id="67">
+							<DataPath>ПоказыватьПроданныеАвтомобили</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПоказыватьПроданныеАвтомобилиКонтекстноеМеню" id="68"/>
+							<ExtendedTooltip name="ПоказыватьПроданныеАвтомобилиРасширеннаяПодсказка" id="78"/>
+							<Events>
+								<Event name="OnChange">ПоказыватьПроданныеАвтомобилиПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОтборыПраваяКолонка" id="59">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отборы правая колонка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отборы правая колонка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборыПраваяКолонкаРасширеннаяПодсказка" id="79"/>
+				</UsualGroup>
+				<LabelDecoration name="Декорация1" id="71">
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="72"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="80"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ДинамическийСписок" id="17">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ДинамическийСписок</DataPath>
+			<RowPictureDataPath>ДинамическийСписок.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="ДинамическийСписокКонтекстноеМеню" id="18"/>
+			<AutoCommandBar name="ДинамическийСписокКоманднаяПанель" id="19"/>
+			<ExtendedTooltip name="ДинамическийСписокРасширеннаяПодсказка" id="81"/>
+			<SearchStringAddition name="ДинамическийСписокСтрокаПоиска" id="82">
+				<AdditionSource>
+					<Item>ДинамическийСписок</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДинамическийСписокСтрокаПоискаКонтекстноеМеню" id="83"/>
+				<ExtendedTooltip name="ДинамическийСписокСтрокаПоискаРасширеннаяПодсказка" id="84"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДинамическийСписокСостояниеПросмотра" id="85">
+				<AdditionSource>
+					<Item>ДинамическийСписок</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДинамическийСписокСостояниеПросмотраКонтекстноеМеню" id="86"/>
+				<ExtendedTooltip name="ДинамическийСписокСостояниеПросмотраРасширеннаяПодсказка" id="87"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДинамическийСписокУправлениеПоиском" id="88">
+				<AdditionSource>
+					<Item>ДинамическийСписок</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДинамическийСписокУправлениеПоискомКонтекстноеМеню" id="89"/>
+				<ExtendedTooltip name="ДинамическийСписокУправлениеПоискомРасширеннаяПодсказка" id="90"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ДинамическийСписокВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДинамическийСписокАвтомобильДатаПроизводства" id="38">
+					<DataPath>~ДинамическийСписок.Автомобиль.ДатаПроизводства</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата MADC (выпуск а/м на заводе)</v8:content>
+						</v8:item>
+					</Title>
+					<Width>20</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДинамическийСписокАвтомобильДатаПроизводстваКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ДинамическийСписокАвтомобильДатаПроизводстваРасширеннаяПодсказка" id="91"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокАвтомобиль" id="40">
+					<DataPath>ДинамическийСписок.Автомобиль</DataPath>
+					<ContextMenu name="ДинамическийСписокАвтомобильКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ДинамическийСписокАвтомобильРасширеннаяПодсказка" id="92"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокАвтомобильКод" id="36">
+					<DataPath>ДинамическийСписок.VIN</DataPath>
+					<Width>20</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДинамическийСписокАвтомобильКодКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="ДинамическийСписокАвтомобильКодРасширеннаяПодсказка" id="93"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокНота" id="34">
+					<DataPath>ДинамическийСписок.Нота</DataPath>
+					<Width>20</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДинамическийСписокНотаКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ДинамическийСписокНотаРасширеннаяПодсказка" id="94"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокТерритория" id="69">
+					<DataPath>ДинамическийСписок.Территория</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Территория</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДинамическийСписокТерриторияКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="ДинамическийСписокТерриторияРасширеннаяПодсказка" id="95"/>
+				</LabelField>
+				<ColumnGroup name="ГруппаКолонокПрием" id="45">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прием а/м</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прием а/м</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+					<ExtendedTooltip name="ГруппаКолонокПриемРасширеннаяПодсказка" id="96"/>
+					<ChildItems>
+						<LabelField name="ДинамическийСписокДатаПроверкиПриПриеме" id="32">
+							<DataPath>ДинамическийСписок.ДатаПроверкиПриПриеме</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокДатаПроверкиПриПриемеКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ДинамическийСписокДатаПроверкиПриПриемеРасширеннаяПодсказка" id="97"/>
+						</LabelField>
+						<LabelField name="ДинамическийСписокНапряжениеПриПриеме" id="46">
+							<DataPath>ДинамическийСписок.НапряжениеПриПриеме</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Напряжение, V</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокНапряжениеПриПриемеКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ДинамическийСписокНапряжениеПриПриемеРасширеннаяПодсказка" id="98"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаКолонок40Дней" id="42">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>40 дней с даты MADC</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>3 месяца с даты MADC</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+					<ExtendedTooltip name="ГруппаКолонок40ДнейРасширеннаяПодсказка" id="99"/>
+					<ChildItems>
+						<LabelField name="ДинамическийСписокДатаПроверки40Дней" id="26">
+							<DataPath>ДинамическийСписок.ДатаПроверки40Дней</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокДатаПроверки40ДнейКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="ДинамическийСписокДатаПроверки40ДнейРасширеннаяПодсказка" id="100"/>
+						</LabelField>
+						<LabelField name="ДинамическийСписокНапряжениеПриПроверке40Дней" id="43">
+							<DataPath>ДинамическийСписок.НапряжениеПриПроверке40Дней</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Напряжение, V</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокНапряжениеПриПроверке40ДнейКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="ДинамическийСписокНапряжениеПриПроверке40ДнейРасширеннаяПодсказка" id="101"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаКолонок80Дней" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>80 дней с даты MADC</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>6 месяцев с даты MADC</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+					<ExtendedTooltip name="ГруппаКолонок80ДнейРасширеннаяПодсказка" id="102"/>
+					<ChildItems>
+						<LabelField name="ДинамическийСписокДатаПроверки80Дней" id="28">
+							<DataPath>ДинамическийСписок.ДатаПроверки80Дней</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокДатаПроверки80ДнейКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="ДинамическийСписокДатаПроверки80ДнейРасширеннаяПодсказка" id="103"/>
+						</LabelField>
+						<LabelField name="ДинамическийСписокНапряжениеПриПроверке6Месяцев" id="50">
+							<DataPath>ДинамическийСписок.НапряжениеПриПроверке80Дней</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Напряжение, V</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокНапряжениеПриПроверке6МесяцевКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="ДинамическийСписокНапряжениеПриПроверке6МесяцевРасширеннаяПодсказка" id="104"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаКолонок120Дней" id="49">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>120 дней с даты MADC</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>9 месяцев с даты MADC</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+					<ExtendedTooltip name="ГруппаКолонок120ДнейРасширеннаяПодсказка" id="105"/>
+					<ChildItems>
+						<LabelField name="ДинамическийСписокДатаПроверки120Дней" id="30">
+							<DataPath>ДинамическийСписок.ДатаПроверки120Дней</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокДатаПроверки120ДнейКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="ДинамическийСписокДатаПроверки120ДнейРасширеннаяПодсказка" id="106"/>
+						</LabelField>
+						<LabelField name="ДинамическийСписокНапряжениеПриПроверке9Месяцев" id="52">
+							<DataPath>ДинамическийСписок.НапряжениеПриПроверке120Дней</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Напряжение, V</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Center</HorizontalAlign>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокНапряжениеПриПроверке9МесяцевКонтекстноеМеню" id="53"/>
+							<ExtendedTooltip name="ДинамическийСписокНапряжениеПриПроверке9МесяцевРасширеннаяПодсказка" id="107"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ГруппаКолонок160Дней" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&gt;= 160 дней с даты MADC</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&gt;= 12 месяцев с даты MADC, но перед выдачей клиенту</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ShowInHeader>true</ShowInHeader>
+					<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+					<ExtendedTooltip name="ГруппаКолонок160ДнейРасширеннаяПодсказка" id="108"/>
+					<ChildItems>
+						<LabelField name="ДинамическийСписокДатаПроверки160Дней" id="24">
+							<DataPath>ДинамическийСписок.ДатаПроверки160Дней</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата</v8:content>
+								</v8:item>
+							</Title>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокДатаПроверки160ДнейКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ДинамическийСписокДатаПроверки160ДнейРасширеннаяПодсказка" id="109"/>
+						</LabelField>
+						<LabelField name="ДинамическийСписокНапряжениеПриПроверке160Дней" id="55">
+							<DataPath>ДинамическийСписок.НапряжениеПриПроверке160Дней</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Напряжение, V</v8:content>
+								</v8:item>
+							</Title>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ContextMenu name="ДинамическийСписокНапряжениеПриПроверке160ДнейКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="ДинамическийСписокНапряжениеПриПроверке160ДнейРасширеннаяПодсказка" id="110"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДинамическийСписок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Динамический список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~ДинамическийСписок.ПриПриеме</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ВЗ_ЖурналПроверки.Автомобиль,
+	ВЗ_ЖурналПроверки.VIN,
+	ВЗ_ЖурналПроверки.Нота,
+	ВЗ_ЖурналПроверки.ДатаПроверкиПриПриеме,
+	ВЗ_ЖурналПроверки.ДатаПроверки40Дней,
+	ВЗ_ЖурналПроверки.ДатаПроверки80Дней,
+	ВЗ_ЖурналПроверки.ДатаПроверки120Дней,
+	ВЗ_ЖурналПроверки.ДатаПроверки160Дней,
+	ВЗ_ЖурналПроверки.Территория,
+	ВЗ_ЖурналПроверки.НапряжениеПриПриеме,
+	ВЗ_ЖурналПроверки.НапряжениеПриПроверке40Дней,
+	ВЗ_ЖурналПроверки.НапряжениеПриПроверке80Дней,
+	ВЗ_ЖурналПроверки.НапряжениеПриПроверке120Дней,
+	ВЗ_ЖурналПроверки.НапряжениеПриПроверке160Дней,
+	ВЗ_ЖурналПроверки.Продан,
+	ВЗ_ЖурналПроверки.ТребуетсяЗарядкаАКБ
+ИЗ
+	(ВЫБРАТЬ
+		АвтомобилиНаСкладахОстатки.Автомобиль КАК Автомобиль,
+		АвтомобилиНаСкладахОстатки.Автомобиль.VIN КАК VIN,
+		ВЫБОР
+			КОГДА ВыполнениеСервисныхКампаний.VIN ЕСТЬ NULL 
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ КАК Нота,
+		ЖурналПроверкиАКБ.ДатаПроверкиПриПриеме КАК ДатаПроверкиПриПриеме,
+		ЖурналПроверкиАКБ.ДатаПроверки40Дней КАК ДатаПроверки40Дней,
+		ЖурналПроверкиАКБ.ДатаПроверки80Дней КАК ДатаПроверки80Дней,
+		ЖурналПроверкиАКБ.ДатаПроверки120Дней КАК ДатаПроверки120Дней,
+		ЖурналПроверкиАКБ.ДатаПроверки160Дней КАК ДатаПроверки160Дней,
+		АвтомобилиНаСкладахОстатки.СкладКомпании КАК Территория,
+		ЖурналПроверкиАКБ.НапряжениеПриПриеме КАК НапряжениеПриПриеме,
+		ЖурналПроверкиАКБ.НапряжениеПриПроверке40Дней КАК НапряжениеПриПроверке40Дней,
+		ЖурналПроверкиАКБ.НапряжениеПриПроверке80Дней КАК НапряжениеПриПроверке80Дней,
+		ЖурналПроверкиАКБ.НапряжениеПриПроверке120Дней КАК НапряжениеПриПроверке120Дней,
+		ЖурналПроверкиАКБ.НапряжениеПриПроверке160Дней КАК НапряжениеПриПроверке160Дней,
+		ВЫБОР
+			КОГДА НЕ ВЫБОР
+							КОГДА ПродажиАвтомобилей.Автомобиль ЕСТЬ НЕ NULL 
+								ТОГДА ИСТИНА
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ
+					И (ЖурналПроверкиАКБ.ДатаПроверки40Дней = ДАТАВРЕМЯ(1, 1, 1)
+							И РАЗНОСТЬДАТ(&amp;ТекДата, ДОБАВИТЬКДАТЕ(Renault_АвтомобилиДопРеквизиты.ДатаПриемкиНаСклад, ДЕНЬ, 40), ДЕНЬ) &lt;= 7
+						ИЛИ ЖурналПроверкиАКБ.ДатаПроверки80Дней = ДАТАВРЕМЯ(1, 1, 1)
+							И РАЗНОСТЬДАТ(&amp;ТекДата, ДОБАВИТЬКДАТЕ(Renault_АвтомобилиДопРеквизиты.ДатаПриемкиНаСклад, ДЕНЬ, 80), ДЕНЬ) &lt;= 7
+						ИЛИ ЖурналПроверкиАКБ.ДатаПроверки120Дней = ДАТАВРЕМЯ(1, 1, 1)
+							И РАЗНОСТЬДАТ(&amp;ТекДата, ДОБАВИТЬКДАТЕ(Renault_АвтомобилиДопРеквизиты.ДатаПриемкиНаСклад, ДЕНЬ, 12), ДЕНЬ) &lt;= 7
+						ИЛИ ЖурналПроверкиАКБ.ДатаПроверки160Дней = ДАТАВРЕМЯ(1, 1, 1)
+							И РАЗНОСТЬДАТ(&amp;ТекДата, ДОБАВИТЬКДАТЕ(Renault_АвтомобилиДопРеквизиты.ДатаПриемкиНаСклад, ДЕНЬ, 160), ДЕНЬ) &lt;= 7)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ КАК ТребуетсяЗарядкаАКБ,
+		ВЫБОР
+			КОГДА ПродажиАвтомобилей.Автомобиль ЕСТЬ НЕ NULL 
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ КАК Продан
+	ИЗ
+		РегистрНакопления.ОстаткиАвтомобилей.Остатки(, ) КАК АвтомобилиНаСкладахОстатки
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_ЖурналПроверкиАКБ КАК ЖурналПроверкиАКБ
+			ПО (ЖурналПроверкиАКБ.Автомобиль = АвтомобилиНаСкладахОстатки.Автомобиль)
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ПродажиАвтомобилей КАК ПродажиАвтомобилей
+			ПО АвтомобилиНаСкладахОстатки.Автомобиль = ПродажиАвтомобилей.Автомобиль
+				И (ПродажиАвтомобилей.Регистратор ССЫЛКА Документ.РеализацияАвтомобилей)
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_АвтомобилиДопРеквизиты КАК Renault_АвтомобилиДопРеквизиты
+			ПО АвтомобилиНаСкладахОстатки.Автомобиль = Renault_АвтомобилиДопРеквизиты.Автомобиль
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВыполнениеСервисныхКампаний КАК ВыполнениеСервисныхКампаний
+			ПО АвтомобилиНаСкладахОстатки.Автомобиль.VIN = ВыполнениеСервисныхКампаний.VIN
+				И (ВыполнениеСервисныхКампаний.ДатаВыполнения = ДАТАВРЕМЯ(1, 1, 1))
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.CRM_СостояниеАвтомобилейПроизводителя_v2 КАК CRM_СостояниеАвтомобилейПроизводителя_v2
+			ПО АвтомобилиНаСкладахОстатки.Автомобиль = CRM_СостояниеАвтомобилейПроизводителя_v2.Автомобиль
+				И (CRM_СостояниеАвтомобилейПроизводителя_v2.AUTO_STATUS = "На складе дилера")) КАК ВЗ_ЖурналПроверки
+ГДЕ
+	//ВЫБОР
+	//		КОГДА &amp;ЕстьОтборПоТерритории
+	//			ТОГДА ВЗ_ЖурналПроверки.Территория в (&amp;Территория)
+	//		ИНАЧЕ ИСТИНА
+	//	КОНЕЦ
+		ВЗ_ЖурналПроверки.Территория в (&amp;Территория)
+	И ВЫБОР
+			КОГДА &amp;ТребуетсяЗарядка
+				ТОГДА ВЗ_ЖурналПроверки.ТребуетсяЗарядкаАКБ = &amp;ТребуетсяЗарядка
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА &amp;ПоказыватьПроданныеАвтомобили
+				ТОГДА ИСТИНА
+			ИНАЧЕ ВЗ_ЖурналПроверки.Продан = &amp;ПоказыватьПроданныеАвтомобили
+		КОНЕЦ</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Территория" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Территория</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СкладыКомпании</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТребуетсяЗарядитьАКБ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Требуется зарядить АКБ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказыватьПроданныеАвтомобили" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать проданные автомобили</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоступныеСклады" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступные склады</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

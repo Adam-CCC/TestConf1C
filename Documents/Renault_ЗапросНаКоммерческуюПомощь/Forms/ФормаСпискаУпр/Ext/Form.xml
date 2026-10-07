@@ -1,0 +1,1265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<SettingsStorage>SettingsStorage.ХранилищеВариантовОтчетов</SettingsStorage>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаНастройкаСписка" id="38">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Item.СписокВсе.StandardCommand.ListSettings</CommandName>
+				<ExtendedTooltip name="ФормаНастройкаСпискаРасширеннаяПодсказка" id="39"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПериоды" id="245">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа периоды</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа периоды</v8:content>
+				</v8:item>
+			</ToolTip>
+			<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПериодыРасширеннаяПодсказка" id="246"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОткрытия" id="247">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа открытия</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа открытия</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОткрытияРасширеннаяПодсказка" id="248"/>
+					<ChildItems>
+						<CheckBoxField name="ФлажокОткрытия" id="249">
+							<DataPath>ФлажокОткрытия</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ФлажокОткрытияКонтекстноеМеню" id="250"/>
+							<ExtendedTooltip name="ФлажокОткрытияРасширеннаяПодсказка" id="251"/>
+							<Events>
+								<Event name="OnChange">ФлажокОткрытияПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ПериодОткрытия" id="239">
+							<DataPath>ПериодОткрытия</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата открытия</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПериодОткрытияКонтекстноеМеню" id="240"/>
+							<ExtendedTooltip name="ПериодОткрытияРасширеннаяПодсказка" id="241"/>
+							<Events>
+								<Event name="OnChange">ПериодОткрытияПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаЗакрытия" id="252">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа закрытия</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа закрытия</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЗакрытияРасширеннаяПодсказка" id="253"/>
+					<ChildItems>
+						<CheckBoxField name="ФлажокЗакрытия" id="254">
+							<DataPath>ФлажокЗакрытия</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ФлажокЗакрытияКонтекстноеМеню" id="255"/>
+							<ExtendedTooltip name="ФлажокЗакрытияРасширеннаяПодсказка" id="256"/>
+							<Events>
+								<Event name="OnChange">ФлажокЗакрытияПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ПериодЗакрытия" id="242">
+							<DataPath>ПериодЗакрытия</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Дата закрытия</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПериодЗакрытияКонтекстноеМеню" id="243"/>
+							<ExtendedTooltip name="ПериодЗакрытияРасширеннаяПодсказка" id="244"/>
+							<Events>
+								<Event name="OnChange">ПериодЗакрытияПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="41"/>
+			<Events>
+				<Event name="OnCurrentPageChange">ГруппаСтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="ГруппаВсе" id="42">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Все запросы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа все</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаВсеРасширеннаяПодсказка" id="43"/>
+					<ChildItems>
+						<Table name="СписокВсе" id="1">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокВсеКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="СписокВсеКоманднаяПанель" id="3">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокВсеРасширеннаяПодсказка" id="4"/>
+							<SearchStringAddition name="СписокВсеСтрокаПоиска" id="5">
+								<AdditionSource>
+									<Item>СписокВсе</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВсеСтрокаПоискаКонтекстноеМеню" id="6"/>
+								<ExtendedTooltip name="СписокВсеСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокВсеСостояниеПросмотра" id="8">
+								<AdditionSource>
+									<Item>СписокВсе</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВсеСостояниеПросмотраКонтекстноеМеню" id="9"/>
+								<ExtendedTooltip name="СписокВсеСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокВсеУправлениеПоиском" id="11">
+								<AdditionSource>
+									<Item>СписокВсе</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВсеУправлениеПоискомКонтекстноеМеню" id="12"/>
+								<ExtendedTooltip name="СписокВсеУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Дата" id="14">
+									<DataPath>Список.Date</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="16"/>
+								</LabelField>
+								<LabelField name="Номер" id="17">
+									<DataPath>Список.Number</DataPath>
+									<ContextMenu name="НомерКонтекстноеМеню" id="18"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="19"/>
+								</LabelField>
+								<LabelField name="Контрагент" id="20">
+									<DataPath>Список.Контрагент</DataPath>
+									<ContextMenu name="КонтрагентКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="22"/>
+								</LabelField>
+								<LabelField name="CaseNumber" id="29">
+									<DataPath>Список.CaseNumber</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseNumberКонтекстноеМеню" id="30"/>
+									<ExtendedTooltip name="CaseNumberРасширеннаяПодсказка" id="31"/>
+								</LabelField>
+								<LabelField name="CaseStatus" id="32">
+									<DataPath>Список.CaseStatus</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseStatusКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="CaseStatusРасширеннаяПодсказка" id="34"/>
+								</LabelField>
+								<LabelField name="СтатусОбращения" id="23">
+									<DataPath>Список.СтатусЗапроса</DataPath>
+									<ContextMenu name="СтатусОбращенияКонтекстноеМеню" id="24"/>
+									<ExtendedTooltip name="СтатусОбращенияРасширеннаяПодсказка" id="25"/>
+								</LabelField>
+								<LabelField name="СтоимостьРешения" id="26">
+									<DataPath>~Список.СтоимостьРешения</DataPath>
+									<ContextMenu name="СтоимостьРешенияКонтекстноеМеню" id="27"/>
+									<ExtendedTooltip name="СтоимостьРешенияРасширеннаяПодсказка" id="28"/>
+								</LabelField>
+								<LabelField name="DateResolvedAlert" id="35">
+									<DataPath>Список.DateResolvedAlert</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата статуса</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="DateResolvedAlertКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="DateResolvedAlertРасширеннаяПодсказка" id="37"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОтправлен" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запрос отправлен</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отправлен</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОтправленРасширеннаяПодсказка" id="45"/>
+					<ChildItems>
+						<Table name="СписокОтправлен" id="46">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокОтправленКонтекстноеМеню" id="47"/>
+							<AutoCommandBar name="СписокОтправленКоманднаяПанель" id="48">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокОтправленРасширеннаяПодсказка" id="49"/>
+							<SearchStringAddition name="СписокОтправленСтрокаПоиска" id="50">
+								<AdditionSource>
+									<Item>СписокОтправлен</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокОтправленСтрокаПоискаКонтекстноеМеню" id="51"/>
+								<ExtendedTooltip name="СписокОтправленСтрокаПоискаРасширеннаяПодсказка" id="52"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокОтправленСостояниеПросмотра" id="53">
+								<AdditionSource>
+									<Item>СписокОтправлен</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокОтправленСостояниеПросмотраКонтекстноеМеню" id="54"/>
+								<ExtendedTooltip name="СписокОтправленСостояниеПросмотраРасширеннаяПодсказка" id="55"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокОтправленУправлениеПоиском" id="56">
+								<AdditionSource>
+									<Item>СписокОтправлен</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокОтправленУправлениеПоискомКонтекстноеМеню" id="57"/>
+								<ExtendedTooltip name="СписокОтправленУправлениеПоискомРасширеннаяПодсказка" id="58"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Дата1" id="59">
+									<DataPath>Список.Date</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="Дата1КонтекстноеМеню" id="60"/>
+									<ExtendedTooltip name="Дата1РасширеннаяПодсказка" id="61"/>
+								</LabelField>
+								<LabelField name="Номер1" id="62">
+									<DataPath>Список.Number</DataPath>
+									<ContextMenu name="Номер1КонтекстноеМеню" id="63"/>
+									<ExtendedTooltip name="Номер1РасширеннаяПодсказка" id="64"/>
+								</LabelField>
+								<LabelField name="Контрагент1" id="65">
+									<DataPath>Список.Контрагент</DataPath>
+									<ContextMenu name="Контрагент1КонтекстноеМеню" id="66"/>
+									<ExtendedTooltip name="Контрагент1РасширеннаяПодсказка" id="67"/>
+								</LabelField>
+								<LabelField name="CaseNumber1" id="68">
+									<DataPath>Список.CaseNumber</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseNumber1КонтекстноеМеню" id="69"/>
+									<ExtendedTooltip name="CaseNumber1РасширеннаяПодсказка" id="70"/>
+								</LabelField>
+								<LabelField name="CaseStatus1" id="71">
+									<DataPath>Список.CaseStatus</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseStatus1КонтекстноеМеню" id="72"/>
+									<ExtendedTooltip name="CaseStatus1РасширеннаяПодсказка" id="73"/>
+								</LabelField>
+								<LabelField name="СтатусОбращения1" id="74">
+									<DataPath>Список.СтатусЗапроса</DataPath>
+									<ContextMenu name="СтатусОбращения1КонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="СтатусОбращения1РасширеннаяПодсказка" id="76"/>
+								</LabelField>
+								<LabelField name="СтоимостьРешения1" id="77">
+									<DataPath>~Список.СтоимостьРешения</DataPath>
+									<ContextMenu name="СтоимостьРешения1КонтекстноеМеню" id="78"/>
+									<ExtendedTooltip name="СтоимостьРешения1РасширеннаяПодсказка" id="79"/>
+								</LabelField>
+								<LabelField name="DateResolvedAlert1" id="80">
+									<DataPath>Список.DateResolvedAlert</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата статуса</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="DateResolvedAlert1КонтекстноеМеню" id="81"/>
+									<ExtendedTooltip name="DateResolvedAlert1РасширеннаяПодсказка" id="82"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаРассмотрении" id="83">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запрос на рассмотрении</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отправлен</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаРассмотренииРасширеннаяПодсказка" id="84"/>
+					<ChildItems>
+						<Table name="СписокРассмотрении" id="85">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокРассмотренииКонтекстноеМеню" id="86"/>
+							<AutoCommandBar name="СписокРассмотренииКоманднаяПанель" id="87">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокРассмотренииРасширеннаяПодсказка" id="88"/>
+							<SearchStringAddition name="СписокРассмотренииСтрокаПоиска" id="89">
+								<AdditionSource>
+									<Item>СписокРассмотрении</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокРассмотренииСтрокаПоискаКонтекстноеМеню" id="90"/>
+								<ExtendedTooltip name="СписокРассмотренииСтрокаПоискаРасширеннаяПодсказка" id="91"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокРассмотренииСостояниеПросмотра" id="92">
+								<AdditionSource>
+									<Item>СписокРассмотрении</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокРассмотренииСостояниеПросмотраКонтекстноеМеню" id="93"/>
+								<ExtendedTooltip name="СписокРассмотренииСостояниеПросмотраРасширеннаяПодсказка" id="94"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокРассмотренииУправлениеПоиском" id="95">
+								<AdditionSource>
+									<Item>СписокРассмотрении</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокРассмотренииУправлениеПоискомКонтекстноеМеню" id="96"/>
+								<ExtendedTooltip name="СписокРассмотренииУправлениеПоискомРасширеннаяПодсказка" id="97"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Дата2" id="98">
+									<DataPath>Список.Date</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="Дата2КонтекстноеМеню" id="99"/>
+									<ExtendedTooltip name="Дата2РасширеннаяПодсказка" id="100"/>
+								</LabelField>
+								<LabelField name="Номер2" id="101">
+									<DataPath>Список.Number</DataPath>
+									<ContextMenu name="Номер2КонтекстноеМеню" id="102"/>
+									<ExtendedTooltip name="Номер2РасширеннаяПодсказка" id="103"/>
+								</LabelField>
+								<LabelField name="Контрагент2" id="104">
+									<DataPath>Список.Контрагент</DataPath>
+									<ContextMenu name="Контрагент2КонтекстноеМеню" id="105"/>
+									<ExtendedTooltip name="Контрагент2РасширеннаяПодсказка" id="106"/>
+								</LabelField>
+								<LabelField name="CaseNumber2" id="107">
+									<DataPath>Список.CaseNumber</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseNumber2КонтекстноеМеню" id="108"/>
+									<ExtendedTooltip name="CaseNumber2РасширеннаяПодсказка" id="109"/>
+								</LabelField>
+								<LabelField name="CaseStatus2" id="110">
+									<DataPath>Список.CaseStatus</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseStatus2КонтекстноеМеню" id="111"/>
+									<ExtendedTooltip name="CaseStatus2РасширеннаяПодсказка" id="112"/>
+								</LabelField>
+								<LabelField name="СтатусОбращения2" id="113">
+									<DataPath>Список.СтатусЗапроса</DataPath>
+									<ContextMenu name="СтатусОбращения2КонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="СтатусОбращения2РасширеннаяПодсказка" id="115"/>
+								</LabelField>
+								<LabelField name="СтоимостьРешения2" id="116">
+									<DataPath>~Список.СтоимостьРешения</DataPath>
+									<ContextMenu name="СтоимостьРешения2КонтекстноеМеню" id="117"/>
+									<ExtendedTooltip name="СтоимостьРешения2РасширеннаяПодсказка" id="118"/>
+								</LabelField>
+								<LabelField name="DateResolvedAlert2" id="119">
+									<DataPath>Список.DateResolvedAlert</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата статуса</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="DateResolvedAlert2КонтекстноеМеню" id="120"/>
+									<ExtendedTooltip name="DateResolvedAlert2РасширеннаяПодсказка" id="121"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОжидание" id="122">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В ожидании ответа от дилера</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отправлен</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОжиданиеРасширеннаяПодсказка" id="123"/>
+					<ChildItems>
+						<Table name="СписокОжидание" id="124">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокОжиданиеКонтекстноеМеню" id="125"/>
+							<AutoCommandBar name="СписокОжиданиеКоманднаяПанель" id="126">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокОжиданиеРасширеннаяПодсказка" id="127"/>
+							<SearchStringAddition name="СписокОжиданиеСтрокаПоиска" id="128">
+								<AdditionSource>
+									<Item>СписокОжидание</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокОжиданиеСтрокаПоискаКонтекстноеМеню" id="129"/>
+								<ExtendedTooltip name="СписокОжиданиеСтрокаПоискаРасширеннаяПодсказка" id="130"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокОжиданиеСостояниеПросмотра" id="131">
+								<AdditionSource>
+									<Item>СписокОжидание</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокОжиданиеСостояниеПросмотраКонтекстноеМеню" id="132"/>
+								<ExtendedTooltip name="СписокОжиданиеСостояниеПросмотраРасширеннаяПодсказка" id="133"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокОжиданиеУправлениеПоиском" id="134">
+								<AdditionSource>
+									<Item>СписокОжидание</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокОжиданиеУправлениеПоискомКонтекстноеМеню" id="135"/>
+								<ExtendedTooltip name="СписокОжиданиеУправлениеПоискомРасширеннаяПодсказка" id="136"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Дата3" id="137">
+									<DataPath>Список.Date</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="Дата3КонтекстноеМеню" id="138"/>
+									<ExtendedTooltip name="Дата3РасширеннаяПодсказка" id="139"/>
+								</LabelField>
+								<LabelField name="Номер3" id="140">
+									<DataPath>Список.Number</DataPath>
+									<ContextMenu name="Номер3КонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="Номер3РасширеннаяПодсказка" id="142"/>
+								</LabelField>
+								<LabelField name="Контрагент3" id="143">
+									<DataPath>Список.Контрагент</DataPath>
+									<ContextMenu name="Контрагент3КонтекстноеМеню" id="144"/>
+									<ExtendedTooltip name="Контрагент3РасширеннаяПодсказка" id="145"/>
+								</LabelField>
+								<LabelField name="CaseNumber3" id="146">
+									<DataPath>Список.CaseNumber</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseNumber3КонтекстноеМеню" id="147"/>
+									<ExtendedTooltip name="CaseNumber3РасширеннаяПодсказка" id="148"/>
+								</LabelField>
+								<LabelField name="CaseStatus3" id="149">
+									<DataPath>Список.CaseStatus</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseStatus3КонтекстноеМеню" id="150"/>
+									<ExtendedTooltip name="CaseStatus3РасширеннаяПодсказка" id="151"/>
+								</LabelField>
+								<LabelField name="СтатусОбращения3" id="152">
+									<DataPath>Список.СтатусЗапроса</DataPath>
+									<ContextMenu name="СтатусОбращения3КонтекстноеМеню" id="153"/>
+									<ExtendedTooltip name="СтатусОбращения3РасширеннаяПодсказка" id="154"/>
+								</LabelField>
+								<LabelField name="СтоимостьРешения3" id="155">
+									<DataPath>~Список.СтоимостьРешения</DataPath>
+									<ContextMenu name="СтоимостьРешения3КонтекстноеМеню" id="156"/>
+									<ExtendedTooltip name="СтоимостьРешения3РасширеннаяПодсказка" id="157"/>
+								</LabelField>
+								<LabelField name="DateResolvedAlert3" id="158">
+									<DataPath>Список.DateResolvedAlert</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата статуса</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="DateResolvedAlert3КонтекстноеМеню" id="159"/>
+									<ExtendedTooltip name="DateResolvedAlert3РасширеннаяПодсказка" id="160"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаОдобренно" id="161">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Одобрено</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отправлен</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОдобренноРасширеннаяПодсказка" id="162"/>
+					<ChildItems>
+						<Table name="СписокОдобрено" id="163">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокОдобреноКонтекстноеМеню" id="164"/>
+							<AutoCommandBar name="СписокОдобреноКоманднаяПанель" id="165">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокОдобреноРасширеннаяПодсказка" id="166"/>
+							<SearchStringAddition name="СписокОдобреноСтрокаПоиска" id="167">
+								<AdditionSource>
+									<Item>СписокОдобрено</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокОдобреноСтрокаПоискаКонтекстноеМеню" id="168"/>
+								<ExtendedTooltip name="СписокОдобреноСтрокаПоискаРасширеннаяПодсказка" id="169"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокОдобреноСостояниеПросмотра" id="170">
+								<AdditionSource>
+									<Item>СписокОдобрено</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокОдобреноСостояниеПросмотраКонтекстноеМеню" id="171"/>
+								<ExtendedTooltip name="СписокОдобреноСостояниеПросмотраРасширеннаяПодсказка" id="172"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокОдобреноУправлениеПоиском" id="173">
+								<AdditionSource>
+									<Item>СписокОдобрено</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокОдобреноУправлениеПоискомКонтекстноеМеню" id="174"/>
+								<ExtendedTooltip name="СписокОдобреноУправлениеПоискомРасширеннаяПодсказка" id="175"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Дата4" id="176">
+									<DataPath>Список.Date</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="Дата4КонтекстноеМеню" id="177"/>
+									<ExtendedTooltip name="Дата4РасширеннаяПодсказка" id="178"/>
+								</LabelField>
+								<LabelField name="Номер4" id="179">
+									<DataPath>Список.Number</DataPath>
+									<ContextMenu name="Номер4КонтекстноеМеню" id="180"/>
+									<ExtendedTooltip name="Номер4РасширеннаяПодсказка" id="181"/>
+								</LabelField>
+								<LabelField name="Контрагент4" id="182">
+									<DataPath>Список.Контрагент</DataPath>
+									<ContextMenu name="Контрагент4КонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="Контрагент4РасширеннаяПодсказка" id="184"/>
+								</LabelField>
+								<LabelField name="CaseNumber4" id="185">
+									<DataPath>Список.CaseNumber</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseNumber4КонтекстноеМеню" id="186"/>
+									<ExtendedTooltip name="CaseNumber4РасширеннаяПодсказка" id="187"/>
+								</LabelField>
+								<LabelField name="CaseStatus4" id="188">
+									<DataPath>Список.CaseStatus</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseStatus4КонтекстноеМеню" id="189"/>
+									<ExtendedTooltip name="CaseStatus4РасширеннаяПодсказка" id="190"/>
+								</LabelField>
+								<LabelField name="СтатусОбращения4" id="191">
+									<DataPath>Список.СтатусЗапроса</DataPath>
+									<ContextMenu name="СтатусОбращения4КонтекстноеМеню" id="192"/>
+									<ExtendedTooltip name="СтатусОбращения4РасширеннаяПодсказка" id="193"/>
+								</LabelField>
+								<LabelField name="СтоимостьРешения4" id="194">
+									<DataPath>~Список.СтоимостьРешения</DataPath>
+									<ContextMenu name="СтоимостьРешения4КонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="СтоимостьРешения4РасширеннаяПодсказка" id="196"/>
+								</LabelField>
+								<LabelField name="DateResolvedAlert4" id="197">
+									<DataPath>Список.DateResolvedAlert</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата статуса</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="DateResolvedAlert4КонтекстноеМеню" id="198"/>
+									<ExtendedTooltip name="DateResolvedAlert4РасширеннаяПодсказка" id="199"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаНеодобрено" id="200">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Неодобрено</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отправлен</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаНеодобреноРасширеннаяПодсказка" id="201"/>
+					<ChildItems>
+						<Table name="СписокНеодобрено" id="202">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокНеодобреноКонтекстноеМеню" id="203"/>
+							<AutoCommandBar name="СписокНеодобреноКоманднаяПанель" id="204">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокНеодобреноРасширеннаяПодсказка" id="205"/>
+							<SearchStringAddition name="СписокНеодобреноСтрокаПоиска" id="206">
+								<AdditionSource>
+									<Item>СписокНеодобрено</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНеодобреноСтрокаПоискаКонтекстноеМеню" id="207"/>
+								<ExtendedTooltip name="СписокНеодобреноСтрокаПоискаРасширеннаяПодсказка" id="208"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокНеодобреноСостояниеПросмотра" id="209">
+								<AdditionSource>
+									<Item>СписокНеодобрено</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНеодобреноСостояниеПросмотраКонтекстноеМеню" id="210"/>
+								<ExtendedTooltip name="СписокНеодобреноСостояниеПросмотраРасширеннаяПодсказка" id="211"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокНеодобреноУправлениеПоиском" id="212">
+								<AdditionSource>
+									<Item>СписокНеодобрено</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНеодобреноУправлениеПоискомКонтекстноеМеню" id="213"/>
+								<ExtendedTooltip name="СписокНеодобреноУправлениеПоискомРасширеннаяПодсказка" id="214"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Дата5" id="215">
+									<DataPath>Список.Date</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="Дата5КонтекстноеМеню" id="216"/>
+									<ExtendedTooltip name="Дата5РасширеннаяПодсказка" id="217"/>
+								</LabelField>
+								<LabelField name="Номер5" id="218">
+									<DataPath>Список.Number</DataPath>
+									<ContextMenu name="Номер5КонтекстноеМеню" id="219"/>
+									<ExtendedTooltip name="Номер5РасширеннаяПодсказка" id="220"/>
+								</LabelField>
+								<LabelField name="Контрагент5" id="221">
+									<DataPath>Список.Контрагент</DataPath>
+									<ContextMenu name="Контрагент5КонтекстноеМеню" id="222"/>
+									<ExtendedTooltip name="Контрагент5РасширеннаяПодсказка" id="223"/>
+								</LabelField>
+								<LabelField name="CaseNumber5" id="224">
+									<DataPath>Список.CaseNumber</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseNumber5КонтекстноеМеню" id="225"/>
+									<ExtendedTooltip name="CaseNumber5РасширеннаяПодсказка" id="226"/>
+								</LabelField>
+								<LabelField name="CaseStatus5" id="227">
+									<DataPath>Список.CaseStatus</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseStatus5КонтекстноеМеню" id="228"/>
+									<ExtendedTooltip name="CaseStatus5РасширеннаяПодсказка" id="229"/>
+								</LabelField>
+								<LabelField name="СтатусОбращения5" id="230">
+									<DataPath>Список.СтатусЗапроса</DataPath>
+									<ContextMenu name="СтатусОбращения5КонтекстноеМеню" id="231"/>
+									<ExtendedTooltip name="СтатусОбращения5РасширеннаяПодсказка" id="232"/>
+								</LabelField>
+								<LabelField name="СтоимостьРешения5" id="233">
+									<DataPath>~Список.СтоимостьРешения</DataPath>
+									<ContextMenu name="СтоимостьРешения5КонтекстноеМеню" id="234"/>
+									<ExtendedTooltip name="СтоимостьРешения5РасширеннаяПодсказка" id="235"/>
+								</LabelField>
+								<LabelField name="DateResolvedAlert5" id="236">
+									<DataPath>Список.DateResolvedAlert</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата статуса</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="DateResolvedAlert5КонтекстноеМеню" id="237"/>
+									<ExtendedTooltip name="DateResolvedAlert5РасширеннаяПодсказка" id="238"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаЗакрыто" id="257">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Закрытые</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа закрыто</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаЗакрытоРасширеннаяПодсказка" id="258"/>
+					<ChildItems>
+						<Table name="СписокЗакрыто" id="259">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокЗакрытоКонтекстноеМеню" id="260"/>
+							<AutoCommandBar name="СписокЗакрытоКоманднаяПанель" id="261">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокЗакрытоРасширеннаяПодсказка" id="262"/>
+							<SearchStringAddition name="СписокЗакрытоСтрокаПоиска" id="263">
+								<AdditionSource>
+									<Item>СписокЗакрыто</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокЗакрытоСтрокаПоискаКонтекстноеМеню" id="264"/>
+								<ExtendedTooltip name="СписокЗакрытоСтрокаПоискаРасширеннаяПодсказка" id="265"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокЗакрытоСостояниеПросмотра" id="266">
+								<AdditionSource>
+									<Item>СписокЗакрыто</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокЗакрытоСостояниеПросмотраКонтекстноеМеню" id="267"/>
+								<ExtendedTooltip name="СписокЗакрытоСостояниеПросмотраРасширеннаяПодсказка" id="268"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокЗакрытоУправлениеПоиском" id="269">
+								<AdditionSource>
+									<Item>СписокЗакрыто</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокЗакрытоУправлениеПоискомКонтекстноеМеню" id="270"/>
+								<ExtendedTooltip name="СписокЗакрытоУправлениеПоискомРасширеннаяПодсказка" id="271"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnGetDataAtServer">СписокПриПолученииДанныхНаСервере</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Дата6" id="272">
+									<DataPath>Список.Date</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="Дата6КонтекстноеМеню" id="273"/>
+									<ExtendedTooltip name="Дата6РасширеннаяПодсказка" id="274"/>
+								</LabelField>
+								<LabelField name="Номер6" id="275">
+									<DataPath>Список.Number</DataPath>
+									<ContextMenu name="Номер6КонтекстноеМеню" id="276"/>
+									<ExtendedTooltip name="Номер6РасширеннаяПодсказка" id="277"/>
+								</LabelField>
+								<LabelField name="Контрагент6" id="278">
+									<DataPath>Список.Контрагент</DataPath>
+									<ContextMenu name="Контрагент6КонтекстноеМеню" id="279"/>
+									<ExtendedTooltip name="Контрагент6РасширеннаяПодсказка" id="280"/>
+								</LabelField>
+								<LabelField name="CaseNumber6" id="281">
+									<DataPath>Список.CaseNumber</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseNumber6КонтекстноеМеню" id="282"/>
+									<ExtendedTooltip name="CaseNumber6РасширеннаяПодсказка" id="283"/>
+								</LabelField>
+								<LabelField name="CaseStatus6" id="284">
+									<DataPath>Список.CaseStatus</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус досье</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="CaseStatus6КонтекстноеМеню" id="285"/>
+									<ExtendedTooltip name="CaseStatus6РасширеннаяПодсказка" id="286"/>
+								</LabelField>
+								<LabelField name="СтатусОбращения6" id="287">
+									<DataPath>Список.СтатусЗапроса</DataPath>
+									<ContextMenu name="СтатусОбращения6КонтекстноеМеню" id="288"/>
+									<ExtendedTooltip name="СтатусОбращения6РасширеннаяПодсказка" id="289"/>
+								</LabelField>
+								<LabelField name="СтоимостьРешения6" id="290">
+									<DataPath>~Список.СтоимостьРешения</DataPath>
+									<ContextMenu name="СтоимостьРешения6КонтекстноеМеню" id="291"/>
+									<ExtendedTooltip name="СтоимостьРешения6РасширеннаяПодсказка" id="292"/>
+								</LabelField>
+								<LabelField name="DateResolvedAlert6" id="293">
+									<DataPath>Список.DateResolvedAlert</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата статуса</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="DateResolvedAlert6КонтекстноеМеню" id="294"/>
+									<ExtendedTooltip name="DateResolvedAlert6РасширеннаяПодсказка" id="295"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	Renault_ЗапросНаКоммерческуюПомощь.Ссылка,
+	Renault_ЗапросНаКоммерческуюПомощь.Номер,
+	Renault_ЗапросНаКоммерческуюПомощь.Дата,
+	Renault_ЗапросНаКоммерческуюПомощь.Контрагент,
+	Renault_ЗапросНаКоммерческуюПомощь.Автомобиль,
+	Renault_ЗапросНаКоммерческуюПомощь.ПричинаОбращения,
+	Renault_ЗапросНаКоммерческуюПомощь.ЗапросДилераСумма,
+	Renault_ЗапросНаКоммерческуюПомощь.Комментарий,
+	Renault_ЗапросНаКоммерческуюПомощь.CaseNumber,
+	Renault_ЗапросНаКоммерческуюПомощь.CaseStatus,
+	Renault_ЗапросНаКоммерческуюПомощь.СтатусЗапроса,
+	Renault_ЗапросНаКоммерческуюПомощь.DateResolved,
+	ВЫРАЗИТЬ(РАЗНОСТЬДАТ(Renault_ЗапросНаКоммерческуюПомощь.Дата, Renault_ЗапросНаКоммерческуюПомощь.DateResolved, ДЕНЬ) КАК ЧИСЛО(15, 2)) КАК DateResolvedAlert
+ИЗ
+	Документ.Renault_ЗапросНаКоммерческуюПомощь КАК Renault_ЗапросНаКоммерческуюПомощь</QueryText>
+				<MainTable>Document.Renault_ЗапросНаКоммерческуюПомощь</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПериодОткрытия" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период открытия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлажокОткрытия" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Флажок открытия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПериодЗакрытия" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период закрытия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФлажокЗакрытия" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Флажок закрытия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Дата</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Номер</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Контрагент</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>CaseNumber</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>CaseStatus</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СтатусОбращения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СтоимостьРешения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>DateResolvedAlert</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Список.DateResolvedAlert</dcsset:left>
+						<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">25</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#FF0000</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>DateResolvedAlert</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Список.DateResolvedAlert</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьЖурналСобытий" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал событий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The event log</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть журнал событий</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>View Event Log</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьЖурналСобытий</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

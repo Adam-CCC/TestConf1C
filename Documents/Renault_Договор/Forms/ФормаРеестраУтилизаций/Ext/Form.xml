@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаОтметитьВсе" id="76">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.ОтметитьВсе</CommandName>
+				<Picture>
+					<xr:Ref>CommonPicture.Renault_Confirm_Square</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаОтметитьВсеРасширеннаяПодсказка" id="77"/>
+			</Button>
+			<Button name="ФормаСнятьОтметки" id="78">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.СнятьОтметки</CommandName>
+				<Picture>
+					<xr:Ref>CommonPicture.Renault_Square_NEw</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаСнятьОтметкиРасширеннаяПодсказка" id="79"/>
+			</Button>
+			<Button name="ФормаРеестрДоговоровУтилизации" id="80">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.РеестрДоговоровУтилизации</CommandName>
+				<ExtendedTooltip name="ФормаРеестрДоговоровУтилизацииРасширеннаяПодсказка" id="81"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="82">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Create</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>Post</ExcludedCommand>
+				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+				<ExcludedCommand>UndoPosting</ExcludedCommand>
+			</CommandSet>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="83"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="84"/>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="85"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="86">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="87"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="88"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="89">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="90"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="91"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="92">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="93"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="94"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<CheckBoxField name="Выбрано" id="98">
+					<DataPath>Список.Выбрано</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВыбраноКонтекстноеМеню" id="99"/>
+					<ExtendedTooltip name="ВыбраноРасширеннаяПодсказка" id="100"/>
+				</CheckBoxField>
+				<LabelField name="Год" id="101">
+					<DataPath>Список.Год</DataPath>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧГ=</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="ГодКонтекстноеМеню" id="102"/>
+					<ExtendedTooltip name="ГодРасширеннаяПодсказка" id="103"/>
+				</LabelField>
+				<LabelField name="Месяц" id="122">
+					<DataPath>Список.Месяц</DataPath>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧГ=</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="МесяцКонтекстноеМеню" id="123"/>
+					<ExtendedTooltip name="МесяцРасширеннаяПодсказка" id="124"/>
+				</LabelField>
+				<LabelField name="Номер" id="125">
+					<DataPath>Список.Номер</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="126"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="127"/>
+				</LabelField>
+				<LabelField name="ДатаПродажи" id="104">
+					<DataPath>Список.ДатаПродажи</DataPath>
+					<ContextMenu name="ДатаПродажиКонтекстноеМеню" id="105"/>
+					<ExtendedTooltip name="ДатаПродажиРасширеннаяПодсказка" id="106"/>
+				</LabelField>
+				<LabelField name="МаркаМодель" id="119">
+					<DataPath>Список.МаркаМодель</DataPath>
+					<ContextMenu name="МаркаМодельКонтекстноеМеню" id="120"/>
+					<ExtendedTooltip name="МаркаМодельРасширеннаяПодсказка" id="121"/>
+				</LabelField>
+				<LabelField name="НомерШасси" id="134">
+					<DataPath>Список.НомерШасси</DataPath>
+					<ContextMenu name="НомерШассиКонтекстноеМеню" id="135"/>
+					<ExtendedTooltip name="НомерШассиРасширеннаяПодсказка" id="136"/>
+				</LabelField>
+				<LabelField name="КодЦвета" id="113">
+					<DataPath>Список.КодЦвета</DataPath>
+					<ContextMenu name="КодЦветаКонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="КодЦветаРасширеннаяПодсказка" id="115"/>
+				</LabelField>
+				<LabelField name="VIN" id="95">
+					<DataPath>Список.VIN</DataPath>
+					<ContextMenu name="VINКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="VINРасширеннаяПодсказка" id="97"/>
+				</LabelField>
+				<LabelField name="Клиент" id="110">
+					<DataPath>Список.Клиент</DataPath>
+					<ContextMenu name="КлиентКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="112"/>
+				</LabelField>
+				<LabelField name="Заявка" id="107">
+					<DataPath>Список.Заявка</DataPath>
+					<ContextMenu name="ЗаявкаКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="ЗаявкаРасширеннаяПодсказка" id="109"/>
+				</LabelField>
+				<LabelField name="Состояние" id="143">
+					<DataPath>Список.Состояние</DataPath>
+					<ContextMenu name="СостояниеКонтекстноеМеню" id="144"/>
+					<ExtendedTooltip name="СостояниеРасширеннаяПодсказка" id="145"/>
+				</LabelField>
+				<LabelField name="Комплектация" id="116">
+					<DataPath>Список.Комплектация</DataPath>
+					<ContextMenu name="КомплектацияКонтекстноеМеню" id="117"/>
+					<ExtendedTooltip name="КомплектацияРасширеннаяПодсказка" id="118"/>
+				</LabelField>
+				<LabelField name="НомерДвигателя" id="128">
+					<DataPath>Список.НомерДвигателя</DataPath>
+					<ContextMenu name="НомерДвигателяКонтекстноеМеню" id="129"/>
+					<ExtendedTooltip name="НомерДвигателяРасширеннаяПодсказка" id="130"/>
+				</LabelField>
+				<LabelField name="НомерКузова" id="131">
+					<DataPath>Список.НомерКузова</DataPath>
+					<ContextMenu name="НомерКузоваКонтекстноеМеню" id="132"/>
+					<ExtendedTooltip name="НомерКузоваРасширеннаяПодсказка" id="133"/>
+				</LabelField>
+				<LabelField name="Покупатель" id="137">
+					<DataPath>Список.Покупатель</DataPath>
+					<ContextMenu name="ПокупательКонтекстноеМеню" id="138"/>
+					<ExtendedTooltip name="ПокупательРасширеннаяПодсказка" id="139"/>
+				</LabelField>
+				<LabelField name="ПТС" id="140">
+					<DataPath>Список.ПТС</DataPath>
+					<ContextMenu name="ПТСКонтекстноеМеню" id="141"/>
+					<ExtendedTooltip name="ПТСРасширеннаяПодсказка" id="142"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="146">
+					<DataPath>Список.Ссылка</DataPath>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="147"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="148"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументRenault_Договор.Номер КАК Номер,
+	ДокументRenault_Договор.Клиент КАК Клиент,
+	ДокументRenault_Договор.Клиент КАК Покупатель,
+	ДокументRenault_Договор.УтилМаркаМодель КАК МаркаМодель,
+	ДокументRenault_Договор.УтилVIN КАК VIN,
+	ДокументRenault_Договор.УтилНомерКузова КАК НомерКузова,
+	ДокументRenault_Договор.УтилНомерДвигателя КАК НомерДвигателя,
+	ДокументRenault_Договор.УтилНомерШасси КАК НомерШасси,
+	ДокументRenault_Договор.УтилПТС КАК ПТС,
+	ДокументRenault_Договор.УтилДатаПродажи КАК ДатаПродажи,
+	ДокументRenault_Договор.УтилКодЦвета КАК КодЦвета,
+	ДокументRenault_Договор.УтилВариантКомплектации КАК Комплектация,
+	DMS_ЗаявкаНаСогласование.Ссылка КАК Заявка,
+	DMS_ЗаявкаНаСогласование.Состояние КАК Состояние,
+	ГОД(ДокументRenault_Договор.Дата) КАК Год,
+	МЕСЯЦ(ДокументRenault_Договор.Дата) КАК Месяц,
+	ДокументRenault_Договор.Ссылка КАК Ссылка,
+	ВЫБОР
+		КОГДА ДокументRenault_Договор.Ссылка В (&amp;МассивВыбранныхСсылок)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК Выбрано
+ИЗ
+	Документ.Renault_Договор КАК ДокументRenault_Договор
+		ЛЕВОЕ СОЕДИНЕНИЕ Задача.DMS_ЗаявкаНаСогласование КАК DMS_ЗаявкаНаСогласование
+		ПО ДокументRenault_Договор.Ссылка = DMS_ЗаявкаНаСогласование.Основание
+ГДЕ
+	ДокументRenault_Договор.УтилVIN &lt;&gt; ""</QueryText>
+				<MainTable>Document.Renault_Договор</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Год</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							<dcsset:userSettingID>cd0fac6d-8bfe-47a5-9e5c-2bada2047e7a</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Месяц</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							<dcsset:userSettingID>bc3c1fca-3cda-4a08-a403-2655ab16fe41</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОтметитьВсе" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтметитьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СнятьОтметки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять отметки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СнятьВсеОтметки</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="РеестрДоговоровУтилизации" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реестр договоров утилизации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реестр договоров утилизации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Print_32</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>РеестрДоговоровУтилизации</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

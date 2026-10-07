@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Width>100</Width>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа2" id="23">
+			<Width>40</Width>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="24"/>
+			<ChildItems>
+				<UsualGroup name="Группа1" id="5">
+					<Width>40</Width>
+					<HorizontalStretch>true</HorizontalStretch>
+					<GroupHorizontalAlign>Center</GroupHorizontalAlign>
+					<Group>AlwaysHorizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="6"/>
+					<ChildItems>
+						<Button name="ВыбратьОтделПродаж" id="1">
+							<Type>UsualButton</Type>
+							<Width>20</Width>
+							<HorizontalStretch>true</HorizontalStretch>
+							<CommandName>Form.Command.ВыбратьОтделПродаж</CommandName>
+							<TextColor>#FFFFFF</TextColor>
+							<BackColor>#6B696B</BackColor>
+							<BorderColor>#FFFFFF</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="20" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ExtendedTooltip name="ВыбратьОтделПродажРасширеннаяПодсказка" id="2"/>
+						</Button>
+						<Button name="ВыбратьДругойОтдел" id="3">
+							<Type>UsualButton</Type>
+							<Width>20</Width>
+							<HorizontalStretch>true</HorizontalStretch>
+							<CommandName>Form.Command.ВыбратьДругойОтдел</CommandName>
+							<TextColor>#FFFFFF</TextColor>
+							<BackColor>#6B696B</BackColor>
+							<BorderColor>#FFFFFF</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="20" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ExtendedTooltip name="ВыбратьДругойОтделРасширеннаяПодсказка" id="4"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<Table name="СписокСотрудников" id="25">
+					<ReadOnly>true</ReadOnly>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<DataPath>СписокСотрудников</DataPath>
+					<RowPictureDataPath>СписокСотрудников.DefaultPicture</RowPictureDataPath>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+					<ContextMenu name="СписокСотрудниковКонтекстноеМеню" id="26">
+						<Autofill>false</Autofill>
+					</ContextMenu>
+					<AutoCommandBar name="СписокСотрудниковКоманднаяПанель" id="27">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СписокСотрудниковРасширеннаяПодсказка" id="28"/>
+					<SearchStringAddition name="СписокСотрудниковСтрокаПоиска" id="29">
+						<AdditionSource>
+							<Item>СписокСотрудников</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСотрудниковСтрокаПоискаКонтекстноеМеню" id="30"/>
+						<ExtendedTooltip name="СписокСотрудниковСтрокаПоискаРасширеннаяПодсказка" id="31"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокСотрудниковСостояниеПросмотра" id="32">
+						<AdditionSource>
+							<Item>СписокСотрудников</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСотрудниковСостояниеПросмотраКонтекстноеМеню" id="33"/>
+						<ExtendedTooltip name="СписокСотрудниковСостояниеПросмотраРасширеннаяПодсказка" id="34"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокСотрудниковУправлениеПоиском" id="35">
+						<AdditionSource>
+							<Item>СписокСотрудников</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="СписокСотрудниковУправлениеПоискомКонтекстноеМеню" id="36"/>
+						<ExtendedTooltip name="СписокСотрудниковУправлениеПоискомРасширеннаяПодсказка" id="37"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">СписокСотрудниковВыбор</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="СписокСотрудниковСсылка" id="38">
+							<DataPath>СписокСотрудников.Ссылка</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сотрудник</v8:content>
+								</v8:item>
+							</Title>
+							<Font ref="style:NormalTextFont" height="16" kind="StyleItem"/>
+							<ContextMenu name="СписокСотрудниковСсылкаКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="СписокСотрудниковСсылкаРасширеннаяПодсказка" id="40"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_АРМ_ContactCenter</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ВыбранОтделПродаж" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбран отдел продаж</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыбранДругойОтдел" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбран другой отдел</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветРено" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет рено</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветРамкиНеВыбрано" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет рамки не выбрано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветНеВыбрано" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет не выбрано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветФонаНеВыбрано" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет фона не выбрано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветТекстаВыбрано" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет текста выбрано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЦветФонаВыбрано" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цвет фона выбрано</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8ui:Color</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтделПродаж" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отдел продаж</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.CRM_Отделы</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокСотрудников" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список сотрудников</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Сотрудники.Ссылка КАК Ссылка
+ИЗ
+	Справочник.Сотрудники КАК Сотрудники
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			CRM_ОтделыПодразделения.Подразделение КАК Подразделение
+		ИЗ
+			Справочник.CRM_Отделы.Подразделения КАК CRM_ОтделыПодразделения
+		ГДЕ
+			CRM_ОтделыПодразделения.Ссылка = &amp;Отдел) КАК ПодразделенияОтдела
+		ПО Сотрудники.Подразделение = ПодразделенияОтдела.Подразделение
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			CRM_ОтделыДолжности.Должность КАК Должность
+		ИЗ
+			Справочник.CRM_Отделы.Должности КАК CRM_ОтделыДолжности
+		ГДЕ
+			CRM_ОтделыДолжности.Ссылка = &amp;Отдел
+			И CRM_ОтделыДолжности.Должность.ПометкаУдаления = ЛОЖЬ
+			И CRM_ОтделыДолжности.ВыбиратьВСписки = ИСТИНА) КАК ДолжностиОтдела
+		ПО Сотрудники.Должность = ДолжностиОтдела.Должность
+ГДЕ
+	Сотрудники.ФлагУволен = ЛОЖЬ
+	И Сотрудники.ПометкаУдаления = ЛОЖЬ
+
+УПОРЯДОЧИТЬ ПО
+	Сотрудники.Наименование
+</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДилерскийЦентр" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дилерский центр</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.CRM_ДилерскиеЦентры</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыбранныйОтдел" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбранный отдел</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.CRM_Отделы</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыбратьОтделПродаж" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отдел продаж</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать отдел продаж</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыбратьОтделПродаж</Action>
+		</Command>
+		<Command name="ВыбратьДругойОтдел" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Другой отдел</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать другой отдел</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыбратьДругойОтдел</Action>
+		</Command>
+	</Commands>
+</Form>

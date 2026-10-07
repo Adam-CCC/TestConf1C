@@ -1,0 +1,178 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://wa.dms.webservice/CustomerVehicleGetRequest">
+	<property name="CustomerVehicleChangeRequest" nillable="true"/>
+	<property name="CustomerVehicleChangeResponse" nillable="true"/>
+	<property name="CustomerVehicleGetRequest" nillable="true"/>
+	<property name="CustomerVehicleGetResponse" nillable="true"/>
+	<objectType name="Address">
+		<property name="AddressType" type="xs:string" lowerBound="0"/>
+		<property name="FullAddress" type="xs:string" lowerBound="0"/>
+		<property name="ZipCode" type="xs:string" lowerBound="0"/>
+		<property name="Region" type="xs:string" lowerBound="0"/>
+		<property name="District" type="xs:string" lowerBound="0"/>
+		<property name="City" type="xs:string" lowerBound="0"/>
+		<property name="Locality" type="xs:string" lowerBound="0"/>
+		<property name="Street" type="xs:string" lowerBound="0"/>
+		<property name="House" type="xs:string" lowerBound="0"/>
+		<property name="Housing" type="xs:string" lowerBound="0"/>
+		<property name="Flat" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ArrayOfAddress">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Address" type="d3p1:Address" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCampaign">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Campaign" type="d3p1:Campaign" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfContact">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Contact" type="d3p1:Contact" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCorporateInfo">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="CorporateInfo" type="d3p1:CorporateInfo" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCustomerVehicle">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="CustomerVehicle" type="d3p1:CustomerVehicle" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfError">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Error" type="d3p1:Error" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Campaign">
+		<property name="CampaignID" type="xs:string" lowerBound="0"/>
+		<property name="CampaignDescription" type="xs:string" lowerBound="0"/>
+		<property name="CampaignPerformed" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Contact">
+		<property name="ContactType" type="xs:string" lowerBound="0"/>
+		<property name="ContactValue" type="xs:string" lowerBound="0"/>
+		<property name="ContactMethodYN" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="CorporateInfo">
+		<property name="CorporateInfoName" type="xs:string" lowerBound="0"/>
+		<property name="CorporateInfoValue" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerGet">
+		<property name="DMSCustomerNo" type="xs:string" lowerBound="0"/>
+		<property name="LastName" type="xs:string" lowerBound="0"/>
+		<property name="Email" type="xs:string" lowerBound="0"/>
+		<property name="CardNo" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Contacts" type="d3p1:ArrayOfContact" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerVehicle">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Customer" type="d3p1:Customer" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Vehicle" type="d3p1:Vehicle" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerVehicleChange">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Customer" type="d3p1:Customer" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Vehicle" type="d3p1:Vehicle" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerVehicleChangeRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="CustomerVehicleChange" type="d3p1:CustomerVehicleChange" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerVehicleChangeResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerVehicleGet">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="CustomerGet" type="d3p1:CustomerGet" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="VehicleGet" type="d3p1:VehicleGet" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerVehicleGetRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="CustomerVehicleGet" type="d3p1:CustomerVehicleGet" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerVehicleGetResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="CustomerVehicles" type="d3p1:ArrayOfCustomerVehicle" lowerBound="0"/>
+	</objectType>
+	<objectType name="Error">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ResultMessage">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="SpecialMessage">
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="TransactionHeader">
+		<property name="CountryID" type="xs:string" lowerBound="0"/>
+		<property name="DistributorID" type="xs:string" lowerBound="0"/>
+		<property name="GroupID" type="xs:string" lowerBound="0"/>
+		<property name="DealerID" type="xs:string" lowerBound="0"/>
+		<property name="DMSCode" type="xs:string" lowerBound="0"/>
+		<property name="DMSVersion" type="xs:string" lowerBound="0"/>
+		<property name="DMSServerUrl" type="xs:string" lowerBound="0"/>
+		<property name="DocumentVersion" type="xs:string" lowerBound="0"/>
+		<property name="Username" type="xs:string" lowerBound="0"/>
+		<property name="Password" type="xs:string" lowerBound="0"/>
+		<property name="TransactionId" type="xs:string" lowerBound="0"/>
+		<property name="TransactionDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionType" type="xs:string" lowerBound="0"/>
+		<property name="RequestType" type="xs:string" lowerBound="0"/>
+		<property name="RequestPollingToken" type="xs:string" lowerBound="0"/>
+		<property name="VenderTrackingCode" type="xs:string" lowerBound="0"/>
+		<property name="IneterfaceID" type="xs:string" lowerBound="0"/>
+		<property name="PollingToken" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="VehicleGet">
+		<property name="DMSVehicleNo" type="xs:string" lowerBound="0"/>
+		<property name="VIN" type="xs:string" lowerBound="0"/>
+		<property name="LastSixVIN" type="xs:string" lowerBound="0"/>
+		<property name="LicensePlateNo" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Customer">
+		<property name="CustomerInfoType" type="xs:string" lowerBound="0"/>
+		<property name="CustomerLegalType" type="xs:string" lowerBound="0"/>
+		<property name="DMSCustomerNo" type="xs:string" lowerBound="0"/>
+		<property name="LastName" type="xs:string" lowerBound="0"/>
+		<property name="MiddleName" type="xs:string" lowerBound="0"/>
+		<property name="FirstName" type="xs:string" lowerBound="0"/>
+		<property name="FullName" type="xs:string" lowerBound="0"/>
+		<property name="Salutation" type="xs:string" lowerBound="0"/>
+		<property name="Gender" type="xs:string" lowerBound="0"/>
+		<property name="CardNo" type="xs:string" lowerBound="0"/>
+		<property name="Email" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Addresses" type="d3p1:ArrayOfAddress" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Contacts" type="d3p1:ArrayOfContact" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="SpecialMessage" type="d3p1:SpecialMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="CorporateInfos" type="d3p1:ArrayOfCorporateInfo" lowerBound="0"/>
+	</objectType>
+	<objectType name="Vehicle">
+		<property name="DMSVehicleNo" type="xs:string" lowerBound="0"/>
+		<property name="VIN" type="xs:string" lowerBound="0"/>
+		<property name="StockNumber" type="xs:string" lowerBound="0"/>
+		<property name="LicensePlateNo" type="xs:string" lowerBound="0"/>
+		<property name="Make" type="xs:string" lowerBound="0"/>
+		<property name="ModelCode" type="xs:string" lowerBound="0"/>
+		<property name="ModelName" type="xs:string" lowerBound="0"/>
+		<property name="ModelYear" type="xs:string" lowerBound="0"/>
+		<property name="LastMileage" type="xs:string" lowerBound="0"/>
+		<property name="Color" type="xs:string" lowerBound="0"/>
+		<property name="VehicleType" type="xs:string" lowerBound="0"/>
+		<property name="EngineType" type="xs:string" lowerBound="0"/>
+		<property name="FuelType" type="xs:string" lowerBound="0"/>
+		<property name="Cylinders" type="xs:string" lowerBound="0"/>
+		<property name="Trim" type="xs:string" lowerBound="0"/>
+		<property name="FullModelName" type="xs:string" lowerBound="0"/>
+		<property name="InsuranceDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DateInService" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DateDelivered" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="WarrantyStartDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="WarrantyMonths" type="xs:string" lowerBound="0"/>
+		<property name="WarrantyMiles" type="xs:string" lowerBound="0"/>
+		<property name="LicenseNumber" type="xs:string" lowerBound="0"/>
+		<property name="LastServiceDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="ExtendedWarranty" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DeclinedJob" type="xs:string" lowerBound="0"/>
+		<property name="PendingJob" type="xs:string" lowerBound="0"/>
+		<property name="DisplayDescription" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/CustomerVehicleGetRequest" name="Campaigns" type="d3p1:ArrayOfCampaign" lowerBound="0"/>
+		<property name="ExtendedWarrantyExpireDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="EngineNo" type="xs:string" lowerBound="0"/>
+		<property name="EngineCode" type="xs:string" lowerBound="0"/>
+	</objectType>
+</package>

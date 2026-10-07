@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаКоманды" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команды</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>team Group</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа команды</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>team Group</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>#FFFFFF</BackColor>
+			<ExtendedTooltip name="ГруппаКомандыРасширеннаяПодсказка" id="43"/>
+			<ChildItems>
+				<Button name="ФормаВыбрать" id="1">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Выбрать</CommandName>
+					<TextColor>#000000</TextColor>
+					<BackColor>#FFFFFF</BackColor>
+					<BorderColor>#000000</BorderColor>
+					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<Picture>
+						<xr:Ref>CommonPicture.Renault_Client_32</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ФормаВыбратьРасширеннаяПодсказка" id="2"/>
+				</Button>
+				<LabelDecoration name="Декорация1" id="39">
+					<Width>30</Width>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="41"/>
+				</LabelDecoration>
+				<Button name="ФормаЗакрыть" id="3">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<TextColor>#000000</TextColor>
+					<BackColor>#FFFFFF</BackColor>
+					<BorderColor>#000000</BorderColor>
+					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<Picture>
+						<xr:Ref>CommonPicture.Renault_Close_32</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="4"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="44">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>#FFFFFF</BackColor>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="45"/>
+			<ChildItems>
+				<LabelDecoration name="ДекорацияПояснение" id="32">
+					<TextColor>#000000</TextColor>
+					<Font ref="sys:DefaultGUIFont" height="10" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Возможно, Вы имели виду одного из контрагентов в списке</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Did you mean one of the contractors on the list</v8:content>
+						</v8:item>
+					</Title>
+					<BackColor>#FFFFFF</BackColor>
+					<ContextMenu name="ДекорацияПояснениеКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ДекорацияПояснениеРасширеннаяПодсказка" id="34"/>
+				</LabelDecoration>
+				<Table name="ПодобныеКонтрагенты" id="5">
+					<Representation>List</Representation>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ПодобныеКонтрагенты</DataPath>
+					<TextColor>#000000</TextColor>
+					<BackColor>#FFFFFF</BackColor>
+					<BorderColor>#000000</BorderColor>
+					<Font ref="sys:DefaultGUIFont" height="10" bold="false" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<TitleTextColor>#000000</TitleTextColor>
+					<TitleFont ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ПодобныеКонтрагентыКонтекстноеМеню" id="6">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="ПодобныеКонтрагентыКонтекстноеМенюВыбрать" id="30">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.Выбрать</CommandName>
+								<ExtendedTooltip name="ПодобныеКонтрагентыКонтекстноеМенюВыбратьРасширеннаяПодсказка" id="31"/>
+							</Button>
+						</ChildItems>
+					</ContextMenu>
+					<AutoCommandBar name="ПодобныеКонтрагентыКоманднаяПанель" id="7">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ПодобныеКонтрагентыРасширеннаяПодсказка" id="8"/>
+					<SearchStringAddition name="ПодобныеКонтрагентыСтрокаПоиска" id="9">
+						<AdditionSource>
+							<Item>ПодобныеКонтрагенты</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПодобныеКонтрагентыСтрокаПоискаКонтекстноеМеню" id="10"/>
+						<ExtendedTooltip name="ПодобныеКонтрагентыСтрокаПоискаРасширеннаяПодсказка" id="11"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПодобныеКонтрагентыСостояниеПросмотра" id="12">
+						<AdditionSource>
+							<Item>ПодобныеКонтрагенты</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПодобныеКонтрагентыСостояниеПросмотраКонтекстноеМеню" id="13"/>
+						<ExtendedTooltip name="ПодобныеКонтрагентыСостояниеПросмотраРасширеннаяПодсказка" id="14"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПодобныеКонтрагентыУправлениеПоиском" id="15">
+						<AdditionSource>
+							<Item>ПодобныеКонтрагенты</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПодобныеКонтрагентыУправлениеПоискомКонтекстноеМеню" id="16"/>
+						<ExtendedTooltip name="ПодобныеКонтрагентыУправлениеПоискомРасширеннаяПодсказка" id="17"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ПодобныеКонтрагентыВыбор</Event>
+						<Event name="BeforeAddRow">ПодобныеКонтрагентыПередНачаломДобавления</Event>
+						<Event name="BeforeDeleteRow">ПодобныеКонтрагентыПередУдалением</Event>
+					</Events>
+					<ChildItems>
+						<CheckBoxField name="ПодобныеКонтрагентыВыбрать" id="27">
+							<DataPath>ПодобныеКонтрагенты.Выбрать</DataPath>
+							<TitleTextColor>#000000</TitleTextColor>
+							<TitleBackColor>#FFFFFF</TitleBackColor>
+							<TitleLocation>None</TitleLocation>
+							<HorizontalAlign>Left</HorizontalAlign>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterTextColor>#000000</FooterTextColor>
+							<FooterBackColor>#FFFFFF</FooterBackColor>
+							<FooterHorizontalAlign>Left</FooterHorizontalAlign>
+							<CheckBoxType>Auto</CheckBoxType>
+							<BorderColor>#000000</BorderColor>
+							<ContextMenu name="ПодобныеКонтрагентыВыбратьКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="ПодобныеКонтрагентыВыбратьРасширеннаяПодсказка" id="29"/>
+							<Events>
+								<Event name="OnChange">ПодобныеКонтрагентыВыбратьПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ПодобныеКонтрагентыКонтрагент" id="18">
+							<DataPath>ПодобныеКонтрагенты.Контрагент</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleTextColor>#000000</TitleTextColor>
+							<TitleBackColor>#FFFFFF</TitleBackColor>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterTextColor>#000000</FooterTextColor>
+							<FooterBackColor>#FFFFFF</FooterBackColor>
+							<BorderColor>#000000</BorderColor>
+							<ContextMenu name="ПодобныеКонтрагентыКонтрагентКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ПодобныеКонтрагентыКонтрагентРасширеннаяПодсказка" id="20"/>
+						</InputField>
+						<InputField name="ПодобныеКонтрагентыТелефон" id="21">
+							<DataPath>ПодобныеКонтрагенты.Телефон</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleTextColor>#000000</TitleTextColor>
+							<TitleBackColor>#FFFFFF</TitleBackColor>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterTextColor>#000000</FooterTextColor>
+							<FooterBackColor>#FFFFFF</FooterBackColor>
+							<Width>20</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<BorderColor>#000000</BorderColor>
+							<ContextMenu name="ПодобныеКонтрагентыТелефонКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="ПодобныеКонтрагентыТелефонРасширеннаяПодсказка" id="23"/>
+						</InputField>
+						<InputField name="ПодобныеКонтрагентыАдресЭлектроннойПочты" id="24">
+							<DataPath>ПодобныеКонтрагенты.АдресЭлектроннойПочты</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleTextColor>#000000</TitleTextColor>
+							<TitleBackColor>#FFFFFF</TitleBackColor>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterTextColor>#000000</FooterTextColor>
+							<FooterBackColor>#FFFFFF</FooterBackColor>
+							<Width>20</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<BorderColor>#000000</BorderColor>
+							<ContextMenu name="ПодобныеКонтрагентыАдресЭлектроннойПочтыКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ПодобныеКонтрагентыАдресЭлектроннойПочтыРасширеннаяПодсказка" id="26"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПодобныеКонтрагенты" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобные контрагенты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>such counterparties</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Контрагент" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>contractor</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Телефон" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Телефон</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Phone</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>40</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="АдресЭлектроннойПочты" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>E-mail</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>E-mail</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>40</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Выбрать" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбрать</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Choose</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Choose</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Choose</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Выбрать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

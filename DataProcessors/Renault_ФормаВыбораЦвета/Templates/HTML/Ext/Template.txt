@@ -1,0 +1,1198 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+
+<script type="text/javascript">
+
+if(!document.getElementById)document.getElementById=function(elemID){return eval("document.all['" + elemID + "']");}
+if(!document.getElementsByClassName)document.getElementsByClassName=function(className){
+	if(typeof className!="string")return [];
+	var el=document.getElementsByTagName('*');
+	var r=[];
+	var expr=new RegExp('(^|\\b)'+className+'(\\b|$)');
+	for(var i=0,length=el.length;i<length;i++){
+		if(expr.test(el[i].className)){r.push(el[i]);}
+	}
+	return r;
+}
+
+// events
+
+function addEvent(element,eventName,callback){
+	if(typeof(element)=="string")element=document.getElementById(element);
+	if(element==null)return;
+	if(element.addEventListener)
+		element.addEventListener(eventName,callback,false);
+	else if(element.attachEvent)
+		element.attachEvent("on"+eventName,callback);
+}
+
+function removeEvent(element,eventName,callback){
+	if(typeof(element)=="string")element=document.getElementById(element);
+	if(element==null)return;
+	if(element.removeEventListener)
+		element.removeEventListener(eventName,callback,false);
+	else if(element.detachEvent)
+		element.detachEvent("on"+eventName,callback);
+}
+
+function cancelEvent(e){
+	e=e?e:window.event;
+	if(e.stopPropagation)e.stopPropagation();
+	if(e.preventDefault)e.preventDefault();
+	e.cancelBubble=true;
+	e.cancel=true;
+	e.returnValue=false;
+	return false;
+}
+
+function fixEvent(e) {
+	e = e||window.event
+	
+	if(!e.pageX){
+		e.pageX=e.clientX+
+			(document.documentElement.scrollLeft||document.body.scrollLeft||0)-(document.documentElement.clientLeft||0);
+		e.pageY=e.clientY+
+			(document.documentElement.scrollTop||document.body.scrollTop||0)-(document.documentElement.clientTop||0);
+	}
+	if(!e.which){e.which=e.button & 1 ? 1 : (e.button & 2 ? 3 : ( e.button & 4 ? 2 : 0 ));}
+
+	if(e.layerX){e.offsetX=e.layerX;e.offsetY=e.layerY;}
+	
+	if(!e.target)e.target=e.srcElement;
+	return e;
+}
+
+// colors
+
+/*
+Значения:
+	H от 0 до 360
+	S,V от 0 до 1
+	R,G,B от 0 до 255
+
+Определение светлоты:
+	MAX=V=MAX(R, G, B)
+  
+Определение насыщенности:
+  	MIN=MIN(R, G, B)
+	
+	if V=0 then S=0 else S=1-(MIN/MAX)
+
+Определение цветового тона:
+
+	if S=0 then
+		H=Hеопределенность
+	else
+		
+		Cr=(V-R)/(V-TEMP)
+		Cg=(V-G)/(V-TEMP)
+		Cb=(V-B)/(V-TEMP)
+
+		Цвет между желтым и пурпурным:	if R=V then H=(G-B)/(MAX-MIN)
+		Цвет между голубым и желтым:	if G=V then H=2+(B-R)/(MAX-MIN)
+		Цвет между пурпурным и голубым:	if B=V then H=4+(R-G)/(MAX-MIN)
+		
+		H=H*60
+		
+	Приведение к положительным величинам
+	if H<0 then H=H+360
+
+	По материвалам Википедии
+*/
+
+function rgb2hsv(r,g,b){
+
+	r = r/255.0;
+	g = g/255.0;
+	b = b/255.0;
+
+	var v=Math.max(Math.max(r,g),b);
+	var temp=Math.min(Math.min(r,g),b);
+	
+	s=(v==0 ? 0 : (1-temp/v));
+	h=0;
+	if(v!=temp){
+		m=v-temp;
+		var h = (r==v ? (g-b)/m : (g==v ? 2+(b-r)/m : 4+(r-g)/m)) * 60;
+		if(h<0)h+=360;
+	}
+	return {h:h,s:s,v:v};
+}
+
+function hsv2rgb(h,s,v){
+	if(h==null)return{r:v*255.0,g:v*255.0,b:v*255.0};
+	var r=g=b=null;
+	if(h==360)h=0;
+	var tHue=(h/60);
+	var i=Math.floor(tHue);
+	var f=tHue-i;
+	var p=v*(1-s);
+	var q=v*(1-s*f);
+	var t=v*(1-s*(1-f));
+	switch(i){
+		case 0: r=v;g=t;b=p;break;
+		case 1: r=q;g=v;b=p;break;
+		case 2: r=p;g=v;b=t;break;
+		case 3: r=p;g=q;b=v;break;
+		case 4: r=t;g=p;b=v;break;
+		default: r=v;g=p;b=q;break;
+	}
+	if(r!=null)r=r*255.0;
+	if(g!=null)g=g*255.0;
+	if(b!=null)b=b*255.0;
+	return{r:r,g:g,b:b}
+}
+
+function rgb2hex(r,g,b){
+	return (
+		(0x100 | r).toString(16).substr(1)+
+		(0x100 | g).toString(16).substr(1)+
+		(0x100 | b).toString(16).substr(1));
+}
+
+function hex2rgb(hex){
+	
+	var res = {r:null,g:null,b:null};
+
+    if(hex.substr(0, 1)=='#')hex=hex.substr(1);
+
+	m = hex.match(/^\W*([0-9A-F]{3}([0-9A-F]{3})?)\W*$/i);
+	if(m!=null){
+		if(m[1].length==6){ // 6 символов
+			res.r=parseInt(m[1].substr(0,2),16),
+			res.g=parseInt(m[1].substr(2,2),16),
+			res.b=parseInt(m[1].substr(4,2),16)
+		}else{ // 3 символа
+			res.r=parseInt(m[1].charAt(0)+m[1].charAt(0),16),
+			res.g=parseInt(m[1].charAt(1)+m[1].charAt(1),16),
+			res.b=parseInt(m[1].charAt(2)+m[1].charAt(2),16)
+		}
+	}
+	
+	return res;
+}
+
+function Color(){
+	
+	this.RGB={r:0,g:0,b:0};
+	this.HSV={h:0,s:0,v:0};
+	
+	this.Copy=function(c){
+		if(!c)return;
+		this.fromRGB(c.RGB.r,c.RGB.g,c.RGB.b);
+	}
+
+	this.fromRGB=function(r,g,b){
+		r<0 && (r=0) || r>255 && (r=255);
+		g<0 && (g=0) || g>255 && (g=255);
+		b<0 && (b=0) || b>255 && (b=255);
+		var hsv=rgb2hsv(
+			r==null ? this.RGB.r : (this.RGB.r=r),
+			g==null ? this.RGB.g : (this.RGB.g=g),
+			b==null ? this.RGB.b : (this.RGB.b=b)
+		);
+		if(hsv.h!=null){this.HSV.h=hsv.h;}
+		if(hsv.s!=null){this.HSV.s=hsv.s;}
+		if(hsv.v!=null){this.HSV.v=hsv.v;}
+	}
+
+	this.fromHSV=function(h,s,v){
+		h<0 && (h=0) || h>360 && (h=0);
+		s<0 && (s=0) || s>1 && (s=1);
+		v<0 && (v=0) || v>1 && (v=1);
+		rgb=hsv2rgb(
+			h==null ? this.HSV.h : (this.HSV.h=h),
+			s==null ? this.HSV.s : (this.HSV.s=s),
+			v==null ? this.HSV.v : (this.HSV.v=v)
+		);
+		if(rgb.r!=null){this.RGB.r=rgb.r;}
+		if(rgb.g!=null){this.RGB.g=rgb.g;}
+		if(rgb.b!=null){this.RGB.b=rgb.b;}
+	}
+
+	
+	this.fromHEX=function(hex){
+		rgb=hex2rgb(hex);
+		this.fromRGB(rgb.r,rgb.g,rgb.b);
+	}
+	
+	this.value=function(){
+		return {r:this.RGB.r,g:this.RGB.g,b:this.RGB.b,h:this.HSV.h,s:this.HSV.s*100,v:this.HSV.v*100,hex:this.toString()}
+	}
+	
+	this.toString = function(){return rgb2hex(this.RGB.r,this.RGB.g,this.RGB.b);}
+
+}
+
+WebColors = [
+	{color:"ffffff",name:"Белый"},
+	{color:"fffafa",name:"Белоснежный"},
+	{color:"f0fff0",name:"Роса"},
+	{color:"f5fffa",name:"Мятный крем"},
+	{color:"f0ffff",name:"Лазурный"},
+	{color:"f0f8ff",name:"Акварельно-синий"},
+	{color:"f8f8ff",name:"Призрачно-белый"},
+	{color:"f5f5f5",name:"Дымчато-белый"},
+	{color:"fff5ee",name:"Перламутровый"},
+	{color:"f5f5dc",name:"Бежевый"},
+	{color:"fdf5e6",name:"Старое кружево"},
+	{color:"fffbf0",name:"Кремовый"},
+	{color:"fffaf0",name:"Цветок Белый"},
+	{color:"fffff0",name:"Слоновая Кость"},
+	{color:"faebd7",name:"АнтикБелый"},
+	{color:"faf0e6",name:"Льняной"},
+	{color:"fff0f5",name:"Голубой с красным оттенком"},
+	{color:"ffe4e1",name:"Тускло-розовый"},
+	{color:"dcdcdc",name:"Серебристо-серый"},
+	{color:"c0c0c0",name:"Светло-серый"},
+	{color:"c0c0c0",name:"Серебрянный"},
+	{color:"a9a9a9",name:"Темно-серый"},
+	{color:"a0a0a4",name:"Нейтрально-серый"},
+	{color:"808080",name:"Серый"},
+	{color:"696969",name:"Тускло-серый"},
+	{color:"778899",name:"Светло-грифельно-серый"},
+	{color:"708090",name:"Грифельно-серый"},
+	{color:"2f4f4f",name:"Темно-грифельно-серый"},
+	{color:"000000",name:"Черный"},
+	{color:"cd5c5c",name:"Киноварь"},
+	{color:"f08080",name:"Светло-коралловый"},
+	{color:"fa8072",name:"Лосось"},
+	{color:"e9967a",name:"Лосось Темный"},
+	{color:"ffa07a",name:"Лосось светлый"},
+	{color:"dc143c",name:"Малиновый"},
+	{color:"ff0000",name:"Красный"},
+	{color:"b22222",name:"Кирпичный"},
+	{color:"8b0000",name:"Темно-красный"},
+	{color:"ffc0cb",name:"Розовый"},
+	{color:"ffb6c1",name:"Светло-розовый"},
+	{color:"ff69b4",name:"Тепло-розовый"},
+	{color:"ff1493",name:"Насыщенно-розовый"},
+	{color:"c71585",name:"Нейтрально-фиолетово-красный"},
+	{color:"d02090",name:"Красно-фиолетовый"},
+	{color:"db7093",name:"Бледно-красно-фиолетовый"},
+	{color:"ff7f50",name:"Коралловый"},
+	{color:"ff6347",name:"Томатный"},
+	{color:"ff4500",name:"Оранжево-красный"},
+	{color:"ff8c00",name:"Темно-оранжевый"},
+	{color:"ffa500",name:"Оранжевый"},
+	{color:"ffd700",name:"Золотой"},
+	{color:"ffff00",name:"Желтый"},
+	{color:"ffffe0",name:"Светло-желтый"},
+	{color:"fffacd",name:"Лимонный"},
+	{color:"fafad2",name:"Светло-желтый золотистый"},
+	{color:"ffefd5",name:"Топленое молоко"},
+	{color:"ffe4b5",name:"Замша Светлый"},
+	{color:"ffdab9",name:"Персиковый"},
+	{color:"eee8aa",name:"Бледно-золотистый"},
+	{color:"f0e68c",name:"Хаки"},
+	{color:"bdb76b",name:"Хаки Темный"},
+	{color:"e6e6fa",name:"Бледно-лиловый"},
+	{color:"d8bfd8",name:"Бледно-сиреневый"},
+	{color:"dda0dd",name:"Сливовый"},
+	{color:"ee82ee",name:"Фиолетовый"},
+	{color:"da70d6",name:"Орхидея"},
+	{color:"ff00ff",name:"Фуксия"},
+	{color:"ff00ff",name:"Фуксин"},
+	{color:"ba55d3",name:"Орхидея Нейтральный"},
+	{color:"9370db",name:"Нейтрально-пурпурный"},
+	{color:"8a2be2",name:"Сине-фиолетовый"},
+	{color:"9400d3",name:"Темно-фиолетовый"},
+	{color:"9932cc",name:"Орхидея Темный"},
+	{color:"8b008b",name:"Фуксин Темный"},
+	{color:"800080",name:"Пурпурный"},
+	{color:"4b0082",name:"Индиго"},
+	{color:"8470ff",name:"Светло-грифельно-синий"},
+	{color:"6a5acd",name:"Грифельно-синий"},
+	{color:"483d8b",name:"Темно-грифельно-синий"},
+	{color:"7b68ee",name:"Нейтрально-грифельно-синий"},
+	{color:"adff2f",name:"Зелено-желтый"},
+	{color:"7fff00",name:"Зеленовато-желтый"},
+	{color:"7cfc00",name:"Зеленая лужайка"},
+	{color:"00ff00",name:"Зеленовато-лимонный"},
+	{color:"32cd32",name:"Лимонно-зеленый"},
+	{color:"98fb98",name:"Бледно-зеленый"},
+	{color:"90ee90",name:"Светло-зеленый"},
+	{color:"00fa9a",name:"Нейтрально-весенне-зеленый"},
+	{color:"00ff7f",name:"Весенне-зеленый"},
+	{color:"3cb371",name:"Цвет морской волны Нейтральный"},
+	{color:"2e8b57",name:"Цвет морской волны"},
+	{color:"228b22",name:"Зеленый лес"},
+	{color:"008000",name:"Зеленый"},
+	{color:"c0dcc0",name:"Нейтрально-зеленый"},
+	{color:"006400",name:"Темно-зеленый"},
+	{color:"9acd32",name:"Желто-зеленый"},
+	{color:"6b8e23",name:"Тускло-оливковый"},
+	{color:"808000",name:"Оливковый"},
+	{color:"556b2f",name:"Темно-оливково-зеленый"},
+	{color:"66cdaa",name:"Нейтрально-аквамариновый"},
+	{color:"8fbc8b",name:"Цвет морской волны Темный"},
+	{color:"20b2aa",name:"Цвет морской волны Светлый"},
+	{color:"008b8b",name:"Циан Темный"},
+	{color:"008080",name:"Циан Нейтральный"},
+	{color:"00ffff",name:"Циан акварельный"},
+	{color:"00ffff",name:"Циан"},
+	{color:"e0ffff",name:"Циан светлый"},
+	{color:"afeeee",name:"Бледно-бирюзовый"},
+	{color:"7fffd4",name:"Аквамарин"},
+	{color:"40e0d0",name:"Бирюзовый"},
+	{color:"48d1cc",name:"Нейтрально-бирюзовый"},
+	{color:"00ced1",name:"Темно-бирюзовый"},
+	{color:"5f9ea0",name:"Серо-синий"},
+	{color:"4682b4",name:"Синий со стальным оттенком"},
+	{color:"b0c4de",name:"Голубой со стальным оттенком"},
+	{color:"b0e0e6",name:"Синий с пороховым оттенком"},
+	{color:"a6caf0",name:"Голубой"},
+	{color:"87ceeb",name:"Небесно-голубой"},
+	{color:"87cefa",name:"Светло-небесно-голубой"},
+	{color:"00bfff",name:"Насыщенно-небесно-голубой"},
+	{color:"1e90ff",name:"Сине-серый"},
+	{color:"6495ed",name:"Васильковый"},
+	{color:"4169e1",name:"Королевский Голубой"},
+	{color:"0000ff",name:"Синий"},
+	{color:"0000cd",name:"Нейтрально-синий"},
+	{color:"00008b",name:"Темно-синий"},
+	{color:"000080",name:"Ультрамарин"},
+	{color:"191970",name:"Полночно-синий"},
+	{color:"fff8dc",name:"Шелковый оттенок"},
+	{color:"ffebcd",name:"Бледно-Миндальный"},
+	{color:"ffe4c4",name:"Светло-коричневый"},
+	{color:"ffdead",name:"Навахо Белый"},
+	{color:"f5deb3",name:"Пшеничный"},
+	{color:"deb887",name:"Древесный"},
+	{color:"d2b48c",name:"Рыжевато-коричневый"},
+	{color:"bc8f8f",name:"Розово-коричневый"},
+	{color:"f4a460",name:"Песочно-коричневый"},
+	{color:"ffec8b",name:"Светло-золотистый"},
+	{color:"daa520",name:"Золотистый"},
+	{color:"b8860b",name:"Темно-золотистый"},
+	{color:"cd853f",name:"Нейтрально-коричневый"},
+	{color:"d2691e",name:"Шоколадный"},
+	{color:"8b4513",name:"Кожано-коричневый"},
+	{color:"a0522d",name:"Охра"},
+	{color:"a52a2a",name:"Коричневый"},
+	{color:"800000",name:"Темно-бордовый"}];
+
+// mouse && position
+
+function absoluteCursorPostion(e){
+  e=e?e:window.event;
+  if(isNaN(window.scrollX))
+    return new Point(e.clientX+document.documentElement.scrollLeft+document.body.scrollLeft, 
+						e.clientY + document.documentElement.scrollTop+document.body.scrollTop);
+  else
+    return new Point(e.clientX+window.scrollX,
+						e.clientY+window.scrollY);
+}
+
+// Point
+
+function Point(x,y){
+
+	this.X=x;
+	this.Y=y;
+	
+	this.CheckEmpty=function(){
+		if(isNaN(this.X))this.X=0;
+		if(isNaN(this.Y))this.Y=0;
+	}
+
+	this.Min=function(val){
+		if(!val)return;
+		if(!isNaN(val.X) && this.X>val.X)this.X=val.X;
+		if(!isNaN(val.Y) && this.Y>val.Y)this.Y=val.Y;
+	}
+
+	this.Max=function(val){
+		if(!val)return;
+		if(!isNaN(val.X) && this.X<val.X)this.X=val.X;
+		if(!isNaN(val.Y) && this.Y<val.Y)this.Y=val.Y;
+	}  
+
+	this.Add=function(val){
+		if(!val)return;
+		if(!isNaN(val.X))this.X+=val.X;
+		if(!isNaN(val.Y))this.Y+=val.Y
+	}
+
+	this.Subtract=function(val){
+		if(!val)return;
+		if(!isNaN(val.X))this.X-=val.X;
+		if(!isNaN(val.Y))this.Y-=val.Y
+	}
+
+	this.Copy=function(p){
+		if(!p)return;
+		this.X=isNaN(p.X) ? 0: p.X;
+		this.Y=isNaN(p.Y) ? 0: p.Y;
+	}
+	
+	this.toString=function(){return 'point';}
+	
+	this.CheckEmpty();
+}
+
+// Rect
+
+function Rect(a,b){
+
+	this.A=(a==null) ? new Point(0,0) : a;
+	this.B=(b==null) ? new Point(0,0) : b;
+	
+	this.CheckEmpty=function(){
+		if (!this.A || !this.B || this.A.X>this.B.X || this.A.Y>this.B.Y)this.Assign(0,0,0,0);
+	}
+
+	this.Bound=function(a, b){
+		if(a!=null && !isNaN(a.X) && !isNaN(a.Y))this.A=new Point(a.X,a.Y);
+		if(b!=null && !isNaN(b.X) && !isNaN(b.Y))this.B=new Point(b.X,b.Y);
+	}
+	
+	this.Assign=function(xA,yA,xB,yB){
+		if(!isNaN(xA) && !isNaN(yA))this.A=new Point(xA,yA);
+		if(!isNaN(xB) && !isNaN(yB))this.B=new Point(xB,yB);
+	}
+	
+	this.Copy=function(r){
+		if(!r)return;
+		if(r.A!=null){
+			this.A.X=isNaN(r.A.X) ? 0: r.A.X;
+			this.A.Y=isNaN(r.A.Y) ? 0: r.A.Y;
+		}
+		if(r.B!=null){
+			this.B.X=isNaN(r.B.X) ? 0: r.B.X;
+			this.B.Y=isNaN(r.B.Y) ? 0: r.B.Y;
+		}
+	}
+	
+	this.Move=function(adx,ady){
+		if(!isNaN(adx)){
+			this.A.X+=adx;
+			this.B.X+=adx;
+		}
+		if(!isNaN(ady)){
+			this.A.Y+=ady;
+			this.B.Y+=ady;
+		}
+	}
+	
+	this.Into=function(ax,ay){
+		dx=this.B.X-this.A.X;
+		dy=this.B.Y-this.A.Y;
+		if(isNaN(ax))this.A.X=0; else this.A.X=ax;
+		if(isNaN(ay))this.A.Y=0; else this.A.Y=ay;
+		this.B.X=this.A.X+dx;
+		this.B.Y=this.A.Y+dy;
+	}
+	
+	this.Grow=function(adx,ady){
+		if(!isNaN(adx)){
+			this.A.X-=adx;
+			this.B.X+=adx;
+		}
+		if(!isNaN(ady)){
+			this.A.Y-=ady;
+			this.B.Y+=ady;
+		}
+		this.CheckEmpty();
+	}
+	
+	this.Intersect=function(r){
+		if(!r)return;
+		if(r.A!=null)this.A.Min(r.A);
+		if(r.B!=null)this.B.Max(r.B);
+		this.CheckEmpty();
+	}
+
+	this.Union=function(r){
+		if(!r)return;
+		if(r.A!=null)this.A.Max(r.A);
+		if(r.B!=null)this.B.Min(r.B);
+		this.CheckEmpty();
+	}
+	
+	this.Include=function(r){
+		if(!r)return false;
+		return (r.A!=null && r.B!=null && (r.A.X>=this.A.X) && (r.A.Y>=this.A.Y) && (r.B.X<=this.B.X) && (r.B.Y<=this.B.Y))
+	}
+
+	this.Contains=function(p){
+		return (p!=null && (p.X>=this.A.X) && (p.Y>=this.A.Y) && (p.X<=this.B.X) && (p.Y<=this.B.Y))
+	}
+
+	this.Equals=function(r){
+		return (p!=null && r.A!=null && r.B!=null && (r.A.X==this.A.X) && (r.A.Y==this.A.Y) && (r.B.X==this.B.X) && (r.B.Y==this.B.Y))
+	}
+	
+	this.Empty=function(){
+		return (this.A.X==this.B.X && this.A.Y==this.B.Y)
+	}
+	
+	this.toString=function(){return 'rect';}
+	
+	this.CheckEmpty();
+}
+
+// abstract class
+
+function Class(){};
+
+Class.prototype.construct = function(){};
+
+Class.extend = function(def){
+
+    var classDef = function(){
+        if (arguments[0] !== Class){this.construct.apply(this, arguments);}
+    };
+
+    var proto=new this(Class);
+    var superClass=this.prototype;
+
+    for(var n in def){
+        var item=def[n];
+        if(item instanceof Function)
+			item.$=superClass;
+		else
+			classDef[n]=item;
+        proto[n]=item;
+    };
+
+    classDef.prototype=proto;
+    classDef.extend=this.extend;
+
+    return classDef;
+};
+
+// visibleObject
+
+var visibleObject = Class.extend({
+	
+    construct : function(element){
+		
+		if(typeof(element)=="string")element=document.getElementById(element);
+		if(element==null)return;
+
+		var id=element.id;
+
+		var x=parseInt(element.left!=null ? element.left : (element.style.left!=null ? element.style.left : 0));
+		var y=parseInt(element.top!=null ? element.top : (element.style.top!=null ? element.style.top : 0));
+		var origin=new Point(x,y);
+		
+		var w=parseInt(element.width!=null ? element.width : (element.style.width!=null ? element.style.width : 0));
+		var h=parseInt(element.height!=null ? element.height : (element.style.height!=null ? element.style.height : 0));
+		var size=new Point(w,h);
+
+		this.toString = function(){return 'visibleObject';}
+
+		this.getID = function(){return id;}
+		
+		this.getElement = function(){return element;}
+		
+		this.getOrigin = function(){return origin;}
+		this.setOrigin = function(p,bound){
+			if(bound!=null){
+				//if(!bound.Contains(p))return;
+				p.Add(size);
+				p.Min(bound.B);
+				p.Subtract(size);
+				p.Max(bound.A);
+			}
+			origin.Copy(p);
+			element.style.left=origin.X+'px'
+			element.style.top=origin.Y+'px'
+		}
+	
+		this.getSize = function(){return size;}
+		this.setSize = function(p){
+			size.Copy(p);
+			element.style.width=size.X+'px'
+			element.style.height=size.Y+'px'
+		}
+		
+		this.getBound = function(){
+			b=new Rect();
+			b.Assign(origin.X,origin.Y,origin.X+size.X,origin.Y+size.Y);
+			return b;
+		}
+		this.setBound = function(bound){
+			if(!bound)return;
+			if(bound.A!=null)this.setOrigin(bound.A);
+			if(bound.B!=null)this.setSize(new Point(bound.B.X-bound.A.X,bound.B.Y-bound.A.Y));
+		}
+		
+		this.getStyle=function(key){return element.style[key];}
+		this.setStyle=function(key,value){element.style[key]=value;}
+		
+		this.hide=function(){element.style.display = 'none';}
+		this.show=function(){element.style.display = 'block';}
+	}
+});
+
+// dragObject
+
+var dragObject = visibleObject.extend({
+									  
+    construct : function(element){
+		
+		arguments.callee.$.construct.call(this, element);
+		
+		var dragMaster = (function(){
+		
+			var dragObject=null;
+			var parentObject=null;
+			var dragging=false;
+			var startFrom=null;
+			var mouseStartFrom=null;
+			
+			function mouseDown(e){
+				if(dragging)return;
+				e=fixEvent(e);
+				if(e.which!=1)return;
+	
+				dragging=true;
+				
+				parentObject.StartDrag(e,dragObject);
+				if(parentObject.onStartDrag)parentObject.onStartDrag(e,parentObject);
+
+
+				startFrom=new Point();
+				startFrom.Copy(dragObject.getOrigin());
+				mouseStartFrom=new Point(e.pageX,e.pageY);
+	
+				addEvent(document,"mousemove",mouseMove);
+				addEvent(document,"mouseup",mouseUp);
+	
+				return cancelEvent(e);
+			}
+			
+			function mouseMove(e){
+				if(!dragging)return;
+				e=fixEvent(e);
+				
+				var p=new Point(e.pageX,e.pageY);
+				p.Add(startFrom);
+				p.Subtract(mouseStartFrom);
+				dragObject.setOrigin(p,parentObject.getContainer());
+				
+				parentObject.Drag(e,dragObject);
+				if(parentObject.onDrag)parentObject.onDrag(e,parentObject);
+					
+				return cancelEvent(e); 
+			}
+			
+			function mouseUp(e){
+				if(!dragging)return;
+				e=fixEvent(e);
+	
+				dragging=false;
+				
+				removeEvent(document,"mousemove",mouseMove);
+				removeEvent(document,"mouseup",mouseUp);
+				
+				startFrom=null;
+				mouseStartFrom=null;
+				
+				parentObject.StopDrag(e,dragObject);
+				if(parentObject.onStopDrag)parentObject.onStopDrag(e,parentObject);
+				
+				return cancelEvent(e);
+			}
+	
+			return {makeDraggable : function(obj){
+				dragObject=obj.getDragObject();
+				parentObject=obj;
+				obj.getElement().onmousedown = mouseDown;}
+			}
+		}())
+	
+		dragMaster.makeDraggable(this);
+	
+	},
+	
+	StartDrag : function(e,obj){}, //virtual
+	StopDrag : function(e,obj){}, //virtual
+	Drag : function(e,obj){}, //virtual
+
+	getDragObject : function(){return this;}, //virtual
+	getContainer : function(){} //virtual
+});
+
+// padObject
+
+var padObject = dragObject.extend({
+	
+    construct : function(element,cursor){
+
+		var cursorObj,padObj,container;
+
+		this.getContainer = function(){return container;};
+		this.getPadObj = function(){return padObj;};
+		this.getCursorObj = function(){return cursorObj;};
+
+		cursorObj=this.createCursorObj(cursor);
+		padObj=new visibleObject(element);
+		
+		var panel=document.createElement('div');
+		padObj.getElement().parentNode.appendChild(panel);
+		
+		this.toString = function(){return 'padObject';}
+
+		arguments.callee.$.construct.call(this,panel);
+
+		this.setStyle('position','absolute');
+		this.setOrigin(padObj.getOrigin());
+		this.setSize(padObj.getSize());
+		
+		panel.appendChild(cursorObj.getElement());
+		cursorObj.setStyle('position','absolute');
+		cursorObj.setStyle('zIndex',100);
+		
+		panel.appendChild(padObj.getElement());
+		padObj.setStyle('position','absolute');
+		padObj.setOrigin(new Point(0,0));
+		padObj.setStyle('zIndex',99);
+
+		container = this.createContainer();
+		if(container!=null)cursorObj.setOrigin(container.A);
+
+		var scaleX=1;
+		var scaleY=1;
+		
+		this.setScale=function(x,y){
+			if(!isNaN(x)){if(x<=0)val=1;scaleX=x;}
+			if(!isNaN(y)){if(y<=0)val=1;scaleY=y;}
+		}
+		
+		this.getValue=function(){
+			var x=(cursorObj.getOrigin().X+Math.floor(cursorObj.getSize().X/2))*scaleX/(padObj.getSize().X-1);
+			var y=(cursorObj.getOrigin().Y+Math.floor(cursorObj.getSize().Y/2))*scaleY/(padObj.getSize().Y-1);
+			return {x:x,y:y}
+		}
+		
+		this.setValue=function(x,y){
+			var p=new Point();
+			p.Copy(padObj.getOrigin());
+			if(!isNaN(x)){
+				if(x<0 || x>scaleX)x=scaleX;
+				p.X+=(Math.floor(x*padObj.getSize().X/scaleX)-Math.floor(cursorObj.getSize().X/2));
+			}
+			if(!isNaN(y)){
+				if(y<0 || y>scaleY)y=scaleY;
+				p.Y+=(Math.floor(y*padObj.getSize().Y/scaleY)-Math.floor(cursorObj.getSize().Y/2));
+			}
+			cursorObj.setOrigin(p,this.getContainer());
+		}
+
+	},
+	
+	createCursorObj : function(cursor){ //virtual
+		return (new visibleObject(cursor));
+	},
+
+	createContainer : function(){ //virtual
+		result = new Rect(new Point(0,0),this.getSize());
+		result.Grow(Math.floor(this.getCursorObj().getSize().X/2),Math.floor(this.getCursorObj().getSize().Y/2));
+		return result;
+	},
+
+	StartDrag : function(e,obj){ //override
+		var p;
+		if(e.offsetX)
+			p=new Point(e.offsetX,e.offsetY);
+		else
+			p=new Point(e.layerX,e.layerY);
+		if(e.target==obj.getElement())p.Add(obj.getOrigin());
+		p.X-=Math.floor(obj.getSize().X/2);
+		p.Y-=Math.floor(obj.getSize().Y/2);
+		obj.setOrigin(p,this.getContainer());
+	},
+	
+	getDragObject : function(){return this.getCursorObj();} //override
+});
+
+// slider
+
+var slider = padObject.extend({
+
+    construct : function(element,cursor,cursorOffs){
+		
+		var cursorOffset=cursorOffs;
+		this.getCursorOffset=function(){return !cursorOffs ? 0 : cursorOffs};
+		
+		arguments.callee.$.construct.call(this,element,cursor);
+
+		var padObj=this.getPadObj();
+		var cursorObj=this.getCursorObj();
+		
+		var scale=1;
+		this.setScale=function(val){
+			if(val==null || val<=0)val=1;
+			scale=val;
+		}
+		
+		this.getValue=function(){
+			if(cursorObj.getSize().X>padObj.getSize().Y){
+				return (cursorObj.getOrigin().X+Math.floor(cursorObj.getSize().X/2))*scale/(padObj.getSize().X-1);
+			}else{
+				return (cursorObj.getOrigin().Y+Math.floor(cursorObj.getSize().Y/2))*scale/(padObj.getSize().Y-1);
+			}
+		}
+		
+		this.setValue=function(val){
+			if(val==null || val<0 || val>scale)val=scale;
+			if(cursorObj.getSize().X>padObj.getSize().Y){
+				var x=Math.floor(val*padObj.getSize().X/scale)-Math.floor(cursorObj.getSize().X/2);
+				var y=cursorObj.getOrigin().Y;
+			}else{
+				var x=cursorObj.getOrigin().X;
+				var y=val*padObj.getSize().Y/scale-(cursorObj.getSize().Y/2);
+			}
+			cursorObj.setOrigin(new Point(x,y),this.getContainer());
+		}
+		
+		this.toString=function(){return "slider"};
+
+	},
+
+	createContainer : function(){ //override
+		var sizePad=this.getPadObj().getSize();
+		var sizeCursor=this.getCursorObj().getSize();
+		var x,y,w,h;
+		var offs=this.getCursorOffset();
+		if(sizePad.X>sizePad.Y){
+			x=-Math.floor(sizeCursor.X/2);
+			y=Math.floor((sizePad.Y-sizeCursor.Y)/2)+offs;
+			w=sizePad.X+Math.floor(sizeCursor.X/2);
+			h=y+sizeCursor.X;
+		}else{
+			x=Math.floor((sizePad.X-sizeCursor.X)/2)+offs;
+			y=-Math.floor(sizeCursor.Y/2);
+			w=x+sizeCursor.X;
+			h=sizePad.Y+Math.floor(sizeCursor.Y/2);
+		}
+		return new Rect(new Point(x,y),new Point(w,h));
+	},
+	
+	StartDrag : function(e,obj){ //override
+		var p = new Point(e.offsetX,e.offsetY);
+		var cursorObj=this.getCursorObj();
+		if(e.target!=cursorObj.getElement()){
+			p.X-=Math.floor(cursorObj.getSize().X/2);
+			p.Y-=Math.floor(cursorObj.getSize().Y/2);
+			cursorObj.setOrigin(p,this.getContainer());
+		};
+	}	
+});
+
+// pages
+ 
+var pages = visibleObject.extend({
+									  
+    construct : function(element){
+		
+		var list=new Array;
+		var currentPage=null;
+		
+		arguments.callee.$.construct.call(this, element);
+		
+		if(arguments.length>1){
+			for(var i=1;i<arguments.length;i++){
+				var obj=new visibleObject(arguments[i]);
+				if(obj.getElement().parentNode!=this.getElement()){
+					this.getElement().appendChild(obj.getElement());
+				};
+				if(obj.getStyle("position")=="absolute")obj.setStyle("position", "static");
+				obj.hide();
+				list.push(obj);
+			};
+			if(list.length>0){
+				currentPage=list[0];
+				currentPage.show();
+			}
+		}
+		
+		this.showPage=function(value){
+			for(var i=0;i<list.length;i++){
+				var obj=list[i];
+				if(obj.getElement()==value || obj.getID()==value){
+					currentPage.hide();
+					obj.show();
+					currentPage=obj;
+					break;
+				}
+			}
+		}
+	}
+});
+
+// webColorsPicker
+
+var webColorsPicker = visibleObject.extend({
+									  
+									  
+    construct : function(element){
+    
+    	var active=null;
+    	var buttons=new Array;
+	
+		arguments.callee.$.construct.call(this, element);
+		
+		while(this.getElement().hasChildNodes()){this.getElement().removeChild(this.getElement().firstChild );}
+
+		var table=document.createElement("table");
+		table.border=0;table.cellPadding=0;table.cellSpacing=0;table.align="center";
+		this.getElement().appendChild(table);
+		var tbody=document.createElement("tbody");
+		table.appendChild(tbody);
+		
+		var len=14;
+		var col=1;
+		var tr;
+		for(var i=0;i<WebColors.length;i++){
+			if(col==1){
+				tr=document.createElement("tr");
+				tbody.appendChild(tr);
+			}
+			var td=document.createElement("td");
+			tr.appendChild(td);
+			td.width=10;
+			
+			var div=document.createElement("div");
+			td.appendChild(div);
+			div.title=WebColors[i].name;
+			div.style.border="1px solid #b3ac86";
+			div.style.background="#"+WebColors[i].color;
+			div.style.padding="0px";
+			div.style.margin="1px";
+			
+			div.parentObj=this;
+			div.isActive=false;
+			
+			div.onmouseover=function(e){
+				this.style.border='1px solid #ffffff';
+			};
+			
+			div.onmouseout=function(e){
+				if(this.isActive)this.style.border='1px solid #000000';else this.style.border='1px solid #b3ac86';
+			};
+
+			div.onclick=function(e){
+				this.isActive=true;
+				this.parentObj.checkActive(this);
+				if(this.parentObj.onActivate)this.parentObj.onActivate(this);
+			};
+			
+			buttons.push(div);
+			
+			var img=document.createElement("img");
+			div.appendChild(img);
+			img.alt=WebColors[i].name;
+			img.width=10;
+			img.height=10;
+			img.src="%ПустаяКартинка10x10%";
+			img.border=0;
+			img.style.border="none";
+			
+			col++;if(col>len)col=1;
+		}
+		if(col<=len){
+			do{
+				var td=document.createElement("td");
+				tr.appendChild(td);
+				col++;
+			}while(col<=len);
+		}
+		
+		this.checkActive=function(value){
+			if(value!=active){
+				if(active){
+					active.isActive=false;
+					active.style.border='1px solid #b3ac86';
+				}
+				if(value)value.style.border='1px solid black';
+				active=value;
+			}
+		}
+		
+		this.setColorHEX=function(hex){
+			if(active)active.isActive=false;
+			btn=null;
+			for(var i=0;i<buttons.length;i++){
+				if(buttons[i].style.background==hex){
+					btn=buttons[i];
+					btn.isActive=true;
+					break;
+				}
+			}
+			this.checkActive(btn);
+		}
+		
+		this.getColorHEX=function(){return (active!=null ? active.style.background : "#ffffff")};
+	}
+});
+
+// Искусственный вызов клика. Нужен для передачи в событие "ПриНажатии" 1С
+
+function doClick(){
+	if(document.body.dispatchEvent){
+		var evt = document.body.createEvent('MouseEvents');
+		evt.initEvent("click", true, true);
+		document.body.dispatchEvent(evt);
+	}else{
+		var evt = document.createEventObject();
+		document.fireEvent('onclick', evt);
+	}
+}
+
+var Starter = (function(){
+
+	var red,green,blue;
+
+	this.init = function(e){
+	
+		if((document.readyState!='complete')&&(document.readyState!='interactive')){setTimeout(function(){this._init},50);return;}
+		
+		if(!this.complete){
+
+			document.body.onclick=function(e){cancelEvent(e);}; //остановить все клики для 1С. Все что нужно, вызовем искуссвенно
+			
+			this.color=new Color()
+			
+			this.Pages=new pages("pages","colorPicker","webColors");
+			this.padObj=new padObject("pad","cross");
+			this.hueSlider=new slider("hue","arrows");
+			this.WebColorsPicker=new webColorsPicker("webColors");
+			
+			this.padObj.color=this.color;
+			this.padObj.WebColorsPicker=this.WebColorsPicker;
+			this.padObj.setScale(1,1);
+			this.padObj.update=function(){
+				this.setValue(this.color.HSV.v,1-this.color.HSV.s);
+				var rgb=hsv2rgb(this.color.HSV.h,1,1); //только "чистые" цвета
+				this.setStyle("backgroundColor","#"+rgb2hex(rgb.r,rgb.g,rgb.b));
+			}
+			this.padObj.onStartDrag=padObj.onDrag=function(e,obj){
+				var val=this.getValue();
+				var s=1-val.y, v=val.x;
+				this.color.fromHSV(color.HSV.h,s,v);
+				this.WebColorsPicker.update();
+				doClick(); // передали клик в 1С
+			}
+			
+			this.hueSlider.color=this.color;
+			this.hueSlider.padObj=this.padObj;
+			this.hueSlider.WebColorsPicker=this.WebColorsPicker;
+			this.hueSlider.setScale(360);
+			this.hueSlider.update=function(){
+				this.setValue(360-this.color.HSV.h);
+			}
+			this.hueSlider.onStartDrag=hueSlider.onDrag=function(e,obj){
+				this.color.fromHSV(360-this.getValue());
+				this.padObj.update();
+				this.WebColorsPicker.update();
+				doClick(); // передали клик в 1С
+			}
+			
+			this.WebColorsPicker.color=this.color;
+			this.WebColorsPicker.padObj=this.padObj;
+			this.WebColorsPicker.hueSlider=this.hueSlider;
+			this.WebColorsPicker.update=function(){
+				this.setColorHEX("#"+this.color.toString());
+			}
+			this.WebColorsPicker.onActivate=function(source){
+				this.color.fromHEX(this.getColorHEX());
+				this.padObj.update();
+				this.hueSlider.update();
+				doClick(); // передали клик в 1С
+			}
+			
+			this.update=function(){
+				this.padObj.update();
+				this.hueSlider.update();
+				this.WebColorsPicker.update();
+			}
+			
+			this.value=function(){return this.color.value();}
+			
+			this.complete=true;
+			if(red==null || isNaN(red))red=255;
+			if(green==null || isNaN(green))green=255;
+			if(blue==null || isNaN(blue))blue=255;
+			this.color.fromRGB(red,green,blue);
+			this.update();
+		}
+	};
+
+	return {
+		initialize:function(r,g,b){
+			document.ondragstart=function(){return false};
+			document.onselectstart=function(e){if(!e)e=window.event;e.returnValue=false;};
+			document.ontextmenu=function(){return false};
+			document.oncontextmenu=function(e){
+				if(!e)e=window.event;
+				if (e.preventDefault)
+					e.preventDefault();
+				else
+					e.returnValue=false;
+				return false;
+			}
+			red=r;green=g;blue=b;
+			hsv=rgb2hsv(r,g,b);
+			hex=rgb2hex(r,g,b);
+			addEvent(window, 'load', init);
+			return {r:r,g:g,b:b,h:hsv.h,s:hsv.s*100,v:hsv.v*100,hex:hex}
+		},
+		onlyWebColors:function(value){
+			Pages.showPage(value ? "webColors" : "colorPicker");
+		},
+		setRGB:function(r,g,b){
+			color.fromRGB(r,g,b);
+			update();
+			return value();
+		},
+		setHSV:function(h,s,v){
+			color.fromHSV(h,s/100,v/100);
+			update();
+			return value();
+		},
+		setHEX:function(hex){
+			color.fromHEX(hex);
+			update();
+			return value();
+		},
+		getColor:function(){return value();}
+	}
+}());
+
+</script>
+
+<style type="text/css">
+
+body,table,td,div {
+	font-family: "MS Shell Dlg", "Geneva", "Arial", "Helvetica", "sans-serif";
+	background-color: #ffffff;
+	font-size: 8pt;
+}
+
+body{-moz-user-select: none;}
+
+</style>
+</head>
+<body scroll="no">
+
+<div id="pages" style="position:absolute;left:0px;top:0px;width:206px;padding:2px;">
+
+	<div id="webColors" style="width:202px;height:154px;"></div>
+
+	<div id="colorPicker" style="width:202px;height:154px;padding:2px;">
+		<img id="pad" src="%Градиент%" width="128" height="128" style="position:absolute;left:17px;top:16px;"/>
+		<img id="hue" src="%ПалитраЦветов%" style="position:absolute;height:128px;width:16px;top:16px;left:172px;" />
+		<img id="cross" src="%КурсорКрестом%" width="15" height="15" style="position:absolute;left:0px;top:0px" />
+		<img id="arrows" src="%КурсорПалитры%" style="position:absolute;height:9px;width:30px;left:0px;top:0px;" />
+	</div>
+
+</div>
+
+</body>
+</html>

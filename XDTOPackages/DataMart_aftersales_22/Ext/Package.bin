@@ -1,0 +1,422 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://gate.renault.ru/dataMart-aftersales" elementFormQualified="true" attributeFormQualified="false">
+	<property name="aftersales">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property name="ver" lowerBound="1" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+					<pattern>[0-9]{1,2}\.[0-9]{1,2}</pattern>
+				</typeDef>
+			</property>
+			<property name="bir" lowerBound="1" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+					<pattern>[0-9]{8}</pattern>
+				</typeDef>
+			</property>
+			<property name="site" lowerBound="1" form="Attribute">
+				<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+					<pattern>[0-9]{8}-[0-9]{3}</pattern>
+				</typeDef>
+			</property>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-aftersales" name="order" type="d4p1:Order" lowerBound="0" upperBound="-1" nillable="true"/>
+			<property xmlns:d4p1="http://gate.renault.ru/dataMart-aftersales" name="bodyshop" type="d4p1:Bodyshop" lowerBound="0" upperBound="-1" nillable="true"/>
+		</typeDef>
+	</property>
+	<valueType name="AUDATEX" base="xs:string" variety="Atomic" maxLength="12"/>
+	<valueType name="Email" base="xs:string" variety="Atomic">
+		<pattern>[^@]+@[^\.]+\..+|null</pattern>
+	</valueType>
+	<valueType name="GCM" base="xs:string" variety="Atomic" length="6"/>
+	<valueType name="OPERCODE" base="xs:string" variety="Atomic">
+		<pattern>[0-9A-Z]{4}</pattern>
+	</valueType>
+	<valueType name="PaymentCode" base="xs:string" variety="Atomic">
+		<enumeration>33-01</enumeration>
+		<enumeration>33-02</enumeration>
+		<enumeration>33-03</enumeration>
+		<enumeration>33-04</enumeration>
+	</valueType>
+	<valueType name="Phone" base="xs:string" variety="Atomic">
+		<pattern>\+[0-9]{10,15}|null</pattern>
+	</valueType>
+	<valueType name="String100" base="xs:string" variety="Atomic" maxLength="100"/>
+	<valueType name="String1000" base="xs:string" variety="Atomic" maxLength="1000"/>
+	<valueType name="String25" base="xs:string" variety="Atomic" maxLength="25"/>
+	<valueType name="String255" base="xs:string" variety="Atomic" maxLength="255"/>
+	<valueType name="String50" base="xs:string" variety="Atomic" maxLength="50"/>
+	<valueType name="String8000" base="xs:string" variety="Atomic" maxLength="8000"/>
+	<valueType name="UUID" base="xs:string" variety="Atomic">
+		<pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
+	</valueType>
+	<valueType name="UploadingMode" base="xs:string" variety="Atomic">
+		<pattern>C|U|D</pattern>
+	</valueType>
+	<valueType name="VIN" base="xs:string" variety="Atomic">
+		<pattern>[0123456789ABCDEFGHJKLMNPRSTUVWXYZ-]{8,17}</pattern>
+	</valueType>
+	<valueType name="WorkCode" base="xs:string" variety="Atomic">
+		<enumeration>ks0</enumeration>
+		<enumeration>1</enumeration>
+		<enumeration>1р</enumeration>
+		<enumeration>2</enumeration>
+		<enumeration>2р</enumeration>
+		<enumeration>3</enumeration>
+		<enumeration>3р</enumeration>
+		<enumeration>4</enumeration>
+		<enumeration>4р</enumeration>
+		<enumeration>5</enumeration>
+		<enumeration>5р</enumeration>
+		<enumeration>6</enumeration>
+		<enumeration>6р</enumeration>
+		<enumeration>7</enumeration>
+		<enumeration>7р</enumeration>
+		<enumeration>8</enumeration>
+		<enumeration>8р</enumeration>
+		<enumeration>9</enumeration>
+		<enumeration>9р</enumeration>
+		<enumeration>10</enumeration>
+		<enumeration>10р</enumeration>
+		<enumeration>11</enumeration>
+		<enumeration>11р</enumeration>
+		<enumeration>12</enumeration>
+		<enumeration>12р</enumeration>
+		<enumeration>13</enumeration>
+		<enumeration>13р</enumeration>
+		<enumeration>14</enumeration>
+		<enumeration>14р</enumeration>
+		<enumeration>15</enumeration>
+		<enumeration>15р</enumeration>
+		<enumeration>16</enumeration>
+		<enumeration>16р</enumeration>
+		<enumeration>ks1</enumeration>
+		<enumeration>ks1р</enumeration>
+		<enumeration>ks2</enumeration>
+		<enumeration>ks2р</enumeration>
+		<enumeration>ks3</enumeration>
+		<enumeration>ks3р</enumeration>
+		<enumeration>ks4</enumeration>
+		<enumeration>ks4р</enumeration>
+		<enumeration>ks5</enumeration>
+		<enumeration>ks5р</enumeration>
+		<enumeration>ks6</enumeration>
+		<enumeration>ks6р</enumeration>
+		<enumeration>ks7</enumeration>
+		<enumeration>ks7р</enumeration>
+		<enumeration>ks8</enumeration>
+		<enumeration>ks8р</enumeration>
+		<enumeration>ks9</enumeration>
+		<enumeration>ks9р</enumeration>
+		<enumeration>ks10</enumeration>
+		<enumeration>ks10р</enumeration>
+		<enumeration>ks11</enumeration>
+		<enumeration>ks11р</enumeration>
+		<enumeration>ks12</enumeration>
+		<enumeration>ks12р</enumeration>
+		<enumeration>ks13</enumeration>
+		<enumeration>ks13р</enumeration>
+		<enumeration>ks14</enumeration>
+		<enumeration>ks14р</enumeration>
+		<enumeration>ks15</enumeration>
+		<enumeration>ks15р</enumeration>
+		<enumeration>ks16</enumeration>
+		<enumeration>ks16р</enumeration>
+		<enumeration>ks608</enumeration>
+		<enumeration>ks609</enumeration>
+		<enumeration>ks20</enumeration>
+		<enumeration>ks21</enumeration>
+		<enumeration>ks23</enumeration>
+		<enumeration>ks24</enumeration>
+		<enumeration>ks25</enumeration>
+		<enumeration>ks26</enumeration>
+		<enumeration>ks27</enumeration>
+		<enumeration>ks28</enumeration>
+		<enumeration>ks29</enumeration>
+		<enumeration>ks30</enumeration>
+		<enumeration>ks31</enumeration>
+		<enumeration>ks32</enumeration>
+		<enumeration>ks33</enumeration>
+		<enumeration>ks34</enumeration>
+		<enumeration>ks35</enumeration>
+		<enumeration>ks36</enumeration>
+		<enumeration>608</enumeration>
+		<enumeration>609</enumeration>
+		<enumeration>20</enumeration>
+		<enumeration>21</enumeration>
+		<enumeration>23</enumeration>
+		<enumeration>24</enumeration>
+		<enumeration>25</enumeration>
+		<enumeration>26</enumeration>
+		<enumeration>27</enumeration>
+		<enumeration>28</enumeration>
+		<enumeration>29</enumeration>
+		<enumeration>30</enumeration>
+		<enumeration>31</enumeration>
+		<enumeration>32</enumeration>
+		<enumeration>33-01</enumeration>
+		<enumeration>33-02</enumeration>
+		<enumeration>33-03</enumeration>
+		<enumeration>33-04</enumeration>
+		<enumeration>37</enumeration>
+		<enumeration>ks610</enumeration>
+		<enumeration>ks611</enumeration>
+		<enumeration>ks612</enumeration>
+		<enumeration>ks613</enumeration>
+		<enumeration>ks614</enumeration>
+		<enumeration>ks615</enumeration>
+		<enumeration>ks616</enumeration>
+		<enumeration>610</enumeration>
+		<enumeration>611</enumeration>
+		<enumeration>612</enumeration>
+		<enumeration>613</enumeration>
+		<enumeration>614</enumeration>
+		<enumeration>34</enumeration>
+		<enumeration>35</enumeration>
+		<enumeration>35-01</enumeration>
+		<enumeration>ksmot615</enumeration>
+		<enumeration>ksmot616</enumeration>
+		<enumeration>ksmot617</enumeration>
+		<enumeration>ksmot618</enumeration>
+		<enumeration>ksmot619</enumeration>
+		<enumeration>mot615</enumeration>
+		<enumeration>mot616</enumeration>
+		<enumeration>mot617</enumeration>
+		<enumeration>mot618</enumeration>
+		<enumeration>mot619</enumeration>
+		<enumeration>700-01</enumeration>
+		<enumeration>700</enumeration>
+		<enumeration>700-02</enumeration>
+		<enumeration>710</enumeration>
+		<enumeration>ksmot3</enumeration>
+		<enumeration>ksmot3р</enumeration>
+		<enumeration>ksmot4</enumeration>
+		<enumeration>ksmot4р</enumeration>
+		<enumeration>ksmot5</enumeration>
+		<enumeration>ksmot5р</enumeration>
+		<enumeration>ksmot6</enumeration>
+		<enumeration>ksmot6р</enumeration>
+		<enumeration>ksmot7</enumeration>
+		<enumeration>ksmot7р</enumeration>
+		<enumeration>ksmot8</enumeration>
+		<enumeration>ksmot8р</enumeration>
+		<enumeration>ksmot9</enumeration>
+		<enumeration>ksmot9р</enumeration>
+		<enumeration>ksmot10</enumeration>
+		<enumeration>ksmot10р</enumeration>
+		<enumeration>ksmot11</enumeration>
+		<enumeration>ksmot11р</enumeration>
+		<enumeration>ksmot12</enumeration>
+		<enumeration>ksmot12р</enumeration>
+		<enumeration>ksmot13</enumeration>
+		<enumeration>ksmot13р</enumeration>
+		<enumeration>ksmot14</enumeration>
+		<enumeration>ksmot14р</enumeration>
+		<enumeration>ksmot15</enumeration>
+		<enumeration>ksmot15р</enumeration>
+		<enumeration>ksmot16</enumeration>
+		<enumeration>ksmot16р</enumeration>
+		<enumeration>ksmotOI</enumeration>
+		<enumeration>ksmotIG</enumeration>
+		<enumeration>ksmotFI</enumeration>
+		<enumeration>ksmotGR</enumeration>
+		<enumeration>ksmotB0w40</enumeration>
+		<enumeration>ksmotOI0w40</enumeration>
+		<enumeration>other</enumeration>
+	</valueType>
+	<objectType name="Bodyshop" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="customer" type="d3p1:Customer"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="payer" type="d3p1:Customer"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="car" type="d3p1:Car"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="documentNumber" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="gcmNumber" type="d3p1:GCM" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="status" type="d3p1:String50"/>
+		<property name="dateOpening" type="xs:dateTime"/>
+		<property name="dateClosing" type="xs:dateTime" lowerBound="0"/>
+		<property name="mileage" type="xs:integer"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="serviceAdvisor" type="d3p1:Employee"/>
+		<property name="repairType">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>Гарантия кузовной ремонт|Кузовной ремонт</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="workshop" type="d3p1:String50"/>
+		<property name="totalDuration" type="xs:decimal"/>
+		<property name="totalWorks" type="xs:decimal"/>
+		<property name="totalParts" type="xs:decimal"/>
+		<property name="totalDiscount" type="xs:decimal"/>
+		<property name="total" type="xs:decimal"/>
+		<property name="VAT" type="xs:decimal"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="parts" type="d3p1:Parts"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="works" type="d3p1:works_body"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="comments" type="d3p1:String1000" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="recommendation" type="d3p1:String8000"/>
+		<property name="nextServiceDate" type="xs:date"/>
+	</objectType>
+	<objectType name="Car" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="VIN" type="d3p1:VIN"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="brand" type="d3p1:String50" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="model" type="d3p1:String50" lowerBound="0"/>
+		<property name="mileage" type="xs:integer"/>
+		<property name="license" type="xs:string" lowerBound="0"/>
+		<property name="year" type="xs:integer"/>
+	</objectType>
+	<objectType name="Customer" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="firstName" type="d3p1:String50"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="middleName" type="d3p1:String50" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="lastName" type="d3p1:String50"/>
+		<property name="isLegal" type="xs:boolean"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="companyName" type="d3p1:String100" lowerBound="0"/>
+		<property name="TIN" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[0-9]{10}([0-9]{2})?</pattern>
+			</typeDef>
+		</property>
+		<property name="dateOfBirth" type="xs:date" lowerBound="0"/>
+		<property name="gender" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>male|female</pattern>
+			</typeDef>
+		</property>
+		<property name="age" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minInclusive="16" maxInclusive="100"/>
+		</property>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="address" type="d3p1:address"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="email1" type="d3p1:Email" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="email2" type="d3p1:Email" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="phone1" type="d3p1:Phone" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="phone2" type="d3p1:Phone" lowerBound="0"/>
+		<property name="agreement">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>true|false|null</pattern>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="Employee" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="firstName" type="d3p1:String50"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="middleName" type="d3p1:String50" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="lastName" type="d3p1:String50"/>
+		<property name="ipn" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>du[0-9]{5}</pattern>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="Order" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="id" type="d3p1:UUID" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="mode" type="d3p1:UploadingMode" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="customer" type="d3p1:Customer"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="payer" type="d3p1:Customer"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="car" type="d3p1:Car"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="documentNumber" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="gcmNumber" type="d3p1:GCM" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="status" type="d3p1:String50"/>
+		<property name="dateOpening" type="xs:dateTime"/>
+		<property name="dateClosing" type="xs:dateTime" lowerBound="0"/>
+		<property name="mileage" type="xs:integer"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="serviceAdvisor" type="d3p1:Employee"/>
+		<property name="repairType">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>Слесарный ремонт|Регулярное ТО|Регулярное ТО\+Слесарный ремонт|Мойка|Дополнительное оборудование|Гарантия слесарный ремонт|Внутренний ремонт|Сервисные продукты</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="workshop" type="d3p1:String50"/>
+		<property name="totalDuration" type="xs:decimal"/>
+		<property name="totalWorks" type="xs:decimal"/>
+		<property name="totalParts" type="xs:decimal"/>
+		<property name="totalDiscount" type="xs:decimal"/>
+		<property name="total" type="xs:decimal"/>
+		<property name="VAT" type="xs:decimal"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="parts" type="d3p1:Parts"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="works" type="d3p1:works"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="comments" type="d3p1:String1000" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="recommendation" type="d3p1:String8000"/>
+		<property name="nextServiceDate" type="xs:date"/>
+	</objectType>
+	<objectType name="aftersales" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="order" type="d3p1:Order" lowerBound="0" upperBound="-1"/>
+		<property name="ver" form="Attribute"/>
+		<property name="bir" form="Attribute"/>
+		<property name="site" form="Attribute"/>
+	</objectType>
+	<objectType name="Parts" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="part" type="d3p1:part" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="part">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="reference" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="name" type="d3p1:String255"/>
+		<property name="qty" type="xs:decimal"/>
+		<property name="price" type="xs:decimal"/>
+		<property name="discount" type="xs:decimal"/>
+		<property name="total" type="xs:decimal"/>
+		<property name="VATRate" type="xs:decimal"/>
+		<property name="VAT" type="xs:decimal"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="marking" type="d3p1:PartsMarking"/>
+	</objectType>
+	<objectType name="works" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="work" type="d3p1:work" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="work">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="code" type="d3p1:String50"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="opercode" type="d3p1:OPERCODE" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="name" type="d3p1:String255"/>
+		<property name="qty" type="xs:decimal"/>
+		<property name="nTime" type="xs:decimal"/>
+		<property name="duration" type="xs:decimal"/>
+		<property name="nPrice" type="xs:decimal"/>
+		<property name="price" type="xs:decimal"/>
+		<property name="discount" type="xs:decimal"/>
+		<property name="total" type="xs:decimal"/>
+		<property name="VATRate" type="xs:decimal"/>
+		<property name="VAT" type="xs:decimal"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="mechanic" type="d3p1:Employee"/>
+	</objectType>
+	<objectType name="address">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="zipCode" type="d3p1:String100" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="region" type="d3p1:String100" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="city" type="d3p1:String100" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="description" type="d3p1:String100" lowerBound="0"/>
+	</objectType>
+	<objectType name="works_body" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="work" type="d3p1:work_body" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="work_body">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="code" type="d3p1:String50"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="payment" type="d3p1:PaymentCode"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="opercode" type="d3p1:OPERCODE" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="audatex" type="d3p1:AUDATEX" lowerBound="0"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="name" type="d3p1:String255"/>
+		<property name="qty" type="xs:decimal"/>
+		<property name="nTime" type="xs:decimal"/>
+		<property name="duration" type="xs:decimal"/>
+		<property name="nPrice" type="xs:decimal"/>
+		<property name="price" type="xs:decimal"/>
+		<property name="discount" type="xs:decimal"/>
+		<property name="total" type="xs:decimal"/>
+		<property name="VATRate" type="xs:decimal"/>
+		<property name="VAT" type="xs:decimal"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="mechanic" type="d3p1:Employee"/>
+	</objectType>
+	<objectType name="parts_body" open="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="part" type="d3p1:part_body" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="part_body">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="reference" type="d3p1:String25"/>
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="name" type="d3p1:String255"/>
+		<property name="qty" type="xs:decimal"/>
+		<property name="price" type="xs:decimal"/>
+		<property name="discount" type="xs:decimal"/>
+		<property name="total" type="xs:decimal"/>
+		<property name="VATRate" type="xs:decimal"/>
+		<property name="VAT" type="xs:decimal"/>
+		<property name="marking">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property xmlns:d5p1="http://gate.renault.ru/dataMart-aftersales" name="mark" type="d5p1:String255" lowerBound="0" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="PartsMarking" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://gate.renault.ru/dataMart-aftersales" name="mark" type="d3p1:String255" lowerBound="0" upperBound="-1"/>
+	</objectType>
+</package>

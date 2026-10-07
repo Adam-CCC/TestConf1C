@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДилерскийЦентр</dataPath>
+			<field>ДилерскийЦентр</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗНССетрификатами</dataPath>
+			<field>ЗНССетрификатами</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ЗНССетрификатами</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗНССертификатами</dataPath>
+			<field>ЗНССертификатами</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ЗНССертификатами</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВсегоЗН</dataPath>
+			<field>ВсегоЗН</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Всего ЗН</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Приемка</dataPath>
+			<field>Приемка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приемка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выдача</dataPath>
+			<field>Выдача</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдача</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Renault_CRM_ПриемкаАвтомобиля.Ссылка КАК Приемки,
+	Renault_CRM_ПриемкаАвтомобиля.ДилерскийЦентр КАК ДилерскийЦентр
+ПОМЕСТИТЬ ПриемкиПланшет
+ИЗ
+	РегистрСведений.Renault_ПоврежденияКузова КАК Renault_ПоврежденияКузова
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ПриемкаАвтомобиля КАК Renault_CRM_ПриемкаАвтомобиля
+		ПО (Renault_CRM_ПриемкаАвтомобиля.Обращение = Renault_ПоврежденияКузова.Обращение)
+ГДЕ
+	Renault_CRM_ПриемкаАвтомобиля.ВремяНачала &gt;= &amp;ДатаНачала
+	И Renault_CRM_ПриемкаАвтомобиля.ВремяНачала &lt; &amp;ДатаОкончания
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	КИ.Объект КАК Ссылка
+ПОМЕСТИТЬ КлиентыСКонтактами
+ИЗ
+	РегистрСведений.КонтактнаяИнформация КАК КИ
+ГДЕ
+	КИ.Тип = &amp;ТипТелефон
+	И ПОДСТРОКА(КИ.Представление, 1, 10) &lt;&gt; ""
+	И КИ.Объект.Наименование &lt;&gt; ""
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВЫРАЗИТЬ(Работы.Ссылка КАК Документ.ЗаказНаряд) КАК СсылкаЗН,
+	ДЦ.Ссылка КАК ДилерскийЦентр
+ПОМЕСТИТЬ ВсеЗНСРаботами
+ИЗ
+	Документ.ЗаказНаряд.Работы КАК Работы
+	ЛЕВОЕ СОЕДИНЕНИЕ Справочник.CRM_ДилерскиеЦентры КАК ДЦ
+	ПО ЛОЖЬ
+ГДЕ
+	Работы.Ссылка.ДатаЗакрытия &gt;= &amp;ДатаНачала
+	И Работы.Ссылка.ДатаЗакрытия &lt; &amp;ДатаОкончания
+	И ДЦ.Ссылка.ПометкаУдаления = ЛОЖЬ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗН.ДилерскийЦентр КАК ДилерскийЦентр,
+	СУММА(1) КАК ВсегоЗН
+ПОМЕСТИТЬ ВремЗН
+ИЗ
+	ВсеЗНСРаботами КАК ЗН
+
+СГРУППИРОВАТЬ ПО
+	ЗН.ДилерскийЦентр
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВсеЗНСРаботами.СсылкаЗН КАК СсылкаЗН,
+	Renault_CRM_ПриемкаАвтомобиля.Ссылка КАК Приемка,
+	Renault_СертификатКонтроля.Ссылка КАК Сертификат,
+	Renault_CRM_ВыдачаАвтомобиля.Ссылка КАК Выдача
+ПОМЕСТИТЬ ВсеПриемкиИСертификаты
+ИЗ
+	ВсеЗНСРаботами КАК ВсеЗНСРаботами
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ЗаявкаНаСервис КАК ЗаявкаНаСервис
+		ПО (ЗаявкаНаСервис.ЗаказНаряд = ВсеЗНСРаботами.СсылкаЗН)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ОбращениеВАвтоСервис КАК ОбращениеВАвтоСервис
+		ПО (ОбращениеВАвтоСервис.Ссылка = ЗаявкаНаСервис.Обращение)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ПриемкаАвтомобиля КАК Renault_CRM_ПриемкаАвтомобиля
+		ПО (Renault_CRM_ПриемкаАвтомобиля.Обращение = ОбращениеВАвтоСервис.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СертификатКонтроля КАК Renault_СертификатКонтроля
+		ПО (Renault_СертификатКонтроля.Обращение = ОбращениеВАвтоСервис.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ВыдачаАвтомобиля КАК Renault_CRM_ВыдачаАвтомобиля
+		ПО (Renault_CRM_ВыдачаАвтомобиля.Обращение = ОбращениеВАвтоСервис.Ссылка)
+ГДЕ
+	НЕ ОбращениеВАвтоСервис.Ссылка ЕСТЬ NULL
+
+ИНДЕКСИРОВАТЬ ПО
+	ВсеЗНСРаботами.СсылкаЗН
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Работы.Ссылка КАК Ссылка,
+	Работы.Ссылка.Клиент КАК Клиент
+ПОМЕСТИТЬ ЗаявкиСРаботами
+ИЗ
+	Документ.Renault_CRM_ЗаявкаНаСервис.Работы КАК Работы
+ГДЕ
+	Работы.Работа.Наименование &lt;&gt; ""
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Товары.Ссылка КАК Ссылка,
+	Товары.Ссылка.Клиент КАК Клиент
+ПОМЕСТИТЬ ЗаявкиСЗапчастями
+ИЗ
+	Документ.Renault_CRM_ЗаявкаНаСервис.Товары КАК Товары
+ГДЕ
+	Товары.Номенклатура.Наименование &lt;&gt; ""
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗН.СсылкаЗН КАК ЗН,
+	Renault_СертификатКонтроля.Ссылка КАК Сертификат
+ПОМЕСТИТЬ ЗНССертификатами
+ИЗ
+	ВсеЗНСРаботами КАК ЗН
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ЗаявкаНаСервис КАК ЗаявкаНаСервис
+		ПО (ЗаявкаНаСервис.ЗаказНаряд = ЗН.СсылкаЗН)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ОбращениеВАвтоСервис КАК ОбращениеВАвтоСервис
+		ПО (ОбращениеВАвтоСервис.Ссылка = ЗаявкаНаСервис.Обращение)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СертификатКонтроля КАК Renault_СертификатКонтроля
+		ПО (Renault_СертификатКонтроля.Обращение = ОбращениеВАвтоСервис.Ссылка)
+ГДЕ
+	НЕ Renault_СертификатКонтроля.Ссылка ЕСТЬ NULL
+
+ИНДЕКСИРОВАТЬ ПО
+	ЗН.СсылкаЗН
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВсеЗНСРаботами.ДилерскийЦентр КАК ДилерскийЦентр,
+	//СУММА(1) КАК ЗНСЗаявкой,
+	(ВЫБОР
+			КОГДА ВсеПриемкиИСертификаты.Сертификат ЕСТЬ NULL
+				ТОГДА NULL
+			ИНАЧЕ ВсеЗНСРаботами.СсылкаЗН
+		КОНЕЦ) КАК ЗНССетрификатами,
+	ВсеПриемкиИСертификаты.Приемка,
+	ВсеПриемкиИСертификаты.Выдача
+	//СУММА(ВЫБОР
+	//		КОГДА ВсеПриемкиИСертификаты.Приемка ЕСТЬ NULL
+	//			ТОГДА 0
+	//		ИНАЧЕ 1
+	//	КОНЕЦ) КАК Приемки
+ПОМЕСТИТЬ ВремЗаявки
+ИЗ
+	ВсеЗНСРаботами КАК ВсеЗНСРаботами
+		ЛЕВОЕ СОЕДИНЕНИЕ ЗаявкиСРаботами КАК ЗаявкиСРаботами
+		ПО (ЗаявкиСРаботами.Ссылка.ЗаказНаряд = ВсеЗНСРаботами.СсылкаЗН)
+		ЛЕВОЕ СОЕДИНЕНИЕ ЗаявкиСЗапчастями КАК ЗаявкиСЗапчастями
+		ПО (ЗаявкиСЗапчастями.Ссылка.ЗаказНаряд = ВсеЗНСРаботами.СсылкаЗН)
+		ЛЕВОЕ СОЕДИНЕНИЕ КлиентыСКонтактами КАК КлиентыСКонтактами
+		ПО (КлиентыСКонтактами.Ссылка = ЗаявкиСРаботами.Клиент
+				ИЛИ КлиентыСКонтактами.Ссылка = ЗаявкиСЗапчастями.Клиент)
+		ЛЕВОЕ СОЕДИНЕНИЕ ВсеПриемкиИСертификаты КАК ВсеПриемкиИСертификаты
+		ПО (ВсеПриемкиИСертификаты.СсылкаЗН = ВсеЗНСРаботами.СсылкаЗН)
+ГДЕ
+	НЕ КлиентыСКонтактами.Ссылка ЕСТЬ NULL
+	И (НЕ ЗаявкиСЗапчастями.Ссылка ЕСТЬ NULL
+			ИЛИ НЕ ЗаявкиСРаботами.Ссылка ЕСТЬ NULL)
+	И НЕ ВсеПриемкиИСертификаты.Сертификат ЕСТЬ NULL
+
+//СГРУППИРОВАТЬ ПО
+//	ВсеЗНСРаботами.ДилерскийЦентр
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ДЦ.Ссылка КАК ДилерскийЦентр,
+	ЕСТЬNULL(ВремЗНЗаявки.ЗНССетрификатами, 0) КАК ЗНССертификатами,
+	ВремЗНЗаявки.Выдача,
+	//ЕСТЬNULL(ВремЗНЗаявки.ЗНССетрификатами * 100 / ВЫБОР
+	//		КОГДА ПриемкиДок.Приемок = 0
+	//			ТОГДА 1
+	//		ИНАЧЕ ПриемкиДок.Приемок
+	//	КОНЕЦ, 0) КАК ПроцентЗНСсертификатами,
+	ПриемкиДок.Приемка КАК Приемка
+ИЗ
+	Справочник.CRM_ДилерскиеЦентры КАК ДЦ
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ РАЗЛИЧНЫЕ
+			Renault_CRM_ПриемкаАвтомобиля.Ссылка КАК Приемка,
+			Renault_CRM_ПриемкаАвтомобиля.ДилерскийЦентр КАК ДилерскийЦентр
+		ИЗ
+			Документ.Renault_CRM_ПриемкаАвтомобиля КАК Renault_CRM_ПриемкаАвтомобиля
+				ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ОбращениеВАвтоСервис КАК ОбращениеВАвтоСервис
+				ПО (ОбращениеВАвтоСервис.Ссылка = Renault_CRM_ПриемкаАвтомобиля.Обращение)
+				ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ЗаявкаНаСервис КАК ЗаявкаНаСервис
+				ПО (ЗаявкаНаСервис.Обращение = ОбращениеВАвтоСервис.Ссылка)
+				ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_СоответствияВидовРемонта КАК Renault_СоответствияВидовРемонта
+				ПО (Renault_СоответствияВидовРемонта.ВидРемонта = ЗаявкаНаСервис.ВидРемонта)
+					И (Renault_СоответствияВидовРемонта.КлассификацияRenault = ЗНАЧЕНИЕ(Перечисление.Renault_КлассификацияВидовРемонта.КузовнойРемонт)
+						ИЛИ Renault_СоответствияВидовРемонта.КлассификацияRenault = ЗНАЧЕНИЕ(Перечисление.Renault_КлассификацияВидовРемонта.ГарантияКузовнойЦех))
+		ГДЕ
+			Renault_CRM_ПриемкаАвтомобиля.ВремяНачала МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+			И Renault_CRM_ПриемкаАвтомобиля.Состояние = ЗНАЧЕНИЕ(Справочник.Renault_ВидыСостоянийДокументовАвтосервиса.Выполнен)
+			И Renault_СоответствияВидовРемонта.ВидРемонта ЕСТЬ NULL
+		) КАК ПриемкиДок
+		ПО (ПриемкиДок.ДилерскийЦентр = ДЦ.Ссылка)
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ЕСТЬNULL(ВремЗН.ДилерскийЦентр, ВремЗаявки.ДилерскийЦентр) КАК ДилерскийЦентр,
+			ВремЗН.ВсегоЗН КАК ВсегоЗН,
+			//ВремЗаявки.ЗНСЗаявкой КАК ЗНСЗаявкой,
+			ВремЗаявки.ЗНССетрификатами КАК ЗНССетрификатами,
+			ВремЗаявки.Приемка КАК Приемка,
+			ВремЗаявки.Выдача КАК Выдача
+		ИЗ
+			ВремЗН КАК ВремЗН
+				ПОЛНОЕ СОЕДИНЕНИЕ ВремЗаявки КАК ВремЗаявки
+				ПО (ВремЗаявки.ДилерскийЦентр = ВремЗН.ДилерскийЦентр)) КАК ВремЗНЗаявки
+		ПО (ВремЗНЗаявки.ДилерскийЦентр = ДЦ.Ссылка)
+		И ПриемкиДок.Приемка = ВремЗНЗаявки.Приемка
+ГДЕ
+	ДЦ.ПометкаУдаления = ЛОЖЬ
+	И ДЦ.Ссылка = &amp;ДилерскийЦентр</query>
+	</dataSet>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТипТелефон</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип телефон</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ТипыКонтактнойИнформации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыКонтактнойИнформации.Телефон</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДилерскийЦентр</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дилерский центр</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.CRM_ДилерскиеЦентры</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДилерскийЦентр</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Приемка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗНССертификатами</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Выдача</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ТипТелефон</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Приемка.Дата</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Выдача</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ДилерскийЦентр</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+							<dcsset:use>false</dcsset:use>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Приемка</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ЗНССертификатами</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Выдача</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,205 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://wa.dms.webservice/JobGetRequest">
+	<property name="JobChangeRequest" nillable="true"/>
+	<property name="JobChangeResponse" nillable="true"/>
+	<property name="JobGetRequest" nillable="true"/>
+	<property name="JobGetResponse" nillable="true"/>
+	<objectType name="ActualTimeLog">
+		<property name="StartDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="EndDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TCEmployeeID" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeName" type="xs:string" lowerBound="0"/>
+		<property name="Status" type="xs:string" lowerBound="0"/>
+		<property name="PauseReasonCode" type="xs:string" lowerBound="0"/>
+		<property name="PauseReasonComment" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ArrayOfActualTimeLog">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="ActualTimeLog" type="d3p1:ActualTimeLog" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCause">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Cause" type="d3p1:Cause" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfComment">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Comment" type="d3p1:Comment" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCorrection">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Correction" type="d3p1:Correction" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfDescription">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Description" type="d3p1:Description" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfError">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Error" type="d3p1:Error" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfJob">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Job" type="d3p1:Job" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfJobComment">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="JobComment" type="d3p1:JobComment" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfOPCode">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="OPCode" type="d3p1:OPCode" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfTechnician">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Technician" type="d3p1:Technician" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Cause">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="Comment" type="xs:string" lowerBound="0"/>
+		<property name="CauseLaborOpCode" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Comment">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="DescriptionComment" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Correction">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="Comment" type="xs:string" lowerBound="0"/>
+		<property name="CorrectionLaborOpCode" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Description">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="DescriptionComment" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Error">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Job">
+		<property name="DMSJobNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSJobID" type="xs:string" lowerBound="0"/>
+		<property name="DMSRONo" type="xs:string" lowerBound="0"/>
+		<property name="DMSROID" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentID" type="xs:string" lowerBound="0"/>
+		<property name="ServiceLineNumber" type="xs:string" lowerBound="0"/>
+		<property name="EstimatedHours" type="xs:string" lowerBound="0"/>
+		<property name="ActualHours" type="xs:string" lowerBound="0"/>
+		<property name="SkillLevel" type="xs:string" lowerBound="0"/>
+		<property name="DMSJobStatus" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="ManagementFields" type="d3p1:ManagementFields" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Descriptions" type="d3p1:ArrayOfDescription" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Causes" type="d3p1:ArrayOfCause" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Corrections" type="d3p1:ArrayOfCorrection" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Comments" type="d3p1:ArrayOfComment" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="OPCodes" type="d3p1:ArrayOfOPCode" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Plan" type="d3p1:Plan" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Dispatch" type="d3p1:Dispatch" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Actual" type="d3p1:Actual" lowerBound="0"/>
+	</objectType>
+	<objectType name="JobChange">
+		<property name="DMSJobNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSJobID" type="xs:string" lowerBound="0"/>
+		<property name="DMSRONo" type="xs:string" lowerBound="0"/>
+		<property name="DMSROID" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentID" type="xs:string" lowerBound="0"/>
+		<property name="ServiceLineNumber" type="xs:string" lowerBound="0"/>
+		<property name="EstimatedHours" type="xs:string" lowerBound="0"/>
+		<property name="ActualHours" type="xs:string" lowerBound="0"/>
+		<property name="SkillLevel" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Descriptions" type="d3p1:ArrayOfDescription" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Causes" type="d3p1:ArrayOfCause" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Corrections" type="d3p1:ArrayOfCorrection" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Comments" type="d3p1:ArrayOfComment" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="OPCodes" type="d3p1:ArrayOfOPCode" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Plan" type="d3p1:Plan" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Dispatch" type="d3p1:Dispatch" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Actual" type="d3p1:Actual" lowerBound="0"/>
+	</objectType>
+	<objectType name="JobChangeRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="JobChange" type="d3p1:JobChange" lowerBound="0"/>
+	</objectType>
+	<objectType name="JobChangeResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+	</objectType>
+	<objectType name="JobComment">
+		<property name="ActualWorkHour" type="xs:string" lowerBound="0"/>
+		<property name="SubStatus" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="JobGet">
+		<property name="DMSJobNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSJobID" type="xs:string" lowerBound="0"/>
+		<property name="DMSRONo" type="xs:string" lowerBound="0"/>
+		<property name="DMSROID" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentID" type="xs:string" lowerBound="0"/>
+		<property name="DMSJobStatus" type="xs:string" lowerBound="0"/>
+		<property name="ScheduledDateTimeFromLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="ScheduledDateTimeToLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="LastModifiedDateTimeFromUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="LastModifiedDateTimeToUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="JobGetRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="JobGet" type="d3p1:JobGet" lowerBound="0"/>
+	</objectType>
+	<objectType name="JobGetResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Jobs" type="d3p1:ArrayOfJob" lowerBound="0"/>
+	</objectType>
+	<objectType name="Actual">
+		<property name="StallID" type="xs:string" lowerBound="0"/>
+		<property name="StallName" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="ActualTimeLogs" type="d3p1:ArrayOfActualTimeLog" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="JobComments" type="d3p1:ArrayOfJobComment" lowerBound="0"/>
+	</objectType>
+	<objectType name="ManagementFields">
+		<property name="CreateDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="LastModifiedDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="OPCode">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Description" type="xs:string" lowerBound="0"/>
+		<property name="EstimatedHours" type="xs:string" lowerBound="0"/>
+		<property name="ActualHours" type="xs:string" lowerBound="0"/>
+		<property name="SkillLevel" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="ResultMessage">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Technician">
+		<property name="TCEmployeeID" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeName" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="TransactionHeader">
+		<property name="CountryID" type="xs:string" lowerBound="0"/>
+		<property name="DistributorID" type="xs:string" lowerBound="0"/>
+		<property name="GroupID" type="xs:string" lowerBound="0"/>
+		<property name="DealerID" type="xs:string" lowerBound="0"/>
+		<property name="DMSCode" type="xs:string" lowerBound="0"/>
+		<property name="DMSVersion" type="xs:string" lowerBound="0"/>
+		<property name="DMSServerUrl" type="xs:string" lowerBound="0"/>
+		<property name="DocumentVersion" type="xs:string" lowerBound="0"/>
+		<property name="Username" type="xs:string" lowerBound="0"/>
+		<property name="Password" type="xs:string" lowerBound="0"/>
+		<property name="TransactionId" type="xs:string" lowerBound="0"/>
+		<property name="TransactionDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionType" type="xs:string" lowerBound="0"/>
+		<property name="RequestType" type="xs:string" lowerBound="0"/>
+		<property name="RequestPollingToken" type="xs:string" lowerBound="0"/>
+		<property name="VenderTrackingCode" type="xs:string" lowerBound="0"/>
+		<property name="IneterfaceID" type="xs:string" lowerBound="0"/>
+		<property name="PollingToken" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Plan">
+		<property name="StallID" type="xs:string" lowerBound="0"/>
+		<property name="StallName" type="xs:string" lowerBound="0"/>
+		<property name="ScheduledDateTimeFromLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="ScheduledDateTimeToLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Technicians" type="d3p1:ArrayOfTechnician" lowerBound="0"/>
+	</objectType>
+	<objectType name="Dispatch">
+		<property name="StallID" type="xs:string" lowerBound="0"/>
+		<property name="StallName" type="xs:string" lowerBound="0"/>
+		<property name="ScheduledDateTimeFromLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="ScheduledDateTimeToLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/JobGetRequest" name="Technicians" type="d3p1:ArrayOfTechnician" lowerBound="0"/>
+	</objectType>
+</package>

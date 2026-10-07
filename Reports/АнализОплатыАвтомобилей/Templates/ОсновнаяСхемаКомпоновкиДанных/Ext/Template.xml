@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Запрос</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоступленияНаОтветственное</dataPath>
+			<field>ДатаПоступленияНаОтветственное</field>
+			<role>
+				<dcscom:periodNumber>3</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоступленияПереходаВСобственность</dataPath>
+			<field>ДатаПоступленияПереходаВСобственность</field>
+			<role>
+				<dcscom:periodNumber>4</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорВзаиморасчетов</dataPath>
+			<field>ДоговорВзаиморасчетов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументОтветственогоХранения</dataPath>
+			<field>ДокументОтветственогоХранения</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументСобственности</dataPath>
+			<field>ДокументСобственности</field>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сделка</dataPath>
+			<field>Сделка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаОплаты</dataPath>
+			<field>СуммаОплаты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ОстаткиАвтомобилейОстатки.Автомобиль КАК Автомобиль,
+	ОстаткиАвтомобилейОстатки.СкладКомпании.Подразделение КАК Подразделение,
+	МИНИМУМ(ОстаткиАвтомобилейОстатки.Период) КАК ДатаПоступленияНаОтветственное,
+	ОстаткиАвтомобилейОстатки.Регистратор.Контрагент КАК Поставщик,
+	ОстаткиАвтомобилейОстатки.СкладКомпании.Организация КАК Организация,
+	ОстаткиАвтомобилейОстатки.Сумма,
+	ОстаткиАвтомобилейОстатки.Регистратор КАК ДокументОтветственогоХранения
+ПОМЕСТИТЬ ТЗПервый
+ИЗ
+	РегистрНакопления.ОстаткиАвтомобилей КАК ОстаткиАвтомобилейОстатки
+ГДЕ
+	(ОстаткиАвтомобилейОстатки.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+				И ОстаткиАвтомобилейОстатки.Количество &gt; 0
+			ИЛИ ОстаткиАвтомобилейОстатки.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+				И ОстаткиАвтомобилейОстатки.Количество &lt; 0)
+	И ОстаткиАвтомобилейОстатки.ХозОперация &lt;&gt; ЗНАЧЕНИЕ(Справочник.ХозОперации.ПеремещениеАвтомобилей)
+
+СГРУППИРОВАТЬ ПО
+	ОстаткиАвтомобилейОстатки.Автомобиль,
+	ОстаткиАвтомобилейОстатки.Регистратор.Контрагент,
+	ОстаткиАвтомобилейОстатки.СкладКомпании.Подразделение,
+	ОстаткиАвтомобилейОстатки.СкладКомпании.Организация,
+	ОстаткиАвтомобилейОстатки.Сумма,
+	ОстаткиАвтомобилейОстатки.Регистратор
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ОстаткиАвтомобилейОстатки.Автомобиль КАК Автомобиль,
+	МАКСИМУМ(ЕСТЬNULL(ОстаткиАвтомобилейОстатки.Период, 0)) КАК ДатаПоступленияПереходаВСобственность,
+	ОстаткиАвтомобилейОстатки.Регистратор КАК ДокументСобственности
+ПОМЕСТИТЬ ТЗВторой
+ИЗ
+	РегистрНакопления.ОстаткиАвтомобилей КАК ОстаткиАвтомобилейОстатки
+ГДЕ
+	(ОстаткиАвтомобилейОстатки.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+				И ОстаткиАвтомобилейОстатки.Количество &gt; 0
+			ИЛИ ОстаткиАвтомобилейОстатки.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+				И ОстаткиАвтомобилейОстатки.Количество &lt; 0)
+	И ОстаткиАвтомобилейОстатки.ХозОперация &lt;&gt; ЗНАЧЕНИЕ(Справочник.ХозОперации.ПеремещениеАвтомобилей)
+
+СГРУППИРОВАТЬ ПО
+	ОстаткиАвтомобилейОстатки.Автомобиль,
+	ОстаткиАвтомобилейОстатки.Регистратор
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СчетОтПоставщикаЗаАвтомобилиАвтомобили.Ссылка КАК Счет,
+	СчетОтПоставщикаЗаАвтомобилиАвтомобили.Автомобиль
+ПОМЕСТИТЬ Счета
+ИЗ
+	Документ.СчетОтПоставщикаЗаАвтомобили.Автомобили КАК СчетОтПоставщикаЗаАвтомобилиАвтомобили
+ГДЕ
+	(СчетОтПоставщикаЗаАвтомобилиАвтомобили.Автомобиль В
+				(ВЫБРАТЬ
+					ТЗПервый.Автомобиль
+				ИЗ
+					ТЗПервый КАК ТЗПервый)
+			ИЛИ СчетОтПоставщикаЗаАвтомобилиАвтомобили.Автомобиль В
+				(ВЫБРАТЬ
+					ТЗВторой.Автомобиль
+				ИЗ
+					ТЗВторой КАК ТЗВторой))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВзаиморасчетыКомпанииОбороты.Сделка,
+	ВзаиморасчетыКомпанииОбороты.СуммаБазОборот КАК СуммаОплаты
+ПОМЕСТИТЬ Оплаты
+ИЗ
+	РегистрНакопления.ВзаиморасчетыКомпании.Обороты КАК ВзаиморасчетыКомпанииОбороты
+ГДЕ
+	ВзаиморасчетыКомпанииОбороты.Сделка В
+			(ВЫБРАТЬ
+				Счета.Счет
+			ИЗ
+				Счета КАК Счета)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТЗПервый.Поставщик,
+	ТЗПервый.Организация,
+	ТЗПервый.Автомобиль.Модель КАК Модель,
+	ТЗПервый.Автомобиль,
+	ТЗПервый.ДатаПоступленияНаОтветственное КАК ДатаПоступленияНаОтветственное,
+	ТЗВторой.ДатаПоступленияПереходаВСобственность,
+	ТЗПервый.Сумма,
+	ТЗПервый.ДокументОтветственогоХранения,
+	ТЗВторой.ДокументСобственности,
+	Счета.Счет,
+	Оплаты.СуммаОплаты
+ИЗ
+	ТЗПервый КАК ТЗПервый
+		ЛЕВОЕ СОЕДИНЕНИЕ ТЗВторой КАК ТЗВторой
+		ПО ТЗПервый.Автомобиль = ТЗВторой.Автомобиль
+		ЛЕВОЕ СОЕДИНЕНИЕ Счета КАК Счета
+			ЛЕВОЕ СОЕДИНЕНИЕ Оплаты КАК Оплаты
+			ПО Счета.Счет = Оплаты.Сделка
+		ПО ТЗПервый.Автомобиль = Счета.Автомобиль
+ГДЕ
+	ТЗПервый.ДатаПоступленияНаОтветственное &gt;= &amp;ДатаНачала
+	И ТЗВторой.ДатаПоступленияПереходаВСобственность &lt;= &amp;ДатаОкончания
+
+УПОРЯДОЧИТЬ ПО
+	ДатаПоступленияНаОтветственное</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поставщик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Модель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоступленияНаОтветственное</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументОтветственогоХранения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоступленияПереходаВСобственность</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументСобственности</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Счет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаОплаты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поставщик</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДокументОтветственогоХранения</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяКомпания</dataPath>
+			<field>СтраховаяКомпания</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страховая компания</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Акт</dataPath>
+			<field>Акт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Бордеро</dataPath>
+			<field>Бордеро</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма КВ Бордеро</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Взнос</dataPath>
+			<field>Взнос</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма взноса</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВстречноеБордеро</dataPath>
+			<field>ВстречноеБордеро</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма КВ Встречное бордеро</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДВОУ</dataPath>
+			<field>ДВОУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма КВ ДВОУ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСтрахования</dataPath>
+			<field>ВидСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаИТОГО</dataPath>
+			<field>СуммаИТОГО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма КВ ИТОГО</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаПродаж</dataPath>
+			<field>ТочкаПродаж</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВложенныйЗапрос.СтраховаяКомпания КАК СтраховаяКомпания,
+	ВложенныйЗапрос.Акт КАК Акт,
+	СУММА(ВложенныйЗапрос.Взнос) КАК Взнос,
+	СУММА(ВложенныйЗапрос.Бордеро) КАК Бордеро,
+	СУММА(ВложенныйЗапрос.ДВОУ) КАК ДВОУ,
+	СУММА(ВложенныйЗапрос.ВстречноеБордеро) КАК ВстречноеБордеро,
+	ВложенныйЗапрос.ВидСтрахования,
+	ЕСТЬNULL(ВложенныйЗапрос.СтраховойПолисТочкаПродаж, "Нет данных") КАК ТочкаПродаж,
+//	ЕСТЬNULL(ВложенныйЗапрос.СтраховойПолисПодразделение, "Нет данных") КАК Подразделение,
+	СУММА(ВложенныйЗапрос.СуммаИТОГО) КАК СуммаИТОГО
+//	ЕСТЬNULL(ВложенныйЗапрос.СтраховойПолисОтдел, "нет данных") КАК Отдел
+ИЗ
+	(ВЫБРАТЬ
+		Renault_АктСдачиПриемкиБСОБСО.Ссылка КАК Акт,
+		Renault_АктСдачиПриемкиБСОБСО.Ссылка.СтраховаяКомпания КАК СтраховаяКомпания,
+		СУММА(ЕСТЬNULL(Renault_АктСдачиПриемкиБСОБСО.СтраховаяПремияОтКлиента, 0)) КАК Взнос,
+		СУММА(ВЫБОР
+				КОГДА Renault_АктСдачиПриемкиБСОБСО.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.Бордеро)
+					ТОГДА Renault_АктСдачиПриемкиБСОБСО.ВознаграждениеАгентаСумма
+				ИНАЧЕ 0
+			КОНЕЦ) КАК Бордеро,
+		СУММА(ВЫБОР
+				КОГДА Renault_АктСдачиПриемкиБСОБСО.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.ДВОУ)
+					ТОГДА Renault_АктСдачиПриемкиБСОБСО.ВознаграждениеАгентаСумма
+				ИНАЧЕ 0
+			КОНЕЦ) КАК ДВОУ,
+		СУММА(ВЫБОР
+				КОГДА Renault_АктСдачиПриемкиБСОБСО.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.ВстречноеБордеро)
+					ТОГДА Renault_АктСдачиПриемкиБСОБСО.ВознаграждениеАгентаСумма
+				ИНАЧЕ 0
+			КОНЕЦ) КАК ВстречноеБордеро,
+		Renault_АктСдачиПриемкиБСОБСО.ВидСтрахования КАК ВидСтрахования,
+		Renault_АктСдачиПриемкиБСОБСО.СтраховойПолис.ТочкаПродаж КАК СтраховойПолисТочкаПродаж,
+		//Renault_АктСдачиПриемкиБСОБСО.СтраховойПолис.Подразделение КАК СтраховойПолисПодразделение,
+		СУММА(ВЫБОР
+				КОГДА Renault_АктСдачиПриемкиБСОБСО.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.Бордеро)
+					ТОГДА Renault_АктСдачиПриемкиБСОБСО.ВознаграждениеАгентаСумма
+				ИНАЧЕ 0
+			КОНЕЦ + ВЫБОР
+				КОГДА Renault_АктСдачиПриемкиБСОБСО.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.ДВОУ)
+					ТОГДА Renault_АктСдачиПриемкиБСОБСО.ВознаграждениеАгентаСумма
+				ИНАЧЕ 0
+			КОНЕЦ + ВЫБОР
+				КОГДА Renault_АктСдачиПриемкиБСОБСО.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.ВстречноеБордеро)
+					ТОГДА Renault_АктСдачиПриемкиБСОБСО.ВознаграждениеАгентаСумма
+				ИНАЧЕ 0
+			КОНЕЦ) КАК СуммаИТОГО
+//		Renault_АктСдачиПриемкиБСОБСО.СтраховойПолис.Отдел КАК СтраховойПолисОтдел
+	ИЗ
+		Документ.Renault_АктСдачиПриемкиБСО.БСО КАК Renault_АктСдачиПриемкиБСОБСО
+	ГДЕ
+		(Renault_АктСдачиПриемкиБСОБСО.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.ВстречноеБордеро)
+				ИЛИ Renault_АктСдачиПриемкиБСОБСО.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.Бордеро)
+				ИЛИ Renault_АктСдачиПриемкиБСОБСО.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.ДВОУ))
+		И Renault_АктСдачиПриемкиБСОБСО.Ссылка.Проведен
+		И НЕ Renault_АктСдачиПриемкиБСОБСО.Ссылка.ПометкаУдаления
+		И Renault_АктСдачиПриемкиБСОБСО.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ)
+	
+	СГРУППИРОВАТЬ ПО
+		Renault_АктСдачиПриемкиБСОБСО.Ссылка,
+		Renault_АктСдачиПриемкиБСОБСО.Ссылка.СтраховаяКомпания,
+		Renault_АктСдачиПриемкиБСОБСО.ВидСтрахования,
+//		Renault_АктСдачиПриемкиБСОБСО.СтраховойПолис.Подразделение,
+		Renault_АктСдачиПриемкиБСОБСО.СтраховойПолис.ТочкаПродаж
+//		Renault_АктСдачиПриемкиБСОБСО.СтраховойПолис.Отдел
+		) КАК ВложенныйЗапрос
+
+СГРУППИРОВАТЬ ПО
+	ВложенныйЗапрос.СтраховаяКомпания,
+	ВложенныйЗапрос.Акт,
+	ВложенныйЗапрос.ВидСтрахования,
+//	ЕСТЬNULL(ВложенныйЗапрос.СтраховойПолисПодразделение, "Нет данных"),
+	ЕСТЬNULL(ВложенныйЗапрос.СтраховойПолисТочкаПродаж, "Нет данных")
+//	ЕСТЬNULL(ВложенныйЗапрос.СтраховойПолисОтдел, "нет данных")</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Взнос</dataPath>
+		<expression>Сумма(Взнос)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВстречноеБордеро</dataPath>
+		<expression>Сумма(ВстречноеБордеро)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДВОУ</dataPath>
+		<expression>Сумма(ДВОУ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Бордеро</dataPath>
+		<expression>Сумма(Бордеро)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаИТОГО</dataPath>
+		<expression>Сумма(СуммаИТОГО)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>ВЫБОР КОГДА &amp;КонецПериода = ДАТАВРЕМЯ(1,1,1,0,0,0) ТОГДА ТЕКУЩАЯДАТА() ИНАЧЕ &amp;КонецПериода КОНЕЦ</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочкаПродаж</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяКомпания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Акт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Взнос</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Бордеро</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДВОУ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВстречноеБордеро</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаИТОГО</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СтраховаяКомпания</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>609b8136-ab9a-41ed-acde-8a98e718372a</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Акт</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>1296ea99-2c85-49a6-a131-86446aff7f28</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидСтрахования</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>804cf8c3-0ddb-40a0-aa26-ddd5831def0b</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>5b3fc035-6913-44f4-a018-7ce03864bae2</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Отдел</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>9e068b71-8556-4bd5-a905-6e6b86723670</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>ff46f40d-cada-4198-b1ee-ecd42b66a206</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>497933b0-0b90-4c17-b738-babf7746745a</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>СтраховаяКомпания</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Отдел</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Акт</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:use>false</dcsset:use>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТочкаПродаж</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд</dataPath>
+			<field>ЗаказНаряд</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ наряд</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХарактеристикаНоменклатуры</dataPath>
+			<field>ХарактеристикаНоменклатуры</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Характеристика</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерСтроки</dataPath>
+			<field>НомерСтроки</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВЫРАЗИТЬ(ЗаказыПокупателей.Заказ КАК Документ.ЗаказПокупателя) КАК ЗаказПокупателя,
+	ВЫРАЗИТЬ(ЗаказыПокупателей.Заказ КАК Документ.ЗаказПокупателя).ДокументОснование КАК ЗаказПокупателяДокументОснование,
+	ЗаказыПокупателей.Номенклатура,
+	ЗаказыПокупателей.ХарактеристикаНоменклатуры,
+	ЗаказыПокупателей.Резерв КАК Количество
+ПОМЕСТИТЬ ВТПоступлениеПоЗаказам
+ИЗ
+	РегистрНакопления.ЗаказыПокупателей КАК ЗаказыПокупателей
+ГДЕ
+	ЗаказыПокупателей.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+	И ЗаказыПокупателей.Регистратор = &amp;ДокПоступление
+	И ЗаказыПокупателей.ВидОперации = &amp;ВидОперации
+	И ЗаказыПокупателей.Заказ ССЫЛКА Документ.ЗаказПокупателя
+	И ЗаказыПокупателей.Резерв &gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МАКСИМУМ(ВЫБОР
+			КОГДА ВТПоступлениеПоЗаказам.ЗаказПокупателяДокументОснование ССЫЛКА Документ.ЗаказНаряд
+				ТОГДА ВТПоступлениеПоЗаказам.ЗаказПокупателяДокументОснование
+			КОГДА НЕ ЗаказНаряд.Ссылка ЕСТЬ NULL 
+				ТОГДА ЗаказНаряд.Ссылка
+			КОГДА НЕ Renault_CRM_ЗаявкаНаСервисСчетаНаОплату.Ссылка ЕСТЬ NULL 
+				ТОГДА Renault_CRM_ЗаявкаНаСервисСчетаНаОплату.Ссылка.ЗаказНаряд
+			ИНАЧЕ ЗНАЧЕНИЕ(Документ.ЗаказНаряд.ПустаяСсылка)
+		КОНЕЦ) КАК ЗаказНаряд,
+	ВТПоступлениеПоЗаказам.Номенклатура,
+	ВТПоступлениеПоЗаказам.ХарактеристикаНоменклатуры КАК Характеристика,
+	МАКСИМУМ(ВТПоступлениеПоЗаказам.Количество) КАК Количество
+ПОМЕСТИТЬ ВТ_ЗаказНаряды
+ИЗ
+	ВТПоступлениеПоЗаказам КАК ВТПоступлениеПоЗаказам
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд КАК ЗаказНаряд
+		ПО ВТПоступлениеПоЗаказам.ЗаказПокупателя = ЗаказНаряд.ДокументОснование
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.СчетНаОплату КАК ДокументСчетНаОплату
+		ПО ВТПоступлениеПоЗаказам.ЗаказПокупателя = ДокументСчетНаОплату.ДокументОснование
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_CRM_ЗаявкаНаСервис.СчетаНаОплату КАК Renault_CRM_ЗаявкаНаСервисСчетаНаОплату
+		ПО (ДокументСчетНаОплату.Ссылка = Renault_CRM_ЗаявкаНаСервисСчетаНаОплату.СчетНаОплату)
+
+СГРУППИРОВАТЬ ПО
+	ВТПоступлениеПоЗаказам.Номенклатура,
+	ВТПоступлениеПоЗаказам.ХарактеристикаНоменклатуры
+
+ИНДЕКСИРОВАТЬ ПО
+	ЗаказНаряд
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаказНарядТовары.Ссылка КАК ЗаказНаряд,
+	ЗаказНарядТовары.Номенклатура КАК Номенклатура,
+	ЗаказНарядТовары.ХарактеристикаНоменклатуры,
+	СУММА(ЗаказНарядТовары.Количество) КАК Количество
+ПОМЕСТИТЬ ВТ_ТоварыПоЗН
+ИЗ
+	ВТ_ЗаказНаряды КАК ВТ_ЗаказНаряды
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаряд.Товары КАК ЗаказНарядТовары
+		ПО ВТ_ЗаказНаряды.ЗаказНаряд = ЗаказНарядТовары.Ссылка
+			И ВТ_ЗаказНаряды.Номенклатура = ЗаказНарядТовары.Номенклатура
+			И ВТ_ЗаказНаряды.Характеристика = ЗаказНарядТовары.ХарактеристикаНоменклатуры
+
+СГРУППИРОВАТЬ ПО
+	ЗаказНарядТовары.Номенклатура,
+	ЗаказНарядТовары.ХарактеристикаНоменклатуры,
+	ЗаказНарядТовары.Ссылка
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПоступлениеТоваровТовары.НомерСтроки,
+	ПоступлениеТоваровТовары.Номенклатура КАК Номенклатура,
+	ПоступлениеТоваровТовары.ХарактеристикаНоменклатуры,
+	МАКСИМУМ(ПоступлениеТоваровТовары.Количество) КАК Количество,
+	СУММА(ЕСТЬNULL(ПоступлениеТоваровТоварыДО.Количество, 0)) КАК КоличествоДО
+ПОМЕСТИТЬ ВТ_ТоварыПоПоступлению
+ИЗ
+	Документ.ПоступлениеТоваров.Товары КАК ПоступлениеТоваровТовары
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваров.Товары КАК ПоступлениеТоваровТоварыДО
+		ПО ПоступлениеТоваровТовары.Ссылка = ПоступлениеТоваровТоварыДО.Ссылка
+			И ПоступлениеТоваровТовары.Номенклатура = ПоступлениеТоваровТоварыДО.Номенклатура
+			И ПоступлениеТоваровТовары.ХарактеристикаНоменклатуры = ПоступлениеТоваровТоварыДО.ХарактеристикаНоменклатуры
+			И ПоступлениеТоваровТовары.НомерСтроки &gt; ПоступлениеТоваровТоварыДО.НомерСтроки
+			И (ПоступлениеТоваровТоварыДО.Ссылка = &amp;ДокПоступление)
+ГДЕ
+	ПоступлениеТоваровТовары.Ссылка = &amp;ДокПоступление
+
+СГРУППИРОВАТЬ ПО
+	ПоступлениеТоваровТовары.Номенклатура,
+	ПоступлениеТоваровТовары.ХарактеристикаНоменклатуры,
+	ПоступлениеТоваровТовары.НомерСтроки
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ТоварыПоПоступлению.НомерСтроки,
+	ВТ_ТоварыПоПоступлению.Номенклатура,
+	ВТ_ТоварыПоПоступлению.ХарактеристикаНоменклатуры,
+	ВТ_ТоварыПоПоступлению.Количество,
+	ВЫБОР
+		КОГДА ВТ_ТоварыПоЗН.ЗаказНаряд ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Документ.ЗаказНаряд.ПустаяСсылка)
+		КОГДА ВТ_ТоварыПоПоступлению.КоличествоДО &gt;= ВТ_ТоварыПоЗН.Количество
+			ТОГДА ЗНАЧЕНИЕ(Документ.ЗаказНаряд.ПустаяСсылка)
+		ИНАЧЕ ВТ_ТоварыПоЗН.ЗаказНаряд
+	КОНЕЦ КАК ЗаказНаряд
+ИЗ
+	ВТ_ТоварыПоПоступлению КАК ВТ_ТоварыПоПоступлению
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ТоварыПоЗН КАК ВТ_ТоварыПоЗН
+		ПО ВТ_ТоварыПоПоступлению.Номенклатура = ВТ_ТоварыПоЗН.Номенклатура
+			И ВТ_ТоварыПоПоступлению.ХарактеристикаНоменклатуры = ВТ_ТоварыПоЗН.ХарактеристикаНоменклатуры</query>
+	</dataSet>
+	<parameter>
+		<name>ВидОперации</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид операции</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ВидыОперацийЗаказов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыОперацийЗаказов.Резервирование</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДокПоступление</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Док поступление</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеТоваров</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерСтроки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ХарактеристикаНоменклатуры</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаряд</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВидОперации</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыОперацийЗаказов.Резервирование</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">renault_ОсновнойМакетОформленияОтчета</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

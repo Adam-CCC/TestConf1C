@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СхемаОбзвона</dataPath>
+			<field>СхемаОбзвона</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоКлиентов</dataPath>
+			<field>КоличествоКлиентов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество клиентов</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Прочитано</dataPath>
+			<field>Прочитано</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочитано</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОшибкаОтправки</dataPath>
+			<field>ОшибкаОтправки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ошибка отправки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отправлено</dataPath>
+			<field>Отправлено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправлено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОжидаетОтправки</dataPath>
+			<field>ОжидаетОтправки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ожидает отправки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДобавленоВОчередь</dataPath>
+			<field>ДобавленоВОчередь</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавлено в очередь</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Клиент</dataPath>
+			<field>Клиент</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Email</dataPath>
+			<field>Email</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Email</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Renault_CommunicationCenter_Обзвон.СхемаОбзвона КАК СхемаОбзвона,
+	СУММА(ВЫБОР
+			КОГДА Renault_CommunicationCenter_Обзвон.ПисьмоПрочитано
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Прочитано,
+	СУММА(1) КАК КоличествоКлиентов,
+	СУММА(ВЫБОР
+			КОГДА Renault_CommunicationCenter_Обзвон.СтатусЭлПисьма = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыОтправкиПисем.ОжидаетОтправки)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОжидаетОтправки,
+	СУММА(ВЫБОР
+			КОГДА Renault_CommunicationCenter_Обзвон.СтатусЭлПисьма = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыОтправкиПисем.ДобавленоВОчередь)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ДобавленоВОчередь,
+	СУММА(ВЫБОР
+			КОГДА Renault_CommunicationCenter_Обзвон.СтатусЭлПисьма = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыОтправкиПисем.Отправлено)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Отправлено,
+	СУММА(ВЫБОР
+			КОГДА Renault_CommunicationCenter_Обзвон.СтатусЭлПисьма = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыОтправкиПисем.ОшибкаОтправки)
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОшибкаОтправки,
+	Renault_CommunicationCenter_Обзвон.Клиент КАК Клиент,
+	ЕСТЬNULL(КонтактнаяИнформация.Представление, "") КАК Email
+ИЗ
+	Документ.Renault_CommunicationCenter_Обзвон КАК Renault_CommunicationCenter_Обзвон
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КонтактнаяИнформация КАК КонтактнаяИнформация
+		ПО Renault_CommunicationCenter_Обзвон.Клиент = КонтактнаяИнформация.Объект
+			И (КонтактнаяИнформация.Тип = &amp;ТипЭлПисьмо)
+			И (КонтактнаяИнформация.ЗначениеПоУмолчанию = ИСТИНА)
+ГДЕ
+	Renault_CommunicationCenter_Обзвон.СхемаОбзвона = &amp;СхемаОбзвона
+
+СГРУППИРОВАТЬ ПО
+	Renault_CommunicationCenter_Обзвон.СхемаОбзвона,
+	Renault_CommunicationCenter_Обзвон.Клиент,
+	ЕСТЬNULL(КонтактнаяИнформация.Представление, "")
+
+УПОРЯДОЧИТЬ ПО
+	СхемаОбзвона,
+	Клиент</query>
+	</dataSet>
+	<totalField>
+		<dataPath>КоличествоКлиентов</dataPath>
+		<expression>Сумма(КоличествоКлиентов)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Прочитано</dataPath>
+		<expression>Сумма(Прочитано)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДобавленоВОчередь</dataPath>
+		<expression>Сумма(ДобавленоВОчередь)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОжидаетОтправки</dataPath>
+		<expression>Сумма(ОжидаетОтправки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Отправлено</dataPath>
+		<expression>Сумма(Отправлено)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОшибкаОтправки</dataPath>
+		<expression>Сумма(ОшибкаОтправки)</expression>
+	</totalField>
+	<parameter>
+		<name>СхемаОбзвона</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Схема обзвона</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Renault_CommunicationCenter_СхемыОбзвона</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТипЭлПисьмо</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип эл письмо</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.ТипыКонтактнойИнформации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыКонтактнойИнформации.АдресЭлектроннойПочты</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СхемаОбзвона</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Клиент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Email</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>E-mail</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоКлиентов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДобавленоВОчередь</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОжидаетОтправки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отправлено</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Прочитано</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОшибкаОтправки</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>СхемаОбзвона</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Клиент</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Email</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

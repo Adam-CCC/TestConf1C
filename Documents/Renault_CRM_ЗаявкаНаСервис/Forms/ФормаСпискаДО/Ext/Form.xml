@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Заявки на сервис ДО</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+				<Event name="BeforeRowChange">СписокПередНачаломИзменения</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="Дата" id="16">
+					<DataPath>Список.Дата</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<LabelField name="Номер" id="19">
+					<DataPath>Список.Номер</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<LabelField name="ДилерскийЦентр" id="22">
+					<DataPath>Список.ДилерскийЦентр</DataPath>
+					<ContextMenu name="ДилерскийЦентрКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ДилерскийЦентрРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="Автомобиль" id="25">
+					<DataPath>Список.Автомобиль</DataPath>
+					<ContextMenu name="АвтомобильКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="АвтомобильРасширеннаяПодсказка" id="27"/>
+				</LabelField>
+				<LabelField name="VIN" id="28">
+					<DataPath>Список.VIN</DataPath>
+					<ContextMenu name="VINКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="VINРасширеннаяПодсказка" id="30"/>
+				</LabelField>
+				<LabelField name="Состояние" id="31">
+					<DataPath>Список.Состояние</DataPath>
+					<ContextMenu name="СостояниеКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="СостояниеРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+				<LabelField name="ВидОбращения" id="34">
+					<DataPath>Список.ВидОбращения</DataPath>
+					<ContextMenu name="ВидОбращенияКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ВидОбращенияРасширеннаяПодсказка" id="36"/>
+				</LabelField>
+				<LabelField name="Примечание" id="37">
+					<DataPath>Список.Примечание</DataPath>
+					<ContextMenu name="ПримечаниеКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ПримечаниеРасширеннаяПодсказка" id="39"/>
+				</LabelField>
+				<LabelField name="Менеджер" id="40">
+					<DataPath>Список.Менеджер</DataPath>
+					<ContextMenu name="МенеджерКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="МенеджерРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументRenault_CRM_ЗаявкаНаСервис.Ссылка КАК Ссылка,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Номер КАК Номер,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Дата КАК Дата,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Проведен КАК Проведен,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ДилерскийЦентр КАК ДилерскийЦентр,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Автор КАК Автор,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Клиент КАК Клиент,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ВремяНачала КАК ВремяНачала,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ВремяОкончания КАК ВремяОкончания,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ГосНомер КАК ГосНомер,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Автомобиль КАК Автомобиль,
+	ДокументRenault_CRM_ЗаявкаНаСервис.VIN КАК VIN,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Упущена КАК Упущена,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Обращение КАК Обращение,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ХозОперация КАК ХозОперация,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Состояние КАК Состояние,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ЗаказНаряд КАК ЗаказНаряд,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СуммаРаботВсего КАК СуммаРаботВсего,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ОбщаяДлительность КАК ОбщаяДлительность,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СуммаЗапчастиВсего КАК СуммаЗапчастиВсего,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СохранятьЗамененныеЧасти КАК СохранятьЗамененныеЧасти,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Плательщик КАК Плательщик,
+	ДокументRenault_CRM_ЗаявкаНаСервис.КлиентЯвляетсяПлательщиком КАК КлиентЯвляетсяПлательщиком,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СуммаСкидкиРаботыВсего КАК СуммаСкидкиРаботыВсего,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СуммаСкидкиЗапчастиВсего КАК СуммаСкидкиЗапчастиВсего,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Карточка КАК Карточка,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СтоимостьВсего КАК СтоимостьВсего,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ВидРемонта КАК ВидРемонта,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СуммаДокумента КАК СуммаДокумента,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Внутренний КАК Внутренний,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Нормочас КАК Нормочас,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Спас КАК Спас,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ТипЦен КАК ТипЦен,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ЖелаемаяДата КАК ЖелаемаяДата,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ПроцентСкидкиОбщий КАК ПроцентСкидкиОбщий,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СуммаСкидкиВсего КАК СуммаСкидкиВсего,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ЗапчастиОплатаБаллами КАК ЗапчастиОплатаБаллами,
+	ДокументRenault_CRM_ЗаявкаНаСервис.РаботыОплатаБаллами КАК РаботыОплатаБаллами,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ЗаказПокупателя КАК ЗаказПокупателя,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ПрограммаЛояльности КАК ПрограммаЛояльности,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ВидОплаты КАК ВидОплаты,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ДоговорНаПродажуАвтомобиля КАК ДоговорНаПродажуАвтомобиля,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СтатусПодготовкиКПродаже КАК СтатусПодготовкиКПродаже,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ЗаполнитьДополнительноеОборудование КАК ЗаполнитьДополнительноеОборудование,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ВидОбращения КАК ВидОбращения,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Примечание КАК Примечание,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ТипПривязкиДоповКАвтомобилям КАК ТипПривязкиДоповКАвтомобилям,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Менеджер КАК Менеджер,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ПредложеноТакси КАК ПредложеноТакси,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ПредложенПодменныйАвтомобиль КАК ПредложенПодменныйАвтомобиль,
+	ДокументRenault_CRM_ЗаявкаНаСервис.КомментарииМенеджера КАК КомментарииМенеджера,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Работы.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Работа КАК Работа,
+		Длительность КАК Длительность,
+		Машиноместо КАК Машиноместо,
+		ВремяНачала КАК ВремяНачала,
+		ВремяОкончания КАК ВремяОкончания,
+		Нормочас КАК Нормочас,
+		Цена КАК Цена,
+		Сумма КАК Сумма,
+		ИдентификаторРаботы КАК ИдентификаторРаботы,
+		ДлительностьЗН КАК ДлительностьЗН,
+		IDРаботы КАК IDРаботы,
+		Скидка КАК Скидка,
+		ПроцентСкидки КАК ПроцентСкидки,
+		СуммаСкидки КАК СуммаСкидки,
+		Коэффициент КАК Коэффициент,
+		ЭтоАкция КАК ЭтоАкция,
+		DMS_СуммаБонусныхБаллов КАК DMS_СуммаБонусныхБаллов,
+		Акция КАК Акция
+	) КАК Работы,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Товары.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Номенклатура КАК Номенклатура,
+		Количество КАК Количество,
+		Цена КАК Цена,
+		Сумма КАК Сумма,
+		ВНаличииУКлиента КАК ВНаличииУКлиента,
+		Скидка КАК Скидка,
+		ПроцентСкидки КАК ПроцентСкидки,
+		СуммаСкидки КАК СуммаСкидки,
+		ОстатокНаСкладе КАК ОстатокНаСкладе,
+		ЭтоАкция КАК ЭтоАкция,
+		DMS_СуммаБонусныхБаллов КАК DMS_СуммаБонусныхБаллов,
+		Акция КАК Акция
+	) КАК Товары,
+	ДокументRenault_CRM_ЗаявкаНаСервис.Этапы.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Этап КАК Этап,
+		ДлительностьЭтапаПлан КАК ДлительностьЭтапаПлан,
+		ДлительностьЭтапаФакт КАК ДлительностьЭтапаФакт,
+		НачалоЭтапа КАК НачалоЭтапа,
+		КонецЭтапа КАК КонецЭтапа,
+		Цех КАК Цех,
+		СтатусЭтапа КАК СтатусЭтапа,
+		IDЭтапа КАК IDЭтапа,
+		НачалоЭтапаФакт КАК НачалоЭтапаФакт,
+		КонецЭтапаФакт КАК КонецЭтапаФакт
+	) КАК Этапы,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СоставЭтапа.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Работа КАК Работа,
+		IDРаботы КАК IDРаботы,
+		IDЭтапа КАК IDЭтапа
+	) КАК СоставЭтапа,
+	ДокументRenault_CRM_ЗаявкаНаСервис.СчетаНаОплату.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		СчетНаОплату КАК СчетНаОплату,
+		ЭтоСчетНаТовары КАК ЭтоСчетНаТовары,
+		ЭтоСчетНаРаботы КАК ЭтоСчетНаРаботы,
+		ЭтоОбщийСчет КАК ЭтоОбщийСчет
+	) КАК СчетаНаОплату,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ДополнительноеОборудование.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Оборудование КАК Оборудование,
+		ЦенаДляКлиента КАК ЦенаДляКлиента,
+		Себестоимость КАК Себестоимость,
+		Количество КАК Количество,
+		СебестоимостьСумма КАК СебестоимостьСумма,
+		ЦенаДляКлиентаСумма КАК ЦенаДляКлиентаСумма
+	) КАК ДополнительноеОборудование,
+	ДокументRenault_CRM_ЗаявкаНаСервис.ВыполнениеРабот.(
+		Ссылка КАК Ссылка,
+		НомерСтроки КАК НомерСтроки,
+		Исполнитель КАК Исполнитель,
+		Этап КАК Этап,
+		Длительность КАК Длительность,
+		Выполняется КАК Выполняется
+	) КАК ВыполнениеРабот,
+	ДокументRenault_CRM_ЗаявкаНаСервис.МоментВремени КАК МоментВремени
+ИЗ
+	Документ.Renault_CRM_ЗаявкаНаСервис КАК ДокументRenault_CRM_ЗаявкаНаСервис
+ГДЕ
+	ДокументRenault_CRM_ЗаявкаНаСервис.ВидРемонта В(&amp;ВидыРемонта)</QueryText>
+				<MainTable>Document.Renault_CRM_ЗаявкаНаСервис</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="Параметр1">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

@@ -1,0 +1,1570 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Запрос</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВизитыПоИтогам</dataPath>
+			<field>ВизитыПоИтогам</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выдачи</dataPath>
+			<field>Выдачи</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контракты</dataPath>
+			<field>Контракты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПТ</dataPath>
+			<field>ПТ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПТВ</dataPath>
+			<field>ПТВ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПТЗ</dataPath>
+			<field>ПТЗ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФПК</dataPath>
+			<field>ФПК</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФПКВ</dataPath>
+			<field>ФПКВ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФПКЗ</dataPath>
+			<field>ФПКЗ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТестДрайвы</dataPath>
+			<field>ТестДрайвы</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФПКЗСС</dataPath>
+			<field>ФПКЗСС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФПККС</dataPath>
+			<field>ФПККС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПТЗСС</dataPath>
+			<field>ПТЗСС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПТВПовт</dataPath>
+			<field>ПТВПовт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПТЗПовт</dataPath>
+			<field>ПТЗПовт</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИсходящиеЗвонки</dataPath>
+			<field>ИсходящиеЗвонки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПТКС</dataPath>
+			<field>ПТКС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасторжениеКонтракта</dataPath>
+			<field>РасторжениеКонтракта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расторжение контракта</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	РабочийЛист.Ссылка,
+	РабочийЛист.Проведен,
+	РабочийЛист.ВидКонтакта,
+	РабочийЛист.Организация,
+	РабочийЛист.ПодразделениеКомпании,
+	РабочийЛист.ТипРабочегоЛиста,
+	РабочийЛист.ТрейдИн,
+	РабочийЛист.Статус,
+	РабочийЛист.Реклама,
+	РабочийЛист.ПредставлениеТелефона,
+	РабочийЛист.Контрагент,
+	РабочийЛист.КлиентСервиса,
+	РабочийЛист.Менеджер,
+	РабочийЛист.Дата
+ПОМЕСТИТЬ РабочиеЛисты
+ИЗ
+	Документ.РабочийЛист КАК РабочийЛист
+ГДЕ
+	РабочийЛист.Дата МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+	И РабочийЛист.Проведен
+	И НЕ РабочийЛист.ПометкаУдаления
+	И ВЫБОР
+			КОГДА &amp;ТолькоСПробегом
+				ТОГДА РабочийЛист.Модель.Наименование ПОДОБНО "%б/у%"
+						ИЛИ РабочийЛист.Модель.Наименование ПОДОБНО "%Б/У%"
+						ИЛИ РабочийЛист.Модель.Наименование ПОДОБНО "%пробег%"
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА &amp;ТолькоНовые
+				ТОГДА НЕ(РабочийЛист.Модель.Наименование ПОДОБНО "%б/у%"
+							ИЛИ РабочийЛист.Модель.Наименование ПОДОБНО "%Б/У%"
+							ИЛИ РабочийЛист.Модель.Наименование ПОДОБНО "%пробег%")
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Событие.Ссылка,
+	Событие.ВидСобытия,
+	Событие.ДатаНачала,
+	Событие.ДатаОкончания,
+	Событие.ДокументОснование,
+	Событие.Организация,
+	Событие.ПодразделениеКомпании,
+	Событие.Состояние,
+	Событие.ТипСообщения,
+	Событие.ЕстьПриемПоТрэйдИн,
+	Событие.Результат,
+	Событие.Решение,
+	Событие.Продавец КАК Менеджер,
+	Событие.ДатаОкончания КАК Дата
+ПОМЕСТИТЬ События
+ИЗ
+	Документ.Событие КАК Событие
+ГДЕ
+	Событие.ДатаОкончания МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+	И Событие.Состояние = ЗНАЧЕНИЕ(Перечисление.СостоянияСобытий.Завершено)
+	И Событие.Проведен
+	И НЕ Событие.ПометкаУдаления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РегистрацияЗвонковИКонтактов.Организация,
+	РегистрацияЗвонковИКонтактов.Подразделение,
+	РегистрацияЗвонковИКонтактов.ВидКонтакта,
+	РегистрацияЗвонковИКонтактов.Реклама,
+	РегистрацияЗвонковИКонтактов.ВторичныйКонтакт,
+	РегистрацияЗвонковИКонтактов.КлиентСервиса,
+	РегистрацияЗвонковИКонтактов.Участник КАК Менеджер,
+	РегистрацияЗвонковИКонтактов.ПредметОбращения,
+	РегистрацияЗвонковИКонтактов.ДатаВремя КАК ДатаВремя,
+	РегистрацияЗвонковИКонтактов.ДатаДень
+ПОМЕСТИТЬ ВходящиеКонтакты
+ИЗ
+	РегистрСведений.РегистрацияЗвонковИКонтактов КАК РегистрацияЗвонковИКонтактов
+ГДЕ
+	РегистрацияЗвонковИКонтактов.ТипСообщения = ЗНАЧЕНИЕ(Перечисление.ТипыСообщений.Входящее)
+	И РегистрацияЗвонковИКонтактов.ДатаДень МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+	И ВЫБОР
+			КОГДА &amp;ТолькоСПробегом
+				ТОГДА РегистрацияЗвонковИКонтактов.Модель.Наименование ПОДОБНО "%б/у%"
+						ИЛИ РегистрацияЗвонковИКонтактов.Модель.Наименование ПОДОБНО "%Б/У%"
+						ИЛИ РегистрацияЗвонковИКонтактов.Модель.Наименование ПОДОБНО "%пробег%"
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА &amp;ТолькоНовые
+				ТОГДА НЕ(РегистрацияЗвонковИКонтактов.Модель.Наименование ПОДОБНО "%б/у%"
+							ИЛИ РегистрацияЗвонковИКонтактов.Модель.Наименование ПОДОБНО "%Б/У%"
+							ИЛИ РегистрацияЗвонковИКонтактов.Модель.Наименование ПОДОБНО "%пробег%")
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РабочиеЛисты.Организация КАК Организация,
+	РабочиеЛисты.ПодразделениеКомпании КАК Подразделение,
+	РабочиеЛисты.Менеджер КАК Менеджер,
+	1 КАК ФПК,
+	ВЫБОР
+		КОГДА РабочиеЛисты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК ФПКЗ,
+	ВЫБОР
+		КОГДА РабочиеЛисты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЗаявкаССайта)
+				ИЛИ РабочиеЛисты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЭлектронноеПисьмо)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК ФПКЗСС,
+	ВЫБОР
+		КОГДА РабочиеЛисты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК ФПКВ,
+	ВЫБОР
+		КОГДА РабочиеЛисты.КлиентСервиса
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК ФПККС,
+	0 КАК ПТ,
+	0 КАК ПТЗ,
+	0 КАК ПТЗПовт,
+	0 КАК ПТЗСС,
+	0 КАК ПТВ,
+	0 КАК ПТВПовт,
+	0 КАК ПТКС,
+	0 КАК ВизитыПоИтогам,
+	ВЫБОР
+		КОГДА РабочиеЛисты.Статус = ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Сделка)
+				ИЛИ РабочиеЛисты.Статус = ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Продажа)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК Контракты,
+	0 КАК ТестДрайвы,
+	0 КАК Выдачи,
+	0 КАК ИсходящиеЗвонки,
+	0 КАК РасторжениеКонтракта,
+	РабочиеЛисты.Дата
+ИЗ
+	РабочиеЛисты КАК РабочиеЛисты
+ГДЕ
+	ВЫБОР
+			КОГДА ПОДСТРОКА(РабочиеЛисты.ПредставлениеТелефона, 1, 5) = РабочиеЛисты.ПредставлениеТелефона
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+	И ВЫБОР
+			КОГДА РабочиеЛисты.Контрагент = НЕОПРЕДЕЛЕНО
+					ИЛИ РабочиеЛисты.Контрагент = ""
+					ИЛИ РабочиеЛисты.Контрагент = ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка)
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+
+СГРУППИРОВАТЬ ПО
+	РабочиеЛисты.Организация,
+	РабочиеЛисты.ПодразделениеКомпании,
+	РабочиеЛисты.Менеджер,
+	ВЫБОР
+		КОГДА РабочиеЛисты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА РабочиеЛисты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА РабочиеЛисты.КлиентСервиса
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА РабочиеЛисты.Статус = ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Сделка)
+				ИЛИ РабочиеЛисты.Статус = ЗНАЧЕНИЕ(Справочник.СтатусыРабочегоЛиста.Продажа)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	РабочиеЛисты.Дата,
+	ВЫБОР
+		КОГДА РабочиеЛисты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЗаявкаССайта)
+				ИЛИ РабочиеЛисты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЭлектронноеПисьмо)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВходящиеКонтакты.Организация,
+	ВходящиеКонтакты.Подразделение,
+	ВходящиеКонтакты.Менеджер,
+	0,
+	0,
+	0,
+	0,
+	0,
+	1,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+				И НЕ ВходящиеКонтакты.ВторичныйКонтакт
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+				И ВходящиеКонтакты.ВторичныйКонтакт
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЗаявкаССайта)
+				ИЛИ ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЭлектронноеПисьмо)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+				И НЕ ВходящиеКонтакты.ВторичныйКонтакт
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+				И ВходящиеКонтакты.ВторичныйКонтакт
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ПредметОбращения = ЗНАЧЕНИЕ(Справочник.ПредметыОбращения.Сервис)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	ВходящиеКонтакты.ДатаВремя
+ИЗ
+	ВходящиеКонтакты КАК ВходящиеКонтакты
+
+СГРУППИРОВАТЬ ПО
+	ВходящиеКонтакты.Организация,
+	ВходящиеКонтакты.Подразделение,
+	ВходящиеКонтакты.Менеджер,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+				И НЕ ВходящиеКонтакты.ВторичныйКонтакт
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+				И ВходящиеКонтакты.ВторичныйКонтакт
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+				И НЕ ВходящиеКонтакты.ВторичныйКонтакт
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+				И ВходящиеКонтакты.ВторичныйКонтакт
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ПредметОбращения = ЗНАЧЕНИЕ(Справочник.ПредметыОбращения.Сервис)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЗаявкаССайта)
+				ИЛИ ВходящиеКонтакты.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЭлектронноеПисьмо)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВходящиеКонтакты.ДатаВремя
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	События.Организация,
+	События.ПодразделениеКомпании,
+	События.Менеджер,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+				И ПОДСТРОКА(ЕСТЬNULL(События.Результат, ""), 1, 1) &lt;&gt; ""
+				И (События.Решение = ЗНАЧЕНИЕ(Перечисление.ВариантыОтветов.Да)
+					ИЛИ События.Решение = ЗНАЧЕНИЕ(Перечисление.ВариантыОтветов.Нет))
+				И События.ДокументОснование ССЫЛКА Документ.РабочийЛист
+				И (События.ДокументОснование.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+					ИЛИ События.ДокументОснование.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЗаявкаССайта)
+					ИЛИ События.ДокументОснование.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЭлектронноеПисьмо))
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	0,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТестДрайв)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ВыдачаАвтомобиля)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+				И События.ДокументОснование ССЫЛКА Документ.РабочийЛист
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ОтказОтАвтомобиля)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	События.ДатаОкончания
+ИЗ
+	События КАК События
+
+СГРУППИРОВАТЬ ПО
+	События.Организация,
+	События.ПодразделениеКомпании,
+	События.Менеджер,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЛичнаяВстреча)
+				И ПОДСТРОКА(ЕСТЬNULL(События.Результат, ""), 1, 1) &lt;&gt; ""
+				И (События.Решение = ЗНАЧЕНИЕ(Перечисление.ВариантыОтветов.Да)
+					ИЛИ События.Решение = ЗНАЧЕНИЕ(Перечисление.ВариантыОтветов.Нет))
+				И События.ДокументОснование ССЫЛКА Документ.РабочийЛист
+				И (События.ДокументОснование.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+					ИЛИ События.ДокументОснование.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЗаявкаССайта)
+					ИЛИ События.ДокументОснование.ВидКонтакта = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ЭлектронноеПисьмо))
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТестДрайв)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ВыдачаАвтомобиля)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ТелефонныйЗвонок)
+				И События.ДокументОснование ССЫЛКА Документ.РабочийЛист
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА События.ВидСобытия = ЗНАЧЕНИЕ(Перечисление.ВидыСобытий.ОтказОтАвтомобиля)
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ,
+	События.ДатаОкончания</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ВизитыПоИтогам</dataPath>
+		<expression>Сумма(ВизитыПоИтогам)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Выдачи</dataPath>
+		<expression>Сумма(Выдачи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Контракты</dataPath>
+		<expression>Сумма(Контракты)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПТ</dataPath>
+		<expression>Сумма(ПТ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПТВ</dataPath>
+		<expression>Сумма(ПТВ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПТЗ</dataPath>
+		<expression>Сумма(ПТЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТестДрайвы</dataPath>
+		<expression>Сумма(ТестДрайвы)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФПК</dataPath>
+		<expression>Сумма(ФПК)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФПКВ</dataPath>
+		<expression>Сумма(ФПКВ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФПКЗ</dataPath>
+		<expression>Сумма(ФПКЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФПКЗСС</dataPath>
+		<expression>Сумма(ФПКЗСС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФПККС</dataPath>
+		<expression>Сумма(ФПККС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПТЗСС</dataPath>
+		<expression>Сумма(ПТЗСС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПТВПовт</dataPath>
+		<expression>Сумма(ПТВПовт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПТЗПовт</dataPath>
+		<expression>Сумма(ПТЗПовт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИсходящиеЗвонки</dataPath>
+		<expression>Сумма(ИсходящиеЗвонки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПТКС</dataPath>
+		<expression>Сумма(ПТКС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасторжениеКонтракта</dataPath>
+		<expression>Сумма(РасторжениеКонтракта)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТолькоНовые</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Только новые</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТолькоСПробегом</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Только с пробегом</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КОВЗ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПТЗ = 0
+		Тогда 0
+	Иначе ФПКЗ / ПТЗ * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПТЗ = 0
+		Тогда 0
+	Иначе ФПКЗ / ПТЗ * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПТЗ = 0
+		Тогда 0
+	Иначе ФПКЗ / ПТЗ * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПТЗ = 0
+		Тогда 0
+	Иначе ФПКЗ / ПТЗ * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле3</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КОВ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПТВ = 0
+		Тогда 0
+	Иначе ФПКВ / ПТВ * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПТВ = 0
+		Тогда 0
+	Иначе ФПКВ / ПТВ * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПТВ = 0
+		Тогда 0
+	Иначе ФПКВ / ПТВ * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПТВ = 0
+		Тогда 0
+	Иначе ФПКВ / ПТВ * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле4</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КОКС</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПТКС = 0
+		Тогда 0
+	Иначе ФПККС / ПТКС * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПТКС = 0
+		Тогда 0
+	Иначе ФПККС / ПТКС * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПТКС = 0
+		Тогда 0
+	Иначе ФПККС / ПТКС * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПТКС = 0
+		Тогда 0
+	Иначе ФПККС / ПТКС * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле6</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КЭПДП</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПТВ = 0
+		Тогда 0
+	Иначе ТестДрайвы / ПТВ * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПТВ = 0
+		Тогда 0
+	Иначе [Тест драйвы] / ПТВ * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПТВ = 0
+		Тогда 0
+	Иначе ТестДрайвы / ПТВ * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПТВ = 0
+		Тогда 0
+	Иначе [Тест драйвы] / ПТВ * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле7</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КТДвЗК</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ТестДрайвы = 0
+		Тогда 0
+	Иначе Контракты / ТестДрайвы * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Тест драйвы] = 0
+		Тогда 0
+	Иначе Контракты / [Тест драйвы] * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ТестДрайвы = 0
+		Тогда 0
+	Иначе Контракты / ТестДрайвы * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда [Тест драйвы] = 0
+		Тогда 0
+	Иначе Контракты / [Тест драйвы] * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле8</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КФПКвЗК</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ФПКЗ + ПТВ + ФПКЗСС = 0
+		Тогда 0
+	Иначе Контракты / (ФПКЗ + ПТВ + ФПКЗСС) * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ФПКЗ + ПТВ + ФПКЗСС = 0
+		Тогда 0
+	Иначе Контракты / (ФПКЗ + ПТВ + ФПКЗСС) * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ФПКЗ + ПТВ + ФПКЗСС = 0
+		Тогда 0
+	Иначе Контракты / (ФПКЗ + ПТВ + ФПКЗСС) * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ФПКЗ + ПТВ + ФПКЗСС = 0
+		Тогда 0
+	Иначе Контракты / (ФПКЗ + ПТВ + ФПКЗСС) * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле9</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КЗКвВА</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда Контракты = 0
+		Тогда 0
+	Иначе Выдачи / Контракты * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда Контракты = 0
+		Тогда 0
+	Иначе Выдачи / Контракты * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда Контракты = 0
+		Тогда 0
+	Иначе Выдачи / Контракты * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда Контракты = 0
+		Тогда 0
+	Иначе Выдачи / Контракты * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле10</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КТДвВА</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ТестДрайвы = 0
+		Тогда 0
+	Иначе Выдачи / ТестДрайвы * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Тест драйвы] = 0
+		Тогда 0
+	Иначе Выдачи / [Тест драйвы] * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ТестДрайвы = 0
+		Тогда 0
+	Иначе Выдачи / ТестДрайвы * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда [Тест драйвы] = 0
+		Тогда 0
+	Иначе Выдачи / [Тест драйвы] * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле11</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КФПКвВА</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ФПКЗ + ФПКВ + ФПКЗСС = 0
+		Тогда 0
+	Иначе Выдачи / (ФПКЗ + ФПКВ + ФПКЗСС) * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ФПКЗ + ФПКВ + ФПКЗСС = 0
+		Тогда 0
+	Иначе Выдачи / (ФПКЗ + ФПКВ + ФПКЗСС) * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ФПКЗ + ФПКВ + ФПКЗСС = 0
+		Тогда 0
+	Иначе Выдачи / (ФПКЗ + ФПКВ + ФПКЗСС) * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ФПКЗ + ФПКВ + ФПКЗСС = 0
+		Тогда 0
+	Иначе Выдачи / (ФПКЗ + ФПКВ + ФПКЗСС) * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле12</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ВсегоФПК</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ФПКЗ + ФПКВ + ФПКЗСС</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ФПКЗ + ФПКВ + ФПКЗСС</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ФПКЗ + ФПКВ + ФПКЗСС</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ФПКЗ + ФПКВ + ФПКЗСС</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле2</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КОИО</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПТЗСС = 0
+		Тогда 0
+	Иначе ФПКЗСС / ПТЗСС * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПТЗСС = 0
+		Тогда 0
+	Иначе ФПКЗСС / ПТЗСС * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПТЗСС = 0
+		Тогда 0
+	Иначе ФПКЗСС / ПТЗСС * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПТЗСС = 0
+		Тогда 0
+	Иначе ФПКЗСС / ПТЗСС * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле5</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КЭНВ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ФПКЗ + ФПКЗСС = 0
+		Тогда 0
+	Иначе ПТВ / (ФПКЗ + ФПКЗСС) * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ФПКЗ + ФПКЗСС = 0
+		Тогда 0
+	Иначе ПТВ / (ФПКЗ + ФПКЗСС) * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ФПКЗ + ФПКЗСС = 0
+		Тогда 0
+	Иначе ПТВ / (ФПКЗ + ФПКЗСС) * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ФПКЗ + ФПКЗСС = 0
+		Тогда 0
+	Иначе ПТВ / (ФПКЗ + ФПКЗСС) * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле13</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ВсегоПТЗ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ПТЗ + ПТЗПовт</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ПТЗ + ПТЗПовт</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ПТЗ + ПТЗПовт</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ПТЗ + ПТЗПовт</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле14</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ВсегоПТВ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ПТВ + ПТВПовт + ПТЗСС</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ПТВ + ПТВПовт + ПТЗСС</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ПТВ + ПТВПовт + ПТЗСС</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ПТВ + ПТВПовт + ПТЗСС</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле15</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КФПКвКС</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ФПККС = 0
+		Тогда 0
+	Иначе Контракты / ФПККС * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ФПККС = 0
+		Тогда 0
+	Иначе Контракты / ФПККС * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ФПККС = 0
+		Тогда 0
+	Иначе Контракты / ФПККС * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ФПККС = 0
+		Тогда 0
+	Иначе Контракты / ФПККС * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле16</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КФПККСвВА</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ФПККС = 0
+		Тогда 0
+	Иначе Выдачи / ФПККС * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ФПККС = 0
+		Тогда 0
+	Иначе Выдачи / ФПККС * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ФПККС = 0
+		Тогда 0
+	Иначе Выдачи / ФПККС * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ФПККС = 0
+		Тогда 0
+	Иначе Выдачи / ФПККС * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле17</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>SR</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПТЗ + ПТВ + ПТЗСС = 0
+		Тогда 0
+	Иначе Контракты / (ПТЗ + ПТВ + ПТЗСС) * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПТЗ + ПТВ + ПТЗСС = 0
+		Тогда 0
+	Иначе Контракты / (ПТЗ + ПТВ + ПТЗСС) * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПТЗ + ПТВ + ПТЗСС = 0
+		Тогда 0
+	Иначе Контракты / (ПТЗ + ПТВ + ПТЗСС) * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПТЗ + ПТВ + ПТЗСС = 0
+		Тогда 0
+	Иначе Контракты / (ПТЗ + ПТВ + ПТЗСС) * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле18</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Процент расторжений</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда Контракты = 0
+		Тогда 0
+	Иначе РасторжениеКонтракта / Контракты * 100
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда Контракты = 0
+		Тогда 0
+	Иначе [Расторжение контракта] / Контракты * 100
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда Контракты = 0
+		Тогда 0
+	Иначе РасторжениеКонтракта / Контракты * 100
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда Контракты = 0
+		Тогда 0
+	Иначе [Расторжение контракта] / Контракты * 100
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+			</dcsset:userFields>
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящие звонки</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле13</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПТЗ</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Первичные</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПТЗПовт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Повторные</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Визиты</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле14</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПТВ</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Первичные</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПТВПовт</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Повторные</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПТЗСС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Заявки с сайта</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПТКС</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Клиенты сервиса</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИсходящиеЗвонки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ФПК</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле12</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ФПКЗ</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Звонки</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ФПКВ</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Визиты</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ФПКЗСС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Заявки с сайта</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ФПККС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Клиенты сервиса</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТестДрайвы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контракты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПользовательскиеПоля.Поле17</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РасторжениеКонтракта</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПользовательскиеПоля.Поле18</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Выдачи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коэффициенты обработки (%)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле1</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Звонков</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле3</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Визитов</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле2</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Заявок с сайта</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле4</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Клиенты сервиса</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коэффициенты эффективности (%)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле5</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Назн. встреч</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле6</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тест-драйвов</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Конверсии в контракты (%)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле7</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тест-драйвов</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле8</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>ФПК</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле15</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Клиенты сервиса</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Конверсии в выдачи (%)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле9</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Контрактов</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле10</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Тест-драйвов</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле11</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>ФПК</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПользовательскиеПоля.Поле16</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Клиенты сервиса</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение.ДилерскийЦентр</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТолькоНовые</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТолькоСПробегом</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле1</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле2</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле3</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле4</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле5</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле6</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле7</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле8</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле9</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле10</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле11</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле15</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле16</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле17</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПользовательскиеПоля.Поле18</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Подразделение.ДилерскийЦентр</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Менеджер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Дата</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:template match="/">
+        <ValueTable xmlns="http://v8.1c.ru/8.1/data/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <column>
+                <Name xsi:type="xs:string">Номенклатура</Name>
+                <ValueType/>
+            </column> 
+            <column>
+                <Name xsi:type="xs:string">Количество</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">НалоговаяСтавка</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">НомерСтроки</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">ОКЕИТовара</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">СтоимостьБезНДС</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">СтоимостьСНДС</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">ЦенаНоменклатуры</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">АртикулНоменклатуры</Name>
+                <ValueType/>
+            </column> 
+            <column>
+                <Name xsi:type="xs:string">КодНоменклатуры</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">СтранаПроизводительНоменклатуры</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">ЕдиницаИзмеренияНоменклатуры</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">Маркировка</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">ДанныеИнфПолФХЖ2</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">КодСтраныПроизводителяНоменклатуры1</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">КодСтраныПроизводителяНоменклатуры2</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">ГТД</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">ГТДДоп</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">ГТДДопКодСтраны</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">ГТДКодСтраны</Name>
+                <ValueType/>
+            </column>
+
+            <xsl:for-each select="//СведТов">
+                    <row>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@НаимТов"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@КолТов"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@НалСт"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@НомСтр"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@ОКЕИ_Тов"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@СтТовБезНДС"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@СтТовУчНал"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@ЦенаТов"/>
+                        </Value>
+                         <Value xsi:type="xs:string">
+                            <xsl:value-of select="ДопСведТов/@АртикулТов"/>
+                        </Value>
+                         <Value xsi:type="xs:string">
+                            <xsl:value-of select="ДопСведТов/@КодТов"/>
+                        </Value>
+                         <Value xsi:type="xs:string">
+                            <xsl:value-of select="ДопСведТов/@КрНаимСтрПр"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="ДопСведТов/@НаимЕдИзм"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                        <xsl:for-each select="ДопСведТов/НомСредИдентТов/КИЗ">
+                            <xsl:value-of select="."/>
+                            <xsl:text>&#xA;</xsl:text> 
+                        </xsl:for-each>    
+                        </Value> 
+                        <Value xsi:type="xs:string">
+                        <xsl:for-each select="ИнфПолФХЖ2">
+                            <xsl:value-of select="@Идентиф"/>
+                            <xsl:text>=</xsl:text> 
+                            <xsl:value-of select="@Значен"/>
+                            <xsl:text>&#xA;</xsl:text>                     
+                        </xsl:for-each>    
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="СвТД/@КодПроисх"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="//Файл/Документ/СвСчФакт/@КодОКВ"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="СвТД/@НомерТД"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="СвДТ/@НомерДТ"/>
+                        </Value>
+                         <Value xsi:type="xs:string">
+                            <xsl:value-of select="СвДТ/@КодПроисх"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="СвТД/@КодПроисх"/>
+                        </Value>                       
+                    </row>  
+            </xsl:for-each>
+        </ValueTable>
+    </xsl:template>
+</xsl:stylesheet>

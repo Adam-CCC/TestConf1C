@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Сохранить" id="38">
+				<Type>CommandBarButton</Type>
+				<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+				<CommandName>Form.Command.Сохранить</CommandName>
+				<ExtendedTooltip name="СохранитьРасширеннаяПодсказка" id="39"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="Декорация1" id="40">
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выберите блокирующий фактор для подготовки выдачи автомобиля клиенту.</v8:content>
+				</v8:item>
+			</Title>
+			<TitleHeight>1</TitleHeight>
+			<ContextMenu name="Декорация1КонтекстноеМеню" id="41"/>
+			<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="42"/>
+		</LabelDecoration>
+		<Table name="СписокАвтомобилей" id="1">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>СписокАвтомобилей</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Find</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+			</CommandSet>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокАвтомобилейКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокАвтомобилейКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="СписокАвтомобилейРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокАвтомобилейСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>СписокАвтомобилей</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокАвтомобилейСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокАвтомобилейСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокАвтомобилейСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>СписокАвтомобилей</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокАвтомобилейСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокАвтомобилейСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокАвтомобилейУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>СписокАвтомобилей</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокАвтомобилейУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокАвтомобилейУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeAddRow">СписокАвтомобилейПередНачаломДобавления</Event>
+				<Event name="BeforeDeleteRow">СписокАвтомобилейПередУдалением</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="СписокАвтомобилейVIN" id="14">
+					<DataPath>СписокАвтомобилей.VIN</DataPath>
+					<Enabled>false</Enabled>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокАвтомобилейVINКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СписокАвтомобилейVINРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<InputField name="СписокАвтомобилейМодель" id="20">
+					<DataPath>СписокАвтомобилей.Модель</DataPath>
+					<Enabled>false</Enabled>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокАвтомобилейМодельКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокАвтомобилейМодельРасширеннаяПодсказка" id="22"/>
+				</InputField>
+				<InputField name="СписокАвтомобилейКомплектация" id="23">
+					<DataPath>СписокАвтомобилей.Версия</DataPath>
+					<Enabled>false</Enabled>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокАвтомобилейКомплектацияКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="СписокАвтомобилейКомплектацияРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<CheckBoxField name="СписокАвтомобилейСмогуВыдат" id="26">
+					<DataPath>СписокАвтомобилей.СмогуВыдат</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Факторов нет</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СписокАвтомобилейСмогуВыдатКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СписокАвтомобилейСмогуВыдатРасширеннаяПодсказка" id="28"/>
+					<Events>
+						<Event name="OnChange">СписокАвтомобилейСмогуВыдатПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="СписокАвтомобилейПричинаНеВыдачи" id="29">
+					<DataPath>СписокАвтомобилей.ПричинаНеВыдачи</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выберите фактор</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>Directly</EditMode>
+					<DropListButton>true</DropListButton>
+					<ChoiceButton>false</ChoiceButton>
+					<ClearButton>false</ClearButton>
+					<OpenButton>false</OpenButton>
+					<CreateButton>false</CreateButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ContextMenu name="СписокАвтомобилейПричинаНеВыдачиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СписокАвтомобилейПричинаНеВыдачиРасширеннаяПодсказка" id="31"/>
+					<Events>
+						<Event name="OnChange">СписокАвтомобилейПричинаНеВыдачиПриИзменении</Event>
+						<Event name="StartChoice">СписокАвтомобилейПричинаНеВыдачиНачалоВыбора</Event>
+						<Event name="StartListChoice">СписокАвтомобилейПричинаНеВыдачиНачалоВыбораИзСписка</Event>
+					</Events>
+				</InputField>
+				<InputField name="СписокАвтомобилейДатаВыдачи" id="32">
+					<DataPath>СписокАвтомобилей.днейнаустранение</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество дней на устранение</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокАвтомобилейДатаВыдачиКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СписокАвтомобилейДатаВыдачиРасширеннаяПодсказка" id="34"/>
+				</InputField>
+				<CheckBoxField name="СписокАвтомобилейПВР" id="35">
+					<DataPath>СписокАвтомобилей.ПВР</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Будет оформлена ПВР</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СписокАвтомобилейПВРКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="СписокАвтомобилейПВРРасширеннаяПодсказка" id="37"/>
+					<Events>
+						<Event name="OnChange">СписокАвтомобилейПВРПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<InputField name="СписокАвтомобилейКомментарий" id="43">
+					<DataPath>СписокАвтомобилей.Комментарий</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокАвтомобилейКомментарийКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="СписокАвтомобилейКомментарийРасширеннаяПодсказка" id="45"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Renault_АРМ_Автосклад_Упр</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СписокАвтомобилей" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список автомобилей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="VIN" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>VIN</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>20</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Автомобиль" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Автомобиль</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Автомобили</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Модель" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Модель</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Модели</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Версия" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комплектация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ВариантыКомплектации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СмогуВыдат" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Смогу выдат</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПричинаНеВыдачи" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Причина не выдачи</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Renault_ПричиныНеВыдачи</v8:Type>
+					</Type>
+				</Column>
+				<Column name="днейнаустранение" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Днейнаустранение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>2</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПВР" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПВР</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Комментарий" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>150</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Сохранить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить и продолжить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Сохранить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

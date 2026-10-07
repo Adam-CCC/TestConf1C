@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Агент</dataPath>
+			<field>Агент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСтрахования</dataPath>
+			<field>ВидСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВозвратаВОрганизацию</dataPath>
+			<field>ДатаВозвратаВОрганизацию</field>
+			<role>
+				<dcscom:periodNumber>7</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОформления</dataPath>
+			<field>ДатаОформления</field>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПередачиАгенту</dataPath>
+			<field>ДатаПередачиАгенту</field>
+			<role>
+				<dcscom:periodNumber>6</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПередачиВСК</dataPath>
+			<field>ДатаПередачиВСК</field>
+			<role>
+				<dcscom:periodNumber>8</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПриемаИзСК</dataPath>
+			<field>ДатаПриемаИзСК</field>
+			<role>
+				<dcscom:periodNumber>5</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаСтрахования</dataPath>
+			<field>ДатаСтрахования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументВозвратаВОрганизацию</dataPath>
+			<field>ДокументВозвратаВОрганизацию</field>
+			<role>
+				<dcscom:periodNumber>3</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПередачиВСК</dataPath>
+			<field>ДокументПередачиВСК</field>
+			<role>
+				<dcscom:periodNumber>4</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПередачиНаТочку</dataPath>
+			<field>ДокументПередачиНаТочку</field>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПриемаИзСК</dataPath>
+			<field>ДокументПриемаИзСК</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Местонахождение</dataPath>
+			<field>Местонахождение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерБСО</dataPath>
+			<field>НомерБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Серия</dataPath>
+			<field>Серия</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияБСО</dataPath>
+			<field>СерияБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяКомпания</dataPath>
+			<field>СтраховаяКомпания</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Тип</dataPath>
+			<field>Тип</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипБСО</dataPath>
+			<field>ТипБСО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НеИспользовать</dataPath>
+			<field>ТочкаПродаж</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не использовать</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаПродажи</dataPath>
+			<field>ТочкаПродажи</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусБСО</dataPath>
+			<field>СтатусБСО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АктБордеро</dataPath>
+			<field>АктБордеро</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховаяПремияОтКлиента</dataPath>
+			<field>СтраховаяПремияОтКлиента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Страхователь</dataPath>
+			<field>Страхователь</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Организация,
+	СтраховаяКомпания,
+	ТипБСО,
+	СерияБСО,
+	НомерБСО
+ПОМЕСТИТЬ ВТ_БСОЗаПериод
+ИЗ РегистрНакопления.Renault_БСОВОрганизации.Обороты(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ДЕНЬ), КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ), , )
+ОБЪЕДИНИТЬ
+ВЫБРАТЬ
+	Организация,
+	СтраховаяКомпания,
+	ТипБСО,
+	СерияБСО,
+	НомерБСО
+ИЗ РегистрНакопления.Renault_БСОНаТочкеПродаж.Обороты(НАЧАЛОПЕРИОДА(&amp;НачалоПериода, ДЕНЬ), КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ), , )
+;
+
+ВЫБРАТЬ
+	ВТ_БСОЗаПериод.Организация,
+	ВТ_БСОЗаПериод.СтраховаяКомпания,
+	ВТ_БСОЗаПериод.ТипБСО,
+	ВТ_БСОЗаПериод.СерияБСО,
+	ВТ_БСОЗаПериод.НомерБСО,
+	Рег.Период КАК ДатаПриемаИзСК,
+	Рег.Регистратор КАК ДокументПриемаИзСК
+ПОМЕСТИТЬ ВТ_ПриемИзСК
+ИЗ ВТ_БСОЗаПериод
+Внутреннее СОЕДИНЕНИЕ РегистрНакопления.Renault_БСОВОрганизации Рег
+ПО Рег.ВидДвижения=ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+	И ВТ_БСОЗаПериод.Организация = Рег.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = Рег.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = Рег.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = Рег.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = Рег.НомерБСО
+;
+
+ВЫБРАТЬ
+	ВТ_БСОЗаПериод.Организация,
+	ВТ_БСОЗаПериод.СтраховаяКомпания,
+	ВТ_БСОЗаПериод.ТипБСО,
+	ВТ_БСОЗаПериод.СерияБСО,
+	ВТ_БСОЗаПериод.НомерБСО,
+	Рег.Период КАК ДатаПередачиВСК,
+	Рег.Регистратор КАК ДокументПередачиВСК
+ПОМЕСТИТЬ ВТ_ПередачаВСК
+ИЗ ВТ_БСОЗаПериод
+Внутреннее СОЕДИНЕНИЕ РегистрНакопления.Renault_БСОВОрганизации Рег
+ПО Рег.ВидДвижения=ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+ 	И ВТ_БСОЗаПериод.Организация = Рег.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = Рег.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = Рег.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = Рег.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = Рег.НомерБСО
+;
+
+ВЫБРАТЬ
+	ВТ_БСОЗаПериод.Организация,
+	ВТ_БСОЗаПериод.СтраховаяКомпания,
+	ВТ_БСОЗаПериод.ТипБСО,
+	ВТ_БСОЗаПериод.СерияБСО,
+	ВТ_БСОЗаПериод.НомерБСО,
+	Рег.Период КАК ДатаПередачиАгенту,
+	Рег.ТочкаПродаж,
+	Рег.Регистратор КАК ДокументПередачиНаТочку
+ПОМЕСТИТЬ ВТ_ПередачаНаТочку
+ИЗ ВТ_БСОЗаПериод
+Внутреннее СОЕДИНЕНИЕ РегистрНакопления.Renault_БСОНаТочкеПродаж Рег
+ПО Рег.ВидДвижения=ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+ 	И ВТ_БСОЗаПериод.Организация = Рег.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = Рег.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = Рег.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = Рег.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = Рег.НомерБСО
+;
+
+ВЫБРАТЬ
+	ВТ_БСОЗаПериод.Организация,
+	ВТ_БСОЗаПериод.СтраховаяКомпания,
+	ВТ_БСОЗаПериод.ТипБСО,
+	ВТ_БСОЗаПериод.СерияБСО,
+	ВТ_БСОЗаПериод.НомерБСО,
+	Рег.Период КАК ДатаВозвратаВОрганизацию,
+	Рег.ТочкаПродаж,
+	Рег.Регистратор КАК ДокументВозвратаВОрганизацию
+ПОМЕСТИТЬ ВТ_ВозвратВОрганизацию
+ИЗ ВТ_БСОЗаПериод
+Внутреннее СОЕДИНЕНИЕ РегистрНакопления.Renault_БСОНаТочкеПродаж Рег
+ПО Рег.ВидДвижения=ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+ 	И ВТ_БСОЗаПериод.Организация = Рег.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = Рег.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = Рег.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = Рег.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = Рег.НомерБСО
+;
+
+ВЫБРАТЬ
+	ВТ_БСОЗаПериод.Организация,
+	ВТ_БСОЗаПериод.СтраховаяКомпания,
+	ВТ_БСОЗаПериод.ТипБСО КАК Тип,
+	ВТ_БСОЗаПериод.СерияБСО КАК Серия,
+	ВТ_БСОЗаПериод.НомерБСО КАК Номер,
+	ВЫБОР
+		КОГДА СтатусыБСОСрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыБСО.ПринятИзСК)
+				ИЛИ СтатусыБСОСрезПоследних.Статус = ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыБСО.ПереданНаТочку)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_СтатусыБСО.Чистый)
+		ИНАЧЕ СтатусыБСОСрезПоследних.Статус
+	КОНЕЦ КАК СтатусБСО,
+	ЕСТЬNULL(ДокСтраховойПолис.Дата, ОплатаСтраховогоПолиса.СтраховойПолис.Дата) КАК ДатаСтрахования,
+	ЕСТЬNULL(ДокСтраховойПолис.Агент, ОплатаСтраховогоПолиса.Агент) КАК Агент,
+	ВТ_ПриемИзСК.ДатаПриемаИзСК,
+	ВТ_ПередачаНаТочку.ДатаПередачиАгенту,
+	ВТ_ВозвратВОрганизацию.ДатаВозвратаВОрганизацию,
+	ВТ_ПередачаВСК.ДатаПередачиВСК,
+	ВЫБОР
+		КОГДА НЕ ВТ_ПередачаВСК.ДатаПередачиВСК ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_МестонахожденияБСО.СтраховаяКомпания)
+		КОГДА НЕ ВТ_ВозвратВОрганизацию.ДатаВозвратаВОрганизацию ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_МестонахожденияБСО.Организация)
+		КОГДА НЕ ВТ_ПередачаНаТочку.ДатаПередачиАгенту ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.Renault_МестонахожденияБСО.ТочкаПродаж)
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.Renault_МестонахожденияБСО.Организация)
+	КОНЕЦ КАК Местонахождение,
+	ТипыБСО.ВидСтрахования,
+	ВТ_ПриемИзСК.ДокументПриемаИзСК,
+	ВТ_ПередачаНаТочку.ДокументПередачиНаТочку,
+	ВТ_ВозвратВОрганизацию.ДокументВозвратаВОрганизацию,
+	ВТ_ПередачаВСК.ДокументПередачиВСК,
+	ЕСТЬNULL(ДокСтраховойПолис.Дата, ОплатаСтраховогоПолиса.Дата) КАК ДатаОформления,
+	ЕСТЬNULL(ВТ_ПередачаНаТочку.ТочкаПродаж, ЗНАЧЕНИЕ(Справочник.ПодразделенияКомпании.ПустаяСсылка)) КАК ТочкаПродажи,
+	ЕСТЬNULL(ДокСтраховойПолис.Контрагент, ОплатаСтраховогоПолиса.Контрагент) КАК Страхователь,
+	Акт.Ссылка КАК АктБордеро,
+	Акт.СтраховаяПремияОтКлиента
+	
+ИЗ ВТ_БСОЗаПериод
+ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ПриемИзСК
+ПО ВТ_БСОЗаПериод.Организация = ВТ_ПриемИзСК.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = ВТ_ПриемИзСК.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = ВТ_ПриемИзСК.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = ВТ_ПриемИзСК.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = ВТ_ПриемИзСК.НомерБСО
+ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ПередачаВСК
+ПО ВТ_БСОЗаПериод.Организация = ВТ_ПередачаВСК.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = ВТ_ПередачаВСК.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = ВТ_ПередачаВСК.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = ВТ_ПередачаВСК.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = ВТ_ПередачаВСК.НомерБСО
+ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ПередачаНаТочку
+ПО ВТ_БСОЗаПериод.Организация = ВТ_ПередачаНаТочку.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = ВТ_ПередачаНаТочку.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = ВТ_ПередачаНаТочку.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = ВТ_ПередачаНаТочку.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = ВТ_ПередачаНаТочку.НомерБСО
+ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ВозвратВОрганизацию
+ПО ВТ_БСОЗаПериод.Организация = ВТ_ВозвратВОрганизацию.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = ВТ_ВозвратВОрганизацию.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = ВТ_ВозвратВОрганизацию.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = ВТ_ВозвратВОрганизацию.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = ВТ_ВозвратВОрганизацию.НомерБСО
+ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_СтатусыБСО.СрезПоследних(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ), ) СтатусыБСОСрезПоследних
+ПО ВТ_БСОЗаПериод.Организация = СтатусыБСОСрезПоследних.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = СтатусыБСОСрезПоследних.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = СтатусыБСОСрезПоследних.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = СтатусыБСОСрезПоследних.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = СтатусыБСОСрезПоследних.НомерБСО
+
+ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.Renault_СтраховыеПолисы КАК СтраховыеПолисы
+	ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_СтраховойПолис КАК ДокСтраховойПолис ПО СтраховыеПолисы.Регистратор = ДокСтраховойПолис.Ссылка
+	
+ПО ВТ_БСОЗаПериод.Организация = СтраховыеПолисы.Организация
+	И ВТ_БСОЗаПериод.СтраховаяКомпания = СтраховыеПолисы.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = СтраховыеПолисы.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = СтраховыеПолисы.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = СтраховыеПолисы.НомерБСО
+	
+ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Renault_КвитанцииКПолисам КАК КвитанцииКПолисам
+	ЛЕВОЕ СОЕДИНЕНИЕ Документ.Renault_ОплатаСтраховогоПолиса КАК ОплатаСтраховогоПолиса ПО КвитанцииКПолисам.Регистратор = ОплатаСтраховогоПолиса.Ссылка
+ПО ВТ_БСОЗаПериод.СтраховаяКомпания = КвитанцииКПолисам.СтраховаяКомпания
+	И ВТ_БСОЗаПериод.ТипБСО = КвитанцииКПолисам.ТипБСО
+	И ВТ_БСОЗаПериод.СерияБСО = КвитанцииКПолисам.СерияБСО
+	И ВТ_БСОЗаПериод.НомерБСО = КвитанцииКПолисам.НомерБСО
+
+ЛЕВОЕ СОЕДИНЕНИЕ Справочник.Renault_ТипыБСО КАК ТипыБСО ПО ВТ_БСОЗаПериод.ТипБСО = ТипыБСО.Ссылка
+
+ЛЕВОЕ СОЕДИНЕНИЕ(
+	ВЫБРАТЬ
+		СерияБСО,
+		НомерБСО,
+		Ссылка,
+		СтраховаяПремияОтКлиента
+	ИЗ Документ.Renault_АктСдачиПриемкиБСО.БСО
+	ГДЕ Ссылка.ВидОперации=ЗНАЧЕНИЕ(Перечисление.Renault_ВидыОперацийАктСдачиПриемкиБСО.Бордеро) И Ссылка.Проведен
+)КАК Акт
+ПО ВТ_БСОЗаПериод.СерияБСО=Акт.СерияБСО И ВТ_БСОЗаПериод.НомерБСО=Акт.НомерБСО
+</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>ВЫБОР КОГДА &amp;КонецПериода = ДАТАВРЕМЯ(1,1,1,0,0,0) ТОГДА ТЕКУЩАЯДАТА() ИНАЧЕ &amp;КонецПериода КОНЕЦ</expression>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяКомпания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочкаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОформления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидСтрахования</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Тип</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Серия</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Страхователь</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Местонахождение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтатусБСО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Агент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПриемаИзСК</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПередачиАгенту</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаВозвратаВОрганизацию</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПередачиВСК</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АктБордеро</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтраховаяПремияОтКлиента</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СтраховаяКомпания</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТочкаПродажи</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>b5b2cee1-836c-4c83-8451-4bfd2e089220</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Местонахождение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>8d08697a-1288-49b5-9d6f-658d94a4853e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СтатусБСО</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>cd41efe6-a4bf-4474-b83b-cda658666f5b</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидСтрахования</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>a235cd30-2f81-482f-a313-863b250314b6</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Тип</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>056212cd-fabd-439d-8f21-45a28880cff7</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Серия</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>5f5e0c7c-1a04-4cc2-94a6-804fce94d581</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+					<dcsset:userSettingID>cb72c7d6-8107-467f-8821-f1b033af04c1</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДатаСтрахования</dcsset:left>
+					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+					<dcsset:userSettingID>58534cfe-7c8e-4c2b-bd6d-b8782339b56d</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДатаСтрахования</dcsset:left>
+					<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+					<dcsset:userSettingID>f2382a20-36ee-4dc6-8a31-e90162150028</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДатаОформления</dcsset:left>
+					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+					<dcsset:userSettingID>ade6a148-4b8c-464d-bc8e-cca605e96b5c</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДатаОформления</dcsset:left>
+					<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcsset:right>
+					<dcsset:userSettingID>bb181532-a4c2-4d7f-b015-3401fdfbb7a0</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>ff46f40d-cada-4198-b1ee-ecd42b66a206</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>242d1c65-8df3-4bdb-bc7f-ab465a21806b</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>СтраховаяКомпания</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Тип</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Серия</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Номер</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Море</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

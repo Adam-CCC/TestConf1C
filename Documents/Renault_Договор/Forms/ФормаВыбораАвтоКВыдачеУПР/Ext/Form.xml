@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ВыбранныеАвто" id="1">
+			<Representation>List</Representation>
+			<Header>false</Header>
+			<HorizontalLines>false</HorizontalLines>
+			<VerticalLines>false</VerticalLines>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>ВыбранныеАвто</DataPath>
+			<RowPictureDataPath>ВыбранныеАвто.Picture</RowPictureDataPath>
+			<ContextMenu name="ВыбранныеАвтоКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ВыбранныеАвтоКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Button name="ВыбранныеАвтоОтметитьВсе" id="20">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.Command.ОтметитьВсе</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.CheckAll</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ВыбранныеАвтоОтметитьВсеРасширеннаяПодсказка" id="21"/>
+					</Button>
+					<Button name="ВыбранныеАвтоОтменитьВсе" id="22">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<CommandName>Form.Command.ОтменитьВсе</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ВыбранныеАвтоОтменитьВсеРасширеннаяПодсказка" id="23"/>
+					</Button>
+					<Button name="ВыбранныеАвтоЗакрыть" id="24">
+						<Type>CommandBarButton</Type>
+						<Representation>Text</Representation>
+						<CommandName>Form.StandardCommand.Close</CommandName>
+						<ExtendedTooltip name="ВыбранныеАвтоЗакрытьРасширеннаяПодсказка" id="25"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ВыбранныеАвтоРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ВыбранныеАвтоСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ВыбранныеАвто</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВыбранныеАвтоСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ВыбранныеАвтоСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ВыбранныеАвтоСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ВыбранныеАвто</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ВыбранныеАвтоСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ВыбранныеАвтоСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ВыбранныеАвтоУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ВыбранныеАвто</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ВыбранныеАвтоУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ВыбранныеАвтоУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<CheckBoxField name="ВыбранныеАвтоПометка" id="17">
+					<DataPath>ВыбранныеАвто.Check</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВыбранныеАвтоПометкаКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ВыбранныеАвтоПометкаРасширеннаяПодсказка" id="19"/>
+				</CheckBoxField>
+				<InputField name="ВыбранныеАвтоЗначение" id="14">
+					<DataPath>ВыбранныеАвто.Value</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВыбранныеАвтоЗначениеКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ВыбранныеАвтоЗначениеРасширеннаяПодсказка" id="16"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ВыбранныеАвто" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбранные авто</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОтметитьВсе" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отметить все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтметитьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтменитьВсе" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтменитьВсе</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

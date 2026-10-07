@@ -1,0 +1,1418 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Расчет кредита</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>calculation of credit</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<ScalingMode>Normal</ScalingMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="грКонтейнер" id="101">
+			<TitleTextColor>#313431</TitleTextColor>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<BackColor>style:FieldBackColor</BackColor>
+			<ExtendedTooltip name="грКонтейнерРасширеннаяПодсказка" id="102"/>
+			<ChildItems>
+				<UsualGroup name="грТело" id="251">
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грТелоРасширеннаяПодсказка" id="252"/>
+					<ChildItems>
+						<UsualGroup name="грЛевая" id="247">
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="грЛеваяРасширеннаяПодсказка" id="248"/>
+							<ChildItems>
+								<LabelDecoration name="ЗаголовокФормы" id="211">
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									<HorizontalAlign>Center</HorizontalAlign>
+									<ContextMenu name="ЗаголовокФормыКонтекстноеМеню" id="212"/>
+									<ExtendedTooltip name="ЗаголовокФормыРасширеннаяПодсказка" id="213"/>
+								</LabelDecoration>
+								<UsualGroup name="Группа1" id="198">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="199"/>
+									<ChildItems>
+										<LabelField name="Клиент" id="229">
+											<DataPath>Клиент</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleLocation>Left</TitleLocation>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="КлиентКонтекстноеМеню" id="230"/>
+											<ExtendedTooltip name="КлиентРасширеннаяПодсказка" id="231"/>
+										</LabelField>
+										<CheckBoxField name="ПовторныйКлиентБанка" id="79">
+											<DataPath>ПовторныйКлиентБанка</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<BorderColor>#9CA6B2</BorderColor>
+											<ContextMenu name="ПовторныйКлиентБанкаКонтекстноеМеню" id="80"/>
+											<ExtendedTooltip name="ПовторныйКлиентБанкаРасширеннаяПодсказка" id="81"/>
+											<Events>
+												<Event name="OnChange">НайтиКП</Event>
+											</Events>
+										</CheckBoxField>
+										<CheckBoxField name="ПрограммаCRM" id="22">
+											<DataPath>ПрограммаCRM</DataPath>
+											<Visible>false</Visible>
+											<Enabled>false</Enabled>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<BorderColor>#9CA6B2</BorderColor>
+											<ContextMenu name="ПрограммаCRMКонтекстноеМеню" id="23"/>
+											<ExtendedTooltip name="ПрограммаCRMРасширеннаяПодсказка" id="24"/>
+											<Events>
+												<Event name="OnChange">НайтиКП</Event>
+											</Events>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа7" id="285">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="286"/>
+									<ChildItems>
+										<InputField name="КредитноеПредложение" id="4">
+											<DataPath>КредитноеПредложение</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Кредитное предложение</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>loan offer</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#313431</TitleTextColor>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<ChoiceForm>Catalog.Renault_КредитныеПредложения.Form.ФормаСписка</ChoiceForm>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#9CA6B2</BorderColor>
+											<ContextMenu name="КредитноеПредложениеКонтекстноеМеню" id="5"/>
+											<ExtendedTooltip name="КредитноеПредложениеРасширеннаяПодсказка" id="6"/>
+											<Events>
+												<Event name="OnChange">КредитноеПредложениеПриИзменении</Event>
+												<Event name="StartChoice">КП_НачалоВыбора</Event>
+											</Events>
+										</InputField>
+										<LabelDecoration name="Декорация13" id="314">
+											<ContextMenu name="Декорация13КонтекстноеМеню" id="315"/>
+											<ExtendedTooltip name="Декорация13РасширеннаяПодсказка" id="316"/>
+										</LabelDecoration>
+										<LabelField name="Банк" id="195">
+											<DataPath>КредитноеПредложение.Owner</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Банк</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Bank</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<TextColor>#003366</TextColor>
+											<ContextMenu name="БанкКонтекстноеМеню" id="196"/>
+											<ExtendedTooltip name="БанкРасширеннаяПодсказка" id="197"/>
+										</LabelField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="грДанныеСтороннихБанков" id="317">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Данные сторонних банков</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>These third-party banks</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Гр данные сторонних банков</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Gy external data banks</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="грДанныеСтороннихБанковРасширеннаяПодсказка" id="318"/>
+									<ChildItems>
+										<InputField name="ЗаявленныйДоходКлиента" id="319">
+											<DataPath>ЗаявленныйДоходКлиента</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<AutoMarkIncomplete>true</AutoMarkIncomplete>
+											<TextColor>#313431</TextColor>
+											<BorderColor>#9CA6B2</BorderColor>
+											<ContextMenu name="ЗаявленныйДоходКлиентаКонтекстноеМеню" id="320"/>
+											<ExtendedTooltip name="ЗаявленныйДоходКлиентаРасширеннаяПодсказка" id="321"/>
+										</InputField>
+										<CheckBoxField name="ДоходПодтвержден" id="322">
+											<DataPath>ДоходПодтвержден</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<CheckBoxType>Auto</CheckBoxType>
+											<BorderColor>#9CA6B2</BorderColor>
+											<ContextMenu name="ДоходПодтвержденКонтекстноеМеню" id="323"/>
+											<ExtendedTooltip name="ДоходПодтвержденРасширеннаяПодсказка" id="324"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<Table name="Сервисы" id="408">
+									<Representation>List</Representation>
+									<CommandBarLocation>Top</CommandBarLocation>
+									<Height>10</Height>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<FileDragMode>AsFile</FileDragMode>
+									<DataPath>Сервисы</DataPath>
+									<TextColor>#313431</TextColor>
+									<BorderColor>#9CA6B2</BorderColor>
+									<TitleTextColor>#313431</TitleTextColor>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="СервисыКонтекстноеМеню" id="409"/>
+									<AutoCommandBar name="СервисыКоманднаяПанель" id="410">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="кнДобавитьСервис" id="489">
+												<Type>CommandBarButton</Type>
+												<Enabled>false</Enabled>
+												<CommandName>Form.Command.кнДобавитьСервис</CommandName>
+												<ExtendedTooltip name="кнДобавитьСервисРасширеннаяПодсказка" id="490"/>
+											</Button>
+											<Button name="СервисыУдалить" id="491">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.Сервисы.StandardCommand.Delete</CommandName>
+												<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+												<ExtendedTooltip name="СервисыУдалитьРасширеннаяПодсказка" id="492"/>
+											</Button>
+											<Button name="СервисыПереместитьВниз" id="495">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.Сервисы.StandardCommand.MoveDown</CommandName>
+												<ExtendedTooltip name="СервисыПереместитьВнизРасширеннаяПодсказка" id="496"/>
+											</Button>
+											<Button name="СервисыПереместитьВверх" id="493">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Item.Сервисы.StandardCommand.MoveUp</CommandName>
+												<ExtendedTooltip name="СервисыПереместитьВверхРасширеннаяПодсказка" id="494"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="СервисыРасширеннаяПодсказка" id="411"/>
+									<SearchStringAddition name="СервисыСтрокаПоиска" id="412">
+										<AdditionSource>
+											<Item>Сервисы</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СервисыСтрокаПоискаКонтекстноеМеню" id="413"/>
+										<ExtendedTooltip name="СервисыСтрокаПоискаРасширеннаяПодсказка" id="414"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="СервисыСостояниеПросмотра" id="415">
+										<AdditionSource>
+											<Item>Сервисы</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СервисыСостояниеПросмотраКонтекстноеМеню" id="416"/>
+										<ExtendedTooltip name="СервисыСостояниеПросмотраРасширеннаяПодсказка" id="417"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="СервисыУправлениеПоиском" id="418">
+										<AdditionSource>
+											<Item>Сервисы</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="СервисыУправлениеПоискомКонтекстноеМеню" id="419"/>
+										<ExtendedTooltip name="СервисыУправлениеПоискомРасширеннаяПодсказка" id="420"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="Selection">СервисыВыбор</Event>
+										<Event name="AfterDeleteRow">ИзменениеВСервисах</Event>
+										<Event name="OnChange">ИзменениеВСервисах</Event>
+									</Events>
+									<ChildItems>
+										<CheckBoxField name="СервисыВкл" id="483">
+											<DataPath>Сервисы.Вкл</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="СервисыВклКонтекстноеМеню" id="484"/>
+											<ExtendedTooltip name="СервисыВклРасширеннаяПодсказка" id="485"/>
+											<Events>
+												<Event name="OnChange">СервисыВклПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<LabelField name="СервисыСервис" id="424">
+											<DataPath>Сервисы.Сервис</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoCellHeight>true</AutoCellHeight>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#9CA6B2</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СервисыСервисКонтекстноеМеню" id="425"/>
+											<ExtendedTooltip name="СервисыСервисРасширеннаяПодсказка" id="426"/>
+										</LabelField>
+										<LabelField name="СервисыСервисТипСервиса" id="442">
+											<DataPath>Сервисы.ТипСервиса</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<AutoCellHeight>true</AutoCellHeight>
+											<Border width="1">
+												<v8ui:style xsi:type="v8ui:ControlBorderType">Single</v8ui:style>
+											</Border>
+											<BorderColor>#9CA6B2</BorderColor>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СервисыСервисТипСервисаКонтекстноеМеню" id="443"/>
+											<ExtendedTooltip name="СервисыСервисТипСервисаРасширеннаяПодсказка" id="444"/>
+										</LabelField>
+										<LabelField name="СервисыФиксированнаяСтоимость" id="433">
+											<DataPath>Сервисы.ФиксированнаяСтоимость</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>5</Width>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СервисыФиксированнаяСтоимостьКонтекстноеМеню" id="434"/>
+											<ExtendedTooltip name="СервисыФиксированнаяСтоимостьРасширеннаяПодсказка" id="435"/>
+										</LabelField>
+										<LabelField name="СервисыПроцентОтСтоимостиАвтомобиля" id="436">
+											<DataPath>Сервисы.ПроцентОтСтоимостиАвтомобиля</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>5</Width>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СервисыПроцентОтСтоимостиАвтомобиляКонтекстноеМеню" id="437"/>
+											<ExtendedTooltip name="СервисыПроцентОтСтоимостиАвтомобиляРасширеннаяПодсказка" id="438"/>
+										</LabelField>
+										<LabelField name="СервисыПроцентОтСтоимостиКредита" id="439">
+											<DataPath>Сервисы.ПроцентОтСтоимостиКредита</DataPath>
+											<TitleTextColor>#313431</TitleTextColor>
+											<TitleBackColor>#E7E7E7</TitleBackColor>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>5</Width>
+											<TextColor>#313431</TextColor>
+											<ContextMenu name="СервисыПроцентОтСтоимостиКредитаКонтекстноеМеню" id="440"/>
+											<ExtendedTooltip name="СервисыПроцентОтСтоимостиКредитаРасширеннаяПодсказка" id="441"/>
+										</LabelField>
+									</ChildItems>
+								</Table>
+								<UsualGroup name="Группа6" id="306">
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="307"/>
+									<ChildItems>
+										<UsualGroup name="грРасчет" id="82">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Расчет кредита</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>calculation of credit</v8:content>
+												</v8:item>
+											</Title>
+											<TitleTextColor>#313431</TitleTextColor>
+											<Width>50</Width>
+											<Group>Vertical</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="грРасчетРасширеннаяПодсказка" id="83"/>
+											<ChildItems>
+												<InputField name="СтоимостьАвтомобиля" id="373">
+													<DataPath>СтоимостьАвтомобиля</DataPath>
+													<Width>15</Width>
+													<TextColor>#003366</TextColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+													<ContextMenu name="СтоимостьАвтомобиляКонтекстноеМеню" id="374"/>
+													<ExtendedTooltip name="СтоимостьАвтомобиляРасширеннаяПодсказка" id="375"/>
+													<Events>
+														<Event name="OnChange">СтоимостьАвтомобиляПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="СтавкаМаркетинговая" id="117">
+													<DataPath>СтавкаМаркетинговая</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<Width>15</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<TextColor>#003366</TextColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<ContextMenu name="СтавкаМаркетинговаяКонтекстноеМеню" id="118"/>
+													<ExtendedTooltip name="СтавкаМаркетинговаяРасширеннаяПодсказка" id="119"/>
+												</InputField>
+												<InputField name="СтавкаБанка" id="40">
+													<DataPath>СтавкаБанка</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<Width>15</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<TextColor>#003366</TextColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="СтавкаБанкаКонтекстноеМеню" id="41"/>
+													<ExtendedTooltip name="СтавкаБанкаРасширеннаяПодсказка" id="42"/>
+												</InputField>
+												<UsualGroup name="Группа5" id="125">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="126"/>
+													<ChildItems>
+														<InputField name="ПервоначальныйВзнос" id="31">
+															<DataPath>ПервоначальныйВзнос</DataPath>
+															<TitleTextColor>#313431</TitleTextColor>
+															<Width>15</Width>
+															<SpinButton>true</SpinButton>
+															<TextColor>#313431</TextColor>
+															<BorderColor>#9CA6B2</BorderColor>
+															<ContextMenu name="ПервоначальныйВзносКонтекстноеМеню" id="32"/>
+															<ExtendedTooltip name="ПервоначальныйВзносРасширеннаяПодсказка" id="33"/>
+															<Events>
+																<Event name="OnChange">ПервоначальныйВзносПриИзменении</Event>
+															</Events>
+														</InputField>
+														<LabelDecoration name="СтрПервоначальныйВзнос" id="127">
+															<TextColor>#003366</TextColor>
+															<ContextMenu name="СтрПервоначальныйВзносКонтекстноеМеню" id="128"/>
+															<ExtendedTooltip name="СтрПервоначальныйВзносРасширеннаяПодсказка" id="129"/>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="Группа3" id="112">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="113"/>
+													<ChildItems>
+														<InputField name="ПервоначальныйВзносПроцент" id="34">
+															<DataPath>ПервоначальныйВзносПроцент</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleTextColor>#313431</TitleTextColor>
+															<Width>15</Width>
+															<SpinButton>true</SpinButton>
+															<TextColor>#313431</TextColor>
+															<BorderColor>#9CA6B2</BorderColor>
+															<ContextMenu name="ПервоначальныйВзносПроцентКонтекстноеМеню" id="35"/>
+															<ExtendedTooltip name="ПервоначальныйВзносПроцентРасширеннаяПодсказка" id="36"/>
+															<Events>
+																<Event name="OnChange">ПервоначальныйВзносПроцентПриИзменении</Event>
+															</Events>
+														</InputField>
+														<LabelDecoration name="СтрПервоначальныйВзносПроцент" id="114">
+															<TextColor>#003366</TextColor>
+															<ContextMenu name="СтрПервоначальныйВзносПроцентКонтекстноеМеню" id="115"/>
+															<ExtendedTooltip name="СтрПервоначальныйВзносПроцентРасширеннаяПодсказка" id="116"/>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<InputField name="ЕжемесячныйПлатеж" id="13">
+													<DataPath>ЕжемесячныйПлатеж</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<Width>15</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<TextColor>#003366</TextColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="ЕжемесячныйПлатежКонтекстноеМеню" id="14"/>
+													<ExtendedTooltip name="ЕжемесячныйПлатежРасширеннаяПодсказка" id="15"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="грУсловия" id="253">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Основные сервисы</v8:content>
+												</v8:item>
+												<v8:item>
+													<v8:lang>en</v8:lang>
+													<v8:content>Basic services</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="грУсловияРасширеннаяПодсказка" id="254"/>
+											<ChildItems>
+												<UsualGroup name="ИспользоватьBaloon" id="462">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Использовать baloon</v8:content>
+														</v8:item>
+														<v8:item>
+															<v8:lang>en</v8:lang>
+															<v8:content>Use baloon</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ИспользоватьBaloonРасширеннаяПодсказка" id="463"/>
+													<ChildItems>
+														<InputField name="ОстаточныйПлатежПроцент" id="327">
+															<DataPath>ПроцентОстаточногоПлатежа</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Остаточный платеж, %</v8:content>
+																</v8:item>
+																<v8:item>
+																	<v8:lang>en</v8:lang>
+																	<v8:content>Remaining payment,%</v8:content>
+																</v8:item>
+															</Title>
+															<TitleTextColor>#313431</TitleTextColor>
+															<Width>15</Width>
+															<ChoiceButton>true</ChoiceButton>
+															<SpinButton>true</SpinButton>
+															<TextColor>#313431</TextColor>
+															<BorderColor>#9CA6B2</BorderColor>
+															<ContextMenu name="ОстаточныйПлатежПроцентКонтекстноеМеню" id="328"/>
+															<ExtendedTooltip name="ОстаточныйПлатежПроцентРасширеннаяПодсказка" id="329"/>
+															<Events>
+																<Event name="OnChange">ОстаточныйПлатежПроцентПриИзменении</Event>
+															</Events>
+														</InputField>
+														<LabelDecoration name="СтрОстаточныйПлатежПроцент" id="459">
+															<ContextMenu name="СтрОстаточныйПлатежПроцентКонтекстноеМеню" id="460"/>
+															<ExtendedTooltip name="СтрОстаточныйПлатежПроцентРасширеннаяПодсказка" id="461"/>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<InputField name="СуммаОстаточногоПлатежа" id="497">
+													<DataPath>СуммаОстаточногоПлатежа</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<ContextMenu name="СуммаОстаточногоПлатежаКонтекстноеМеню" id="498"/>
+													<ExtendedTooltip name="СуммаОстаточногоПлатежаРасширеннаяПодсказка" id="499"/>
+												</InputField>
+												<UsualGroup name="Группа2" id="107">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="108"/>
+													<ChildItems>
+														<InputField name="СрокКредита" id="37">
+															<DataPath>СрокКредита</DataPath>
+															<TitleTextColor>#313431</TitleTextColor>
+															<Width>15</Width>
+															<ChoiceButton>false</ChoiceButton>
+															<SpinButton>true</SpinButton>
+															<ChoiceListButton>true</ChoiceListButton>
+															<TextColor>#313431</TextColor>
+															<BorderColor>#9CA6B2</BorderColor>
+															<ContextMenu name="СрокКредитаКонтекстноеМеню" id="38"/>
+															<ExtendedTooltip name="СрокКредитаРасширеннаяПодсказка" id="39"/>
+															<Events>
+																<Event name="OnChange">Перерасчет</Event>
+															</Events>
+														</InputField>
+														<LabelDecoration name="СтрСрокКредита" id="109">
+															<TextColor>#003366</TextColor>
+															<ContextMenu name="СтрСрокКредитаКонтекстноеМеню" id="110"/>
+															<ExtendedTooltip name="СтрСрокКредитаРасширеннаяПодсказка" id="111"/>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<InputField name="СуммаКредита" id="61">
+													<DataPath>СуммаКредита</DataPath>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<Width>15</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<TextColor>#003366</TextColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<ContextMenu name="СуммаКредитаКонтекстноеМеню" id="62"/>
+													<ExtendedTooltip name="СуммаКредитаРасширеннаяПодсказка" id="63"/>
+												</InputField>
+												<InputField name="СубсидииНаДопСервисы" id="336">
+													<DataPath>СубсидииНаДопСервисы</DataPath>
+													<Visible>false</Visible>
+													<Enabled>false</Enabled>
+													<TitleTextColor>#313431</TitleTextColor>
+													<Width>10</Width>
+													<ChoiceButton>true</ChoiceButton>
+													<TextColor>#313431</TextColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<ContextMenu name="СубсидииНаДопСервисыКонтекстноеМеню" id="337"/>
+													<ExtendedTooltip name="СубсидииНаДопСервисыРасширеннаяПодсказка" id="338"/>
+												</InputField>
+												<InputField name="СубсидииНаДопОборудование" id="339">
+													<DataPath>СубсидииНаДопОборудование</DataPath>
+													<Visible>false</Visible>
+													<Enabled>false</Enabled>
+													<TitleTextColor>#313431</TitleTextColor>
+													<Width>10</Width>
+													<ChoiceButton>true</ChoiceButton>
+													<TextColor>#313431</TextColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<ContextMenu name="СубсидииНаДопОборудованиеКонтекстноеМеню" id="340"/>
+													<ExtendedTooltip name="СубсидииНаДопОборудованиеРасширеннаяПодсказка" id="341"/>
+												</InputField>
+												<LabelField name="КредитноеПредложениеМаксСтоимостьДопОборудования" id="466">
+													<DataPath>КредитноеПредложение.МаксСтоимостьДопОборудования</DataPath>
+													<Visible>false</Visible>
+													<ReadOnly>true</ReadOnly>
+													<TitleTextColor>#313431</TitleTextColor>
+													<Width>10</Width>
+													<TextColor>#003366</TextColor>
+													<ContextMenu name="КредитноеПредложениеМаксСтоимостьДопОборудованияКонтекстноеМеню" id="467"/>
+													<ExtendedTooltip name="КредитноеПредложениеМаксСтоимостьДопОборудованияРасширеннаяПодсказка" id="468"/>
+												</LabelField>
+												<LabelField name="КредитноеПредложениеМаксВозрастМашиныПриПолученииКредита" id="469">
+													<DataPath>КредитноеПредложение.МаксВозрастМашиныПриПолученииКредита</DataPath>
+													<Visible>false</Visible>
+													<ReadOnly>true</ReadOnly>
+													<TitleTextColor>#313431</TitleTextColor>
+													<Width>10</Width>
+													<TextColor>#003366</TextColor>
+													<ContextMenu name="КредитноеПредложениеМаксВозрастМашиныПриПолученииКредитаКонтекстноеМеню" id="470"/>
+													<ExtendedTooltip name="КредитноеПредложениеМаксВозрастМашиныПриПолученииКредитаРасширеннаяПодсказка" id="471"/>
+												</LabelField>
+												<LabelField name="КредитноеПредложениеМаксВозрастМашиныПриПогашенииКредита" id="472">
+													<DataPath>КредитноеПредложение.МаксВозрастМашиныПриПогашенииКредита</DataPath>
+													<Visible>false</Visible>
+													<ReadOnly>true</ReadOnly>
+													<TitleTextColor>#313431</TitleTextColor>
+													<Width>10</Width>
+													<TextColor>#003366</TextColor>
+													<ContextMenu name="КредитноеПредложениеМаксВозрастМашиныПриПогашенииКредитаКонтекстноеМеню" id="473"/>
+													<ExtendedTooltip name="КредитноеПредложениеМаксВозрастМашиныПриПогашенииКредитаРасширеннаяПодсказка" id="474"/>
+												</LabelField>
+												<LabelField name="КредитноеПредложениеГодыВыпуска" id="475">
+													<DataPath>КредитноеПредложение.ГодыВыпуска</DataPath>
+													<Visible>false</Visible>
+													<TitleTextColor>#313431</TitleTextColor>
+													<Width>10</Width>
+													<TextColor>#003366</TextColor>
+													<ContextMenu name="КредитноеПредложениеГодыВыпускаКонтекстноеМеню" id="476"/>
+													<ExtendedTooltip name="КредитноеПредложениеГодыВыпускаРасширеннаяПодсказка" id="477"/>
+												</LabelField>
+												<InputField name="КАСКО_СтороннихПоставщиковВКредит" id="445">
+													<DataPath>КАСКО_СтороннихПоставщиковВКредит</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>КАСКО сторонних поставщиков в кредит</v8:content>
+														</v8:item>
+													</Title>
+													<TitleTextColor>#313431</TitleTextColor>
+													<TitleLocation>Left</TitleLocation>
+													<Width>10</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<MultiLine>false</MultiLine>
+													<TextColor>#313431</TextColor>
+													<BorderColor>#9CA6B2</BorderColor>
+													<ContextMenu name="КАСКО_СтороннихПоставщиковВКредитКонтекстноеМеню" id="446"/>
+													<ExtendedTooltip name="КАСКО_СтороннихПоставщиковВКредитРасширеннаяПодсказка" id="447"/>
+													<Events>
+														<Event name="OnChange">КАСКО_СтороннихПоставщиковВКредитПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+								<LabelDecoration name="ТекстОшибки" id="486">
+									<HorizontalStretch>true</HorizontalStretch>
+									<TextColor>style:SpecialTextColor</TextColor>
+									<ContextMenu name="ТекстОшибкиКонтекстноеМеню" id="487"/>
+									<ExtendedTooltip name="ТекстОшибкиРасширеннаяПодсказка" id="488"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="грКнопки" id="99">
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="грКнопкиРасширеннаяПодсказка" id="100"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация11" id="300">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация11КонтекстноеМеню" id="301"/>
+							<ExtendedTooltip name="Декорация11РасширеннаяПодсказка" id="302"/>
+						</LabelDecoration>
+						<Button name="кнОк" id="105">
+							<Type>UsualButton</Type>
+							<Representation>PictureAndText</Representation>
+							<DefaultButton>true</DefaultButton>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнОк</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#FFCF00</BackColor>
+							<BorderColor>#FFCF00</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Picture>
+								<xr:Ref>CommonPicture.Renault_Confirm_NoBorder</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="кнОкРасширеннаяПодсказка" id="106"/>
+						</Button>
+						<Button name="кнОбновить" id="464">
+							<Type>UsualButton</Type>
+							<Visible>false</Visible>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.Command.кнОбновить</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="кнОбновитьРасширеннаяПодсказка" id="465"/>
+						</Button>
+						<Button name="кнОтмена" id="103">
+							<Type>UsualButton</Type>
+							<Representation>Text</Representation>
+							<Width>12</Width>
+							<Height>2</Height>
+							<CommandName>Form.StandardCommand.Close</CommandName>
+							<TextColor>#313431</TextColor>
+							<BackColor>#BDC3CE</BackColor>
+							<BorderColor>#BDC3CE</BorderColor>
+							<Font ref="sys:DefaultGUIFont" height="9" kind="WindowsFont"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отмена</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>cancellation</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTipRepresentation>Balloon</ToolTipRepresentation>
+							<ExtendedTooltip name="кнОтменаРасширеннаяПодсказка" id="104"/>
+						</Button>
+						<LabelDecoration name="Декорация12" id="303">
+							<HorizontalStretch>true</HorizontalStretch>
+							<ContextMenu name="Декорация12КонтекстноеМеню" id="304"/>
+							<ExtendedTooltip name="Декорация12РасширеннаяПодсказка" id="305"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="КредитноеПредложение" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кредитное предложение</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>loan offer</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Renault_КредитныеПредложения</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПервоначальныйВзносПроцент" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Первоначальный взнос, %</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>An initial fee, %</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СрокКредита" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок кредита, мес</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Loan term, months</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПервоначальныйВзнос" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Первоначальный взнос</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>An initial fee</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СуммаКредита" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма кредита</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Amount of credit</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СтавкаБанка" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ставка банка, %</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Bank rate,%</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕжемесячныйПлатеж" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ежемесячный платеж</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Monthly payment</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПовторныйКлиентБанка" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Повторный клиент банка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Repeated bank customer</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПрограммаCRM" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Программа CRM</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>CRM program</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтоимостьАвтомобиля" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость автомобиля</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>car cost</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Автомобиль" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автомобиль</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Car</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Модели</v8:Type>
+				<v8:Type>cfg:CatalogRef.Автомобили</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Версия" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Версия</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Version</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ВариантыКомплектации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтавкаМаркетинговая" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ставка маркетинговая, %</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The rate of marketing,%</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>4</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипКП" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип КП</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Type KP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Renault_ТипКП</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Клиент" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Клиент</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Client</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type>cfg:CatalogRef.CRM_ПотенциальныеКонтрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КомментарийПричиныОтказаОтРНБанка" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий причины отказа от РНБанка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Note the reasons for rejection of RNBanka</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаявленныйДоходКлиента" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявленный доход клиента</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Declared income of the client</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДоходПодтвержден" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доход подтвержден</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Revenue confirmed</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроцентОстаточногоПлатежа" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Процент остаточного платежа</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The percentage of residual payment</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>2</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КАСКО_СтороннихПоставщиковВКредит" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КАСКО сторонних поставщиков в кредит</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>CASCO third-party loans</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СубсидииНаДопСервисы" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Субсидии на доп. сервисы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Subsidies on extra. Services</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СубсидииНаДопОборудование" id="54">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Субсидии на доп. оборудование</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Subsidies on extra. equipment</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Сервисы" id="59">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервисы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Services</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Вкл" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вкл</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>On</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сервис" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сервис</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Service</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Renault_КредитныеСервисы</v8:Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Обязательный" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обязательный</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Mandatory</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВыбранПоУмолчанию" id="4">
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ФиксированнаяСтоимость" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Фикс. стоимость</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Fix. cost of</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПроцентОтСтоимостиАвтомобиля" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>% от автомобиля</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>% By car</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ПроцентОтСтоимостиКредита" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>% от кредита</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>% Of the loan</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТипСервиса" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип сервиса</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Service Type</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Renault_ТипыКредитныхСервисов</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СуммаОстаточногоПлатежа" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма остаточного платежа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СервисыСервис</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СервисыСервисТипСервиса</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СервисыФиксированнаяСтоимость</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СервисыПроцентОтСтоимостиАвтомобиля</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СервисыПроцентОтСтоимостиКредита</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СервисыРасширеннаяПодсказка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Сервисы.Обязательный</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Salmon</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:FieldSelectedTextColor</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="кнОк" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<Action>кнОк</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнОбновить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить расчет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Make a payment</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить расчет</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Make a payment</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Refresh_New</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнОбновить</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="кнДобавитьСервис" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить полный расчет КАСКО вручную</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить полный расчет КАСКО вручную</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Renault_Plus_New</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>кнДобавитьСервис</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

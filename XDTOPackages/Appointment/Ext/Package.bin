@@ -1,0 +1,390 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://wa.dms.webservice/AppointmentGetRequest">
+	<property name="AppointmentChangeRequest" nillable="true"/>
+	<property name="AppointmentChangeResponse" nillable="true"/>
+	<property name="AppointmentGetRequest" nillable="true"/>
+	<property name="AppointmentGetResponse" nillable="true"/>
+	<objectType name="AdditionalField">
+		<property name="AdditionalFieldName" type="xs:string" lowerBound="0"/>
+		<property name="AdditionalFieldValue" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Address">
+		<property name="AddressType" type="xs:string" lowerBound="0"/>
+		<property name="FullAddress" type="xs:string" lowerBound="0"/>
+		<property name="ZipCode" type="xs:string" lowerBound="0"/>
+		<property name="Region" type="xs:string" lowerBound="0"/>
+		<property name="District" type="xs:string" lowerBound="0"/>
+		<property name="City" type="xs:string" lowerBound="0"/>
+		<property name="Locality" type="xs:string" lowerBound="0"/>
+		<property name="Street" type="xs:string" lowerBound="0"/>
+		<property name="House" type="xs:string" lowerBound="0"/>
+		<property name="Housing" type="xs:string" lowerBound="0"/>
+		<property name="Flat" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Appointment">
+		<property name="DMSAppointmentNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentID" type="xs:string" lowerBound="0"/>
+		<property name="AppointmentDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DeliveryDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="OpenDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="CloseDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DMSAppointmentStatus" type="xs:string" lowerBound="0"/>
+		<property name="WorkType" type="xs:string" lowerBound="0"/>
+		<property name="ServiceType" type="xs:string" lowerBound="0"/>
+		<property name="PaymentMethod" type="xs:string" lowerBound="0"/>
+		<property name="InMileage" type="xs:string" lowerBound="0"/>
+		<property name="SAEmployeeID" type="xs:string" lowerBound="0"/>
+		<property name="SAEmployeeName" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeID" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeName" type="xs:string" lowerBound="0"/>
+		<property name="CustomerComment" type="xs:string" lowerBound="0"/>
+		<property name="AppointmentChannel" type="xs:string" lowerBound="0"/>
+		<property name="ExternalBookingID" type="xs:string" lowerBound="0"/>
+		<property name="Contactless" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="ManagementFields" type="d3p1:ManagementFields" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="JobRefs" type="d3p1:ArrayOfJobRef" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="RORefs" type="d3p1:ArrayOfRORef" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="AdditionalFields" type="d3p1:ArrayOfAdditionalField" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Options" type="d3p1:ArrayOfOption" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="PriceType" type="d3p1:PriceType" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Customers" type="d3p1:ArrayOfCustomer" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Vehicle" type="d3p1:Vehicle" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="RequestItems" type="d3p1:ArrayOfRequestItem" lowerBound="0"/>
+	</objectType>
+	<objectType name="AppointmentChange">
+		<property name="DMSAppointmentNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentID" type="xs:string" lowerBound="0"/>
+		<property name="AppointmentDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DeliveryDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="OpenDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="CloseDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DMSAppointmentStatus" type="xs:string" lowerBound="0"/>
+		<property name="WorkType" type="xs:string" lowerBound="0"/>
+		<property name="ServiceType" type="xs:string" lowerBound="0"/>
+		<property name="PaymentMethod" type="xs:string" lowerBound="0"/>
+		<property name="InMileage" type="xs:string" lowerBound="0"/>
+		<property name="SAEmployeeID" type="xs:string" lowerBound="0"/>
+		<property name="SAEmployeeName" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeID" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeName" type="xs:string" lowerBound="0"/>
+		<property name="CustomerComment" type="xs:string" lowerBound="0"/>
+		<property name="AppointmentChannel" type="xs:string" lowerBound="0"/>
+		<property name="ExternalBookingID" type="xs:string" lowerBound="0"/>
+		<property name="Contactless" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="AdditionalFields" type="d3p1:ArrayOfAdditionalField" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Options" type="d3p1:ArrayOfOption" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="PriceType" type="d3p1:PriceType" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Customers" type="d3p1:ArrayOfCustomer" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Vehicle" type="d3p1:Vehicle" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="RequestItems" type="d3p1:ArrayOfRequestItem" lowerBound="0"/>
+	</objectType>
+	<objectType name="AppointmentChangeRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="AppointmentChange" type="d3p1:AppointmentChange" lowerBound="0"/>
+	</objectType>
+	<objectType name="AppointmentChangeResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+	</objectType>
+	<objectType name="AppointmentGet">
+		<property name="DMSAppointmentNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSAppointmentID" type="xs:string" lowerBound="0"/>
+		<property name="AppointmentDateTimeFromLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="AppointmentDateTimeToLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="LastModifiedDateTimeFromUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="LastModifiedDateTimeToUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DMSAppointmentStatus" type="xs:string" lowerBound="0"/>
+		<property name="SAEmployeeID" type="xs:string" lowerBound="0"/>
+		<property name="SAEmployeeName" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeID" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeName" type="xs:string" lowerBound="0"/>
+		<property name="ExternalBookingID" type="xs:string" lowerBound="0"/>
+		<property name="Сontactless" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="CustomerGet" type="d3p1:CustomerGet" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="VehicleGet" type="d3p1:VehicleGet" lowerBound="0"/>
+	</objectType>
+	<objectType name="AppointmentGetRequest">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="AppointmentGet" type="d3p1:AppointmentGet" lowerBound="0"/>
+	</objectType>
+	<objectType name="AppointmentGetResponse">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="TransactionHeader" type="d3p1:TransactionHeader" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="ResultMessage" type="d3p1:ResultMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Errors" type="d3p1:ArrayOfError" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Appointments" type="d3p1:ArrayOfAppointment" lowerBound="0"/>
+	</objectType>
+	<objectType name="ArrayOfAdditionalField">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="AdditionalField" type="d3p1:AdditionalField" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfAddress">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Address" type="d3p1:Address" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfAppointment">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Appointment" type="d3p1:Appointment" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCampaign">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Campaign" type="d3p1:Campaign" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCause">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Cause" type="d3p1:Cause" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfComment">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Comment" type="d3p1:Comment" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfContact">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Contact" type="d3p1:Contact" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCorporateInfo">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="CorporateInfo" type="d3p1:CorporateInfo" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCorrection">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Correction" type="d3p1:Correction" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfCustomer">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Customer" type="d3p1:Customer" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfDescription">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Description" type="d3p1:Description" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfError">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Error" type="d3p1:Error" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfJobRef">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="JobRef" type="d3p1:JobRef" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfMISC">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="MISC" type="d3p1:MISC" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfOPCode">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="OPCode" type="d3p1:OPCode" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfOption">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Option" type="d3p1:Option" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfPart">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Part" type="d3p1:Part" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfRORef">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="RORef" type="d3p1:RORef" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfRequestItem">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="RequestItem" type="d3p1:RequestItem" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ArrayOfSublet">
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Sublet" type="d3p1:Sublet" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Campaign">
+		<property name="CampaignID" type="xs:string" lowerBound="0"/>
+		<property name="CampaignDescription" type="xs:string" lowerBound="0"/>
+		<property name="CampaignPerformed" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Cause">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="Comment" type="xs:string" lowerBound="0"/>
+		<property name="CauseLaborOpCode" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Comment">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="DescriptionComment" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Contact">
+		<property name="ContactType" type="xs:string" lowerBound="0"/>
+		<property name="ContactValue" type="xs:string" lowerBound="0"/>
+		<property name="ContactMethodYN" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="CorporateInfo">
+		<property name="CorporateInfoName" type="xs:string" lowerBound="0"/>
+		<property name="CorporateInfoValue" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Correction">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="Comment" type="xs:string" lowerBound="0"/>
+		<property name="CorrectionLaborOpCode" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Customer">
+		<property name="CustomerInfoType" type="xs:string" lowerBound="0"/>
+		<property name="CustomerLegalType" type="xs:string" lowerBound="0"/>
+		<property name="DMSCustomerNo" type="xs:string" lowerBound="0"/>
+		<property name="LastName" type="xs:string" lowerBound="0"/>
+		<property name="MiddleName" type="xs:string" lowerBound="0"/>
+		<property name="FirstName" type="xs:string" lowerBound="0"/>
+		<property name="FullName" type="xs:string" lowerBound="0"/>
+		<property name="Salutation" type="xs:string" lowerBound="0"/>
+		<property name="Gender" type="xs:string" lowerBound="0"/>
+		<property name="CardNo" type="xs:string" lowerBound="0"/>
+		<property name="Email" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Addresses" type="d3p1:ArrayOfAddress" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Contacts" type="d3p1:ArrayOfContact" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="SpecialMessage" type="d3p1:SpecialMessage" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="CorporateInfos" type="d3p1:ArrayOfCorporateInfo" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerGet">
+		<property name="DMSCustomerNo" type="xs:string" lowerBound="0"/>
+		<property name="LastName" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Contacts" type="d3p1:ArrayOfContact" lowerBound="0"/>
+	</objectType>
+	<objectType name="Description">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="DescriptionComment" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Error">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="JobRef">
+		<property name="DMSJobNo" type="xs:string" lowerBound="0"/>
+		<property name="DMSJobStatus" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="MISC">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="ServiceType" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="PriceType" type="d3p1:PriceType" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Descriptions" type="d3p1:ArrayOfDescription" lowerBound="0"/>
+	</objectType>
+	<objectType name="ManagementFields">
+		<property name="CreateDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="LastModifiedDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="OPCode">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="DisplayOPCode" type="xs:string" lowerBound="0"/>
+		<property name="OPCodeType" type="xs:string" lowerBound="0"/>
+		<property name="PackageCode" type="xs:string" lowerBound="0"/>
+		<property name="Description" type="xs:string" lowerBound="0"/>
+		<property name="EstimatedHours" type="xs:string" lowerBound="0"/>
+		<property name="ActualHours" type="xs:string" lowerBound="0"/>
+		<property name="SkillLevel" type="xs:string" lowerBound="0"/>
+		<property name="ServiceType" type="xs:string" lowerBound="0"/>
+		<property name="AdditionalType" type="xs:string" lowerBound="0"/>
+		<property name="Quantity" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="PriceType" type="d3p1:PriceType" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Descriptions" type="d3p1:ArrayOfDescription" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Causes" type="d3p1:ArrayOfCause" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Corrections" type="d3p1:ArrayOfCorrection" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Parts" type="d3p1:ArrayOfPart" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Sublets" type="d3p1:ArrayOfSublet" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="MISCs" type="d3p1:ArrayOfMISC" lowerBound="0"/>
+	</objectType>
+	<objectType name="Option">
+		<property name="OptionName" type="xs:string" lowerBound="0"/>
+		<property name="OptionValue" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Part">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="PartNumber" type="xs:string" lowerBound="0"/>
+		<property name="DisplayPartNumber" type="xs:string" lowerBound="0"/>
+		<property name="PartDescription" type="xs:string" lowerBound="0"/>
+		<property name="PartType" type="xs:string" lowerBound="0"/>
+		<property name="PackageCode" type="xs:string" lowerBound="0"/>
+		<property name="StockQuantity" type="xs:string" lowerBound="0"/>
+		<property name="StockStatus" type="xs:string" lowerBound="0"/>
+		<property name="UnitOfMeasure" type="xs:string" lowerBound="0"/>
+		<property name="Quantity" type="xs:string" lowerBound="0"/>
+		<property name="ServiceType" type="xs:string" lowerBound="0"/>
+		<property name="AdditionalType" type="xs:string" lowerBound="0"/>
+		<property name="DocumentNo" type="xs:string" lowerBound="0"/>
+		<property name="DocumentType" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="PriceType" type="d3p1:PriceType" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Descriptions" type="d3p1:ArrayOfDescription" lowerBound="0"/>
+	</objectType>
+	<objectType name="PriceType">
+		<property name="UnitPrice" type="xs:string" lowerBound="0"/>
+		<property name="TotalPrice" type="xs:string" lowerBound="0"/>
+		<property name="TotalPriceIncludeTax" type="xs:string" lowerBound="0"/>
+		<property name="DiscountRate" type="xs:string" lowerBound="0"/>
+		<property name="DiscountPrice" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="RORef">
+		<property name="DMSRONo" type="xs:string" lowerBound="0"/>
+		<property name="DMSROID" type="xs:string" lowerBound="0"/>
+		<property name="DMSROStatus" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="RequestItem">
+		<property name="ServiceLineNumber" type="xs:string" lowerBound="0"/>
+		<property name="ServiceLineStatus" type="xs:string" lowerBound="0"/>
+		<property name="RequestCode" type="xs:string" lowerBound="0"/>
+		<property name="RequestDescription" type="xs:string" lowerBound="0"/>
+		<property name="CPSIND" type="xs:string" lowerBound="0"/>
+		<property name="WorkType" type="xs:string" lowerBound="0"/>
+		<property name="ServiceType" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeID" type="xs:string" lowerBound="0"/>
+		<property name="TCEmployeeName" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Comments" type="d3p1:ArrayOfComment" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Descriptions" type="d3p1:ArrayOfDescription" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="OPCodes" type="d3p1:ArrayOfOPCode" lowerBound="0"/>
+	</objectType>
+	<objectType name="ResultMessage">
+		<property name="Code" type="xs:string" lowerBound="0"/>
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="SpecialMessage">
+		<property name="Message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Sublet">
+		<property name="SequenceNumber" type="xs:string" lowerBound="0"/>
+		<property name="ServiceType" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="PriceType" type="d3p1:PriceType" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Descriptions" type="d3p1:ArrayOfDescription" lowerBound="0"/>
+	</objectType>
+	<objectType name="TransactionHeader">
+		<property name="CountryID" type="xs:string" lowerBound="0"/>
+		<property name="DistributorID" type="xs:string" lowerBound="0"/>
+		<property name="GroupID" type="xs:string" lowerBound="0"/>
+		<property name="DealerID" type="xs:string" lowerBound="0"/>
+		<property name="DMSCode" type="xs:string" lowerBound="0"/>
+		<property name="DMSVersion" type="xs:string" lowerBound="0"/>
+		<property name="DMSServerUrl" type="xs:string" lowerBound="0"/>
+		<property name="DocumentVersion" type="xs:string" lowerBound="0"/>
+		<property name="Username" type="xs:string" lowerBound="0"/>
+		<property name="Password" type="xs:string" lowerBound="0"/>
+		<property name="TransactionId" type="xs:string" lowerBound="0"/>
+		<property name="TransactionDateTimeUTC" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionDateTimeLocal" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="TransactionType" type="xs:string" lowerBound="0"/>
+		<property name="RequestType" type="xs:string" lowerBound="0"/>
+		<property name="RequestPollingToken" type="xs:string" lowerBound="0"/>
+		<property name="VenderTrackingCode" type="xs:string" lowerBound="0"/>
+		<property name="IneterfaceID" type="xs:string" lowerBound="0"/>
+		<property name="PollingToken" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Vehicle">
+		<property name="DMSVehicleNo" type="xs:string" lowerBound="0"/>
+		<property name="VIN" type="xs:string" lowerBound="0"/>
+		<property name="StockNumber" type="xs:string" lowerBound="0"/>
+		<property name="LicensePlateNo" type="xs:string" lowerBound="0"/>
+		<property name="Make" type="xs:string" lowerBound="0"/>
+		<property name="ModelCode" type="xs:string" lowerBound="0"/>
+		<property name="ModelName" type="xs:string" lowerBound="0"/>
+		<property name="ModelYear" type="xs:string" lowerBound="0"/>
+		<property name="LastMileage" type="xs:string" lowerBound="0"/>
+		<property name="Color" type="xs:string" lowerBound="0"/>
+		<property name="VehicleType" type="xs:string" lowerBound="0"/>
+		<property name="EngineType" type="xs:string" lowerBound="0"/>
+		<property name="FuelType" type="xs:string" lowerBound="0"/>
+		<property name="Cylinders" type="xs:string" lowerBound="0"/>
+		<property name="Trim" type="xs:string" lowerBound="0"/>
+		<property name="FullModelName" type="xs:string" lowerBound="0"/>
+		<property name="InsuranceDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DateInService" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DateDelivered" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="WarrantyStartDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="WarrantyMonths" type="xs:string" lowerBound="0"/>
+		<property name="WarrantyMiles" type="xs:string" lowerBound="0"/>
+		<property name="LicenseNumber" type="xs:string" lowerBound="0"/>
+		<property name="LastServiceDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="ExtendedWarranty" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="DeclinedJob" type="xs:string" lowerBound="0"/>
+		<property name="PendingJob" type="xs:string" lowerBound="0"/>
+		<property name="DisplayDescription" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://wa.dms.webservice/AppointmentGetRequest" name="Campaigns" type="d3p1:ArrayOfCampaign" lowerBound="0"/>
+		<property name="ExtendedWarrantyExpireDate" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="EngineNo" type="xs:string" lowerBound="0"/>
+		<property name="EngineCode" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="VehicleGet">
+		<property name="DMSVehicleNo" type="xs:string" lowerBound="0"/>
+		<property name="VIN" type="xs:string" lowerBound="0"/>
+		<property name="LastSixVIN" type="xs:string" lowerBound="0"/>
+	</objectType>
+</package>

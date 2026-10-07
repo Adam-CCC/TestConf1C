@@ -1,0 +1,1000 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="КомандаСоздать" id="78">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.КомандаСоздать</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Добавить</v8:content>
+					</v8:item>
+					<v8:item>
+						<v8:lang>en</v8:lang>
+						<v8:content>Add</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="КомандаСоздатьРасширеннаяПодсказка" id="81"/>
+			</Button>
+			<Button name="ФормаКомандаИзменить" id="79">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.КомандаИзменить</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Change</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаКомандаИзменитьРасширеннаяПодсказка" id="82"/>
+			</Button>
+			<Button name="ФормаУдалить" id="80">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.Удалить</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.Delete</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаУдалитьРасширеннаяПодсказка" id="83"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="ГруппаСпискиКлиентов" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа списки клиентов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Customer group lists</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа списки клиентов</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Customer group lists</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСпискиКлиентовРасширеннаяПодсказка" id="84"/>
+			<Events>
+				<Event name="OnCurrentPageChange">ГруппаСпискиКлиентовПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="ГруппаЧерновики" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Черновики</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Drafts</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа черновики</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group drafts</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаЧерновикиРасширеннаяПодсказка" id="85"/>
+					<ChildItems>
+						<Table name="СписокЧерновики" id="1">
+							<Representation>List</Representation>
+							<CommandBarLocation>None</CommandBarLocation>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокЧерновики</DataPath>
+							<RowPictureDataPath>СписокЧерновики.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокЧерновикиКонтекстноеМеню" id="2">
+								<Autofill>false</Autofill>
+							</ContextMenu>
+							<AutoCommandBar name="СписокЧерновикиКоманднаяПанель" id="3">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокЧерновикиРасширеннаяПодсказка" id="86"/>
+							<SearchStringAddition name="СписокЧерновикиСтрокаПоиска" id="87">
+								<AdditionSource>
+									<Item>СписокЧерновики</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокЧерновикиСтрокаПоискаКонтекстноеМеню" id="88"/>
+								<ExtendedTooltip name="СписокЧерновикиСтрокаПоискаРасширеннаяПодсказка" id="89"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокЧерновикиСостояниеПросмотра" id="90">
+								<AdditionSource>
+									<Item>СписокЧерновики</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокЧерновикиСостояниеПросмотраКонтекстноеМеню" id="91"/>
+								<ExtendedTooltip name="СписокЧерновикиСостояниеПросмотраРасширеннаяПодсказка" id="92"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокЧерновикиУправлениеПоиском" id="93">
+								<AdditionSource>
+									<Item>СписокЧерновики</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокЧерновикиУправлениеПоискомКонтекстноеМеню" id="94"/>
+								<ExtendedTooltip name="СписокЧерновикиУправлениеПоискомРасширеннаяПодсказка" id="95"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокЧерновикиВыбор</Event>
+								<Event name="BeforeAddRow">СписокЧерновикиПередНачаломДобавления</Event>
+								<Event name="BeforeRowChange">СписокЧерновикиПередНачаломИзменения</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="Наименование" id="4">
+									<DataPath>СписокЧерновики.Description</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<Width>1</Width>
+									<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="96"/>
+								</LabelField>
+								<LabelField name="КонтрагентИНН" id="13">
+									<DataPath>СписокЧерновики.Контрагент.ИНН</DataPath>
+									<Width>12</Width>
+									<ContextMenu name="КонтрагентИННКонтекстноеМеню" id="14"/>
+									<ExtendedTooltip name="КонтрагентИННРасширеннаяПодсказка" id="97"/>
+								</LabelField>
+								<LabelField name="Идентификатор" id="15">
+									<DataPath>СписокЧерновики.Идентификатор</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ИД</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>ID</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="ИдентификаторКонтекстноеМеню" id="16"/>
+									<ExtendedTooltip name="ИдентификаторРасширеннаяПодсказка" id="98"/>
+								</LabelField>
+								<LabelField name="СферыДеятельностиСтрокой" id="17">
+									<DataPath>СписокЧерновики.СферыДеятельностиСтрокой</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сферы деятельности</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Areas of activity</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СферыДеятельностиСтрокойКонтекстноеМеню" id="18"/>
+									<ExtendedTooltip name="СферыДеятельностиСтрокойРасширеннаяПодсказка" id="99"/>
+								</LabelField>
+								<LabelField name="АвтопаркСтрокой" id="19">
+									<DataPath>СписокЧерновики.АвтопаркСтрокой</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Автопарк</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Car park</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="АвтопаркСтрокойКонтекстноеМеню" id="20"/>
+									<ExtendedTooltip name="АвтопаркСтрокойРасширеннаяПодсказка" id="100"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаНаСогласовании" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>На согласовании</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>On harmonization</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа на согласовании</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group on Harmonization</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаНаСогласованииРасширеннаяПодсказка" id="101"/>
+					<ChildItems>
+						<Table name="СписокНаСогласовании" id="21">
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокНаСогласовании</DataPath>
+							<RowPictureDataPath>СписокНаСогласовании.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокНаСогласованииКонтекстноеМеню" id="22">
+								<Autofill>false</Autofill>
+							</ContextMenu>
+							<AutoCommandBar name="СписокНаСогласованииКоманднаяПанель" id="23">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокНаСогласованииРасширеннаяПодсказка" id="102"/>
+							<SearchStringAddition name="СписокНаСогласованииСтрокаПоиска" id="103">
+								<AdditionSource>
+									<Item>СписокНаСогласовании</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНаСогласованииСтрокаПоискаКонтекстноеМеню" id="104"/>
+								<ExtendedTooltip name="СписокНаСогласованииСтрокаПоискаРасширеннаяПодсказка" id="105"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокНаСогласованииСостояниеПросмотра" id="106">
+								<AdditionSource>
+									<Item>СписокНаСогласовании</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНаСогласованииСостояниеПросмотраКонтекстноеМеню" id="107"/>
+								<ExtendedTooltip name="СписокНаСогласованииСостояниеПросмотраРасширеннаяПодсказка" id="108"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокНаСогласованииУправлениеПоиском" id="109">
+								<AdditionSource>
+									<Item>СписокНаСогласовании</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНаСогласованииУправлениеПоискомКонтекстноеМеню" id="110"/>
+								<ExtendedTooltip name="СписокНаСогласованииУправлениеПоискомРасширеннаяПодсказка" id="111"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокНаСогласованииВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СписокНаСогласованииНаименование" id="24">
+									<DataPath>СписокНаСогласовании.Description</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокНаСогласованииНаименованиеКонтекстноеМеню" id="25"/>
+									<ExtendedTooltip name="СписокНаСогласованииНаименованиеРасширеннаяПодсказка" id="112"/>
+								</LabelField>
+								<LabelField name="СписокНаСогласованииКонтрагентИНН" id="38">
+									<DataPath>СписокНаСогласовании.Контрагент.ИНН</DataPath>
+									<Width>12</Width>
+									<ContextMenu name="СписокНаСогласованииКонтрагентИННКонтекстноеМеню" id="39"/>
+									<ExtendedTooltip name="СписокНаСогласованииКонтрагентИННРасширеннаяПодсказка" id="113"/>
+								</LabelField>
+								<LabelField name="СписокНаСогласованииИдентификатор" id="30">
+									<DataPath>СписокНаСогласовании.Идентификатор</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ИД</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>ID</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокНаСогласованииИдентификаторКонтекстноеМеню" id="31"/>
+									<ExtendedTooltip name="СписокНаСогласованииИдентификаторРасширеннаяПодсказка" id="114"/>
+								</LabelField>
+								<LabelField name="СписокНаСогласованииСферыДеятельностиСтрокой" id="34">
+									<DataPath>СписокНаСогласовании.СферыДеятельностиСтрокой</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сферы деятельности</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Areas of activity</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокНаСогласованииСферыДеятельностиСтрокойКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="СписокНаСогласованииСферыДеятельностиСтрокойРасширеннаяПодсказка" id="115"/>
+								</LabelField>
+								<LabelField name="СписокНаСогласованииАвтопаркСтрокой" id="36">
+									<DataPath>СписокНаСогласовании.АвтопаркСтрокой</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Автопарк</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Car park</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокНаСогласованииАвтопаркСтрокойКонтекстноеМеню" id="37"/>
+									<ExtendedTooltip name="СписокНаСогласованииАвтопаркСтрокойРасширеннаяПодсказка" id="116"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаСогласованные" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Согласованные</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Negotiated</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа согласованные</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>The group agreed</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСогласованныеРасширеннаяПодсказка" id="117"/>
+					<ChildItems>
+						<Table name="СписокСогласованные" id="40">
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокСогласованные</DataPath>
+							<RowPictureDataPath>СписокСогласованные.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокСогласованныеКонтекстноеМеню" id="41">
+								<Autofill>false</Autofill>
+							</ContextMenu>
+							<AutoCommandBar name="СписокСогласованныеКоманднаяПанель" id="42">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокСогласованныеРасширеннаяПодсказка" id="118"/>
+							<SearchStringAddition name="СписокСогласованныеСтрокаПоиска" id="119">
+								<AdditionSource>
+									<Item>СписокСогласованные</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСогласованныеСтрокаПоискаКонтекстноеМеню" id="120"/>
+								<ExtendedTooltip name="СписокСогласованныеСтрокаПоискаРасширеннаяПодсказка" id="121"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокСогласованныеСостояниеПросмотра" id="122">
+								<AdditionSource>
+									<Item>СписокСогласованные</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСогласованныеСостояниеПросмотраКонтекстноеМеню" id="123"/>
+								<ExtendedTooltip name="СписокСогласованныеСостояниеПросмотраРасширеннаяПодсказка" id="124"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокСогласованныеУправлениеПоиском" id="125">
+								<AdditionSource>
+									<Item>СписокСогласованные</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокСогласованныеУправлениеПоискомКонтекстноеМеню" id="126"/>
+								<ExtendedTooltip name="СписокСогласованныеУправлениеПоискомРасширеннаяПодсказка" id="127"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокСогласованныеВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СписокСогласованныеНаименование" id="43">
+									<DataPath>СписокСогласованные.Description</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокСогласованныеНаименованиеКонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="СписокСогласованныеНаименованиеРасширеннаяПодсказка" id="128"/>
+								</LabelField>
+								<LabelField name="СписокСогласованныеКонтрагентИНН" id="57">
+									<DataPath>СписокСогласованные.Контрагент.ИНН</DataPath>
+									<ContextMenu name="СписокСогласованныеКонтрагентИННКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="СписокСогласованныеКонтрагентИННРасширеннаяПодсказка" id="129"/>
+								</LabelField>
+								<LabelField name="СписокСогласованныеИдентификатор" id="49">
+									<DataPath>СписокСогласованные.Идентификатор</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ИД</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>ID</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокСогласованныеИдентификаторКонтекстноеМеню" id="50"/>
+									<ExtendedTooltip name="СписокСогласованныеИдентификаторРасширеннаяПодсказка" id="130"/>
+								</LabelField>
+								<LabelField name="СписокСогласованныеСферыДеятельностиСтрокой" id="53">
+									<DataPath>СписокСогласованные.СферыДеятельностиСтрокой</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сферы деятельности</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Areas of activity</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокСогласованныеСферыДеятельностиСтрокойКонтекстноеМеню" id="54"/>
+									<ExtendedTooltip name="СписокСогласованныеСферыДеятельностиСтрокойРасширеннаяПодсказка" id="131"/>
+								</LabelField>
+								<LabelField name="СписокСогласованныеАвтопаркСтрокой" id="55">
+									<DataPath>СписокСогласованные.АвтопаркСтрокой</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Автопарк</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Car park</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокСогласованныеАвтопаркСтрокойКонтекстноеМеню" id="56"/>
+									<ExtendedTooltip name="СписокСогласованныеАвтопаркСтрокойРасширеннаяПодсказка" id="132"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаНесогласованные" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не согласованные</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Do not agreed</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа несогласованные</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group uncoordinated</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаНесогласованныеРасширеннаяПодсказка" id="133"/>
+					<ChildItems>
+						<Table name="СписокНеСогласованные" id="59">
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>СписокНеСогласованные</DataPath>
+							<RowPictureDataPath>СписокНеСогласованные.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="СписокНеСогласованныеКонтекстноеМеню" id="60">
+								<Autofill>false</Autofill>
+							</ContextMenu>
+							<AutoCommandBar name="СписокНеСогласованныеКоманднаяПанель" id="61">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокНеСогласованныеРасширеннаяПодсказка" id="134"/>
+							<SearchStringAddition name="СписокНеСогласованныеСтрокаПоиска" id="135">
+								<AdditionSource>
+									<Item>СписокНеСогласованные</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНеСогласованныеСтрокаПоискаКонтекстноеМеню" id="136"/>
+								<ExtendedTooltip name="СписокНеСогласованныеСтрокаПоискаРасширеннаяПодсказка" id="137"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокНеСогласованныеСостояниеПросмотра" id="138">
+								<AdditionSource>
+									<Item>СписокНеСогласованные</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНеСогласованныеСостояниеПросмотраКонтекстноеМеню" id="139"/>
+								<ExtendedTooltip name="СписокНеСогласованныеСостояниеПросмотраРасширеннаяПодсказка" id="140"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокНеСогласованныеУправлениеПоиском" id="141">
+								<AdditionSource>
+									<Item>СписокНеСогласованные</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокНеСогласованныеУправлениеПоискомКонтекстноеМеню" id="142"/>
+								<ExtendedTooltip name="СписокНеСогласованныеУправлениеПоискомРасширеннаяПодсказка" id="143"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокНеСогласованныеВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="СписокНеСогласованныеНаименование" id="62">
+									<DataPath>СписокНеСогласованные.Description</DataPath>
+									<Width>1</Width>
+									<ContextMenu name="СписокНеСогласованныеНаименованиеКонтекстноеМеню" id="63"/>
+									<ExtendedTooltip name="СписокНеСогласованныеНаименованиеРасширеннаяПодсказка" id="144"/>
+								</LabelField>
+								<LabelField name="СписокНеСогласованныеКонтрагентИНН" id="76">
+									<DataPath>СписокНеСогласованные.Контрагент.ИНН</DataPath>
+									<ContextMenu name="СписокНеСогласованныеКонтрагентИННКонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="СписокНеСогласованныеКонтрагентИННРасширеннаяПодсказка" id="145"/>
+								</LabelField>
+								<LabelField name="СписокНеСогласованныеИдентификатор" id="68">
+									<DataPath>СписокНеСогласованные.Идентификатор</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ИД</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>ID</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокНеСогласованныеИдентификаторКонтекстноеМеню" id="69"/>
+									<ExtendedTooltip name="СписокНеСогласованныеИдентификаторРасширеннаяПодсказка" id="146"/>
+								</LabelField>
+								<LabelField name="СписокНеСогласованныеСферыДеятельностиСтрокой" id="72">
+									<DataPath>СписокНеСогласованные.СферыДеятельностиСтрокой</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сферы деятельности</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Areas of activity</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокНеСогласованныеСферыДеятельностиСтрокойКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="СписокНеСогласованныеСферыДеятельностиСтрокойРасширеннаяПодсказка" id="147"/>
+								</LabelField>
+								<LabelField name="СписокНеСогласованныеАвтопаркСтрокой" id="74">
+									<DataPath>СписокНеСогласованные.АвтопаркСтрокой</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Автопарк</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Car park</v8:content>
+										</v8:item>
+									</Title>
+									<Width>1</Width>
+									<ContextMenu name="СписокНеСогласованныеАвтопаркСтрокойКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="СписокНеСогласованныеАвтопаркСтрокойРасширеннаяПодсказка" id="148"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СписокЧерновики" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список черновики</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List drafts</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокЧерновики.Ref</Field>
+				<Field>СписокЧерновики.Контрагент</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникRenault_КорпоративныеКлиенты.Ссылка,
+	СправочникRenault_КорпоративныеКлиенты.ВерсияДанных,
+	СправочникRenault_КорпоративныеКлиенты.ПометкаУдаления,
+	СправочникRenault_КорпоративныеКлиенты.Предопределенный,
+	СправочникRenault_КорпоративныеКлиенты.Код,
+	СправочникRenault_КорпоративныеКлиенты.Наименование,
+	СправочникRenault_КорпоративныеКлиенты.Контрагент,
+	СправочникRenault_КорпоративныеКлиенты.Идентификатор,
+	СправочникRenault_КорпоративныеКлиенты.Состояние,
+	СправочникRenault_КорпоративныеКлиенты.СферыДеятельностиСтрокой,
+	СправочникRenault_КорпоративныеКлиенты.АвтопаркСтрокой
+ИЗ
+	Справочник.Renault_КорпоративныеКлиенты КАК СправочникRenault_КорпоративныеКлиенты
+ГДЕ
+	СправочникRenault_КорпоративныеКлиенты.Состояние = &amp;Состояние
+	И (&amp;ПоказыватьВсе
+			ИЛИ НЕ СправочникRenault_КорпоративныеКлиенты.ПометкаУдаления)</QueryText>
+				<MainTable>Catalog.Renault_КорпоративныеКлиенты</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокНаСогласовании" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список на согласовании</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List on agreement</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокНаСогласовании.Ref</Field>
+				<Field>СписокНаСогласовании.Контрагент</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникRenault_КорпоративныеКлиенты.Ссылка,
+	СправочникRenault_КорпоративныеКлиенты.ВерсияДанных,
+	СправочникRenault_КорпоративныеКлиенты.ПометкаУдаления,
+	СправочникRenault_КорпоративныеКлиенты.Предопределенный,
+	СправочникRenault_КорпоративныеКлиенты.Код,
+	СправочникRenault_КорпоративныеКлиенты.Наименование,
+	СправочникRenault_КорпоративныеКлиенты.Контрагент,
+	СправочникRenault_КорпоративныеКлиенты.Идентификатор,
+	СправочникRenault_КорпоративныеКлиенты.Состояние,
+	СправочникRenault_КорпоративныеКлиенты.СферыДеятельностиСтрокой,
+	СправочникRenault_КорпоративныеКлиенты.АвтопаркСтрокой,
+	СправочникRenault_КорпоративныеКлиенты.СферыДеятельности,
+	СправочникRenault_КорпоративныеКлиенты.Автопарк
+ИЗ
+	Справочник.Renault_КорпоративныеКлиенты КАК СправочникRenault_КорпоративныеКлиенты
+ГДЕ
+	СправочникRenault_КорпоративныеКлиенты.Состояние = &amp;Состояние
+	И (&amp;ПоказыватьВсе
+			ИЛИ НЕ СправочникRenault_КорпоративныеКлиенты.ПометкаУдаления)</QueryText>
+				<MainTable>Catalog.Renault_КорпоративныеКлиенты</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокСогласованные" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список на согласовании</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List on agreement</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокСогласованные.Ref</Field>
+				<Field>СписокСогласованные.Контрагент</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникRenault_КорпоративныеКлиенты.Ссылка,
+	СправочникRenault_КорпоративныеКлиенты.ВерсияДанных,
+	СправочникRenault_КорпоративныеКлиенты.ПометкаУдаления,
+	СправочникRenault_КорпоративныеКлиенты.Предопределенный,
+	СправочникRenault_КорпоративныеКлиенты.Код,
+	СправочникRenault_КорпоративныеКлиенты.Наименование,
+	СправочникRenault_КорпоративныеКлиенты.Контрагент,
+	СправочникRenault_КорпоративныеКлиенты.Идентификатор,
+	СправочникRenault_КорпоративныеКлиенты.Состояние,
+	СправочникRenault_КорпоративныеКлиенты.СферыДеятельностиСтрокой,
+	СправочникRenault_КорпоративныеКлиенты.АвтопаркСтрокой,
+	СправочникRenault_КорпоративныеКлиенты.СферыДеятельности,
+	СправочникRenault_КорпоративныеКлиенты.Автопарк
+ИЗ
+	Справочник.Renault_КорпоративныеКлиенты КАК СправочникRenault_КорпоративныеКлиенты
+ГДЕ
+	СправочникRenault_КорпоративныеКлиенты.Состояние = &amp;Состояние
+	И (&amp;ПоказыватьВсе
+			ИЛИ НЕ СправочникRenault_КорпоративныеКлиенты.ПометкаУдаления)</QueryText>
+				<MainTable>Catalog.Renault_КорпоративныеКлиенты</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокНеСогласованные" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список на согласовании</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>List on agreement</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокНеСогласованные.Ref</Field>
+				<Field>СписокНеСогласованные.Контрагент</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникRenault_КорпоративныеКлиенты.Ссылка,
+	СправочникRenault_КорпоративныеКлиенты.ВерсияДанных,
+	СправочникRenault_КорпоративныеКлиенты.ПометкаУдаления,
+	СправочникRenault_КорпоративныеКлиенты.Предопределенный,
+	СправочникRenault_КорпоративныеКлиенты.Код,
+	СправочникRenault_КорпоративныеКлиенты.Наименование,
+	СправочникRenault_КорпоративныеКлиенты.Контрагент,
+	СправочникRenault_КорпоративныеКлиенты.Идентификатор,
+	СправочникRenault_КорпоративныеКлиенты.Состояние,
+	СправочникRenault_КорпоративныеКлиенты.СферыДеятельностиСтрокой,
+	СправочникRenault_КорпоративныеКлиенты.АвтопаркСтрокой,
+	СправочникRenault_КорпоративныеКлиенты.СферыДеятельности,
+	СправочникRenault_КорпоративныеКлиенты.Автопарк
+ИЗ
+	Справочник.Renault_КорпоративныеКлиенты КАК СправочникRenault_КорпоративныеКлиенты
+ГДЕ
+	СправочникRenault_КорпоративныеКлиенты.Состояние = &amp;Состояние
+	И (&amp;ПоказыватьВсе
+			ИЛИ НЕ СправочникRenault_КорпоративныеКлиенты.ПометкаУдаления)</QueryText>
+				<MainTable>Catalog.Renault_КорпоративныеКлиенты</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПоказыватьУдаленныеЗаписи" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать удаленные записи</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Show deleted records</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаСоздать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда создать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The team set up</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда создать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The team set up</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаСоздать</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="КомандаИзменить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>amend</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда изменить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Team change</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>КомандаИзменить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Удалить" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Delete</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Удалить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

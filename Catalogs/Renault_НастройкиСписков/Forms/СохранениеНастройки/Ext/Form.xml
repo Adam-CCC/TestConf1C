@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Сохранение настройки списка</v8:content>
+		</v8:item>
+		<v8:item>
+			<v8:lang>en</v8:lang>
+			<v8:content>Saving list settings</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<Customizable>false</Customizable>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="НоваяНастройка" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать новую настройку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Create a new setting</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новая настройка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The new setting</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="НоваяНастройкаРасширеннаяПодсказка" id="61"/>
+			<ChildItems>
+				<InputField name="НаименованиеНастройки" id="21">
+					<DataPath>НаименованиеНовойНастройки</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Width>25</Width>
+					<ContextMenu name="НаименованиеНастройкиКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="НаименованиеНастройкиРасширеннаяПодсказка" id="62"/>
+				</InputField>
+				<CheckBoxField name="ИспользоватьПриОткрытии" id="36">
+					<DataPath>ИспользоватьПриОткрытии</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользоватьПриОткрытииКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="ИспользоватьПриОткрытииРасширеннаяПодсказка" id="63"/>
+				</CheckBoxField>
+				<CheckBoxField name="СохранятьАвтоматически" id="38">
+					<DataPath>СохранятьАвтоматически</DataPath>
+					<Visible>false</Visible>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СохранятьАвтоматическиКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="СохранятьАвтоматическиРасширеннаяПодсказка" id="64"/>
+				</CheckBoxField>
+				<Button name="СоздатьНовуюНастройку" id="23">
+					<Type>UsualButton</Type>
+					<Width>8</Width>
+					<CommandName>Form.Command.СоздатьНовуюНастройку</CommandName>
+					<ExtendedTooltip name="СоздатьНовуюНастройкуРасширеннаяПодсказка" id="65"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНадписьИЛИ" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа надпись ИЛИ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>group or label</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа надпись ИЛИ</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>group or label</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНадписьИЛИРасширеннаяПодсказка" id="66"/>
+			<ChildItems>
+				<LabelDecoration name="НадписьИЛИ" id="3">
+					<HorizontalStretch>true</HorizontalStretch>
+					<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ИЛИ</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>OR</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalAlign>Center</HorizontalAlign>
+					<ContextMenu name="НадписьИЛИКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НадписьИЛИРасширеннаяПодсказка" id="67"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="СущестующаяНастройка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перезаписать существующую настройку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Overwrite the existing setup</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сущестующая настройка</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>configure an existing member</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="СущестующаяНастройкаРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<Table name="ТаблицаНастроек" id="40">
+					<Representation>List</Representation>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<ChoiceMode>true</ChoiceMode>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ТаблицаНастроек</DataPath>
+					<CommandSet>
+						<ExcludedCommand>Add</ExcludedCommand>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+						<ExcludedCommand>MoveDown</ExcludedCommand>
+						<ExcludedCommand>MoveUp</ExcludedCommand>
+						<ExcludedCommand>SelectAll</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ТаблицаНастроекКонтекстноеМеню" id="41"/>
+					<AutoCommandBar name="ТаблицаНастроекКоманднаяПанель" id="42">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="СписокВыбрать" id="53">
+								<Type>CommandBarButton</Type>
+								<DefaultButton>true</DefaultButton>
+								<CommandName>Form.Command.ПерезаписатьСуществующуюНастройку</CommandName>
+								<ExtendedTooltip name="СписокВыбратьРасширеннаяПодсказка" id="69"/>
+							</Button>
+							<Button name="СписокИзменить" id="54">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ТаблицаНастроек.StandardCommand.Change</CommandName>
+								<ExtendedTooltip name="СписокИзменитьРасширеннаяПодсказка" id="70"/>
+							</Button>
+							<Button name="СписокУдалить" id="55">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ТаблицаНастроек.StandardCommand.Delete</CommandName>
+								<ExtendedTooltip name="СписокУдалитьРасширеннаяПодсказка" id="71"/>
+							</Button>
+							<Button name="СписокНайти" id="56">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ТаблицаНастроек.StandardCommand.Find</CommandName>
+								<ExtendedTooltip name="СписокНайтиРасширеннаяПодсказка" id="72"/>
+							</Button>
+							<Button name="СписокОтменитьПоиск" id="57">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ТаблицаНастроек.StandardCommand.CancelSearch</CommandName>
+								<ExtendedTooltip name="СписокОтменитьПоискРасширеннаяПодсказка" id="73"/>
+							</Button>
+							<Button name="СписокСортироватьСписокПоВозрастанию" id="58">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ТаблицаНастроек.StandardCommand.SortListAsc</CommandName>
+								<ExtendedTooltip name="СписокСортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="74"/>
+							</Button>
+							<Button name="СписокСортироватьСписокПоУбыванию" id="59">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ТаблицаНастроек.StandardCommand.SortListDesc</CommandName>
+								<ExtendedTooltip name="СписокСортироватьСписокПоУбываниюРасширеннаяПодсказка" id="75"/>
+							</Button>
+							<Button name="СписокВывестиСписок" id="60">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ТаблицаНастроек.StandardCommand.OutputList</CommandName>
+								<ExtendedTooltip name="СписокВывестиСписокРасширеннаяПодсказка" id="76"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ТаблицаНастроекРасширеннаяПодсказка" id="77"/>
+					<SearchStringAddition name="ТаблицаНастроекСтрокаПоиска" id="78">
+						<AdditionSource>
+							<Item>ТаблицаНастроек</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ТаблицаНастроекСтрокаПоискаКонтекстноеМеню" id="79"/>
+						<ExtendedTooltip name="ТаблицаНастроекСтрокаПоискаРасширеннаяПодсказка" id="80"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ТаблицаНастроекСостояниеПросмотра" id="81">
+						<AdditionSource>
+							<Item>ТаблицаНастроек</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ТаблицаНастроекСостояниеПросмотраКонтекстноеМеню" id="82"/>
+						<ExtendedTooltip name="ТаблицаНастроекСостояниеПросмотраРасширеннаяПодсказка" id="83"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ТаблицаНастроекУправлениеПоиском" id="84">
+						<AdditionSource>
+							<Item>ТаблицаНастроек</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ТаблицаНастроекУправлениеПоискомКонтекстноеМеню" id="85"/>
+						<ExtendedTooltip name="ТаблицаНастроекУправлениеПоискомРасширеннаяПодсказка" id="86"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnEditEnd">ТаблицаНастроекПриОкончанииРедактирования</Event>
+						<Event name="Selection">ТаблицаНастроекВыбор</Event>
+						<Event name="BeforeDeleteRow">ТаблицаНастроекПередУдалением</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="СписокНаименование" id="45">
+							<DataPath>ТаблицаНастроек.Наименование</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>15</Width>
+							<ContextMenu name="СписокНаименованиеКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="СписокНаименованиеРасширеннаяПодсказка" id="87"/>
+						</InputField>
+						<CheckBoxField name="СписокИспользоватьПриОткрытии" id="47">
+							<DataPath>ТаблицаНастроек.ИспользоватьПриОткрытии</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СписокИспользоватьПриОткрытииКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="СписокИспользоватьПриОткрытииРасширеннаяПодсказка" id="88"/>
+						</CheckBoxField>
+						<CheckBoxField name="СписокСохранятьАвтоматически" id="49">
+							<DataPath>ТаблицаНастроек.СохранятьАвтоматически</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="СписокСохранятьАвтоматическиКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="СписокСохранятьАвтоматическиРасширеннаяПодсказка" id="89"/>
+						</CheckBoxField>
+						<InputField name="СписокПользователь" id="51">
+							<DataPath>ТаблицаНастроек.Пользователь</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>5</Width>
+							<ContextMenu name="СписокПользовательКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="СписокПользовательРасширеннаяПодсказка" id="90"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="НаименованиеНовойНастройки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Name</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкиКлючОбъекта" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ключ объекта</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>The key object</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьПриОткрытии" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открывать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Open</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СохранятьАвтоматически" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранять</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Keep</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаНастроек" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица настроек</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Table settings</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Ссылка" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Link</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Renault_НастройкиСписков</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Наименование" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Name</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ИспользоватьПриОткрытии" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Открывать</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Open</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СохранятьАвтоматически" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сохранять</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Keep</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Пользователь" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пользователь</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>User</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НастройкаИзменена" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройка изменена</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Setting modified</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокКлючНастройки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТаблицаНастроек.ИспользоватьПриОткрытии</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьНовуюНастройку" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>OK</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать новую настройку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Create a new setting</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СоздатьНовуюНастройку</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПерезаписатьСуществующуюНастройку" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Choose</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перезаписать существующую настройку</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Overwrite the existing setup</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПерезаписатьСуществующуюНастройку</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,891 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.17">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеКод" id="121">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group name code</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group name code</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодРасширеннаяПодсказка" id="122"/>
+			<ChildItems>
+				<InputField name="Наименование" id="1">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Код" id="123">
+					<DataPath>Объект.Code</DataPath>
+					<ContextMenu name="КодКонтекстноеМеню" id="124"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="125"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ДилерскийЦентр" id="7">
+			<DataPath>Объект.ДилерскийЦентр</DataPath>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;Для всех&gt;</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>&lt;For all&gt;</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ДилерскийЦентрКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ДилерскийЦентрРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<UsualGroup name="ГруппаТипКартыУровень" id="126">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа тип карты уровень</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group card type level</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа тип карты уровень</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group card type level</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаТипКартыУровеньРасширеннаяПодсказка" id="127"/>
+			<ChildItems>
+				<InputField name="ТипКарты" id="64">
+					<DataPath>Объект.ТипКарты</DataPath>
+					<Width>16</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ТипКартыКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="ТипКартыРасширеннаяПодсказка" id="66"/>
+					<Events>
+						<Event name="OnChange">ТипКартыПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Уровень" id="128">
+					<DataPath>Объект.Уровень</DataPath>
+					<Width>6</Width>
+					<SpinButton>true</SpinButton>
+					<EditFormat>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=-; ЧГ=</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>CC = 3; CHDTS =; = CHN -; * P =</v8:content>
+						</v8:item>
+					</EditFormat>
+					<ContextMenu name="УровеньКонтекстноеМеню" id="129"/>
+					<ExtendedTooltip name="УровеньРасширеннаяПодсказка" id="130"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНастройки" id="67">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group settings</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Group settings</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаНастройкиЛево" id="69">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки лево</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group settings left</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки лево</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Group settings left</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиЛевоРасширеннаяПодсказка" id="70"/>
+					<ChildItems>
+						<CheckBoxField name="НачислениеБалловОтТекущегоНакопления" id="13">
+							<DataPath>Объект.НачислениеБалловОтТекущегоНакопления</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Размер начисляемых баллов зависит от текущего накопления</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>The size of points accrued depends on the current accumulation</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="НачислениеБалловОтТекущегоНакопленияКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="НачислениеБалловОтТекущегоНакопленияРасширеннаяПодсказка" id="15"/>
+							<Events>
+								<Event name="OnChange">НачислениеБалловОтТекущегоНакопленияПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ИспользоватьСрокДействияБаллов" id="45">
+							<DataPath>Объект.ИспользоватьСрокДействияБаллов</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Использовать срок действия баллов с момента последнего изменения баланса карты</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Use the validity of points since the last change in the balance of the card</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьСрокДействияБалловКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="ИспользоватьСрокДействияБалловРасширеннаяПодсказка" id="47"/>
+							<Events>
+								<Event name="OnChange">ИспользоватьСрокДействияБалловПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНастройкиПраво" id="71">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки право</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>right settings Group</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа настройки право</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>right settings Group</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНастройкиПравоРасширеннаяПодсказка" id="72"/>
+					<ChildItems>
+						<CheckBoxField name="Персонализирована" id="10">
+							<DataPath>Объект.Персонализирована</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПерсонализированаКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПерсонализированаРасширеннаяПодсказка" id="12"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Pages</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<Page name="СтраницаШкалаНачисленияБаллов" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шкала начисления баллов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Scoring Scale</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шкала начисления баллов</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Scoring Scale</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаШкалаНачисленияБалловРасширеннаяПодсказка" id="19"/>
+					<ChildItems>
+						<Table name="ШкалаНачисленияБаллов" id="20">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ШкалаНачисленияБаллов</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ШкалаНачисленияБалловКонтекстноеМеню" id="21"/>
+							<AutoCommandBar name="ШкалаНачисленияБалловКоманднаяПанель" id="22"/>
+							<ExtendedTooltip name="ШкалаНачисленияБалловРасширеннаяПодсказка" id="23"/>
+							<SearchStringAddition name="ШкалаНачисленияБалловСтрокаПоиска" id="24">
+								<AdditionSource>
+									<Item>ШкалаНачисленияБаллов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ШкалаНачисленияБалловСтрокаПоискаКонтекстноеМеню" id="25"/>
+								<ExtendedTooltip name="ШкалаНачисленияБалловСтрокаПоискаРасширеннаяПодсказка" id="26"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ШкалаНачисленияБалловСостояниеПросмотра" id="27">
+								<AdditionSource>
+									<Item>ШкалаНачисленияБаллов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ШкалаНачисленияБалловСостояниеПросмотраКонтекстноеМеню" id="28"/>
+								<ExtendedTooltip name="ШкалаНачисленияБалловСостояниеПросмотраРасширеннаяПодсказка" id="29"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ШкалаНачисленияБалловУправлениеПоиском" id="30">
+								<AdditionSource>
+									<Item>ШкалаНачисленияБаллов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ШкалаНачисленияБалловУправлениеПоискомКонтекстноеМеню" id="31"/>
+								<ExtendedTooltip name="ШкалаНачисленияБалловУправлениеПоискомРасширеннаяПодсказка" id="32"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ШкалаНачисленияБалловНомерСтроки" id="33">
+									<DataPath>Объект.ШкалаНачисленияБаллов.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ШкалаНачисленияБалловНомерСтрокиКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="ШкалаНачисленияБалловНомерСтрокиРасширеннаяПодсказка" id="35"/>
+								</LabelField>
+								<InputField name="ШкалаНачисленияБалловБалансОт" id="36">
+									<DataPath>Объект.ШкалаНачисленияБаллов.БалансОт</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ШкалаНачисленияБалловБалансОтКонтекстноеМеню" id="37"/>
+									<ExtendedTooltip name="ШкалаНачисленияБалловБалансОтРасширеннаяПодсказка" id="38"/>
+								</InputField>
+								<InputField name="ШкалаНачисленияБалловБалансДо" id="39">
+									<DataPath>Объект.ШкалаНачисленияБаллов.БалансДо</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ШкалаНачисленияБалловБалансДоКонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="ШкалаНачисленияБалловБалансДоРасширеннаяПодсказка" id="41"/>
+								</InputField>
+								<InputField name="ШкалаНачисленияБалловПроцентСуммы" id="42">
+									<DataPath>Объект.ШкалаНачисленияБаллов.ПроцентСуммы</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ШкалаНачисленияБалловПроцентСуммыКонтекстноеМеню" id="43"/>
+									<ExtendedTooltip name="ШкалаНачисленияБалловПроцентСуммыРасширеннаяПодсказка" id="44"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаСрокДействия" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок действия</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Validity</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница срок действия</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page expiration date</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаСрокДействияРасширеннаяПодсказка" id="49"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияПояснениеСрокаДействия" id="61">
+							<HorizontalStretch>false</HorizontalStretch>
+							<TextColor>style:FieldSelectionBackColor</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Срок действия баллов с момента последнего изменения баланса карты. По истечении указанного срока баллы обнуляются без возможности их восстановления</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Validity of points since the last change in the balance of the card. After this period the points are reset to zero, without the possibility of recovery</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияПояснениеСрокаДействияКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ДекорацияПояснениеСрокаДействияРасширеннаяПодсказка" id="63"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаСрокДействия" id="56">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа срок действия</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group validity period</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа срок действия</v8:content>
+								</v8:item>
+								<v8:item>
+									<v8:lang>en</v8:lang>
+									<v8:content>Group validity period</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСрокДействияРасширеннаяПодсказка" id="57"/>
+							<ChildItems>
+								<InputField name="СрокДействия" id="50">
+									<DataPath>Объект.СрокДействияБаллов</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Срок действия баллов</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>Validity of points</v8:content>
+										</v8:item>
+									</Title>
+									<Width>8</Width>
+									<ChoiceButton>true</ChoiceButton>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="СрокДействияКонтекстноеМеню" id="51"/>
+									<ExtendedTooltip name="СрокДействияРасширеннаяПодсказка" id="52"/>
+									<Events>
+										<Event name="OnChange">СрокДействияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="Периодичность" id="53">
+									<DataPath>Объект.ПериодичностьДействияБаллов</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ListChoiceMode>true</ListChoiceMode>
+									<TextEdit>false</TextEdit>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.DMS_ПериодичностьДействияБаллов.EnumValue.День</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.DMS_ПериодичностьДействияБаллов.EnumValue.Месяц</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.DMS_ПериодичностьДействияБаллов.EnumValue.Год</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ПериодичностьКонтекстноеМеню" id="54"/>
+									<ExtendedTooltip name="ПериодичностьРасширеннаяПодсказка" id="55"/>
+								</InputField>
+								<LabelDecoration name="ДекорацияСрокДействияКарты" id="58">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>с момента последнего изменения баланса карты</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>since the last change in the balance of the card</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияСрокДействияКартыКонтекстноеМеню" id="59"/>
+									<ExtendedTooltip name="ДекорацияСрокДействияКартыРасширеннаяПодсказка" id="60"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПравилаЗаменыКарты" id="73">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Замена дисконтных карт</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Replacement of discount cards</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница правила замены карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page replacement card rules</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПравилаЗаменыКартыРасширеннаяПодсказка" id="74"/>
+					<ChildItems>
+						<Table name="ПравилаЗаменыДисконтныхКарт" id="75">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ПравилаЗаменыДисконтныхКарт</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПравилаЗаменыДисконтныхКартКонтекстноеМеню" id="76"/>
+							<AutoCommandBar name="ПравилаЗаменыДисконтныхКартКоманднаяПанель" id="77"/>
+							<ExtendedTooltip name="ПравилаЗаменыДисконтныхКартРасширеннаяПодсказка" id="78"/>
+							<SearchStringAddition name="ПравилаЗаменыДисконтныхКартСтрокаПоиска" id="79">
+								<AdditionSource>
+									<Item>ПравилаЗаменыДисконтныхКарт</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилаЗаменыДисконтныхКартСтрокаПоискаКонтекстноеМеню" id="80"/>
+								<ExtendedTooltip name="ПравилаЗаменыДисконтныхКартСтрокаПоискаРасширеннаяПодсказка" id="81"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПравилаЗаменыДисконтныхКартСостояниеПросмотра" id="82">
+								<AdditionSource>
+									<Item>ПравилаЗаменыДисконтныхКарт</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилаЗаменыДисконтныхКартСостояниеПросмотраКонтекстноеМеню" id="83"/>
+								<ExtendedTooltip name="ПравилаЗаменыДисконтныхКартСостояниеПросмотраРасширеннаяПодсказка" id="84"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПравилаЗаменыДисконтныхКартУправлениеПоиском" id="85">
+								<AdditionSource>
+									<Item>ПравилаЗаменыДисконтныхКарт</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилаЗаменыДисконтныхКартУправлениеПоискомКонтекстноеМеню" id="86"/>
+								<ExtendedTooltip name="ПравилаЗаменыДисконтныхКартУправлениеПоискомРасширеннаяПодсказка" id="87"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПравилаЗаменыДисконтныхКартНомерСтроки" id="88">
+									<DataPath>Объект.ПравилаЗаменыДисконтныхКарт.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПравилаЗаменыДисконтныхКартНомерСтрокиКонтекстноеМеню" id="89"/>
+									<ExtendedTooltip name="ПравилаЗаменыДисконтныхКартНомерСтрокиРасширеннаяПодсказка" id="90"/>
+								</LabelField>
+								<InputField name="ПравилаЗаменыДисконтныхКартВидДисконтнойКарты" id="91">
+									<DataPath>Объект.ПравилаЗаменыДисконтныхКарт.ВидДисконтнойКарты</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceParameters>
+										<app:item name="Отбор.ТипКарты">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.DMS_ТипыКартЛояльности.EnumValue.Дисконтная</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ПравилаЗаменыДисконтныхКартВидДисконтнойКартыКонтекстноеМеню" id="92"/>
+									<ExtendedTooltip name="ПравилаЗаменыДисконтныхКартВидДисконтнойКартыРасширеннаяПодсказка" id="93"/>
+								</InputField>
+								<InputField name="ПравилаЗаменыДисконтныхКартНоминал" id="94">
+									<DataPath>Объект.ПравилаЗаменыДисконтныхКарт.Номинал</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПравилаЗаменыДисконтныхКартНоминалКонтекстноеМеню" id="95"/>
+									<ExtendedTooltip name="ПравилаЗаменыДисконтныхКартНоминалРасширеннаяПодсказка" id="96"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПравилаЗаменыБонуснойКарты" id="97">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Замена бонусной карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Replacing the bonus card</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница правила замены бонусной карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page rules replace the bonus card</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПравилаЗаменыБонуснойКартыРасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<Table name="ПравилаЗаменыБонусныхКарт" id="99">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ПравилаЗаменыБонусныхКарт</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПравилаЗаменыБонусныхКартКонтекстноеМеню" id="100"/>
+							<AutoCommandBar name="ПравилаЗаменыБонусныхКартКоманднаяПанель" id="101"/>
+							<ExtendedTooltip name="ПравилаЗаменыБонусныхКартРасширеннаяПодсказка" id="102"/>
+							<SearchStringAddition name="ПравилаЗаменыБонусныхКартСтрокаПоиска" id="103">
+								<AdditionSource>
+									<Item>ПравилаЗаменыБонусныхКарт</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилаЗаменыБонусныхКартСтрокаПоискаКонтекстноеМеню" id="104"/>
+								<ExtendedTooltip name="ПравилаЗаменыБонусныхКартСтрокаПоискаРасширеннаяПодсказка" id="105"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПравилаЗаменыБонусныхКартСостояниеПросмотра" id="106">
+								<AdditionSource>
+									<Item>ПравилаЗаменыБонусныхКарт</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилаЗаменыБонусныхКартСостояниеПросмотраКонтекстноеМеню" id="107"/>
+								<ExtendedTooltip name="ПравилаЗаменыБонусныхКартСостояниеПросмотраРасширеннаяПодсказка" id="108"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПравилаЗаменыБонусныхКартУправлениеПоиском" id="109">
+								<AdditionSource>
+									<Item>ПравилаЗаменыБонусныхКарт</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилаЗаменыБонусныхКартУправлениеПоискомКонтекстноеМеню" id="110"/>
+								<ExtendedTooltip name="ПравилаЗаменыБонусныхКартУправлениеПоискомРасширеннаяПодсказка" id="111"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПравилаЗаменыБонусныхКартНомерСтроки" id="112">
+									<DataPath>Объект.ПравилаЗаменыБонусныхКарт.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПравилаЗаменыБонусныхКартНомерСтрокиКонтекстноеМеню" id="113"/>
+									<ExtendedTooltip name="ПравилаЗаменыБонусныхКартНомерСтрокиРасширеннаяПодсказка" id="114"/>
+								</LabelField>
+								<InputField name="ПравилаЗаменыБонусныхКартВидБонуснойКарты" id="115">
+									<DataPath>Объект.ПравилаЗаменыБонусныхКарт.ВидБонуснойКарты</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceParameters>
+										<app:item name="Отбор.ТипКарты">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.DMS_ТипыКартЛояльности.EnumValue.Бонусная</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ПравилаЗаменыБонусныхКартВидБонуснойКартыКонтекстноеМеню" id="116"/>
+									<ExtendedTooltip name="ПравилаЗаменыБонусныхКартВидБонуснойКартыРасширеннаяПодсказка" id="117"/>
+								</InputField>
+								<InputField name="ПравилаЗаменыБонусныхКартСуммаБалловОт" id="118">
+									<DataPath>Объект.ПравилаЗаменыБонусныхКарт.СуммаБалловОт</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПравилаЗаменыБонусныхКартСуммаБалловОтКонтекстноеМеню" id="119"/>
+									<ExtendedTooltip name="ПравилаЗаменыБонусныхКартСуммаБалловОтРасширеннаяПодсказка" id="120"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаВыдачаКарты" id="131">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выдача карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>card issuance</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница выдача карты</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page map issue</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаВыдачаКартыРасширеннаяПодсказка" id="132"/>
+					<ChildItems>
+						<Table name="ПравилоВыдачиКарт" id="133">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ПравилаВыдачиКарт</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПравилоВыдачиКартКонтекстноеМеню" id="134"/>
+							<AutoCommandBar name="ПравилоВыдачиКартКоманднаяПанель" id="135"/>
+							<ExtendedTooltip name="ПравилоВыдачиКартРасширеннаяПодсказка" id="136"/>
+							<SearchStringAddition name="ПравилоВыдачиКартСтрокаПоиска" id="137">
+								<AdditionSource>
+									<Item>ПравилоВыдачиКарт</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилоВыдачиКартСтрокаПоискаКонтекстноеМеню" id="138"/>
+								<ExtendedTooltip name="ПравилоВыдачиКартСтрокаПоискаРасширеннаяПодсказка" id="139"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПравилоВыдачиКартСостояниеПросмотра" id="140">
+								<AdditionSource>
+									<Item>ПравилоВыдачиКарт</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилоВыдачиКартСостояниеПросмотраКонтекстноеМеню" id="141"/>
+								<ExtendedTooltip name="ПравилоВыдачиКартСостояниеПросмотраРасширеннаяПодсказка" id="142"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПравилоВыдачиКартУправлениеПоиском" id="143">
+								<AdditionSource>
+									<Item>ПравилоВыдачиКарт</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПравилоВыдачиКартУправлениеПоискомКонтекстноеМеню" id="144"/>
+								<ExtendedTooltip name="ПравилоВыдачиКартУправлениеПоискомРасширеннаяПодсказка" id="145"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПравилоВыдачиКартНомерСтроки" id="146">
+									<DataPath>Объект.ПравилаВыдачиКарт.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПравилоВыдачиКартНомерСтрокиКонтекстноеМеню" id="147"/>
+									<ExtendedTooltip name="ПравилоВыдачиКартНомерСтрокиРасширеннаяПодсказка" id="148"/>
+								</LabelField>
+								<InputField name="ПравилоВыдачиКартПрограммаЛояльности" id="149">
+									<DataPath>Объект.ПравилаВыдачиКарт.ПрограммаЛояльности</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПравилоВыдачиКартПрограммаЛояльностиКонтекстноеМеню" id="150"/>
+									<ExtendedTooltip name="ПравилоВыдачиКартПрограммаЛояльностиРасширеннаяПодсказка" id="151"/>
+								</InputField>
+								<InputField name="ПравилоВыдачиКартНоминал" id="152">
+									<DataPath>Объект.ПравилаВыдачиКарт.Номинал</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧЦ=15; ЧДЦ=2; ЧН=-</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>CC = 15; CHDTS = 2; = CHN -</v8:content>
+										</v8:item>
+									</Format>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧЦ=15; ЧДЦ=2; ЧН=-</v8:content>
+										</v8:item>
+										<v8:item>
+											<v8:lang>en</v8:lang>
+											<v8:content>CC = 15; CHDTS = 2; = CHN -</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ПравилоВыдачиКартНоминалКонтекстноеМеню" id="153"/>
+									<ExtendedTooltip name="ПравилоВыдачиКартНоминалРасширеннаяПодсказка" id="154"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПривилегии" id="155">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Привилегии</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Privilege</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница привилегии</v8:content>
+						</v8:item>
+						<v8:item>
+							<v8:lang>en</v8:lang>
+							<v8:content>Page privileges</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПривилегииРасширеннаяПодсказка" id="156"/>
+					<ChildItems>
+						<Table name="Привилегии" id="157">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.Привилегии</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ПривилегииКонтекстноеМеню" id="158"/>
+							<AutoCommandBar name="ПривилегииКоманднаяПанель" id="159"/>
+							<ExtendedTooltip name="ПривилегииРасширеннаяПодсказка" id="160"/>
+							<SearchStringAddition name="ПривилегииСтрокаПоиска" id="161">
+								<AdditionSource>
+									<Item>Привилегии</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПривилегииСтрокаПоискаКонтекстноеМеню" id="162"/>
+								<ExtendedTooltip name="ПривилегииСтрокаПоискаРасширеннаяПодсказка" id="163"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПривилегииСостояниеПросмотра" id="164">
+								<AdditionSource>
+									<Item>Привилегии</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПривилегииСостояниеПросмотраКонтекстноеМеню" id="165"/>
+								<ExtendedTooltip name="ПривилегииСостояниеПросмотраРасширеннаяПодсказка" id="166"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПривилегииУправлениеПоиском" id="167">
+								<AdditionSource>
+									<Item>Привилегии</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПривилегииУправлениеПоискомКонтекстноеМеню" id="168"/>
+								<ExtendedTooltip name="ПривилегииУправлениеПоискомРасширеннаяПодсказка" id="169"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПривилегииНомерСтроки" id="170">
+									<DataPath>Объект.Привилегии.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПривилегииНомерСтрокиКонтекстноеМеню" id="171"/>
+									<ExtendedTooltip name="ПривилегииНомерСтрокиРасширеннаяПодсказка" id="172"/>
+								</LabelField>
+								<InputField name="ПривилегииПривилегия" id="173">
+									<DataPath>Объект.Привилегии.Привилегия</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПривилегииПривилегияКонтекстноеМеню" id="174"/>
+									<ExtendedTooltip name="ПривилегииПривилегияРасширеннаяПодсказка" id="175"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.DMS_ВидыКартЛояльности</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="БонусныйТипКарты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бонусный тип карты</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Bonus card type</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РасписаниеРегламентногоЗадания" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписание регламентного задания</v8:content>
+				</v8:item>
+				<v8:item>
+					<v8:lang>en</v8:lang>
+					<v8:content>Schedule routine tasks</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+</Form>
