@@ -153,27 +153,49 @@
 			<dataPath>ПометкаУдаления</dataPath>
 			<field>ПометкаУдаления</field>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДС</dataPath>
+			<field>СуммаНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДЦбезНДС</dataPath>
+			<field>СуммаДЦбезНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма ДЦ без НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ВыпискаСостав.Ссылка.Организация,
-	ВыпискаСостав.Контрагент,
+	ВыпискаСостав.Ссылка.Организация КАК Организация,
+	ВыпискаСостав.Контрагент КАК Контрагент,
 	ВыпискаСостав.Ссылка.Дата КАК Дата,
-	ВыпискаСостав.СтатьяДДС,
-	ВыпискаСостав.Сделка,
-	ВыпискаСостав.Ссылка.БанковскийСчет,
+	ВыпискаСостав.СтатьяДДС КАК СтатьяДДС,
+	ВыпискаСостав.Сделка КАК Сделка,
+	ВыпискаСостав.Ссылка.БанковскийСчет КАК БанковскийСчет,
 	ВыпискаСостав.НазначениеПлатежа КАК НазначениеПлатежа,
 	ВыпискаСостав.СуммаРасход КАК СуммаРасхода,
-	ВыпискаСостав.СтавкаНДС,
+	ВыпискаСостав.СтавкаНДС КАК СтавкаНДС,
 	ВыпискаСостав.ПлатежноеПоручениеОснование КАК ДанныеОПлатеже,
-	ВыпискаСостав.ДоговорВзаиморасчетов,
+	ВыпискаСостав.ДоговорВзаиморасчетов КАК ДоговорВзаиморасчетов,
 	СОКРЛП(СТРЗАМЕНИТЬ(ПлатежноеПоручениеСостав.АдресДоставкиГруппыПодразделений, "Ростовская обл,", "")) КАК АдресДоставкиГруза,
 	ПлатежноеПоручениеСостав.ГруппаПодразделений КАК ДилерскийЦентр,
-	ПлатежноеПоручениеСостав.Ссылка.ПодписантСчета,
+	ПлатежноеПоручениеСостав.Ссылка.ПодписантСчета КАК ПодписантСчета,
 	ПлатежноеПоручениеСостав.ЗаказчикФИОГруппыПодразделений КАК ФИОЗаказчика,
 	ПлатежноеПоручениеСостав.СуммаГруппыПодразделений КАК СуммаДЦ,
 	ПлатежноеПоручениеСостав.Ссылка КАК ПлатежноеПоручение,
 	ВыпискаСостав.Ссылка КАК Выписка,
-	ПлатежноеПоручениеСостав.Ссылка.ПометкаУдаления
+	ПлатежноеПоручениеСостав.Ссылка.ПометкаУдаления КАК ПометкаУдаления,
+	ПлатежноеПоручениеСостав.СуммаГруппыПодразделений / ПлатежноеПоручениеСостав.Ссылка.СуммаДокумента * ПлатежноеПоручениеСостав.Ссылка.СуммаНДС КАК СуммаНДС,
+	ПлатежноеПоручениеСостав.СуммаГруппыПодразделений * (1 - 1 / ПлатежноеПоручениеСостав.Ссылка.СуммаДокумента * ПлатежноеПоручениеСостав.Ссылка.СуммаНДС) КАК СуммаДЦбезНДС
 ИЗ
 	Документ.Выписка.Состав КАК ВыпискаСостав
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПлатежноеПоручение.Состав КАК ПлатежноеПоручениеСостав
@@ -190,6 +212,14 @@
 	<totalField>
 		<dataPath>СуммаДЦ</dataPath>
 		<expression>Сумма(СуммаДЦ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНДС</dataPath>
+		<expression>Сумма(СуммаНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДЦбезНДС</dataPath>
+		<expression>Сумма(СуммаДЦбезНДС)</expression>
 	</totalField>
 	<parameter>
 		<name>ДатаНачала</name>
@@ -271,6 +301,14 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СуммаДЦбезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СуммаНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>ПлатежноеПоручение</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -313,6 +351,31 @@
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>ДФ=dd.MM.yyyy</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>СуммаДЦ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаДЦбезНДС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаНДС</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
 								</v8:item>
 							</dcscor:value>
 						</dcscor:item>

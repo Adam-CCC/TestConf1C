@@ -1174,6 +1174,7 @@
 			<CommonPicture>Ресепшен32</CommonPicture>
 			<CommonPicture>РесурсОбщие</CommonPicture>
 			<CommonPicture>Ресурсы</CommonPicture>
+			<CommonPicture>РоботОбзвон32</CommonPicture>
 			<CommonPicture>Роль</CommonPicture>
 			<CommonPicture>Сберкарт</CommonPicture>
 			<CommonPicture>СвойстваОбъекта</CommonPicture>
@@ -1597,6 +1598,7 @@
 			<Role>СогласоватьЗаказНаряд</Role>
 			<Role>СМ_ЛогистОтчитка</Role>
 			<Role>СМ_НеСоздатьКонтрагента</Role>
+			<Role>СМ_СпециалистВыездногоВыкупа</Role>
 			<CommonTemplate>CRM_SearchModule</CommonTemplate>
 			<CommonTemplate>DMS_КомпонентаСклоненияФИО</CommonTemplate>
 			<CommonTemplate>DMS_МакетПривилегии</CommonTemplate>
@@ -2078,7 +2080,10 @@
 			<CommonModule>SM_СобытияФорм</CommonModule>
 			<CommonModule>SM_СлужебныеМетодыФормКлиент</CommonModule>
 			<CommonModule>SM_СлужебныеМетодыФормСервер</CommonModule>
-			<CommonModule>SM_СлужебныеМетодыФормКлиентСервер</CommonModule>
+			<CommonModule>SM_СлужебныеМетодыКлиентСервер</CommonModule>
+			<CommonModule>SM_СобытияОбъектов</CommonModule>
+			<CommonModule>SM_API_ЧЗ</CommonModule>
+			<CommonModule>SM_API_ЧЗ_ИмпортТокенов</CommonModule>
 			<CommonAttribute>СМ_Комментарий</CommonAttribute>
 			<CommonAttribute>Renault_ВерсияВнешнихДанных</CommonAttribute>
 			<CommonAttribute>СМ_ДатаСоздания</CommonAttribute>
@@ -2467,6 +2472,7 @@
 			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаGAC</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаVGV</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаСоллерс</ScheduledJob>
+			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаТенетПлюс</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаЧанган</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаЧери</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMАвтолигаVGV</ScheduledJob>
@@ -2635,6 +2641,7 @@
 			<ScheduledJob>ур_ПолучитьАдресаДилера</ScheduledJob>
 			<ScheduledJob>ур_ПолучитьКаталогДистрибьютора</ScheduledJob>
 			<ScheduledJob>УстановитьСтатусНекорректныйФПК</ScheduledJob>
+			<ScheduledJob>SM_API_ЧЗ_ИмпортТокенов</ScheduledJob>
 			<SettingsStorage>ХранилищеНастроек_Renault</SettingsStorage>
 			<SettingsStorage>ХранилищеВариантовОтчетов</SettingsStorage>
 			<FunctionalOption>ИспользоватьВнешнихПользователей</FunctionalOption>
@@ -2647,6 +2654,7 @@
 			<FunctionalOption>СтандартныеПодсистемыВМоделиСервиса</FunctionalOption>
 			<DefinedType>Артикул</DefinedType>
 			<DefinedType>ШтрихКод</DefinedType>
+			<DefinedType>ГруппаПодразделений</DefinedType>
 			<Bot>ПолучениеЛидовДЦ1</Bot>
 			<Bot>ПолучениеЛидовДЦ2</Bot>
 			<Bot>ПолучениеЛидовДЦ3</Bot>
@@ -2848,7 +2856,7 @@
 			<Constant>SM_АдресКаталога</Constant>
 			<Constant>CRM_ИспользуемыйСофтФон</Constant>
 			<Constant>SM_КаталогХраненияВерсий</Constant>
-			<Constant>ЧЗ_1ВключитьСимвол29</Constant>
+			<Constant>SM_ПереключательСистемыСогласований</Constant>
 			<CommonForm>CRM_DSS</CommonForm>
 			<CommonForm>CRM_ВыборКонтакта</CommonForm>
 			<CommonForm>CRM_ЗаписнаяКнигаВыбор</CommonForm>
@@ -3527,6 +3535,8 @@
 			<Catalog>ШаблоныТекстовыхСообщений</Catalog>
 			<Catalog>ЭкологическиеКлассы</Catalog>
 			<Catalog>ЯчейкиХранения</Catalog>
+			<Catalog>ОтделыГКДляУправленческойОтчетности</Catalog>
+			<Catalog>ОтделыГК</Catalog>
 			<Document>_г_ИнвентаризацияОбщая</Document>
 			<Document>_г_РазукомплектацияАвтомобиля</Document>
 			<Document>CRM_ГрафикРаботыОтделаПродаж</Document>
@@ -3842,6 +3852,7 @@
 			<Document>ЭлектронноеПисьмо</Document>
 			<Document>АктЛогиста</Document>
 			<Document>ИзменениеПоказателейПрограммСтрахования</Document>
+			<Document>БыстраяИнвентаризацияМаркировки</Document>
 			<DocumentJournal>Renault_ДвижениеПТС</DocumentJournal>
 			<DocumentJournal>Renault_ДокументыКладовщика</DocumentJournal>
 			<DocumentJournal>Renault_Заказы</DocumentJournal>
@@ -4943,6 +4954,7 @@
 			<Report>ПоСобытиямДляРОП</Report>
 			<Report>ЗаказНарядыИКомплектацииАвтомобиля</Report>
 			<Report>ОтчетДляРКСОПоКонтрагентам</Report>
+			<Report>БрошенныеРабочиеЛистыДляТелемаркетинга</Report>
 			<DataProcessor>CRM_CLON</DataProcessor>
 			<DataProcessor>CRM_АРМ_АвтоСервис</DataProcessor>
 			<DataProcessor>CRM_АРМ_АвтоСервис_2</DataProcessor>
@@ -5429,6 +5441,7 @@
 			<DataProcessor>МеханизмСогласования</DataProcessor>
 			<DataProcessor>SM_ПроблемныеКлиенты</DataProcessor>
 			<DataProcessor>ЗаменаСвязанныхРаботВПакетахТО</DataProcessor>
+			<DataProcessor>КлиентыБитриксСовершившиеВизитВДЦ</DataProcessor>
 			<InformationRegister>CDNПлощадки</InformationRegister>
 			<InformationRegister>CRM_АвтомобилиВыданные</InformationRegister>
 			<InformationRegister>CRM_БесплатныеУслуги</InformationRegister>
@@ -6076,8 +6089,13 @@
 			<InformationRegister>SM_СогласованиеДокументов</InformationRegister>
 			<InformationRegister>SM_ЭтапСогласования</InformationRegister>
 			<InformationRegister>SM_СогласующиеЭтап</InformationRegister>
+			<InformationRegister>SM_ХранилищеКриптохвостов</InformationRegister>
+			<InformationRegister>SM_API_ЧЗ_Токен</InformationRegister>
+			<InformationRegister>ПлощадкиПервоначальногоПоступления</InformationRegister>
+			<InformationRegister>SM_СостояниеПроверкиЧЗ</InformationRegister>
 			<InformationRegister>ВнутренниеКодыМаркировок</InformationRegister>
 			<InformationRegister>СчетчикСерийногоНомераДляВнутреннегоКМ</InformationRegister>
+			<InformationRegister>КодыМаркировки</InformationRegister>
 			<AccumulationRegister>DMS_БонусныеБаллы</AccumulationRegister>
 			<AccumulationRegister>DMS_РекламныеКампании</AccumulationRegister>
 			<AccumulationRegister>Renault_Advanced_ЗаявкиНаРасходованиеСредств</AccumulationRegister>
@@ -6161,6 +6179,7 @@
 			<AccumulationRegister>СМГ_ПланыПоСотрудникамВРазрезеЦехов</AccumulationRegister>
 			<AccumulationRegister>БонусныеБаллыДилера</AccumulationRegister>
 			<AccumulationRegister>УчетКоличестваМаркированнойПродукци</AccumulationRegister>
+			<AccumulationRegister>SM_ОстаткиКодовМаркировки</AccumulationRegister>
 			<ChartOfCharacteristicTypes>CRM_РеквизитыТрафика</ChartOfCharacteristicTypes>
 			<ChartOfCharacteristicTypes>DMS_РеквизитыЗаявкиНаСогласование</ChartOfCharacteristicTypes>
 			<ChartOfCharacteristicTypes>Renault_Advanced_НастройкиПользователей</ChartOfCharacteristicTypes>
