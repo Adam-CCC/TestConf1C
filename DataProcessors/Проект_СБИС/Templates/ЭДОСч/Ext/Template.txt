@@ -1,0 +1,67 @@
+﻿<?xml version="1.0"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:template match="/">
+        <ValueTable xmlns="http://v8.1c.ru/8.1/data/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <column>
+                <Name xsi:type="xs:string">Код</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">Название</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">Описание</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">Количество</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">Единица_Измерения</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">Сумма</Name>
+                <ValueType/>
+            </column>
+            <column>
+                <Name xsi:type="xs:string">Цена</Name>
+                <ValueType/>
+            </column>   
+            <column>
+                <Name xsi:type="xs:string">Сумма_Без_Налога</Name>
+                <ValueType/>
+            </column>
+            <xsl:for-each select="//СтрТабл">
+                       <row>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@Код"/>
+                        </Value>
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@Название"/>
+                        </Value> 
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@Описание"/>
+                        </Value> 
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@Кол_во"/>
+                        </Value> 
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@ЕдИзм"/>
+                        </Value> 
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@Сумма"/>
+                        </Value> 
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@Цена"/>
+                        </Value> 
+                        <Value xsi:type="xs:string">
+                            <xsl:value-of select="@СуммаБезНал"/>
+                        </Value>             
+                        </row>
+            </xsl:for-each>           
+        </ValueTable>
+    </xsl:template>
+</xsl:stylesheet>

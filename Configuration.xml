@@ -253,7 +253,6 @@
 			<Subsystem>Renault</Subsystem>
 			<Subsystem>СоколМоторс</Subsystem>
 			<Subsystem>Сервис</Subsystem>
-			<Subsystem>Администрирование_VI</Subsystem>
 			<Subsystem>Запчасти</Subsystem>
 			<Subsystem>Страхование</Subsystem>
 			<Subsystem>Документы</Subsystem>
@@ -1439,6 +1438,7 @@
 			<Interface>Телемаркетинг_1С</Interface>
 			<Interface>ур_DMS</Interface>
 			<Interface>ЭкспертПоЗапаснымЧастям</Interface>
+			<Interface>_СММенеджерПоКорпоративнымиКлиентам</Interface>
 			<SessionParameter>DMS_Бренд</SessionParameter>
 			<SessionParameter>DMS_ВыполняетсяОбновлениеИБ</SessionParameter>
 			<SessionParameter>Renault_внПараметрыКлиентаНаСервере</SessionParameter>
@@ -1896,9 +1896,6 @@
 			<CommonModule>RenaultFlotte_ОтправкаЗагрузкаКлиентов</CommonModule>
 			<CommonModule>RenaultFlotte_ОтправкаЗагрузкаКомментариев</CommonModule>
 			<CommonModule>Renаult_ПолнотекстовыйПоиск</CommonModule>
-			<CommonModule>SM_МодульПроблемныеКлиенты</CommonModule>
-			<CommonModule>SM_МодульПроблемныеКлиенты_Клиент</CommonModule>
-			<CommonModule>SM_МодульПроблемныеКлиенты_Сервер</CommonModule>
 			<CommonModule>SM_ПроцедурыИФункцииРегЗадания</CommonModule>
 			<CommonModule>SM_ПроцедурыФункцииОбмена</CommonModule>
 			<CommonModule>SM_ПроцедурыФункцииСогласованияКлиент</CommonModule>
@@ -1941,8 +1938,6 @@
 			<CommonModule>ЛицензированиеСлужебныйКлиент</CommonModule>
 			<CommonModule>Модуль_ГВС</CommonModule>
 			<CommonModule>Модуль_ГВС_Сервер</CommonModule>
-			<CommonModule>МодульВерсионированияКлиент</CommonModule>
-			<CommonModule>МодульВерсионированияКлиентСервер</CommonModule>
 			<CommonModule>МодульВерсионированияСервер</CommonModule>
 			<CommonModule>НастройкиПользователейКлиент</CommonModule>
 			<CommonModule>ОбменСБухгалтерией</CommonModule>
@@ -2066,7 +2061,6 @@
 			<CommonModule>УправлениеКодамиМаркировкиВызовСервера</CommonModule>
 			<CommonModule>УправлениеКодамиМаркировкиКлиент</CommonModule>
 			<CommonModule>УправлениеКодамиМаркировкиКлиентСервер</CommonModule>
-			<CommonModule>УправлениеКодамиМаркировкиКлиентСервер1</CommonModule>
 			<CommonModule>УправлениеПечатьюПереопределяемый</CommonModule>
 			<CommonModule>ур_ОбменСоллерс</CommonModule>
 			<CommonModule>ур_Общий</CommonModule>
@@ -2084,6 +2078,7 @@
 			<CommonModule>SM_СобытияОбъектов</CommonModule>
 			<CommonModule>SM_API_ЧЗ</CommonModule>
 			<CommonModule>SM_API_ЧЗ_ИмпортТокенов</CommonModule>
+			<CommonModule>SM_АвтоОтчетОстатков</CommonModule>
 			<CommonAttribute>СМ_Комментарий</CommonAttribute>
 			<CommonAttribute>Renault_ВерсияВнешнихДанных</CommonAttribute>
 			<CommonAttribute>СМ_ДатаСоздания</CommonAttribute>
@@ -2294,11 +2289,7 @@
 			<EventSubscription>ЗаписьЗаказНаряда</EventSubscription>
 			<EventSubscription>ЗаписьЗаявкиНаРемонт</EventSubscription>
 			<EventSubscription>ИзменениеЦенАвтоработОбработкаПроведения</EventSubscription>
-			<EventSubscription>Инфотек_ПриЗаписиДокумента</EventSubscription>
-			<EventSubscription>Инфотек_ПриПроведенииДокумента</EventSubscription>
-			<EventSubscription>ОбработкаПроведенияВсехДокументов</EventSubscription>
 			<EventSubscription>ПроведениеДокументовСМаркировкой</EventSubscription>
-			<EventSubscription>ПриЗаписиСправочникиДокументы</EventSubscription>
 			<EventSubscription>сбДокументыОбработкаПроведения</EventSubscription>
 			<EventSubscription>сбДокументыОбработкаУдаленияПроведения</EventSubscription>
 			<EventSubscription>сбДокументыПередЗаписью</EventSubscription>
@@ -2425,6 +2416,7 @@
 			<ScheduledJob>RenaultFlotte_ЗагрузкаСправочников</ScheduledJob>
 			<ScheduledJob>RenaultFlotte_ОбменКомментариями</ScheduledJob>
 			<ScheduledJob>RenaultFlotte_ОбщаяЗагрузкаВыгрузка</ScheduledJob>
+			<ScheduledJob>SM_API_ЧЗ_ИмпортТокенов</ScheduledJob>
 			<ScheduledJob>SM_ПолучитьСтатусыПоСогласованнымДокументам</ScheduledJob>
 			<ScheduledJob>АвтоматическийОбменСЕАИСТО</ScheduledJob>
 			<ScheduledJob>АвтоматическоеСнятиеРезервов</ScheduledJob>
@@ -2470,6 +2462,7 @@
 			<ScheduledJob>ВыгрузкаДляDNMSalesШахтыХавал</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMSalesШахтыЧанган</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаGAC</ScheduledJob>
+			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаUMO</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаVGV</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаСоллерс</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMSalesШолоховаТенетПлюс</ScheduledJob>
@@ -2498,6 +2491,7 @@
 			<ScheduledJob>ВыгрузкаДляDNMШахтыХавал</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMШахтыЧанган</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMШолоховаGAC</ScheduledJob>
+			<ScheduledJob>ВыгрузкаДляDNMШолоховаUMO</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMШолоховаVGV</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMШолоховаСоллерс</ScheduledJob>
 			<ScheduledJob>ВыгрузкаДляDNMШолоховаТенет</ScheduledJob>
@@ -2555,7 +2549,6 @@
 			<ScheduledJob>ОчисткаНапечатанныхКодовМаркировки</ScheduledJob>
 			<ScheduledJob>ОчисткаУстаревшихРегистрацийВОбменСМобильнымУстройством</ScheduledJob>
 			<ScheduledJob>ПланированиеЗвонковДляПриглашенияНаТО</ScheduledJob>
-			<ScheduledJob>ПолучитьСформироватьЗаписиДОПиПП</ScheduledJob>
 			<ScheduledJob>ППОАксайДжейку</ScheduledJob>
 			<ScheduledJob>ППОАксайОмода</ScheduledJob>
 			<ScheduledJob>ППОАксайТенетПлюс</ScheduledJob>
@@ -2626,6 +2619,7 @@
 			<ScheduledJob>СМГ_ВыгрузкаОстаткиОборотыТоваровВФайлCSV</ScheduledJob>
 			<ScheduledJob>СМГ_ВыгрузкаПрайсЛистовОптовикам</ScheduledJob>
 			<ScheduledJob>СМГ_ВыгрузкаТоваровКомплектации</ScheduledJob>
+			<ScheduledJob>СМГ_МаркетинговыеЛиды</ScheduledJob>
 			<ScheduledJob>СМГ_ПланФактМастеровПриемщиков</ScheduledJob>
 			<ScheduledJob>СМГ_РассылкаУволенныхСотрудников</ScheduledJob>
 			<ScheduledJob>СМСНапомининиеОЗаписиНаРемонт</ScheduledJob>
@@ -2641,7 +2635,8 @@
 			<ScheduledJob>ур_ПолучитьАдресаДилера</ScheduledJob>
 			<ScheduledJob>ур_ПолучитьКаталогДистрибьютора</ScheduledJob>
 			<ScheduledJob>УстановитьСтатусНекорректныйФПК</ScheduledJob>
-			<ScheduledJob>SM_API_ЧЗ_ИмпортТокенов</ScheduledJob>
+			<ScheduledJob>SM_РегистрацияВремениСотрудников</ScheduledJob>
+			<ScheduledJob>SM_ОтправкаОтчетаПрайс</ScheduledJob>
 			<SettingsStorage>ХранилищеНастроек_Renault</SettingsStorage>
 			<SettingsStorage>ХранилищеВариантовОтчетов</SettingsStorage>
 			<FunctionalOption>ИспользоватьВнешнихПользователей</FunctionalOption>
@@ -2854,9 +2849,11 @@
 			<Constant>Пароль_СБИС</Constant>
 			<Constant>Проверки_По_Честному_Знаку</Constant>
 			<Constant>SM_АдресКаталога</Constant>
+			<Constant>Токен_EnDocs</Constant>
 			<Constant>CRM_ИспользуемыйСофтФон</Constant>
-			<Constant>SM_КаталогХраненияВерсий</Constant>
 			<Constant>SM_ПереключательСистемыСогласований</Constant>
+			<Constant>SM_ПереключательФИФОМаркировка</Constant>
+			<Constant>SM_ПереключательСканированияМаркировки</Constant>
 			<CommonForm>CRM_DSS</CommonForm>
 			<CommonForm>CRM_ВыборКонтакта</CommonForm>
 			<CommonForm>CRM_ЗаписнаяКнигаВыбор</CommonForm>
@@ -3290,8 +3287,6 @@
 			<Catalog>Renault_ШкалаСумм</Catalog>
 			<Catalog>Renault_ЭтапыВыдачи</Catalog>
 			<Catalog>Renault_ЭтапыВыполненияПродаж</Catalog>
-			<Catalog>SM_Должности</Catalog>
-			<Catalog>SM_Отделы</Catalog>
 			<Catalog>SM_СтатьиРасходов</Catalog>
 			<Catalog>Автомобили</Catalog>
 			<Catalog>Автоработы</Catalog>
@@ -3853,6 +3848,7 @@
 			<Document>АктЛогиста</Document>
 			<Document>ИзменениеПоказателейПрограммСтрахования</Document>
 			<Document>БыстраяИнвентаризацияМаркировки</Document>
+			<Document>СписаниеМаркированыхТоваров</Document>
 			<DocumentJournal>Renault_ДвижениеПТС</DocumentJournal>
 			<DocumentJournal>Renault_ДокументыКладовщика</DocumentJournal>
 			<DocumentJournal>Renault_Заказы</DocumentJournal>
@@ -4955,6 +4951,7 @@
 			<Report>ЗаказНарядыИКомплектацииАвтомобиля</Report>
 			<Report>ОтчетДляРКСОПоКонтрагентам</Report>
 			<Report>БрошенныеРабочиеЛистыДляТелемаркетинга</Report>
+			<Report>ДробноеКоличествоВзакрытыхЗН</Report>
 			<DataProcessor>CRM_CLON</DataProcessor>
 			<DataProcessor>CRM_АРМ_АвтоСервис</DataProcessor>
 			<DataProcessor>CRM_АРМ_АвтоСервис_2</DataProcessor>
@@ -4995,6 +4992,7 @@
 			<DataProcessor>EDR_ФормированиеФайла</DataProcessor>
 			<DataProcessor>EDR_ЧтениеDIFF</DataProcessor>
 			<DataProcessor>EDR_ЧтениеGAREXP</DataProcessor>
+			<DataProcessor>EnDocs_Загрузка_Выгрузка_Документа</DataProcessor>
 			<DataProcessor>LMS_Автодилер</DataProcessor>
 			<DataProcessor>Nirax_ПомощникАвтобизнесаОбщий</DataProcessor>
 			<DataProcessor>Nirax_ПомощникАвтобизнесаОбщий1</DataProcessor>
@@ -5439,15 +5437,12 @@
 			<DataProcessor>ШоуРум</DataProcessor>
 			<DataProcessor>ШтрихКоды</DataProcessor>
 			<DataProcessor>МеханизмСогласования</DataProcessor>
-			<DataProcessor>SM_ПроблемныеКлиенты</DataProcessor>
 			<DataProcessor>ЗаменаСвязанныхРаботВПакетахТО</DataProcessor>
 			<DataProcessor>КлиентыБитриксСовершившиеВизитВДЦ</DataProcessor>
-			<InformationRegister>CDNПлощадки</InformationRegister>
+			<DataProcessor>СводнаяВедомостьПоПроданнымАвто</DataProcessor>
 			<InformationRegister>CRM_АвтомобилиВыданные</InformationRegister>
 			<InformationRegister>CRM_БесплатныеУслуги</InformationRegister>
-			<InformationRegister>CRM_ДанныеПродленнойГарантии</InformationRegister>
 			<InformationRegister>CRM_ГрафикОП</InformationRegister>
-			<InformationRegister>CRM_ДополнительнаяИнформацияПоДоговорам</InformationRegister>
 			<InformationRegister>CRM_ДопОпцииОборудование</InformationRegister>
 			<InformationRegister>CRM_ЗадачиПоТрафику</InformationRegister>
 			<InformationRegister>CRM_ЗаменыМенеджеров</InformationRegister>
@@ -5786,11 +5781,7 @@
 			<InformationRegister>SM_СтатусСогласованияДокумента</InformationRegister>
 			<InformationRegister>SM_ФиксацияРабочихЛистов</InformationRegister>
 			<InformationRegister>VAZ_УтверждениеДокументов</InformationRegister>
-			<InformationRegister>SM_ПроблемныеКлиенты</InformationRegister>
-			<InformationRegister>SM_ПроблемныеКлиентыРазрешенныеДокументы</InformationRegister>
-			<InformationRegister>SM_ПроблемныеКлиентыСогласованиеИсключений</InformationRegister>
 			<InformationRegister>WA_Настройки</InformationRegister>
-			<InformationRegister>SM_СтруктураОтделов</InformationRegister>
 			<InformationRegister>WSCallLog</InformationRegister>
 			<InformationRegister>Автомобили</InformationRegister>
 			<InformationRegister>АдресаХраненияЗаказовПокупателей</InformationRegister>
@@ -5865,7 +5856,6 @@
 			<InformationRegister>ИзмененияРабочихЛистов</InformationRegister>
 			<InformationRegister>ИзмененияСтатусаРабочегоЛиста</InformationRegister>
 			<InformationRegister>ИменаБазНеПредупреждать</InformationRegister>
-			<InformationRegister>ИзмененияВГрафикеРаботКалендарном</InformationRegister>
 			<InformationRegister>Инвойс_х_1точка02</InformationRegister>
 			<InformationRegister>ИнтерьерыСалона</InformationRegister>
 			<InformationRegister>Инфотек_ЛогиЗапросов</InformationRegister>
@@ -6089,13 +6079,15 @@
 			<InformationRegister>SM_СогласованиеДокументов</InformationRegister>
 			<InformationRegister>SM_ЭтапСогласования</InformationRegister>
 			<InformationRegister>SM_СогласующиеЭтап</InformationRegister>
-			<InformationRegister>SM_ХранилищеКриптохвостов</InformationRegister>
+			<InformationRegister>CRM_ДанныеПродленнойГарантии</InformationRegister>
+			<InformationRegister>CRM_ДополнительнаяИнформацияПоДоговорам</InformationRegister>
 			<InformationRegister>SM_API_ЧЗ_Токен</InformationRegister>
 			<InformationRegister>ПлощадкиПервоначальногоПоступления</InformationRegister>
 			<InformationRegister>SM_СостояниеПроверкиЧЗ</InformationRegister>
+			<InformationRegister>ИсключенныеОтделыГКДляУправленческойОтчетности</InformationRegister>
+			<InformationRegister>ОбъявленияДляВариантовКомплектацийИГруппПодразделений</InformationRegister>
 			<InformationRegister>ВнутренниеКодыМаркировок</InformationRegister>
 			<InformationRegister>СчетчикСерийногоНомераДляВнутреннегоКМ</InformationRegister>
-			<InformationRegister>КодыМаркировки</InformationRegister>
 			<AccumulationRegister>DMS_БонусныеБаллы</AccumulationRegister>
 			<AccumulationRegister>DMS_РекламныеКампании</AccumulationRegister>
 			<AccumulationRegister>Renault_Advanced_ЗаявкиНаРасходованиеСредств</AccumulationRegister>
